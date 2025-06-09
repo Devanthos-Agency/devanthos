@@ -1,0 +1,263 @@
+<section class="relative p-0">
+    <div
+        class="absolute h-full w-full bg-[url('/images/grid1.svg')] [mask-image:linear-gradient(to_right,white,transparent,transparent,white)] bg-contain bg-repeat opacity-100 lg:block"
+    >
+    </div>
+    <div class="container py-28 md:py-32 mx-auto">
+        <div class="mx-auto flex max-w-5xl flex-col items-center">
+            <div
+                class="z-10 mx-auto flex max-w-5xl flex-col items-center gap-6 text-center"
+            >
+                <span
+                    data-slot="badge"
+                    class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive overflow-hidden text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground transition-colors hover:bg-secondary/20"
+                >
+                    Nuestros servicios
+                </span>
+                <div>
+                    <h2
+                        class="mb-6 text-4xl font-bold tracking-tight text-pretty md:text-5xl lg:text-6xl"
+                    >
+                        En Devs Hub ofrecemos soluciones digitales
+                        personalizadas
+                    </h2>
+                    <p
+                        class="mx-auto max-w-2xl text-muted-foreground md:text-lg lg:text-xl"
+                    >
+                        Ofrecemos una amplia gama de servicios diseñados para
+                        satisfacer las necesidades de tu negocio, incluyendo
+                        desarrollo web, marketing digital y consultoría
+                        estratégica.
+                    </p>
+                </div>
+                <div class="mt-6 flex items-center gap-4">
+                    <button
+                        data-slot="button"
+                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 h-9 px-4 py-2 has-[>svg]:px-3"
+                    >
+                        Comenzar
+                    </button>
+                    <button
+                        data-slot="button"
+                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3"
+                    >
+                        Más información
+                    </button>
+                </div>
+                <div
+                    class="grid gap-6 mt-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-8"
+                >
+                    <div
+                        data-slot="card"
+                        class="bg-card text-card-foreground flex-col gap-6 rounded-xl border py-6 shadow-sm grid grid-rows-[auto_auto_1fr_auto] pt-0"
+                    >
+                        <div class="aspect-16/9 w-full">
+                            <a
+                                href="https://shadcnblocks.com"
+                                target="_blank"
+                                class="transition-opacity duration-200 fade-in hover:opacity-70"
+                            >
+                                <img
+                                    src="/images/placeholder.svg"
+                                    alt="Getting Started with shadcn/ui Components"
+                                    class="h-full w-full object-cover object-center"
+                                />
+                            </a>
+                        </div>
+                        <div
+                            data-slot="card-header"
+                            class="@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6"
+                        >
+                            <h3
+                                class="text-lg font-semibold hover:underline md:text-xl"
+                            >
+                                <a
+                                    href="https://shadcnblocks.com"
+                                    target="_blank"
+                                >
+                                    Services de Desarrollo Web y Móvil
+                                </a>
+                            </h3>
+                        </div>
+                        <div data-slot="card-content" class="px-6">
+                            <p class="text-muted-foreground">
+                                Nos especializamos en ofrecer servicios de
+                                desarrollo web y móvil, tanto en el frontend
+                                como en el backend. Nuestro equipo de expertos
+                                utiliza las últimas tecnologías y mejores
+                                prácticas para crear aplicaciones intuitivas y
+                                eficientes.
+                            </p>
+                        </div>
+                        <div
+                            data-slot="card-footer"
+                            class="flex items-center px-6 [.border-t]:pt-6"
+                        >
+                            <a
+                                href="https://shadcnblocks.com"
+                                target="_blank"
+                                class="flex items-center text-foreground hover:underline"
+                            >
+                                Leer más
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="lucide lucide-arrow-right ml-2 size-4"
+                                    aria-hidden="true"
+                                    ><path d="M5 12h14"></path><path
+                                        d="m12 5 7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div
+                        data-slot="card"
+                        class="bg-card text-card-foreground flex-col gap-6 rounded-xl border py-6 shadow-sm grid grid-rows-[auto_auto_1fr_auto] pt-0"
+                    >
+                        <div class="aspect-16/9 w-full">
+                            <a
+                                href="https://shadcnblocks.com"
+                                target="_blank"
+                                class="transition-opacity duration-200 fade-in hover:opacity-70"
+                            >
+                                <img
+                                    src="/images/placeholder.svg"
+                                    alt="Building Accessible Web Applications"
+                                    class="h-full w-full object-cover object-center"
+                                />
+                            </a>
+                        </div>
+                        <div
+                            data-slot="card-header"
+                            class="@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6"
+                        >
+                            <h3
+                                class="text-lg font-semibold hover:underline md:text-xl"
+                            >
+                                <a
+                                    href="https://shadcnblocks.com"
+                                    target="_blank"
+                                >
+                                    Creación de chatbots Inteligentes
+                                </a>
+                            </h3>
+                        </div>
+                        <div data-slot="card-content" class="px-6">
+                            <p class="text-muted-foreground">
+                                Ofrecemos servicios de desarrollo de chatbots
+                                inteligentes que mejoran la interacción con los
+                                usuarios y optimizan los procesos de atención al
+                                cliente. Nuestros chatbots son personalizables y
+                                se integran fácilmente en diversas plataformas.
+                            </p>
+                        </div>
+                        <div
+                            data-slot="card-footer"
+                            class="flex items-center px-6 [.border-t]:pt-6"
+                        >
+                            <a
+                                href="https://shadcnblocks.com"
+                                target="_blank"
+                                class="flex items-center text-foreground hover:underline"
+                            >
+                                Leer más
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="lucide lucide-arrow-right ml-2 size-4"
+                                    aria-hidden="true"
+                                    ><path d="M5 12h14"></path><path
+                                        d="m12 5 7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div
+                        data-slot="card"
+                        class="bg-card text-card-foreground flex-col gap-6 rounded-xl border py-6 shadow-sm grid grid-rows-[auto_auto_1fr_auto] pt-0"
+                    >
+                        <div class="aspect-16/9 w-full">
+                            <a
+                                href="https://shadcnblocks.com"
+                                target="_blank"
+                                class="transition-opacity duration-200 fade-in hover:opacity-70"
+                            >
+                                <img
+                                    src="/images/placeholder.svg"
+                                    alt="Modern Design Systems with Tailwind CSS"
+                                    class="h-full w-full object-cover object-center"
+                                />
+                            </a>
+                        </div>
+                        <div
+                            data-slot="card-header"
+                            class="@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6"
+                        >
+                            <h3
+                                class="text-lg font-semibold hover:underline md:text-xl"
+                            >
+                                <a
+                                    href="https://shadcnblocks.com"
+                                    target="_blank"
+                                >
+                                    Marketing Digital y SEO Efectivo
+                                </a>
+                            </h3>
+                        </div>
+                        <div data-slot="card-content" class="px-6">
+                            <p class="text-muted-foreground">
+                                Nuestro equipo de marketing digital ofrece
+                                estrategias personalizadas para mejorar la
+                                visibilidad en línea de tu negocio. Desde SEO
+                                hasta campañas publicitarias, nos aseguramos de
+                                que tu marca alcance su máximo potencial en el
+                                mundo digital.
+                            </p>
+                        </div>
+                        <div
+                            data-slot="card-footer"
+                            class="flex items-center px-6 [.border-t]:pt-6"
+                        >
+                            <a
+                                href="https://shadcnblocks.com"
+                                target="_blank"
+                                class="flex items-center text-foreground hover:underline"
+                            >
+                                Leer más
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="lucide lucide-arrow-right ml-2 size-4"
+                                    aria-hidden="true"
+                                    ><path d="M5 12h14"></path><path
+                                        d="m12 5 7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
