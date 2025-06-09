@@ -1,0 +1,115 @@
+---
+import {
+    BotMessageSquare,
+    ChartNoAxesCombined,
+    Headset,
+    UserCheck2,
+} from "lucide-react";
+---
+
+<section class="relative pt-32">
+    <div class="relative z-10 container flex flex-col space-y-14 mx-auto">
+        <h2
+            class="px-6 text-3xl font-semibold md:mb-4 md:text-5xl lg:mb-6 lg:max-w-md lg:px-10"
+        >
+            Nuestras características principales
+        </h2>
+        <div class="relative mt-6 md:mt-10">
+            <div class="absolute top-0 right-0 left-0 h-px bg-border"></div>
+            <div class="grid divide-border md:grid-cols-4 md:divide-x">
+                <div class="relative px-6 pb-20 md:pb-10 lg:px-10">
+                    <div
+                        class="absolute top-0 right-0 left-0 h-px bg-border md:hidden"
+                    >
+                    </div>
+                    <div
+                        class="relative -mt-6 mb-10 flex aspect-square border rounded-full w-12 items-center justify-center bg-white md:-mt-10 md:mb-10 md:w-20"
+                    >
+                        <UserCheck2 className="size-10" />
+                    </div>
+                    <div>
+                        <h3
+                            class="mb-3 max-w-[12rem] text-lg font-semibold md:mb-4 md:text-2xl lg:mb-6"
+                        >
+                            Disponibilidad 24/7
+                        </h3>
+                        <p class="text-muted-foreground">
+                            Acceso a recursos y soporte en cualquier momento.
+                        </p>
+                    </div>
+                </div>
+                <div class="relative px-6 pb-20 md:pb-10 lg:px-10">
+                    <div
+                        class="absolute top-0 right-0 left-0 h-px bg-border md:hidden"
+                    >
+                    </div>
+                    <div
+                        class="relative -mt-6 mb-10 flex aspect-square border rounded-full w-12 items-center justify-center bg-white md:-mt-10 md:mb-10 md:w-20"
+                    >
+                        <Headset className="size-10" />
+                    </div>
+                    <div>
+                        <h3
+                            class="mb-3 max-w-[12rem] text-lg font-semibold md:mb-4 md:text-2xl lg:mb-6"
+                        >
+                            Asesoría personalizada
+                        </h3>
+                        <p class="text-muted-foreground">
+                            Obtén recomendaciones y soporte adaptados a tus
+                            necesidades.
+                        </p>
+                    </div>
+                </div><div class="relative px-6 pb-20 md:pb-10 lg:px-10">
+                    <div
+                        class="absolute top-0 right-0 left-0 h-px bg-border md:hidden"
+                    >
+                    </div><div
+                        class="relative -mt-6 mb-10 flex aspect-square border rounded-full w-12 items-center justify-center bg-white md:-mt-10 md:mb-10 md:w-20"
+                    >
+                        <BotMessageSquare className="size-10" />
+                    </div>
+                    <div>
+                        <h3
+                            class="mb-3 max-w-[12rem] text-lg font-semibold md:mb-4 md:text-2xl lg:mb-6"
+                        >
+                            Automatización de tareas
+                        </h3>
+                        <p class="text-muted-foreground">
+                            Optimiza tus flujos de trabajo y ahorra tiempo con
+                            tareas automatizadas.
+                        </p>
+                    </div>
+                </div>
+                <div class="relative px-6 pb-20 md:pb-10 lg:px-10">
+                    <div
+                        class="absolute top-0 right-0 left-0 h-px bg-border md:hidden"
+                    >
+                    </div>
+                    <div
+                        class="relative -mt-6 mb-10 flex aspect-square border rounded-full w-12 items-center justify-center bg-white md:-mt-10 md:mb-10 md:w-20"
+                    >
+                        <ChartNoAxesCombined className="size-10" />
+                    </div>
+                    <div>
+                        <h3
+                            class="mb-3 max-w-[12rem] text-lg font-semibold md:mb-4 md:text-2xl lg:mb-6"
+                        >
+                            Analítica avanzada
+                        </h3>
+                        <p class="text-muted-foreground">
+                            Obtén información valiosa sobre el rendimiento de tu
+                            aplicación y toma decisiones basadas en datos.
+                        </p>
+                    </div>
+                </div>
+            </div><div class="absolute right-0 bottom-0 left-0 h-px bg-border">
+            </div>
+        </div>
+    </div>
+    <div class="absolute inset-0 container hidden h-full md:block mx-auto">
+        <div class="relative h-full">
+            <div class="absolute inset-y-0 left-0 h-full w-px bg-border"></div>
+            <div class="absolute inset-y-0 right-0 h-full w-px bg-border"></div>
+        </div>
+    </div>
+</section>
