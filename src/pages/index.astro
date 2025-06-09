@@ -1,11 +1,24 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Hero from "@/components/interfaces/Hero.astro";
+import Layout from "@/layouts/Layout.astro";
+import Service from "@/components/interfaces/Service.astro";
+import Cta from "@/components/interfaces/Cta.astro";
+import Feature from "@/components/interfaces/Feature.astro";
+import Galeria from "@/components/interfaces/Galeria";
+import Team from "@/components/interfaces/Team.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+    title="Devs hub"
+    description="En Devs hub encontrarás todo lo que necesitas para potenciar tu empresa o emprendimiento. Desde desarrollo web y móvil hasta marketing digital, ofrecemos soluciones personalizadas para ayudarte a alcanzar tus objetivos. Nuestro equipo de expertos está listo para llevar tu proyecto al siguiente nivel. ¡Contáctanos hoy mismo y descubre cómo podemos ayudarte a crecer!"
+>
+    <Hero />
+    <Service />
+    <Cta />
+    <Feature />
+    <Galeria client:only />
+    <Team />
 </Layout>
