@@ -1,7 +1,6 @@
 ---
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "../ui/button";
-import { Dribbble, Github, Linkedin } from "lucide-react";
+import { Dribbble, Github, Linkedin, User } from "lucide-react";
 
 const people = [
     {
@@ -24,24 +23,28 @@ const people = [
 
 <section class="py-32">
     <div class="container mx-auto flex flex-col items-center text-center">
-        <p class="semibold">We&apos;re hiring</p>
+        <p
+            class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive overflow-hidden text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground transition-colors hover:bg-secondary/20"
+        >
+            Nuestro equipo
+        </p>
         <h2 class="my-6 text-2xl font-bold text-pretty lg:text-4xl">
-            Meet our team
+            Conoce a nuestro equipo de expertos
         </h2>
         <p class="mb-8 max-w-3xl text-muted-foreground lg:text-xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig
-            doloremque mollitia fugiat omnis! Porro facilis quo animi
-            consequatur. Explicabo.
+            Somos un equipo apasionado y comprometido con la excelencia. Cada
+            miembro aporta su experiencia única para ofrecer soluciones
+            innovadoras y efectivas a nuestros clientes.
         </p>
         <div class="flex w-full flex-col justify-center gap-2 sm:flex-row">
             <Button variant="outline" className="w-full sm:w-auto">
-                Secondary
+                Secundario
             </Button>
-            <Button className="w-full sm:w-auto">Primary</Button>
+            <Button className="w-full sm:w-auto">Primario</Button>
         </div>
     </div>
     <div
-        class="container mx-auto mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4 lg:px-32"
+        class="container mx-auto mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:px-32"
     >
         {
             people.map((person) => (
@@ -78,5 +81,31 @@ const people = [
                 </div>
             ))
         }
+        <div
+            class="flex flex-col items-center bg-accent p-8 rounded-2xl shadow-lg"
+        >
+            <span
+                data-slot="avatar"
+                class="relative flex shrink-0 overflow-hidden rounded-full border-2 border-primary/50 border-dashed mb-4 size-20 md:mb-5 lg:size-24"
+            >
+                <User className="aspect-square size-full text-primary/50 " />
+            </span>
+            <p class="text-center font-medium">Nuevo miembro</p>
+            <p class="text-center text-muted-foreground">Pronto</p>
+            <p class="py-3 text-center text-sm text-muted-foreground">
+                <a href="#">Aplica ahora</a>
+            </p>
+            <div class="mt-2 flex gap-4">
+                <a href="#">
+                    <Github className="size-4 text-muted-foreground" />
+                </a>
+                <a href="#">
+                    <Linkedin className="size-4 text-muted-foreground" />
+                </a>
+                <a href="#">
+                    <Dribbble className="size-4 text-muted-foreground" />
+                </a>
+            </div>
+        </div>
     </div>
 </section>
