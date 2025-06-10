@@ -99,7 +99,7 @@ export default function Galeria() {
                         <div>
                             <h2 className="text-4xl font-semibold md:text-6xl">
                                 Tus proyectos. <br />
-                                <span className="text-primary/40">
+                                <span className="bg-gradient-to-r from-primary/50 to-primary/100 bg-clip-text text-transparent">
                                     Nuestra inspiración.
                                 </span>
                             </h2>
@@ -152,7 +152,7 @@ export default function Galeria() {
                         </CarouselContent>
                     </div>
                 </Carousel>
-                <div className="mt-8 flex items-center lg:ml-[50%]">
+                <div className="mt-8 hidden md:flex items-center lg:ml-[50%]">
                     {Array.from({ length: carouselItems.length }).map(
                         (_, index) => (
                             <span
