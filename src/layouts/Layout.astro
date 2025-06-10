@@ -22,6 +22,7 @@ interface Props {
 const { title, description, preload, canonical, image } = Astro.props;
 
 import "@/styles/global.css";
+import Navbar from "@/components/interfaces/Header";
 ---
 
 <script is:inline>
@@ -63,7 +64,8 @@ import "@/styles/global.css";
         <ClientRouter />
     </head>
     <body class="relative -z-30 bg-background">
-        <Header />
+        <!-- <Header /> -->
+        <Navbar client:load />
         <main class="relative antialiased">
             <div
                 class="absolute -z-20 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] dark:bg-[radial-gradient(#1f2937_1px,transparent_1px)] dark:[mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"
