@@ -10,7 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 export default function Contact() {
     return (
         <section className="relative mx-2.5 mt-2.5 rounded-t-2xl rounded-b-[36px] bg-linear-to-b from-accent via-background to-background py-32 lg:mx-4 dark:from-accent">
-            <div className="container max-w-2xl mx-auto">
+            <div className="container max-w-2xl mx-auto px-2 md:px-6 lg:px-8">
                 <h1 className="text-center text-4xl font-semibold tracking-tight lg:text-5xl">
                     Contact us
                 </h1>
