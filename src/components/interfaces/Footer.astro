@@ -1,0 +1,154 @@
+---
+import { Facebook, Github, Linkedin, Twitter } from "lucide-react";
+import { Badge } from "../ui/badge";
+import NewsletterFrom from "../newsletter-from";
+
+const SOCIAL_LINKS = [
+    {
+        icon: Github,
+        href: "#",
+    },
+    {
+        icon: Linkedin,
+        href: "#",
+    },
+    {
+        icon: Facebook,
+        href: "#",
+    },
+    {
+        icon: Twitter,
+        href: "#",
+    },
+];
+
+const NAVIGATION = [
+    {
+        title: "Platform",
+        links: [
+            { name: "Overview", href: "#" },
+            { name: "Use Cases", href: "#" },
+        ],
+    },
+    {
+        title: "About Us",
+        links: [
+            { name: "Team", href: "#" },
+            { name: "Support", href: "#" },
+            { name: "Legal", href: "#" },
+            { name: "Security", href: "#" },
+        ],
+    },
+    {
+        title: "Learn",
+        links: [
+            { name: "Tutorials", href: "#" },
+            { name: "API Reference", href: "#" },
+            { name: "Quickstart", href: "#" },
+        ],
+    },
+];
+---
+
+<section class="dark bg-background py-32">
+    <footer class="container mx-auto flex flex-col gap-32">
+        <div class="flex w-full flex-col justify-between gap-y-24 lg:flex-row">
+            <div
+                class="flex shrink-0 grow-0 basis-auto flex-col items-start justify-start gap-6"
+            >
+                {/* Logo */}
+                <a href="https://shadcnblocks.com">
+                    <span class="text-primary font-bold text-2xl">
+                        Devs
+                        <samp
+                            class="px-1.5 py-0.5 bg-primary text-accent font-semibold rounded"
+                        >
+                            hub
+                        </samp>
+                    </span>
+                </a>
+                <p
+                    class="w-full max-w-54 text-base leading-normal text-muted-foreground md:text-lg"
+                >
+                    Aplicaciones web modernas y escalables con la mejor
+                    experiencia de usuario.
+                </p>
+                <div class="flex w-full items-center justify-start gap-7">
+                    {
+                        SOCIAL_LINKS.map((item, i) => (
+                            <a
+                                href={item.href}
+                                class="flex size-6 opacity-100 transition-opacity hover:opacity-50"
+                            >
+                                <item.icon className="m-auto size-full stroke-foreground" />
+                            </a>
+                        ))
+                    }
+                </div>
+                <div class="pt-6">
+                    <Badge
+                        className="rounded-full border-muted bg-background p-0 text-foreground"
+                    >
+                        <a href="#" class="flex items-center gap-2 px-3 py-2">
+                            <div class="relative size-[0.4375rem]">
+                                <span
+                                    class="absolute top-1/2 left-1/2 z-10 size-[0.6875rem] -translate-1/2 animate-pulse rounded-full bg-green-400/50"
+                                ></span>
+                                <span
+                                    class="absolute top-1/2 left-1/2 z-20 size-full -translate-1/2 rounded-full bg-green-500"
+                                ></span>
+                            </div>
+                            <div
+                                class="text-[0.9375rem] leading-none font-normal"
+                            >
+                                Online
+                            </div>
+                        </a>
+                    </Badge>
+                </div>
+            </div>
+            <div class="flex flex-col gap-24">
+                <nav class="flex flex-wrap gap-24 md:gap-40">
+                    {
+                        NAVIGATION.map((section, _) => (
+                            <div class="flex flex-col items-start justify-start gap-6">
+                                <p class="text-sm font-semibold text-foreground md:text-base">
+                                    {section.title}
+                                </p>
+                                {section.links.map((link, _) => (
+                                    <a
+                                        href={link.href}
+                                        class="text-sm leading-none font-medium text-foreground opacity-50 transition-opacity hover:opacity-100 md:text-base"
+                                    >
+                                        {link.name}
+                                    </a>
+                                ))}
+                            </div>
+                        ))
+                    }
+                </nav>
+                <div
+                    class="flex w-full flex-col flex-wrap justify-between gap-x-4 gap-y-4 md:flex-row md:gap-y-0"
+                >
+                    <p
+                        class="w-full text-base leading-normal font-medium text-foreground md:w-auto md:max-w-56 md:text-lg"
+                    >
+                        Suscríbete a nuestro boletín para recibir las últimas
+                        actualizaciones y noticias.
+                    </p>
+                    <div class="flex-1">
+                        <NewsletterFrom client:load />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col justify-between gap-y-4 md:flex-row">
+            <div class="text-sm font-medium text-muted-foreground">
+                © 2025 devshubagency.com
+            </div>
+            <div class="text-sm font-medium text-muted-foreground">
+                Hecho con <span class="text-red-500"> ♥️ </span> por DevsHub
+            </div>
+        </div>
+    </footer>
+</section>
