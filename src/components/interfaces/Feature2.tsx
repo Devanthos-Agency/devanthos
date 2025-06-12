@@ -4,7 +4,7 @@ import { AuroraText } from "@/components/magicui/aurora-text";
 export default function ContainerScrollSection() {
     return (
         <section className="">
-            <div className="container mx-auto">
+            <div className="container mx-auto px-2 md:px-6 lg:px-8">
                 <ContainerScroll
                     titleComponent={
                         <>
