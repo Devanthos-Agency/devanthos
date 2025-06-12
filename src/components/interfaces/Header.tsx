@@ -17,15 +17,7 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Fragment, useEffect, useState } from "react";
-
 import { cn } from "@/lib/utils";
-
-// import {
-//     Logo,
-//     LogoDesktop,
-//     LogoMobile,
-//     LogoText,
-// } from "@/components/shadcnblocks/logo";
 import { Button } from "@/components/ui/button";
 import {
     NavigationMenuContent,
@@ -36,6 +28,7 @@ import {
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
+import { ModeToggle } from "../ModeToggle";
 
 interface Link {
     label: string;
@@ -263,14 +256,7 @@ export default function Navbar() {
         <section>
             <div className="pointer-events-auto fixed top-0 z-999 w-full bg-background xl:bg-transparent">
                 <nav className="container p-0 mx-auto">
-                    <div className="flex w-full items-center justify-between rounded-[0.75rem] px-6 py-4 xl:mt-2.5 xl:h-[5.25rem] xl:bg-white/60 xl:py-6 xl:backdrop-blur-[5px]">
-                        {/* <Logo url={LOGO.url}>
-                            <LogoMobile src={LOGO.src} alt={LOGO.alt} />
-                            <LogoDesktop src={LOGO.src} alt={LOGO.alt} />
-                            <LogoText className="hidden text-lg font-semibold text-foreground sm:inline-block">
-                                {LOGO.title}
-                            </LogoText>
-                        </Logo> */}
+                    <div className="flex w-full items-center justify-between rounded-[0.75rem] px-6 py-4 xl:mt-2.5 xl:h-[5.25rem] xl:dark:bg-black/60 xl:bg-white/60 xl:py-6 xl:backdrop-blur-[5px]">
                         <span className="text-primary font-bold text-2xl">
                             Devs
                             <samp className="px-1.5 py-0.5 bg-primary text-accent font-semibold rounded">
@@ -290,6 +276,7 @@ export default function Navbar() {
                                     {PRIMARY_BUTTON.label}
                                 </a>
                             </Button>
+                            <ModeToggle />
                             <div className="xl:hidden">
                                 <Button
                                     className="mr-[-0.6875rem] size-11"
