@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
 import { cn } from "@/lib/utils";
-
 import type { CarouselApi } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+
 import {
     Carousel,
     CarouselContent,
@@ -93,13 +93,20 @@ export default function Galeria() {
 
     return (
         <section className="overflow-hidden py-32">
-            <div className="container mx-auto">
-                <Carousel setApi={setApi}>
+            <div className="container mx-auto px-2 md:px-6 lg:px-8">
+                <Carousel
+                    plugins={[
+                        Autoplay({
+                            delay: 2000,
+                        }),
+                    ]}
+                    setApi={setApi}
+                >
                     <div className="grid gap-8 md:gap-4 lg:grid-cols-2 [&>div[data-slot=carousel-content]]:overflow-visible [&>div[data-slot=carousel-content]]:[clip-path:inset(-100vw_-100vw_-100vw_0)]">
                         <div>
                             <h2 className="text-4xl font-semibold md:text-6xl">
                                 Tus proyectos. <br />
-                                <span className="bg-gradient-to-r from-primary/50 to-primary/100 bg-clip-text text-transparent">
+                                <span className="bg-gradient-to-r from-primary/50 dark:from-primary to-primary/80 bg-clip-text text-transparent">
                                     Nuestra inspiración.
                                 </span>
                             </h2>
@@ -118,15 +125,15 @@ export default function Galeria() {
                             {carouselItems.map((item, idx) => (
                                 <CarouselItem className="w-fit" key={idx}>
                                     <div className="relative aspect-4/5 max-h-[500px] rounded-2xl">
-                                        <div className="absolute inset-0 rounded-2xl bg-linear-to-b from-black to-transparent to-40%" />
+                                        <div className="absolute inset-0 rounded-2xl bg-linear-to-b from-black to-transparent to-50%" />
                                         <img
                                             src={item.image}
                                             alt={item.title}
                                             className="size-full rounded-2xl bg-cover"
                                         />
                                         <div className="absolute inset-0 p-8">
-                                            <p className="text-sm font-semibold text-background/50">
-                                                <span className="mr-1 text-background">
+                                            <p className="text-sm font-semibold text-zinc-300">
+                                                <span className="mr-1 text-purple-400 dark:text-primary">
                                                     {item.title}.
                                                 </span>
                                                 {item.description}
@@ -137,7 +144,7 @@ export default function Galeria() {
                                                 <Button
                                                     asChild
                                                     variant="secondary"
-                                                    className="rounded-full bg-background/50 backdrop-blur-2xl px-3 py-1 text-xs font-semibold text-accent hover:bg-background/30"
+                                                    className="rounded-full bg-background/50 backdrop-blur-2xl px-3 py-1 text-xs font-semibold text-purple-700 dark:text-purple-400 hover:bg-background/30"
                                                 >
                                                     <a href="/galeria/el-riconcito">
                                                         Ver más
@@ -152,7 +159,7 @@ export default function Galeria() {
                         </CarouselContent>
                     </div>
                 </Carousel>
-                <div className="mt-8 hidden md:flex items-center lg:ml-[50%]">
+                <div className="mt-8 flex items-center lg:ml-[50%]">
                     {Array.from({ length: carouselItems.length }).map(
                         (_, index) => (
                             <span
@@ -160,20 +167,34 @@ export default function Galeria() {
                                 className={cn(
                                     "flex h-8 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-muted-foreground/15 text-xs font-semibold whitespace-nowrap transition-all duration-300",
                                     index + 1 === current
-                                        ? "w-32"
-                                        : "m-4 size-4"
+                                        ? "w-12 md:w-36 text-primary"
+                                        : "m-2.5 md:m-4 size-4"
                                 )}
                                 onClick={() => api && api.scrollTo(index)}
                             >
                                 <span
                                     className={cn(
-                                        "inline-block transition-all duration-300",
+                                        "md:inline-block hidden transition-all duration-300",
                                         index + 1 === current
                                             ? "translate-x-0 opacity-100"
                                             : "translate-x-6 opacity-0"
                                     )}
                                 >
                                     {carouselItems[index].title}
+                                </span>
+                                <span
+                                    className={cn(
+                                        "inline-block md:hidden transition-all duration-300",
+                                        index + 1 === current
+                                            ? "translate-x-0 opacity-100"
+                                            : "translate-x-6 opacity-0"
+                                    )}
+                                >
+                                    {index + 1}
+                                    <span className="sr-only">
+                                        {" "}
+                                        de {carouselItems.length}
+                                    </span>
                                 </span>
                             </span>
                         )
