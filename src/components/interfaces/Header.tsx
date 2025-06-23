@@ -257,12 +257,17 @@ export default function Navbar() {
             <div className="pointer-events-auto fixed top-0 z-999 w-full xl:bg-transparent">
                 <nav className="container p-0 mx-auto">
                     <div className="flex w-full items-center justify-between rounded-[0.75rem] px-6 py-4 xl:mt-2.5 xl:h-[5.25rem] dark:bg-black/60 bg-white/60 xl:py-6 backdrop-blur-[5px]">
-                        <span className="text-primary font-bold text-2xl">
-                            Devs
-                            <samp className="px-1.5 py-0.5 bg-primary text-accent font-semibold rounded">
+                        <a
+                            href="/"
+                            className="w-28 flex items-center justify-between"
+                        >
+                            <span className="text-primary font-bold text-2xl w-full">
+                                Devs
+                            </span>
+                            <samp className="px-1.5 py-0.5 text-2xl bg-primary text-accent font-semibold rounded">
                                 hub
                             </samp>
-                        </span>
+                        </a>
                         <NavigationMenuWithoutViewport className="flex">
                             <NavigationMenuList className="relative hidden xl:flex">
                                 {NAVIGATION1.map((item, index) =>
