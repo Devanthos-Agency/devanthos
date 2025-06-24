@@ -1,6 +1,5 @@
 ---
 import Footer from "@/components/interfaces/Footer.astro";
-import Header from "@/components/interfaces/Header.astro";
 import { ClientRouter } from "astro:transitions";
 import SEO from "@/components/interfaces/SEO.astro";
 interface Preload {
@@ -22,6 +21,7 @@ interface Props {
 const { title, description, preload, canonical, image } = Astro.props;
 
 import "@/styles/global.css";
+import "@/styles/marquee.css";
 import Navbar from "@/components/interfaces/Header";
 ---
 
@@ -64,7 +64,6 @@ import Navbar from "@/components/interfaces/Header";
         <ClientRouter />
     </head>
     <body class="relative font-ibm-plex-sans -z-30 bg-background">
-        <!-- <Header /> -->
         <Navbar client:load />
         <main class="relative antialiased">
             <div
@@ -72,7 +71,8 @@ import Navbar from "@/components/interfaces/Header";
             >
             </div>
             <slot />
+
+            <Footer />
         </main>
-        <Footer />
     </body>
 </html>
