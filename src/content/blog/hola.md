@@ -1,0 +1,94 @@
+---
+title: "Servicios de Desarrollo Web y Móvil"
+description: "Nos especializamos en la creación de soluciones digitales modernas, intuitivas y eficientes, tanto en plataformas web como móviles."
+pubDate: "Jun 24 2025"
+heroImage: "/images/hero/desarrollo-web-movil.jpg"
+---
+
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+
+# Servicios de Desarrollo Web y Móvil
+
+En un mundo cada vez más digital, contar con una plataforma sólida y bien diseñada no es opcional, es esencial. Nuestro equipo está compuesto por especialistas en **desarrollo web y móvil** que dominan tanto el **frontend** como el **backend**, lo que nos permite crear soluciones completas, integradas y listas para escalar.
+
+## ¿Qué ofrecemos?
+
+<Card className="my-6">
+    <CardHeader>
+        <CardTitle>Soluciones a Medida</CardTitle>
+    </CardHeader>
+    <CardContent>
+        <p>
+            Diseñamos y desarrollamos aplicaciones adaptadas a las necesidades
+            de cada cliente. Ya sea una web institucional, una tienda online o
+            una aplicación móvil, cada proyecto se construye con el máximo
+            cuidado por los detalles y el rendimiento.
+        </p>
+    </CardContent>
+</Card>
+
+### Tecnologías que usamos
+
+-   <Badge variant="outline">React</Badge>, <Badge variant="outline">
+    Next.js
+    </Badge> y <Badge variant="outline">Vue</Badge> para interfaces modernas.
+-   <Badge variant="outline">Node.js</Badge> y <Badge variant="outline">
+    Python
+    </Badge> para lógica de servidor.
+-   <Badge variant="outline">Tailwind CSS</Badge> y <Badge variant="outline">
+    ShadCN UI
+    </Badge> para una experiencia de usuario consistente.
+-   Bases de datos modernas como <Badge variant="outline">MongoDB</Badge> y <Badge variant="outline">PostgreSQL</Badge>.
+-   Deploy en la nube con <Badge variant="outline">Vercel</Badge>, <Badge variant="outline">Render</Badge> o <Badge variant="outline">DigitalOcean</Badge>.
+
+## Nuestro enfoque
+
+### 1. Análisis y diseño centrado en el usuario
+
+Antes de escribir una línea de código, nos enfocamos en entender tus objetivos y tu audiencia. Diseñamos flujos de usuario simples, con interfaces intuitivas y accesibles.
+
+### 2. Desarrollo ágil y colaborativo
+
+Trabajamos en ciclos cortos, entregando avances frecuentes para que siempre tengas visibilidad del proceso. Usamos herramientas modernas como GitHub, Figma y Slack para mantener una comunicación fluida.
+
+### 3. Calidad, pruebas y rendimiento
+
+Cada proyecto pasa por pruebas automáticas y manuales. Optimización para SEO, velocidad de carga y compatibilidad móvil son prioridades.
+
+### 4. Escalabilidad y mantenimiento
+
+Construimos pensando en el futuro. Nuestras soluciones están listas para crecer contigo y adaptarse a nuevas funcionalidades.
+
+## Tipos de proyectos que realizamos
+
+-   Sitios corporativos o institucionales.
+-   Landing pages optimizadas para campañas publicitarias.
+-   Aplicaciones móviles híbridas o nativas.
+-   Sistemas de gestión personalizados (CRM, ERP, etc.).
+-   Ecommerce con pasarelas de pago integradas.
+-   Plataformas SaaS (Software as a Service).
+
+## ¿Por qué elegirnos?
+
+-   Más de 8 años de experiencia desarrollando soluciones digitales.
+-   Atención personalizada y soporte post-lanzamiento.
+-   Cumplimiento riguroso de tiempos y presupuestos.
+-   Diseño responsive y enfoque mobile-first.
+-   Integraciones con APIs, plataformas externas y servicios en la nube.
+
+<Card className="mt-8">
+    <CardHeader>
+        <CardTitle>¿Listo para comenzar?</CardTitle>
+    </CardHeader>
+    <CardContent>
+        <p>
+            Si estás buscando un equipo comprometido, eficiente y con
+            experiencia real en desarrollo web y móvil, estás en el lugar
+            correcto.
+        </p>
+        <Button className="mt-4">Solicita una consulta gratuita</Button>
+    </CardContent>
+</Card>
+<ReactCounter client:load />
