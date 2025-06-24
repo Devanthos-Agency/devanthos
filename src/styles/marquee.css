@@ -1,0 +1,28 @@
+@layer loops {
+    :root {
+        --duration: 30;
+    }
+
+    ul {
+        --base-delay: calc(
+            sin((var(--index) / var(--lists)) * 45deg) * var(--stagger, 0)
+        );
+    }
+
+    [data-logo] use {
+        animation-name: appear;
+        animation-duration: calc(var(--duration) * 1s);
+        animation-fill-mode: both;
+        animation-iteration-count: infinite;
+        animation-delay: calc(
+            (var(--duration) / var(--items)) * (var(--items) - var(--i)) * -1s +
+                (var(--base-delay) * 1s)
+        );
+        mix-blend-mode: hard-light;
+        transform-box: fill-box;
+    }
+    [data-logo] svg {
+        overflow: visible !important;
+        height: 3rem;
+    }
+}
