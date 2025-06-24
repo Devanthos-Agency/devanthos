@@ -1,5 +1,7 @@
 ---
+import { MoveRight } from "lucide-react";
 import LogoMarquee from "../logo-marquee.astro";
+import Button from "../ui/Button.astro";
 ---
 
 <section
@@ -29,7 +31,7 @@ import LogoMarquee from "../logo-marquee.astro";
                                 Devs
                             </samp>&ZeroWidthSpace;
                             <samp
-                                class="px-1.5 py-0.5 bg-primary text-accent font-semibold rounded"
+                                class="px-1.5 py-0.5 bg-primary text-white font-semibold rounded"
                             >
                                 hub
                             </samp>
@@ -48,11 +50,7 @@ import LogoMarquee from "../logo-marquee.astro";
                     </div>
                     <LogoMarquee />
                     <div class="flex flex-wrap items-center gap-5">
-                        <a
-                            href="#"
-                            data-slot="button"
-                            class="justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 has-[>svg]:px-3 group flex h-fit w-fit items-center gap-2 rounded-full px-8 py-3"
-                        >
+                        <Button href="#" variant="primary" class="group">
                             <div class="font-medium text-white">
                                 Comienza gratis
                             </div>
@@ -60,38 +58,15 @@ import LogoMarquee from "../logo-marquee.astro";
                                 <div
                                     class="absolute top-0 left-0 flex -translate-x-1/2 items-center transition-all duration-500 group-hover:translate-x-0"
                                 >
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="24"
-                                        height="24"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="lucide lucide-move-right h-6! w-6! stroke-white px-1"
-                                        aria-hidden="true"
-                                        ><path d="M18 8L22 12L18 16"
-                                        ></path><path d="M2 12H22"></path></svg
-                                    ><svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="24"
-                                        height="24"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="lucide lucide-move-right h-6! w-6! stroke-white px-1"
-                                        aria-hidden="true"
-                                        ><path d="M18 8L22 12L18 16"
-                                        ></path><path d="M2 12H22"></path></svg
-                                    >
+                                    <MoveRight
+                                        className="h-6! w-6! stroke-white px-1"
+                                    />
+                                    <MoveRight
+                                        className="h-6! w-6! stroke-white px-1"
+                                    />
                                 </div>
                             </div>
-                        </a>
+                        </Button>
                         <p class="text-muted-foreground">
                             No hay cuota de inscripción. No hay cuota anual.
                         </p>
