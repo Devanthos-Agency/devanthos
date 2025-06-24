@@ -61,97 +61,90 @@ interface MenuItem {
     featuredLinks?: Link[];
 }
 
-const LOGO = {
-    url: "https://www.shadcnblocks.com",
-    src: "https://www.shadcnblocks.com/images/block/block-1.svg",
-    alt: "logo",
-    title: "Shadcnblocks.com",
-};
-
 const PRIMARY_BUTTON = {
-    label: "Sign up",
+    label: "Solicitar una demo",
     url: "#",
 };
 
 const NAVIGATION1: Array<MenuItem> = [
     {
-        title: "Products",
+        title: "Productos",
         className: "grid-cols-[400px,300px] xl:grid-cols-[600px_500px]",
         groups: [
             {
-                title: "Products",
+                title: "Productos",
                 links: [
                     {
-                        label: "UI Components",
-                        description: "Ready-to-use React components",
+                        label: "Componentes UI",
+                        description: "Componentes para tu interfaz",
                         icon: FileText,
                         url: "#",
                     },
                     {
-                        label: "Design System",
-                        description: "Consistent design patterns",
+                        label: "Diseño de sistema",
+                        description: "Guías de estilo y patrones",
                         icon: Trees,
                         url: "#",
                     },
                     {
-                        label: "Templates",
-                        description: "Pre-built page layouts",
+                        label: "Plantillas",
+                        description: "Plantillas preconstruidas",
                         icon: Archive,
                         url: "#",
                     },
                     {
-                        label: "Blocks",
-                        description: "Reusable UI sections",
+                        label: "Responsive",
+                        description: "Diseño adaptable",
                         icon: Handshake,
                         url: "#",
                     },
                     {
-                        label: "Themes",
-                        description: "Customizable color schemes",
+                        label: "Temas",
+                        description: "Personaliza tu apariencia",
                         icon: Sunset,
                         url: "#",
                     },
                     {
-                        label: "Documentation",
-                        description: "Guides and API docs",
+                        label: "Documentación",
+                        description: "Guías y referencias de uso",
                         icon: Book,
                         url: "#",
                     },
                     {
-                        label: "Examples",
-                        description: "Real-world implementations",
+                        label: "Ver ejemplos",
+                        description: "Ver ejemplos en vivo",
                         icon: PlayCircle,
                         url: "#",
                     },
                     {
-                        label: "Updates",
-                        description: "Latest features & changes",
+                        label: "Mantenimiento",
+                        description: "Actualizaciones y soporte",
                         icon: Zap,
                         url: "#",
                     },
                 ],
             },
             {
-                title: "Solutions",
+                title: "Soluciones",
                 sections: [
                     {
-                        title: "Industries",
+                        title: "Industrias",
                         links: [
                             { label: "E-commerce", url: "#" },
-                            { label: "Healthcare", url: "#" },
-                            { label: "Education", url: "#" },
-                            { label: "Finance", url: "#" },
-                            { label: "Technology", url: "#" },
+                            { label: "Salud", url: "#" },
+                            { label: "Educación", url: "#" },
+                            { label: "Finanzas", url: "#" },
+                            { label: "Tecnología", url: "#" },
                         ],
                     },
                     {
-                        title: "Use Cases",
+                        title: "Uso personal",
                         links: [
-                            { label: "Customer Portal", url: "#" },
-                            { label: "Admin Dashboard", url: "#" },
-                            { label: "Mobile App", url: "#" },
+                            { label: "Portal personalizado", url: "#" },
+                            { label: "Dashboard de administrador", url: "#" },
+                            { label: "App mobile", url: "#" },
                             { label: "Landing Page", url: "#" },
-                            { label: "Web Application", url: "#" },
+                            { label: "Aplicación web", url: "#" },
                         ],
                     },
                 ],
@@ -159,54 +152,54 @@ const NAVIGATION1: Array<MenuItem> = [
         ],
         featuredLinks: [
             {
-                label: "Book a Demo",
-                description: "Schedule a sales call with our team.",
+                label: "Realice una consultoría",
+                description: "Programa una reunión con nosotros",
                 icon: Headset,
                 url: "#",
             },
         ],
     },
     {
-        title: "Company",
+        title: "Empresa",
         className: "grid-cols-[18.75rem_25rem]",
         groups: [
             {
-                title: "Support",
+                title: "Soporte",
                 links: [
                     {
-                        label: "Help Center",
+                        label: "Centro de Ayuda",
                         url: "#",
                         icon: LifeBuoy,
-                        description: "Find answers fast",
+                        description: "Encuentra respuestas",
                     },
                     {
-                        label: "Contact Us",
+                        label: "Contacta con nosotros",
                         url: "#",
                         icon: Mail,
-                        description: "Get in touch",
+                        description: "Envíanos un mensaje",
                     },
                 ],
             },
             {
                 sections: [
                     {
-                        title: "Company",
+                        title: "Empresa",
                         links: [
-                            { label: "About Us", url: "#" },
-                            { label: "Careers", url: "#" },
-                            { label: "Blog", url: "#" },
-                            { label: "Press", url: "#" },
-                            { label: "Partners", url: "#" },
-                            { label: "Contact", url: "#" },
+                            { label: "Sobre nosotros", url: "#" },
+                            { label: "Objetivos", url: "#" },
+                            { label: "Blogs", url: "#" },
+                            // { label: "Prensa", url: "#" },
+                            { label: "Socios", url: "#" },
+                            { label: "Contáctenos", url: "#" },
                         ],
                     },
                     {
-                        title: "Resources",
+                        title: "Recursos",
                         links: [
-                            { label: "Documentation", url: "#" },
-                            { label: "Tutorials", url: "#" },
-                            { label: "Showcase", url: "#" },
-                            { label: "Community", url: "#" },
+                            { label: "Documentación", url: "#" },
+                            { label: "Tutoriales", url: "#" },
+                            // { label: "Showcase", url: "#" },
+                            { label: "Comunidad", url: "#" },
                             { label: "GitHub", url: "#" },
                             { label: "Discord", url: "#" },
                         ],
@@ -216,7 +209,7 @@ const NAVIGATION1: Array<MenuItem> = [
         ],
     },
     {
-        title: "Pricing",
+        title: "Precios",
         url: "#",
     },
     {
@@ -256,7 +249,7 @@ export default function Navbar() {
         <section>
             <div className="pointer-events-auto fixed top-0 z-999 w-full xl:bg-transparent">
                 <nav className="container p-0 mx-auto">
-                    <div className="flex w-full items-center justify-between rounded-[0.75rem] px-6 py-4 xl:mt-2.5 xl:h-[5.25rem] dark:bg-black/60 bg-white/60 xl:py-6 backdrop-blur-[5px]">
+                    <div className="flex w-full items-center justify-between rounded-b-[0.75rem] px-6 py-4 sm:rounded-[0.75rem]  xl:mt-2.5 xl:h-[5.25rem] dark:bg-black/60 bg-white/60 xl:py-6 backdrop-blur-[5px]">
                         <a
                             href="/"
                             className="w-28 flex items-center justify-between"
@@ -264,7 +257,7 @@ export default function Navbar() {
                             <span className="text-primary font-bold text-2xl w-full">
                                 Devs
                             </span>
-                            <samp className="px-1.5 py-0.5 text-2xl bg-primary text-accent font-semibold rounded">
+                            <samp className="px-1.5 py-0.5 text-2xl bg-primary text-white font-semibold rounded">
                                 hub
                             </samp>
                         </a>
@@ -396,14 +389,19 @@ const MobileNavigationMenu = ({ open }: { open: boolean }) => {
                 side="top"
                 className="inset-0 z-998 h-dvh !animate-none bg-background pt-[4.75rem] [&>button]:hidden"
             >
-                <div className="h-full overflow-y-auto py-8.5">
+                <div className="h-full overflow-y-auto px-2.5 py-8.5">
                     <div className="absolute -m-px h-px w-px overflow-hidden border-0 mask-clip-border p-0 text-nowrap whitespace-nowrap">
                         <SheetTitle className="text-primary">
-                            Mobile Navigation
+                            Navegación mobile
                         </SheetTitle>
                     </div>
                     <div className="container">
-                        <div className="relative min-h-dvh overflow-hidden">
+                        <div
+                            className={cn(
+                                "relative min-h-[calc(100dvh-145px)]",
+                                openSubmenu.open ? "" : "overflow-hidden"
+                            )}
+                        >
                             <div
                                 className={cn(
                                     "absolute inset-0 transition-all duration-300 ease-in-out",
@@ -458,7 +456,7 @@ const MobileNavigationMenu = ({ open }: { open: boolean }) => {
                                         variant="ghost"
                                     >
                                         <ChevronLeft />
-                                        Back
+                                        Volver
                                     </Button>
                                     <div>
                                         {currentNav.groups?.[0] && (
@@ -467,7 +465,7 @@ const MobileNavigationMenu = ({ open }: { open: boolean }) => {
                                             />
                                         )}
                                     </div>
-                                    <div className="grid grid-cols-1 lg:grid-cols-2">
+                                    <div className="grid grid-cols-1 pb-8.5 lg:grid-cols-2">
                                         <div className="w-full max-w-[37.5rem]">
                                             {currentNav.groups?.[1] && (
                                                 <Links
