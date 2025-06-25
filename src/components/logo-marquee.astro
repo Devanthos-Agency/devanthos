@@ -2,11 +2,10 @@
 
 ---
 
-<script>
+<script is:inline>
     function initializeLogoMarquee() {
         // Configuración del marquee (valores optimizados)
         const config = {
-            theme: "dark",
             items: 4,
             duration: 20,
             blur: 2,
@@ -19,23 +18,24 @@
             explode: false,
         };
 
-        let sheet = document.querySelector("#keyframes") as HTMLStyleElement;
+        let sheet = document.querySelector("#keyframes");
         if (!sheet) {
-            sheet = document.createElement("style") as HTMLStyleElement;
+            sheet = document.createElement("style");
             sheet.id = "keyframes";
             sheet.type = "text/css";
             document.head.appendChild(sheet);
         }
-        const lists = document.querySelectorAll(
-            "#logo-marquee ul"
-        ) as NodeListOf<HTMLUListElement>;
-        const container = document.querySelector(
-            "#logo-marquee"
-        ) as HTMLDivElement;
+        const lists = document.querySelectorAll("#logo-marquee ul");
+        const container = document.querySelector("#logo-marquee");
 
         // Verificar que los elementos principales existen
         if (!container) {
             console.error("Logo marquee container not found");
+            return;
+        }
+
+        // Verificar si ya está inicializado
+        if (container.dataset.initialized === "true") {
             return;
         }
 
@@ -204,7 +204,7 @@
             },
         ];
 
-        const shuffle = (array: any[]) => {
+        const shuffle = (array) => {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [array[i], array[j]] = [array[j], array[i]]; // Swap elements
@@ -296,7 +296,6 @@
         };
 
         const applyStyles = () => {
-            document.documentElement.dataset.theme = config.theme;
             document.documentElement.dataset.explode =
                 config.explode.toString();
             document.documentElement.style.setProperty(
@@ -329,19 +328,94 @@
         applyStyles();
         generateList();
         generateKeyframes();
+
+        // Marcar como inicializado
+        container.dataset.initialized = "true";
     }
 
-    // Inicializar cuando el DOM esté listo
-    if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", () => {
+    // Función para limpiar la inicialización anterior
+    function cleanupLogoMarquee() {
+        const container = document.querySelector("#logo-marquee");
+        if (container) {
+            container.dataset.initialized = "false";
+            // Limpiar las listas
+            const lists = container.querySelectorAll("ul");
+            lists.forEach((list) => {
+                list.innerHTML = "";
+            });
+        }
+    }
+
+    // Función para reinicializar el marquee
+    function reinitializeLogoMarquee() {
+        cleanupLogoMarquee();
+        setTimeout(() => {
+            initializeLogoMarquee();
+        }, 50);
+    }
+
+    // Detectar cuando se carga o cambia la página
+    function setupLogoMarquee() {
+        // Inicializar inmediatamente si el DOM ya está listo
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", () => {
+                setTimeout(initializeLogoMarquee, 100);
+            });
+        } else {
+            setTimeout(initializeLogoMarquee, 100);
+        }
+
+        // Escuchar eventos de navegación de Astro
+        document.addEventListener("astro:page-load", () => {
             setTimeout(initializeLogoMarquee, 100);
         });
-    } else {
-        setTimeout(initializeLogoMarquee, 100);
+
+        // Escuchar cambios de visibilidad de la página
+        document.addEventListener("visibilitychange", () => {
+            if (!document.hidden) {
+                setTimeout(() => {
+                    const container = document.querySelector("#logo-marquee");
+                    if (container && container.dataset.initialized !== "true") {
+                        initializeLogoMarquee();
+                    }
+                }, 100);
+            }
+        });
+
+        // Usar MutationObserver para detectar cuando el componente se añade al DOM
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                mutation.addedNodes.forEach((node) => {
+                    if (node.nodeType === Node.ELEMENT_NODE) {
+                        const element = node;
+                        const marqueeContainer =
+                            element.querySelector?.("#logo-marquee") ||
+                            (element.id === "logo-marquee" ? element : null);
+
+                        if (
+                            marqueeContainer &&
+                            marqueeContainer.dataset.initialized !== "true"
+                        ) {
+                            setTimeout(initializeLogoMarquee, 100);
+                        }
+                    }
+                });
+            });
+        });
+
+        // Observar cambios en el body
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true,
+        });
     }
+
+    // Inicializar el sistema de marquee
+    setupLogoMarquee();
 </script>
 <div
     id="logo-marquee"
+    data-initialized="false"
     class="flex items-center justify-center py-7 [&>ul]:w-full [&>ul]:grid [&>ul]:grid-rows-1 [&>ul]:grid-cols-1 [&>ul]:list-none [&>ul>li]:row-start-1 [&>ul>li]:col-start-1 [&>ul>li]:grid [&>ul>li]:place-items-start [&>ul>li]:p-1.5 [&>ul>li]:text-black dark:[&>ul>li]:text-white"
 >
     <ul></ul>
