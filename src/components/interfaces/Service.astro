@@ -11,7 +11,7 @@ const services = [
             "Nos especializamos en ofrecer servicios de desarrollo web y móvil, tanto en el frontend como en el backend. Nuestro equipo de expertos utiliza las últimas tecnologías y mejores prácticas para crear aplicaciones intuitivas y eficientes.",
         image: "/images/service/service1.png",
         alt: "Desarrollo Web y Móvil",
-        href: "https://shadcnblocks.com",
+        href: "/servicios/desarrollo-web-y-mobile",
     },
     {
         id: 2,
@@ -20,7 +20,7 @@ const services = [
             "Ofrecemos servicios de desarrollo de chatbots inteligentes que mejoran la interacción con los usuarios y optimizan los procesos de atención al cliente. Nuestros chatbots son personalizables y se integran fácilmente en diversas plataformas.",
         image: "/images/service/service2.png",
         alt: "Chatbots Inteligentes",
-        href: "https://shadcnblocks.com",
+        href: "/servicios/chatbots-inteligentes",
     },
     {
         id: 3,
@@ -29,7 +29,7 @@ const services = [
             "Nuestro equipo de marketing digital ofrece estrategias personalizadas para mejorar la visibilidad en línea de tu negocio. Desde SEO hasta campañas publicitarias, nos aseguramos de que tu marca alcance su máximo potencial en el mundo digital.",
         image: "/images/service/service3.png",
         alt: "Marketing Digital y SEO",
-        href: "https://shadcnblocks.com",
+        href: "/servicios/marketing-digital-seo",
     },
 ];
 ---
@@ -88,7 +88,6 @@ const services = [
                                 <div class="aspect-16/9 w-full rounded-t-xl overflow-hidden">
                                     <a
                                         href={service.href}
-                                        target="_blank"
                                         class="transition-opacity duration-200 fade-in hover:opacity-70"
                                     >
                                         <img
@@ -104,7 +103,7 @@ const services = [
                                     class="@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6"
                                 >
                                     <h3 class="text-lg font-semibold hover:underline md:text-xl">
-                                        <a href={service.href} target="_blank">
+                                        <a href={service.href}>
                                             {service.title}
                                         </a>
                                     </h3>
@@ -120,7 +119,6 @@ const services = [
                                 >
                                     <a
                                         href={service.href}
-                                        target="_blank"
                                         class="flex items-center text-foreground group hover:underline"
                                     >
                                         Leer más
