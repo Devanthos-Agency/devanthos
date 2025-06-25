@@ -5,13 +5,13 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import { render } from "astro:content";
 
 export async function getStaticPaths() {
-    const posts = await getCollection("blog");
+    const posts = await getCollection("service");
     return posts.map((post) => ({
         params: { slug: post.id },
         props: post,
     }));
 }
-type Props = CollectionEntry<"blog">;
+type Props = CollectionEntry<"service">;
 
 const post = Astro.props;
 const { Content } = await render(post);
@@ -21,28 +21,216 @@ export const prerender = true;
 <Layout title={post.data.title} description={post.data.description}>
     <section class="relative py-10 px-4">
         <div
-            class="absolute inset-0 -z-10 h-full w-full bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:6rem_4rem]"
+            class="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_800px_at_100%_200px,#611c69,transparent)] opacity-30"
         >
-            <div
-                class="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_800px_at_100%_200px,#f97316,transparent)] opacity-30"
-            >
-            </div>
         </div>
-        <div class="container max-w-5xl mx-auto mt-16">
-            <img
-                class="aspect-[10/7] object-cover rounded-xl md:aspect-[16/7] h-[440px] mx-auto"
-                src={post.data.heroImage}
-                alt={post.data.title}
-                transition:name={`img${post.id}`}
-            />
-            <h1
-                class="text-center text-primary text-5xl py-8 font-bold drop-shadow-[0_0px_7px_rgba(255,255,255,0.35)]"
+
+        <div class="container mx-auto mt-16">
+            <div class="mx-auto flex max-w-5xl flex-col items-center gap-5">
+                <h1
+                    class="text-center text-primary text-3xl lg:text-5xl py-4 font-bold"
+                >
+                    {post.data.title}
+                </h1>
+                <p
+                    class="text-muted-foreground text-center lg:text-lg max-w-3xl"
+                >
+                    {post.data.description}
+                </p>
+                <div class="mt-6 flex items-center gap-4">
+                    <div
+                        class="size-12 rounded-full border overflow-hidden bg-gradient-to-br from-primary to-accent flex items-center justify-center"
+                    >
+                        <span class="text-white font-bold text-lg">DH</span>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium">DevsHub Team</p>
+                        <p class="text-muted-foreground text-sm">
+                            Actualizado el {
+                                new Date(post.data.pubDate).toLocaleDateString(
+                                    "es-ES",
+                                    {
+                                        year: "numeric",
+                                        month: "short",
+                                        day: "numeric",
+                                    }
+                                )
+                            }
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="mx-auto mt-12 max-w-6xl rounded-lg border p-2">
+                <img
+                    class="aspect-video rounded-lg object-cover w-full"
+                    src={post.data.heroImage}
+                    alt={post.data.title}
+                    transition:name={`img${post.id}`}
+                />
+            </div>
+            <div
+                class="relative mx-auto mt-12 grid max-w-6xl gap-8 lg:grid-cols-4"
             >
-                {post.data.title}
-            </h1>
-            <div class="prose mx-auto py-6 max-w-4xl">
-                <Content />
+                <!-- Tabla de contenido (sidebar izquierdo) -->
+                <div
+                    class="sticky top-28 hidden h-[calc(100dvh-7rem)] overflow-y-scroll lg:block"
+                >
+                    <span class="mb-6 text-lg font-semibold">Contenido</span>
+                    <nav class="mt-2" id="table-of-contents">
+                        <ul class="space-y-2" id="toc-list">
+                            <!-- Los enlaces se generarán dinámicamente -->
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Contenido principal -->
+                <div class="lg:col-span-2">
+                    <div
+                        class="prose dark:prose-invert mx-auto py-6 max-w-none"
+                    >
+                        <Content />
+                    </div>
+                </div>
+
+                <!-- Sidebar derecho con CTA -->
+                <div
+                    class="prose dark:prose-invert sticky top-28 hidden h-fit rounded-lg border p-6 lg:block"
+                >
+                    <h5 class="text-xl font-semibold !mt-0">
+                        Comienza con Nuestros Servicios
+                    </h5>
+                    <ul class="my-6 text-sm [&>li]:pl-0">
+                        <li>Ahorra 40% de tiempo con automatización</li>
+                        <li>Colaboración en tiempo real</li>
+                        <li>Flujos de trabajo fáciles de usar</li>
+                    </ul>
+                    <div class="flex flex-col gap-2">
+                        <a
+                            href="#contacto"
+                            class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 h-9 px-4 py-2 no-underline"
+                        >
+                            Comenzar
+                        </a>
+                        <a
+                            href="#servicios"
+                            class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 no-underline"
+                        >
+                            Saber más
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 </Layout>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const tocList = document.getElementById("toc-list");
+        const content = document.querySelector(".prose");
+
+        if (!tocList || !content) return;
+
+        // Encontrar todos los headings h2 y h3 en el contenido
+        const headings = content.querySelectorAll("h2, h3");
+        const sectionRefs: Record<string, Element> = {};
+        let activeSection: string | null = null;
+
+        // Generar la tabla de contenidos
+        headings.forEach((heading, index) => {
+            const id = `section-${index}`;
+            heading.id = id;
+            sectionRefs[id] = heading;
+
+            const li = document.createElement("li");
+            const a = document.createElement("a");
+            a.href = `#${id}`;
+            a.textContent = heading.textContent;
+            a.className =
+                "block py-1 transition-colors duration-200 text-muted-foreground hover:text-primary";
+            a.addEventListener("click", function (e) {
+                e.preventDefault();
+                heading.scrollIntoView({ behavior: "smooth" });
+            });
+
+            li.appendChild(a);
+            tocList.appendChild(li);
+        });
+
+        // Configurar el Intersection Observer
+        const observerCallback = (entries: IntersectionObserverEntry[]) => {
+            entries.forEach((entry: IntersectionObserverEntry) => {
+                if (entry.isIntersecting) {
+                    // Remover clase activa de todos los enlaces
+                    const allLinks = tocList.querySelectorAll("a");
+                    allLinks.forEach((link) => {
+                        link.className =
+                            "block py-1 transition-colors duration-200 text-muted-foreground hover:text-primary";
+                    });
+
+                    // Agregar clase activa al enlace correspondiente
+                    const activeLink = tocList.querySelector(
+                        `a[href="#${entry.target.id}"]`
+                    );
+                    if (activeLink) {
+                        activeLink.className =
+                            "block py-1 transition-colors duration-200 text-primary font-medium";
+                        activeSection = entry.target.id;
+                    }
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, {
+            root: null,
+            rootMargin: "-100px 0px -50% 0px",
+            threshold: 0.1,
+        });
+
+        // Observar todos los headings
+        headings.forEach((heading) => {
+            observer.observe(heading);
+        });
+
+        // Cleanup
+        window.addEventListener("beforeunload", () => {
+            observer.disconnect();
+        });
+    });
+</script>
+
+<style>
+    /* Estilos adicionales para la navegación */
+    #table-of-contents ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    #table-of-contents ul li {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Mejorar el scroll suave */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Estilos para headings con espacio para navegación */
+    .prose h2,
+    .prose h3 {
+        scroll-margin-top: 100px;
+    }
+
+    /* Asegurar que los botones se vean correctamente */
+    .prose a[class*="inline-flex"] {
+        text-decoration: none !important;
+    }
+
+    /* Mejorar el aspecto de la tabla de contenidos en móvil */
+    @media (max-width: 1024px) {
+        #table-of-contents {
+            display: none;
+        }
+    }
+</style>
