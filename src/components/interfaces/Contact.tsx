@@ -1,26 +1,99 @@
-import { Facebook, Linkedin, Twitter } from "lucide-react";
-
+import {
+    Facebook,
+    Linkedin,
+    Twitter,
+    CheckCircle,
+    AlertCircle,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { useState } from "react";
+import {
+    Form,
+    FormControl,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage,
+} from "@/components/ui/form";
+
+// Schema de validación con Zod
+const contactFormSchema = z.object({
+    fullName: z
+        .string()
+        .min(2, "El nombre debe tener al menos 2 caracteres")
+        .max(50, "El nombre no puede exceder los 50 caracteres"),
+    email: z.string().email("Por favor ingrese un email válido"),
+    companyName: z.string().optional(),
+    employeeCount: z.string().optional(),
+    message: z
+        .string()
+        .min(10, "El mensaje debe tener al menos 10 caracteres")
+        .max(500, "El mensaje no puede exceder los 500 caracteres"),
+});
+
+type ContactFormData = z.infer<typeof contactFormSchema>;
 
 export default function Contact() {
+    const [submitStatus, setSubmitStatus] = useState<
+        "idle" | "success" | "error"
+    >("idle");
+
+    const form = useForm<ContactFormData>({
+        resolver: zodResolver(contactFormSchema),
+        defaultValues: {
+            fullName: "",
+            email: "",
+            companyName: "",
+            employeeCount: "",
+            message: "",
+        },
+    });
+
+    const onSubmit = async (data: ContactFormData) => {
+        try {
+            setSubmitStatus("idle");
+
+            // Aquí puedes implementar la lógica para enviar el formulario
+            console.log("Datos del formulario:", data);
+
+            // Simular envío
+            await new Promise((resolve) => setTimeout(resolve, 1000));
+
+            // Resetear formulario después del envío exitoso
+            form.reset();
+            setSubmitStatus("success");
+
+            // Limpiar el estado después de 5 segundos
+            setTimeout(() => setSubmitStatus("idle"), 5000);
+        } catch (error) {
+            console.error("Error al enviar el formulario:", error);
+            setSubmitStatus("error");
+
+            // Limpiar el estado después de 5 segundos
+            setTimeout(() => setSubmitStatus("idle"), 5000);
+        }
+    };
     return (
         <section className="relative mx-2.5 mt-2.5 rounded-t-2xl rounded-b-[36px] bg-linear-to-b from-accent via-background to-background py-32 lg:mx-4 dark:from-accent">
             <div className="container max-w-2xl mx-auto px-2 md:px-6 lg:px-8">
-                <h1 className="text-center text-4xl font-semibold tracking-tight lg:text-5xl">
-                    Contact us
-                </h1>
+                <h2 className="text-center text-4xl font-semibold tracking-tight lg:text-5xl">
+                    Contáctenos
+                </h2>
                 <p className="mt-4 text-center leading-snug font-medium text-muted-foreground lg:mx-auto">
-                    Hopefully this form gets through our spam filters.
+                    ¿Tiene preguntas o comentarios? Nos encantaría saber de
+                    usted. Complete el formulario a continuación y nos pondremos
+                    en contacto con usted lo antes posible.
                 </p>
 
                 <div className="mt-10 flex justify-between gap-8 max-sm:flex-col md:mt-14 lg:mt-20 lg:gap-12">
                     <div>
-                        <h2 className="font-semibold">Corporate office</h2>
+                        <h3 className="font-semibold">Dirección</h3>
                         <p className="mt-3 text-muted-foreground">
                             1 Carlsberg Close
                             <br />
@@ -29,7 +102,7 @@ export default function Contact() {
                     </div>
 
                     <div>
-                        <h2 className="font-semibold">Email us</h2>
+                        <h3 className="font-semibold">Email us</h3>
                         <div className="mt-3">
                             <div>
                                 <p className="text-primary">Careers</p>
@@ -44,7 +117,7 @@ export default function Contact() {
                     </div>
 
                     <div>
-                        <h2 className="font-semibold">Follow us</h2>
+                        <h3 className="font-semibold">Redes sociales</h3>
                         <div className="mt-3 flex gap-6 lg:gap-10">
                             <a
                                 href="#"
@@ -72,48 +145,161 @@ export default function Contact() {
 
                 {/* Inquiry Form */}
                 <div className="mx-auto">
-                    <h2 className="text-lg font-semibold">Inquiries</h2>
-                    <form className="mt-8 space-y-5">
-                        <div className="space-y-2">
-                            <Label>Full name</Label>
-                            <Input placeholder="First and last name" />
-                        </div>
-                        <div className="space-y-2">
-                            <Label>Work email address</Label>
-                            <Input placeholder="me@company.com" type="email" />
-                        </div>
-                        <div className="space-y-2">
-                            <Label>
-                                Company name{" "}
-                                <span className="text-muted-foreground">
-                                    (optional)
-                                </span>
-                            </Label>
-                            <Input placeholder="Company name" />
-                        </div>
-                        <div className="space-y-2">
-                            <Label>
-                                Number of employees{" "}
-                                <span className="text-muted-foreground">
-                                    (optional)
-                                </span>
-                            </Label>
-                            <Input placeholder="e.g. 10-50" />
-                        </div>
-                        <div className="space-y-2">
-                            <Label>Your message</Label>
-                            <Textarea
-                                placeholder="Write your message"
-                                className="min-h-[120px] resize-none"
-                            />
-                        </div>
+                    <h3 className="text-lg font-semibold">
+                        Envíenos un mensaje
+                    </h3>
 
-                        <div className="flex justify-end">
-                            <Button size="lg" type="submit" className="">
-                                Submit
-                            </Button>
+                    {/* Estado de envío */}
+                    {submitStatus === "success" && (
+                        <div className="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center gap-3">
+                            <CheckCircle className="h-5 w-5 text-green-600" />
+                            <p className="text-green-800 font-medium">
+                                ¡Mensaje enviado exitosamente! Nos pondremos en
+                                contacto contigo pronto.
+                            </p>
                         </div>
-                    </form>
+                    )}
+
+                    {submitStatus === "error" && (
+                        <div className="mt-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center gap-3">
+                            <AlertCircle className="h-5 w-5 text-red-600" />
+                            <p className="text-red-800 font-medium">
+                                Error al enviar el mensaje. Por favor, inténtelo
+                                de nuevo.
+                            </p>
+                        </div>
+                    )}
+
+                    <Form {...form}>
+                        <form
+                            onSubmit={form.handleSubmit(onSubmit)}
+                            className="mt-8 space-y-5"
+                        >
+                            <FormField
+                                control={form.control}
+                                name="fullName"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>
+                                            Nombre completo{" "}
+                                            <span className="text-muted-foreground">
+                                                (requerido)
+                                            </span>
+                                        </FormLabel>
+                                        <FormControl>
+                                            <Input
+                                                placeholder="Nombre y apellido"
+                                                {...field}
+                                            />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+
+                            <FormField
+                                control={form.control}
+                                name="email"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>
+                                            Email{" "}
+                                            <span className="text-muted-foreground">
+                                                (requerido)
+                                            </span>
+                                        </FormLabel>
+                                        <FormControl>
+                                            <Input
+                                                placeholder="me@company.com"
+                                                type="email"
+                                                {...field}
+                                            />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+
+                            <FormField
+                                control={form.control}
+                                name="companyName"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>
+                                            Nombre de la compañía{" "}
+                                            <span className="text-muted-foreground">
+                                                (opcional)
+                                            </span>
+                                        </FormLabel>
+                                        <FormControl>
+                                            <Input
+                                                placeholder="Nombre de la compañía"
+                                                {...field}
+                                            />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+
+                            <FormField
+                                control={form.control}
+                                name="employeeCount"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>
+                                            Número de empleados{" "}
+                                            <span className="text-muted-foreground">
+                                                (opcional)
+                                            </span>
+                                        </FormLabel>
+                                        <FormControl>
+                                            <Input
+                                                placeholder="ej. 10-50"
+                                                {...field}
+                                            />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+
+                            <FormField
+                                control={form.control}
+                                name="message"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>
+                                            Tu mensaje{" "}
+                                            <span className="text-muted-foreground">
+                                                (requerido)
+                                            </span>
+                                        </FormLabel>
+                                        <FormControl>
+                                            <Textarea
+                                                placeholder="Escriba su mensaje aquí..."
+                                                className="min-h-[120px] resize-none"
+                                                {...field}
+                                            />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+
+                            <div className="flex justify-end">
+                                <Button
+                                    size="lg"
+                                    type="submit"
+                                    disabled={form.formState.isSubmitting}
+                                >
+                                    {form.formState.isSubmitting
+                                        ? "Enviando..."
+                                        : "Enviar"}
+                                </Button>
+                            </div>
+                        </form>
+                    </Form>
                 </div>
             </div>
         </section>
