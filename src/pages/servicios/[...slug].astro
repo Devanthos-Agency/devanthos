@@ -124,23 +124,69 @@ export const prerender = true;
     </section>
 </Layout>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
+<script is:inline>
+    // Variables globales para el control de estado
+    window.tocState = window.tocState || {
+        initialized: false,
+        observer: null,
+        contentObserver: null,
+        retryCount: 0,
+        maxRetries: 15,
+    };
+
+    function cleanupObservers() {
+        if (window.tocState.observer) {
+            window.tocState.observer.disconnect();
+            window.tocState.observer = null;
+        }
+        if (window.tocState.contentObserver) {
+            window.tocState.contentObserver.disconnect();
+            window.tocState.contentObserver = null;
+        }
+        window.tocState.initialized = false;
+        window.tocState.retryCount = 0;
+    }
+
+    function initTableOfContents() {
+        // Evitar múltiples inicializaciones
+        if (window.tocState.initialized) {
+            return;
+        }
+
         const tocList = document.getElementById("toc-list");
         const content = document.querySelector(".prose");
 
-        if (!tocList || !content) return;
+        if (!tocList || !content) {
+            if (window.tocState.retryCount < window.tocState.maxRetries) {
+                window.tocState.retryCount++;
+
+                setTimeout(initTableOfContents, 150);
+            } else {
+            }
+            return;
+        }
+
+        // Limpiar la tabla de contenidos existente
+        tocList.innerHTML = "";
 
         // Encontrar todos los headings h2 y h3 en el contenido
         const headings = content.querySelectorAll("h2, h3");
-        const sectionRefs: Record<string, Element> = {};
-        let activeSection: string | null = null;
+
+        if (headings.length === 0) {
+            if (window.tocState.retryCount < window.tocState.maxRetries) {
+                window.tocState.retryCount++;
+                setTimeout(initTableOfContents, 200);
+            }
+            return;
+        }
+
+        // Marcar como inicializado
+        window.tocState.initialized = true;
 
         // Generar la tabla de contenidos
         headings.forEach((heading, index) => {
             const id = `section-${index}`;
             heading.id = id;
-            sectionRefs[id] = heading;
 
             const li = document.createElement("li");
             const a = document.createElement("a");
@@ -158,8 +204,8 @@ export const prerender = true;
         });
 
         // Configurar el Intersection Observer
-        const observerCallback = (entries: IntersectionObserverEntry[]) => {
-            entries.forEach((entry: IntersectionObserverEntry) => {
+        const observerCallback = (entries) => {
+            entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     // Remover clase activa de todos los enlaces
                     const allLinks = tocList.querySelectorAll("a");
@@ -175,13 +221,13 @@ export const prerender = true;
                     if (activeLink) {
                         activeLink.className =
                             "block py-1 transition-colors duration-200 text-primary font-medium";
-                        activeSection = entry.target.id;
                     }
                 }
             });
         };
 
-        const observer = new IntersectionObserver(observerCallback, {
+        // Crear nuevo observer
+        window.tocState.observer = new IntersectionObserver(observerCallback, {
             root: null,
             rootMargin: "-100px 0px -50% 0px",
             threshold: 0.1,
@@ -189,48 +235,74 @@ export const prerender = true;
 
         // Observar todos los headings
         headings.forEach((heading) => {
-            observer.observe(heading);
+            window.tocState.observer.observe(heading);
+        });
+    }
+
+    function setupContentObserver() {
+        // Evitar múltiples content observers
+        if (window.tocState.contentObserver) {
+            return;
+        }
+
+        window.tocState.contentObserver = new MutationObserver((mutations) => {
+            const hasProseContent = mutations.some((mutation) =>
+                Array.from(mutation.addedNodes).some(
+                    (node) =>
+                        node.nodeType === 1 &&
+                        (node.classList?.contains("prose") ||
+                            node.querySelector?.(".prose"))
+                )
+            );
+
+            if (hasProseContent && !window.tocState.initialized) {
+                setTimeout(initTableOfContents, 100);
+            }
         });
 
-        // Cleanup
-        window.addEventListener("beforeunload", () => {
-            observer.disconnect();
-        });
-    });
-</script>
-
-<style>
-    /* Estilos adicionales para la navegación */
-    #table-of-contents ul {
-        list-style: none;
-        padding-left: 0;
-    }
-
-    #table-of-contents ul li {
-        margin: 0;
-        padding: 0;
-    }
-
-    /* Mejorar el scroll suave */
-    html {
-        scroll-behavior: smooth;
-    }
-
-    /* Estilos para headings con espacio para navegación */
-    .prose h2,
-    .prose h3 {
-        scroll-margin-top: 100px;
-    }
-
-    /* Asegurar que los botones se vean correctamente */
-    .prose a[class*="inline-flex"] {
-        text-decoration: none !important;
-    }
-
-    /* Mejorar el aspecto de la tabla de contenidos en móvil */
-    @media (max-width: 1024px) {
-        #table-of-contents {
-            display: none;
+        // Observar cambios en el body
+        if (document.body) {
+            window.tocState.contentObserver.observe(document.body, {
+                childList: true,
+                subtree: true,
+            });
         }
     }
-</style>
+
+    // Función principal de inicialización
+    function setupTableOfContents() {
+        // Limpiar estado anterior
+        cleanupObservers();
+
+        // Configurar observer de contenido
+        setupContentObserver();
+
+        // Intentar inicialización inmediata
+        setTimeout(initTableOfContents, 100);
+    }
+
+    // Event listeners
+
+    // Para carga inicial
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", setupTableOfContents);
+    } else {
+        setupTableOfContents();
+    }
+
+    // Para navegación con Astro View Transitions
+    document.addEventListener("astro:page-load", () => {
+        setTimeout(setupTableOfContents, 50);
+    });
+
+    // Cleanup antes de navegar
+    document.addEventListener("astro:before-preparation", () => {
+        cleanupObservers();
+    });
+
+    // Cleanup al salir
+    window.addEventListener("beforeunload", cleanupObservers);
+
+    // Cleanup adicional para navegaciones manuales
+    window.addEventListener("pagehide", cleanupObservers);
+</script>
