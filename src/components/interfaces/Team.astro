@@ -1,22 +1,105 @@
 ---
 import { Button } from "../ui/button";
-import { Dribbble, Github, Linkedin, User } from "lucide-react";
+import {
+    Dribbble,
+    Github,
+    Linkedin,
+    User,
+    Twitter,
+    Instagram,
+    Globe,
+} from "lucide-react";
 
 const people = [
     {
         id: "person-1",
-        name: "Name",
-        role: "Role",
+        name: "Juan Morales",
+        role: "Front End Developer",
         description:
-            "Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.",
-        avatar: "https://shadcnblocks.com/images/block/avatar-1.webp",
+            "Me encargo de crear interfaces atractivas y funcionales, optimizando la experiencia del usuario.",
+        avatar: "https://avatars.githubusercontent.com/u/85465719?v=4",
+        socialLinks: [
+            {
+                name: "Github",
+                url: "https://github.com/juanmorales1810",
+                icon: Github,
+            },
+            {
+                name: "LinkedIn",
+                url: "https://www.linkedin.com/in/juan-exequiel-morales/",
+                icon: Linkedin,
+            },
+            {
+                name: "Portfolio",
+                url: "https://juan-morales.is-a.dev/",
+                icon: Globe,
+            },
+            {
+                name: "Instagram",
+                url: "https://www.instagram.com/elchiche0_o",
+                icon: Instagram,
+            },
+        ],
     },
     {
         id: "person-2",
-        name: "Name",
-        role: "Role",
-        description: "Elig doloremque mollitia fugiat omnis!",
+        name: "Santiago Fernández",
+        role: "Backend Developer",
+        description:
+            "Especialista en desarrollo de APIs y arquitecturas escalables.",
         avatar: "https://shadcnblocks.com/images/block/avatar-2.webp",
+        socialLinks: [
+            {
+                name: "Github",
+                url: "https://github.com/santiagofernandez",
+                icon: Github,
+            },
+            {
+                name: "LinkedIn",
+                url: "https://linkedin.com/in/santiago-fernandez",
+                icon: Linkedin,
+            },
+            {
+                name: "Twitter",
+                url: "https://twitter.com/santiagofernandez",
+                icon: Twitter,
+            },
+        ],
+    },
+    {
+        id: "person-3",
+        name: "Pablo Valdebenito",
+        role: "Estratega en Marketing Digital y Redes Sociales",
+        description:
+            "Apasionado por conectar marcas con su audiencia a través de estrategias efectivas de marketing digital y gestión de redes sociales.",
+        avatar: "https://shadcnblocks.com/images/block/avatar-3.webp",
+        socialLinks: [
+            {
+                name: "Github",
+                url: "",
+                icon: Github,
+            },
+            {
+                name: "LinkedIn",
+                url: "",
+                icon: Linkedin,
+            },
+            {
+                name: "Dribbble",
+                url: "https://dribbble.com/marialopez",
+                icon: Dribbble,
+            },
+            {
+                name: "Portfolio",
+                url: "https://marialopezdesigns.com",
+                icon: Globe,
+            },
+            {
+                name: "Instagram",
+                url: "https://www.instagram.com/marialopezdesigns",
+                icon: Instagram,
+            },
+        ],
     },
 ];
 ---
@@ -70,15 +153,18 @@ const people = [
                         {person.description}
                     </p>
                     <div class="mt-2 flex gap-4">
-                        <a href="#">
-                            <Github className="size-4 text-muted-foreground" />
-                        </a>
-                        <a href="#">
-                            <Linkedin className="size-4 text-muted-foreground" />
-                        </a>
-                        <a href="#">
-                            <Dribbble className="size-4 text-muted-foreground" />
-                        </a>
+                        {person.socialLinks.map((social) => {
+                            return (
+                                <a
+                                    href={social.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    title={social.name}
+                                >
+                                    <social.icon className="size-4 text-muted-foreground hover:text-primary transition-colors" />
+                                </a>
+                            );
+                        })}
                     </div>
                 </div>
             ))
