@@ -37,6 +37,13 @@ import Navbar from "@/components/interfaces/Header";
             ? "dark"
             : "light";
     };
+
+    const applyTheme = (theme) => {
+        const isDark = theme === "dark";
+        document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+    };
+
+    // Aplicar tema inicial
     const isDark = getThemePreference() === "dark";
     document.documentElement.classList[isDark ? "add" : "remove"]("dark");
 
@@ -50,6 +57,26 @@ import Navbar from "@/components/interfaces/Header";
             attributeFilter: ["class"],
         });
     }
+
+    // Manejar navegaciones de Astro para preservar el tema
+    document.addEventListener("astro:before-swap", () => {
+        const currentTheme = getThemePreference();
+        // Guardar el tema antes del swap
+        window._preservedTheme = currentTheme;
+    });
+
+    document.addEventListener("astro:after-swap", () => {
+        // Restaurar el tema después del swap
+        if (window._preservedTheme) {
+            applyTheme(window._preservedTheme);
+        }
+    });
+
+    document.addEventListener("astro:page-load", () => {
+        // Asegurar que el tema correcto esté aplicado
+        const currentTheme = getThemePreference();
+        applyTheme(currentTheme);
+    });
 </script>
 
 <html lang="es">
