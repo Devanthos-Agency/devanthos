@@ -1,22 +1,15 @@
 ---
+import { Behance } from "../icons";
 import { Button } from "../ui/button";
-import {
-    Dribbble,
-    Github,
-    Linkedin,
-    User,
-    Twitter,
-    Instagram,
-    Globe,
-} from "lucide-react";
+import { Github, Linkedin, Instagram, Globe } from "lucide-react";
 
 const people = [
     {
         id: "person-1",
         name: "Juan Morales",
-        role: "Front End Developer",
+        role: "Front End Developer | CEO",
         description:
-            "Me encargo de crear interfaces atractivas y funcionales, optimizando la experiencia del usuario.",
+            "Me encargo de crear interfaces atractivas y funcionales, optimizando la experiencia del usuario. También lidero el equipo de desarrollo y gestiono proyectos.",
         avatar: "https://avatars.githubusercontent.com/u/85465719?v=4",
         socialLinks: [
             {
@@ -43,60 +36,40 @@ const people = [
     },
     {
         id: "person-2",
-        name: "Santiago Fernández",
-        role: "Backend Developer",
+        name: "Santiago Fernández Salinas",
+        role: "Account Manager | Business Developer",
         description:
-            "Especialista en desarrollo de APIs y arquitecturas escalables.",
+            "Encargado de gestionar las relaciones con los clientes y asegurar su satisfacción. A través de la comunicación efectiva y la empatía, busco entender sus necesidades y ofrecer soluciones a medida.",
         avatar: "https://shadcnblocks.com/images/block/avatar-2.webp",
         socialLinks: [
             {
-                name: "Github",
-                url: "https://github.com/santiagofernandez",
-                icon: Github,
-            },
-            {
                 name: "LinkedIn",
-                url: "https://linkedin.com/in/santiago-fernandez",
+                url: "https://www.linkedin.com/in/santiago-fernandez-salinas/",
                 icon: Linkedin,
-            },
-            {
-                name: "Twitter",
-                url: "https://twitter.com/santiagofernandez",
-                icon: Twitter,
             },
         ],
     },
     {
         id: "person-3",
         name: "Pablo Valdebenito",
-        role: "Estratega en Marketing Digital y Redes Sociales",
+        role: "Productor Audiovisual & Motion Graphics | Estratega en Marketing Digital y Redes Sociales",
         description:
-            "Apasionado por conectar marcas con su audiencia a través de estrategias efectivas de marketing digital y gestión de redes sociales.",
-        avatar: "https://shadcnblocks.com/images/block/avatar-3.webp",
+            "Creatividad en movimiento: produzco, animo y difundo contenidos que atrapan miradas y transmiten mensajes con fuerza conectando a las marcas con su audiencia ideal",
+        avatar: "/images/team/pablo-valdebenito.jpg",
         socialLinks: [
             {
-                name: "Github",
-                url: "",
-                icon: Github,
+                name: "Behance",
+                url: "https://www.behance.net/pablovaldebe",
+                icon: Behance,
             },
             {
                 name: "LinkedIn",
-                url: "",
+                url: "https://www.linkedin.com/in/pablo-valdebenito-26173a21b/",
                 icon: Linkedin,
             },
             {
-                name: "Dribbble",
-                url: "https://dribbble.com/marialopez",
-                icon: Dribbble,
-            },
-            {
-                name: "Portfolio",
-                url: "https://marialopezdesigns.com",
-                icon: Globe,
-            },
-            {
                 name: "Instagram",
-                url: "https://www.instagram.com/marialopezdesigns",
+                url: "https://www.instagram.com/pavalsig/",
                 icon: Instagram,
             },
         ],
@@ -169,31 +142,5 @@ const people = [
                 </div>
             ))
         }
-        <div
-            class="flex flex-col items-center bg-accent p-8 rounded-2xl shadow-lg"
-        >
-            <span
-                data-slot="avatar"
-                class="relative flex shrink-0 overflow-hidden rounded-full border-2 border-primary/50 border-dashed mb-4 size-20 md:mb-5 lg:size-24"
-            >
-                <User className="aspect-square size-full text-primary/50 " />
-            </span>
-            <p class="text-center font-medium">Nuevo miembro</p>
-            <p class="text-center text-muted-foreground">Pronto</p>
-            <p class="py-3 text-center text-sm text-muted-foreground">
-                <a href="#">Aplica ahora</a>
-            </p>
-            <div class="mt-2 flex gap-4">
-                <a href="#">
-                    <Github className="size-4 text-muted-foreground" />
-                </a>
-                <a href="#">
-                    <Linkedin className="size-4 text-muted-foreground" />
-                </a>
-                <a href="#">
-                    <Dribbble className="size-4 text-muted-foreground" />
-                </a>
-            </div>
-        </div>
     </div>
 </section>
