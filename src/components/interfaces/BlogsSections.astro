@@ -1,0 +1,140 @@
+---
+import { ArrowRight, FileText } from "lucide-react";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import Button from "../ui/Button.astro";
+---
+
+<section class="py-32">
+    <div class="container mx-auto px-2">
+        <div
+            class="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center"
+        >
+            <Badge variant="outline" className="gap-1 py-1">
+                <FileText className="h-full w-4" /> Nuestros Blogs
+            </Badge>
+            <h2 class="text-4xl font-semibold text-balance">
+                Descubre las últimas tendencias
+            </h2>
+            <p class="text-muted-foreground">
+                Explora nuestro blog para encontrar artículos perspicaces,
+                reflexiones personales e ideas que inspiran acción sobre los
+                temas que te importan.
+            </p>
+        </div>
+        <div class="mt-20 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <a
+                class="rounded-xl border"
+                href="/blog/landing-page-vs-web-corporativa"
+            >
+                <div class="p-2">
+                    <img
+                        src="https://images.unsplash.com/photo-1536735561749-fc87494598cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2NDI3NzN8MHwxfGFsbHwxNzd8fHx8fHwyfHwxNzIzNjM0NDc0fA&ixlib=rb-4.0.3&q=80&w=1080"
+                        alt="placeholder"
+                        class="aspect-video w-full rounded-lg object-cover"
+                    />
+                </div>
+                <div class="px-3 pt-2 pb-4">
+                    <h3 class="mb-1 font-medium">
+                        Diferencias entre una landing page y una página web
+                        corporativa
+                    </h3>
+                    <p class="line-clamp-2 text-sm text-muted-foreground">
+                        Guía definitiva para entender cuándo usar landing pages
+                        vs páginas web corporativas. Maximiza conversiones y ROI
+                        con la estrategia correcta.
+                    </p>
+                    <Separator class="my-5" />
+                    <div class="flex items-center justify-between gap-4">
+                        <div class="flex items-center gap-3">
+                            <img
+                                src="https://avatars.githubusercontent.com/u/85465719?v=4"
+                                alt="Avatar del autor"
+                                class="size-10 rounded-full object-cover"
+                            />
+                            <span class="text-sm font-medium">Juan Morales</span
+                            >
+                        </div>
+                        <Badge variant="secondary" className="h-fit">
+                            10 Min Read
+                        </Badge>
+                    </div>
+                </div>
+            </a>
+            <a class="rounded-xl border" href="/blog/chatbot-empresa">
+                <div class="p-2">
+                    <img
+                        src="/images/blog/ChatGPT Image 26 jun 2025, 12_36_41 p.m..png"
+                        alt="placeholder"
+                        class="aspect-video w-full rounded-lg object-cover"
+                    />
+                </div>
+                <div class="px-3 pt-2 pb-4">
+                    <h3 class="mb-1 font-medium">
+                        Qué puede hacer un chatbot por tu empresa
+                    </h3>
+                    <p class="line-clamp-3 text-sm text-muted-foreground">
+                        Descubre cómo los chatbots inteligentes pueden reducir
+                        tus costos de atención al cliente en un 60%, aumentar
+                        las ventas en un 40% y brindar soporte 24/7.
+                    </p>
+                    <Separator class="my-5" />
+                    <div class="flex items-center justify-between gap-4">
+                        <div class="flex items-center gap-3">
+                            <img
+                                src="https://avatars.githubusercontent.com/u/85465719?v=4"
+                                alt="Avatar del autor"
+                                class="size-10 rounded-full object-cover"
+                            />
+                            <span class="text-sm font-medium">Juan Morales</span
+                            >
+                        </div>
+                        <Badge variant="secondary" className="h-fit">
+                            14 Min Read
+                        </Badge>
+                    </div>
+                </div>
+            </a>
+            <a class="rounded-xl border" href="/blog/app-movil-empresa">
+                <div class="p-2">
+                    <img
+                        src="/images/blog/ChatGPT Image 26 jun 2025, 12_48_52 p.m..png"
+                        alt="placeholder"
+                        class="aspect-video w-full rounded-lg object-cover"
+                    />
+                </div>
+                <div class="px-3 pt-2 pb-4">
+                    <h3 class="mb-1 font-medium">
+                        ¿Por qué tu empresa debería tener una app móvil?
+                    </h3>
+                    <p class="line-clamp-3 text-sm text-muted-foreground">
+                        Descubre cómo una app móvil puede aumentar la retención
+                        de clientes en un 90%, incrementar las ventas en un 200%
+                        y diferenciarte de la competencia.
+                    </p>
+                    <Separator class="my-5" />
+                    <div class="flex items-center justify-between gap-4">
+                        <div class="flex items-center gap-3">
+                            <img
+                                src="https://avatars.githubusercontent.com/u/85465719?v=4"
+                                alt="Avatar del autor"
+                                class="size-10 rounded-full object-cover"
+                            />
+                            <span class="text-sm font-medium">Juan Morales</span
+                            >
+                        </div>
+                        <Badge variant="secondary" className="h-fit">
+                            9 Min Read
+                        </Badge>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mt-10 flex justify-center">
+            <Button href="/blog" variant="outline">
+                Ver todos los blogs <ArrowRight className="ml-2 h-full w-4" />
+            </Button>
+        </div>
+    </div>
+</section>
