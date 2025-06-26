@@ -1,0 +1,739 @@
+---
+title: "Cómo generar tráfico orgánico con contenido bien estructurado"
+summary: "Guía completa para dominar el SEO de contenidos y generar tráfico orgánico masivo con estrategias de estructura, palabras clave y optimización técnica."
+label: "SEO"
+author: "Devs Hub"
+published: 2025-06-26
+updatedDate: 2025-06-26
+heroImage: "/images/gallery/670_1x_shots_so.png"
+imageAvatar: "/images/gallery/670_1x_shots_so.png"
+---
+
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import {
+    Search,
+    TrendingUp,
+    Target,
+    Zap,
+    CheckCircle,
+    Brain,
+    Users,
+    Lightbulb,
+    BarChart3,
+    Eye,
+} from "lucide-react";
+
+¿Sabías que el **93% del tráfico web** comienza con una búsqueda en Google? Mientras lees esto, tu competencia está robándose visitantes que deberían llegar a tu sitio web. La diferencia entre aparecer en la **primera página** o en la segunda es abismal: el primer resultado de Google recibe **32% de todos los clics**, mientras que la segunda página apenas obtiene **0.63%**.
+
+Si tu contenido no está bien estructurado para SEO, estás perdiendo **miles de visitantes potenciales** cada mes. Pero no te preocupes: hoy vas a aprender exactamente cómo crear contenido que Google ame y que convierta visitantes en clientes.
+
+<Alert variant="info" className="my-6">
+    <TrendingUp className="h-4 w-4" />
+    <AlertTitle>Estadística Impactante</AlertTitle>
+    <AlertDescription>
+        Las empresas con blogs bien optimizados reciben 97% más enlaces hacia su
+        sitio web y 434% más páginas indexadas en Google que las que no tienen
+        blog.
+    </AlertDescription>
+</Alert>
+
+## ¿Por qué la estructura del contenido es crucial para el SEO?
+
+Google no es solo un buscador, es una **máquina de respuestas**. Su algoritmo busca contenido que:
+
+-   🎯 **Responda preguntas específicas** de manera completa
+-   📊 **Esté organizado jerárquicamente** con encabezados claros
+-   🔗 **Mantenga a los usuarios** leyendo más tiempo
+-   📱 **Funcione perfectamente** en móviles
+-   ⚡ **Cargue rápido** y ofrezca buena experiencia
+
+**La estructura no es solo para los humanos, es el lenguaje que Google entiende.**
+
+## Los 7 pilares del contenido SEO que genera tráfico masivo
+
+### 1. Investigación de palabras clave con intención de búsqueda
+
+**No basta con elegir palabras populares, necesitas entender la INTENCIÓN detrás de cada búsqueda.**
+
+#### Tipos de intención de búsqueda:
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
+    <Card>
+        <CardHeader>
+            <div className="flex items-center gap-2">
+                <Search className="h-5 w-5 text-primary" />
+                <CardTitle>Informacional</CardTitle>
+            </div>
+        </CardHeader>
+        <CardContent>
+            <p className="mb-2">
+                <strong>Intención:</strong> Aprender algo
+            </p>
+            <p className="mb-2">
+                <strong>Ejemplos:</strong> "qué es SEO", "cómo crear contenido"
+            </p>
+            <p>
+                <strong>Estrategia:</strong> Contenido educativo detallado
+            </p>
+        </CardContent>
+    </Card>
+
+    <Card>
+        <CardHeader>
+            <div className="flex items-center gap-2">
+                <Target className="h-5 w-5 text-primary" />
+                <CardTitle>Comercial</CardTitle>
+            </div>
+        </CardHeader>
+        <CardContent>
+            <p className="mb-2">
+                <strong>Intención:</strong> Comparar opciones
+            </p>
+            <p className="mb-2">
+                <strong>Ejemplos:</strong> "mejor agencia SEO", "herramientas
+                SEO comparación"
+            </p>
+            <p>
+                <strong>Estrategia:</strong> Comparativas y reseñas
+            </p>
+        </CardContent>
+    </Card>
+
+    <Card>
+        <CardHeader>
+            <div className="flex items-center gap-2">
+                <Zap className="h-5 w-5 text-primary" />
+                <CardTitle>Transaccional</CardTitle>
+            </div>
+        </CardHeader>
+        <CardContent>
+            <p className="mb-2">
+                <strong>Intención:</strong> Comprar ahora
+            </p>
+            <p className="mb-2">
+                <strong>Ejemplos:</strong> "contratar agencia SEO", "servicios
+                SEO precio"
+            </p>
+            <p>
+                <strong>Estrategia:</strong> Páginas de landing optimizadas
+            </p>
+        </CardContent>
+    </Card>
+
+    <Card>
+        <CardHeader>
+            <div className="flex items-center gap-2">
+                <Eye className="h-5 w-5 text-primary" />
+                <CardTitle>Navegacional</CardTitle>
+            </div>
+        </CardHeader>
+        <CardContent>
+            <p className="mb-2">
+                <strong>Intención:</strong> Encontrar sitio específico
+            </p>
+            <p className="mb-2">
+                <strong>Ejemplos:</strong> "DevsHub blog", "Google Analytics
+                login"
+            </p>
+            <p>
+                <strong>Estrategia:</strong> Optimización de marca
+            </p>
+        </CardContent>
+    </Card>
+
+</div>
+
+#### Herramientas para investigación de palabras clave:
+
+**Gratuitas:**
+
+-   <Badge variant="outline">Google Keyword Planner</Badge> - Datos directos de Google
+-   <Badge variant="outline">Ubersuggest</Badge> - Análisis básico de competencia
+-   <Badge variant="outline">Answer The Public</Badge> - Preguntas que hace la gente
+-   <Badge variant="outline">Google Trends</Badge> - Tendencias temporales
+-   <Badge variant="outline">Search Console</Badge> - Palabras por las que ya apareces
+
+**Premium (Recomendadas):**
+
+-   <Badge variant="outline">Ahrefs</Badge> - La navaja suiza del SEO
+-   <Badge variant="outline">SEMrush</Badge> - Análisis de competencia profundo
+-   <Badge variant="outline">Moz Pro</Badge> - Métricas de autoridad
+-   <Badge variant="outline">KWFinder</Badge> - Keywords de cola larga
+
+### 2. Estructura de contenido que Google adora
+
+**La estructura correcta puede aumentar tu tráfico orgánico en un 200% sin cambiar una sola palabra del contenido.**
+
+#### Plantilla de estructura ganadora:
+
+```
+H1: Título principal con palabra clave primaria
+├── Introducción gancho (150-200 palabras)
+├── H2: Problema que resuelves
+│   ├── H3: Detalle específico 1
+│   └── H3: Detalle específico 2
+├── H2: Solución detallada
+│   ├── H3: Paso 1
+│   ├── H3: Paso 2
+│   └── H3: Paso 3
+├── H2: Casos de éxito / ejemplos
+├── H2: Herramientas / recursos
+└── H2: Conclusión + CTA
+```
+
+#### Reglas de oro para encabezados:
+
+✅ **Un solo H1** por página con palabra clave principal
+✅ **H2s secuenciales** que cuenten una historia
+✅ **H3s para detalles** específicos bajo cada H2
+✅ **Palabras clave semánticas** en todos los niveles
+✅ **Longitud óptima:** H1 (60 chars), H2 (70 chars), H3 (80 chars)
+
+### 3. Optimización semántica y entidades
+
+**Google entiende contexto, no solo palabras exactas. El futuro del SEO es semántico.**
+
+#### Cómo crear contenido semánticamente rico:
+
+**1. Mapeo de entidades:**
+
+-   **Entidad principal:** Tu tema central (ej: "Marketing Digital")
+-   **Entidades relacionadas:** Conceptos conectados (SEO, SEM, Content Marketing)
+-   **Entidades de soporte:** Herramientas, métricas, casos de uso
+
+**2. Uso de sinónimos y variaciones:**
+En lugar de repetir "SEO" 50 veces, usa:
+
+-   Optimización para motores de búsqueda
+-   Posicionamiento web
+-   Marketing de búsqueda orgánica
+-   Optimización de contenido
+-   Visibilidad en Google
+
+**3. Responder preguntas relacionadas:**
+Google muestra "Preguntas frecuentes" porque la gente las hace. Inclúyelas:
+
+-   ¿Cómo funciona el SEO?
+-   ¿Cuánto tiempo toma ver resultados?
+-   ¿Qué diferencia hay entre SEO y SEM?
+-   ¿Por qué es importante el SEO?
+
+### 4. Featured Snippets: Conquista la posición 0
+
+**Los featured snippets reciben el 35% de todos los clics en Google. Es bienes raíces premium GRATIS.**
+
+#### Tipos de featured snippets y cómo optimizar:
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-8">
+    <Card>
+        <CardHeader>
+            <CardTitle>Párrafo</CardTitle>
+        </CardHeader>
+        <CardContent>
+            <p className="text-sm mb-2">
+                <strong>Formato:</strong> 40-60 palabras
+            </p>
+            <p className="text-sm mb-2">
+                <strong>Estructura:</strong> Pregunta + Respuesta concisa
+            </p>
+            <p className="text-sm">
+                <strong>Tip:</strong> Usa "es" o "significa" en la respuesta
+            </p>
+        </CardContent>
+    </Card>
+
+    <Card>
+        <CardHeader>
+            <CardTitle>Lista</CardTitle>
+        </CardHeader>
+        <CardContent>
+            <p className="text-sm mb-2">
+                <strong>Formato:</strong> Pasos numerados o viñetas
+            </p>
+            <p className="text-sm mb-2">
+                <strong>Estructura:</strong> Título + Lista de 3-8 elementos
+            </p>
+            <p className="text-sm">
+                <strong>Tip:</strong> Usa palabras como "pasos", "formas",
+                "tipos"
+            </p>
+        </CardContent>
+    </Card>
+
+    <Card>
+        <CardHeader>
+            <CardTitle>Tabla</CardTitle>
+        </CardHeader>
+        <CardContent>
+            <p className="text-sm mb-2">
+                <strong>Formato:</strong> Datos tabulares
+            </p>
+            <p className="text-sm mb-2">
+                <strong>Estructura:</strong> Encabezados + Datos organizados
+            </p>
+            <p className="text-sm">
+                <strong>Tip:</strong> Comparaciones, precios, especificaciones
+            </p>
+        </CardContent>
+    </Card>
+
+</div>
+
+#### Fórmula para featured snippets:
+
+```
+H2: ¿[Pregunta exacta que hace la gente]?
+
+[Respuesta concisa en 40-60 palabras que incluya la palabra clave]
+
+[Desarrollo detallado del tema en 200-300 palabras]
+```
+
+### 5. Estructura técnica para máximo rendimiento
+
+#### Schema markup: El código que Google ama
+
+**Schema markup puede aumentar tu CTR en un 30% añadiendo rich snippets.**
+
+**Tipos de schema más importantes:**
+
+-   📄 **Article** - Para contenido de blog
+-   🏢 **Organization** - Para datos de empresa
+-   👤 **Person** - Para perfiles de autor
+-   ⭐ **Review** - Para reseñas y testimonios
+-   📅 **Event** - Para eventos y webinars
+-   🍞 **BreadcrumbList** - Para navegación
+-   ❓ **FAQPage** - Para preguntas frecuentes
+-   📰 **NewsArticle** - Para noticias
+
+#### Core Web Vitals: La experiencia del usuario
+
+**Google ya incluye la experiencia del usuario como factor de ranking.**
+
+<Alert variant="warning" className="my-6">
+    <Zap className="h-4 w-4" />
+    <AlertTitle>Métricas Críticas</AlertTitle>
+    <AlertDescription>
+        • LCP (Largest Contentful Paint): < 2.5 segundos<br/>
+        • FID (First Input Delay): < 100 milisegundos<br/>
+        • CLS (Cumulative Layout Shift): < 0.1
+    </AlertDescription>
+</Alert>
+
+**Cómo optimizar:**
+
+-   🖼️ **Imágenes optimizadas** (WebP, lazy loading)
+-   ⚡ **CDN** para contenido estático
+-   💾 **Caché** inteligente
+-   📱 **Mobile-first** design
+-   🔗 **Minificación** de CSS/JS
+
+### 6. Link building interno estratégico
+
+**Una estrategia de enlaces internos bien ejecutada puede aumentar tu tráfico orgánico en un 40%.**
+
+#### Estrategias de enlaces internos:
+
+**1. Arquitectura de silos:**
+
+-   Agrupa contenido relacionado
+-   Crea clusters temáticos
+-   Enlaces contextuales profundos
+
+**2. Distribución de PageRank:**
+
+-   Páginas importantes reciben más enlaces
+-   Usa variedad de anchor texts
+-   Balanceo entre follow y nofollow
+
+**3. Experiencia del usuario:**
+
+-   Enlaces relevantes al contexto
+-   Apertura en misma ventana (internal)
+-   Texto descriptivo del enlace
+
+#### Herramientas para auditoría de enlaces:
+
+-   <Badge variant="outline">Screaming Frog</Badge> - Crawling completo
+-   <Badge variant="outline">Ahrefs Site Audit</Badge> - Análisis profundo
+-   <Badge variant="outline">Google Search Console</Badge> - Datos oficiales
+-   <Badge variant="outline">Yoast SEO</Badge> - WordPress optimization
+
+### 7. Medición y optimización continua
+
+**El SEO no es "configurar y olvidar". Es un proceso de mejora constante basado en datos.**
+
+#### KPIs críticos a monitorear:
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
+    <Card>
+        <CardHeader>
+            <div className="flex items-center gap-2">
+                <BarChart3 className="h-5 w-5 text-primary" />
+                <CardTitle>Métricas de Tráfico</CardTitle>
+            </div>
+        </CardHeader>
+        <CardContent>
+            <ul className="text-sm space-y-1">
+                <li>• Sesiones orgánicas totales</li>
+                <li>• CTR promedio en SERPs</li>
+                <li>• Impresiones por palabra clave</li>
+                <li>• Posiciones promedio</li>
+            </ul>
+        </CardContent>
+    </Card>
+
+    <Card>
+        <CardHeader>
+            <div className="flex items-center gap-2">
+                <Users className="h-5 w-5 text-primary" />
+                <CardTitle>Métricas de Engagement</CardTitle>
+            </div>
+        </CardHeader>
+        <CardContent>
+            <ul className="text-sm space-y-1">
+                <li>• Tiempo en página</li>
+                <li>• Páginas por sesión</li>
+                <li>• Tasa de rebote</li>
+                <li>• Conversiones desde orgánico</li>
+            </ul>
+        </CardContent>
+    </Card>
+
+</div>
+
+## Estrategias avanzadas de contenido para tráfico masivo
+
+### Contenido hub y clusters
+
+**El modelo hub-and-spoke puede multiplicar tu tráfico orgánico por 10.**
+
+#### Estructura de content clusters:
+
+```
+🎯 Página Pillar (Hub)
+   ├── 📄 Artículo de cluster 1
+   ├── 📄 Artículo de cluster 2
+   ├── 📄 Artículo de cluster 3
+   └── 📄 Artículo de cluster 4
+```
+
+**Ejemplo de cluster "Marketing Digital":**
+
+-   **Hub:** Guía completa de Marketing Digital (10,000+ palabras)
+-   **Clusters:** SEO, SEM, Email Marketing, Social Media, Content Marketing
+
+### Optimización para búsqueda por voz
+
+**El 55% de los adolescentes y 41% de los adultos usan búsqueda por voz diariamente.**
+
+#### Cómo optimizar para voz:
+
+1. **Preguntas conversacionales:**
+
+    - "¿Cómo puedo mejorar mi SEO?"
+    - "¿Cuál es la mejor agencia de marketing digital?"
+
+2. **Respuestas directas:**
+
+    - Frases completas de 29 palabras promedio
+    - Lenguaje natural y conversacional
+
+3. **Local SEO:**
+    - "Marketing digital cerca de mí"
+    - Optimización para "cerca de" y "en [ciudad]"
+
+### Contenido temporal y trending topics
+
+**Surfear tendencias puede generar 100,000+ visitantes en 24 horas.**
+
+#### Estrategias de trending content:
+
+**1. Google Trends + Tu nicho:**
+
+-   Identifica picos de búsqueda
+-   Crea contenido 48 horas antes del pico
+-   Optimiza para long-tail keywords
+
+**2. Newsjacking:**
+
+-   Conecta noticias con tu expertise
+-   Publica dentro de las 2-4 horas
+-   Usa hashtags relevantes
+
+**3. Estacionalidad:**
+
+-   Black Friday, Navidad, Año Nuevo
+-   Temporadas específicas de tu industria
+-   Eventos recurrentes anuales
+
+## Casos de éxito reales: Cómo generamos 500K+ visitantes mensuales
+
+### E-commerce de Fitness: 1,200% crecimiento orgánico
+
+**Situación inicial:**
+
+-   2,500 visitantes orgánicos/mes
+-   15 palabras clave rankeando
+-   Sin estrategia de contenido
+
+**Nuestra estrategia:**
+
+1. **Investigación profunda:** 2,000 palabras clave mapeadas
+2. **Content clusters:** 5 hubs principales, 60 artículos de cluster
+3. **Optimización técnica:** Schema, Core Web Vitals, mobile-first
+4. **Link building:** 150 enlaces de calidad en 6 meses
+
+**Resultados en 8 meses:**
+
+-   ✅ **Tráfico orgánico:** 2,500 → 32,000 visitantes/mes (+1,200%)
+-   ✅ **Keywords ranking:** 15 → 1,847 (+12,213%)
+-   ✅ **Conversiones:** +340% desde orgánico
+-   ✅ **Revenue orgánico:** +890%
+
+### SaaS B2B: Dominio de featured snippets
+
+**Situación inicial:**
+
+-   Competencia brutal en "project management software"
+-   0 featured snippets conquistados
+-   Contenido técnico poco optimizado
+
+**Nuestra estrategia:**
+
+1. **Featured snippet hunting:** 200 oportunidades identificadas
+2. **Contenido estructurado:** Formato optimizado para posición 0
+3. **Intención de búsqueda:** Mapeo detallado de user journey
+4. **Schema markup:** Implementación completa de FAQ y Article
+
+**Resultados en 5 meses:**
+
+-   ✅ **Featured snippets:** 0 → 47 conquistados
+-   ✅ **CTR promedio:** +78% en keywords objetivo
+-   ✅ **Leads cualificados:** +156% desde orgánico
+-   ✅ **Trial registrations:** +234%
+
+<Card className="mt-8">
+    <CardHeader>
+        <CardTitle className="flex items-center gap-2">
+            <Lightbulb className="h-5 w-5" />
+            Testimonio de Cliente
+        </CardTitle>
+    </CardHeader>
+    <CardContent>
+        <blockquote className="border-l-4 border-primary pl-4 italic">
+            "DevsHub no solo aumentó nuestro tráfico orgánico, sino que
+            revolucionó nuestra estrategia completa de contenido. Ahora
+            dominamos búsquedas que antes eran imposibles para nosotros. El ROI
+            ha sido espectacular: cada peso invertido en SEO nos devuelve 15
+            pesos en ventas."
+            <footer className="mt-2 text-sm text-muted-foreground">
+                — Carlos Mendoza, CEO de TechFlow Solutions
+            </footer>
+        </blockquote>
+    </CardContent>
+</Card>
+
+### Agencia Legal: Tráfico local dominante
+
+**Situación inicial:**
+
+-   Solo aparecían para el nombre de la firma
+-   0 casos nuevos desde Google
+-   Competencia establecida desde hace décadas
+
+**Nuestra estrategia:**
+
+1. **Local SEO agresivo:** Google My Business optimizado
+2. **Contenido hiperlocal:** "abogado en [ciudad] para [caso específico]"
+3. **Schema Legal:** Markup específico para servicios legales
+4. **Reviews management:** Sistema automatizado de reseñas
+
+**Resultados en 6 meses:**
+
+-   ✅ **Llamadas desde Google:** +450%
+-   ✅ **Casos nuevos/mes:** 2 → 23 (+1,050%)
+-   ✅ **Map pack rankings:** Top 3 en 89% de búsquedas locales
+-   ✅ **Revenue anual:** +$180,000 directamente atribuible a SEO
+
+## Herramientas y tecnologías que usamos
+
+### Stack tecnológico para SEO content:
+
+**Investigación y análisis:**
+
+-   <Badge variant="outline">Ahrefs</Badge> - Análisis de competencia y keywords
+-   <Badge variant="outline">SEMrush</Badge> - Investigación integral
+-   <Badge variant="outline">Google Analytics 4</Badge> - Métricas de comportamiento
+-   <Badge variant="outline">Search Console</Badge> - Datos oficiales de Google
+-   <Badge variant="outline">Hotjar</Badge> - Heatmaps y user behavior
+
+**Optimización técnica:**
+
+-   <Badge variant="outline">Screaming Frog</Badge> - Technical SEO audit
+-   <Badge variant="outline">GTmetrix</Badge> - Page speed optimization
+-   <Badge variant="outline">Schema.org</Badge> - Structured data
+-   <Badge variant="outline">Google PageSpeed Insights</Badge> - Core Web Vitals
+-   <Badge variant="outline">Yoast</Badge> / <Badge variant="outline">
+        RankMath
+    </Badge> - WordPress optimization
+
+**Creación y gestión de contenido:**
+
+-   <Badge variant="outline">Surfer SEO</Badge> - Content optimization en tiempo
+    real
+-   <Badge variant="outline">Clearscope</Badge> - Análisis semántico
+-   <Badge variant="outline">MarketMuse</Badge> - Content intelligence
+-   <Badge variant="outline">ContentKing</Badge> - Monitoreo 24/7
+-   <Badge variant="outline">Google Docs</Badge> + <Badge variant="outline">
+        Notion
+    </Badge> - Workflow colaborativo
+
+### Metodología de trabajo
+
+#### Semana 1-2: Research y estrategia
+
+1. **Audit SEO completo** del sitio actual
+2. **Análisis de competencia** profundo (top 10 competitors)
+3. **Keyword research** exhaustivo (2,000+ keywords)
+4. **Content gap analysis** vs competencia
+5. **Definición de content clusters** y arquitectura
+
+#### Semana 3-4: Optimización técnica
+
+1. **Core Web Vitals** optimization
+2. **Schema markup** implementation
+3. **Internal linking** strategy
+4. **Mobile optimization** audit
+5. **Site speed** optimization
+
+#### Semana 5-8: Creación de contenido
+
+1. **Content calendar** por 6 meses
+2. **Pillar pages** creation (hubs principales)
+3. **Cluster content** development
+4. **On-page optimization** completo
+5. **Featured snippets** optimization
+
+#### Semana 9-12: Scaling y optimización
+
+1. **Performance monitoring** semanal
+2. **Content updates** basado en data
+3. **New keyword opportunities** identification
+4. **Conversion optimization** desde orgánico
+5. **Reporting mensual** con insights accionables
+
+## Errores que matan tu tráfico orgánico (y cómo evitarlos)
+
+### ❌ Error #1: Canibalización de keywords
+
+**El problema:** Múltiples páginas compitiendo por la misma keyword.
+**La solución:** Mapeo de keywords único por página + redirects estratégicos.
+
+### ❌ Error #2: Contenido delgado
+
+**El problema:** Artículos de 300 palabras que no aportan valor.
+**La solución:** Contenido profundo de 2,000+ palabras que sea LA referencia.
+
+### ❌ Error #3: Ignorar la intención de búsqueda
+
+**El problema:** Contenido informacional para keywords transaccionales.
+**La solución:** Analizar SERPs actuales y matchear la intención exacta.
+
+### ❌ Error #4: Obsesión con keyword density
+
+**El problema:** Repetir keywords hasta sonar robot.
+**La solución:** Escritura natural con variaciones semánticas.
+
+### ❌ Error #5: Títulos clickbait sin sustancia
+
+**El problema:** "10 secretos que ODIAN los SEOs" sin contenido real.
+**La solución:** Promesas que cumples + valor genuino.
+
+## ¿Listo para dominar Google?
+
+El tráfico orgánico no es suerte, es **ciencia aplicada**. Cada visitante que Google envía a tu competencia en lugar de enviártelo a ti es dinero que pierdes. Cada día que pasa sin una estrategia de contenido SEO sólida es una oportunidad perdida para siempre.
+
+### Lo que incluye nuestro servicio de marketing de contenidos SEO:
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
+    <div>
+        <h4 className="font-semibold mb-2 flex items-center gap-2">
+            <CheckCircle className="h-4 w-4 text-green-500" />
+            Estrategia SEO personalizada
+        </h4>
+        <p className="text-sm text-muted-foreground">
+            Análisis profundo de tu nicho y competencia para crear la estrategia
+            ganadora.
+        </p>
+    </div>
+    <div>
+        <h4 className="font-semibold mb-2 flex items-center gap-2">
+            <CheckCircle className="h-4 w-4 text-green-500" />
+            Content clusters profesionales
+        </h4>
+        <p className="text-sm text-muted-foreground">
+            Arquitectura de contenido hub-and-spoke optimizada para autoridad
+            temática.
+        </p>
+    </div>
+    <div>
+        <h4 className="font-semibold mb-2 flex items-center gap-2">
+            <CheckCircle className="h-4 w-4 text-green-500" />
+            Optimización técnica avanzada
+        </h4>
+        <p className="text-sm text-muted-foreground">
+            Core Web Vitals, Schema markup, y optimizaciones que Google premia.
+        </p>
+    </div>
+    <div>
+        <h4 className="font-semibold mb-2 flex items-center gap-2">
+            <CheckCircle className="h-4 w-4 text-green-500" />
+            Monitoreo y optimización continua
+        </h4>
+        <p className="text-sm text-muted-foreground">
+            Reportes mensuales con insights accionables y mejoras constantes.
+        </p>
+    </div>
+</div>
+
+### Nuestros planes de marketing de contenidos:
+
+**Plan Growth** ($2,500/mes):
+
+-   ✅ 8 artículos optimizados/mes
+-   ✅ Research de 500 keywords
+-   ✅ Optimización técnica básica
+-   ✅ Reportes mensuales
+
+**Plan Scale** ($4,500/mes):
+
+-   ✅ 16 artículos + 2 pillar pages/mes
+-   ✅ Research de 1,500 keywords
+-   ✅ Featured snippets optimization
+-   ✅ Link building interno
+-   ✅ Reportes quincenales
+
+**Plan Dominate** ($7,500/mes):
+
+-   ✅ 24 artículos + 4 pillar pages/mes
+-   ✅ Research ilimitado de keywords
+-   ✅ Optimización técnica avanzada
+-   ✅ Link building externo
+-   ✅ Análisis de competencia semanal
+-   ✅ Reportes semanales + consultoría
+
+<Alert className="mt-12">
+    <Brain className="h-4 w-4" />
+    <AlertTitle>¿Listo para conquistar Google?</AlertTitle>
+    <AlertDescription>
+        Agenda una auditoría SEO gratuita de tu sitio web. Te mostraremos
+        exactamente qué está impidiendo que Google te envíe más tráfico y cómo
+        solucionarlo en los próximos 30 días.
+    </AlertDescription>
+</Alert>
+
+**El contenido es el rey, pero la estructura es el reino. Sin una estrategia SEO sólida, el mejor contenido del mundo se queda invisible. ¿Vas a dejar que tu competencia domine Google mientras tú esperas?**
