@@ -1,0 +1,239 @@
+---
+import { ArrowUpRight } from "lucide-react";
+import { Badge } from "../ui/badge";
+
+import type { CollectionEntry } from "astro:content";
+
+type BlogPost = CollectionEntry<"blog">;
+
+export interface Blog {
+    title: string;
+    summary: string;
+    label: string;
+    author: string;
+    published: Date;
+    updatedDate?: Date;
+    heroImage?: string;
+    imageAvatar?: string;
+}
+
+export interface Props {
+    posts: BlogPost[];
+    featuredPost?: BlogPost;
+    title?: string;
+    subtitle?: string;
+    eyebrow?: string;
+}
+
+const {
+    posts = [],
+    featuredPost,
+    title = "Blog",
+    subtitle = "Descubre insights y estrategias para hacer crecer tu negocio digital",
+    eyebrow = "Contenido exclusivo",
+} = Astro.props;
+
+console.log(posts);
+
+// Helper function to format dates
+const formatDate = (date: Date | string) => {
+    if (typeof date === "string") return date;
+    return date.toLocaleDateString("es-ES", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+    });
+};
+---
+
+<style>
+    .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .line-clamp-3 {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+    }
+
+    .aspect-4-3 {
+        aspect-ratio: 4 / 3;
+    }
+
+    .aspect-8-5 {
+        aspect-ratio: 8 / 5;
+    }
+
+    .aspect-3-2 {
+        aspect-ratio: 3 / 2;
+    }
+</style>
+
+<section class="py-32">
+    <div class="container mx-auto px-2">
+        <div class="mb-8 md:mb-14 lg:mb-16">
+            <p
+                class="text-wider mb-4 text-sm font-medium text-muted-foreground"
+            >
+                {eyebrow}
+            </p>
+            <h1
+                class="mb-4 w-full text-4xl font-medium md:mb-5 md:text-5xl lg:mb-6 lg:text-6xl"
+            >
+                {title}
+            </h1>
+            <p>{subtitle}</p>
+        </div>
+
+        {
+            featuredPost && (
+                <a
+                    href={`/blog/${featuredPost.id}`}
+                    class="group relative mb-8 block md:mb-14 md:overflow-clip md:rounded-xl lg:mb-16"
+                >
+                    <div class="mb-4 aspect-4-3 overflow-clip rounded-xl md:mb-0 md:aspect-8-5 lg:rounded-2xl">
+                        <div class="h-full w-full transition duration-300 group-hover:scale-105">
+                            <img
+                                src={featuredPost.data.heroImage}
+                                alt={featuredPost.data.title}
+                                class="relative h-full w-full object-cover object-center"
+                            />
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-6 md:absolute md:inset-x-0 md:bottom-0 md:bg-gradient-to-t md:from-black/80 md:to-transparent md:p-8 md:pt-24 md:text-white">
+                        <div>
+                            <div class="mb-4 md:hidden">
+                                <Badge>{featuredPost.data.label}</Badge>
+                            </div>
+                            <div class="mb-2 flex">
+                                <div class="flex-1 text-lg font-medium md:text-2xl lg:text-3xl">
+                                    {featuredPost.data.title}
+                                </div>
+                                <ArrowUpRight className="size-6" />
+                            </div>
+                            <div class="text-sm md:text-base">
+                                {featuredPost.data.summary}
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <div class="hidden flex-1 gap-8 md:flex lg:flex-row">
+                                <div class="flex flex-col">
+                                    <span class="mb-2 text-xs font-medium">
+                                        Escrito por
+                                    </span>
+                                    <div class="flex flex-1 items-center gap-3">
+                                        <img
+                                            src={
+                                                featuredPost.data.imageAvatar ||
+                                                "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-1.webp"
+                                            }
+                                            alt="Avatar del autor"
+                                            class="size-10 rounded-full object-cover"
+                                        />
+                                        <span class="text-xs font-medium">
+                                            {featuredPost.data.author}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="mb-2 text-xs font-medium">
+                                        Publicado en
+                                    </span>
+                                    <div class="flex flex-1 items-center">
+                                        <span class="text-sm font-medium">
+                                            {formatDate(
+                                                featuredPost.data.published
+                                            )}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2 md:hidden">
+                                <img
+                                    src={
+                                        featuredPost.data.imageAvatar ||
+                                        "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-1.webp"
+                                    }
+                                    alt="Avatar del autor"
+                                    class="size-12 rounded-full object-cover"
+                                />
+                                <div class="flex flex-col gap-px">
+                                    <span class="text-xs font-medium">
+                                        {featuredPost.data.author}
+                                    </span>
+                                    <span class="text-xs text-muted-foreground">
+                                        {formatDate(
+                                            featuredPost.data.published
+                                        )}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="hidden flex-col md:flex">
+                                <span class="mb-2 text-xs font-medium">
+                                    Categoría
+                                </span>
+                                <div class="flex flex-1 items-center gap-2">
+                                    <Badge>{featuredPost.data.label}</Badge>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            )
+        }
+
+        <div
+            class="grid gap-x-4 gap-y-8 md:grid-cols-2 lg:gap-x-6 lg:gap-y-12 2xl:grid-cols-3"
+        >
+            {
+                posts.map((post) => (
+                    <a href={`/blog/${post.id}`} class="group flex flex-col">
+                        <div class="mb-4 flex overflow-clip rounded-xl md:mb-5">
+                            <div class="h-full w-full transition duration-300 group-hover:scale-105">
+                                <img
+                                    src={post.data.heroImage}
+                                    alt={post.data.title}
+                                    class="aspect-3-2 h-full w-full object-cover object-center"
+                                />
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <Badge>{post.data.label}</Badge>
+                        </div>
+                        <div class="mb-2 line-clamp-3 text-lg font-medium break-words md:mb-3 md:text-xl lg:text-2xl">
+                            {post.data.title}
+                        </div>
+                        <div class="mb-4 line-clamp-2 text-sm text-muted-foreground md:mb-5 md:text-base">
+                            {post.data.summary}
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <img
+                                src={
+                                    post.data.imageAvatar ||
+                                    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-1.webp"
+                                }
+                                alt="Avatar del autor"
+                                class="size-12 rounded-full object-cover"
+                            />
+                            <div class="flex flex-col gap-px">
+                                <span class="text-xs font-medium">
+                                    {post.data.author}
+                                </span>
+                                <span class="text-xs text-muted-foreground">
+                                    {formatDate(post.data.published)}
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                ))
+            }
+        </div>
+
+        <div class="mt-8 border-t border-border py-2 md:mt-10 lg:mt-12"></div>
+    </div>
+</section>
