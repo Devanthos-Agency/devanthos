@@ -29,7 +29,7 @@ export default function AnimatedBeamIllustration() {
                 <div className="relative z-10 flex h-100 w-full items-center justify-center rounded-3xl lg:w-0">
                     <div
                         ref={div1Ref}
-                        className="absolute top-40 left-0 z-10 flex size-18 -translate-y-1/2 items-center justify-center rounded-full bg-transparent p-1 lg:top-1/2 lg:left-0"
+                        className="absolute top-40 left-0 z-10 flex size-18 -translate-y-1/2 items-center justify-center rounded-full bg-transparent p-1 lg:top-1/2 lg:left-0 before:content-[''] before:absolute before:inset-0 before:-z-10 before:rounded-full before:bg-white before:drop-shadow-[0_0px_7px_rgba(255,255,255,0.65)] before:animate-aurora before:ease-in-out"
                     >
                         <HoverCard>
                             <HoverCardTrigger>
@@ -55,7 +55,7 @@ export default function AnimatedBeamIllustration() {
                     </div>
                     <div
                         ref={div2Ref}
-                        className="absolute top-40 right-0 z-10 flex size-18 -translate-y-1/2 items-center justify-center rounded-full bg-transparent p-1 lg:top-20 lg:left-20"
+                        className="absolute top-40 right-0 z-10 flex size-18 -translate-y-1/2 items-center justify-center rounded-full bg-transparent p-1 lg:top-20 lg:left-20 before:content-[''] before:absolute before:inset-0 before:-z-10 before:rounded-full before:bg-white before:drop-shadow-[0_0px_7px_rgba(255,255,255,0.65)] before:animate-aurora before:ease-in-out"
                     >
                         <HoverCard>
                             <HoverCardTrigger>
@@ -78,7 +78,7 @@ export default function AnimatedBeamIllustration() {
                     </div>
                     <div
                         ref={div3Ref}
-                        className="absolute bottom-0 left-6 z-10 flex size-18 -translate-y-1/2 items-center justify-center rounded-full bg-transparent p-1 lg:bottom-2 lg:left-20"
+                        className="absolute bottom-0 left-6 z-10 flex size-18 -translate-y-1/2 items-center justify-center rounded-full bg-transparent p-1 lg:bottom-2 lg:left-20 before:content-[''] before:absolute before:inset-0 before:-z-10 before:rounded-full before:bg-white before:drop-shadow-[0_0px_7px_rgba(255,255,255,0.65)] before:animate-aurora before:ease-in-out"
                     >
                         <HoverCard>
                             <HoverCardTrigger>
@@ -101,7 +101,7 @@ export default function AnimatedBeamIllustration() {
                     </div>
                     <div
                         ref={div4Ref}
-                        className="absolute right-6 bottom-0 z-10 flex size-18 -translate-y-1/2 items-center justify-center rounded-full bg-transparent p-1 lg:top-0 lg:left-50"
+                        className="absolute right-6 bottom-0 z-10 flex size-18 -translate-y-1/2 items-center justify-center rounded-full bg-transparent p-1 lg:top-0 lg:left-50 before:content-[''] before:absolute before:inset-0 before:-z-10 before:rounded-full before:bg-white before:drop-shadow-[0_0px_7px_rgba(255,255,255,0.65)] before:animate-aurora before:ease-in-out"
                     >
                         <HoverCard>
                             <HoverCardTrigger>
@@ -126,7 +126,7 @@ export default function AnimatedBeamIllustration() {
                     </div>
                     <div
                         ref={div5Ref}
-                        className="absolute top-20 z-10 flex size-18 -translate-y-1/2 items-center justify-center rounded-full bg-transparent p-1 lg:top-100 lg:left-50"
+                        className="absolute top-20 z-10 flex size-18 -translate-y-1/2 items-center justify-center rounded-full bg-transparent p-1 lg:top-100 lg:left-50 before:content-[''] before:absolute before:inset-0 before:-z-10 before:rounded-full before:bg-white before:drop-shadow-[0_0px_7px_rgba(255,255,255,0.65)] before:animate-aurora before:ease-in-out"
                     >
                         <HoverCard>
                             <HoverCardTrigger>
