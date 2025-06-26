@@ -1,0 +1,26 @@
+---
+import BlogsPost from "@/components/interfaces/BlogsPost.astro";
+import Layout from "@/layouts/Layout.astro";
+import { type CollectionEntry, getCollection } from "astro:content";
+
+const posts = await getCollection("blog");
+
+type Props = CollectionEntry<"blog">;
+export const prerender = true;
+
+// Usar el primer post como featured post
+const featuredPost = posts[0];
+---
+
+<Layout
+    title="Blogs - Devs hub"
+    description="En Devs hub encontrarás artículos y recursos sobre desarrollo web, marketing digital y más. Aprende de nuestros expertos y mantente al día con las últimas tendencias del sector."
+>
+    <BlogsPost
+        posts={posts}
+        featuredPost={featuredPost}
+        title="Blog DevsHub"
+        subtitle="Insights, estrategias y herramientas para impulsar tu negocio digital"
+        eyebrow="Contenido exclusivo"
+    />
+</Layout>
