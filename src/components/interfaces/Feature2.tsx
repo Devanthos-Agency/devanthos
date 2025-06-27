@@ -18,10 +18,12 @@ export default function ContainerScrollSection() {
                                 </span>
                                 <AuroraText
                                     colors={[
-                                        "#ff6449",
-                                        "#ff6449",
-                                        "#6248fe",
-                                        "#6248fe",
+                                        "#a559a5",
+                                        "#a559a5",
+                                        "#f182f1",
+                                        "#f182f1",
+                                        "#be66be",
+                                        "#be66be",
                                     ]}
                                 >
                                     Devs Hub
