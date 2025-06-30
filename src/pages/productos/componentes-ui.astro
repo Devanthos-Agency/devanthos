@@ -60,27 +60,27 @@ const components = [
 const features = [
     {
         icon: Code,
-        title: "TypeScript First",
+        title: "Inspirado en shadcn/ui",
         description:
-            "Todos nuestros componentes están escritos en TypeScript con tipos completos.",
+            "Arquitectura basada en shadcn/ui con componentes headless y primitivos de Radix UI.",
     },
     {
         icon: Palette,
-        title: "Altamente Customizable",
+        title: "Estilo daisyUI y NextUI",
         description:
-            "Modifica colores, tamaños y estilos usando CSS variables y clases utilitarias.",
+            "Combina la elegancia de NextUI con la simplicidad de daisyUI en una experiencia cohesiva.",
     },
     {
         icon: Zap,
-        title: "Optimizado para Performance",
+        title: "Copy & Paste Ready",
         description:
-            "Componentes ligeros con tree-shaking automático para bundles más pequeños.",
+            "Al estilo shadcn/ui: copia el código y personalízalo según tus necesidades específicas.",
     },
     {
         icon: CheckCircle,
-        title: "Accesibilidad Incorporada",
+        title: "Accesibilidad First",
         description:
-            "Cumple con estándares WCAG 2.1 AA para una experiencia inclusiva.",
+            "Basado en Radix UI primitives como shadcn/ui, garantizando accesibilidad WCAG 2.1 AA.",
     },
 ];
 ---
@@ -103,9 +103,10 @@ const features = [
                         > Moderna
                     </h1>
                     <p class="text-xl text-muted-foreground mb-8">
-                        Más de 50 componentes pre-construidos, probados y listos
-                        para usar en tus proyectos. Ahorra tiempo y mantén
-                        consistencia en tu diseño.
+                        Biblioteca completa inspirada en shadcn/ui, daisyUI y
+                        NextUI. Más de 50 componentes pre-construidos, probados
+                        y listos para usar con Tailwind CSS, React y frameworks
+                        modernos.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
                         <a
@@ -135,8 +136,8 @@ const features = [
                         ¿Por qué elegir nuestros componentes?
                     </h2>
                     <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Cada componente está diseñado con las mejores prácticas
-                        y estándares de la industria.
+                        Combinamos lo mejor de shadcn/ui, daisyUI y NextUI en
+                        una biblioteca cohesiva y moderna.
                     </p>
                 </div>
 
@@ -166,6 +167,233 @@ const features = [
             </div>
         </section>
 
+        <!-- Libraries Comparison -->
+        <section class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Lo mejor de cada biblioteca
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-3xl mx-auto">
+                        Nuestra biblioteca combina las fortalezas de las mejores
+                        herramientas de UI del ecosistema React y Tailwind CSS.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+                >
+                    <Card
+                        className="border-0 shadow-lg relative overflow-hidden"
+                    >
+                        <div
+                            class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-500 to-red-500"
+                        >
+                        </div>
+                        <CardHeader className="text-center pb-4">
+                            <div
+                                class="mx-auto mb-4 p-4 rounded-lg bg-orange-100 dark:bg-orange-900/20 w-fit"
+                            >
+                                <Code className="w-10 h-10 text-orange-600" />
+                            </div>
+                            <CardTitle className="text-2xl">
+                                shadcn/ui
+                            </CardTitle>
+                            <Badge
+                                variant="secondary"
+                                className="w-fit mx-auto mt-2"
+                            >
+                                Copy & Paste
+                            </Badge>
+                        </CardHeader>
+                        <CardContent className="space-y-4">
+                            <p class="text-muted-foreground text-center">
+                                Arquitectura headless con primitivos de Radix UI
+                            </p>
+                            <ul class="space-y-2">
+                                <li class="flex items-center gap-2">
+                                    <CheckCircle
+                                        className="w-4 h-4 text-green-500 flex-shrink-0"
+                                    />
+                                    <span class="text-sm"
+                                        >Primitivos de Radix UI</span
+                                    >
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <CheckCircle
+                                        className="w-4 h-4 text-green-500 flex-shrink-0"
+                                    />
+                                    <span class="text-sm"
+                                        >Totalmente customizable</span
+                                    >
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <CheckCircle
+                                        className="w-4 h-4 text-green-500 flex-shrink-0"
+                                    />
+                                    <span class="text-sm"
+                                        >TypeScript nativo</span
+                                    >
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <CheckCircle
+                                        className="w-4 h-4 text-green-500 flex-shrink-0"
+                                    />
+                                    <span class="text-sm"
+                                        >No hay dependencias externas</span
+                                    >
+                                </li>
+                            </ul>
+                        </CardContent>
+                    </Card>
+
+                    <Card
+                        className="border-0 shadow-lg relative overflow-hidden"
+                    >
+                        <div
+                            class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-pink-500"
+                        >
+                        </div>
+                        <CardHeader className="text-center pb-4">
+                            <div
+                                class="mx-auto mb-4 p-4 rounded-lg bg-purple-100 dark:bg-purple-900/20 w-fit"
+                            >
+                                <Palette
+                                    className="w-10 h-10 text-purple-600"
+                                />
+                            </div>
+                            <CardTitle className="text-2xl">
+                                daisyUI
+                            </CardTitle>
+                            <Badge
+                                variant="secondary"
+                                className="w-fit mx-auto mt-2"
+                            >
+                                CSS Classes
+                            </Badge>
+                        </CardHeader>
+                        <CardContent className="space-y-4">
+                            <p class="text-muted-foreground text-center">
+                                Componentes semánticos con clases CSS simples
+                            </p>
+                            <ul class="space-y-2">
+                                <li class="flex items-center gap-2">
+                                    <CheckCircle
+                                        className="w-4 h-4 text-green-500 flex-shrink-0"
+                                    />
+                                    <span class="text-sm"
+                                        >Sintaxis intuitiva</span
+                                    >
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <CheckCircle
+                                        className="w-4 h-4 text-green-500 flex-shrink-0"
+                                    />
+                                    <span class="text-sm">Múltiples temas</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <CheckCircle
+                                        className="w-4 h-4 text-green-500 flex-shrink-0"
+                                    />
+                                    <span class="text-sm"
+                                        >Framework agnóstico</span
+                                    >
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <CheckCircle
+                                        className="w-4 h-4 text-green-500 flex-shrink-0"
+                                    />
+                                    <span class="text-sm"
+                                        >Fácil implementación</span
+                                    >
+                                </li>
+                            </ul>
+                        </CardContent>
+                    </Card>
+
+                    <Card
+                        className="border-0 shadow-lg relative overflow-hidden"
+                    >
+                        <div
+                            class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-cyan-500"
+                        >
+                        </div>
+                        <CardHeader className="text-center pb-4">
+                            <div
+                                class="mx-auto mb-4 p-4 rounded-lg bg-blue-100 dark:bg-blue-900/20 w-fit"
+                            >
+                                <Zap className="w-10 h-10 text-blue-600" />
+                            </div>
+                            <CardTitle className="text-2xl"> NextUI </CardTitle>
+                            <Badge
+                                variant="secondary"
+                                className="w-fit mx-auto mt-2"
+                            >
+                                Modern Design
+                            </Badge>
+                        </CardHeader>
+                        <CardContent className="space-y-4">
+                            <p class="text-muted-foreground text-center">
+                                Componentes modernos con diseño elegante
+                            </p>
+                            <ul class="space-y-2">
+                                <li class="flex items-center gap-2">
+                                    <CheckCircle
+                                        className="w-4 h-4 text-green-500 flex-shrink-0"
+                                    />
+                                    <span class="text-sm">Diseño moderno</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <CheckCircle
+                                        className="w-4 h-4 text-green-500 flex-shrink-0"
+                                    />
+                                    <span class="text-sm"
+                                        >Animaciones fluidas</span
+                                    >
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <CheckCircle
+                                        className="w-4 h-4 text-green-500 flex-shrink-0"
+                                    />
+                                    <span class="text-sm">Theming avanzado</span
+                                    >
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <CheckCircle
+                                        className="w-4 h-4 text-green-500 flex-shrink-0"
+                                    />
+                                    <span class="text-sm"
+                                        >Performance optimizada</span
+                                    >
+                                </li>
+                            </ul>
+                        </CardContent>
+                    </Card>
+                </div>
+
+                <div class="text-center mt-12">
+                    <Card
+                        className="max-w-4xl mx-auto border-2 border-primary/20 bg-primary/5"
+                    >
+                        <CardHeader>
+                            <CardTitle className="text-xl text-primary">
+                                🎯 Nuestra Propuesta de Valor
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p class="text-muted-foreground">
+                                Combinamos la <strong
+                                    >flexibilidad de shadcn/ui</strong
+                                >, la <strong>simplicidad de daisyUI</strong> y el
+                                <strong>diseño moderno de NextUI</strong> en una
+                                biblioteca cohesiva que se adapta a cualquier proyecto.
+                            </p>
+                        </CardContent>
+                    </Card>
+                </div>
+            </div>
+        </section>
+
         <!-- Components Grid -->
         <section id="componentes" class="py-20 bg-muted/30">
             <div class="container mx-auto px-4">
@@ -173,9 +401,10 @@ const features = [
                     <h2 class="text-3xl md:text-4xl font-bold mb-4">
                         Catálogo de Componentes
                     </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Explora nuestra colección completa de componentes
-                        organizados por categorías.
+                    <p class="text-lg text-muted-foreground max-w-3xl mx-auto">
+                        Explora nuestra colección inspirada en shadcn/ui,
+                        daisyUI y NextUI. Cada componente está optimizado para
+                        Tailwind CSS y frameworks modernos.
                     </p>
                 </div>
 
@@ -214,76 +443,178 @@ const features = [
                 <div class="max-w-4xl mx-auto">
                     <div class="text-center mb-12">
                         <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                            Instalación Rápida
+                            Múltiples Opciones de Instalación
                         </h2>
                         <p class="text-lg text-muted-foreground">
-                            Comienza a usar nuestros componentes en minutos con
-                            estos simples pasos.
+                            Elige el método que mejor se adapte a tu proyecto:
+                            shadcn/ui CLI, NPM package o CDN.
                         </p>
                     </div>
 
+                    <!-- Tabs-like Section -->
                     <div class="space-y-8">
+                        <!-- Shadcn/ui Style -->
                         <Card className="border-0 shadow-md">
                             <CardHeader>
                                 <CardTitle className="flex items-center gap-2">
                                     <span
-                                        class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold"
+                                        class="flex items-center justify-center w-8 h-8 rounded-full bg-orange-500 text-white text-sm font-bold"
                                         >1</span
                                     >
-                                    Instalar paquete
+                                    Estilo shadcn/ui (Copy & Paste)
                                 </CardTitle>
+                                <p class="text-sm text-muted-foreground">
+                                    Copia los componentes directamente en tu
+                                    proyecto
+                                </p>
                             </CardHeader>
                             <CardContent>
                                 <div
                                     class="bg-muted rounded-lg p-4 font-mono text-sm"
                                 >
-                                    npm install @devshub/ui-components
+                                    <div class="text-green-600">
+                                        # Instalar CLI
+                                    </div>
+                                    <div>npx @devshub/ui-cli@latest init</div>
+                                    <div class="mt-2 text-green-600">
+                                        # Agregar componente
+                                    </div>
+                                    <div>
+                                        npx @devshub/ui-cli@latest add button
+                                    </div>
                                 </div>
                             </CardContent>
                         </Card>
 
+                        <!-- daisyUI Style -->
                         <Card className="border-0 shadow-md">
                             <CardHeader>
                                 <CardTitle className="flex items-center gap-2">
                                     <span
-                                        class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold"
+                                        class="flex items-center justify-center w-8 h-8 rounded-full bg-purple-500 text-white text-sm font-bold"
                                         >2</span
                                     >
-                                    Importar componentes
+                                    Estilo daisyUI (CSS Plugin)
                                 </CardTitle>
+                                <p class="text-sm text-muted-foreground">
+                                    Agrega como plugin de Tailwind CSS
+                                </p>
                             </CardHeader>
                             <CardContent>
                                 <div
                                     class="bg-muted rounded-lg p-4 font-mono text-sm"
                                 >
-                                    <div>
-                                        import {`{ Button, Card, Input }`} from '@devshub/ui-components';
+                                    <div class="text-green-600">
+                                        # Instalar plugin
                                     </div>
-                                    <div class="mt-2">
-                                        import
-                                        '@devshub/ui-components/styles.css';
+                                    <div>npm install @devshub/tailwind-ui</div>
+                                    <div class="mt-2 text-blue-600">
+                                        // tailwind.config.js
+                                    </div>
+                                    <div>
+                                        plugins:
+                                        [require('@devshub/tailwind-ui')]
                                     </div>
                                 </div>
                             </CardContent>
                         </Card>
 
+                        <!-- NextUI Style -->
                         <Card className="border-0 shadow-md">
                             <CardHeader>
                                 <CardTitle className="flex items-center gap-2">
                                     <span
-                                        class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold"
+                                        class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-500 text-white text-sm font-bold"
                                         >3</span
                                     >
-                                    Usar en tu proyecto
+                                    Estilo NextUI (NPM Package)
                                 </CardTitle>
+                                <p class="text-sm text-muted-foreground">
+                                    Instala como biblioteca completa
+                                </p>
                             </CardHeader>
                             <CardContent>
                                 <div
                                     class="bg-muted rounded-lg p-4 font-mono text-sm"
                                 >
-                                    <div>&lt;Button variant="primary"&gt;</div>
-                                    <div class="ml-4">¡Hola Mundo!</div>
-                                    <div>&lt;/Button&gt;</div>
+                                    <div class="text-green-600">
+                                        # Instalar paquete
+                                    </div>
+                                    <div>
+                                        npm install @devshub/ui-components
+                                    </div>
+                                    <div class="mt-2 text-blue-600">
+                                        // Importar en tu proyecto
+                                    </div>
+                                    <div>
+                                        import {`{ Button, Card }`} from '@devshub/ui-components'
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+
+                        <!-- Usage Example -->
+                        <Card
+                            className="shadow-md border-2 border-primary/20 bg-primary/5"
+                        >
+                            <CardHeader>
+                                <CardTitle
+                                    className="flex items-center gap-2 text-primary"
+                                >
+                                    <Code className="w-5 h-5" />
+                                    Ejemplo de Uso
+                                </CardTitle>
+                                <p class="text-sm text-muted-foreground">
+                                    Mismo componente, diferentes formas de uso
+                                </p>
+                            </CardHeader>
+                            <CardContent>
+                                <div class="space-y-4">
+                                    <div>
+                                        <p class="text-sm font-medium mb-2">
+                                            Estilo shadcn/ui:
+                                        </p>
+                                        <div
+                                            class="bg-muted rounded-lg p-4 font-mono text-sm"
+                                        >
+                                            <div>
+                                                &lt;Button variant="default"
+                                                size="md"&gt;
+                                            </div>
+                                            <div class="ml-2">Click me</div>
+                                            <div>&lt;/Button&gt;</div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-medium mb-2">
+                                            Estilo daisyUI:
+                                        </p>
+                                        <div
+                                            class="bg-muted rounded-lg p-4 font-mono text-sm"
+                                        >
+                                            <div>
+                                                &lt;button className="btn
+                                                btn-primary"&gt;
+                                            </div>
+                                            <div class="ml-2">Click me</div>
+                                            <div>&lt;/button&gt;</div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-medium mb-2">
+                                            Estilo NextUI:
+                                        </p>
+                                        <div
+                                            class="bg-muted rounded-lg p-4 font-mono text-sm"
+                                        >
+                                            <div>
+                                                &lt;Button color="primary"
+                                                radius="md"&gt;
+                                            </div>
+                                            <div class="ml-2">Click me</div>
+                                            <div>&lt;/Button&gt;</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </CardContent>
                         </Card>
@@ -297,12 +628,12 @@ const features = [
             <div class="container mx-auto px-4 text-center">
                 <div class="max-w-3xl mx-auto">
                     <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                        Acelera tu desarrollo hoy
+                        Lo mejor de shadcn/ui, daisyUI y NextUI
                     </h2>
                     <p class="text-lg opacity-90 mb-8">
                         Únete a miles de desarrolladores que ya están usando
-                        nuestros componentes para crear interfaces increíbles
-                        más rápido.
+                        nuestra biblioteca híbrida para crear interfaces
+                        increíbles más rápido con la flexibilidad que necesitas.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
                         <a
