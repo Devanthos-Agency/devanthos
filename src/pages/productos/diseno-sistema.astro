@@ -18,49 +18,49 @@ import {
 const designPrinciples = [
     {
         icon: Grid,
-        title: "Sistema de Grid",
+        title: "Sistema de Grid con Tailwind",
         description:
-            "Grid responsivo de 12 columnas con breakpoints consistentes para todos los dispositivos.",
+            "Grid responsivo basado en Flexbox y CSS Grid de Tailwind con breakpoints consistentes para todos los dispositivos.",
         features: [
-            "12 columnas flexibles",
-            "5 breakpoints",
-            "Gutters personalizables",
-            "Grid anidado",
+            "Grid system de Tailwind",
+            "Breakpoints: sm, md, lg, xl, 2xl",
+            "Flexbox utilities",
+            "Container responsive",
         ],
     },
     {
         icon: Type,
-        title: "Tipografía",
+        title: "Tipografía Escalable",
         description:
-            "Escala tipográfica armoniosa con jerarquía clara y legibilidad optimizada.",
+            "Escala tipográfica armoniosa utilizando las utilidades de texto de Tailwind con jerarquía clara y legibilidad optimizada.",
         features: [
-            "Escala modular",
-            "Variable fonts",
+            "Tailwind text-* classes",
+            "Font weights variables",
             "Line-height optimizado",
-            "Responsive text",
+            "Responsive typography",
         ],
     },
     {
         icon: Palette,
-        title: "Paleta de Colores",
+        title: "Paleta de Colores Tailwind",
         description:
-            "Sistema de colores coherente con tokens semánticos para diferentes estados.",
+            "Sistema de colores coherente extendiendo la paleta de Tailwind con tokens semánticos personalizados para diferentes estados.",
         features: [
-            "Colores primarios/secundarios",
-            "Estados de UI",
-            "Modo oscuro/claro",
-            "Accesibilidad WCAG",
+            "Tailwind color palette",
+            "Custom color tokens",
+            "Dark mode support",
+            "Accesibilidad WCAG AA",
         ],
     },
     {
         icon: Eye,
-        title: "Espaciado",
+        title: "Espaciado Consistente",
         description:
-            "Sistema de espaciado consistente basado en múltiplos de 8px para armonía visual.",
+            "Sistema de espaciado basado en la escala de Tailwind (múltiplos de 0.25rem) para armonía visual perfecta.",
         features: [
-            "Escala de 8px",
-            "Espaciado semántico",
-            "Margin/Padding",
+            "Tailwind spacing scale",
+            "Semantic spacing",
+            "Margin/Padding utilities",
             "Responsive spacing",
         ],
     },
@@ -68,92 +68,107 @@ const designPrinciples = [
 
 const designTokens = [
     {
-        category: "Colores",
+        category: "Colores Tailwind",
         tokens: [
             {
-                name: "--primary",
-                value: "#3B82F6",
-                description: "Color primario principal",
+                name: "bg-primary",
+                value: "bg-blue-600",
+                description: "Color primario - equivale a blue-600",
+                tailwind: "bg-blue-600",
             },
             {
-                name: "--secondary",
-                value: "#64748B",
-                description: "Color secundario",
+                name: "text-secondary",
+                value: "text-slate-600",
+                description: "Color secundario - equivale a slate-600",
+                tailwind: "text-slate-600",
             },
             {
-                name: "--success",
-                value: "#10B981",
-                description: "Estados de éxito",
+                name: "bg-success",
+                value: "bg-emerald-500",
+                description: "Estados de éxito - equivale a emerald-500",
+                tailwind: "bg-emerald-500",
             },
             {
-                name: "--warning",
-                value: "#F59E0B",
-                description: "Estados de advertencia",
+                name: "bg-warning",
+                value: "bg-amber-500",
+                description: "Estados de advertencia - equivale a amber-500",
+                tailwind: "bg-amber-500",
             },
             {
-                name: "--error",
-                value: "#EF4444",
-                description: "Estados de error",
+                name: "bg-error",
+                value: "bg-red-500",
+                description: "Estados de error - equivale a red-500",
+                tailwind: "bg-red-500",
             },
         ],
     },
     {
-        category: "Tipografía",
+        category: "Tipografía Tailwind",
         tokens: [
             {
-                name: "--font-size-xs",
-                value: "0.75rem",
-                description: "12px - Texto muy pequeño",
+                name: "text-xs",
+                value: "0.75rem (12px)",
+                description: "Texto muy pequeño",
+                tailwind: "text-xs",
             },
             {
-                name: "--font-size-sm",
-                value: "0.875rem",
-                description: "14px - Texto pequeño",
+                name: "text-sm",
+                value: "0.875rem (14px)",
+                description: "Texto pequeño",
+                tailwind: "text-sm",
             },
             {
-                name: "--font-size-base",
-                value: "1rem",
-                description: "16px - Texto base",
+                name: "text-base",
+                value: "1rem (16px)",
+                description: "Texto base",
+                tailwind: "text-base",
             },
             {
-                name: "--font-size-lg",
-                value: "1.125rem",
-                description: "18px - Texto grande",
+                name: "text-lg",
+                value: "1.125rem (18px)",
+                description: "Texto grande",
+                tailwind: "text-lg",
             },
             {
-                name: "--font-size-xl",
-                value: "1.25rem",
-                description: "20px - Texto muy grande",
+                name: "text-xl",
+                value: "1.25rem (20px)",
+                description: "Texto muy grande",
+                tailwind: "text-xl",
             },
         ],
     },
     {
-        category: "Espaciado",
+        category: "Espaciado Tailwind",
         tokens: [
             {
-                name: "--space-1",
-                value: "0.25rem",
-                description: "4px - Espaciado mínimo",
+                name: "space-1",
+                value: "0.25rem (4px)",
+                description: "Espaciado mínimo",
+                tailwind: "p-1, m-1, gap-1",
             },
             {
-                name: "--space-2",
-                value: "0.5rem",
-                description: "8px - Espaciado pequeño",
+                name: "space-2",
+                value: "0.5rem (8px)",
+                description: "Espaciado pequeño",
+                tailwind: "p-2, m-2, gap-2",
             },
             {
-                name: "--space-4",
-                value: "1rem",
-                description: "16px - Espaciado base",
+                name: "space-4",
+                value: "1rem (16px)",
+                description: "Espaciado base",
+                tailwind: "p-4, m-4, gap-4",
             },
             {
-                name: "--space-8",
-                value: "2rem",
-                description: "32px - Espaciado grande",
+                name: "space-8",
+                value: "2rem (32px)",
+                description: "Espaciado grande",
+                tailwind: "p-8, m-8, gap-8",
             },
             {
-                name: "--space-16",
-                value: "4rem",
-                description: "64px - Espaciado muy grande",
+                name: "space-16",
+                value: "4rem (64px)",
+                description: "Espaciado muy grande",
+                tailwind: "p-16, m-16, gap-16",
             },
         ],
     },
@@ -161,27 +176,27 @@ const designTokens = [
 
 const guidelines = [
     {
-        title: "Consistencia",
+        title: "Utility-First con Tailwind",
         description:
-            "Mantén coherencia en todos los elementos de la interfaz usando los tokens del sistema.",
+            "Adopta el enfoque utility-first de Tailwind para construir interfaces rápidas y mantenibles con clases atómicas.",
         icon: Layers,
     },
     {
-        title: "Accesibilidad",
+        title: "Accesibilidad Universal",
         description:
-            "Asegúrate de que todos los elementos cumplan con los estándares WCAG 2.1 AA.",
+            "Implementa prácticas de accesibilidad usando las utilidades de Tailwind y asegura cumplimiento WCAG 2.1 AA.",
         icon: Eye,
     },
     {
-        title: "Escalabilidad",
+        title: "Design System Escalable",
         description:
-            "Diseña pensando en el crecimiento futuro del producto y nuevas funcionalidades.",
+            "Extiende Tailwind con componentes personalizados y tokens semánticos para un sistema de diseño escalable.",
         icon: Zap,
     },
     {
-        title: "Usabilidad",
+        title: "Mobile-First Design",
         description:
-            "Prioriza la experiencia del usuario con patrones familiares y navegación intuitiva.",
+            "Diseña con enfoque mobile-first usando los breakpoints responsivos de Tailwind para experiencias optimales.",
         icon: LayoutIcon,
     },
 ];
@@ -205,9 +220,10 @@ const guidelines = [
                         >
                     </h1>
                     <p class="text-xl text-muted-foreground mb-8">
-                        Tokens, patrones y guías de estilo que garantizan
-                        consistencia visual y experiencia de usuario excepcional
-                        en todos tus productos.
+                        Sistema de diseño basado en Tailwind CSS con tokens,
+                        patrones y mejores prácticas que garantizan consistencia
+                        visual y experiencia de usuario excepcional en todos tus
+                        productos digitales.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
                         <a
@@ -283,11 +299,12 @@ const guidelines = [
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Design Tokens
+                        Design Tokens con Tailwind
                     </h2>
                     <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Variables centralizadas que definen los elementos
-                        visuales de tu sistema de diseño.
+                        Tokens semánticos basados en las utilidades de Tailwind
+                        CSS que definen los elementos visuales de tu sistema de
+                        diseño.
                     </p>
                 </div>
 
@@ -307,19 +324,26 @@ const guidelines = [
                                                         {token.name}
                                                     </code>
                                                     {tokenGroup.category ===
-                                                        "Colores" && (
-                                                        <div
-                                                            class="w-8 h-8 rounded-full border-2 border-border"
-                                                            style={`background-color: ${token.value}`}
-                                                        />
+                                                        "Colores Tailwind" && (
+                                                        <div class="w-8 h-8 rounded-full border-2 border-border bg-blue-600" />
                                                     )}
                                                 </div>
                                                 <div class="text-lg font-semibold mb-2">
                                                     {token.value}
                                                 </div>
-                                                <p class="text-sm text-muted-foreground">
+                                                <p class="text-sm text-muted-foreground mb-3">
                                                     {token.description}
                                                 </p>
+                                                {token.tailwind && (
+                                                    <div class="flex items-center gap-2">
+                                                        <Badge
+                                                            variant="secondary"
+                                                            className="text-xs"
+                                                        >
+                                                            {token.tailwind}
+                                                        </Badge>
+                                                    </div>
+                                                )}
                                             </CardContent>
                                         </Card>
                                     ))}
@@ -372,17 +396,215 @@ const guidelines = [
             </div>
         </section>
 
+        <!-- Tailwind Best Practices -->
+        <section class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Mejores Prácticas con Tailwind
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Patrones probados y técnicas avanzadas para maximizar el
+                        potencial de Tailwind CSS en tus proyectos.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto"
+                >
+                    <Card className="border-0 shadow-md">
+                        <CardHeader>
+                            <CardTitle
+                                className="flex items-center gap-2 text-lg"
+                            >
+                                <CheckCircle
+                                    className="w-5 h-5 text-green-500"
+                                />
+                                Organización de Clases
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p class="text-sm text-muted-foreground mb-4">
+                                Mantén un orden consistente en tus clases de
+                                Tailwind:
+                            </p>
+                            <div
+                                class="bg-muted rounded-lg p-4 font-mono text-sm"
+                            >
+                                <div class="text-green-600">/* Layout */</div>
+                                <div>flex flex-col items-center</div>
+                                <div class="text-green-600 mt-2">
+                                    /* Spacing */
+                                </div>
+                                <div>p-4 m-2 gap-4</div>
+                                <div class="text-green-600 mt-2">
+                                    /* Sizing */
+                                </div>
+                                <div>w-full h-32</div>
+                                <div class="text-green-600 mt-2">
+                                    /* Colors */
+                                </div>
+                                <div>bg-blue-500 text-white</div>
+                                <div class="text-green-600 mt-2">
+                                    /* Typography */
+                                </div>
+                                <div>text-lg font-semibold</div>
+                                <div class="text-green-600 mt-2">
+                                    /* Effects */
+                                </div>
+                                <div>shadow-lg rounded-lg</div>
+                            </div>
+                        </CardContent>
+                    </Card>
+
+                    <Card className="border-0 shadow-md">
+                        <CardHeader>
+                            <CardTitle
+                                className="flex items-center gap-2 text-lg"
+                            >
+                                <CheckCircle
+                                    className="w-5 h-5 text-green-500"
+                                />
+                                Componentes Reutilizables
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p class="text-sm text-muted-foreground mb-4">
+                                Extrae patrones comunes en componentes para
+                                mantener DRY:
+                            </p>
+                            <div
+                                class="bg-muted rounded-lg p-4 font-mono text-sm"
+                            >
+                                <div class="text-blue-600">
+                                    // Button component
+                                </div>
+                                <div>
+                                    const Button = ({`{ variant, children }`})
+                                    => {`{`}
+                                </div>
+                                <div class="ml-2">const baseClasses =</div>
+                                <div class="ml-4">
+                                    "px-4 py-2 rounded-lg font-medium"
+                                </div>
+                                <div class="ml-2">const variants = {`{`}</div>
+                                <div class="ml-4">
+                                    primary: "bg-blue-600 text-white",
+                                </div>
+                                <div class="ml-4">
+                                    secondary: "bg-gray-200 text-gray-900"
+                                </div>
+                                <div class="ml-2">{`}`}</div>
+                                <div class="ml-2">
+                                    return &lt;button className={`{...}`}&gt;
+                                </div>
+                                <div class="ml-4">{`{children}`}</div>
+                                <div class="ml-2">&lt;/button&gt;</div>
+                                <div>{`}`}</div>
+                            </div>
+                        </CardContent>
+                    </Card>
+
+                    <Card className="border-0 shadow-md">
+                        <CardHeader>
+                            <CardTitle
+                                className="flex items-center gap-2 text-lg"
+                            >
+                                <CheckCircle
+                                    className="w-5 h-5 text-green-500"
+                                />
+                                Responsive Design
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p class="text-sm text-muted-foreground mb-4">
+                                Diseña mobile-first con los breakpoints de
+                                Tailwind:
+                            </p>
+                            <div
+                                class="bg-muted rounded-lg p-4 font-mono text-sm"
+                            >
+                                <div class="text-green-600">
+                                    /* Mobile first */
+                                </div>
+                                <div>grid grid-cols-1</div>
+                                <div class="text-green-600 mt-2">
+                                    /* Tablet (768px+) */
+                                </div>
+                                <div>md:grid-cols-2</div>
+                                <div class="text-green-600 mt-2">
+                                    /* Desktop (1024px+) */
+                                </div>
+                                <div>lg:grid-cols-3</div>
+                                <div class="text-green-600 mt-2">
+                                    /* Large (1280px+) */
+                                </div>
+                                <div>xl:grid-cols-4</div>
+                                <div class="text-green-600 mt-2">
+                                    /* XLarge (1536px+) */
+                                </div>
+                                <div>2xl:grid-cols-5</div>
+                            </div>
+                        </CardContent>
+                    </Card>
+
+                    <Card className="border-0 shadow-md">
+                        <CardHeader>
+                            <CardTitle
+                                className="flex items-center gap-2 text-lg"
+                            >
+                                <CheckCircle
+                                    className="w-5 h-5 text-green-500"
+                                />
+                                Personalización de Tema
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p class="text-sm text-muted-foreground mb-4">
+                                Extiende la configuración de Tailwind para tu
+                                marca:
+                            </p>
+                            <div
+                                class="bg-muted rounded-lg p-4 font-mono text-sm"
+                            >
+                                <div class="text-blue-600">
+                                    // tailwind.config.js
+                                </div>
+                                <div>module.exports = {`{`}</div>
+                                <div class="ml-2">theme: {`{`}</div>
+                                <div class="ml-4">extend: {`{`}</div>
+                                <div class="ml-6">colors: {`{`}</div>
+                                <div class="ml-8">brand: {`{`}</div>
+                                <div class="ml-10">primary: '#3B82F6',</div>
+                                <div class="ml-10">secondary: '#64748B'</div>
+                                <div class="ml-8">{`}`}</div>
+                                <div class="ml-6">{`}`},</div>
+                                <div class="ml-6">fontFamily: {`{`}</div>
+                                <div class="ml-8">
+                                    sans: ['Inter', 'sans-serif']
+                                </div>
+                                <div class="ml-6">{`}`}</div>
+                                <div class="ml-4">{`}`}</div>
+                                <div class="ml-2">{`}`}</div>
+                                <div>{`}`}</div>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </div>
+            </div>
+        </section>
+
         <!-- Implementation -->
         <section class="py-20 bg-muted/30">
             <div class="container mx-auto px-4">
                 <div class="max-w-4xl mx-auto">
                     <div class="text-center mb-12">
                         <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                            Implementación
+                            Implementación con Tailwind
                         </h2>
                         <p class="text-lg text-muted-foreground">
-                            Cómo integrar el sistema de diseño en tu proyecto
-                            paso a paso.
+                            Cómo integrar nuestro sistema de diseño basado en
+                            Tailwind CSS en tu proyecto paso a paso.
                         </p>
                     </div>
 
@@ -394,17 +616,24 @@ const guidelines = [
                                         class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold"
                                         >1</span
                                     >
-                                    Importar Variables CSS
+                                    Instalar Tailwind CSS
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
                                 <div
                                     class="bg-muted rounded-lg p-4 font-mono text-sm"
                                 >
-                                    <div>
-                                        @import
-                                        '@devshub/design-system/tokens.css';
+                                    <div class="text-green-600">
+                                        # Instalar Tailwind CSS
                                     </div>
+                                    <div>
+                                        npm install -D tailwindcss postcss
+                                        autoprefixer
+                                    </div>
+                                    <div class="mt-2 text-green-600">
+                                        # Inicializar configuración
+                                    </div>
+                                    <div>npx tailwindcss init -p</div>
                                 </div>
                             </CardContent>
                         </Card>
@@ -416,23 +645,30 @@ const guidelines = [
                                         class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold"
                                         >2</span
                                     >
-                                    Usar Tokens en CSS
+                                    Configurar Tailwind Config
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
                                 <div
                                     class="bg-muted rounded-lg p-4 font-mono text-sm"
                                 >
-                                    <div>.button {`{`}</div>
-                                    <div class="ml-4">
-                                        background-color: var(--primary);
+                                    <div class="text-blue-600">
+                                        // tailwind.config.js
                                     </div>
-                                    <div class="ml-4">
-                                        padding: var(--space-4) var(--space-8);
+                                    <div>module.exports = {`{`}</div>
+                                    <div class="ml-2">
+                                        content: ['./src/**/*.{
+                                            `{html,js,jsx,ts,tsx,astro}`
+                                        }'],
                                     </div>
-                                    <div class="ml-4">
-                                        font-size: var(--font-size-base);
-                                    </div>
+                                    <div class="ml-2">theme: {`{`}</div>
+                                    <div class="ml-4">extend: {`{`}</div>
+                                    <div class="ml-6">colors: {`{`}</div>
+                                    <div class="ml-8">primary: '#3B82F6',</div>
+                                    <div class="ml-8">secondary: '#64748B'</div>
+                                    <div class="ml-6">{`}`}</div>
+                                    <div class="ml-4">{`}`}</div>
+                                    <div class="ml-2">{`}`}</div>
                                     <div>{`}`}</div>
                                 </div>
                             </CardContent>
@@ -445,21 +681,73 @@ const guidelines = [
                                         class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold"
                                         >3</span
                                     >
-                                    Configurar Tema
+                                    Importar Tailwind CSS
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
                                 <div
                                     class="bg-muted rounded-lg p-4 font-mono text-sm"
                                 >
-                                    <div>
-                                        import {`{ ThemeProvider }`} from '@devshub/design-system';
+                                    <div class="text-green-600">
+                                        /* globals.css */
                                     </div>
-                                    <div class="mt-2">
-                                        &lt;ThemeProvider theme="light"&gt;
+                                    <div>@tailwind base;</div>
+                                    <div>@tailwind components;</div>
+                                    <div>@tailwind utilities;</div>
+                                    <div class="mt-3 text-green-600">
+                                        /* Custom component styles */
                                     </div>
-                                    <div class="ml-4">&lt;App /&gt;</div>
-                                    <div>&lt;/ThemeProvider&gt;</div>
+                                    <div>@layer components {`{`}</div>
+                                    <div class="ml-2">.btn-primary {`{`}</div>
+                                    <div class="ml-4">
+                                        @apply px-4 py-2 bg-primary text-white
+                                        rounded-lg;
+                                    </div>
+                                    <div class="ml-2">{`}`}</div>
+                                    <div>{`}`}</div>
+                                </div>
+                            </CardContent>
+                        </Card>
+
+                        <Card className="border-0 shadow-md">
+                            <CardHeader>
+                                <CardTitle className="flex items-center gap-2">
+                                    <span
+                                        class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold"
+                                        >4</span
+                                    >
+                                    Usar Clases de Tailwind
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <div
+                                    class="bg-muted rounded-lg p-4 font-mono text-sm"
+                                >
+                                    <div class="text-blue-600">
+                                        // Ejemplo de componente
+                                    </div>
+                                    <div>&lt;button className=</div>
+                                    <div class="ml-2">
+                                        "flex items-center gap-2 px-6 py-3
+                                    </div>
+                                    <div class="ml-2">
+                                        bg-primary hover:bg-primary/90
+                                    </div>
+                                    <div class="ml-2">
+                                        text-white font-medium rounded-lg
+                                    </div>
+                                    <div class="ml-2">
+                                        transition-colors duration-200
+                                    </div>
+                                    <div class="ml-2">
+                                        focus:outline-none focus:ring-2
+                                    </div>
+                                    <div class="ml-2">
+                                        focus:ring-primary/50"
+                                    </div>
+                                    <div>&gt;</div>
+                                    <div class="ml-2">Botón Principal</div>
+                                    <div>&lt;/button&gt;</div>
                                 </div>
                             </CardContent>
                         </Card>
@@ -494,17 +782,17 @@ const guidelines = [
                                 />
                             </div>
                             <h3 class="font-semibold text-lg mb-2">
-                                Figma Kit
+                                Tailwind Config
                             </h3>
                             <p class="text-muted-foreground mb-4">
-                                Biblioteca completa de componentes para Figma
-                                con todos los tokens.
+                                Configuración completa de Tailwind CSS con todos
+                                nuestros tokens y extensiones personalizadas.
                             </p>
                             <a
-                                href="/recursos/figma-kit"
+                                href="/recursos/tailwind-config"
                                 class="inline-flex items-center text-primary hover:underline font-medium"
                             >
-                                Descargar Kit
+                                Descargar Config
                             </a>
                         </CardContent>
                     </Card>
@@ -519,17 +807,18 @@ const guidelines = [
                                 />
                             </div>
                             <h3 class="font-semibold text-lg mb-2">
-                                Documentación
+                                Guía de Tailwind
                             </h3>
                             <p class="text-muted-foreground mb-4">
-                                Guías detalladas de implementación y mejores
-                                prácticas.
+                                Documentación completa con patrones, componentes
+                                y mejores prácticas específicas para Tailwind
+                                CSS.
                             </p>
                             <a
-                                href="/productos/documentacion"
+                                href="/productos/documentacion-tailwind"
                                 class="inline-flex items-center text-primary hover:underline font-medium"
                             >
-                                Ver Docs
+                                Ver Guía
                             </a>
                         </CardContent>
                     </Card>
@@ -544,17 +833,18 @@ const guidelines = [
                                 />
                             </div>
                             <h3 class="font-semibold text-lg mb-2">
-                                Generador de Temas
+                                Tailwind Theme Builder
                             </h3>
                             <p class="text-muted-foreground mb-4">
-                                Herramienta para crear temas personalizados
-                                basados en tu marca.
+                                Herramienta interactiva para generar
+                                configuraciones de tema personalizadas para
+                                Tailwind.
                             </p>
                             <a
-                                href="/herramientas/generador-temas"
+                                href="/herramientas/tailwind-theme-builder"
                                 class="inline-flex items-center text-primary hover:underline font-medium"
                             >
-                                Usar Herramienta
+                                Usar Builder
                             </a>
                         </CardContent>
                     </Card>
@@ -567,12 +857,13 @@ const guidelines = [
             <div class="container mx-auto px-4 text-center">
                 <div class="max-w-3xl mx-auto">
                     <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                        Implementa tu sistema de diseño hoy
+                        Domina Tailwind CSS con nuestro sistema
                     </h2>
                     <p class="text-lg opacity-90 mb-8">
-                        Acelera tu desarrollo y mantén consistencia visual en
-                        todos tus productos con nuestro sistema de diseño
-                        probado.
+                        Acelera tu desarrollo con Tailwind CSS y mantén
+                        consistencia visual en todos tus productos usando
+                        nuestro sistema de diseño optimizado y nuestras mejores
+                        prácticas probadas.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
                         <a
