@@ -62,8 +62,8 @@ interface MenuItem {
 }
 
 const PRIMARY_BUTTON = {
-    label: "Solicitar una demo",
-    url: "#",
+    label: "Realice una consultoría",
+    url: "/contacto",
 };
 
 const NAVIGATION1: Array<MenuItem> = [
@@ -78,49 +78,49 @@ const NAVIGATION1: Array<MenuItem> = [
                         label: "Componentes UI",
                         description: "Componentes para tu interfaz",
                         icon: FileText,
-                        url: "#",
+                        url: "/productos/componentes-ui",
                     },
                     {
                         label: "Diseño de sistema",
                         description: "Guías de estilo y patrones",
                         icon: Trees,
-                        url: "#",
+                        url: "/productos/diseno-sistema",
                     },
                     {
                         label: "Plantillas",
                         description: "Plantillas preconstruidas",
                         icon: Archive,
-                        url: "#",
+                        url: "/productos/plantillas",
                     },
                     {
                         label: "Responsive",
                         description: "Diseño adaptable",
                         icon: Handshake,
-                        url: "#",
+                        url: "/productos/responsive",
                     },
                     {
                         label: "Temas",
                         description: "Personaliza tu apariencia",
                         icon: Sunset,
-                        url: "#",
+                        url: "/productos/temas",
                     },
                     {
                         label: "Documentación",
                         description: "Guías y referencias de uso",
                         icon: Book,
-                        url: "#",
+                        url: "/productos/documentacion",
                     },
                     {
                         label: "Ver ejemplos",
                         description: "Ver ejemplos en vivo",
                         icon: PlayCircle,
-                        url: "#",
+                        url: "/productos/ejemplos",
                     },
                     {
                         label: "Mantenimiento",
                         description: "Actualizaciones y soporte",
                         icon: Zap,
-                        url: "#",
+                        url: "/productos/mantenimiento",
                     },
                 ],
             },
@@ -130,21 +130,45 @@ const NAVIGATION1: Array<MenuItem> = [
                     {
                         title: "Industrias",
                         links: [
-                            { label: "E-commerce", url: "#" },
-                            { label: "Salud", url: "#" },
-                            { label: "Educación", url: "#" },
-                            { label: "Finanzas", url: "#" },
-                            { label: "Tecnología", url: "#" },
+                            {
+                                label: "E-commerce",
+                                url: "/soluciones/ecommerce",
+                            },
+                            { label: "Salud", url: "/soluciones/salud" },
+                            {
+                                label: "Educación",
+                                url: "/soluciones/educacion",
+                            },
+                            { label: "Finanzas", url: "/soluciones/finanzas" },
+                            {
+                                label: "Tecnología",
+                                url: "/soluciones/tecnologia",
+                            },
                         ],
                     },
                     {
                         title: "Uso personal",
                         links: [
-                            { label: "Portal personalizado", url: "#" },
-                            { label: "Dashboard de administrador", url: "#" },
-                            { label: "App mobile", url: "#" },
-                            { label: "Landing Page", url: "#" },
-                            { label: "Aplicación web", url: "#" },
+                            {
+                                label: "Portal personalizado",
+                                url: "/soluciones/portal-personal",
+                            },
+                            {
+                                label: "Dashboard de administrador",
+                                url: "/soluciones/dashboard",
+                            },
+                            {
+                                label: "App mobile",
+                                url: "/soluciones/app-movil",
+                            },
+                            {
+                                label: "Landing Page",
+                                url: "/soluciones/landing-page",
+                            },
+                            {
+                                label: "Aplicación web",
+                                url: "/soluciones/web-app",
+                            },
                         ],
                     },
                 ],
@@ -155,7 +179,7 @@ const NAVIGATION1: Array<MenuItem> = [
                 label: "Realice una consultoría",
                 description: "Programa una reunión con nosotros",
                 icon: Headset,
-                url: "#",
+                url: "/contacto",
             },
         ],
     },
@@ -168,13 +192,13 @@ const NAVIGATION1: Array<MenuItem> = [
                 links: [
                     {
                         label: "Centro de Ayuda",
-                        url: "#",
+                        url: "/faq",
                         icon: LifeBuoy,
                         description: "Encuentra respuestas",
                     },
                     {
                         label: "Contacta con nosotros",
-                        url: "#",
+                        url: "/contacto",
                         icon: Mail,
                         description: "Envíanos un mensaje",
                     },
@@ -185,23 +209,33 @@ const NAVIGATION1: Array<MenuItem> = [
                     {
                         title: "Empresa",
                         links: [
-                            { label: "Sobre nosotros", url: "#" },
-                            { label: "Objetivos", url: "#" },
-                            { label: "Blogs", url: "#" },
-                            // { label: "Prensa", url: "#" },
-                            { label: "Socios", url: "#" },
-                            { label: "Contáctenos", url: "#" },
+                            { label: "Sobre nosotros", url: "/empresa" },
+                            { label: "Objetivos", url: "/empresa/objetivos" },
+                            { label: "Blogs", url: "/blog" },
+                            { label: "Socios", url: "/empresa/socios" },
+                            { label: "Contáctanos", url: "/contacto" },
                         ],
                     },
                     {
                         title: "Recursos",
                         links: [
-                            { label: "Documentación", url: "#" },
-                            { label: "Tutoriales", url: "#" },
-                            // { label: "Showcase", url: "#" },
-                            { label: "Comunidad", url: "#" },
-                            { label: "GitHub", url: "#" },
-                            { label: "Discord", url: "#" },
+                            {
+                                label: "Documentación",
+                                url: "/productos/documentacion",
+                            },
+                            {
+                                label: "Tutoriales",
+                                url: "/recursos/tutoriales",
+                            },
+                            { label: "Comunidad", url: "/comunidad" },
+                            {
+                                label: "GitHub",
+                                url: "https://github.com/devsHub",
+                            },
+                            {
+                                label: "Discord",
+                                url: "https://discord.gg/devshub",
+                            },
                         ],
                     },
                 ],
@@ -210,11 +244,11 @@ const NAVIGATION1: Array<MenuItem> = [
     },
     {
         title: "Precios",
-        url: "#",
+        url: "/precios",
     },
     {
         title: "FAQ",
-        url: "#",
+        url: "/faq",
     },
 ];
 
