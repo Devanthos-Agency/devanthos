@@ -1,0 +1,641 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+    Code2,
+    Cloud,
+    Cpu,
+    Smartphone,
+    Database,
+    Shield,
+    Zap,
+    Globe,
+    Bot,
+    ArrowRight,
+    Rocket,
+    Settings,
+} from "lucide-react";
+
+const solutions = [
+    {
+        icon: Cloud,
+        title: "Arquitectura Cloud",
+        description: "Infraestructura escalable y resiliente en la nube",
+        features: [
+            "Migración a AWS, Azure, GCP",
+            "Microservicios y contenedores",
+            "CI/CD automatizado",
+            "Monitoreo y observabilidad",
+        ],
+    },
+    {
+        icon: Code2,
+        title: "Desarrollo de Software",
+        description: "Soluciones personalizadas con tecnologías modernas",
+        features: [
+            "Aplicaciones web y móviles",
+            "APIs REST y GraphQL",
+            "Arquitectura serverless",
+            "Desarrollo ágil y DevOps",
+        ],
+    },
+    {
+        icon: Bot,
+        title: "Inteligencia Artificial",
+        description: "IA y Machine Learning para automatización",
+        features: [
+            "Chatbots inteligentes",
+            "Análisis predictivo",
+            "Procesamiento de lenguaje natural",
+            "Computer vision",
+        ],
+    },
+];
+
+const technologies = [
+    {
+        category: "Frontend",
+        stack: [
+            "React",
+            "Next.js",
+            "Vue.js",
+            "Astro",
+            "TypeScript",
+            "Tailwind CSS",
+        ],
+        icon: Globe,
+    },
+    {
+        category: "Backend",
+        stack: ["Node.js", "Python", "Go", "Java", "PostgreSQL", "MongoDB"],
+        icon: Database,
+    },
+    {
+        category: "Mobile",
+        stack: ["React Native", "Flutter", "Swift", "Kotlin", "Expo"],
+        icon: Smartphone,
+    },
+    {
+        category: "Cloud & DevOps",
+        stack: [
+            "AWS",
+            "Docker",
+            "Kubernetes",
+            "Terraform",
+            "Jenkins",
+            "GitHub Actions",
+        ],
+        icon: Cloud,
+    },
+    {
+        category: "AI & Data",
+        stack: [
+            "TensorFlow",
+            "PyTorch",
+            "Pandas",
+            "Apache Spark",
+            "Elasticsearch",
+        ],
+        icon: Cpu,
+    },
+    {
+        category: "Security",
+        stack: ["OAuth", "JWT", "HTTPS", "Penetration Testing", "OWASP"],
+        icon: Shield,
+    },
+];
+
+const features = [
+    {
+        icon: Rocket,
+        title: "Innovación Tecnológica",
+        description:
+            "Adoptamos las últimas tecnologías para mantenerte a la vanguardia.",
+    },
+    {
+        icon: Settings,
+        title: "Soluciones Escalables",
+        description:
+            "Arquitecturas que crecen con tu negocio sin comprometer el rendimiento.",
+    },
+    {
+        icon: Zap,
+        title: "Desarrollo Ágil",
+        description:
+            "Metodologías ágiles para entregas rápidas y adaptación continua.",
+    },
+];
+
+const services = [
+    {
+        title: "Consultoría Tecnológica",
+        description: "Análisis y recomendaciones para tu stack tecnológico",
+        deliverables: [
+            "Auditoría técnica completa",
+            "Roadmap tecnológico",
+            "Recomendaciones de arquitectura",
+            "Plan de migración",
+        ],
+    },
+    {
+        title: "Modernización de Legacy",
+        description: "Actualiza sistemas obsoletos con tecnologías modernas",
+        deliverables: [
+            "Análisis de sistema actual",
+            "Estrategia de migración",
+            "Implementación gradual",
+            "Capacitación del equipo",
+        ],
+    },
+    {
+        title: "Optimización de Performance",
+        description: "Mejora el rendimiento de tus aplicaciones existentes",
+        deliverables: [
+            "Análisis de performance",
+            "Identificación de cuellos de botella",
+            "Optimizaciones implementadas",
+            "Monitoreo continuo",
+        ],
+    },
+];
+
+const caseStudies = [
+    {
+        title: "Startup de Fintech",
+        description: "Arquitectura serverless para procesamiento de pagos",
+        results: [
+            "99.99% de disponibilidad",
+            "Procesamiento de 10k transacciones/seg",
+            "50% reducción en costos de infraestructura",
+        ],
+        tech: ["AWS Lambda", "DynamoDB", "API Gateway", "React"],
+    },
+    {
+        title: "E-commerce Enterprise",
+        description: "Migración de monolito a microservicios",
+        results: [
+            "5x mejora en tiempo de deployment",
+            "90% reducción en downtime",
+            "Escalabilidad horizontal automática",
+        ],
+        tech: ["Kubernetes", "Node.js", "PostgreSQL", "Redis"],
+    },
+];
+
+const benefits = [
+    "Reducción del 60% en time-to-market",
+    "Mejora del 80% en performance",
+    "99.9% de uptime garantizado",
+    "Arquitecturas que escalan automáticamente",
+    "Seguridad enterprise-grade",
+    "Monitoreo y alertas 24/7",
+];
+---
+
+<Layout
+    title="Soluciones para Tecnología - DevsHub"
+    description="Desarrollamos soluciones tecnológicas avanzadas. Cloud, AI, desarrollo de software, modernización y más para empresas tech."
+>
+    <main class="min-h-screen pt-24">
+        <!-- Hero Section -->
+        <section
+            class="py-20 bg-gradient-to-br from-slate-50 to-blue-100 dark:from-slate-950/20 dark:to-blue-950/20"
+        >
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <Badge className="mb-4">Soluciones para Tecnología</Badge>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        <span class="text-primary">Tecnología</span> de Vanguardia
+                    </h1>
+                    <p class="text-xl text-muted-foreground mb-8">
+                        Desarrollamos soluciones tecnológicas avanzadas para
+                        empresas tech. Desde arquitecturas cloud hasta IA, te
+                        ayudamos a liderar la innovación.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a
+                            href="#soluciones"
+                            class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                        >
+                            <Code2 className="w-4 h-4 mr-2" />
+                            Ver Soluciones
+                        </a>
+                        <a
+                            href="/contacto"
+                            class="inline-flex items-center justify-center px-8 py-3 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+                        >
+                            Consultoría Técnica
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Excelencia Tecnológica
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Combinamos experiencia técnica profunda con las últimas
+                        innovaciones para crear soluciones que impulsan el
+                        crecimiento empresarial.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {
+                        features.map((feature) => (
+                            <Card className="text-center border-0 shadow-md">
+                                <CardHeader>
+                                    <div class="mx-auto mb-4 p-3 rounded-lg bg-primary/10 w-fit">
+                                        <feature.icon className="w-8 h-8 text-primary" />
+                                    </div>
+                                    <CardTitle className="text-xl">
+                                        {feature.title}
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <p class="text-muted-foreground">
+                                        {feature.description}
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Solutions Section -->
+        <section id="soluciones" class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Soluciones Tecnológicas Especializadas
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Desde cloud computing hasta inteligencia artificial,
+                        ofrecemos soluciones completas para empresas
+                        tecnológicas.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    {
+                        solutions.map((solution) => (
+                            <Card className="border-0 shadow-md hover:shadow-lg transition-shadow">
+                                <CardHeader>
+                                    <div class="mb-4 p-3 rounded-lg bg-primary/10 w-fit">
+                                        <solution.icon className="w-8 h-8 text-primary" />
+                                    </div>
+                                    <CardTitle className="text-xl mb-2">
+                                        {solution.title}
+                                    </CardTitle>
+                                    <p class="text-muted-foreground text-sm">
+                                        {solution.description}
+                                    </p>
+                                </CardHeader>
+                                <CardContent>
+                                    <ul class="space-y-2 mb-4">
+                                        {solution.features.map((feature) => (
+                                            <li class="flex items-center gap-2 text-sm">
+                                                <div class="w-1.5 h-1.5 rounded-full bg-primary" />
+                                                {feature}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    <a
+                                        href="/contacto"
+                                        class="inline-flex items-center text-primary hover:text-primary/80 font-medium text-sm"
+                                    >
+                                        Más información
+                                        <ArrowRight className="w-4 h-4 ml-1" />
+                                    </a>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Stack -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Nuestro Stack Tecnológico
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Trabajamos con las tecnologías más demandadas del
+                        mercado, garantizando soluciones modernas y escalables.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
+                    {
+                        technologies.map((tech) => (
+                            <Card className="border-0 shadow-md">
+                                <CardHeader>
+                                    <div class="flex items-center gap-3 mb-4">
+                                        <div class="p-2 rounded-lg bg-primary/10">
+                                            <tech.icon className="w-6 h-6 text-primary" />
+                                        </div>
+                                        <CardTitle className="text-lg">
+                                            {tech.category}
+                                        </CardTitle>
+                                    </div>
+                                </CardHeader>
+                                <CardContent>
+                                    <div class="grid grid-cols-2 gap-2">
+                                        {tech.stack.map((item) => (
+                                            <div class="p-2 rounded-lg bg-muted/50 text-center">
+                                                <span class="text-sm font-medium">
+                                                    {item}
+                                                </span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Servicios Especializados
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Servicios técnicos especializados para empresas que
+                        necesitan expertise profundo en tecnología.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    {
+                        services.map((service) => (
+                            <Card className="border-0 shadow-md">
+                                <CardHeader>
+                                    <CardTitle className="text-xl mb-2">
+                                        {service.title}
+                                    </CardTitle>
+                                    <p class="text-muted-foreground text-sm">
+                                        {service.description}
+                                    </p>
+                                </CardHeader>
+                                <CardContent>
+                                    <h4 class="font-semibold mb-3 text-primary">
+                                        Entregables:
+                                    </h4>
+                                    <ul class="space-y-2">
+                                        {service.deliverables.map((item) => (
+                                            <li class="flex items-center gap-2 text-sm">
+                                                <div class="w-1.5 h-1.5 rounded-full bg-primary" />
+                                                {item}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Studies -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Casos de Éxito Tecnológicos
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Descubre cómo hemos ayudado a empresas tech a escalar y
+                        optimizar sus soluciones tecnológicas.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto"
+                >
+                    {
+                        caseStudies.map((study) => (
+                            <Card className="border-0 shadow-md">
+                                <CardHeader>
+                                    <CardTitle className="text-xl">
+                                        {study.title}
+                                    </CardTitle>
+                                    <p class="text-muted-foreground text-sm">
+                                        {study.description}
+                                    </p>
+                                </CardHeader>
+                                <CardContent>
+                                    <h4 class="font-semibold mb-3 text-primary">
+                                        Resultados obtenidos:
+                                    </h4>
+                                    <ul class="space-y-2 mb-4">
+                                        {study.results.map((result) => (
+                                            <li class="flex items-center gap-3">
+                                                <Rocket className="w-4 h-4 text-primary flex-shrink-0" />
+                                                <span class="text-sm">
+                                                    {result}
+                                                </span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    <h4 class="font-semibold mb-2 text-primary">
+                                        Tecnologías utilizadas:
+                                    </h4>
+                                    <div class="flex flex-wrap gap-2">
+                                        {study.tech.map((tech) => (
+                                            <Badge
+                                                variant="outline"
+                                                className="text-xs"
+                                            >
+                                                {tech}
+                                            </Badge>
+                                        ))}
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <div
+                        class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+                    >
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                                Impacto Tecnológico Medible
+                            </h2>
+                            <p class="text-lg text-muted-foreground mb-8">
+                                Nuestras soluciones tecnológicas han demostrado
+                                mejoras significativas en performance,
+                                escalabilidad y costos operativos.
+                            </p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                {
+                                    benefits.map((benefit) => (
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
+                                            <span class="text-sm">
+                                                {benefit}
+                                            </span>
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                        </div>
+                        <div
+                            class="bg-gradient-to-br from-indigo-50 to-purple-100 dark:from-indigo-950/20 dark:to-purple-950/20 p-8 rounded-xl"
+                        >
+                            <h3 class="text-2xl font-bold mb-6 text-center">
+                                Métricas de Performance
+                            </h3>
+                            <div class="grid grid-cols-2 gap-6">
+                                <div class="text-center">
+                                    <div
+                                        class="text-3xl font-bold text-primary mb-2"
+                                    >
+                                        10M+
+                                    </div>
+                                    <p class="text-sm text-muted-foreground">
+                                        Requests procesados/día
+                                    </p>
+                                </div>
+                                <div class="text-center">
+                                    <div
+                                        class="text-3xl font-bold text-primary mb-2"
+                                    >
+                                        99.99%
+                                    </div>
+                                    <p class="text-sm text-muted-foreground">
+                                        Uptime garantizado
+                                    </p>
+                                </div>
+                                <div class="text-center">
+                                    <div
+                                        class="text-3xl font-bold text-primary mb-2"
+                                    >
+                                        50+
+                                    </div>
+                                    <p class="text-sm text-muted-foreground">
+                                        Tecnologías dominadas
+                                    </p>
+                                </div>
+                                <div class="text-center">
+                                    <div
+                                        class="text-3xl font-bold text-primary mb-2"
+                                    >
+                                        24/7
+                                    </div>
+                                    <p class="text-sm text-muted-foreground">
+                                        Monitoreo activo
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Innovation Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <Cpu className="w-16 h-16 text-primary mx-auto mb-6" />
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                        Innovación Continua
+                    </h2>
+                    <p class="text-lg text-muted-foreground mb-8">
+                        Mantenemos nuestro equipo al día con las últimas
+                        tendencias tecnológicas, participando en conferencias,
+                        contribuyendo a open source y experimentando con
+                        tecnologías emergentes.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <Card className="border-0 shadow-md">
+                            <CardContent className="p-6 text-center">
+                                <h3 class="font-semibold mb-2">R&D Labs</h3>
+                                <p class="text-sm text-muted-foreground">
+                                    Laboratorio de investigación para
+                                    tecnologías emergentes
+                                </p>
+                            </CardContent>
+                        </Card>
+                        <Card className="border-0 shadow-md">
+                            <CardContent className="p-6 text-center">
+                                <h3 class="font-semibold mb-2">Open Source</h3>
+                                <p class="text-sm text-muted-foreground">
+                                    Contribuciones activas a proyectos de código
+                                    abierto
+                                </p>
+                            </CardContent>
+                        </Card>
+                        <Card className="border-0 shadow-md">
+                            <CardContent className="p-6 text-center">
+                                <h3 class="font-semibold mb-2">Tech Talks</h3>
+                                <p class="text-sm text-muted-foreground">
+                                    Charlas y workshops sobre las últimas
+                                    tecnologías
+                                </p>
+                            </CardContent>
+                        </Card>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 bg-primary text-primary-foreground">
+            <div class="container mx-auto px-4 text-center">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                        Acelera tu innovación tecnológica
+                    </h2>
+                    <p class="text-lg opacity-90 mb-8">
+                        Únete a las empresas tech que ya han transformado sus
+                        operaciones con nuestras soluciones tecnológicas de
+                        vanguardia.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a
+                            href="/contacto"
+                            class="inline-flex items-center justify-center px-8 py-3 bg-white text-primary rounded-lg font-medium hover:bg-gray-100 transition-colors"
+                        >
+                            <Rocket className="w-4 h-4 mr-2" />
+                            Iniciar Proyecto
+                        </a>
+                        <a
+                            href="/soluciones"
+                            class="inline-flex items-center justify-center px-8 py-3 border border-white/20 rounded-lg font-medium hover:bg-white/10 transition-colors"
+                        >
+                            Ver Todas las Soluciones
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>

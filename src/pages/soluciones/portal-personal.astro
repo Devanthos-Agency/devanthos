@@ -1,0 +1,1081 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+    User,
+    Settings,
+    Calendar,
+    FileText,
+    Bell,
+    Shield,
+    Users,
+    BarChart3,
+    MessagesSquare,
+    BookOpen,
+    Heart,
+    Star,
+    CheckCircle,
+    ArrowRight,
+    Zap,
+    Globe,
+    Smartphone,
+    Database,
+    Cloud,
+    Lock,
+} from "lucide-react";
+
+const portalTypes = [
+    {
+        title: "Portal de Empleados",
+        description:
+            "Plataforma centralizada para gestión de recursos humanos y comunicación interna",
+        icon: Users,
+        features: [
+            "Employee directory",
+            "HR self-service",
+            "Company news",
+            "Time tracking",
+            "Benefits management",
+        ],
+        modules: [
+            "Directorio",
+            "Vacaciones",
+            "Nóminas",
+            "Documentos",
+            "Comunicados",
+        ],
+        bestFor:
+            "Empresas medianas y grandes que buscan centralizar procesos de RRHH",
+        users: "50-5000 empleados",
+        timeline: "6-12 semanas",
+        investment: "$15,000 - $50,000",
+    },
+    {
+        title: "Portal de Clientes",
+        description:
+            "Espacio privado para clientes con acceso a servicios, documentos y soporte",
+        icon: User,
+        features: [
+            "Account management",
+            "Service portal",
+            "Support tickets",
+            "Billing portal",
+            "Resource library",
+        ],
+        modules: [
+            "Mi Cuenta",
+            "Servicios",
+            "Facturación",
+            "Soporte",
+            "Documentos",
+        ],
+        bestFor:
+            "Empresas B2B que necesitan mejorar la experiencia del cliente",
+        users: "100-10000 clientes",
+        timeline: "4-10 semanas",
+        investment: "$10,000 - $40,000",
+    },
+    {
+        title: "Portal Educativo",
+        description:
+            "Plataforma de aprendizaje con cursos, evaluaciones y seguimiento de progreso",
+        icon: BookOpen,
+        features: [
+            "Course management",
+            "Progress tracking",
+            "Assessments",
+            "Certificates",
+            "Discussion forums",
+        ],
+        modules: [
+            "Cursos",
+            "Evaluaciones",
+            "Progreso",
+            "Certificados",
+            "Comunidad",
+        ],
+        bestFor:
+            "Instituciones educativas y empresas con programas de formación",
+        users: "100-50000 estudiantes",
+        timeline: "8-16 semanas",
+        investment: "$20,000 - $80,000",
+    },
+];
+
+const coreFeatures = [
+    {
+        icon: User,
+        title: "Gestión de Perfiles",
+        description:
+            "Perfiles completos con información personalizable y preferencias de usuario.",
+        capabilities: [
+            "Avatar upload",
+            "Personal information",
+            "Preferences",
+            "Privacy settings",
+            "Activity history",
+        ],
+    },
+    {
+        icon: Shield,
+        title: "Autenticación Segura",
+        description:
+            "Sistema robusto de autenticación con múltiples factores y SSO.",
+        capabilities: [
+            "Multi-factor auth",
+            "SSO integration",
+            "Password policies",
+            "Session management",
+            "Audit logs",
+        ],
+    },
+    {
+        icon: Bell,
+        title: "Notificaciones Inteligentes",
+        description:
+            "Sistema de notificaciones personalizables por email, push y en plataforma.",
+        capabilities: [
+            "Real-time notifications",
+            "Email alerts",
+            "Push notifications",
+            "Digest emails",
+            "Notification preferences",
+        ],
+    },
+    {
+        icon: FileText,
+        title: "Gestión de Documentos",
+        description:
+            "Biblioteca centralizada con control de versiones y permisos granulares.",
+        capabilities: [
+            "Document library",
+            "Version control",
+            "Permission management",
+            "Search functionality",
+            "Bulk operations",
+        ],
+    },
+    {
+        icon: Calendar,
+        title: "Calendario Integrado",
+        description:
+            "Calendario compartido con eventos, recordatorios y sincronización externa.",
+        capabilities: [
+            "Event management",
+            "Calendar sync",
+            "Recurring events",
+            "Reminders",
+            "Team calendars",
+        ],
+    },
+    {
+        icon: BarChart3,
+        title: "Analytics & Reporting",
+        description:
+            "Métricas de uso y reportes personalizables para administradores.",
+        capabilities: [
+            "Usage analytics",
+            "Custom reports",
+            "Data export",
+            "Real-time metrics",
+            "Performance insights",
+        ],
+    },
+];
+
+const industries = [
+    {
+        name: "Corporativo & Empresarial",
+        description:
+            "Portales internos para mejorar comunicación y productividad",
+        icon: "🏢",
+        useCases: [
+            "Employee portals",
+            "Intranet systems",
+            "Knowledge bases",
+            "Communication hubs",
+        ],
+        benefits: [
+            "Mejor comunicación interna",
+            "Reducción de emails",
+            "Acceso centralizado",
+            "Colaboración mejorada",
+        ],
+        avgUsers: "500-5000 empleados",
+    },
+    {
+        name: "Educación & E-learning",
+        description: "Plataformas educativas para instituciones y empresas",
+        icon: "🎓",
+        useCases: [
+            "Student portals",
+            "LMS systems",
+            "Teacher dashboards",
+            "Parent portals",
+        ],
+        benefits: [
+            "Seguimiento de progreso",
+            "Comunicación padres-escuela",
+            "Gestión de cursos",
+            "Evaluación automática",
+        ],
+        avgUsers: "1000-50000 estudiantes",
+    },
+    {
+        name: "Healthcare & Wellness",
+        description: "Portales de pacientes y gestión de citas médicas",
+        icon: "🏥",
+        useCases: [
+            "Patient portals",
+            "Appointment booking",
+            "Medical records",
+            "Telemedicine",
+        ],
+        benefits: [
+            "Acceso 24/7 a records",
+            "Reserva de citas online",
+            "Comunicación con médicos",
+            "Resultados de laboratorio",
+        ],
+        avgUsers: "1000-100000 pacientes",
+    },
+    {
+        name: "Servicios Financieros",
+        description: "Portales bancarios y de inversión para clientes",
+        icon: "🏦",
+        useCases: [
+            "Banking portals",
+            "Investment dashboards",
+            "Loan management",
+            "Financial planning",
+        ],
+        benefits: [
+            "Gestión de cuentas 24/7",
+            "Transacciones seguras",
+            "Reportes financieros",
+            "Asesoría personalizada",
+        ],
+        avgUsers: "10000-1M clientes",
+    },
+    {
+        name: "Tecnología & SaaS",
+        description: "Portales de clientes para productos tecnológicos",
+        icon: "💻",
+        useCases: [
+            "Customer portals",
+            "API documentation",
+            "Support systems",
+            "Usage dashboards",
+        ],
+        benefits: [
+            "Self-service support",
+            "Documentación centralizada",
+            "Gestión de APIs",
+            "Métricas de uso",
+        ],
+        avgUsers: "100-100000 usuarios",
+    },
+    {
+        name: "Gobierno & Sector Público",
+        description: "Portales ciudadanos y tramitación online",
+        icon: "🏛️",
+        useCases: [
+            "Citizen portals",
+            "Online services",
+            "Document processing",
+            "Public information",
+        ],
+        benefits: [
+            "Trámites online",
+            "Transparencia",
+            "Reducción de esperas",
+            "Acceso 24/7",
+        ],
+        avgUsers: "10000-10M ciudadanos",
+    },
+];
+
+const modules = [
+    {
+        name: "Dashboard Personal",
+        description:
+            "Vista general personalizable con widgets y accesos rápidos",
+        features: [
+            "Customizable widgets",
+            "Quick actions",
+            "Recent activity",
+            "Notifications panel",
+        ],
+    },
+    {
+        name: "Gestión de Documentos",
+        description:
+            "Biblioteca centralizada con búsqueda avanzada y colaboración",
+        features: [
+            "Document upload",
+            "Version control",
+            "Collaborative editing",
+            "Advanced search",
+        ],
+    },
+    {
+        name: "Sistema de Mensajería",
+        description: "Comunicación interna con chat, foros y anuncios",
+        features: [
+            "Real-time chat",
+            "Discussion forums",
+            "Announcements",
+            "Direct messaging",
+        ],
+    },
+    {
+        name: "Centro de Ayuda",
+        description: "Knowledge base con FAQs, tutoriales y soporte",
+        features: [
+            "FAQ system",
+            "Video tutorials",
+            "Support tickets",
+            "Live chat",
+        ],
+    },
+    {
+        name: "Directorio de Usuarios",
+        description:
+            "Directorio searchable con perfiles y información de contacto",
+        features: [
+            "User profiles",
+            "Search filters",
+            "Contact information",
+            "Organizational chart",
+        ],
+    },
+    {
+        name: "Configuración de Cuenta",
+        description: "Gestión completa de perfil, preferencias y privacidad",
+        features: [
+            "Profile management",
+            "Privacy settings",
+            "Notification preferences",
+            "Security options",
+        ],
+    },
+];
+
+const security = [
+    {
+        feature: "Autenticación Multi-Factor (MFA)",
+        description:
+            "Capa adicional de seguridad con códigos SMS, apps authenticator o biometría",
+    },
+    {
+        feature: "Single Sign-On (SSO)",
+        description:
+            "Integración con Active Directory, Azure AD, Google Workspace y otros proveedores",
+    },
+    {
+        feature: "Control de Acceso Basado en Roles (RBAC)",
+        description:
+            "Permisos granulares según roles y departamentos organizacionales",
+    },
+    {
+        feature: "Cifrado End-to-End",
+        description:
+            "Protección de datos en tránsito y en reposo con estándares industriales",
+    },
+    {
+        feature: "Logs de Auditoría",
+        description:
+            "Registro completo de actividades para compliance y seguridad",
+    },
+    {
+        feature: "Políticas de Contraseñas",
+        description:
+            "Requisitos de complejidad y rotación automática de credenciales",
+    },
+];
+
+const process = [
+    {
+        phase: "Discovery & Planning",
+        duration: "2-3 semanas",
+        activities: [
+            "Stakeholder interviews",
+            "User research",
+            "Technical requirements",
+            "Information architecture",
+        ],
+        deliverables: [
+            "Requirements document",
+            "User personas",
+            "Site map",
+            "Technical architecture",
+        ],
+    },
+    {
+        phase: "UX/UI Design",
+        duration: "3-5 semanas",
+        activities: [
+            "Wireframing",
+            "User flows",
+            "Visual design",
+            "Prototyping",
+            "Usability testing",
+        ],
+        deliverables: [
+            "Wireframes",
+            "Design system",
+            "Interactive prototypes",
+            "Style guide",
+        ],
+    },
+    {
+        phase: "Backend Development",
+        duration: "4-8 semanas",
+        activities: [
+            "Database design",
+            "API development",
+            "Authentication setup",
+            "Integration development",
+        ],
+        deliverables: [
+            "Database schema",
+            "API documentation",
+            "Authentication system",
+            "Core backend",
+        ],
+    },
+    {
+        phase: "Frontend Development",
+        duration: "4-8 semanas",
+        activities: [
+            "Component development",
+            "Responsive design",
+            "Integration testing",
+            "Performance optimization",
+        ],
+        deliverables: [
+            "Responsive portal",
+            "Component library",
+            "Integration tests",
+            "Performance report",
+        ],
+    },
+    {
+        phase: "Testing & Deployment",
+        duration: "2-4 semanas",
+        activities: [
+            "User acceptance testing",
+            "Security testing",
+            "Performance testing",
+            "Production deployment",
+        ],
+        deliverables: [
+            "Test reports",
+            "Security audit",
+            "Live portal",
+            "Deployment documentation",
+        ],
+    },
+];
+
+const technologies = [
+    {
+        category: "Frontend",
+        techs: ["React", "Vue.js", "Angular", "TypeScript", "Tailwind CSS"],
+    },
+    {
+        category: "Backend",
+        techs: ["Node.js", "Python", "Java", "C#", ".NET"],
+    },
+    {
+        category: "Database",
+        techs: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Elasticsearch"],
+    },
+    {
+        category: "Authentication",
+        techs: ["Auth0", "Azure AD", "Okta", "LDAP", "SAML"],
+    },
+    {
+        category: "Cloud & DevOps",
+        techs: ["AWS", "Azure", "Google Cloud", "Docker", "Kubernetes"],
+    },
+];
+---
+
+<Layout
+    title="Desarrollo de Portales Personales - DevsHub"
+    description="Creamos portales personalizados para empleados, clientes y estudiantes. Plataformas seguras con SSO, gestión de documentos y analytics."
+>
+    <main class="min-h-screen pt-24">
+        <!-- Hero Section -->
+        <section
+            class="py-20 bg-gradient-to-br from-cyan-50 to-blue-100 dark:from-cyan-950/20 dark:to-blue-950/20"
+        >
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <Badge className="mb-4">Portales Personalizados</Badge>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        Portales que <span class="text-primary">Conectan</span> Comunidades
+                    </h1>
+                    <p class="text-xl text-muted-foreground mb-8">
+                        Desarrollamos portales personalizados para empleados,
+                        clientes y estudiantes. Plataformas seguras que
+                        centralizan información y mejoran la experiencia de
+                        usuario.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a
+                            href="/contacto?servicio=portal-personal"
+                            class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                        >
+                            <User className="w-4 h-4 mr-2" />
+                            Crear Portal
+                        </a>
+                        <a
+                            href="#tipos-portal"
+                            class="inline-flex items-center justify-center px-8 py-3 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+                        >
+                            Explorar Opciones
+                        </a>
+                    </div>
+
+                    <div class="mt-12 pt-8 border-t border-muted-foreground/20">
+                        <div class="grid grid-cols-3 gap-8 max-w-md mx-auto">
+                            <div class="text-center">
+                                <div
+                                    class="text-2xl font-bold mb-1 text-primary"
+                                >
+                                    SSO
+                                </div>
+                                <div class="text-sm text-muted-foreground">
+                                    Integration
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div
+                                    class="text-2xl font-bold mb-1 text-primary"
+                                >
+                                    99.9%
+                                </div>
+                                <div class="text-sm text-muted-foreground">
+                                    Uptime
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div
+                                    class="text-2xl font-bold mb-1 text-primary"
+                                >
+                                    24/7
+                                </div>
+                                <div class="text-sm text-muted-foreground">
+                                    Support
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portal Types -->
+        <section id="tipos-portal" class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Tipos de Portales
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Cada portal está diseñado para necesidades específicas
+                        de diferentes audiencias y organizaciones.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    {
+                        portalTypes.map((type) => (
+                            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                                <CardHeader className="text-center pb-6">
+                                    <div class="mx-auto mb-4 p-4 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors w-fit">
+                                        <type.icon className="w-8 h-8 text-primary" />
+                                    </div>
+                                    <CardTitle className="text-xl mb-2">
+                                        {type.title}
+                                    </CardTitle>
+                                    <p class="text-muted-foreground">
+                                        {type.description}
+                                    </p>
+                                </CardHeader>
+                                <CardContent className="space-y-6">
+                                    <div>
+                                        <h4 class="font-semibold mb-3">
+                                            Funcionalidades:
+                                        </h4>
+                                        <ul class="space-y-2">
+                                            {type.features.map((feature) => (
+                                                <li class="flex items-center gap-2">
+                                                    <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                                                    <span class="text-sm">
+                                                        {feature}
+                                                    </span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+
+                                    <div>
+                                        <h4 class="font-semibold mb-3">
+                                            Módulos principales:
+                                        </h4>
+                                        <div class="flex flex-wrap gap-2">
+                                            {type.modules.map((module) => (
+                                                <Badge
+                                                    variant="outline"
+                                                    className="text-xs"
+                                                >
+                                                    {module}
+                                                </Badge>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div class="space-y-3 pt-4 border-t border-border">
+                                        <div>
+                                            <span class="text-sm font-semibold">
+                                                Ideal para:{" "}
+                                            </span>
+                                            <span class="text-sm text-muted-foreground">
+                                                {type.bestFor}
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span class="text-sm font-semibold">
+                                                Capacidad:{" "}
+                                            </span>
+                                            <span class="text-sm text-muted-foreground">
+                                                {type.users}
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span class="text-sm font-semibold">
+                                                Timeline:{" "}
+                                            </span>
+                                            <span class="text-sm text-muted-foreground">
+                                                {type.timeline}
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span class="text-sm font-semibold">
+                                                Inversión:{" "}
+                                            </span>
+                                            <span class="text-sm text-muted-foreground">
+                                                {type.investment}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Features -->
+        <section class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Funcionalidades Centrales
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Todas nuestras plataformas incluyen estas
+                        funcionalidades esenciales para una experiencia
+                        completa.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
+                    {
+                        coreFeatures.map((feature) => (
+                            <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300 group">
+                                <CardHeader>
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <div class="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                                            <feature.icon className="w-6 h-6 text-primary" />
+                                        </div>
+                                        <CardTitle className="text-lg">
+                                            {feature.title}
+                                        </CardTitle>
+                                    </div>
+                                    <p class="text-muted-foreground text-sm">
+                                        {feature.description}
+                                    </p>
+                                </CardHeader>
+                                <CardContent>
+                                    <ul class="space-y-2">
+                                        {feature.capabilities.map(
+                                            (capability) => (
+                                                <li class="flex items-center gap-2">
+                                                    <div class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                                                    <span class="text-sm">
+                                                        {capability}
+                                                    </span>
+                                                </li>
+                                            )
+                                        )}
+                                    </ul>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Industries -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Soluciones por Industria
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Portales especializados que se adaptan a las necesidades
+                        específicas de cada sector.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
+                    {
+                        industries.map((industry) => (
+                            <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300">
+                                <CardHeader>
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div class="text-3xl">
+                                            {industry.icon}
+                                        </div>
+                                        <Badge
+                                            variant="outline"
+                                            className="text-xs"
+                                        >
+                                            {industry.avgUsers}
+                                        </Badge>
+                                    </div>
+                                    <CardTitle className="text-xl mb-2">
+                                        {industry.name}
+                                    </CardTitle>
+                                    <p class="text-muted-foreground text-sm">
+                                        {industry.description}
+                                    </p>
+                                </CardHeader>
+                                <CardContent className="space-y-4">
+                                    <div>
+                                        <h4 class="font-semibold mb-3">
+                                            Casos de uso típicos:
+                                        </h4>
+                                        <ul class="space-y-1">
+                                            {industry.useCases.map(
+                                                (useCase) => (
+                                                    <li class="text-sm text-muted-foreground">
+                                                        • {useCase}
+                                                    </li>
+                                                )
+                                            )}
+                                        </ul>
+                                    </div>
+
+                                    <div>
+                                        <h4 class="font-semibold mb-3">
+                                            Beneficios clave:
+                                        </h4>
+                                        <div class="space-y-2">
+                                            {industry.benefits.map(
+                                                (benefit) => (
+                                                    <div class="flex items-center gap-2">
+                                                        <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                                                        <span class="text-sm">
+                                                            {benefit}
+                                                        </span>
+                                                    </div>
+                                                )
+                                            )}
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Modules -->
+        <section class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Módulos Disponibles
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Componentes modulares que se pueden combinar según las
+                        necesidades específicas de tu organización.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
+                    {
+                        modules.map((module) => (
+                            <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300">
+                                <CardHeader>
+                                    <CardTitle className="text-lg mb-2">
+                                        {module.name}
+                                    </CardTitle>
+                                    <p class="text-muted-foreground text-sm">
+                                        {module.description}
+                                    </p>
+                                </CardHeader>
+                                <CardContent>
+                                    <h4 class="font-semibold mb-3">
+                                        Características:
+                                    </h4>
+                                    <ul class="space-y-2">
+                                        {module.features.map((feature) => (
+                                            <li class="flex items-center gap-2">
+                                                <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                                                <span class="text-sm">
+                                                    {feature}
+                                                </span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Security -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Seguridad Enterprise
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Implementamos las mejores prácticas de seguridad para
+                        proteger datos sensibles y cumplir normativas.
+                    </p>
+                </div>
+
+                <div class="max-w-4xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {
+                            security.map((item) => (
+                                <Card className="border-0 shadow-md">
+                                    <CardContent className="p-6">
+                                        <div class="flex items-start gap-4">
+                                            <div class="p-2 rounded-lg bg-primary/10 mt-1">
+                                                <Shield className="w-5 h-5 text-primary" />
+                                            </div>
+                                            <div>
+                                                <h3 class="font-bold text-lg mb-2">
+                                                    {item.feature}
+                                                </h3>
+                                                <p class="text-muted-foreground text-sm">
+                                                    {item.description}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technologies -->
+        <section class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Stack Tecnológico
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Utilizamos tecnologías modernas y probadas para crear
+                        portales escalables y seguros.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8"
+                >
+                    {
+                        technologies.map((category) => (
+                            <Card className="border-0 shadow-md">
+                                <CardHeader className="text-center">
+                                    <CardTitle className="text-lg">
+                                        {category.category}
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <div class="space-y-2">
+                                        {category.techs.map((tech) => (
+                                            <div class="text-center p-2 rounded-lg bg-muted/50 text-sm font-medium">
+                                                {tech}
+                                            </div>
+                                        ))}
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Process -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Proceso de Desarrollo
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Metodología estructurada que garantiza resultados
+                        exitosos y adopción por parte de los usuarios.
+                    </p>
+                </div>
+
+                <div class="space-y-8 max-w-5xl mx-auto">
+                    {
+                        process.map((phase, index) => (
+                            <Card className="border-0 shadow-md">
+                                <CardContent className="p-8">
+                                    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
+                                        <div>
+                                            <div class="flex items-center gap-4 mb-4">
+                                                <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-primary-foreground text-xl font-bold">
+                                                    {index + 1}
+                                                </div>
+                                                <div>
+                                                    <h3 class="font-bold text-lg">
+                                                        {phase.phase}
+                                                    </h3>
+                                                    <Badge variant="outline">
+                                                        {phase.duration}
+                                                    </Badge>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <h4 class="font-semibold mb-3">
+                                                Actividades:
+                                            </h4>
+                                            <ul class="space-y-1">
+                                                {phase.activities.map(
+                                                    (activity) => (
+                                                        <li class="text-sm text-muted-foreground">
+                                                            • {activity}
+                                                        </li>
+                                                    )
+                                                )}
+                                            </ul>
+                                        </div>
+
+                                        <div class="lg:col-span-2">
+                                            <h4 class="font-semibold mb-3">
+                                                Entregables:
+                                            </h4>
+                                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                                {phase.deliverables.map(
+                                                    (deliverable) => (
+                                                        <div class="flex items-center gap-2">
+                                                            <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                                                            <span class="text-sm">
+                                                                {deliverable}
+                                                            </span>
+                                                        </div>
+                                                    )
+                                                )}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section
+            class="py-20 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground"
+        >
+            <div class="container mx-auto px-4 text-center">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                        ¿Listo para conectar tu comunidad?
+                    </h2>
+                    <p class="text-lg opacity-90 mb-8">
+                        Creamos portales personalizados que mejoran la
+                        comunicación, centralizan información y aumentan la
+                        productividad de tu organización.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a
+                            href="/contacto?servicio=portal-personal"
+                            class="inline-flex items-center justify-center px-8 py-3 bg-white text-primary rounded-lg font-medium hover:bg-gray-100 transition-colors"
+                        >
+                            <User className="w-4 h-4 mr-2" />
+                            Crear Mi Portal
+                        </a>
+                        <a
+                            href="/productos"
+                            class="inline-flex items-center justify-center px-8 py-3 border border-white/20 rounded-lg font-medium hover:bg-white/10 transition-colors"
+                        >
+                            Ver Demos
+                        </a>
+                    </div>
+
+                    <div class="mt-12 pt-8 border-t border-white/20">
+                        <div class="grid grid-cols-4 gap-8 max-w-2xl mx-auto">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold mb-1">75+</div>
+                                <div class="text-sm opacity-75">
+                                    Portales Creados
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold mb-1">500K+</div>
+                                <div class="text-sm opacity-75">
+                                    Usuarios Activos
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold mb-1">99.9%</div>
+                                <div class="text-sm opacity-75">Uptime</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold mb-1">24/7</div>
+                                <div class="text-sm opacity-75">Support</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>

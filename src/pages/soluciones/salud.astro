@@ -1,0 +1,452 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+    Heart,
+    Shield,
+    Users,
+    Calendar,
+    FileText,
+    Phone,
+    Database,
+    ArrowRight,
+} from "lucide-react";
+
+const solutions = [
+    {
+        icon: Heart,
+        title: "Telemedicina",
+        description: "Plataformas para consultas médicas remotas",
+        features: [
+            "Videoconsultas seguras",
+            "Historial médico digital",
+            "Prescripciones electrónicas",
+            "Integración con dispositivos médicos",
+        ],
+    },
+    {
+        icon: Calendar,
+        title: "Gestión de Citas",
+        description: "Sistemas de reserva y gestión de citas médicas",
+        features: [
+            "Calendario inteligente",
+            "Recordatorios automáticos",
+            "Gestión de lista de espera",
+            "Sincronización multiplataforma",
+        ],
+    },
+    {
+        icon: FileText,
+        title: "Historia Clínica Digital",
+        description: "Sistemas seguros para el manejo de registros médicos",
+        features: [
+            "Almacenamiento seguro HIPAA",
+            "Acceso controlado por roles",
+            "Búsqueda avanzada",
+            "Backup automático",
+        ],
+    },
+];
+
+const features = [
+    {
+        icon: Shield,
+        title: "Cumplimiento HIPAA",
+        description:
+            "Garantizamos el cumplimiento de todas las regulaciones de privacidad médica.",
+    },
+    {
+        icon: Database,
+        title: "Interoperabilidad",
+        description:
+            "Integración con sistemas existentes y estándares HL7 FHIR.",
+    },
+    {
+        icon: Users,
+        title: "Multi-usuario",
+        description:
+            "Soporte para médicos, pacientes, administradores y personal de apoyo.",
+    },
+];
+
+const benefits = [
+    "Reducción de costos operativos hasta 40%",
+    "Mejora en la eficiencia del personal médico",
+    "Mayor satisfacción del paciente",
+    "Acceso 24/7 a información médica",
+    "Reducción de errores médicos",
+    "Cumplimiento de regulaciones de salud",
+];
+
+const caseStudies = [
+    {
+        title: "Clínica San Rafael",
+        description:
+            "Implementación de sistema integral de gestión hospitalaria",
+        results: [
+            "45% reducción en tiempos de espera",
+            "60% menos errores en prescripciones",
+            "30% aumento en satisfacción del paciente",
+        ],
+    },
+    {
+        title: "Red de Centros Médicos",
+        description: "Plataforma de telemedicina para 15 centros médicos",
+        results: [
+            "5000+ consultas remotas mensuales",
+            "25% reducción en costos operativos",
+            "Expansión a zonas rurales",
+        ],
+    },
+];
+---
+
+<Layout
+    title="Soluciones para Salud - DevsHub"
+    description="Desarrollamos soluciones tecnológicas innovadoras para el sector salud. Telemedicina, gestión hospitalaria, historias clínicas digitales y más."
+>
+    <main class="min-h-screen pt-24">
+        <!-- Hero Section -->
+        <section
+            class="py-20 bg-gradient-to-br from-blue-50 to-cyan-100 dark:from-blue-950/20 dark:to-cyan-950/20"
+        >
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <Badge className="mb-4">Soluciones para Salud</Badge>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        Tecnología que <span class="text-primary"
+                            >Salva Vidas</span
+                        >
+                    </h1>
+                    <p class="text-xl text-muted-foreground mb-8">
+                        Desarrollamos soluciones tecnológicas innovadoras para
+                        hospitales, clínicas y profesionales de la salud. Mejora
+                        la atención al paciente y optimiza tus procesos.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a
+                            href="#soluciones"
+                            class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                        >
+                            <Heart className="w-4 h-4 mr-2" />
+                            Ver Soluciones
+                        </a>
+                        <a
+                            href="/contacto"
+                            class="inline-flex items-center justify-center px-8 py-3 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+                        >
+                            Consulta Especializada
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Características Especializadas
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Nuestras soluciones están diseñadas específicamente para
+                        el sector salud, cumpliendo con todas las regulaciones y
+                        estándares necesarios.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {
+                        features.map((feature) => (
+                            <Card className="text-center border-0 shadow-md">
+                                <CardHeader>
+                                    <div class="mx-auto mb-4 p-3 rounded-lg bg-primary/10 w-fit">
+                                        <feature.icon className="w-8 h-8 text-primary" />
+                                    </div>
+                                    <CardTitle className="text-xl">
+                                        {feature.title}
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <p class="text-muted-foreground">
+                                        {feature.description}
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Solutions Section -->
+        <section id="soluciones" class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Nuestras Soluciones para Salud
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Desde telemedicina hasta gestión hospitalaria completa,
+                        cubrimos todas las necesidades tecnológicas del sector
+                        salud.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    {
+                        solutions.map((solution) => (
+                            <Card className="border-0 shadow-md hover:shadow-lg transition-shadow">
+                                <CardHeader>
+                                    <div class="mb-4 p-3 rounded-lg bg-primary/10 w-fit">
+                                        <solution.icon className="w-8 h-8 text-primary" />
+                                    </div>
+                                    <CardTitle className="text-xl mb-2">
+                                        {solution.title}
+                                    </CardTitle>
+                                    <p class="text-muted-foreground text-sm">
+                                        {solution.description}
+                                    </p>
+                                </CardHeader>
+                                <CardContent>
+                                    <ul class="space-y-2 mb-4">
+                                        {solution.features.map((feature) => (
+                                            <li class="flex items-center gap-2 text-sm">
+                                                <div class="w-1.5 h-1.5 rounded-full bg-primary" />
+                                                {feature}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    <a
+                                        href="/contacto"
+                                        class="inline-flex items-center text-primary hover:text-primary/80 font-medium text-sm"
+                                    >
+                                        Más información
+                                        <ArrowRight className="w-4 h-4 ml-1" />
+                                    </a>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <div
+                        class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+                    >
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                                Beneficios Comprobados
+                            </h2>
+                            <p class="text-lg text-muted-foreground mb-8">
+                                Nuestras soluciones han demostrado mejoras
+                                significativas en la eficiencia operativa y la
+                                calidad de atención médica.
+                            </p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                {
+                                    benefits.map((benefit) => (
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
+                                            <span class="text-sm">
+                                                {benefit}
+                                            </span>
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                        </div>
+                        <div
+                            class="bg-gradient-to-br from-green-50 to-emerald-100 dark:from-green-950/20 dark:to-emerald-950/20 p-8 rounded-xl"
+                        >
+                            <h3 class="text-2xl font-bold mb-6 text-center">
+                                Impacto en Números
+                            </h3>
+                            <div class="grid grid-cols-2 gap-6">
+                                <div class="text-center">
+                                    <div
+                                        class="text-3xl font-bold text-primary mb-2"
+                                    >
+                                        98%
+                                    </div>
+                                    <p class="text-sm text-muted-foreground">
+                                        Disponibilidad del sistema
+                                    </p>
+                                </div>
+                                <div class="text-center">
+                                    <div
+                                        class="text-3xl font-bold text-primary mb-2"
+                                    >
+                                        45%
+                                    </div>
+                                    <p class="text-sm text-muted-foreground">
+                                        Reducción de costos
+                                    </p>
+                                </div>
+                                <div class="text-center">
+                                    <div
+                                        class="text-3xl font-bold text-primary mb-2"
+                                    >
+                                        10k+
+                                    </div>
+                                    <p class="text-sm text-muted-foreground">
+                                        Pacientes atendidos
+                                    </p>
+                                </div>
+                                <div class="text-center">
+                                    <div
+                                        class="text-3xl font-bold text-primary mb-2"
+                                    >
+                                        24/7
+                                    </div>
+                                    <p class="text-sm text-muted-foreground">
+                                        Soporte técnico
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Studies -->
+        <section class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Casos de Éxito
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Descubre cómo hemos ayudado a instituciones de salud a
+                        transformar digitalmente sus operaciones.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto"
+                >
+                    {
+                        caseStudies.map((study) => (
+                            <Card className="border-0 shadow-md">
+                                <CardHeader>
+                                    <CardTitle className="text-xl">
+                                        {study.title}
+                                    </CardTitle>
+                                    <p class="text-muted-foreground text-sm">
+                                        {study.description}
+                                    </p>
+                                </CardHeader>
+                                <CardContent>
+                                    <h4 class="font-semibold mb-3 text-primary">
+                                        Resultados obtenidos:
+                                    </h4>
+                                    <ul class="space-y-2">
+                                        {study.results.map((result) => (
+                                            <li class="flex items-center gap-3">
+                                                <Heart className="w-4 h-4 text-primary flex-shrink-0" />
+                                                <span class="text-sm">
+                                                    {result}
+                                                </span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Security Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <Shield className="w-16 h-16 text-primary mx-auto mb-6" />
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                        Seguridad y Privacidad Garantizada
+                    </h2>
+                    <p class="text-lg text-muted-foreground mb-8">
+                        La información médica es altamente sensible. Por eso
+                        implementamos los más altos estándares de seguridad y
+                        cumplimiento normativo.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <Card className="border-0 shadow-md">
+                            <CardContent className="p-6 text-center">
+                                <h3 class="font-semibold mb-2">
+                                    Encriptación End-to-End
+                                </h3>
+                                <p class="text-sm text-muted-foreground">
+                                    Todos los datos se encriptan en tránsito y
+                                    en reposo
+                                </p>
+                            </CardContent>
+                        </Card>
+                        <Card className="border-0 shadow-md">
+                            <CardContent className="p-6 text-center">
+                                <h3 class="font-semibold mb-2">
+                                    Auditorías Regulares
+                                </h3>
+                                <p class="text-sm text-muted-foreground">
+                                    Auditorías de seguridad y penetration
+                                    testing
+                                </p>
+                            </CardContent>
+                        </Card>
+                        <Card className="border-0 shadow-md">
+                            <CardContent className="p-6 text-center">
+                                <h3 class="font-semibold mb-2">
+                                    Backup Redundante
+                                </h3>
+                                <p class="text-sm text-muted-foreground">
+                                    Múltiples copias de seguridad en ubicaciones
+                                    seguras
+                                </p>
+                            </CardContent>
+                        </Card>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 bg-primary text-primary-foreground">
+            <div class="container mx-auto px-4 text-center">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                        Transforma tu institución de salud
+                    </h2>
+                    <p class="text-lg opacity-90 mb-8">
+                        Únete a las instituciones de salud que ya han mejorado
+                        su eficiencia y calidad de atención con nuestras
+                        soluciones tecnológicas.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a
+                            href="/contacto"
+                            class="inline-flex items-center justify-center px-8 py-3 bg-white text-primary rounded-lg font-medium hover:bg-gray-100 transition-colors"
+                        >
+                            <Phone className="w-4 h-4 mr-2" />
+                            Agendar Demo
+                        </a>
+                        <a
+                            href="/soluciones"
+                            class="inline-flex items-center justify-center px-8 py-3 border border-white/20 rounded-lg font-medium hover:bg-white/10 transition-colors"
+                        >
+                            Ver Todas las Soluciones
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
