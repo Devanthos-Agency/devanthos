@@ -1,0 +1,359 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+    HelpCircle,
+    MessageCircle,
+    Clock,
+    Shield,
+    Code,
+    Smartphone,
+    CreditCard,
+    Users,
+} from "lucide-react";
+
+const faqCategories = [
+    {
+        title: "General",
+        icon: HelpCircle,
+        faqs: [
+            {
+                question: "¿Qué servicios ofrece DevsHub?",
+                answer: "Ofrecemos desarrollo web y móvil, diseño UI/UX, consultoría técnica, sistemas personalizados y mantenimiento de aplicaciones. Nos especializamos en tecnologías modernas como React, Next.js, React Native y Node.js.",
+            },
+            {
+                question: "¿Cuánto tiempo toma desarrollar un proyecto?",
+                answer: "Los tiempos varían según la complejidad. Una landing page puede tomar 1-2 semanas, una aplicación web completa 4-8 semanas, y una app móvil 6-12 semanas. Proporcionamos estimaciones detalladas después de la consulta inicial.",
+            },
+            {
+                question: "¿Trabajan con clientes internacionales?",
+                answer: "Sí, trabajamos con clientes de todo el mundo. Tenemos experiencia colaborando en diferentes zonas horarias y ofrecemos comunicación en español e inglés.",
+            },
+            {
+                question: "¿Qué tecnologías utilizan?",
+                answer: "Utilizamos tecnologías modernas y probadas: React, Next.js, TypeScript, Node.js, Python, React Native, Flutter, AWS, Docker, y bases de datos como PostgreSQL y MongoDB.",
+            },
+        ],
+    },
+    {
+        title: "Desarrollo Web",
+        icon: Code,
+        faqs: [
+            {
+                question: "¿Los sitios web son responsivos?",
+                answer: "Absolutamente. Todos nuestros desarrollos siguen el principio 'mobile-first' y se adaptan perfectamente a todos los dispositivos: móviles, tablets y escritorio.",
+            },
+            {
+                question: "¿Incluyen SEO en el desarrollo?",
+                answer: "Sí, implementamos SEO técnico desde el desarrollo: estructura semántica, meta tags, sitemap, velocidad de carga optimizada, y mejores prácticas para motores de búsqueda.",
+            },
+            {
+                question: "¿Puedo actualizar el contenido yo mismo?",
+                answer: "Sí, podemos integrar un CMS (Sistema de Gestión de Contenido) como Strapi, Sanity o WordPress headless para que puedas actualizar contenido fácilmente.",
+            },
+            {
+                question: "¿Qué incluye el hosting?",
+                answer: "Ofrecemos opciones de hosting en plataformas como Vercel, Netlify o AWS. Incluye SSL, CDN global, backups automáticos y monitoreo de uptime.",
+            },
+        ],
+    },
+    {
+        title: "Aplicaciones Móviles",
+        icon: Smartphone,
+        faqs: [
+            {
+                question: "¿Desarrollan para iOS y Android?",
+                answer: "Sí, desarrollamos aplicaciones nativas para iOS y Android, así como aplicaciones híbridas con React Native o Flutter que funcionan en ambas plataformas.",
+            },
+            {
+                question: "¿Se encargan de publicar en las tiendas?",
+                answer: "Sí, manejamos todo el proceso de publicación en App Store y Google Play, incluyendo la preparación de assets, descripción de la app y gestión de las revisiones.",
+            },
+            {
+                question: "¿Las apps funcionan offline?",
+                answer: "Dependiendo de los requisitos, podemos implementar funcionalidad offline usando tecnologías como Service Workers o almacenamiento local para que ciertas funciones trabajen sin conexión.",
+            },
+            {
+                question: "¿Incluyen notificaciones push?",
+                answer: "Sí, implementamos notificaciones push personalizadas que te permiten mantener a tus usuarios comprometidos y informados sobre actualizaciones importantes.",
+            },
+        ],
+    },
+    {
+        title: "Precios y Pagos",
+        icon: CreditCard,
+        faqs: [
+            {
+                question: "¿Cómo manejan los pagos?",
+                answer: "Trabajamos con pagos por etapas: 50% al inicio del proyecto, 25% en la entrega del prototipo, y 25% final al completar el proyecto. Aceptamos transferencias bancarias y PayPal.",
+            },
+            {
+                question: "¿Ofrecen planes de financiamiento?",
+                answer: "Para proyectos grandes (>$5,000), ofrecemos planes de pago flexibles. Podemos dividir el costo en hasta 6 pagos mensuales sin intereses adicionales.",
+            },
+            {
+                question: "¿Los precios incluyen mantenimiento?",
+                answer: "Los precios incluyen 3 meses de mantenimiento básico (corrección de bugs). El mantenimiento extendido y nuevas funcionalidades se cotizar por separado.",
+            },
+            {
+                question: "¿Hay costos ocultos?",
+                answer: "No, somos transparentes con nuestros precios. Te proporcionamos una cotización detallada que incluye todos los costos. Solo podrían haber costos adicionales si solicitas cambios significativos durante el desarrollo.",
+            },
+        ],
+    },
+    {
+        title: "Soporte y Mantenimiento",
+        icon: Shield,
+        faqs: [
+            {
+                question: "¿Qué incluye el mantenimiento?",
+                answer: "El mantenimiento incluye corrección de bugs, actualizaciones de seguridad, optimización de rendimiento, backups regulares y actualizaciones de dependencias.",
+            },
+            {
+                question: "¿Cómo es el soporte técnico?",
+                answer: "Ofrecemos soporte por email, chat y videollamada. Los tiempos de respuesta varían: crítico (2 horas), alto (24 horas), medio (48 horas), bajo (72 horas).",
+            },
+            {
+                question: "¿Proporcionan documentación?",
+                answer: "Sí, entregamos documentación completa del proyecto incluyendo: guía de usuario, documentación técnica, código comentado y guías de despliegue.",
+            },
+            {
+                question: "¿Qué pasa si mi desarrollador se va?",
+                answer: "Todo nuestro código está documentado y versionado. Si un desarrollador deja el equipo, otro puede continuar sin problemas. Además, te entregamos acceso completo al código fuente.",
+            },
+        ],
+    },
+    {
+        title: "Proceso de Trabajo",
+        icon: Users,
+        faqs: [
+            {
+                question: "¿Cómo es el proceso de desarrollo?",
+                answer: "Seguimos metodología ágil: 1) Consulta y análisis, 2) Diseño y prototipado, 3) Desarrollo iterativo, 4) Testing y QA, 5) Despliegue y lanzamiento, 6) Soporte post-lanzamiento.",
+            },
+            {
+                question: "¿Con qué frecuencia recibo actualizaciones?",
+                answer: "Enviamos reportes de progreso semanales con capturas de pantalla, funcionalidades completadas y próximos pasos. También organizamos calls de seguimiento cada 2 semanas.",
+            },
+            {
+                question: "¿Puedo solicitar cambios durante el desarrollo?",
+                answer: "Sí, los cambios menores están incluidos. Para cambios significativos que afecten el alcance original, proporcionamos una cotización adicional antes de proceder.",
+            },
+            {
+                question: "¿Entregan el código fuente?",
+                answer: "Sí, al finalizar el proyecto recibes acceso completo al código fuente, documentación, assets de diseño y credenciales de las cuentas creadas para tu proyecto.",
+            },
+        ],
+    },
+];
+---
+
+<Layout
+    title="Preguntas Frecuentes - DevsHub"
+    description="Encuentra respuestas a las preguntas más comunes sobre nuestros servicios de desarrollo web, aplicaciones móviles, precios y proceso de trabajo."
+>
+    <main class="min-h-screen pt-24">
+        <!-- Hero Section -->
+        <section class="py-20 bg-gradient-to-br from-primary/5 to-primary/10">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <Badge className="mb-4">FAQ</Badge>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        Preguntas <span class="text-primary">Frecuentes</span>
+                    </h1>
+                    <p class="text-xl text-muted-foreground mb-8">
+                        Encuentra respuestas rápidas a las preguntas más comunes
+                        sobre nuestros servicios, proceso de trabajo y
+                        políticas.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a
+                            href="/contacto"
+                            class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                        >
+                            <MessageCircle className="w-4 h-4 mr-2" />
+                            Hacer una Pregunta
+                        </a>
+                        <a
+                            href="mailto:soporte@devshub.com"
+                            class="inline-flex items-center justify-center px-8 py-3 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+                        >
+                            Contactar Soporte
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Categories -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    {
+                        faqCategories.map((category, categoryIndex) => (
+                            <div class="mb-16">
+                                <div class="flex items-center gap-3 mb-8">
+                                    <div class="p-2 rounded-lg bg-primary/10">
+                                        <category.icon className="w-6 h-6 text-primary" />
+                                    </div>
+                                    <h2 class="text-2xl md:text-3xl font-bold">
+                                        {category.title}
+                                    </h2>
+                                </div>
+
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                                    {category.faqs.map((faq, faqIndex) => (
+                                        <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300">
+                                            <CardContent className="p-6">
+                                                <h3 class="font-semibold text-lg mb-4 text-primary">
+                                                    {faq.question}
+                                                </h3>
+                                                <p class="text-muted-foreground leading-relaxed">
+                                                    {faq.answer}
+                                                </p>
+                                            </CardContent>
+                                        </Card>
+                                    ))}
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Stats -->
+        <section class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Nuestro Compromiso
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Estas métricas reflejan nuestro compromiso con la
+                        excelencia y la satisfacción del cliente.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto"
+                >
+                    <div class="text-center">
+                        <div
+                            class="flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mx-auto mb-4"
+                        >
+                            <Clock className="w-8 h-8 text-green-600" />
+                        </div>
+                        <div class="text-3xl font-bold text-primary mb-2">
+                            98%
+                        </div>
+                        <div class="text-sm text-muted-foreground">
+                            Entregas a tiempo
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div
+                            class="flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 mx-auto mb-4"
+                        >
+                            <Users className="w-8 h-8 text-blue-600" />
+                        </div>
+                        <div class="text-3xl font-bold text-primary mb-2">
+                            95%
+                        </div>
+                        <div class="text-sm text-muted-foreground">
+                            Satisfacción del cliente
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div
+                            class="flex items-center justify-center w-16 h-16 rounded-full bg-purple-100 mx-auto mb-4"
+                        >
+                            <MessageCircle
+                                className="w-8 h-8 text-purple-600"
+                            />
+                        </div>
+                        <div class="text-3xl font-bold text-primary mb-2">
+                            2h
+                        </div>
+                        <div class="text-sm text-muted-foreground">
+                            Tiempo de respuesta
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div
+                            class="flex items-center justify-center w-16 h-16 rounded-full bg-orange-100 mx-auto mb-4"
+                        >
+                            <Shield className="w-8 h-8 text-orange-600" />
+                        </div>
+                        <div class="text-3xl font-bold text-primary mb-2">
+                            100%
+                        </div>
+                        <div class="text-sm text-muted-foreground">
+                            Código seguro
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Still Have Questions -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <Card
+                    className="border-0 shadow-lg bg-gradient-to-r from-primary to-primary/80 text-primary-foreground max-w-4xl mx-auto"
+                >
+                    <CardContent className="p-8 md:p-12 text-center">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                            ¿No encontraste lo que buscabas?
+                        </h2>
+                        <p class="text-lg opacity-90 mb-8">
+                            Nuestro equipo está listo para responder cualquier
+                            pregunta específica sobre tu proyecto. No dudes en
+                            contactarnos.
+                        </p>
+                        <div
+                            class="flex flex-col sm:flex-row gap-4 justify-center"
+                        >
+                            <a
+                                href="/contacto"
+                                class="inline-flex items-center justify-center px-8 py-3 bg-white text-primary rounded-lg font-medium hover:bg-gray-100 transition-colors"
+                            >
+                                <MessageCircle className="w-4 h-4 mr-2" />
+                                Enviar Pregunta
+                            </a>
+                            <a
+                                href="https://wa.me/1234567890"
+                                class="inline-flex items-center justify-center px-8 py-3 border border-white/20 rounded-lg font-medium hover:bg-white/10 transition-colors"
+                            >
+                                WhatsApp
+                            </a>
+                        </div>
+
+                        <div class="mt-8 pt-8 border-t border-white/20">
+                            <p class="text-sm opacity-75 mb-4">
+                                También puedes contactarnos directamente:
+                            </p>
+                            <div
+                                class="flex flex-col sm:flex-row gap-4 justify-center text-sm"
+                            >
+                                <a
+                                    href="mailto:hola@devshub.com"
+                                    class="hover:opacity-80 transition-opacity"
+                                >
+                                    📧 hola@devshub.com
+                                </a>
+                                <a
+                                    href="tel:+1234567890"
+                                    class="hover:opacity-80 transition-opacity"
+                                >
+                                    📞 +1 (234) 567-890
+                                </a>
+                            </div>
+                        </div>
+                    </CardContent>
+                </Card>
+            </div>
+        </section>
+    </main>
+</Layout>

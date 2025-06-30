@@ -1,0 +1,467 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+    Mail,
+    Phone,
+    MapPin,
+    Clock,
+    Send,
+    MessageCircle,
+    Calendar,
+    CheckCircle,
+} from "lucide-react";
+
+const contactMethods = [
+    {
+        icon: Mail,
+        title: "Email",
+        description: "Envíanos un email y te responderemos en 24 horas",
+        contact: "hola@devshub.com",
+        link: "mailto:hola@devshub.com",
+    },
+    {
+        icon: Phone,
+        title: "Teléfono",
+        description: "Llámanos directamente para consultas urgentes",
+        contact: "+1 (234) 567-890",
+        link: "tel:+1234567890",
+    },
+    {
+        icon: MessageCircle,
+        title: "WhatsApp",
+        description: "Chatea con nosotros por WhatsApp",
+        contact: "+1 (234) 567-890",
+        link: "https://wa.me/1234567890",
+    },
+    {
+        icon: Calendar,
+        title: "Consultoría",
+        description: "Agenda una reunión virtual gratuita",
+        contact: "Calendly",
+        link: "https://calendly.com/devshub",
+    },
+];
+
+const officeHours = [
+    { day: "Lunes - Viernes", time: "9:00 AM - 6:00 PM" },
+    { day: "Sábados", time: "10:00 AM - 2:00 PM" },
+    { day: "Domingos", time: "Cerrado" },
+];
+---
+
+<Layout
+    title="Contacto - DevsHub"
+    description="Ponte en contacto con nuestro equipo. Ofrecemos consultoría gratuita para tu proyecto. Email, teléfono, WhatsApp o agenda una reunión."
+>
+    <main class="min-h-screen pt-24">
+        <!-- Hero Section -->
+        <section class="py-20 bg-gradient-to-br from-primary/5 to-primary/10">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <Badge className="mb-4">Contacto</Badge>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        Hablemos de tu <span class="text-primary">proyecto</span
+                        >
+                    </h1>
+                    <p class="text-xl text-muted-foreground mb-8">
+                        Estamos aquí para ayudarte a convertir tus ideas en
+                        realidad. Contáctanos y recibe una consultoría gratuita.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Methods -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        ¿Cómo prefieres contactarnos?
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Elige el método que más te convenga. Respondemos rápido
+                        en todos los canales.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto"
+                >
+                    {
+                        contactMethods.map((method) => (
+                            <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300 group cursor-pointer">
+                                <a href={method.link} class="block h-full">
+                                    <CardHeader className="text-center pb-4">
+                                        <div class="mx-auto mb-4 p-4 rounded-lg bg-primary/10 w-fit group-hover:bg-primary/20 transition-colors">
+                                            <method.icon className="w-8 h-8 text-primary" />
+                                        </div>
+                                        <CardTitle className="text-xl">
+                                            {method.title}
+                                        </CardTitle>
+                                    </CardHeader>
+                                    <CardContent className="text-center">
+                                        <p class="text-muted-foreground mb-4">
+                                            {method.description}
+                                        </p>
+                                        <p class="font-semibold text-primary group-hover:underline transition-all">
+                                            {method.contact}
+                                        </p>
+                                    </CardContent>
+                                </a>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        <section class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                            Envíanos un mensaje
+                        </h2>
+                        <p class="text-lg text-muted-foreground">
+                            Completa el formulario y te contactaremos en menos
+                            de 24 horas.
+                        </p>
+                    </div>
+
+                    <Card className="border-0 shadow-lg">
+                        <CardContent className="p-8">
+                            <form class="space-y-6">
+                                <div
+                                    class="grid grid-cols-1 md:grid-cols-2 gap-6"
+                                >
+                                    <div>
+                                        <label
+                                            for="nombre"
+                                            class="block text-sm font-medium mb-2"
+                                        >
+                                            Nombre *
+                                        </label>
+                                        <input
+                                            type="text"
+                                            id="nombre"
+                                            name="nombre"
+                                            required
+                                            class="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                            placeholder="Tu nombre completo"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label
+                                            for="email"
+                                            class="block text-sm font-medium mb-2"
+                                        >
+                                            Email *
+                                        </label>
+                                        <input
+                                            type="email"
+                                            id="email"
+                                            name="email"
+                                            required
+                                            class="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                            placeholder="tu@email.com"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="grid grid-cols-1 md:grid-cols-2 gap-6"
+                                >
+                                    <div>
+                                        <label
+                                            for="telefono"
+                                            class="block text-sm font-medium mb-2"
+                                        >
+                                            Teléfono
+                                        </label>
+                                        <input
+                                            type="tel"
+                                            id="telefono"
+                                            name="telefono"
+                                            class="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                            placeholder="+1 (234) 567-890"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label
+                                            for="empresa"
+                                            class="block text-sm font-medium mb-2"
+                                        >
+                                            Empresa
+                                        </label>
+                                        <input
+                                            type="text"
+                                            id="empresa"
+                                            name="empresa"
+                                            class="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                            placeholder="Tu empresa"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label
+                                        for="servicio"
+                                        class="block text-sm font-medium mb-2"
+                                    >
+                                        ¿Qué servicio te interesa? *
+                                    </label>
+                                    <select
+                                        id="servicio"
+                                        name="servicio"
+                                        required
+                                        class="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                    >
+                                        <option value=""
+                                            >Selecciona un servicio</option
+                                        >
+                                        <option value="desarrollo-web"
+                                            >Desarrollo Web</option
+                                        >
+                                        <option value="app-movil"
+                                            >Aplicación Móvil</option
+                                        >
+                                        <option value="ecommerce"
+                                            >E-commerce</option
+                                        >
+                                        <option value="sistema-personalizado"
+                                            >Sistema Personalizado</option
+                                        >
+                                        <option value="consultoria"
+                                            >Consultoría Técnica</option
+                                        >
+                                        <option value="mantenimiento"
+                                            >Mantenimiento</option
+                                        >
+                                        <option value="otro">Otro</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label
+                                        for="presupuesto"
+                                        class="block text-sm font-medium mb-2"
+                                    >
+                                        Presupuesto aproximado
+                                    </label>
+                                    <select
+                                        id="presupuesto"
+                                        name="presupuesto"
+                                        class="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                    >
+                                        <option value=""
+                                            >Selecciona un rango</option
+                                        >
+                                        <option value="menos-1000"
+                                            >Menos de $1,000</option
+                                        >
+                                        <option value="1000-5000"
+                                            >$1,000 - $5,000</option
+                                        >
+                                        <option value="5000-10000"
+                                            >$5,000 - $10,000</option
+                                        >
+                                        <option value="10000-25000"
+                                            >$10,000 - $25,000</option
+                                        >
+                                        <option value="mas-25000"
+                                            >Más de $25,000</option
+                                        >
+                                        <option value="no-seguro"
+                                            >No estoy seguro</option
+                                        >
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label
+                                        for="mensaje"
+                                        class="block text-sm font-medium mb-2"
+                                    >
+                                        Cuéntanos sobre tu proyecto *
+                                    </label>
+                                    <textarea
+                                        id="mensaje"
+                                        name="mensaje"
+                                        rows="6"
+                                        required
+                                        class="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none"
+                                        placeholder="Describe tu proyecto, objetivos, funcionalidades que necesitas, plazos, etc. Mientras más detalles nos proporciones, mejor podremos ayudarte."
+                                    ></textarea>
+                                </div>
+
+                                <div class="flex items-center gap-3">
+                                    <input
+                                        type="checkbox"
+                                        id="acepto"
+                                        name="acepto"
+                                        required
+                                        class="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
+                                    />
+                                    <label
+                                        for="acepto"
+                                        class="text-sm text-muted-foreground"
+                                    >
+                                        Acepto los <a
+                                            href="/terminos"
+                                            class="text-primary hover:underline"
+                                            >términos y condiciones</a
+                                        >
+                                        y la <a
+                                            href="/privacidad"
+                                            class="text-primary hover:underline"
+                                            >política de privacidad</a
+                                        >
+                                    </label>
+                                </div>
+
+                                <button
+                                    type="submit"
+                                    class="w-full inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                                >
+                                    <Send className="w-4 h-4 mr-2" />
+                                    Enviar Mensaje
+                                </button>
+                            </form>
+                        </CardContent>
+                    </Card>
+                </div>
+            </div>
+        </section>
+
+        <!-- Office Hours & Info -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div
+                    class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto"
+                >
+                    <!-- Office Hours -->
+                    <Card className="border-0 shadow-md">
+                        <CardHeader>
+                            <div class="flex items-center gap-3 mb-4">
+                                <Clock className="w-6 h-6 text-primary" />
+                                <CardTitle className="text-xl"
+                                    >Horarios de Atención</CardTitle
+                                >
+                            </div>
+                        </CardHeader>
+                        <CardContent className="space-y-4">
+                            {
+                                officeHours.map((schedule) => (
+                                    <div class="flex justify-between items-center py-2 border-b border-border last:border-b-0">
+                                        <span class="font-medium">
+                                            {schedule.day}
+                                        </span>
+                                        <span class="text-muted-foreground">
+                                            {schedule.time}
+                                        </span>
+                                    </div>
+                                ))
+                            }
+                            <div class="mt-6 p-4 bg-primary/5 rounded-lg">
+                                <p class="text-sm text-muted-foreground">
+                                    <strong>Nota:</strong> Para emergencias fuera
+                                    del horario de oficina, envíanos un WhatsApp
+                                    y te responderemos lo antes posible.
+                                </p>
+                            </div>
+                        </CardContent>
+                    </Card>
+
+                    <!-- Quick Info -->
+                    <Card className="border-0 shadow-md">
+                        <CardHeader>
+                            <CardTitle className="text-xl mb-4"
+                                >¿Qué esperar después de contactarnos?</CardTitle
+                            >
+                        </CardHeader>
+                        <CardContent className="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 flex-shrink-0"
+                                >
+                                    <CheckCircle
+                                        className="w-4 h-4 text-primary"
+                                    />
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-2">
+                                        Respuesta Rápida
+                                    </h4>
+                                    <p class="text-sm text-muted-foreground">
+                                        Te contactaremos en menos de 24 horas
+                                        para agendar una consultoría gratuita.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 flex-shrink-0"
+                                >
+                                    <CheckCircle
+                                        className="w-4 h-4 text-primary"
+                                    />
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-2">
+                                        Consultoría Gratuita
+                                    </h4>
+                                    <p class="text-sm text-muted-foreground">
+                                        Reunión de 30-60 minutos para entender
+                                        tu proyecto y objetivos.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 flex-shrink-0"
+                                >
+                                    <CheckCircle
+                                        className="w-4 h-4 text-primary"
+                                    />
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-2">
+                                        Propuesta Detallada
+                                    </h4>
+                                    <p class="text-sm text-muted-foreground">
+                                        Recibirás una cotización completa con
+                                        timeline, funcionalidades y costos.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 flex-shrink-0"
+                                >
+                                    <CheckCircle
+                                        className="w-4 h-4 text-primary"
+                                    />
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-2">
+                                        Sin Compromiso
+                                    </h4>
+                                    <p class="text-sm text-muted-foreground">
+                                        No hay obligación de contratar. La
+                                        consultoría es completamente gratuita.
+                                    </p>
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
