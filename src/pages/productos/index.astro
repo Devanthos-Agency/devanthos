@@ -1,0 +1,344 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+    FileText,
+    Trees,
+    Archive,
+    Handshake,
+    Sunset,
+    Book,
+    PlayCircle,
+    Zap,
+} from "lucide-react";
+
+const products = [
+    {
+        title: "Componentes UI",
+        description:
+            "Biblioteca completa de componentes reutilizables para crear interfaces modernas y atractivas",
+        icon: FileText,
+        features: [
+            "50+ Componentes",
+            "Completamente Customizable",
+            "TypeScript",
+            "Tailwind CSS",
+        ],
+        link: "/productos/componentes-ui",
+    },
+    {
+        title: "Diseño de Sistema",
+        description:
+            "Guías de estilo, patrones de diseño y mejores prácticas para mantener consistencia",
+        icon: Trees,
+        features: [
+            "Design Tokens",
+            "Guías de Estilo",
+            "Patrones UI",
+            "Documentación",
+        ],
+        link: "/productos/diseno-sistema",
+    },
+    {
+        title: "Plantillas",
+        description:
+            "Plantillas preconstruidas para diferentes tipos de proyectos y industrias",
+        icon: Archive,
+        features: ["Landing Pages", "Dashboards", "E-commerce", "SaaS"],
+        link: "/productos/plantillas",
+    },
+    {
+        title: "Responsive Design",
+        description:
+            "Soluciones que se adaptan perfectamente a cualquier dispositivo y tamaño de pantalla",
+        icon: Handshake,
+        features: [
+            "Mobile First",
+            "Breakpoints",
+            "Flexbox/Grid",
+            "Touch Friendly",
+        ],
+        link: "/productos/responsive",
+    },
+    {
+        title: "Temas",
+        description:
+            "Personaliza la apariencia de tus proyectos con nuestros temas profesionales",
+        icon: Sunset,
+        features: [
+            "Dark/Light Mode",
+            "Múltiples Colores",
+            "CSS Variables",
+            "Fácil Customización",
+        ],
+        link: "/productos/temas",
+    },
+    {
+        title: "Documentación",
+        description:
+            "Guías completas, referencias API y tutoriales paso a paso",
+        icon: Book,
+        features: [
+            "Guías Detalladas",
+            "Ejemplos de Código",
+            "API Reference",
+            "Video Tutoriales",
+        ],
+        link: "/productos/documentacion",
+    },
+];
+
+const solutions = [
+    {
+        category: "Industrias",
+        items: [
+            {
+                name: "E-commerce",
+                description: "Tiendas online completas",
+                link: "/soluciones/ecommerce",
+            },
+            {
+                name: "Salud",
+                description: "Sistemas médicos y clínicos",
+                link: "/soluciones/salud",
+            },
+            {
+                name: "Educación",
+                description: "Plataformas educativas",
+                link: "/soluciones/educacion",
+            },
+            {
+                name: "Finanzas",
+                description: "Apps financieras seguras",
+                link: "/soluciones/finanzas",
+            },
+            {
+                name: "Tecnología",
+                description: "Herramientas tech",
+                link: "/soluciones/tecnologia",
+            },
+        ],
+    },
+    {
+        category: "Uso Personal",
+        items: [
+            {
+                name: "Portal Personalizado",
+                description: "Tu espacio digital único",
+                link: "/soluciones/portal-personal",
+            },
+            {
+                name: "Dashboard Admin",
+                description: "Paneles de administración",
+                link: "/soluciones/dashboard",
+            },
+            {
+                name: "App Móvil",
+                description: "Aplicaciones nativas",
+                link: "/soluciones/app-movil",
+            },
+            {
+                name: "Landing Page",
+                description: "Páginas de aterrizaje efectivas",
+                link: "/soluciones/landing-page",
+            },
+            {
+                name: "Aplicación Web",
+                description: "Web apps completas",
+                link: "/soluciones/web-app",
+            },
+        ],
+    },
+];
+---
+
+<Layout
+    title="Productos - DevsHub"
+    description="Explora nuestra gama de productos diseñados para mejorar tu flujo de trabajo y potenciar tu desarrollo."
+>
+    <main class="min-h-screen pt-24">
+        <!-- Hero Section -->
+        <section class="py-20 bg-gradient-to-br from-primary/5 to-primary/10">
+            <div class="container mx-auto px-4">
+                <div class="text-center max-w-4xl mx-auto">
+                    <Badge className="mb-4">Productos</Badge>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        Herramientas que <span class="text-primary"
+                            >impulsan</span
+                        > tu desarrollo
+                    </h1>
+                    <p class="text-xl text-muted-foreground mb-8">
+                        Descubre nuestra suite completa de productos diseñados
+                        para acelerar tu proceso de desarrollo y crear
+                        experiencias digitales excepcionales.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Grid -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Nuestros Productos
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Cada producto está diseñado con las mejores prácticas y
+                        las últimas tecnologías del mercado.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
+                    {
+                        products.map((product) => (
+                            <Card className="group hover:shadow-lg transition-all duration-300 border-0 shadow-md">
+                                <CardHeader>
+                                    <div class="flex items-center gap-3 mb-4">
+                                        <div class="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                                            <product.icon className="w-6 h-6 text-primary" />
+                                        </div>
+                                        <CardTitle className="text-xl">
+                                            {product.title}
+                                        </CardTitle>
+                                    </div>
+                                    <p class="text-muted-foreground">
+                                        {product.description}
+                                    </p>
+                                </CardHeader>
+                                <CardContent>
+                                    <div class="space-y-3 mb-6">
+                                        {product.features.map((feature) => (
+                                            <div class="flex items-center gap-2">
+                                                <div class="w-2 h-2 rounded-full bg-primary" />
+                                                <span class="text-sm">
+                                                    {feature}
+                                                </span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <a
+                                        href={product.link}
+                                        class="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium group-hover:gap-3 transition-all"
+                                    >
+                                        Ver más detalles
+                                        <svg
+                                            class="w-4 h-4"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M9 5l7 7-7 7"
+                                            />
+                                        </svg>
+                                    </a>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Solutions Section -->
+        <section class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Soluciones por Industria
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Soluciones especializadas adaptadas a las necesidades
+                        específicas de cada sector.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    {
+                        solutions.map((solutionGroup) => (
+                            <div>
+                                <h3 class="text-2xl font-bold mb-8 text-center lg:text-left">
+                                    {solutionGroup.category}
+                                </h3>
+                                <div class="space-y-4">
+                                    {solutionGroup.items.map((item) => (
+                                        <Card className="group hover:shadow-md transition-all duration-300 cursor-pointer">
+                                            <CardContent className="p-6">
+                                                <a
+                                                    href={item.link}
+                                                    class="block"
+                                                >
+                                                    <div class="flex items-center justify-between">
+                                                        <div>
+                                                            <h4 class="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">
+                                                                {item.name}
+                                                            </h4>
+                                                            <p class="text-muted-foreground">
+                                                                {
+                                                                    item.description
+                                                                }
+                                                            </p>
+                                                        </div>
+                                                        <svg
+                                                            class="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all"
+                                                            fill="none"
+                                                            stroke="currentColor"
+                                                            viewBox="0 0 24 24"
+                                                        >
+                                                            <path
+                                                                stroke-linecap="round"
+                                                                stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M9 5l7 7-7 7"
+                                                            />
+                                                        </svg>
+                                                    </div>
+                                                </a>
+                                            </CardContent>
+                                        </Card>
+                                    ))}
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-4 text-center">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                        ¿Listo para comenzar tu proyecto?
+                    </h2>
+                    <p class="text-lg text-muted-foreground mb-8">
+                        Programa una consultoría gratuita y descubre cómo
+                        nuestros productos pueden transformar tu negocio.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a
+                            href="/contacto"
+                            class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                        >
+                            Programar Consultoría
+                        </a>
+                        <a
+                            href="/productos/documentacion"
+                            class="inline-flex items-center justify-center px-8 py-3 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+                        >
+                            Ver Documentación
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>

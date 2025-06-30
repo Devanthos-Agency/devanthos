@@ -1,0 +1,522 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+    Settings,
+    Shield,
+    Clock,
+    Zap,
+    CheckCircle,
+    Phone,
+    ArrowRight,
+    AlertTriangle,
+} from "lucide-react";
+
+const services = [
+    {
+        icon: Shield,
+        title: "Actualizaciones de Seguridad",
+        description:
+            "Mantén tu sitio web protegido con las últimas actualizaciones de seguridad",
+        features: [
+            "Parches de seguridad críticos",
+            "Monitoreo de vulnerabilidades",
+            "Backup automático antes de actualizaciones",
+            "Restauración en caso de problemas",
+        ],
+    },
+    {
+        icon: Zap,
+        title: "Optimización de Rendimiento",
+        description: "Mejora continua del rendimiento y velocidad de carga",
+        features: [
+            "Optimización de imágenes",
+            "Minificación de código",
+            "Configuración de caché",
+            "Monitoreo de velocidad",
+        ],
+    },
+    {
+        icon: Settings,
+        title: "Actualizaciones de Contenido",
+        description: "Modificaciones y actualizaciones de contenido regulares",
+        features: [
+            "Cambios de texto e imágenes",
+            "Nuevas secciones y páginas",
+            "Actualizaciones de productos/servicios",
+            "Mantenimiento de formularios",
+        ],
+    },
+];
+
+const plans = [
+    {
+        name: "Básico",
+        price: "$99",
+        period: "/mes",
+        description: "Ideal para sitios web pequeños",
+        features: [
+            "Actualizaciones de seguridad",
+            "Backup semanal",
+            "Monitoreo básico",
+            "Soporte por email",
+            "1 hora de cambios menores",
+        ],
+        popular: false,
+    },
+    {
+        name: "Profesional",
+        price: "$199",
+        period: "/mes",
+        description: "Perfecto para sitios comerciales",
+        features: [
+            "Todo lo del plan Básico",
+            "Backup diario",
+            "Monitoreo avanzado 24/7",
+            "Optimización de rendimiento",
+            "3 horas de cambios mensuales",
+            "Soporte prioritario",
+        ],
+        popular: true,
+    },
+    {
+        name: "Enterprise",
+        price: "$399",
+        period: "/mes",
+        description: "Para sitios de alta demanda",
+        features: [
+            "Todo lo del plan Profesional",
+            "Backup en tiempo real",
+            "CDN y optimización global",
+            "Desarrollo de nuevas funcionalidades",
+            "8 horas de desarrollo mensual",
+            "Soporte 24/7 con SLA",
+        ],
+        popular: false,
+    },
+];
+
+const urgencyLevels = [
+    {
+        level: "Crítico",
+        time: "< 2 horas",
+        description: "Sitio web caído o problema de seguridad crítico",
+        color: "text-red-600 bg-red-50 dark:bg-red-950/20",
+    },
+    {
+        level: "Alto",
+        time: "< 24 horas",
+        description: "Funcionalidad importante no disponible",
+        color: "text-orange-600 bg-orange-50 dark:bg-orange-950/20",
+    },
+    {
+        level: "Medio",
+        time: "< 72 horas",
+        description: "Problemas menores que afectan la experiencia",
+        color: "text-yellow-600 bg-yellow-50 dark:bg-yellow-950/20",
+    },
+    {
+        level: "Bajo",
+        time: "< 1 semana",
+        description: "Mejoras y optimizaciones generales",
+        color: "text-green-600 bg-green-50 dark:bg-green-950/20",
+    },
+];
+---
+
+<Layout
+    title="Mantenimiento Web - DevsHub"
+    description="Servicios de mantenimiento web profesional. Actualizaciones, seguridad, soporte técnico y más para mantener tu sitio web en óptimas condiciones."
+>
+    <main class="min-h-screen pt-24">
+        <!-- Hero Section -->
+        <section
+            class="py-20 bg-gradient-to-br from-orange-50 to-red-100 dark:from-orange-950/20 dark:to-red-950/20"
+        >
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <Badge className="mb-4">Mantenimiento Web</Badge>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        <span class="text-primary">Mantén</span> Tu Sitio Web Seguro
+                    </h1>
+                    <p class="text-xl text-muted-foreground mb-8">
+                        Servicios de mantenimiento web profesional para
+                        garantizar que tu sitio esté siempre actualizado, seguro
+                        y funcionando perfectamente.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a
+                            href="#planes"
+                            class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                        >
+                            <Settings className="w-4 h-4 mr-2" />
+                            Ver Planes
+                        </a>
+                        <a
+                            href="/contacto"
+                            class="inline-flex items-center justify-center px-8 py-3 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+                        >
+                            Consulta Gratuita
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Servicios de Mantenimiento
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Cubrimos todos los aspectos del mantenimiento web para
+                        que puedas enfocarte en hacer crecer tu negocio.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    {
+                        services.map((service) => (
+                            <Card className="border-0 shadow-md">
+                                <CardHeader>
+                                    <div class="mb-4 p-3 rounded-lg bg-primary/10 w-fit">
+                                        <service.icon className="w-8 h-8 text-primary" />
+                                    </div>
+                                    <CardTitle className="text-xl mb-2">
+                                        {service.title}
+                                    </CardTitle>
+                                    <p class="text-muted-foreground text-sm">
+                                        {service.description}
+                                    </p>
+                                </CardHeader>
+                                <CardContent>
+                                    <ul class="space-y-3">
+                                        {service.features.map((feature) => (
+                                            <li class="flex items-center gap-3">
+                                                <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                                                <span class="text-sm">
+                                                    {feature}
+                                                </span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Response Times -->
+        <section class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Tiempos de Respuesta Garantizados
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Clasificamos los problemas por nivel de urgencia para
+                        garantizar tiempos de respuesta apropiados.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+                >
+                    {
+                        urgencyLevels.map((level) => (
+                            <Card
+                                className={`border-0 shadow-md ${level.color}`}
+                            >
+                                <CardHeader className="text-center">
+                                    <div class="flex items-center justify-center gap-2 mb-2">
+                                        <AlertTriangle className="w-5 h-5" />
+                                        <Badge
+                                            variant="outline"
+                                            className="border-current"
+                                        >
+                                            {level.level}
+                                        </Badge>
+                                    </div>
+                                    <CardTitle className="text-2xl font-bold">
+                                        {level.time}
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent className="text-center">
+                                    <p class="text-sm opacity-80">
+                                        {level.description}
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Plans -->
+        <section id="planes" class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Planes de Mantenimiento
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Elige el plan que mejor se adapte a las necesidades de
+                        tu sitio web.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+                >
+                    {
+                        plans.map((plan) => (
+                            <Card
+                                className={`border-0 shadow-md relative ${
+                                    plan.popular
+                                        ? "ring-2 ring-primary scale-105"
+                                        : ""
+                                }`}
+                            >
+                                {plan.popular && (
+                                    <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                                        Más Popular
+                                    </Badge>
+                                )}
+                                <CardHeader className="text-center">
+                                    <CardTitle className="text-2xl mb-2">
+                                        {plan.name}
+                                    </CardTitle>
+                                    <div class="mb-4">
+                                        <span class="text-4xl font-bold text-primary">
+                                            {plan.price}
+                                        </span>
+                                        <span class="text-muted-foreground">
+                                            {plan.period}
+                                        </span>
+                                    </div>
+                                    <p class="text-muted-foreground text-sm">
+                                        {plan.description}
+                                    </p>
+                                </CardHeader>
+                                <CardContent>
+                                    <ul class="space-y-3 mb-6">
+                                        {plan.features.map((feature) => (
+                                            <li class="flex items-center gap-3">
+                                                <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                                                <span class="text-sm">
+                                                    {feature}
+                                                </span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    <a
+                                        href="/contacto"
+                                        class={`block w-full text-center px-6 py-3 rounded-lg font-medium transition-colors ${
+                                            plan.popular
+                                                ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                                                : "border border-input hover:bg-accent hover:text-accent-foreground"
+                                        }`}
+                                    >
+                                        Comenzar
+                                    </a>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <div
+                        class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+                    >
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                                Nuestro Proceso de Mantenimiento
+                            </h2>
+                            <p class="text-lg text-muted-foreground mb-8">
+                                Seguimos un proceso estructurado para garantizar
+                                que tu sitio web reciba el mejor cuidado
+                                posible.
+                            </p>
+                            <div class="space-y-6">
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center"
+                                    >
+                                        <span
+                                            class="text-primary font-bold text-sm"
+                                            >1</span
+                                        >
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold mb-2">
+                                            Auditoría Inicial
+                                        </h3>
+                                        <p
+                                            class="text-muted-foreground text-sm"
+                                        >
+                                            Evaluamos el estado actual de tu
+                                            sitio web y identificamos áreas de
+                                            mejora.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center"
+                                    >
+                                        <span
+                                            class="text-primary font-bold text-sm"
+                                            >2</span
+                                        >
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold mb-2">
+                                            Monitoreo Continuo
+                                        </h3>
+                                        <p
+                                            class="text-muted-foreground text-sm"
+                                        >
+                                            Supervisamos tu sitio 24/7 para
+                                            detectar problemas antes de que
+                                            afecten a los usuarios.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center"
+                                    >
+                                        <span
+                                            class="text-primary font-bold text-sm"
+                                            >3</span
+                                        >
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold mb-2">
+                                            Mantenimiento Proactivo
+                                        </h3>
+                                        <p
+                                            class="text-muted-foreground text-sm"
+                                        >
+                                            Realizamos actualizaciones y
+                                            optimizaciones regulares para
+                                            mantener el rendimiento óptimo.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center"
+                                    >
+                                        <span
+                                            class="text-primary font-bold text-sm"
+                                            >4</span
+                                        >
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold mb-2">
+                                            Reportes Mensuales
+                                        </h3>
+                                        <p
+                                            class="text-muted-foreground text-sm"
+                                        >
+                                            Te enviamos reportes detallados de
+                                            todas las actividades y métricas de
+                                            rendimiento.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-950/20 dark:to-indigo-950/20 p-8 rounded-xl"
+                        >
+                            <div class="text-center">
+                                <Clock
+                                    className="w-16 h-16 text-primary mx-auto mb-6"
+                                />
+                                <h3 class="text-2xl font-bold mb-4">
+                                    Soporte de Emergencia
+                                </h3>
+                                <p class="text-muted-foreground mb-6">
+                                    ¿Tu sitio web tiene un problema crítico?
+                                    Nuestro equipo de emergencia está disponible
+                                    para resolver problemas urgentes.
+                                </p>
+                                <div class="space-y-3 mb-6 text-sm">
+                                    <div
+                                        class="flex items-center justify-between"
+                                    >
+                                        <span>Línea de emergencia:</span>
+                                        <strong>24/7</strong>
+                                    </div>
+                                    <div
+                                        class="flex items-center justify-between"
+                                    >
+                                        <span>Tiempo de respuesta:</span>
+                                        <strong> 2 horas</strong>
+                                    </div>
+                                    <div
+                                        class="flex items-center justify-between"
+                                    >
+                                        <span>Disponibilidad:</span>
+                                        <strong>99.9%</strong>
+                                    </div>
+                                </div>
+                                <a
+                                    href="/contacto"
+                                    class="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                                >
+                                    <Phone className="w-4 h-4 mr-2" />
+                                    Contactar Emergencia
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 bg-primary text-primary-foreground">
+            <div class="container mx-auto px-4 text-center">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                        No dejes que tu sitio web se quede obsoleto
+                    </h2>
+                    <p class="text-lg opacity-90 mb-8">
+                        Un sitio web mal mantenido puede costar más que su
+                        mantenimiento regular. Protege tu inversión con nuestros
+                        servicios profesionales.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a
+                            href="/contacto"
+                            class="inline-flex items-center justify-center px-8 py-3 bg-white text-primary rounded-lg font-medium hover:bg-gray-100 transition-colors"
+                        >
+                            Comenzar Mantenimiento
+                        </a>
+                        <a
+                            href="/productos"
+                            class="inline-flex items-center justify-center px-8 py-3 border border-white/20 rounded-lg font-medium hover:bg-white/10 transition-colors"
+                        >
+                            Ver Otros Servicios
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>

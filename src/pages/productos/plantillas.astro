@@ -1,0 +1,526 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+    Layout as LayoutIcon,
+    ShoppingCart,
+    Briefcase,
+    GraduationCap,
+    Heart,
+    Zap,
+    Eye,
+    Download,
+    ExternalLink,
+    Star,
+    Users,
+    Clock,
+} from "lucide-react";
+
+const templateCategories = [
+    {
+        title: "Landing Pages",
+        icon: LayoutIcon,
+        description: "Páginas de aterrizaje optimizadas para conversión",
+        templates: [
+            {
+                name: "SaaS Landing",
+                description:
+                    "Landing page para productos SaaS con pricing y features",
+                image: "/images/templates/saas-landing.jpg",
+                tags: ["SaaS", "B2B", "Pricing"],
+                demo: "#",
+                download: "#",
+                popular: true,
+            },
+            {
+                name: "App Mobile Landing",
+                description: "Promociona tu app móvil con links de descarga",
+                image: "/images/templates/app-landing.jpg",
+                tags: ["Mobile", "App Store", "iOS/Android"],
+                demo: "#",
+                download: "#",
+            },
+            {
+                name: "Startup Landing",
+                description: "Perfect para startups que buscan inversión",
+                image: "/images/templates/startup-landing.jpg",
+                tags: ["Startup", "Investment", "Pitch"],
+                demo: "#",
+                download: "#",
+            },
+        ],
+    },
+    {
+        title: "E-commerce",
+        icon: ShoppingCart,
+        description: "Tiendas online completas y optimizadas",
+        templates: [
+            {
+                name: "Fashion Store",
+                description: "Tienda de moda con catálogo y carrito avanzado",
+                image: "/images/templates/fashion-store.jpg",
+                tags: ["Fashion", "Ecommerce", "Catalog"],
+                demo: "#",
+                download: "#",
+            },
+            {
+                name: "Electronics Shop",
+                description:
+                    "Tienda de electrónicos con comparador de productos",
+                image: "/images/templates/electronics-shop.jpg",
+                tags: ["Electronics", "Compare", "Reviews"],
+                demo: "#",
+                download: "#",
+                popular: true,
+            },
+            {
+                name: "Marketplace",
+                description:
+                    "Marketplace multi-vendor con sistema de vendedores",
+                image: "/images/templates/marketplace.jpg",
+                tags: ["Marketplace", "Multi-vendor", "B2B"],
+                demo: "#",
+                download: "#",
+            },
+        ],
+    },
+    {
+        title: "Dashboards",
+        icon: Briefcase,
+        description: "Paneles de administración y analytics",
+        templates: [
+            {
+                name: "Admin Dashboard",
+                description: "Dashboard completo para administración",
+                image: "/images/templates/admin-dashboard.jpg",
+                tags: ["Admin", "CRM", "Analytics"],
+                demo: "#",
+                download: "#",
+            },
+            {
+                name: "Analytics Dashboard",
+                description: "Dashboard enfocado en métricas y reportes",
+                image: "/images/templates/analytics-dashboard.jpg",
+                tags: ["Analytics", "Reports", "Charts"],
+                demo: "#",
+                download: "#",
+                popular: true,
+            },
+            {
+                name: "Project Management",
+                description: "Dashboard para gestión de proyectos y equipos",
+                image: "/images/templates/project-dashboard.jpg",
+                tags: ["Projects", "Teams", "Kanban"],
+                demo: "#",
+                download: "#",
+            },
+        ],
+    },
+    {
+        title: "Portfolios",
+        icon: Heart,
+        description: "Portfolios creativos y profesionales",
+        templates: [
+            {
+                name: "Designer Portfolio",
+                description: "Portfolio para diseñadores con galería",
+                image: "/images/templates/designer-portfolio.jpg",
+                tags: ["Design", "Creative", "Gallery"],
+                demo: "#",
+                download: "#",
+            },
+            {
+                name: "Developer Portfolio",
+                description: "Portfolio técnico para desarrolladores",
+                image: "/images/templates/developer-portfolio.jpg",
+                tags: ["Developer", "Projects", "GitHub"],
+                demo: "#",
+                download: "#",
+            },
+            {
+                name: "Agency Portfolio",
+                description: "Portfolio corporativo para agencias",
+                image: "/images/templates/agency-portfolio.jpg",
+                tags: ["Agency", "Corporate", "Team"],
+                demo: "#",
+                download: "#",
+            },
+        ],
+    },
+];
+
+const features = [
+    {
+        icon: Zap,
+        title: "Optimización de Performance",
+        description:
+            "Todas las plantillas están optimizadas para carga rápida con lazy loading y compresión de imágenes.",
+    },
+    {
+        icon: Eye,
+        title: "Diseño Responsive",
+        description:
+            "Funcionan perfectamente en móviles, tablets y escritorio con breakpoints cuidadosamente definidos.",
+    },
+    {
+        icon: Users,
+        title: "SEO Optimizado",
+        description:
+            "Estructura semántica, meta tags y markup de Schema.org incluidos para mejor ranking.",
+    },
+    {
+        icon: Clock,
+        title: "Fácil Personalización",
+        description:
+            "Variables CSS centralizadas y código modular para personalizar colores, tipografía y layout.",
+    },
+];
+
+const stats = [
+    { number: "50+", label: "Plantillas Disponibles" },
+    { number: "10k+", label: "Descargas" },
+    { number: "4.9", label: "Rating Promedio" },
+    { number: "24/7", label: "Soporte Incluido" },
+];
+---
+
+<Layout
+    title="Plantillas - DevsHub"
+    description="Colección de plantillas profesionales y modernas para acelerar tu desarrollo. Landing pages, e-commerce, dashboards y portfolios listos para usar."
+>
+    <main class="min-h-screen pt-24">
+        <!-- Hero Section -->
+        <section
+            class="py-20 bg-gradient-to-br from-green-50 to-blue-100 dark:from-green-950/20 dark:to-blue-950/20"
+        >
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <Badge className="mb-4">Plantillas</Badge>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        Plantillas <span class="text-primary"
+                            >Profesionales</span
+                        > Listas para Usar
+                    </h1>
+                    <p class="text-xl text-muted-foreground mb-8">
+                        Acelera tu desarrollo con nuestra colección de
+                        plantillas optimizadas, responsive y completamente
+                        personalizables para cualquier proyecto.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a
+                            href="#plantillas"
+                            class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                        >
+                            <Eye className="w-4 h-4 mr-2" />
+                            Explorar Plantillas
+                        </a>
+                        <a
+                            href="/contacto"
+                            class="inline-flex items-center justify-center px-8 py-3 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+                        >
+                            Plantilla Personalizada
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div
+                    class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto"
+                >
+                    {
+                        stats.map((stat) => (
+                            <div class="text-center">
+                                <div class="text-3xl md:text-4xl font-bold text-primary mb-2">
+                                    {stat.number}
+                                </div>
+                                <div class="text-muted-foreground font-medium">
+                                    {stat.label}
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        ¿Por qué elegir nuestras plantillas?
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Cada plantilla está cuidadosamente diseñada y
+                        desarrollada con las mejores prácticas.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+                >
+                    {
+                        features.map((feature) => (
+                            <Card className="border-0 shadow-md text-center">
+                                <CardHeader>
+                                    <div class="mx-auto mb-4 p-3 rounded-lg bg-primary/10 w-fit">
+                                        <feature.icon className="w-8 h-8 text-primary" />
+                                    </div>
+                                    <CardTitle className="text-xl">
+                                        {feature.title}
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <p class="text-muted-foreground">
+                                        {feature.description}
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Templates Categories -->
+        <section id="plantillas" class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Explora Nuestras Categorías
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Encuentra la plantilla perfecta para tu proyecto entre
+                        nuestras categorías especializadas.
+                    </p>
+                </div>
+
+                <div class="space-y-20">
+                    {
+                        templateCategories.map((category, categoryIndex) => (
+                            <div>
+                                <div class="flex items-center gap-4 mb-12 justify-center">
+                                    <div class="p-3 rounded-lg bg-primary/10">
+                                        <category.icon className="w-8 h-8 text-primary" />
+                                    </div>
+                                    <div class="text-center">
+                                        <h3 class="text-2xl md:text-3xl font-bold">
+                                            {category.title}
+                                        </h3>
+                                        <p class="text-muted-foreground mt-2">
+                                            {category.description}
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                    {category.templates.map((template) => (
+                                        <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300 group relative overflow-hidden">
+                                            {template.popular && (
+                                                <div class="absolute top-4 right-4 z-10">
+                                                    <Badge className="bg-primary text-primary-foreground">
+                                                        <Star className="w-3 h-3 mr-1" />
+                                                        Popular
+                                                    </Badge>
+                                                </div>
+                                            )}
+
+                                            <div class="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 relative overflow-hidden">
+                                                <div class="absolute inset-0 flex items-center justify-center">
+                                                    <div class="text-center">
+                                                        <LayoutIcon className="w-16 h-16 text-muted-foreground/50 mx-auto mb-2" />
+                                                        <p class="text-sm text-muted-foreground">
+                                                            Vista previa
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                                                    <a
+                                                        href={template.demo}
+                                                        class="inline-flex items-center justify-center px-4 py-2 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-colors"
+                                                    >
+                                                        <Eye className="w-4 h-4 mr-2" />
+                                                        Demo
+                                                    </a>
+                                                    <a
+                                                        href={template.download}
+                                                        class="inline-flex items-center justify-center px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                                                    >
+                                                        <Download className="w-4 h-4 mr-2" />
+                                                        Descargar
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <CardContent className="p-6">
+                                                <h4 class="font-semibold text-lg mb-2">
+                                                    {template.name}
+                                                </h4>
+                                                <p class="text-muted-foreground text-sm mb-4">
+                                                    {template.description}
+                                                </p>
+
+                                                <div class="flex flex-wrap gap-2 mb-4">
+                                                    {template.tags.map(
+                                                        (tag) => (
+                                                            <span class="px-2 py-1 text-xs bg-muted rounded-full">
+                                                                {tag}
+                                                            </span>
+                                                        )
+                                                    )}
+                                                </div>
+
+                                                <div class="flex gap-2">
+                                                    <a
+                                                        href={template.demo}
+                                                        class="flex-1 inline-flex items-center justify-center px-4 py-2 border border-input rounded-lg text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+                                                    >
+                                                        <ExternalLink className="w-4 h-4 mr-2" />
+                                                        Demo
+                                                    </a>
+                                                    <a
+                                                        href={template.download}
+                                                        class="flex-1 inline-flex items-center justify-center px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors"
+                                                    >
+                                                        <Download className="w-4 h-4 mr-2" />
+                                                        Descargar
+                                                    </a>
+                                                </div>
+                                            </CardContent>
+                                        </Card>
+                                    ))}
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Custom Templates -->
+        <section class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                            ¿Necesitas algo específico?
+                        </h2>
+                        <p class="text-lg text-muted-foreground">
+                            Creamos plantillas personalizadas adaptadas
+                            exactamente a tus necesidades y marca.
+                        </p>
+                    </div>
+
+                    <Card className="border-0 shadow-lg">
+                        <CardContent className="p-8 md:p-12 text-center">
+                            <div class="mb-8">
+                                <Briefcase
+                                    className="w-16 h-16 text-primary mx-auto mb-4"
+                                />
+                                <h3 class="text-2xl font-bold mb-4">
+                                    Plantillas Personalizadas
+                                </h3>
+                                <p
+                                    class="text-muted-foreground mb-6 max-w-2xl mx-auto"
+                                >
+                                    Nuestro equipo puede crear una plantilla
+                                    única para tu proyecto, incluyendo tu
+                                    identidad visual, funcionalidades
+                                    específicas y optimizaciones personalizadas.
+                                </p>
+                            </div>
+
+                            <div
+                                class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8"
+                            >
+                                <div class="text-center">
+                                    <div class="font-semibold text-lg mb-2">
+                                        Diseño Único
+                                    </div>
+                                    <p class="text-sm text-muted-foreground">
+                                        Adaptado a tu marca y objetivos
+                                    </p>
+                                </div>
+                                <div class="text-center">
+                                    <div class="font-semibold text-lg mb-2">
+                                        Funcionalidades Custom
+                                    </div>
+                                    <p class="text-sm text-muted-foreground">
+                                        Features específicas para tu negocio
+                                    </p>
+                                </div>
+                                <div class="text-center">
+                                    <div class="font-semibold text-lg mb-2">
+                                        Optimización Avanzada
+                                    </div>
+                                    <p class="text-sm text-muted-foreground">
+                                        Performance y SEO optimizados
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="flex flex-col sm:flex-row gap-4 justify-center"
+                            >
+                                <a
+                                    href="/contacto?servicio=plantilla-personalizada"
+                                    class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                                >
+                                    Solicitar Cotización
+                                </a>
+                                <a
+                                    href="/productos/ejemplos"
+                                    class="inline-flex items-center justify-center px-8 py-3 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+                                >
+                                    Ver Ejemplos
+                                </a>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <Card
+                    className="border-0 shadow-lg bg-gradient-to-r from-primary to-primary/80 text-primary-foreground"
+                >
+                    <CardContent className="p-12 text-center">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                            Acelera tu próximo proyecto
+                        </h2>
+                        <p class="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
+                            Descarga nuestras plantillas y lanza tu proyecto en
+                            tiempo récord. Incluye código fuente, documentación
+                            y soporte técnico.
+                        </p>
+                        <div
+                            class="flex flex-col sm:flex-row gap-4 justify-center"
+                        >
+                            <a
+                                href="#plantillas"
+                                class="inline-flex items-center justify-center px-8 py-3 bg-white text-primary rounded-lg font-medium hover:bg-gray-100 transition-colors"
+                            >
+                                <Download className="w-4 h-4 mr-2" />
+                                Descargar Plantillas
+                            </a>
+                            <a
+                                href="/contacto"
+                                class="inline-flex items-center justify-center px-8 py-3 border border-white/20 rounded-lg font-medium hover:bg-white/10 transition-colors"
+                            >
+                                Consultoría Gratuita
+                            </a>
+                        </div>
+                    </CardContent>
+                </Card>
+            </div>
+        </section>
+    </main>
+</Layout>

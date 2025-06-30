@@ -1,0 +1,595 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+    Palette,
+    Grid,
+    Type,
+    Eye,
+    Layers,
+    Layout as LayoutIcon,
+    Download,
+    BookOpen,
+    Zap,
+    CheckCircle,
+} from "lucide-react";
+
+const designPrinciples = [
+    {
+        icon: Grid,
+        title: "Sistema de Grid",
+        description:
+            "Grid responsivo de 12 columnas con breakpoints consistentes para todos los dispositivos.",
+        features: [
+            "12 columnas flexibles",
+            "5 breakpoints",
+            "Gutters personalizables",
+            "Grid anidado",
+        ],
+    },
+    {
+        icon: Type,
+        title: "Tipografía",
+        description:
+            "Escala tipográfica armoniosa con jerarquía clara y legibilidad optimizada.",
+        features: [
+            "Escala modular",
+            "Variable fonts",
+            "Line-height optimizado",
+            "Responsive text",
+        ],
+    },
+    {
+        icon: Palette,
+        title: "Paleta de Colores",
+        description:
+            "Sistema de colores coherente con tokens semánticos para diferentes estados.",
+        features: [
+            "Colores primarios/secundarios",
+            "Estados de UI",
+            "Modo oscuro/claro",
+            "Accesibilidad WCAG",
+        ],
+    },
+    {
+        icon: Eye,
+        title: "Espaciado",
+        description:
+            "Sistema de espaciado consistente basado en múltiplos de 8px para armonía visual.",
+        features: [
+            "Escala de 8px",
+            "Espaciado semántico",
+            "Margin/Padding",
+            "Responsive spacing",
+        ],
+    },
+];
+
+const designTokens = [
+    {
+        category: "Colores",
+        tokens: [
+            {
+                name: "--primary",
+                value: "#3B82F6",
+                description: "Color primario principal",
+            },
+            {
+                name: "--secondary",
+                value: "#64748B",
+                description: "Color secundario",
+            },
+            {
+                name: "--success",
+                value: "#10B981",
+                description: "Estados de éxito",
+            },
+            {
+                name: "--warning",
+                value: "#F59E0B",
+                description: "Estados de advertencia",
+            },
+            {
+                name: "--error",
+                value: "#EF4444",
+                description: "Estados de error",
+            },
+        ],
+    },
+    {
+        category: "Tipografía",
+        tokens: [
+            {
+                name: "--font-size-xs",
+                value: "0.75rem",
+                description: "12px - Texto muy pequeño",
+            },
+            {
+                name: "--font-size-sm",
+                value: "0.875rem",
+                description: "14px - Texto pequeño",
+            },
+            {
+                name: "--font-size-base",
+                value: "1rem",
+                description: "16px - Texto base",
+            },
+            {
+                name: "--font-size-lg",
+                value: "1.125rem",
+                description: "18px - Texto grande",
+            },
+            {
+                name: "--font-size-xl",
+                value: "1.25rem",
+                description: "20px - Texto muy grande",
+            },
+        ],
+    },
+    {
+        category: "Espaciado",
+        tokens: [
+            {
+                name: "--space-1",
+                value: "0.25rem",
+                description: "4px - Espaciado mínimo",
+            },
+            {
+                name: "--space-2",
+                value: "0.5rem",
+                description: "8px - Espaciado pequeño",
+            },
+            {
+                name: "--space-4",
+                value: "1rem",
+                description: "16px - Espaciado base",
+            },
+            {
+                name: "--space-8",
+                value: "2rem",
+                description: "32px - Espaciado grande",
+            },
+            {
+                name: "--space-16",
+                value: "4rem",
+                description: "64px - Espaciado muy grande",
+            },
+        ],
+    },
+];
+
+const guidelines = [
+    {
+        title: "Consistencia",
+        description:
+            "Mantén coherencia en todos los elementos de la interfaz usando los tokens del sistema.",
+        icon: Layers,
+    },
+    {
+        title: "Accesibilidad",
+        description:
+            "Asegúrate de que todos los elementos cumplan con los estándares WCAG 2.1 AA.",
+        icon: Eye,
+    },
+    {
+        title: "Escalabilidad",
+        description:
+            "Diseña pensando en el crecimiento futuro del producto y nuevas funcionalidades.",
+        icon: Zap,
+    },
+    {
+        title: "Usabilidad",
+        description:
+            "Prioriza la experiencia del usuario con patrones familiares y navegación intuitiva.",
+        icon: LayoutIcon,
+    },
+];
+---
+
+<Layout
+    title="Diseño de Sistema - DevsHub"
+    description="Sistema de diseño completo con tokens, guías de estilo y patrones reutilizables para crear interfaces consistentes y escalables."
+>
+    <main class="min-h-screen pt-24">
+        <!-- Hero Section -->
+        <section
+            class="py-20 bg-gradient-to-br from-purple-50 to-blue-100 dark:from-purple-950/20 dark:to-blue-950/20"
+        >
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <Badge className="mb-4">Diseño de Sistema</Badge>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        Sistema de <span class="text-primary"
+                            >Diseño Cohesivo</span
+                        >
+                    </h1>
+                    <p class="text-xl text-muted-foreground mb-8">
+                        Tokens, patrones y guías de estilo que garantizan
+                        consistencia visual y experiencia de usuario excepcional
+                        en todos tus productos.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a
+                            href="#tokens"
+                            class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                        >
+                            <Download className="w-4 h-4 mr-2" />
+                            Descargar Tokens
+                        </a>
+                        <a
+                            href="#guias"
+                            class="inline-flex items-center justify-center px-8 py-3 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+                        >
+                            <BookOpen className="w-4 h-4 mr-2" />
+                            Ver Guías
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Design Principles -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Fundamentos del Sistema
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Los pilares sobre los que construimos interfaces
+                        consistentes y escalables.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+                >
+                    {
+                        designPrinciples.map((principle) => (
+                            <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300 group">
+                                <CardHeader className="text-center pb-4">
+                                    <div class="mx-auto mb-4 p-3 rounded-lg bg-primary/10 w-fit group-hover:bg-primary/20 transition-colors">
+                                        <principle.icon className="w-8 h-8 text-primary" />
+                                    </div>
+                                    <CardTitle className="text-xl">
+                                        {principle.title}
+                                    </CardTitle>
+                                    <p class="text-sm text-muted-foreground mt-2">
+                                        {principle.description}
+                                    </p>
+                                </CardHeader>
+                                <CardContent>
+                                    <ul class="space-y-2">
+                                        {principle.features.map((feature) => (
+                                            <li class="flex items-center gap-2">
+                                                <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                                                <span class="text-sm">
+                                                    {feature}
+                                                </span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Design Tokens -->
+        <section id="tokens" class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Design Tokens
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Variables centralizadas que definen los elementos
+                        visuales de tu sistema de diseño.
+                    </p>
+                </div>
+
+                <div class="space-y-12">
+                    {
+                        designTokens.map((tokenGroup) => (
+                            <div>
+                                <h3 class="text-2xl font-bold mb-8 text-center">
+                                    {tokenGroup.category}
+                                </h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                    {tokenGroup.tokens.map((token) => (
+                                        <Card className="border-0 shadow-md">
+                                            <CardContent className="p-6">
+                                                <div class="flex items-center justify-between mb-4">
+                                                    <code class="text-sm font-mono bg-muted px-2 py-1 rounded">
+                                                        {token.name}
+                                                    </code>
+                                                    {tokenGroup.category ===
+                                                        "Colores" && (
+                                                        <div
+                                                            class="w-8 h-8 rounded-full border-2 border-border"
+                                                            style={`background-color: ${token.value}`}
+                                                        />
+                                                    )}
+                                                </div>
+                                                <div class="text-lg font-semibold mb-2">
+                                                    {token.value}
+                                                </div>
+                                                <p class="text-sm text-muted-foreground">
+                                                    {token.description}
+                                                </p>
+                                            </CardContent>
+                                        </Card>
+                                    ))}
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Guidelines -->
+        <section id="guias" class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Guías de Uso
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Principios y mejores prácticas para implementar el
+                        sistema de diseño correctamente.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto"
+                >
+                    {
+                        guidelines.map((guideline) => (
+                            <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300 group">
+                                <CardHeader>
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <div class="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                                            <guideline.icon className="w-6 h-6 text-primary" />
+                                        </div>
+                                        <CardTitle className="text-xl">
+                                            {guideline.title}
+                                        </CardTitle>
+                                    </div>
+                                </CardHeader>
+                                <CardContent>
+                                    <p class="text-muted-foreground">
+                                        {guideline.description}
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Implementation -->
+        <section class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                            Implementación
+                        </h2>
+                        <p class="text-lg text-muted-foreground">
+                            Cómo integrar el sistema de diseño en tu proyecto
+                            paso a paso.
+                        </p>
+                    </div>
+
+                    <div class="space-y-8">
+                        <Card className="border-0 shadow-md">
+                            <CardHeader>
+                                <CardTitle className="flex items-center gap-2">
+                                    <span
+                                        class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold"
+                                        >1</span
+                                    >
+                                    Importar Variables CSS
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <div
+                                    class="bg-muted rounded-lg p-4 font-mono text-sm"
+                                >
+                                    <div>
+                                        @import
+                                        '@devshub/design-system/tokens.css';
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+
+                        <Card className="border-0 shadow-md">
+                            <CardHeader>
+                                <CardTitle className="flex items-center gap-2">
+                                    <span
+                                        class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold"
+                                        >2</span
+                                    >
+                                    Usar Tokens en CSS
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <div
+                                    class="bg-muted rounded-lg p-4 font-mono text-sm"
+                                >
+                                    <div>.button {`{`}</div>
+                                    <div class="ml-4">
+                                        background-color: var(--primary);
+                                    </div>
+                                    <div class="ml-4">
+                                        padding: var(--space-4) var(--space-8);
+                                    </div>
+                                    <div class="ml-4">
+                                        font-size: var(--font-size-base);
+                                    </div>
+                                    <div>{`}`}</div>
+                                </div>
+                            </CardContent>
+                        </Card>
+
+                        <Card className="border-0 shadow-md">
+                            <CardHeader>
+                                <CardTitle className="flex items-center gap-2">
+                                    <span
+                                        class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold"
+                                        >3</span
+                                    >
+                                    Configurar Tema
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <div
+                                    class="bg-muted rounded-lg p-4 font-mono text-sm"
+                                >
+                                    <div>
+                                        import {`{ ThemeProvider }`} from '@devshub/design-system';
+                                    </div>
+                                    <div class="mt-2">
+                                        &lt;ThemeProvider theme="light"&gt;
+                                    </div>
+                                    <div class="ml-4">&lt;App /&gt;</div>
+                                    <div>&lt;/ThemeProvider&gt;</div>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Recursos Adicionales
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Herramientas y recursos para sacar el máximo provecho
+                        del sistema de diseño.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto"
+                >
+                    <Card
+                        className="border-0 shadow-md hover:shadow-lg transition-all duration-300 text-center"
+                    >
+                        <CardContent className="p-8">
+                            <div class="mb-4">
+                                <Download
+                                    className="w-12 h-12 text-primary mx-auto"
+                                />
+                            </div>
+                            <h3 class="font-semibold text-lg mb-2">
+                                Figma Kit
+                            </h3>
+                            <p class="text-muted-foreground mb-4">
+                                Biblioteca completa de componentes para Figma
+                                con todos los tokens.
+                            </p>
+                            <a
+                                href="/recursos/figma-kit"
+                                class="inline-flex items-center text-primary hover:underline font-medium"
+                            >
+                                Descargar Kit
+                            </a>
+                        </CardContent>
+                    </Card>
+
+                    <Card
+                        className="border-0 shadow-md hover:shadow-lg transition-all duration-300 text-center"
+                    >
+                        <CardContent className="p-8">
+                            <div class="mb-4">
+                                <BookOpen
+                                    className="w-12 h-12 text-primary mx-auto"
+                                />
+                            </div>
+                            <h3 class="font-semibold text-lg mb-2">
+                                Documentación
+                            </h3>
+                            <p class="text-muted-foreground mb-4">
+                                Guías detalladas de implementación y mejores
+                                prácticas.
+                            </p>
+                            <a
+                                href="/productos/documentacion"
+                                class="inline-flex items-center text-primary hover:underline font-medium"
+                            >
+                                Ver Docs
+                            </a>
+                        </CardContent>
+                    </Card>
+
+                    <Card
+                        className="border-0 shadow-md hover:shadow-lg transition-all duration-300 text-center"
+                    >
+                        <CardContent className="p-8">
+                            <div class="mb-4">
+                                <Palette
+                                    className="w-12 h-12 text-primary mx-auto"
+                                />
+                            </div>
+                            <h3 class="font-semibold text-lg mb-2">
+                                Generador de Temas
+                            </h3>
+                            <p class="text-muted-foreground mb-4">
+                                Herramienta para crear temas personalizados
+                                basados en tu marca.
+                            </p>
+                            <a
+                                href="/herramientas/generador-temas"
+                                class="inline-flex items-center text-primary hover:underline font-medium"
+                            >
+                                Usar Herramienta
+                            </a>
+                        </CardContent>
+                    </Card>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 bg-primary text-primary-foreground">
+            <div class="container mx-auto px-4 text-center">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                        Implementa tu sistema de diseño hoy
+                    </h2>
+                    <p class="text-lg opacity-90 mb-8">
+                        Acelera tu desarrollo y mantén consistencia visual en
+                        todos tus productos con nuestro sistema de diseño
+                        probado.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a
+                            href="/contacto"
+                            class="inline-flex items-center justify-center px-8 py-3 bg-white text-primary rounded-lg font-medium hover:bg-gray-100 transition-colors"
+                        >
+                            Consultoría Personalizada
+                        </a>
+                        <a
+                            href="/productos/componentes-ui"
+                            class="inline-flex items-center justify-center px-8 py-3 border border-white/20 rounded-lg font-medium hover:bg-white/10 transition-colors"
+                        >
+                            Ver Componentes
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>

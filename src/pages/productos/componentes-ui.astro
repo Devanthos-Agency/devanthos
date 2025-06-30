@@ -1,0 +1,325 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+    CheckCircle,
+    Code,
+    Palette,
+    Zap,
+    Download,
+    Github,
+} from "lucide-react";
+
+const components = [
+    {
+        category: "Navegación",
+        items: [
+            "Header",
+            "Navbar",
+            "Breadcrumb",
+            "Pagination",
+            "Tabs",
+            "Sidebar",
+        ],
+    },
+    {
+        category: "Formularios",
+        items: [
+            "Input",
+            "Button",
+            "Select",
+            "Checkbox",
+            "Radio",
+            "Textarea",
+            "Switch",
+        ],
+    },
+    {
+        category: "Feedback",
+        items: [
+            "Alert",
+            "Toast",
+            "Modal",
+            "Tooltip",
+            "Progress",
+            "Skeleton",
+            "Loading",
+        ],
+    },
+    {
+        category: "Layout",
+        items: ["Container", "Grid", "Card", "Divider", "Spacer", "Stack"],
+    },
+    {
+        category: "Datos",
+        items: ["Table", "List", "Badge", "Avatar", "Tag", "Timeline"],
+    },
+];
+
+const features = [
+    {
+        icon: Code,
+        title: "TypeScript First",
+        description:
+            "Todos nuestros componentes están escritos en TypeScript con tipos completos.",
+    },
+    {
+        icon: Palette,
+        title: "Altamente Customizable",
+        description:
+            "Modifica colores, tamaños y estilos usando CSS variables y clases utilitarias.",
+    },
+    {
+        icon: Zap,
+        title: "Optimizado para Performance",
+        description:
+            "Componentes ligeros con tree-shaking automático para bundles más pequeños.",
+    },
+    {
+        icon: CheckCircle,
+        title: "Accesibilidad Incorporada",
+        description:
+            "Cumple con estándares WCAG 2.1 AA para una experiencia inclusiva.",
+    },
+];
+---
+
+<Layout
+    title="Componentes UI - DevsHub"
+    description="Biblioteca completa de componentes UI modernos, accesibles y customizables para acelerar tu desarrollo."
+>
+    <main class="min-h-screen pt-24">
+        <!-- Hero Section -->
+        <section
+            class="py-20 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-950/20 dark:to-indigo-950/20"
+        >
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <Badge className="mb-4">Componentes UI</Badge>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        Biblioteca de <span class="text-primary"
+                            >Componentes</span
+                        > Moderna
+                    </h1>
+                    <p class="text-xl text-muted-foreground mb-8">
+                        Más de 50 componentes pre-construidos, probados y listos
+                        para usar en tus proyectos. Ahorra tiempo y mantén
+                        consistencia en tu diseño.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a
+                            href="#componentes"
+                            class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                        >
+                            <Download className="w-4 h-4 mr-2" />
+                            Ver Componentes
+                        </a>
+                        <a
+                            href="https://github.com/devsHub/ui-components"
+                            class="inline-flex items-center justify-center px-8 py-3 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+                        >
+                            <Github className="w-4 h-4 mr-2" />
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        ¿Por qué elegir nuestros componentes?
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Cada componente está diseñado con las mejores prácticas
+                        y estándares de la industria.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+                >
+                    {
+                        features.map((feature) => (
+                            <Card className="text-center border-0 shadow-md">
+                                <CardHeader>
+                                    <div class="mx-auto mb-4 p-3 rounded-lg bg-primary/10 w-fit">
+                                        <feature.icon className="w-8 h-8 text-primary" />
+                                    </div>
+                                    <CardTitle className="text-xl">
+                                        {feature.title}
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <p class="text-muted-foreground">
+                                        {feature.description}
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Components Grid -->
+        <section id="componentes" class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Catálogo de Componentes
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Explora nuestra colección completa de componentes
+                        organizados por categorías.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8"
+                >
+                    {
+                        components.map((category) => (
+                            <Card className="border-0 shadow-md">
+                                <CardHeader>
+                                    <CardTitle className="text-xl text-primary">
+                                        {category.category}
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <div class="grid grid-cols-2 gap-3">
+                                        {category.items.map((item) => (
+                                            <div class="p-3 rounded-lg bg-background border hover:shadow-sm transition-shadow cursor-pointer group">
+                                                <span class="text-sm font-medium group-hover:text-primary transition-colors">
+                                                    {item}
+                                                </span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Installation Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                            Instalación Rápida
+                        </h2>
+                        <p class="text-lg text-muted-foreground">
+                            Comienza a usar nuestros componentes en minutos con
+                            estos simples pasos.
+                        </p>
+                    </div>
+
+                    <div class="space-y-8">
+                        <Card className="border-0 shadow-md">
+                            <CardHeader>
+                                <CardTitle className="flex items-center gap-2">
+                                    <span
+                                        class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold"
+                                        >1</span
+                                    >
+                                    Instalar paquete
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <div
+                                    class="bg-muted rounded-lg p-4 font-mono text-sm"
+                                >
+                                    npm install @devshub/ui-components
+                                </div>
+                            </CardContent>
+                        </Card>
+
+                        <Card className="border-0 shadow-md">
+                            <CardHeader>
+                                <CardTitle className="flex items-center gap-2">
+                                    <span
+                                        class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold"
+                                        >2</span
+                                    >
+                                    Importar componentes
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <div
+                                    class="bg-muted rounded-lg p-4 font-mono text-sm"
+                                >
+                                    <div>
+                                        import {`{ Button, Card, Input }`} from '@devshub/ui-components';
+                                    </div>
+                                    <div class="mt-2">
+                                        import
+                                        '@devshub/ui-components/styles.css';
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+
+                        <Card className="border-0 shadow-md">
+                            <CardHeader>
+                                <CardTitle className="flex items-center gap-2">
+                                    <span
+                                        class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold"
+                                        >3</span
+                                    >
+                                    Usar en tu proyecto
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <div
+                                    class="bg-muted rounded-lg p-4 font-mono text-sm"
+                                >
+                                    <div>&lt;Button variant="primary"&gt;</div>
+                                    <div class="ml-4">¡Hola Mundo!</div>
+                                    <div>&lt;/Button&gt;</div>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 bg-primary text-primary-foreground">
+            <div class="container mx-auto px-4 text-center">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                        Acelera tu desarrollo hoy
+                    </h2>
+                    <p class="text-lg opacity-90 mb-8">
+                        Únete a miles de desarrolladores que ya están usando
+                        nuestros componentes para crear interfaces increíbles
+                        más rápido.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a
+                            href="/contacto"
+                            class="inline-flex items-center justify-center px-8 py-3 bg-white text-primary rounded-lg font-medium hover:bg-gray-100 transition-colors"
+                        >
+                            Comenzar Ahora
+                        </a>
+                        <a
+                            href="/productos/documentacion"
+                            class="inline-flex items-center justify-center px-8 py-3 border border-white/20 rounded-lg font-medium hover:bg-white/10 transition-colors"
+                        >
+                            Ver Documentación
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>

@@ -1,0 +1,373 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+    Palette,
+    Moon,
+    Sun,
+    Brush,
+    Zap,
+    Download,
+    Eye,
+    ArrowRight,
+} from "lucide-react";
+
+const themes = [
+    {
+        name: "Dark Theme",
+        description: "Tema oscuro elegante para mejor experiencia nocturna",
+        icon: Moon,
+        preview: "bg-gray-900 text-white",
+        colors: ["#1a1a1a", "#2d2d2d", "#3f3f46", "#6366f1"],
+    },
+    {
+        name: "Light Theme",
+        description: "Tema claro y limpio para máxima legibilidad",
+        icon: Sun,
+        preview: "bg-white text-gray-900",
+        colors: ["#ffffff", "#f8fafc", "#e2e8f0", "#6366f1"],
+    },
+    {
+        name: "Ocean Theme",
+        description: "Inspirado en los colores del océano",
+        icon: Palette,
+        preview: "bg-blue-600 text-white",
+        colors: ["#0ea5e9", "#0284c7", "#0369a1", "#1e40af"],
+    },
+    {
+        name: "Forest Theme",
+        description: "Tonos verdes naturales y relajantes",
+        icon: Brush,
+        preview: "bg-green-600 text-white",
+        colors: ["#059669", "#047857", "#065f46", "#064e3b"],
+    },
+];
+
+const features = [
+    {
+        icon: Zap,
+        title: "Cambio Instantáneo",
+        description:
+            "Los usuarios pueden cambiar de tema sin recargar la página.",
+    },
+    {
+        icon: Palette,
+        title: "Paletas Cuidadas",
+        description:
+            "Cada tema tiene colores seleccionados por diseñadores expertos.",
+    },
+    {
+        icon: Eye,
+        title: "Accesibilidad",
+        description:
+            "Todos los temas cumplen con estándares de contraste WCAG.",
+    },
+];
+---
+
+<Layout
+    title="Temas Personalizados - DevsHub"
+    description="Personaliza la apariencia de tu sitio web con nuestros temas profesionales. Dark mode, light mode y temas personalizados."
+>
+    <main class="min-h-screen pt-24">
+        <!-- Hero Section -->
+        <section
+            class="py-20 bg-gradient-to-br from-purple-50 to-pink-100 dark:from-purple-950/20 dark:to-pink-950/20"
+        >
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <Badge className="mb-4">Temas Personalizados</Badge>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        <span class="text-primary">Personaliza</span> Tu Apariencia
+                    </h1>
+                    <p class="text-xl text-muted-foreground mb-8">
+                        Dale vida a tu sitio web con nuestros temas
+                        profesionales. Desde elegantes temas oscuros hasta
+                        vibrantes paletas de colores personalizadas.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a
+                            href="#temas"
+                            class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                        >
+                            <Eye className="w-4 h-4 mr-2" />
+                            Ver Temas
+                        </a>
+                        <a
+                            href="/contacto"
+                            class="inline-flex items-center justify-center px-8 py-3 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+                        >
+                            Tema Personalizado
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Características de Nuestros Temas
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Cada tema está diseñado pensando en la experiencia del
+                        usuario y las mejores prácticas de diseño web.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {
+                        features.map((feature) => (
+                            <Card className="text-center border-0 shadow-md">
+                                <CardHeader>
+                                    <div class="mx-auto mb-4 p-3 rounded-lg bg-primary/10 w-fit">
+                                        <feature.icon className="w-8 h-8 text-primary" />
+                                    </div>
+                                    <CardTitle className="text-xl">
+                                        {feature.title}
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <p class="text-muted-foreground">
+                                        {feature.description}
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Themes Gallery -->
+        <section id="temas" class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Galería de Temas
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Explora nuestra colección de temas prediseñados, cada
+                        uno optimizado para diferentes tipos de sitios web.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    {
+                        themes.map((theme) => (
+                            <Card className="border-0 shadow-md hover:shadow-lg transition-shadow overflow-hidden">
+                                <div
+                                    class={`h-32 ${theme.preview} flex items-center justify-center relative`}
+                                >
+                                    <theme.icon className="w-12 h-12 opacity-80" />
+                                    <div class="absolute bottom-4 right-4 flex gap-1">
+                                        {theme.colors.map((color) => (
+                                            <div
+                                                class="w-4 h-4 rounded-full border-2 border-white/50"
+                                                style={`background-color: ${color}`}
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
+                                <CardHeader>
+                                    <CardTitle className="text-xl">
+                                        {theme.name}
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <p class="text-muted-foreground mb-4">
+                                        {theme.description}
+                                    </p>
+                                    <div class="flex gap-2">
+                                        <button class="flex-1 px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors text-sm">
+                                            <Download className="w-4 h-4 mr-2 inline" />
+                                            Usar Tema
+                                        </button>
+                                        <button class="px-4 py-2 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors text-sm">
+                                            Vista Previa
+                                        </button>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Customization Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <div
+                        class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+                    >
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                                Personalización Completa
+                            </h2>
+                            <p class="text-lg text-muted-foreground mb-8">
+                                ¿No encuentras el tema perfecto? Creamos temas
+                                completamente personalizados que reflejen la
+                                identidad de tu marca.
+                            </p>
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-2 h-2 rounded-full bg-primary"
+                                    >
+                                    </div>
+                                    <span
+                                        >Paletas de colores personalizadas</span
+                                    >
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-2 h-2 rounded-full bg-primary"
+                                    >
+                                    </div>
+                                    <span>Tipografías exclusivas</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-2 h-2 rounded-full bg-primary"
+                                    >
+                                    </div>
+                                    <span
+                                        >Animaciones y transiciones únicas</span
+                                    >
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-2 h-2 rounded-full bg-primary"
+                                    >
+                                    </div>
+                                    <span>Componentes con estilo propio</span>
+                                </div>
+                            </div>
+                            <div class="mt-8">
+                                <a
+                                    href="/contacto"
+                                    class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                                >
+                                    Solicitar Tema Personalizado
+                                    <ArrowRight className="w-4 h-4 ml-2" />
+                                </a>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-gradient-to-br from-indigo-50 to-purple-100 dark:from-indigo-950/20 dark:to-purple-950/20 p-8 rounded-xl"
+                        >
+                            <h3 class="text-2xl font-bold mb-6 text-center">
+                                Proceso de Personalización
+                            </h3>
+                            <div class="space-y-6">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold"
+                                    >
+                                        1
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">
+                                            Consulta inicial
+                                        </h4>
+                                        <p
+                                            class="text-sm text-muted-foreground"
+                                        >
+                                            Entendemos tu visión y objetivos
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold"
+                                    >
+                                        2
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">
+                                            Diseño y mockups
+                                        </h4>
+                                        <p
+                                            class="text-sm text-muted-foreground"
+                                        >
+                                            Creamos propuestas visuales
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold"
+                                    >
+                                        3
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">
+                                            Desarrollo del tema
+                                        </h4>
+                                        <p
+                                            class="text-sm text-muted-foreground"
+                                        >
+                                            Implementamos el diseño final
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold"
+                                    >
+                                        4
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">
+                                            Entrega y soporte
+                                        </h4>
+                                        <p
+                                            class="text-sm text-muted-foreground"
+                                        >
+                                            Tu tema listo para usar
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 bg-primary text-primary-foreground">
+            <div class="container mx-auto px-4 text-center">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                        Dale personalidad a tu sitio web
+                    </h2>
+                    <p class="text-lg opacity-90 mb-8">
+                        Un buen tema puede transformar completamente la
+                        percepción de tu marca. Comienza hoy mismo con uno de
+                        nuestros temas profesionales.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a
+                            href="/contacto"
+                            class="inline-flex items-center justify-center px-8 py-3 bg-white text-primary rounded-lg font-medium hover:bg-gray-100 transition-colors"
+                        >
+                            Comenzar Ahora
+                        </a>
+                        <a
+                            href="/productos"
+                            class="inline-flex items-center justify-center px-8 py-3 border border-white/20 rounded-lg font-medium hover:bg-white/10 transition-colors"
+                        >
+                            Ver Todos los Productos
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
