@@ -611,11 +611,12 @@ const guidelines = [
                 <div class="max-w-4xl mx-auto">
                     <div class="text-center mb-12">
                         <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                            Implementación con Tailwind
+                            Cómo Usar el Sistema
                         </h2>
                         <p class="text-lg text-muted-foreground">
-                            Cómo integrar nuestro sistema de diseño basado en
-                            Tailwind CSS en tu proyecto paso a paso.
+                            Ejemplos prácticos de cómo aplicar nuestro sistema
+                            de diseño basado en Tailwind CSS en tus componentes
+                            y interfaces.
                         </p>
                     </div>
 
@@ -627,24 +628,36 @@ const guidelines = [
                                         class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold"
                                         >1</span
                                     >
-                                    Instalar Tailwind CSS
+                                    Tokens de Color en Acción
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
+                                <p class="text-sm text-muted-foreground mb-4">
+                                    Usa nuestros tokens semánticos para mantener
+                                    consistencia:
+                                </p>
                                 <div
                                     class="bg-muted rounded-lg p-4 font-mono text-sm"
                                 >
                                     <div class="text-green-600">
-                                        # Instalar Tailwind CSS
+                                        /* Estados de botones */
                                     </div>
                                     <div>
-                                        npm install -D tailwindcss postcss
-                                        autoprefixer
+                                        &lt;button className="bg-primary
+                                        hover:bg-primary/90"&gt;
                                     </div>
-                                    <div class="mt-2 text-green-600">
-                                        # Inicializar configuración
+                                    <div>
+                                        &lt;button className="bg-success
+                                        hover:bg-success/90"&gt;
                                     </div>
-                                    <div>npx tailwindcss init -p</div>
+                                    <div>
+                                        &lt;button className="bg-warning
+                                        hover:bg-warning/90"&gt;
+                                    </div>
+                                    <div>
+                                        &lt;button className="bg-error
+                                        hover:bg-error/90"&gt;
+                                    </div>
                                 </div>
                             </CardContent>
                         </Card>
@@ -656,31 +669,42 @@ const guidelines = [
                                         class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold"
                                         >2</span
                                     >
-                                    Configurar Tailwind Config
+                                    Jerarquía Tipográfica
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
+                                <p class="text-sm text-muted-foreground mb-4">
+                                    Aplica nuestra escala tipográfica para crear
+                                    jerarquía visual:
+                                </p>
                                 <div
                                     class="bg-muted rounded-lg p-4 font-mono text-sm"
                                 >
-                                    <div class="text-blue-600">
-                                        // tailwind.config.js
+                                    <div class="text-green-600">
+                                        /* Jerarquía de títulos */
                                     </div>
-                                    <div>module.exports = {`{`}</div>
-                                    <div class="ml-2">
-                                        content: ['./src/**/*.{
-                                            `{html,js,jsx,ts,tsx,astro}`
-                                        }'],
+                                    <div>
+                                        &lt;h1 className="text-4xl
+                                        font-bold"&gt;Título
+                                        Principal&lt;/h1&gt;
                                     </div>
-                                    <div class="ml-2">theme: {`{`}</div>
-                                    <div class="ml-4">extend: {`{`}</div>
-                                    <div class="ml-6">colors: {`{`}</div>
-                                    <div class="ml-8">primary: '#3B82F6',</div>
-                                    <div class="ml-8">secondary: '#64748B'</div>
-                                    <div class="ml-6">{`}`}</div>
-                                    <div class="ml-4">{`}`}</div>
-                                    <div class="ml-2">{`}`}</div>
-                                    <div>{`}`}</div>
+                                    <div>
+                                        &lt;h2 className="text-3xl
+                                        font-semibold"&gt;Subtítulo&lt;/h2&gt;
+                                    </div>
+                                    <div>
+                                        &lt;h3 className="text-xl
+                                        font-medium"&gt;Sección&lt;/h3&gt;
+                                    </div>
+                                    <div>
+                                        &lt;p className="text-base"&gt;Texto
+                                        principal&lt;/p&gt;
+                                    </div>
+                                    <div>
+                                        &lt;span className="text-sm
+                                        text-muted-foreground"&gt;Texto
+                                        secundario&lt;/span&gt;
+                                    </div>
                                 </div>
                             </CardContent>
                         </Card>
@@ -692,30 +716,37 @@ const guidelines = [
                                         class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold"
                                         >3</span
                                     >
-                                    Importar Tailwind CSS
+                                    Sistema de Espaciado
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
+                                <p class="text-sm text-muted-foreground mb-4">
+                                    Mantén consistencia con nuestro sistema de
+                                    espaciado:
+                                </p>
                                 <div
                                     class="bg-muted rounded-lg p-4 font-mono text-sm"
                                 >
                                     <div class="text-green-600">
-                                        /* globals.css */
+                                        /* Espaciado coherente */
                                     </div>
-                                    <div>@tailwind base;</div>
-                                    <div>@tailwind components;</div>
-                                    <div>@tailwind utilities;</div>
-                                    <div class="mt-3 text-green-600">
-                                        /* Custom component styles */
+                                    <div>
+                                        &lt;div className="p-4
+                                        m-4"&gt;Contenedor base&lt;/div&gt;
                                     </div>
-                                    <div>@layer components {`{`}</div>
-                                    <div class="ml-2">.btn-primary {`{`}</div>
-                                    <div class="ml-4">
-                                        @apply px-4 py-2 bg-primary text-white
-                                        rounded-lg;
+                                    <div>
+                                        &lt;div className="p-8
+                                        m-8"&gt;Contenedor grande&lt;/div&gt;
                                     </div>
-                                    <div class="ml-2">{`}`}</div>
-                                    <div>{`}`}</div>
+                                    <div>
+                                        &lt;div className="space-y-4"&gt;Lista
+                                        con espaciado&lt;/div&gt;
+                                    </div>
+                                    <div>
+                                        &lt;div className="flex
+                                        gap-4"&gt;Elementos
+                                        horizontales&lt;/div&gt;
+                                    </div>
                                 </div>
                             </CardContent>
                         </Card>
@@ -727,38 +758,87 @@ const guidelines = [
                                         class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold"
                                         >4</span
                                     >
-                                    Usar Clases de Tailwind
+                                    Componente Completo
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
+                                <p class="text-sm text-muted-foreground mb-4">
+                                    Ejemplo de un card usando todo el sistema de
+                                    diseño:
+                                </p>
                                 <div
                                     class="bg-muted rounded-lg p-4 font-mono text-sm"
                                 >
                                     <div class="text-blue-600">
-                                        // Ejemplo de componente
+                                        // Card con sistema completo
                                     </div>
-                                    <div>&lt;button className=</div>
+                                    <div>&lt;div className="</div>
                                     <div class="ml-2">
-                                        "flex items-center gap-2 px-6 py-3
-                                    </div>
-                                    <div class="ml-2">
-                                        bg-primary hover:bg-primary/90
+                                        bg-white dark:bg-gray-900
                                     </div>
                                     <div class="ml-2">
-                                        text-white font-medium rounded-lg
+                                        border border-gray-200
+                                        dark:border-gray-800
+                                    </div>
+                                    <div class="ml-2">rounded-lg shadow-md</div>
+                                    <div class="ml-2">p-6 space-y-4</div>
+                                    <div class="ml-2">
+                                        hover:shadow-lg transition-shadow
+                                    </div>
+                                    <div>"&gt;</div>
+                                    <div class="ml-2">
+                                        &lt;h3 className="text-xl
+                                        font-semibold"&gt;Título&lt;/h3&gt;
                                     </div>
                                     <div class="ml-2">
-                                        transition-colors duration-200
+                                        &lt;p
+                                        className="text-muted-foreground"&gt;Descripción&lt;/p&gt;
                                     </div>
                                     <div class="ml-2">
-                                        focus:outline-none focus:ring-2
+                                        &lt;button className="bg-primary
+                                        text-white px-4 py-2 rounded-lg"&gt;
                                     </div>
+                                    <div class="ml-4">Acción</div>
+                                    <div class="ml-2">&lt;/button&gt;</div>
+                                    <div>&lt;/div&gt;</div>
+                                </div>
+                            </CardContent>
+                        </Card>
+
+                        <Card className="border-0 shadow-md">
+                            <CardHeader>
+                                <CardTitle className="flex items-center gap-2">
+                                    <span
+                                        class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold"
+                                        >5</span
+                                    >
+                                    Responsive Design
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p class="text-sm text-muted-foreground mb-4">
+                                    Aplica nuestros breakpoints para diseño
+                                    responsivo:
+                                </p>
+                                <div
+                                    class="bg-muted rounded-lg p-4 font-mono text-sm"
+                                >
+                                    <div class="text-blue-600">
+                                        // Grid responsivo con sistema
+                                    </div>
+                                    <div>&lt;div className="</div>
+                                    <div class="ml-2">grid grid-cols-1</div>
+                                    <div class="ml-2">md:grid-cols-2</div>
+                                    <div class="ml-2">lg:grid-cols-3</div>
                                     <div class="ml-2">
-                                        focus:ring-primary/50"
+                                        gap-4 md:gap-6 lg:gap-8
                                     </div>
-                                    <div>&gt;</div>
-                                    <div class="ml-2">Botón Principal</div>
-                                    <div>&lt;/button&gt;</div>
+                                    <div class="ml-2">p-4 md:p-6 lg:p-8</div>
+                                    <div>"&gt;</div>
+                                    <div class="ml-2">
+                                        /* Contenido del grid */
+                                    </div>
+                                    <div>&lt;/div&gt;</div>
                                 </div>
                             </CardContent>
                         </Card>
