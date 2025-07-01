@@ -69,7 +69,7 @@ const PRIMARY_BUTTON = {
 const NAVIGATION1: Array<MenuItem> = [
     {
         title: "Productos",
-        className: "grid-cols-[400px,300px] xl:grid-cols-[600px_500px]",
+        className: "grid-cols-[400px,300px] xl:grid-cols-[500px_500px]",
         groups: [
             {
                 title: "Productos",
