@@ -1,0 +1,725 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+    Globe,
+    Smartphone,
+    ShoppingCart,
+    BarChart3,
+    Rocket,
+    Monitor,
+    Building,
+    GraduationCap,
+    Heart,
+    DollarSign,
+    Code,
+    ArrowRight,
+    CheckCircle,
+    Zap,
+    Users,
+    TrendingUp,
+    Target,
+    Settings,
+} from "lucide-react";
+
+const digitalSolutions = [
+    {
+        title: "Web Applications",
+        description:
+            "Aplicaciones web modernas, escalables y seguras para transformar tu negocio",
+        icon: Globe,
+        features: ["SPA", "PWA", "Enterprise Apps", "APIs REST"],
+        timeline: "2-6 meses",
+        investment: "Desde $8,000",
+        link: "/soluciones/web-app",
+        category: "Desarrollo Digital",
+        highlights: [
+            "React/Vue/Angular",
+            "Cloud Native",
+            "Microservicios",
+            "Seguridad Avanzada",
+        ],
+    },
+    {
+        title: "Apps Móviles",
+        description:
+            "Aplicaciones nativas e híbridas que conectan con tus usuarios en cualquier lugar",
+        icon: Smartphone,
+        features: [
+            "iOS & Android",
+            "React Native",
+            "Flutter",
+            "Push Notifications",
+        ],
+        timeline: "2-4 meses",
+        investment: "Desde $10,000",
+        link: "/soluciones/app-movil",
+        category: "Desarrollo Digital",
+        highlights: [
+            "App Store Ready",
+            "Offline Support",
+            "Biometric Auth",
+            "Real-time Sync",
+        ],
+    },
+    {
+        title: "E-commerce",
+        description:
+            "Tiendas online completas con gestión de pagos, envíos y analytics avanzados",
+        icon: ShoppingCart,
+        features: ["Shopify", "WooCommerce", "Magento", "Custom"],
+        timeline: "3-8 semanas",
+        investment: "Desde $5,000",
+        link: "/soluciones/ecommerce",
+        category: "Desarrollo Digital",
+        highlights: [
+            "Conversión Optimizada",
+            "Multi-payment",
+            "Inventory Mgmt",
+            "SEO Ready",
+        ],
+    },
+    {
+        title: "Dashboards & Analytics",
+        description:
+            "Visualización de datos e inteligencia de negocio para decisiones informadas",
+        icon: BarChart3,
+        features: [
+            "Business Intelligence",
+            "Real-time Data",
+            "Custom KPIs",
+            "Alertas",
+        ],
+        timeline: "3-6 semanas",
+        investment: "Desde $8,000",
+        link: "/soluciones/dashboard",
+        category: "Desarrollo Digital",
+        highlights: [
+            "100+ Data Sources",
+            "Interactive Charts",
+            "Mobile Ready",
+            "Export Tools",
+        ],
+    },
+    {
+        title: "Landing Pages",
+        description:
+            "Páginas de alto rendimiento optimizadas para conversión y captación de leads",
+        icon: Rocket,
+        features: ["CRO Optimized", "A/B Testing", "Analytics", "Mobile First"],
+        timeline: "1-3 semanas",
+        investment: "Desde $2,000",
+        link: "/soluciones/landing-page",
+        category: "Marketing Digital",
+        highlights: [
+            "300% Aumento Promedio",
+            "7 Días Entrega",
+            "25% Conversión",
+            "SEO Ready",
+        ],
+    },
+    {
+        title: "Portal Personal",
+        description:
+            "Plataformas personalizadas para gestión de usuarios, perfiles y contenido privado",
+        icon: Users,
+        features: [
+            "User Management",
+            "Content CMS",
+            "Role-based Access",
+            "Analytics",
+        ],
+        timeline: "4-8 semanas",
+        investment: "Desde $6,000",
+        link: "/soluciones/portal-personal",
+        category: "Desarrollo Digital",
+        highlights: [
+            "Multi-tenant",
+            "Secure Login",
+            "Custom Workflows",
+            "API Integration",
+        ],
+    },
+];
+
+const industrySolutions = [
+    {
+        title: "Soluciones para Educación",
+        description:
+            "Plataformas e-learning, LMS y herramientas educativas interactivas",
+        icon: GraduationCap,
+        features: [
+            "LMS",
+            "Virtual Classrooms",
+            "Progress Tracking",
+            "Gamification",
+        ],
+        industries: [
+            "Universidades",
+            "Colegios",
+            "Academias",
+            "Capacitación Corporativa",
+        ],
+        link: "/soluciones/educacion",
+        category: "Industria",
+        specialFeatures: [
+            "SCORM Compliance",
+            "Video Streaming",
+            "Assessment Tools",
+            "Certificates",
+        ],
+    },
+    {
+        title: "Soluciones para Salud",
+        description: "Sistemas médicos, telemedicina y gestión de pacientes",
+        icon: Heart,
+        features: [
+            "Patient Management",
+            "Telemedicine",
+            "EHR Integration",
+            "Appointments",
+        ],
+        industries: ["Hospitales", "Clínicas", "Consultorios", "Laboratorios"],
+        link: "/soluciones/salud",
+        category: "Industria",
+        specialFeatures: [
+            "HIPAA Compliance",
+            "HL7 Integration",
+            "Medical Imaging",
+            "Prescriptions",
+        ],
+    },
+    {
+        title: "Soluciones Financieras",
+        description: "Apps bancarias, fintech y sistemas de gestión financiera",
+        icon: DollarSign,
+        features: [
+            "Banking Apps",
+            "Payment Processing",
+            "Investment Tracking",
+            "Crypto",
+        ],
+        industries: ["Bancos", "Fintech", "Inversiones", "Seguros"],
+        link: "/soluciones/finanzas",
+        category: "Industria",
+        specialFeatures: [
+            "PCI Compliance",
+            "KYC/AML",
+            "Real-time Trading",
+            "Risk Management",
+        ],
+    },
+    {
+        title: "Soluciones Tecnológicas",
+        description:
+            "Herramientas para empresas tech, startups y desarrollo de software",
+        icon: Code,
+        features: ["Developer Tools", "API Platforms", "DevOps", "Monitoring"],
+        industries: ["Startups", "Software Companies", "IT Services", "SaaS"],
+        link: "/soluciones/tecnologia",
+        category: "Industria",
+        specialFeatures: [
+            "CI/CD Integration",
+            "API Management",
+            "Monitoring Tools",
+            "Documentation",
+        ],
+    },
+];
+
+const keyBenefits = [
+    {
+        icon: Zap,
+        title: "Desarrollo Rápido",
+        description:
+            "Entregamos soluciones en tiempo récord sin comprometer la calidad",
+        metric: "50% más rápido que el promedio",
+    },
+    {
+        icon: TrendingUp,
+        title: "ROI Comprobado",
+        description: "Nuestras soluciones generan retorno de inversión medible",
+        metric: "300% ROI promedio",
+    },
+    {
+        icon: Settings,
+        title: "100% Personalizable",
+        description:
+            "Cada solución se adapta perfectamente a tu negocio específico",
+        metric: "Soluciones únicas",
+    },
+    {
+        icon: Target,
+        title: "Optimización Continua",
+        description: "Mejoramos constantemente basándonos en datos y feedback",
+        metric: "A/B testing incluido",
+    },
+];
+
+const processSteps = [
+    {
+        step: "1",
+        title: "Consultoría Inicial",
+        description: "Analizamos tu negocio y definimos la estrategia perfecta",
+        duration: "1-2 días",
+    },
+    {
+        step: "2",
+        title: "Diseño & Planificación",
+        description: "Creamos prototipos y definimos la arquitectura técnica",
+        duration: "3-7 días",
+    },
+    {
+        step: "3",
+        title: "Desarrollo",
+        description: "Construimos tu solución con entregas incrementales",
+        duration: "2-12 semanas",
+    },
+    {
+        step: "4",
+        title: "Testing & Launch",
+        description: "Pruebas exhaustivas y lanzamiento con soporte completo",
+        duration: "1-2 semanas",
+    },
+];
+
+const stats = [
+    { number: "500+", label: "Proyectos Entregados" },
+    { number: "98%", label: "Satisfacción Cliente" },
+    { number: "300%", label: "ROI Promedio" },
+    { number: "24/7", label: "Soporte Técnico" },
+];
+---
+
+<Layout
+    title="Soluciones Digitales - DevsHub"
+    description="Soluciones digitales completas: desarrollo web, apps móviles, e-commerce, dashboards y más. Transformamos tu negocio con tecnología de vanguardia."
+>
+    <main class="min-h-screen pt-24">
+        <!-- Hero Section -->
+        <section
+            class="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-950/20 dark:via-indigo-950/20 dark:to-purple-950/20"
+        >
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-12">
+                        <Badge className="mb-4">Soluciones Digitales</Badge>
+                        <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                            Transformamos Ideas en <span class="text-primary"
+                                >Soluciones Digitales</span
+                            >
+                        </h1>
+                        <p
+                            class="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto"
+                        >
+                            Desde aplicaciones web hasta plataformas enterprise,
+                            desarrollamos soluciones tecnológicas que impulsan
+                            el crecimiento de tu negocio con resultados
+                            medibles.
+                        </p>
+                        <div
+                            class="flex flex-col sm:flex-row gap-4 justify-center"
+                        >
+                            <a
+                                href="/contacto"
+                                class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                            >
+                                <Target className="w-4 h-4 mr-2" />
+                                Consultoría Gratuita
+                            </a>
+                            <a
+                                href="#soluciones-digitales"
+                                class="inline-flex items-center justify-center px-8 py-3 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+                            >
+                                Ver Todas las Soluciones
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Stats -->
+                    <div
+                        class="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 border-t border-muted-foreground/20"
+                    >
+                        {
+                            stats.map((stat) => (
+                                <div class="text-center">
+                                    <div class="text-3xl md:text-4xl font-bold text-primary mb-2">
+                                        {stat.number}
+                                    </div>
+                                    <div class="text-sm text-muted-foreground">
+                                        {stat.label}
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Digital Solutions -->
+        <section id="soluciones-digitales" class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Soluciones de Desarrollo
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Desarrollamos tecnología de vanguardia que transforma la
+                        manera en que tu negocio opera y crece.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
+                    {
+                        digitalSolutions.map((solution) => (
+                            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden">
+                                <CardHeader className="pb-6">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <div class="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                                            <solution.icon className="w-6 h-6 text-primary" />
+                                        </div>
+                                        <Badge
+                                            variant="outline"
+                                            className="text-xs"
+                                        >
+                                            {solution.category}
+                                        </Badge>
+                                    </div>
+                                    <CardTitle className="text-xl mb-2">
+                                        {solution.title}
+                                    </CardTitle>
+                                    <p class="text-muted-foreground text-sm">
+                                        {solution.description}
+                                    </p>
+                                </CardHeader>
+                                <CardContent className="space-y-6">
+                                    <div>
+                                        <h4 class="font-semibold mb-3">
+                                            Tecnologías:
+                                        </h4>
+                                        <div class="flex flex-wrap gap-2">
+                                            {solution.features.map(
+                                                (feature) => (
+                                                    <Badge
+                                                        variant="outline"
+                                                        className="text-xs"
+                                                    >
+                                                        {feature}
+                                                    </Badge>
+                                                )
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <h4 class="font-semibold mb-3">
+                                            Características destacadas:
+                                        </h4>
+                                        <ul class="space-y-2">
+                                            {solution.highlights
+                                                .slice(0, 3)
+                                                .map((highlight) => (
+                                                    <li class="flex items-center gap-2">
+                                                        <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                                                        <span class="text-sm">
+                                                            {highlight}
+                                                        </span>
+                                                    </li>
+                                                ))}
+                                        </ul>
+                                    </div>
+
+                                    <div class="space-y-3 pt-4 border-t border-border">
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm font-semibold">
+                                                Timeline:
+                                            </span>
+                                            <Badge className="bg-blue-100 text-blue-800">
+                                                {solution.timeline}
+                                            </Badge>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm font-semibold">
+                                                Inversión:
+                                            </span>
+                                            <span class="text-sm font-medium text-primary">
+                                                {solution.investment}
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <a
+                                        href={solution.link}
+                                        class="inline-flex items-center justify-center w-full px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors group"
+                                    >
+                                        Conocer Más
+                                        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                                    </a>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Industry Solutions -->
+        <section class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Soluciones por Industria
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Experiencia especializada en sectores clave con
+                        soluciones adaptadas a las necesidades específicas de
+                        cada industria.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {
+                        industrySolutions.map((solution) => (
+                            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                                <CardHeader className="pb-6">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <div class="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                                            <solution.icon className="w-7 h-7 text-primary" />
+                                        </div>
+                                        <Badge
+                                            variant="outline"
+                                            className="text-xs"
+                                        >
+                                            {solution.category}
+                                        </Badge>
+                                    </div>
+                                    <CardTitle className="text-xl mb-2">
+                                        {solution.title}
+                                    </CardTitle>
+                                    <p class="text-muted-foreground text-sm">
+                                        {solution.description}
+                                    </p>
+                                </CardHeader>
+                                <CardContent className="space-y-6">
+                                    <div>
+                                        <h4 class="font-semibold mb-3">
+                                            Funcionalidades principales:
+                                        </h4>
+                                        <div class="flex flex-wrap gap-2">
+                                            {solution.features.map(
+                                                (feature) => (
+                                                    <Badge
+                                                        variant="outline"
+                                                        className="text-xs"
+                                                    >
+                                                        {feature}
+                                                    </Badge>
+                                                )
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <h4 class="font-semibold mb-3">
+                                            Industrias objetivo:
+                                        </h4>
+                                        <div class="grid grid-cols-2 gap-2">
+                                            {solution.industries.map(
+                                                (industry) => (
+                                                    <div class="text-sm text-muted-foreground">
+                                                        • {industry}
+                                                    </div>
+                                                )
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <h4 class="font-semibold mb-3">
+                                            Características especiales:
+                                        </h4>
+                                        <ul class="space-y-1">
+                                            {solution.specialFeatures
+                                                .slice(0, 3)
+                                                .map((feature) => (
+                                                    <li class="flex items-center gap-2">
+                                                        <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                                                        <span class="text-sm">
+                                                            {feature}
+                                                        </span>
+                                                    </li>
+                                                ))}
+                                        </ul>
+                                    </div>
+
+                                    <a
+                                        href={solution.link}
+                                        class="inline-flex items-center justify-center w-full px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors group mt-6"
+                                    >
+                                        Explorar Solución
+                                        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                                    </a>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Benefits -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        ¿Por Qué Elegir DevsHub?
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Más que desarrollo, somos tu socio estratégico en
+                        transformación digital con resultados comprobados.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+                >
+                    {
+                        keyBenefits.map((benefit) => (
+                            <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300 text-center group">
+                                <CardHeader className="pb-6">
+                                    <div class="mx-auto mb-4 p-4 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors w-fit">
+                                        <benefit.icon className="w-8 h-8 text-primary" />
+                                    </div>
+                                    <CardTitle className="text-lg mb-2">
+                                        {benefit.title}
+                                    </CardTitle>
+                                    <p class="text-muted-foreground text-sm">
+                                        {benefit.description}
+                                    </p>
+                                </CardHeader>
+                                <CardContent>
+                                    <Badge className="bg-green-100 text-green-800 font-semibold">
+                                        {benefit.metric}
+                                    </Badge>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Process -->
+        <section class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Nuestro Proceso
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Metodología probada que garantiza entregas exitosas en
+                        tiempo y presupuesto.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+                >
+                    {
+                        processSteps.map((step, index) => (
+                            <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300 relative">
+                                <CardHeader className="text-center pb-6">
+                                    <div class="mx-auto mb-4 flex items-center justify-center w-16 h-16 rounded-full bg-primary text-primary-foreground text-2xl font-bold">
+                                        {step.step}
+                                    </div>
+                                    <CardTitle className="text-lg mb-2">
+                                        {step.title}
+                                    </CardTitle>
+                                    <p class="text-muted-foreground text-sm">
+                                        {step.description}
+                                    </p>
+                                </CardHeader>
+                                <CardContent className="text-center">
+                                    <Badge variant="outline">
+                                        {step.duration}
+                                    </Badge>
+                                </CardContent>
+                                {index < processSteps.length - 1 && (
+                                    <div class="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2">
+                                        <ArrowRight className="w-6 h-6 text-muted-foreground" />
+                                    </div>
+                                )}
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section
+            class="py-20 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground"
+        >
+            <div class="container mx-auto px-4 text-center">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                        ¿Listo para Transformar tu Negocio?
+                    </h2>
+                    <p class="text-lg opacity-90 mb-8">
+                        Agenda una consultoría gratuita y descubre cómo nuestras
+                        soluciones pueden impulsar tu crecimiento con tecnología
+                        de vanguardia.
+                    </p>
+                    <div
+                        class="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+                    >
+                        <a
+                            href="/contacto"
+                            class="inline-flex items-center justify-center px-8 py-3 bg-white text-primary rounded-lg font-medium hover:bg-gray-100 transition-colors"
+                        >
+                            <Target className="w-4 h-4 mr-2" />
+                            Consultoría Gratuita
+                        </a>
+                        <a
+                            href="/productos"
+                            class="inline-flex items-center justify-center px-8 py-3 border border-white/20 rounded-lg font-medium hover:bg-white/10 transition-colors"
+                        >
+                            Ver Productos
+                        </a>
+                    </div>
+
+                    <div
+                        class="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-white/20"
+                    >
+                        <div class="text-center">
+                            <div class="text-2xl font-bold mb-1">500+</div>
+                            <div class="text-sm opacity-75">
+                                Proyectos Exitosos
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold mb-1">98%</div>
+                            <div class="text-sm opacity-75">
+                                Satisfacción Cliente
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold mb-1">300%</div>
+                            <div class="text-sm opacity-75">ROI Promedio</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold mb-1">24/7</div>
+                            <div class="text-sm opacity-75">
+                                Soporte Técnico
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
