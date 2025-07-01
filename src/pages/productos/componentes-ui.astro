@@ -10,6 +10,7 @@ import {
     Download,
     Github,
 } from "lucide-react";
+import { DaisyUI, HeroUI, Shadcnui } from "@/components/icons";
 
 const components = [
     {
@@ -194,7 +195,9 @@ const features = [
                             <div
                                 class="mx-auto mb-4 p-4 rounded-lg bg-orange-100 dark:bg-orange-900/20 w-fit"
                             >
-                                <Code className="w-10 h-10 text-orange-600" />
+                                <Shadcnui
+                                    className="w-10 h-10 text-orange-600"
+                                />
                             </div>
                             <CardTitle className="text-2xl">
                                 shadcn/ui
@@ -258,7 +261,7 @@ const features = [
                             <div
                                 class="mx-auto mb-4 p-4 rounded-lg bg-purple-100 dark:bg-purple-900/20 w-fit"
                             >
-                                <Palette
+                                <DaisyUI
                                     className="w-10 h-10 text-purple-600"
                                 />
                             </div>
@@ -322,7 +325,7 @@ const features = [
                             <div
                                 class="mx-auto mb-4 p-4 rounded-lg bg-blue-100 dark:bg-blue-900/20 w-fit"
                             >
-                                <Zap className="w-10 h-10 text-blue-600" />
+                                <HeroUI className="w-10 h-10 text-blue-600" />
                             </div>
                             <CardTitle className="text-2xl"> NextUI </CardTitle>
                             <Badge

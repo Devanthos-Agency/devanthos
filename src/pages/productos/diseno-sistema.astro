@@ -14,6 +14,7 @@ import {
     Zap,
     CheckCircle,
 } from "lucide-react";
+import { TailwindCSS } from "@/components/icons";
 
 const designPrinciples = [
     {
@@ -77,10 +78,10 @@ const designTokens = [
                 tailwind: "bg-blue-600",
             },
             {
-                name: "text-secondary",
-                value: "text-slate-600",
+                name: "bg-secondary",
+                value: "bg-slate-600",
                 description: "Color secundario - equivale a slate-600",
-                tailwind: "text-slate-600",
+                tailwind: "bg-slate-600",
             },
             {
                 name: "bg-success",
@@ -225,6 +226,7 @@ const guidelines = [
                         visual y experiencia de usuario excepcional en todos tus
                         productos digitales.
                     </p>
+                    <TailwindCSS className="h-10 w-2xl mx-auto mb-4" />
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
                         <a
                             href="#tokens"
@@ -325,13 +327,22 @@ const guidelines = [
                                                     </code>
                                                     {tokenGroup.category ===
                                                         "Colores Tailwind" && (
-                                                        <div class="w-8 h-8 rounded-full border-2 border-border bg-blue-600" />
+                                                        <div
+                                                            class={`w-8 h-8 rounded-full border-2 border-border ${token.value}`}
+                                                        />
                                                     )}
                                                 </div>
                                                 <div class="text-lg font-semibold mb-2">
                                                     {token.value}
                                                 </div>
-                                                <p class="text-sm text-muted-foreground mb-3">
+                                                <p
+                                                    class={`text-sm text-muted-foreground mb-3 ${
+                                                        tokenGroup.category ===
+                                                        "Tipografía Tailwind"
+                                                            ? token.tailwind
+                                                            : ""
+                                                    }`}
+                                                >
                                                     {token.description}
                                                 </p>
                                                 {token.tailwind && (
