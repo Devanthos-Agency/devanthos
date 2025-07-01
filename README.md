@@ -1,48 +1,174 @@
-# Astro Starter Kit: Basics
+# 🚀 Devs Hub
 
-```sh
-pnpm create astro@latest -- --template basics
-```
+**Potencia tu empresa con soluciones digitales de vanguardia**
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Devs Hub es una plataforma integral de servicios digitales que ayuda a empresas y emprendedores a crecer mediante desarrollo web, móvil, marketing digital y chatbots inteligentes. Nuestra misión es proporcionar herramientas y servicios de alta calidad para llevar tu negocio al siguiente nivel.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## ✨ Características Principales
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+-   **🌐 Desarrollo Web y Móvil**: Sitios web modernos y aplicaciones móviles nativas
+-   **📈 Marketing Digital y SEO**: Estrategias para aumentar tu tráfico orgánico
+-   **🤖 Chatbots Inteligentes**: Automatización de atención al cliente 24/7
+-   **💼 Landing Pages**: Páginas optimizadas para conversión de leads
+-   **📱 Diseño Responsivo**: Experiencias perfectas en todos los dispositivos
+-   **🎨 UI/UX Moderno**: Interfaces atractivas con componentes Radix UI y Tailwind CSS
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## 🏗️ Estructura del Proyecto
 
 ```text
 /
-├── public/
-│   └── favicon.svg
+├── public/                    # Archivos estáticos
+│   ├── images/               # Imágenes optimizadas
+│   │   ├── blog/            # Imágenes para artículos
+│   │   ├── gallery/         # Galería de proyectos
+│   │   ├── hero/            # Imágenes principales
+│   │   ├── service/         # Iconos de servicios
+│   │   └── team/            # Fotos del equipo
+│   └── favicon.svg          # Favicon del sitio
 ├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
+│   ├── components/          # Componentes reutilizables
+│   │   ├── interfaces/      # Secciones de la página
+│   │   ├── magicui/         # Efectos visuales avanzados
+│   │   └── ui/              # Componentes de UI base
+│   ├── content/             # Contenido en MDX
+│   │   ├── blog/            # Artículos del blog
+│   │   ├── pages/           # Páginas estáticas
+│   │   └── service/         # Descripciones de servicios
+│   ├── layouts/             # Plantillas de página
+│   ├── pages/               # Rutas de la aplicación
+│   │   ├── blog/            # Sección blog
+│   │   ├── empresa/         # Información corporativa
+│   │   ├── productos/       # Catálogo de productos
+│   │   ├── servicios/       # Páginas de servicios
+│   │   └── soluciones/      # Soluciones empresariales
+│   └── styles/              # Estilos globales
 └── package.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🛠️ Tecnologías Utilizadas
 
-## 🧞 Commands
+-   **Frontend**: Astro 5.9.0 + React 19
+-   **Styling**: Tailwind CSS 4.1.8
+-   **UI Components**: Radix UI + shadcn/ui
+-   **Animations**: Motion + Framer Motion
+-   **Forms**: React Hook Form + Zod
+-   **Content**: MDX para blog y servicios
+-   **Icons**: Lucide React
+-   **Package Manager**: pnpm
 
-All commands are run from the root of the project, from a terminal:
+## 🎯 Servicios Destacados
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+### 🌐 Desarrollo Web y Móvil
 
-## 👀 Want to learn more?
+-   Sitios web corporativos y e-commerce
+-   Aplicaciones móviles nativas
+-   Progressive Web Apps (PWA)
+-   Sistemas de gestión personalizados
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+### 📊 Marketing Digital y SEO
+
+-   Optimización para motores de búsqueda
+-   Estrategias de contenido
+-   Análisis de tráfico orgánico
+-   Campañas publicitarias digitales
+
+### 🤖 Chatbots Inteligentes
+
+-   Automatización de atención al cliente
+-   Integración con WhatsApp y redes sociales
+-   Respuestas inteligentes 24/7
+-   Análisis de conversaciones
+
+## 🧞 Comandos Disponibles
+
+Todos los comandos se ejecutan desde la raíz del proyecto:
+
+| Comando                | Acción                                               |
+| :--------------------- | :--------------------------------------------------- |
+| `pnpm install`         | Instala todas las dependencias                       |
+| `pnpm dev`             | Inicia servidor de desarrollo en `localhost:4321`    |
+| `pnpm build`           | Construye el sitio para producción en `./dist/`      |
+| `pnpm preview`         | Previsualiza la build local antes de desplegar       |
+| `pnpm astro ...`       | Ejecuta comandos CLI como `astro add`, `astro check` |
+| `pnpm astro -- --help` | Obtiene ayuda usando el CLI de Astro                 |
+
+## 🚀 Comenzar
+
+1. **Clona el repositorio**:
+
+    ```bash
+    git clone https://github.com/Juanmorales1810/devs-hub.git
+    cd devs-hub
+    ```
+
+2. **Instala las dependencias**:
+
+    ```bash
+    pnpm install
+    ```
+
+3. **Inicia el servidor de desarrollo**:
+
+    ```bash
+    pnpm dev
+    ```
+
+4. **Abre tu navegador** en `http://localhost:4321`
+
+## 📁 Páginas Principales
+
+-   **`/`** - Página principal con todos los servicios
+-   **`/servicios`** - Catálogo completo de servicios
+-   **`/blog`** - Artículos sobre desarrollo y marketing
+-   **`/contacto`** - Formulario de contacto
+-   **`/precios`** - Planes y precios
+-   **`/empresa`** - Información corporativa
+-   **`/faq`** - Preguntas frecuentes
+
+## 🎨 Componentes Destacados
+
+-   **Hero Section**: Sección principal con llamada a la acción
+-   **Service Cards**: Tarjetas de servicios con animaciones
+-   **Animated Beam**: Efectos visuales modernos
+-   **Globe Component**: Globo 3D interactivo
+-   **Newsletter Form**: Formulario de suscripción
+-   **Contact Form**: Formulario de contacto con validación
+
+## 🔧 Configuración
+
+El proyecto utiliza:
+
+-   **TypeScript** para tipado estático
+-   **Tailwind CSS** para estilos utilitarios
+-   **Content Collections** para gestión de contenido
+-   **React Server Components** para componentes interactivos
+
+## 📝 Contenido
+
+El contenido se gestiona mediante:
+
+-   **MDX files** en `src/content/blog/` para artículos
+-   **MDX files** en `src/content/service/` para servicios
+-   **Astro components** para secciones reutilizables
+
+## 🤝 Contribuir
+
+¡Las contribuciones son bienvenidas! Si tienes ideas para mejorar Devs Hub:
+
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+## 📞 Contacto
+
+¿Necesitas ayuda con tu proyecto? ¡Contáctanos!
+
+-   **Web**: [devs-hub.com](https://devs-hub.com)
+-   **Email**: info@devs-hub.com
+-   **LinkedIn**: [Devs Hub](https://linkedin.com/company/devs-hub)
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
