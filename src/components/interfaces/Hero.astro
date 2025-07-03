@@ -1,7 +1,7 @@
 ---
 import { MoveRight } from "lucide-react";
-import LogoMarquee from "../logo-marquee.astro";
 import Button from "../ui/Button.astro";
+import LogoMarquee from "../logo-marquee";
 ---
 
 <section
@@ -13,7 +13,7 @@ import Button from "../ui/Button.astro";
     </div>
 
     <div
-        class="relative lg:h-[calc(100vh-272px)] z-10 container mx-auto px-2 md:px-6 lg:px-8"
+        class="relative 2xl:h-[calc(100vh-272px)] z-10 container mx-auto px-2 md:px-6 lg:px-8"
     >
         <div
             class="grid h-full grid-cols-1 gap-x-20 gap-y-10 md:grid-cols-[1fr_1fr] xl:gap-x-48"
@@ -52,7 +52,7 @@ import Button from "../ui/Button.astro";
                             ayudarte a crecer.
                         </p>
                     </div>
-                    <LogoMarquee />
+                    <LogoMarquee client:load />
                     <div class="flex flex-wrap items-center gap-5">
                         <Button href="#" variant="primary" class="group">
                             <div class="font-medium text-white">
