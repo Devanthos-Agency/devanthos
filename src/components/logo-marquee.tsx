@@ -102,7 +102,7 @@ const logos = [
 
 export default function LogoMarquee() {
     return (
-        <div className="h-auto relative mt-36 w-full xl:mt-20 xl:w-2/5 lg:-left-20">
+        <div className="h-auto relative mt-20 w-full xl:-left-20 xl:w-2/5">
             <div className="absolute -top-24 mx-auto flex items-center justify-center">
                 <Carousel
                     plugins={[AutoScroll({ playOnInit: true })]}
