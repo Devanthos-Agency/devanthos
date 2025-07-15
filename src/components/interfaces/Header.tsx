@@ -286,14 +286,22 @@ export default function Navbar() {
                     <div className="flex w-full items-center justify-between rounded-b-[0.75rem] px-6 py-4 sm:rounded-[0.75rem]  xl:mt-2.5 xl:h-[5.25rem] dark:bg-black/60 bg-white/60 xl:py-6 backdrop-blur-[5px]">
                         <a
                             href="/"
-                            className="w-28 flex items-center justify-between"
+                            className="w-fit inline-flex items-baseline"
                         >
-                            <span className="text-primary font-bold text-2xl w-full">
-                                Devs
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="relative -bottom-[3px] size-7 align-baseline"
+                                viewBox="0 0 468 432"
+                            >
+                                <g fill="#4c5dab">
+                                    <path d="m181 310 44-1c1 0 3 0 5-2l83-86c3-3 3-7 0-10l-83-86-4-2h-47c-7 2-8 10-4 15l77 78-77 77c-4 7-2 15 6 17z" />
+                                    <path d="M438 107A229 229 0 0 0 243 0H12C5 0 0 6 0 13v55c0 7 5 12 12 12h13c7 0 13 6 13 12v15c0 2 1 3 3 3h66c2 0 4-1 4-3V92c0-6 5-12 12-12h123a140 140 0 0 1 120 66c12 21 18 44 18 70s-6 49-18 70-29 37-50 48c-20 12-44 18-70 18l-123-1c-7 0-12-5-12-12V126c0-1-2-3-4-3H41c-2 0-3 1-3 3v213c0 6-6 12-13 12H12c-7 0-12 5-12 12v56c0 7 5 13 12 13h232a229 229 0 0 0 194-106c20-33 30-70 30-110s-10-77-30-109zM85 346c0 2-2 4-4 4H68c-2 0-3-2-3-4V176c0-2 1-3 3-3h13c2 0 4 1 4 3v170z" />
+                                </g>
+                            </svg>
+                            <span className="ml-[1px] text-3xl font-cocogoose font-medium">
+                                <span className="sr-only">D</span>
+                                evanthos
                             </span>
-                            <samp className="px-1.5 py-0.5 text-2xl bg-primary text-white font-semibold rounded">
-                                hub
-                            </samp>
                         </a>
                         <NavigationMenuWithoutViewport className="flex">
                             <NavigationMenuList className="relative hidden xl:flex">
