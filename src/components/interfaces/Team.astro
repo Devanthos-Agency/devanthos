@@ -7,7 +7,7 @@ const people = [
     {
         id: "person-1",
         name: "Juan Morales",
-        role: "Front End Developer | CEO",
+        role: "Programador Full Stack | CEO",
         description:
             "Me encargo de crear interfaces atractivas y funcionales, optimizando la experiencia del usuario. También lidero el equipo de desarrollo y gestiono proyectos.",
         avatar: "https://avatars.githubusercontent.com/u/85465719?v=4",
@@ -74,6 +74,36 @@ const people = [
             },
         ],
     },
+    {
+        id: "person-4",
+        name: "Julian Peruzzi",
+        role: "Programador Full Stack | Account Manager",
+        description:
+            "Soy un apasionado del desarrollo web y móvil, con experiencia en la creación de aplicaciones escalables y eficientes. Me especializo en el desarrollo de soluciones personalizadas que se adaptan a las necesidades de cada cliente.",
+        avatar: "https://shadcnblocks.com/images/block/avatar-1.webp",
+        socialLinks: [
+            {
+                name: "Github",
+                url: "https://github.com/julianperuzzi",
+                icon: Github,
+            },
+            {
+                name: "LinkedIn",
+                url: "https://www.linkedin.com/in/julianperuzzi/",
+                icon: Linkedin,
+            },
+            {
+                name: "Instagram",
+                url: "https://www.instagram.com/julianperuzzi/",
+                icon: Instagram,
+            },
+            {
+                name: "Portfolio",
+                url: "https://julianperuzzi.vercel.app/",
+                icon: Globe,
+            },
+        ],
+    },
 ];
 ---
 
@@ -102,7 +132,7 @@ const people = [
         </div>
     </div>
     <div
-        class="container mx-auto mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3 px-2 md:px-6 lg:px-32"
+        class="container mx-auto mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4 px-2 md:px-6"
     >
         {
             people.map((person) => (
