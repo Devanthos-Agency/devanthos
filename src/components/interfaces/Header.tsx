@@ -298,7 +298,7 @@ export default function Navbar() {
                                     <path d="M438 107A229 229 0 0 0 243 0H12C5 0 0 6 0 13v55c0 7 5 12 12 12h13c7 0 13 6 13 12v15c0 2 1 3 3 3h66c2 0 4-1 4-3V92c0-6 5-12 12-12h123a140 140 0 0 1 120 66c12 21 18 44 18 70s-6 49-18 70-29 37-50 48c-20 12-44 18-70 18l-123-1c-7 0-12-5-12-12V126c0-1-2-3-4-3H41c-2 0-3 1-3 3v213c0 6-6 12-13 12H12c-7 0-12 5-12 12v56c0 7 5 13 12 13h232a229 229 0 0 0 194-106c20-33 30-70 30-110s-10-77-30-109zM85 346c0 2-2 4-4 4H68c-2 0-3-2-3-4V176c0-2 1-3 3-3h13c2 0 4 1 4 3v170z" />
                                 </g>
                             </svg>
-                            <span className="ml-[1px] text-3xl font-cocogoose font-medium">
+                            <span className="ml-[2px] text-3xl font-cocogoose font-normal">
                                 <span className="sr-only">D</span>
                                 evanthos
                             </span>
