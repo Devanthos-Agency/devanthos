@@ -1,0 +1,8 @@
+User-agent: *
+
+Disallow:
+
+Allow: *.css
+Allow: *.js
+
+Sitemap: https://www.devanthos.com/sitemap-index.xml
