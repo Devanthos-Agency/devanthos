@@ -36,7 +36,6 @@ import {
     Info,
     Calendar,
     PhoneCall,
-    PhoneCallIcon,
     Gavel,
     Shield,
     Folder,
@@ -65,7 +64,6 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
-import { DevanthosIcon } from "../icons";
 import { handlePrintBudget as printBudget } from "@/lib/budget-print";
 
 interface PageType {
@@ -142,7 +140,7 @@ const pageTypes: PageType[] = [
         id: "corporate",
         name: "Página Corporativa",
         description:
-            "Sitio web profesional para empresas con múltiples secciones, portafolio y información institucional.",
+            "Sitio web profesional para empresas con múltiples secciones, portafolio e información institucional.",
         basePrice: 400,
         estimatedDays: 14,
         icon: <Building className="h-4 w-4" />,
@@ -206,7 +204,7 @@ const pageTypes: PageType[] = [
             {
                 name: "Carrito de compras",
                 description:
-                    "Sistema completo de compras con cálculo automático de totales y impuestos",
+                    "Sistema completo de compras con cálculo automático de totales e impuestos",
                 details: [
                     "Agregar/quitar productos",
                     "Cálculo de impuestos",
@@ -617,7 +615,7 @@ export default function BudgetForm() {
         <div className="min-h-screen">
             <div className="max-w-5xl mx-auto px-4 pt-28 pb-12 space-y-8">
                 {/* Header mejorado con gradiente */}
-                <Card className="border-0 shadow-2xl bg-gradient-to-r from-primary to-accent text-white overflow-hidden relative">
+                <Card className="border-0 shadow-2xl bg-gradient-to-b from-primary to-accent text-white overflow-hidden relative">
                     <div className="absolute inset-0 bg-black/10 dark:bg-black/20"></div>
                     <CardHeader className="text-center relative z-10 py-12">
                         <CardTitle className="flex items-center justify-center gap-3 text-4xl font-bold mb-4">
@@ -848,7 +846,7 @@ export default function BudgetForm() {
                                                                                 variant="secondary"
                                                                                 className="cursor-help w-full justify-between p-3 bg-background/80 hover:bg-accent hover:scale-105 transition-all duration-200 border border-primary"
                                                                             >
-                                                                                <span className="text-xs font-medium">
+                                                                                <span className="text-xs text-foreground font-medium">
                                                                                     {
                                                                                         feature.name
                                                                                     }
