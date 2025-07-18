@@ -5,23 +5,21 @@ import { Badge } from "@/components/ui/badge";
 import {
     Zap,
     Target,
-    TrendingUp,
     Users,
     Eye,
     MousePointerClick,
     BarChart3,
     Smartphone,
-    Globe,
-    Search,
-    Heart,
-    Star,
     CheckCircle,
-    ArrowRight,
     Rocket,
-    DollarSign,
     Clock,
-    Award,
     Calendar,
+    LaptopMinimalCheck,
+    ShoppingBag,
+    BriefcaseBusiness,
+    GraduationCap,
+    MicVocal,
+    Hospital,
 } from "lucide-react";
 
 const landingTypes = [
@@ -152,7 +150,7 @@ const industries = [
     {
         name: "SaaS & Software",
         description: "Landing pages para productos SaaS con trials y demos",
-        icon: "💻",
+        icon: LaptopMinimalCheck,
         examples: [
             "Free trial signup",
             "Product demos",
@@ -170,7 +168,7 @@ const industries = [
     {
         name: "E-commerce & Retail",
         description: "Páginas de producto y promociones especiales",
-        icon: "🛍️",
+        icon: ShoppingBag,
         examples: [
             "Product launches",
             "Seasonal sales",
@@ -188,7 +186,7 @@ const industries = [
     {
         name: "Servicios Profesionales",
         description: "Captación de leads para consultorías y servicios",
-        icon: "💼",
+        icon: BriefcaseBusiness,
         examples: [
             "Lead generation",
             "Consultation booking",
@@ -206,7 +204,7 @@ const industries = [
     {
         name: "Educación & Cursos",
         description: "Matriculaciones y contenido educativo premium",
-        icon: "🎓",
+        icon: GraduationCap,
         examples: [
             "Course enrollment",
             "Webinar registration",
@@ -224,7 +222,7 @@ const industries = [
     {
         name: "Eventos & Conferencias",
         description: "Registro para eventos presenciales y virtuales",
-        icon: "🎪",
+        icon: MicVocal,
         examples: [
             "Event registration",
             "Ticket sales",
@@ -242,7 +240,7 @@ const industries = [
     {
         name: "Salud & Wellness",
         description: "Servicios de salud y productos de bienestar",
-        icon: "🏥",
+        icon: Hospital,
         examples: [
             "Appointment booking",
             "Health assessments",
@@ -385,7 +383,7 @@ const technologies = [
 ---
 
 <Layout
-    title="Landing Pages de Alto Rendimiento - DevsHub"
+    title="Landing Pages de Alto Rendimiento - Devanthos"
     description="Creamos landing pages que convierten. Optimización CRO, A/B testing, diseño responsive. Aumenta tus conversiones hasta 300%."
 >
     <main class="min-h-screen pt-24">
@@ -705,7 +703,7 @@ const technologies = [
                                 <CardHeader>
                                     <div class="flex items-center justify-between mb-4">
                                         <div class="text-3xl">
-                                            {industry.icon}
+                                            <industry.icon className="w-8 h-8 text-primary" />
                                         </div>
                                         <Badge
                                             variant="outline"
