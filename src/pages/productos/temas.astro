@@ -67,7 +67,7 @@ const features = [
 ---
 
 <Layout
-    title="Temas Personalizados - DevsHub"
+    title="Temas Personalizados - Devanthos"
     description="Personaliza la apariencia de tu sitio web con nuestros temas profesionales. Dark mode, light mode y temas personalizados."
 >
     <main class="min-h-screen pt-24">
@@ -142,58 +142,312 @@ const features = [
             </div>
         </section>
 
-        <!-- Themes Gallery -->
+        <!-- Benefits of Custom Themes -->
         <section id="temas" class="py-20 bg-muted/30">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Galería de Temas
+                        ¿Por qué invertir en temas personalizados?
                     </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Explora nuestra colección de temas prediseñados, cada
-                        uno optimizado para diferentes tipos de sitios web.
+                    <p class="text-lg text-muted-foreground max-w-3xl mx-auto">
+                        Un tema bien diseñado no es solo estética, es una
+                        herramienta estratégica que impacta directamente en la
+                        experiencia del usuario y el éxito de tu negocio.
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    {
-                        themes.map((theme) => (
-                            <Card className="border-0 shadow-md hover:shadow-lg transition-shadow overflow-hidden">
-                                <div
-                                    class={`h-32 ${theme.preview} flex items-center justify-center relative`}
-                                >
-                                    <theme.icon className="w-12 h-12 opacity-80" />
-                                    <div class="absolute bottom-4 right-4 flex gap-1">
-                                        {theme.colors.map((color) => (
-                                            <div
-                                                class="w-4 h-4 rounded-full border-2 border-white/50"
-                                                style={`background-color: ${color}`}
-                                            />
-                                        ))}
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
+                >
+                    <Card
+                        className="border-0 shadow-md hover:shadow-lg transition-shadow"
+                    >
+                        <CardHeader>
+                            <div
+                                class="mx-auto mb-4 p-3 rounded-lg bg-green-100 dark:bg-green-900/20 w-fit"
+                            >
+                                <Eye className="w-8 h-8 text-green-600" />
+                            </div>
+                            <CardTitle className="text-xl text-center">
+                                Identidad Visual Única
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p class="text-muted-foreground text-center mb-4">
+                                Destaca entre la competencia con un diseño que
+                                refleje verdaderamente tu marca.
+                            </p>
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex items-center gap-2">
+                                    <div
+                                        class="w-1.5 h-1.5 bg-green-500 rounded-full"
+                                    >
                                     </div>
+                                    <span
+                                        >Colores corporativos consistentes</span
+                                    >
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <div
+                                        class="w-1.5 h-1.5 bg-green-500 rounded-full"
+                                    >
+                                    </div>
+                                    <span
+                                        >Tipografía que transmite personalidad</span
+                                    >
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <div
+                                        class="w-1.5 h-1.5 bg-green-500 rounded-full"
+                                    >
+                                    </div>
+                                    <span>Elementos visuales memorables</span>
+                                </li>
+                            </ul>
+                        </CardContent>
+                    </Card>
+
+                    <Card
+                        className="border-0 shadow-md hover:shadow-lg transition-shadow"
+                    >
+                        <CardHeader>
+                            <div
+                                class="mx-auto mb-4 p-3 rounded-lg bg-blue-100 dark:bg-blue-900/20 w-fit"
+                            >
+                                <Zap className="w-8 h-8 text-blue-600" />
+                            </div>
+                            <CardTitle className="text-xl text-center">
+                                Mejor Experiencia de Usuario
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p class="text-muted-foreground text-center mb-4">
+                                Interfaces intuitivas que guían al usuario hacia
+                                la conversión.
+                            </p>
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex items-center gap-2">
+                                    <div
+                                        class="w-1.5 h-1.5 bg-blue-500 rounded-full"
+                                    >
+                                    </div>
+                                    <span>Navegación clara y eficiente</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <div
+                                        class="w-1.5 h-1.5 bg-blue-500 rounded-full"
+                                    >
+                                    </div>
+                                    <span>Tiempo de carga optimizado</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <div
+                                        class="w-1.5 h-1.5 bg-blue-500 rounded-full"
+                                    >
+                                    </div>
+                                    <span>Diseño responsivo perfecto</span>
+                                </li>
+                            </ul>
+                        </CardContent>
+                    </Card>
+
+                    <Card
+                        className="border-0 shadow-md hover:shadow-lg transition-shadow"
+                    >
+                        <CardHeader>
+                            <div
+                                class="mx-auto mb-4 p-3 rounded-lg bg-purple-100 dark:bg-purple-900/20 w-fit"
+                            >
+                                <Brush className="w-8 h-8 text-purple-600" />
+                            </div>
+                            <CardTitle className="text-xl text-center">
+                                Ventaja Competitiva
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p class="text-muted-foreground text-center mb-4">
+                                Un diseño profesional genera más confianza y
+                                mejores conversiones.
+                            </p>
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex items-center gap-2">
+                                    <div
+                                        class="w-1.5 h-1.5 bg-purple-500 rounded-full"
+                                    >
+                                    </div>
+                                    <span>Mayor percepción de calidad</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <div
+                                        class="w-1.5 h-1.5 bg-purple-500 rounded-full"
+                                    >
+                                    </div>
+                                    <span>Aumento en tasas de conversión</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <div
+                                        class="w-1.5 h-1.5 bg-purple-500 rounded-full"
+                                    >
+                                    </div>
+                                    <span>Reducción de tasa de rebote</span>
+                                </li>
+                            </ul>
+                        </CardContent>
+                    </Card>
+                </div>
+
+                <!-- Statistics Section -->
+                <div
+                    class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg"
+                >
+                    <h3 class="text-2xl font-bold text-center mb-8">
+                        El impacto de un buen diseño en números
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary mb-2">
+                                75%
+                            </div>
+                            <p class="text-sm text-muted-foreground">
+                                de usuarios juzgan la credibilidad basándose en
+                                el diseño
+                            </p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary mb-2">
+                                38%
+                            </div>
+                            <p class="text-sm text-muted-foreground">
+                                de usuarios abandonan sitios con diseño poco
+                                atractivo
+                            </p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary mb-2">
+                                200%
+                            </div>
+                            <p class="text-sm text-muted-foreground">
+                                aumento en conversiones con mejor UX/UI
+                            </p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary mb-2">
+                                50ms
+                            </div>
+                            <p class="text-sm text-muted-foreground">
+                                es lo que tardan en formar primera impresión
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Features -->
+                <div class="mt-16">
+                    <h3 class="text-2xl font-bold text-center mb-12">
+                        Características técnicas de nuestros temas
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <Card className="border-0 shadow-md">
+                            <CardHeader>
+                                <CardTitle className="flex items-center gap-2">
+                                    <Moon className="w-5 h-5 text-primary" />
+                                    Dark/Light Mode
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p class="text-muted-foreground mb-4">
+                                    Soporte nativo para modo oscuro y claro con
+                                    transiciones suaves.
+                                </p>
+                                <div class="flex gap-2">
+                                    <Badge variant="secondary"
+                                        >CSS Variables</Badge
+                                    >
+                                    <Badge variant="secondary"
+                                        >Auto-detect</Badge
+                                    >
+                                    <Badge variant="secondary"
+                                        >Smooth Transitions</Badge
+                                    >
                                 </div>
-                                <CardHeader>
-                                    <CardTitle className="text-xl">
-                                        {theme.name}
-                                    </CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p class="text-muted-foreground mb-4">
-                                        {theme.description}
-                                    </p>
-                                    <div class="flex gap-2">
-                                        <button class="flex-1 px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors text-sm">
-                                            <Download className="w-4 h-4 mr-2 inline" />
-                                            Usar Tema
-                                        </button>
-                                        <button class="px-4 py-2 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors text-sm">
-                                            Vista Previa
-                                        </button>
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        ))
-                    }
+                            </CardContent>
+                        </Card>
+
+                        <Card className="border-0 shadow-md">
+                            <CardHeader>
+                                <CardTitle className="flex items-center gap-2">
+                                    <Palette className="w-5 h-5 text-primary" />
+                                    Sistema de Colores
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p class="text-muted-foreground mb-4">
+                                    Paletas coherentes con variables CSS para
+                                    fácil personalización.
+                                </p>
+                                <div class="flex gap-2">
+                                    <Badge variant="secondary">HSL Colors</Badge
+                                    >
+                                    <Badge variant="secondary">WCAG AA</Badge>
+                                    <Badge variant="secondary"
+                                        >Brand Colors</Badge
+                                    >
+                                </div>
+                            </CardContent>
+                        </Card>
+
+                        <Card className="border-0 shadow-md">
+                            <CardHeader>
+                                <CardTitle className="flex items-center gap-2">
+                                    <Zap className="w-5 h-5 text-primary" />
+                                    Performance
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p class="text-muted-foreground mb-4">
+                                    Optimizado para velocidad de carga y
+                                    rendimiento superior.
+                                </p>
+                                <div class="flex gap-2">
+                                    <Badge variant="secondary"
+                                        >CSS Minified</Badge
+                                    >
+                                    <Badge variant="secondary"
+                                        >Tree Shaking</Badge
+                                    >
+                                    <Badge variant="secondary"
+                                        >Lazy Loading</Badge
+                                    >
+                                </div>
+                            </CardContent>
+                        </Card>
+
+                        <Card className="border-0 shadow-md">
+                            <CardHeader>
+                                <CardTitle className="flex items-center gap-2">
+                                    <Eye className="w-5 h-5 text-primary" />
+                                    Accesibilidad
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p class="text-muted-foreground mb-4">
+                                    Diseñado siguiendo las mejores prácticas de
+                                    accesibilidad web.
+                                </p>
+                                <div class="flex gap-2">
+                                    <Badge variant="secondary"
+                                        >ARIA Labels</Badge
+                                    >
+                                    <Badge variant="secondary"
+                                        >Focus States</Badge
+                                    >
+                                    <Badge variant="secondary"
+                                        >Screen Reader</Badge
+                                    >
+                                </div>
+                            </CardContent>
+                        </Card>
+                    </div>
                 </div>
             </div>
         </section>
