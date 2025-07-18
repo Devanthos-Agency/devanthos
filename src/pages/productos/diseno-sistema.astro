@@ -67,114 +67,6 @@ const designPrinciples = [
     },
 ];
 
-const designTokens = [
-    {
-        category: "Colores Tailwind",
-        tokens: [
-            {
-                name: "bg-primary",
-                value: "bg-blue-600",
-                description: "Color primario - equivale a blue-600",
-                tailwind: "bg-blue-600",
-            },
-            {
-                name: "bg-secondary",
-                value: "bg-slate-600",
-                description: "Color secundario - equivale a slate-600",
-                tailwind: "bg-slate-600",
-            },
-            {
-                name: "bg-success",
-                value: "bg-emerald-500",
-                description: "Estados de éxito - equivale a emerald-500",
-                tailwind: "bg-emerald-500",
-            },
-            {
-                name: "bg-warning",
-                value: "bg-amber-500",
-                description: "Estados de advertencia - equivale a amber-500",
-                tailwind: "bg-amber-500",
-            },
-            {
-                name: "bg-error",
-                value: "bg-red-500",
-                description: "Estados de error - equivale a red-500",
-                tailwind: "bg-red-500",
-            },
-        ],
-    },
-    {
-        category: "Tipografía Tailwind",
-        tokens: [
-            {
-                name: "text-xs",
-                value: "0.75rem (12px)",
-                description: "Texto muy pequeño",
-                tailwind: "text-xs",
-            },
-            {
-                name: "text-sm",
-                value: "0.875rem (14px)",
-                description: "Texto pequeño",
-                tailwind: "text-sm",
-            },
-            {
-                name: "text-base",
-                value: "1rem (16px)",
-                description: "Texto base",
-                tailwind: "text-base",
-            },
-            {
-                name: "text-lg",
-                value: "1.125rem (18px)",
-                description: "Texto grande",
-                tailwind: "text-lg",
-            },
-            {
-                name: "text-xl",
-                value: "1.25rem (20px)",
-                description: "Texto muy grande",
-                tailwind: "text-xl",
-            },
-        ],
-    },
-    {
-        category: "Espaciado Tailwind",
-        tokens: [
-            {
-                name: "space-1",
-                value: "0.25rem (4px)",
-                description: "Espaciado mínimo",
-                tailwind: "p-1, m-1, gap-1",
-            },
-            {
-                name: "space-2",
-                value: "0.5rem (8px)",
-                description: "Espaciado pequeño",
-                tailwind: "p-2, m-2, gap-2",
-            },
-            {
-                name: "space-4",
-                value: "1rem (16px)",
-                description: "Espaciado base",
-                tailwind: "p-4, m-4, gap-4",
-            },
-            {
-                name: "space-8",
-                value: "2rem (32px)",
-                description: "Espaciado grande",
-                tailwind: "p-8, m-8, gap-8",
-            },
-            {
-                name: "space-16",
-                value: "4rem (64px)",
-                description: "Espaciado muy grande",
-                tailwind: "p-16, m-16, gap-16",
-            },
-        ],
-    },
-];
-
 const guidelines = [
     {
         title: "Utility-First con Tailwind",
@@ -204,7 +96,7 @@ const guidelines = [
 ---
 
 <Layout
-    title="Diseño de Sistema - DevsHub"
+    title="Diseño de Sistema - Devanthos"
     description="Sistema de diseño completo con tokens, guías de estilo y patrones reutilizables para crear interfaces consistentes y escalables."
 >
     <main class="min-h-screen pt-24">
@@ -229,18 +121,18 @@ const guidelines = [
                     <TailwindCSS className="h-10 w-2xl mx-auto mb-4" />
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
                         <a
-                            href="#tokens"
-                            class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
-                        >
-                            <Download className="w-4 h-4 mr-2" />
-                            Descargar Tokens
-                        </a>
-                        <a
                             href="#guias"
-                            class="inline-flex items-center justify-center px-8 py-3 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+                            class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
                         >
                             <BookOpen className="w-4 h-4 mr-2" />
                             Ver Guías
+                        </a>
+                        <a
+                            href="#recursos"
+                            class="inline-flex items-center justify-center px-8 py-3 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+                        >
+                            <Download className="w-4 h-4 mr-2" />
+                            Ver Recursos
                         </a>
                     </div>
                 </div>
@@ -290,76 +182,6 @@ const guidelines = [
                                     </ul>
                                 </CardContent>
                             </Card>
-                        ))
-                    }
-                </div>
-            </div>
-        </section>
-
-        <!-- Design Tokens -->
-        <section id="tokens" class="py-20 bg-muted/30">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Design Tokens con Tailwind
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Tokens semánticos basados en las utilidades de Tailwind
-                        CSS que definen los elementos visuales de tu sistema de
-                        diseño.
-                    </p>
-                </div>
-
-                <div class="space-y-12">
-                    {
-                        designTokens.map((tokenGroup) => (
-                            <div>
-                                <h3 class="text-2xl font-bold mb-8 text-center">
-                                    {tokenGroup.category}
-                                </h3>
-                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                    {tokenGroup.tokens.map((token) => (
-                                        <Card className="border-0 shadow-md">
-                                            <CardContent className="p-6">
-                                                <div class="flex items-center justify-between mb-4">
-                                                    <code class="text-sm font-mono bg-muted px-2 py-1 rounded">
-                                                        {token.name}
-                                                    </code>
-                                                    {tokenGroup.category ===
-                                                        "Colores Tailwind" && (
-                                                        <div
-                                                            class={`w-8 h-8 rounded-full border-2 border-border ${token.value}`}
-                                                        />
-                                                    )}
-                                                </div>
-                                                <div class="text-lg font-semibold mb-2">
-                                                    {token.value}
-                                                </div>
-                                                <p
-                                                    class={`text-sm text-muted-foreground mb-3 ${
-                                                        tokenGroup.category ===
-                                                        "Tipografía Tailwind"
-                                                            ? token.tailwind
-                                                            : ""
-                                                    }`}
-                                                >
-                                                    {token.description}
-                                                </p>
-                                                {token.tailwind && (
-                                                    <div class="flex items-center gap-2">
-                                                        <Badge
-                                                            variant="secondary"
-                                                            className="text-xs"
-                                                        >
-                                                            {token.tailwind}
-                                                        </Badge>
-                                                    </div>
-                                                )}
-                                            </CardContent>
-                                        </Card>
-                                    ))}
-                                </div>
-                            </div>
                         ))
                     }
                 </div>
@@ -605,250 +427,8 @@ const guidelines = [
             </div>
         </section>
 
-        <!-- Implementation -->
-        <section class="py-20 bg-muted/30">
-            <div class="container mx-auto px-4">
-                <div class="max-w-4xl mx-auto">
-                    <div class="text-center mb-12">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                            Cómo Usar el Sistema
-                        </h2>
-                        <p class="text-lg text-muted-foreground">
-                            Ejemplos prácticos de cómo aplicar nuestro sistema
-                            de diseño basado en Tailwind CSS en tus componentes
-                            y interfaces.
-                        </p>
-                    </div>
-
-                    <div class="space-y-8">
-                        <Card className="border-0 shadow-md">
-                            <CardHeader>
-                                <CardTitle className="flex items-center gap-2">
-                                    <span
-                                        class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold"
-                                        >1</span
-                                    >
-                                    Tokens de Color en Acción
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <p class="text-sm text-muted-foreground mb-4">
-                                    Usa nuestros tokens semánticos para mantener
-                                    consistencia:
-                                </p>
-                                <div
-                                    class="bg-muted rounded-lg p-4 font-mono text-sm"
-                                >
-                                    <div class="text-green-600">
-                                        /* Estados de botones */
-                                    </div>
-                                    <div>
-                                        &lt;button className="bg-primary
-                                        hover:bg-primary/90"&gt;
-                                    </div>
-                                    <div>
-                                        &lt;button className="bg-success
-                                        hover:bg-success/90"&gt;
-                                    </div>
-                                    <div>
-                                        &lt;button className="bg-warning
-                                        hover:bg-warning/90"&gt;
-                                    </div>
-                                    <div>
-                                        &lt;button className="bg-error
-                                        hover:bg-error/90"&gt;
-                                    </div>
-                                </div>
-                            </CardContent>
-                        </Card>
-
-                        <Card className="border-0 shadow-md">
-                            <CardHeader>
-                                <CardTitle className="flex items-center gap-2">
-                                    <span
-                                        class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold"
-                                        >2</span
-                                    >
-                                    Jerarquía Tipográfica
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <p class="text-sm text-muted-foreground mb-4">
-                                    Aplica nuestra escala tipográfica para crear
-                                    jerarquía visual:
-                                </p>
-                                <div
-                                    class="bg-muted rounded-lg p-4 font-mono text-sm"
-                                >
-                                    <div class="text-green-600">
-                                        /* Jerarquía de títulos */
-                                    </div>
-                                    <div>
-                                        &lt;h1 className="text-4xl
-                                        font-bold"&gt;Título
-                                        Principal&lt;/h1&gt;
-                                    </div>
-                                    <div>
-                                        &lt;h2 className="text-3xl
-                                        font-semibold"&gt;Subtítulo&lt;/h2&gt;
-                                    </div>
-                                    <div>
-                                        &lt;h3 className="text-xl
-                                        font-medium"&gt;Sección&lt;/h3&gt;
-                                    </div>
-                                    <div>
-                                        &lt;p className="text-base"&gt;Texto
-                                        principal&lt;/p&gt;
-                                    </div>
-                                    <div>
-                                        &lt;span className="text-sm
-                                        text-muted-foreground"&gt;Texto
-                                        secundario&lt;/span&gt;
-                                    </div>
-                                </div>
-                            </CardContent>
-                        </Card>
-
-                        <Card className="border-0 shadow-md">
-                            <CardHeader>
-                                <CardTitle className="flex items-center gap-2">
-                                    <span
-                                        class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold"
-                                        >3</span
-                                    >
-                                    Sistema de Espaciado
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <p class="text-sm text-muted-foreground mb-4">
-                                    Mantén consistencia con nuestro sistema de
-                                    espaciado:
-                                </p>
-                                <div
-                                    class="bg-muted rounded-lg p-4 font-mono text-sm"
-                                >
-                                    <div class="text-green-600">
-                                        /* Espaciado coherente */
-                                    </div>
-                                    <div>
-                                        &lt;div className="p-4
-                                        m-4"&gt;Contenedor base&lt;/div&gt;
-                                    </div>
-                                    <div>
-                                        &lt;div className="p-8
-                                        m-8"&gt;Contenedor grande&lt;/div&gt;
-                                    </div>
-                                    <div>
-                                        &lt;div className="space-y-4"&gt;Lista
-                                        con espaciado&lt;/div&gt;
-                                    </div>
-                                    <div>
-                                        &lt;div className="flex
-                                        gap-4"&gt;Elementos
-                                        horizontales&lt;/div&gt;
-                                    </div>
-                                </div>
-                            </CardContent>
-                        </Card>
-
-                        <Card className="border-0 shadow-md">
-                            <CardHeader>
-                                <CardTitle className="flex items-center gap-2">
-                                    <span
-                                        class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold"
-                                        >4</span
-                                    >
-                                    Componente Completo
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <p class="text-sm text-muted-foreground mb-4">
-                                    Ejemplo de un card usando todo el sistema de
-                                    diseño:
-                                </p>
-                                <div
-                                    class="bg-muted rounded-lg p-4 font-mono text-sm"
-                                >
-                                    <div class="text-blue-600">
-                                        // Card con sistema completo
-                                    </div>
-                                    <div>&lt;div className="</div>
-                                    <div class="ml-2">
-                                        bg-white dark:bg-gray-900
-                                    </div>
-                                    <div class="ml-2">
-                                        border border-gray-200
-                                        dark:border-gray-800
-                                    </div>
-                                    <div class="ml-2">rounded-lg shadow-md</div>
-                                    <div class="ml-2">p-6 space-y-4</div>
-                                    <div class="ml-2">
-                                        hover:shadow-lg transition-shadow
-                                    </div>
-                                    <div>"&gt;</div>
-                                    <div class="ml-2">
-                                        &lt;h3 className="text-xl
-                                        font-semibold"&gt;Título&lt;/h3&gt;
-                                    </div>
-                                    <div class="ml-2">
-                                        &lt;p
-                                        className="text-muted-foreground"&gt;Descripción&lt;/p&gt;
-                                    </div>
-                                    <div class="ml-2">
-                                        &lt;button className="bg-primary
-                                        text-white px-4 py-2 rounded-lg"&gt;
-                                    </div>
-                                    <div class="ml-4">Acción</div>
-                                    <div class="ml-2">&lt;/button&gt;</div>
-                                    <div>&lt;/div&gt;</div>
-                                </div>
-                            </CardContent>
-                        </Card>
-
-                        <Card className="border-0 shadow-md">
-                            <CardHeader>
-                                <CardTitle className="flex items-center gap-2">
-                                    <span
-                                        class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold"
-                                        >5</span
-                                    >
-                                    Responsive Design
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <p class="text-sm text-muted-foreground mb-4">
-                                    Aplica nuestros breakpoints para diseño
-                                    responsivo:
-                                </p>
-                                <div
-                                    class="bg-muted rounded-lg p-4 font-mono text-sm"
-                                >
-                                    <div class="text-blue-600">
-                                        // Grid responsivo con sistema
-                                    </div>
-                                    <div>&lt;div className="</div>
-                                    <div class="ml-2">grid grid-cols-1</div>
-                                    <div class="ml-2">md:grid-cols-2</div>
-                                    <div class="ml-2">lg:grid-cols-3</div>
-                                    <div class="ml-2">
-                                        gap-4 md:gap-6 lg:gap-8
-                                    </div>
-                                    <div class="ml-2">p-4 md:p-6 lg:p-8</div>
-                                    <div>"&gt;</div>
-                                    <div class="ml-2">
-                                        /* Contenido del grid */
-                                    </div>
-                                    <div>&lt;/div&gt;</div>
-                                </div>
-                            </CardContent>
-                        </Card>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Resources -->
-        <section class="py-20">
+        <section id="recursos" class="py-20">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold mb-4">
