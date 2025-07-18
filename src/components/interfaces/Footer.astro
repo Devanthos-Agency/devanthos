@@ -2,6 +2,7 @@
 import { Facebook, Github, Instagram, Linkedin, Twitter } from "lucide-react";
 import { Badge } from "../ui/badge";
 import NewsletterFrom from "../newsletter-from";
+import { DevanthosIcon } from "../icons";
 
 const SOCIAL_LINKS = [
     {
@@ -58,12 +59,17 @@ const NAVIGATION = [
             >
                 {/* Logo */}
                 <a href="/" class="w-28 flex items-center justify-between">
-                    <span class="text-primary font-bold text-2xl"> Devs </span>
-                    <samp
-                        class="px-1.5 py-0.5 text-2xl bg-primary text-white font-semibold rounded"
-                    >
-                        hub
-                    </samp>
+                    <span class="inline-flex items-baseline">
+                        <DevanthosIcon
+                            className="relative -bottom-[3px] size-7.5 align-baseline fill-primary"
+                        />
+                        <span
+                            class="ml-[2px] text-white text-3xl font-cocogoose font-normal"
+                        >
+                            <span class="sr-only">D</span>
+                            evanthos
+                        </span>
+                    </span>
                 </a>
                 <p
                     class="w-full max-w-54 text-base leading-normal text-muted-foreground md:text-lg"
@@ -87,7 +93,12 @@ const NAVIGATION = [
                     <Badge
                         className="rounded-full border-muted bg-background p-0 text-foreground"
                     >
-                        <a href="#" class="flex items-center gap-2 px-3 py-2">
+                        <a
+                            href="https://wa.me/5492646629632?text=Hola,%20me%20interesa%20la%20consultoria%20gratuita"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex items-center gap-2 px-3 py-2"
+                        >
                             <div class="relative size-[0.4375rem]">
                                 <span
                                     class="absolute top-1/2 left-1/2 z-10 size-[0.6875rem] -translate-1/2 animate-pulse rounded-full bg-green-400/50"
