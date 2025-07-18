@@ -759,7 +759,7 @@ export default function BudgetForm() {
                                 adapte a tus necesidades
                             </CardDescription>
                         </CardHeader>
-                        <CardContent className="p-8 space-y-6">
+                        <CardContent className="px-1.5 py-6 space-y-6 md:p-6">
                             <Select
                                 value={selectedPageType}
                                 onValueChange={setSelectedPageType}
@@ -795,8 +795,8 @@ export default function BudgetForm() {
 
                             {selectedPage && (
                                 <Card className="border-2 border-purple-200 dark:border-purple-600 bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/50 dark:to-blue-900/50 shadow-lg hover:shadow-xl transition-all duration-500 animate-in slide-in-from-top-5">
-                                    <CardContent className="p-6">
-                                        <div className="flex items-start gap-4">
+                                    <CardContent className="px-1.5 py-1 md:p-6">
+                                        <div className="flex flex-col items-start gap-4 md:flex-row">
                                             <div className="p-3 bg-purple-200 dark:bg-purple-700 rounded-xl">
                                                 {selectedPage.icon}
                                             </div>
@@ -972,7 +972,7 @@ export default function BudgetForm() {
                                     avanzadas que marquen la diferencia
                                 </CardDescription>
                             </CardHeader>
-                            <CardContent className="p-8">
+                            <CardContent className="p-2 md:p-8">
                                 <TooltipProvider>
                                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                                         {additionalFeatures.map((feature) => (
@@ -1142,7 +1142,7 @@ export default function BudgetForm() {
                                     se adapte a tus necesidades
                                 </CardDescription>
                             </CardHeader>
-                            <CardContent className="p-8 space-y-6">
+                            <CardContent className="p-2 space-y-6 md:p-8">
                                 <Select
                                     value={timeline}
                                     onValueChange={setTimeline}
@@ -1235,7 +1235,7 @@ export default function BudgetForm() {
 
                                 {timeline && (
                                     <Card className="border-2 border-green-200 dark:border-green-600 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/50 dark:to-emerald-900/50 shadow-md animate-in slide-in-from-top-3 duration-300">
-                                        <CardContent className="p-6">
+                                        <CardContent className="p-2 md:p-6">
                                             <div className="flex items-center gap-4">
                                                 <div className="p-3 bg-green-200 dark:bg-green-700 rounded-full">
                                                     <Calendar className="h-6 w-6 text-green-700 dark:text-green-300" />
@@ -1280,7 +1280,7 @@ export default function BudgetForm() {
                                     inversión
                                 </CardDescription>
                             </CardHeader>
-                            <CardContent className="relative z-10 p-8">
+                            <CardContent className="relative z-10 p-2 md:p-8">
                                 <div className="space-y-4">
                                     {/* Precio base */}
                                     <div className="flex justify-between items-center p-4 bg-white/80 dark:bg-gray-800/80 rounded-lg border border-green-200 dark:border-green-600">
@@ -1401,8 +1401,8 @@ export default function BudgetForm() {
                                     <div className="h-px bg-gradient-to-r from-transparent via-green-300 to-transparent my-4"></div>{" "}
                                     {/* Total destacado */}
                                     <div className="bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-800/50 dark:to-emerald-800/50 p-6 rounded-xl border-2 border-green-300 dark:border-green-600 shadow-lg">
-                                        <div className="flex justify-between items-center">
-                                            <div className="flex items-center gap-3">
+                                        <div className="flex flex-col justify-between items-center md:flex-row">
+                                            <div className="flex flex-col items-center gap-3 md:flex-row">
                                                 <div className="p-2 bg-green-300 dark:bg-green-700 rounded-lg">
                                                     <span className="text-green-800">
                                                         <Gem className="size-6" />
@@ -1425,7 +1425,7 @@ export default function BudgetForm() {
                                     {/* Fecha de entrega */}
                                     {timeline && (
                                         <div className="bg-white/80 dark:bg-gray-800/80 p-4 rounded-lg border border-green-200 dark:border-green-600 mt-4">
-                                            <div className="flex justify-between items-center">
+                                            <div className="flex flex-col justify-between items-center md:flex-row">
                                                 <span className="font-medium text-gray-700 dark:text-gray-300 flex items-center gap-2">
                                                     <Calendar className="h-4 w-4 text-green-600 dark:text-green-400" />
                                                     Entrega estimada:
@@ -1439,12 +1439,11 @@ export default function BudgetForm() {
                                 </div>
                             </CardContent>
 
-                            <CardFooter className="relative z-10 flex-col p-8 space-y-6">
+                            <CardFooter className="relative z-10 flex-col p-2 space-y-6 md:p-8">
                                 <div className="w-full flex flex-col md:flex-row gap-4">
                                     <Button
                                         type="submit"
-                                        className="flex-1 h-16 text-xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 dark:from-green-700 dark:to-emerald-700 dark:hover:from-green-600 dark:hover:to-emerald-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-                                        size="lg"
+                                        className="flex-1 h-16 text-xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 dark:from-green-700 dark:to-emerald-700 dark:hover:from-green-600 dark:hover:to-emerald-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl "
                                     >
                                         <div className="flex items-center gap-3 ">
                                             Solicitar Presupuesto Ahora
@@ -1461,23 +1460,26 @@ export default function BudgetForm() {
                                                     type="button"
                                                     onClick={handlePrintBudget}
                                                     variant="outline"
-                                                    className="h-16 px-8 text-lg font-semibold border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white dark:border-green-500 dark:text-green-500 dark:hover:bg-green-500 dark:hover:text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-                                                    size="lg"
+                                                    className="h-11 px-8 text-lg font-semibold border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white dark:border-green-500 dark:text-green-500 dark:hover:bg-green-500 dark:hover:text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl md:h-16"
                                                 >
                                                     <div className="flex items-center gap-3">
                                                         <Printer className="size-5" />
-                                                        Imprimir Presupuesto
+                                                        <span className="hidden sm:inline">
+                                                            Imprimir/Descargar
+                                                        </span>
+                                                        <span className="sm:hidden">
+                                                            Imprimir
+                                                        </span>
                                                     </div>
                                                 </Button>
                                             </TooltipTrigger>
                                             <TooltipContent className="max-w-xs p-3 bg-gray-800 text-white border border-gray-600">
                                                 <p className="text-sm">
-                                                    Genera una versión
-                                                    profesional en PDF del
-                                                    presupuesto lista para
-                                                    imprimir o enviar por email,
-                                                    sin necesidad de mostrar el
-                                                    contenido en pantalla.
+                                                    Imprime o descarga el
+                                                    presupuesto en formato PDF.
+                                                    Asegúrate de revisar todos
+                                                    los detalles antes de
+                                                    imprimir.
                                                 </p>
                                             </TooltipContent>
                                         </Tooltip>
@@ -1502,7 +1504,7 @@ export default function BudgetForm() {
                                                     <strong>Validez:</strong>{" "}
                                                     Esta cotización tiene una
                                                     vigencia de{" "}
-                                                    <strong className="bg-amber-100 px-2 py-1 rounded">
+                                                    <strong>
                                                         10 días calendario
                                                     </strong>{" "}
                                                     a partir de la fecha de
@@ -1544,7 +1546,7 @@ export default function BudgetForm() {
                                                 <span>
                                                     <strong>Revisiones:</strong>{" "}
                                                     Se incluyen{" "}
-                                                    <strong className="bg-amber-100 px-2 py-1 rounded">
+                                                    <strong>
                                                         5 revisiones
                                                     </strong>{" "}
                                                     sin costo adicional.
@@ -1585,10 +1587,8 @@ export default function BudgetForm() {
                                                 </span>
                                                 <span>
                                                     <strong>Garantía:</strong>{" "}
-                                                    <strong className="bg-amber-100 px-2 py-1 rounded">
-                                                        30 días
-                                                    </strong>{" "}
-                                                    de soporte técnico gratuito
+                                                    <strong>30 días</strong> de
+                                                    soporte técnico gratuito
                                                     posterior a la entrega del
                                                     proyecto.
                                                 </span>

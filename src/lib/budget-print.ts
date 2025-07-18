@@ -535,6 +535,60 @@ export const generatePrintableHTML = (data: BudgetPrintData): string => {
     `;
 };
 
+// Función para detectar dispositivos móviles
+const isMobileDevice = (): boolean => {
+    return (
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent
+        ) || window.innerWidth <= 768
+    );
+};
+
+// Función para crear y descargar un archivo
+const downloadFile = (content: string, filename: string, mimeType: string) => {
+    const blob = new Blob([content], { type: mimeType });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = filename;
+    link.style.display = "none";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+};
+
+// Función para manejar impresión automática en móviles
+const handleMobilePrint = (htmlContent: string, clientName: string) => {
+    // Intentar usar la API nativa de impresión en móviles
+    const printWindow = window.open("", "_blank");
+    if (printWindow) {
+        printWindow.document.write(htmlContent);
+        printWindow.document.close();
+
+        // Auto-imprimir después de que se cargue el contenido
+        printWindow.onload = () => {
+            // Dar un pequeño delay para que el contenido se renderice completamente
+            setTimeout(() => {
+                printWindow.print();
+                // Cerrar automáticamente después de imprimir (o cancelar)
+                setTimeout(() => {
+                    printWindow.close();
+                }, 1000);
+            }, 500);
+        };
+    } else {
+        // Fallback: descargar como archivo HTML si el navegador bloquea pop-ups
+        const filename = `presupuesto-${clientName
+            .replace(/\s+/g, "-")
+            .toLowerCase()}-${new Date().toISOString().split("T")[0]}.html`;
+        downloadFile(htmlContent, filename, "text/html");
+        alert(
+            "Tu navegador bloqueó la ventana emergente. El presupuesto se ha descargado como archivo HTML que puedes abrir e imprimir desde tu móvil."
+        );
+    }
+};
+
 export const handlePrintBudget = (data: BudgetPrintData) => {
     if (!data.selectedPage || !data.clientInfo.name || !data.clientInfo.email) {
         alert(
@@ -545,20 +599,30 @@ export const handlePrintBudget = (data: BudgetPrintData) => {
 
     const printHTML = generatePrintableHTML(data);
 
-    // Crear una nueva ventana para la impresión
-    const printWindow = window.open("", "_blank");
-    if (printWindow) {
-        printWindow.document.write(printHTML);
-        printWindow.document.close();
-
-        // Esperar a que se cargue el contenido y luego imprimir
-        printWindow.onload = () => {
-            printWindow.print();
-            printWindow.close();
-        };
+    if (isMobileDevice()) {
+        // En móviles: impresión automática
+        handleMobilePrint(printHTML, data.clientInfo.name);
     } else {
-        alert(
-            "No se pudo abrir la ventana de impresión. Por favor, verifica que no esté bloqueada por el navegador."
-        );
+        // En desktop: método tradicional de impresión
+        const printWindow = window.open("", "_blank");
+        if (printWindow) {
+            printWindow.document.write(printHTML);
+            printWindow.document.close();
+
+            // Esperar a que se cargue el contenido y luego imprimir
+            printWindow.onload = () => {
+                printWindow.print();
+                printWindow.close();
+            };
+        } else {
+            // Fallback para desktop si falla la ventana emergente
+            const filename = `presupuesto-${data.clientInfo.name
+                .replace(/\s+/g, "-")
+                .toLowerCase()}-${new Date().toISOString().split("T")[0]}.html`;
+            downloadFile(printHTML, filename, "text/html");
+            alert(
+                "No se pudo abrir la ventana de impresión. El presupuesto se ha descargado como archivo HTML que puedes abrir e imprimir."
+            );
+        }
     }
 };

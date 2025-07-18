@@ -12,7 +12,7 @@ export default function ContainerScrollSection() {
                                 Obtenga una interfaz de usuario hermosa y
                                 moderna
                             </p>
-                            <h1 className="text-6xl font-cocogoose font-normal tracking-tighter md:text-8xl xl:text-[10rem]">
+                            <h1 className="text-6xl font-cocogoose text-center font-normal tracking-tighter md:text-8xl xl:text-[10rem]">
                                 <span className="pr-6 text-muted-foreground/40">
                                     Con
                                 </span>
