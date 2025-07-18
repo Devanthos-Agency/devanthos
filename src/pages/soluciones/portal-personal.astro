@@ -4,25 +4,20 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
     User,
-    Settings,
     Calendar,
     FileText,
     Bell,
     Shield,
     Users,
     BarChart3,
-    MessagesSquare,
     BookOpen,
-    Heart,
-    Star,
     CheckCircle,
-    ArrowRight,
-    Zap,
-    Globe,
-    Smartphone,
-    Database,
-    Cloud,
-    Lock,
+    Building,
+    GraduationCap,
+    Hospital,
+    ChartArea,
+    LaptopMinimalCheck,
+    Building2,
 } from "lucide-react";
 
 const portalTypes = [
@@ -189,7 +184,7 @@ const industries = [
         name: "Corporativo & Empresarial",
         description:
             "Portales internos para mejorar comunicación y productividad",
-        icon: "🏢",
+        icon: Building,
         useCases: [
             "Employee portals",
             "Intranet systems",
@@ -207,7 +202,7 @@ const industries = [
     {
         name: "Educación & E-learning",
         description: "Plataformas educativas para instituciones y empresas",
-        icon: "🎓",
+        icon: GraduationCap,
         useCases: [
             "Student portals",
             "LMS systems",
@@ -225,7 +220,7 @@ const industries = [
     {
         name: "Healthcare & Wellness",
         description: "Portales de pacientes y gestión de citas médicas",
-        icon: "🏥",
+        icon: Hospital,
         useCases: [
             "Patient portals",
             "Appointment booking",
@@ -243,7 +238,7 @@ const industries = [
     {
         name: "Servicios Financieros",
         description: "Portales bancarios y de inversión para clientes",
-        icon: "🏦",
+        icon: ChartArea,
         useCases: [
             "Banking portals",
             "Investment dashboards",
@@ -261,7 +256,7 @@ const industries = [
     {
         name: "Tecnología & SaaS",
         description: "Portales de clientes para productos tecnológicos",
-        icon: "💻",
+        icon: LaptopMinimalCheck,
         useCases: [
             "Customer portals",
             "API documentation",
@@ -279,7 +274,7 @@ const industries = [
     {
         name: "Gobierno & Sector Público",
         description: "Portales ciudadanos y tramitación online",
-        icon: "🏛️",
+        icon: Building2,
         useCases: [
             "Citizen portals",
             "Online services",
@@ -504,7 +499,7 @@ const technologies = [
 ---
 
 <Layout
-    title="Desarrollo de Portales Personales - DevsHub"
+    title="Desarrollo de Portales Personales - Devanthos"
     description="Creamos portales personalizados para empleados, clientes y estudiantes. Plataformas seguras con SSO, gestión de documentos y analytics."
 >
     <main class="min-h-screen pt-24">
@@ -757,7 +752,7 @@ const technologies = [
                                 <CardHeader>
                                     <div class="flex items-center justify-between mb-4">
                                         <div class="text-3xl">
-                                            {industry.icon}
+                                            <industry.icon className="w-8 h-8 text-primary" />
                                         </div>
                                         <Badge
                                             variant="outline"
