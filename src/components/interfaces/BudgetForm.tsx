@@ -618,7 +618,7 @@ export default function BudgetForm() {
                 <Card className="border-0 shadow-2xl bg-gradient-to-b from-primary to-accent text-white overflow-hidden relative">
                     <div className="absolute inset-0 bg-black/10 dark:bg-black/20"></div>
                     <CardHeader className="text-center relative z-10 py-12">
-                        <CardTitle className="flex items-center justify-center gap-3 text-4xl font-bold mb-4">
+                        <CardTitle className="flex flex-col items-center justify-center gap-3 text-4xl font-bold mb-4 md:flex-row">
                             <div className="p-3 bg-white/20 rounded-full backdrop-blur-sm">
                                 <Calculator className="h-8 w-8" />
                             </div>
