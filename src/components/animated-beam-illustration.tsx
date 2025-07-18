@@ -10,6 +10,7 @@ import { useRef } from "react";
 
 import { AnimatedBeam } from "@/components/magicui/animated-beam";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "./ui/hover-card";
+import { DevanthosIcon } from "./icons";
 
 export default function AnimatedBeamIllustration() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -152,14 +153,9 @@ export default function AnimatedBeamIllustration() {
                 </div>
                 <div
                     ref={div6Ref}
-                    className="z-10 flex size-32 items-center justify-center rounded-3xl bg-white drop-shadow-[0_0px_7px_rgba(255,255,255,0.65)] lg:size-42"
+                    className="z-10 flex size-32 items-center justify-center rounded-3xl bg-white drop-shadow-[0_0px_7px_rgba(255,255,255,0.65)] lg:size-36"
                 >
-                    <span className="text-primary font-bold text-2xl">
-                        Devs
-                    </span>
-                    <samp className="px-1.5 py-0.5 text-2xl bg-primary text-white font-semibold rounded">
-                        hub
-                    </samp>
+                    <DevanthosIcon className="size-16 fill-current text-primary md:size-20 lg:size-24" />
                 </div>
                 <div
                     ref={div7Ref}
