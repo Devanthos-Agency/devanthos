@@ -104,7 +104,7 @@ export default function Galeria() {
                 >
                     <div className="grid gap-8 md:gap-4 lg:grid-cols-2 [&>div[data-slot=carousel-content]]:overflow-visible [&>div[data-slot=carousel-content]]:[clip-path:inset(-100vw_-100vw_-100vw_0)]">
                         <div>
-                            <h2 className="text-4xl font-semibold md:text-6xl">
+                            <h2 className="text-4xl font-cocogoose font-normal md:text-5xl">
                                 Tus proyectos. <br />
                                 <span className="bg-gradient-to-r from-primary/50 dark:from-primary to-primary/80 bg-clip-text text-transparent">
                                     Nuestra inspiración.
