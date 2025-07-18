@@ -12,18 +12,16 @@ import {
     Download,
     Share,
     Users,
-    DollarSign,
-    ShoppingCart,
-    Eye,
     Settings,
     Zap,
-    Cloud,
-    Lock,
     Smartphone,
     CheckCircle,
-    ArrowRight,
-    Monitor,
-    Layers,
+    ShoppingBag,
+    LaptopMinimal,
+    ChartNoAxesCombined,
+    Factory,
+    Landmark,
+    Hospital,
 } from "lucide-react";
 
 const dashboardTypes = [
@@ -160,7 +158,7 @@ const industries = [
     {
         name: "E-commerce & Retail",
         description: "Dashboards para ventas, inventory y customer analytics",
-        icon: "🛍️",
+        icon: ShoppingBag,
         metrics: [
             "Revenue tracking",
             "Conversion rates",
@@ -177,7 +175,7 @@ const industries = [
     {
         name: "SaaS & Software",
         description: "Métricas de producto, usuarios y crecimiento",
-        icon: "💻",
+        icon: LaptopMinimal,
         metrics: [
             "MRR/ARR",
             "Churn rate",
@@ -194,7 +192,7 @@ const industries = [
     {
         name: "Marketing & Advertising",
         description: "Performance de campañas y ROI tracking",
-        icon: "📊",
+        icon: ChartNoAxesCombined,
         metrics: [
             "Campaign ROI",
             "Lead generation",
@@ -211,7 +209,7 @@ const industries = [
     {
         name: "Finanzas & Banking",
         description: "Risk management y financial reporting",
-        icon: "🏦",
+        icon: Landmark,
         metrics: [
             "Portfolio performance",
             "Risk metrics",
@@ -228,7 +226,7 @@ const industries = [
     {
         name: "Healthcare & MedTech",
         description: "Patient outcomes y operational efficiency",
-        icon: "🏥",
+        icon: Hospital,
         metrics: [
             "Patient satisfaction",
             "Treatment outcomes",
@@ -245,7 +243,7 @@ const industries = [
     {
         name: "Manufacturing & IoT",
         description: "Production monitoring y predictive maintenance",
-        icon: "🏭",
+        icon: Factory,
         metrics: [
             "OEE tracking",
             "Quality metrics",
@@ -523,7 +521,7 @@ const kpis = [
 ---
 
 <Layout
-    title="Desarrollo de Dashboards - DevsHub"
+    title="Desarrollo de Dashboards - Devanthos"
     description="Creamos dashboards interactivos y visualizaciones de datos. Business Intelligence, analytics en tiempo real, KPIs personalizados."
 >
     <main class="min-h-screen pt-24">
@@ -866,7 +864,7 @@ const kpis = [
                             <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300">
                                 <CardHeader>
                                     <div class="text-4xl mb-4">
-                                        {industry.icon}
+                                        <industry.icon className="w-8 h-8 text-primary" />
                                     </div>
                                     <CardTitle className="text-xl mb-2">
                                         {industry.name}
