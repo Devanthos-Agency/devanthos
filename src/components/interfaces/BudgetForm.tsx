@@ -49,6 +49,7 @@ import {
     Heart,
     Star,
     Check,
+    Printer,
 } from "lucide-react";
 import {
     Tooltip,
@@ -64,6 +65,8 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
+import { DevanthosIcon } from "../icons";
+import { handlePrintBudget as printBudget } from "@/lib/budget-print";
 
 interface PageType {
     id: string;
@@ -85,7 +88,7 @@ const pageTypes: PageType[] = [
         name: "Landing Page",
         description:
             "Página de aterrizaje optimizada para conversiones con diseño atractivo y llamadas a la acción claras.",
-        basePrice: 800,
+        basePrice: 250,
         estimatedDays: 7,
         icon: <Globe className="h-4 w-4" />,
         features: [
@@ -140,7 +143,7 @@ const pageTypes: PageType[] = [
         name: "Página Corporativa",
         description:
             "Sitio web profesional para empresas con múltiples secciones, portafolio y información institucional.",
-        basePrice: 1500,
+        basePrice: 400,
         estimatedDays: 14,
         icon: <Building className="h-4 w-4" />,
         features: [
@@ -196,7 +199,7 @@ const pageTypes: PageType[] = [
         name: "E-commerce",
         description:
             "Tienda online completa con carrito de compras, pasarela de pagos y gestión de inventario.",
-        basePrice: 2500,
+        basePrice: 1000,
         estimatedDays: 30,
         icon: <ShoppingCart className="h-4 w-4" />,
         features: [
@@ -251,7 +254,7 @@ const pageTypes: PageType[] = [
         name: "Portafolio Personal",
         description:
             "Sitio web personal para mostrar trabajos, habilidades y experiencia profesional de forma elegante.",
-        basePrice: 600,
+        basePrice: 400,
         estimatedDays: 5,
         icon: <Users className="h-4 w-4" />,
         features: [
@@ -306,7 +309,7 @@ const pageTypes: PageType[] = [
         name: "Aplicación Web",
         description:
             "Aplicación web interactiva con funcionalidades avanzadas y base de datos personalizada.",
-        basePrice: 3500,
+        basePrice: 2000,
         estimatedDays: 45,
         icon: <Zap className="h-4 w-4" />,
         features: [
@@ -361,7 +364,7 @@ const pageTypes: PageType[] = [
         name: "Plataforma SaaS",
         description:
             "Plataforma completa de Software como Servicio con suscripciones, múltiples usuarios y funcionalidades avanzadas.",
-        basePrice: 5000,
+        basePrice: 3500,
         estimatedDays: 60,
         icon: <Briefcase className="h-4 w-4" />,
         features: [
@@ -428,7 +431,7 @@ const additionalFeatures = [
     {
         id: "seo",
         name: "SEO Avanzado",
-        price: 300,
+        price: 100,
         description:
             "Optimización completa para motores de búsqueda incluyendo meta tags, sitemap XML, robots.txt, optimización de velocidad, análisis de palabras clave y configuración de Google Analytics y Search Console.",
         benefits: [
@@ -468,7 +471,7 @@ const additionalFeatures = [
     {
         id: "analytics",
         name: "Analytics Avanzado",
-        price: 200,
+        price: 100,
         description:
             "Implementación de herramientas de análisis avanzadas incluyendo Google Analytics 4, heatmaps, seguimiento de conversiones y dashboard personalizado con métricas clave.",
         benefits: [
@@ -495,7 +498,7 @@ const additionalFeatures = [
     {
         id: "hosting",
         name: "Hosting Premium (1 año)",
-        price: 400,
+        price: 100,
         description:
             "Hosting de alta calidad con SSD, CDN global, certificado SSL, copias de seguridad diarias, 99.9% uptime garantizado y soporte técnico especializado.",
         benefits: [
@@ -590,6 +593,24 @@ export default function BudgetForm() {
         alert(
             `Presupuesto generado: $${calculateTotal()} USD - Entrega estimada: ${getEstimatedDeliveryDate()}`
         );
+    };
+
+    const handlePrintBudget = () => {
+        const selectedFeaturesList = selectedFeatures
+            .map((id) => additionalFeatures.find((f) => f.id === id))
+            .filter(Boolean) as typeof additionalFeatures;
+
+        const budgetData = {
+            selectedPage: selectedPage!,
+            selectedFeatures: selectedFeaturesList,
+            timeline,
+            clientInfo,
+            estimatedDays: calculateEstimatedDays(),
+            deliveryDate: getEstimatedDeliveryDate(),
+            totalPrice: calculateTotal(),
+        };
+
+        printBudget(budgetData);
     };
 
     return (
@@ -1421,18 +1442,49 @@ export default function BudgetForm() {
                             </CardContent>
 
                             <CardFooter className="relative z-10 flex-col p-8 space-y-6">
-                                <Button
-                                    type="submit"
-                                    className="w-full h-16 text-xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 dark:from-green-700 dark:to-emerald-700 dark:hover:from-green-600 dark:hover:to-emerald-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-                                    size="lg"
-                                >
-                                    <div className="flex items-center gap-3 ">
-                                        Solicitar Presupuesto Ahora
-                                        <span>
-                                            <Rocket className="size-6" />
-                                        </span>
-                                    </div>
-                                </Button>
+                                <div className="w-full flex flex-col md:flex-row gap-4">
+                                    <Button
+                                        type="submit"
+                                        className="flex-1 h-16 text-xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 dark:from-green-700 dark:to-emerald-700 dark:hover:from-green-600 dark:hover:to-emerald-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                                        size="lg"
+                                    >
+                                        <div className="flex items-center gap-3 ">
+                                            Solicitar Presupuesto Ahora
+                                            <span>
+                                                <Rocket className="size-6" />
+                                            </span>
+                                        </div>
+                                    </Button>
+
+                                    <TooltipProvider>
+                                        <Tooltip>
+                                            <TooltipTrigger asChild>
+                                                <Button
+                                                    type="button"
+                                                    onClick={handlePrintBudget}
+                                                    variant="outline"
+                                                    className="h-16 px-8 text-lg font-semibold border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white dark:border-green-500 dark:text-green-500 dark:hover:bg-green-500 dark:hover:text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                                                    size="lg"
+                                                >
+                                                    <div className="flex items-center gap-3">
+                                                        <Printer className="size-5" />
+                                                        Imprimir Presupuesto
+                                                    </div>
+                                                </Button>
+                                            </TooltipTrigger>
+                                            <TooltipContent className="max-w-xs p-3 bg-gray-800 text-white border border-gray-600">
+                                                <p className="text-sm">
+                                                    Genera una versión
+                                                    profesional en PDF del
+                                                    presupuesto lista para
+                                                    imprimir o enviar por email,
+                                                    sin necesidad de mostrar el
+                                                    contenido en pantalla.
+                                                </p>
+                                            </TooltipContent>
+                                        </Tooltip>
+                                    </TooltipProvider>
+                                </div>
 
                                 {/* Términos y condiciones mejorados */}
                                 <div className="bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/30 dark:to-yellow-900/30 p-6 rounded-xl border-2 border-amber-200 dark:border-amber-600 shadow-md">
