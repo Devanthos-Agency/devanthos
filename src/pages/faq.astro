@@ -11,7 +11,10 @@ import {
     Smartphone,
     CreditCard,
     Users,
+    Mail,
+    PhoneCall,
 } from "lucide-react";
+import Button from "@/components/ui/Button.astro";
 
 const faqCategories = [
     {
@@ -19,7 +22,7 @@ const faqCategories = [
         icon: HelpCircle,
         faqs: [
             {
-                question: "¿Qué servicios ofrece DevsHub?",
+                question: "¿Qué servicios ofrece Devanthos?",
                 answer: "Ofrecemos desarrollo web y móvil, diseño UI/UX, consultoría técnica, sistemas personalizados y mantenimiento de aplicaciones. Nos especializamos en tecnologías modernas como React, Next.js, React Native y Node.js.",
             },
             {
@@ -150,7 +153,7 @@ const faqCategories = [
 ---
 
 <Layout
-    title="Preguntas Frecuentes - DevsHub"
+    title="Preguntas Frecuentes - Devanthos"
     description="Encuentra respuestas a las preguntas más comunes sobre nuestros servicios de desarrollo web, aplicaciones móviles, precios y proceso de trabajo."
 >
     <main class="min-h-screen pt-24">
@@ -176,7 +179,7 @@ const faqCategories = [
                             Hacer una Pregunta
                         </a>
                         <a
-                            href="mailto:soporte@devshub.com"
+                            href="mailto:soporte@devanthos.com"
                             class="inline-flex items-center justify-center px-8 py-3 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
                         >
                             Contactar Soporte
@@ -323,7 +326,7 @@ const faqCategories = [
                                 Enviar Pregunta
                             </a>
                             <a
-                                href="https://wa.me/1234567890"
+                                href="https://wa.me/5492646629632?text=Hola,%20tengo%20una%20pregunta%20sobre%20sus%20servicios."
                                 class="inline-flex items-center justify-center px-8 py-3 border border-white/20 rounded-lg font-medium hover:bg-white/10 transition-colors"
                             >
                                 WhatsApp
@@ -337,18 +340,20 @@ const faqCategories = [
                             <div
                                 class="flex flex-col sm:flex-row gap-4 justify-center text-sm"
                             >
-                                <a
-                                    href="mailto:hola@devshub.com"
+                                <Button
+                                    variant="info"
+                                    href="mailto:contacto@devanthos.com"
                                     class="hover:opacity-80 transition-opacity"
                                 >
-                                    📧 hola@devshub.com
-                                </a>
-                                <a
-                                    href="tel:+1234567890"
+                                    <Mail /> contacto@devanthos.com
+                                </Button>
+                                <Button
+                                    variant="info"
+                                    href="tel:+5492646629632"
                                     class="hover:opacity-80 transition-opacity"
                                 >
-                                    📞 +1 (234) 567-890
-                                </a>
+                                    <PhoneCall /> +54 9 2646-629632
+                                </Button>
                             </div>
                         </div>
                     </CardContent>
