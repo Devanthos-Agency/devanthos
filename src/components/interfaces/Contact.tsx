@@ -4,6 +4,7 @@ import {
     Twitter,
     CheckCircle,
     AlertCircle,
+    Instagram,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -82,7 +83,7 @@ export default function Contact() {
     return (
         <section className="relative mx-2.5 mt-2.5 rounded-t-2xl rounded-b-[36px] bg-linear-to-b from-accent via-background to-background py-32 lg:mx-4 dark:from-accent">
             <div className="container max-w-2xl mx-auto px-2 md:px-6 lg:px-8">
-                <h2 className="text-center text-4xl font-semibold tracking-tight lg:text-5xl">
+                <h2 className="text-center text-4xl font-cocogoose font-normal tracking-tight lg:text-5xl">
                     Contáctenos
                 </h2>
                 <p className="mt-4 text-center leading-snug font-medium text-muted-foreground lg:mx-auto">
@@ -95,22 +96,24 @@ export default function Contact() {
                     <div>
                         <h3 className="font-semibold">Dirección</h3>
                         <p className="mt-3 text-muted-foreground">
-                            1 Carlsberg Close
+                            San Juan - Argentina
                             <br />
-                            1260 Hillview, Australia
+                            Coquimbo - Chile
                         </p>
                     </div>
 
                     <div>
-                        <h3 className="font-semibold">Email us</h3>
+                        <h3 className="font-semibold">Nuestro email</h3>
                         <div className="mt-3">
                             <div>
-                                <p className="text-primary">Careers</p>
+                                <p className="text-primary">
+                                    Para consultas generales
+                                </p>
                                 <a
-                                    href="#"
+                                    href="mailto:contacto@devanthos.com"
                                     className="text-muted-foreground hover:text-foreground"
                                 >
-                                    support@example.com
+                                    contacto@devanthos.com
                                 </a>
                             </div>
                         </div>
@@ -120,19 +123,25 @@ export default function Contact() {
                         <h3 className="font-semibold">Redes sociales</h3>
                         <div className="mt-3 flex gap-6 lg:gap-10">
                             <a
-                                href="#"
+                                href="https://www.facebook.com/profile.php?id=61578188440906"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="text-muted-foreground hover:text-foreground"
                             >
                                 <Facebook className="size-5" />
                             </a>
                             <a
-                                href="#"
+                                href="https://www.instagram.com/devanthos/"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="text-muted-foreground hover:text-foreground"
                             >
-                                <Twitter className="size-5" />
+                                <Instagram className="size-5" />
                             </a>
                             <a
-                                href="#"
+                                href="https://www.linkedin.com/in/devanthos-agency-078883374/"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="text-muted-foreground hover:text-foreground"
                             >
                                 <Linkedin className="size-5" />
