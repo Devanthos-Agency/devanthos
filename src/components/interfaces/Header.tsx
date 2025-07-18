@@ -64,7 +64,7 @@ interface MenuItem {
 
 const PRIMARY_BUTTON = {
     label: "Realice una consultoría",
-    url: "/contacto",
+    url: "https://wa.me/5491167891234?text=Hola%20me%20interesa%20la%20consultoria%20gratuita",
 };
 
 const NAVIGATION1: Array<MenuItem> = [
