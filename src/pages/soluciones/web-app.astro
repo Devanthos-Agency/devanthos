@@ -10,16 +10,16 @@ import {
     Database,
     Smartphone,
     BarChart3,
-    Settings,
     Cloud,
-    Code,
-    Palette,
     Search,
-    Lock,
-    Activity,
     CheckCircle,
-    Layers,
     Building,
+    Laptop,
+    TrendingUp,
+    Hospital,
+    GraduationCap,
+    ShoppingCart,
+    Container,
 } from "lucide-react";
 
 const webAppTypes = [
@@ -159,7 +159,7 @@ const industries = [
             "Analytics tools",
             "API platforms",
         ],
-        icon: "💻",
+        icon: Laptop,
         specialFeatures: [
             "Multi-tenancy",
             "Billing integration",
@@ -177,7 +177,7 @@ const industries = [
             "Payment processing",
             "Crypto exchanges",
         ],
-        icon: "🏦",
+        icon: TrendingUp,
         specialFeatures: [
             "PCI compliance",
             "KYC/AML",
@@ -194,7 +194,7 @@ const industries = [
             "Telemedicine",
             "Medical devices",
         ],
-        icon: "🏥",
+        icon: Hospital,
         specialFeatures: [
             "HIPAA compliance",
             "HL7 integration",
@@ -212,7 +212,7 @@ const industries = [
             "Assessment tools",
             "Virtual classrooms",
         ],
-        icon: "🎓",
+        icon: GraduationCap,
         specialFeatures: [
             "SCORM compliance",
             "Gamification",
@@ -229,7 +229,7 @@ const industries = [
             "Warehouse systems",
             "Order processing",
         ],
-        icon: "📦",
+        icon: Container,
         specialFeatures: [
             "Real-time tracking",
             "Route optimization",
@@ -247,7 +247,7 @@ const industries = [
             "Auction systems",
             "Subscription commerce",
         ],
-        icon: "🛒",
+        icon: ShoppingCart,
         specialFeatures: [
             "Multi-vendor support",
             "Payment gateways",
@@ -412,7 +412,7 @@ const integrations = [
 ---
 
 <Layout
-    title="Desarrollo de Aplicaciones Web - DevsHub"
+    title="Desarrollo de Aplicaciones Web - Devanthos"
     description="Desarrollamos aplicaciones web modernas: SPA, PWA, sistemas enterprise. React, Vue, Angular. Soluciones escalables para tu negocio."
 >
     <main class="min-h-screen pt-24">
@@ -700,7 +700,7 @@ const integrations = [
                             <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300">
                                 <CardHeader>
                                     <div class="text-4xl mb-4">
-                                        {industry.icon}
+                                        <industry.icon className="w-8 h-8 text-primary" />
                                     </div>
                                     <CardTitle className="text-xl mb-2">
                                         {industry.name}
