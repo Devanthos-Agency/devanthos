@@ -64,7 +64,7 @@ interface MenuItem {
 
 const PRIMARY_BUTTON = {
     label: "Realice una consultoría",
-    url: "https://wa.me/5491167891234?text=Hola%20me%20interesa%20la%20consultoria%20gratuita",
+    url: "https://wa.me/5492646629632?text=Hola%20me%20interesa%20la%20consultoria%20gratuita",
 };
 
 const NAVIGATION1: Array<MenuItem> = [
@@ -304,7 +304,11 @@ export default function Navbar() {
                         </NavigationMenuWithoutViewport>
                         <div className="ml-auto flex items-center gap-4 xl:ml-0">
                             <Button asChild className="hidden xl:block">
-                                <a href={PRIMARY_BUTTON.url}>
+                                <a
+                                    href={PRIMARY_BUTTON.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
                                     {PRIMARY_BUTTON.label}
                                 </a>
                             </Button>
