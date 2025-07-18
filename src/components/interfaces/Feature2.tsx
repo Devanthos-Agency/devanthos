@@ -12,21 +12,21 @@ export default function ContainerScrollSection() {
                                 Obtenga una interfaz de usuario hermosa y
                                 moderna
                             </p>
-                            <h1 className="text-7xl font-semibold tracking-tighter md:text-8xl xl:text-[10rem]">
+                            <h1 className="text-6xl font-cocogoose font-normal tracking-tighter md:text-8xl xl:text-[10rem]">
                                 <span className="pr-6 text-muted-foreground/40">
                                     Con
                                 </span>
                                 <AuroraText
                                     colors={[
-                                        "#a559a5",
-                                        "#a559a5",
+                                        "#4c5dab",
+                                        "#4c5dab",
                                         "#f182f1",
                                         "#f182f1",
-                                        "#be66be",
-                                        "#be66be",
+                                        "#614cb9",
+                                        "#614cb9",
                                     ]}
                                 >
-                                    Devs Hub
+                                    Devanthos
                                 </AuroraText>
                             </h1>
                         </>
