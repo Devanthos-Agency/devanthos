@@ -6,19 +6,19 @@ import {
     Smartphone,
     Tablet,
     Bell,
-    Zap,
     Shield,
     Globe,
-    Download,
-    Star,
-    Users,
-    Code,
-    Palette,
     Camera,
     Map,
     CreditCard,
     Cloud,
     CheckCircle,
+    ShoppingBag,
+    Hospital,
+    CircleDollarSign,
+    GraduationCap,
+    Clapperboard,
+    Container,
 } from "lucide-react";
 
 const appTypes = [
@@ -156,7 +156,7 @@ const industries = [
             "Loyalty programs",
             "Inventory tracking",
         ],
-        icon: "🛍️",
+        icon: ShoppingBag,
     },
     {
         name: "Salud & Fitness",
@@ -167,7 +167,7 @@ const industries = [
             "Appointment booking",
             "Prescription mgmt",
         ],
-        icon: "🏥",
+        icon: Hospital,
     },
     {
         name: "Finanzas & Banking",
@@ -178,7 +178,7 @@ const industries = [
             "Budget management",
             "Crypto wallets",
         ],
-        icon: "💰",
+        icon: CircleDollarSign,
     },
     {
         name: "Educación & E-learning",
@@ -189,7 +189,7 @@ const industries = [
             "Gamification",
             "Live streaming",
         ],
-        icon: "🎓",
+        icon: GraduationCap,
     },
     {
         name: "Entretenimiento & Media",
@@ -200,7 +200,7 @@ const industries = [
             "Live chat",
             "Content creation",
         ],
-        icon: "🎬",
+        icon: Clapperboard,
     },
     {
         name: "Logística & Delivery",
@@ -211,7 +211,7 @@ const industries = [
             "Fleet management",
             "Customer notifications",
         ],
-        icon: "🚚",
+        icon: Container,
     },
 ];
 
@@ -310,7 +310,7 @@ const technologies = [
 ---
 
 <Layout
-    title="Desarrollo de Apps Móviles - DevsHub"
+    title="Desarrollo de Apps Móviles - Devanthos"
     description="Desarrollamos aplicaciones móviles nativas, híbridas y PWA. iOS, Android, React Native, Flutter. Desde MVPs hasta apps enterprise."
 >
     <main class="min-h-screen pt-24">
@@ -519,7 +519,7 @@ const technologies = [
                             <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300">
                                 <CardHeader>
                                     <div class="text-4xl mb-4">
-                                        {industry.icon}
+                                        <industry.icon className="w-8 h-8 text-primary" />
                                     </div>
                                     <CardTitle className="text-xl mb-2">
                                         {industry.name}
