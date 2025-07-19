@@ -21,7 +21,8 @@ import {
 const plans = [
     {
         name: "Básico",
-        price: "$299",
+        price: "$499",
+        priceAnnual: "$399", // 20% descuento
         period: "/mes",
         description: "Perfecto para startups y pequeños proyectos",
         icon: Zap,
@@ -39,7 +40,8 @@ const plans = [
     },
     {
         name: "Profesional",
-        price: "$599",
+        price: "$799",
+        priceAnnual: "$639", // 20% descuento
         period: "/mes",
         description: "Ideal para equipos en crecimiento",
         icon: Crown,
@@ -60,6 +62,7 @@ const plans = [
     {
         name: "Enterprise",
         price: "Custom",
+        priceAnnual: "Custom",
         period: "",
         description: "Soluciones personalizadas para grandes empresas",
         icon: Rocket,
@@ -170,7 +173,9 @@ const faqs = [
                         solución perfecta para impulsar tu negocio digital.
                     </p>
                     <div class="flex items-center justify-center gap-4 mb-8">
-                        <span class="text-muted-foreground">Mensual</span>
+                        <span class="text-muted-foreground" id="monthly-label"
+                            >Mensual</span
+                        >
                         <div class="relative">
                             <input
                                 type="checkbox"
@@ -179,10 +184,14 @@ const faqs = [
                             />
                             <label
                                 for="billing-toggle"
-                                class="block w-12 h-6 bg-gray-300 rounded-full cursor-pointer"
-                            ></label>
+                                class="toggle-label relative flex items-center w-14 h-7 bg-gray-300 dark:bg-gray-600 rounded-full cursor-pointer transition-colors duration-300"
+                            >
+                                <span
+                                    class="toggle-thumb absolute top-0.5 left-0.5 w-6 h-6 bg-white rounded-full shadow-md transition-transform duration-300"
+                                ></span>
+                            </label>
                         </div>
-                        <span class="text-muted-foreground"
+                        <span class="text-muted-foreground" id="annual-label"
                             >Anual <Badge variant="secondary" className="ml-2"
                                 >-20%</Badge
                             ></span
@@ -223,10 +232,14 @@ const faqs = [
                                         {plan.description}
                                     </p>
                                     <div class="mt-6">
-                                        <span class="text-4xl font-bold text-primary">
+                                        <span
+                                            class="text-4xl font-bold text-primary price-display"
+                                            data-monthly={plan.price}
+                                            data-annual={plan.priceAnnual}
+                                        >
                                             {plan.price}
                                         </span>
-                                        <span class="text-muted-foreground">
+                                        <span class="text-muted-foreground period-display">
                                             {plan.period}
                                         </span>
                                     </div>
@@ -564,4 +577,86 @@ const faqs = [
             </div>
         </section>
     </main>
+
+    <script>
+        // Funcionalidad del toggle de facturación
+        const billingToggle = document.getElementById(
+            "billing-toggle"
+        ) as HTMLInputElement;
+        const toggleLabel = document.querySelector(
+            ".toggle-label"
+        ) as HTMLElement;
+        const toggleThumb = document.querySelector(
+            ".toggle-thumb"
+        ) as HTMLElement;
+        const monthlyLabel = document.getElementById("monthly-label");
+        const annualLabel = document.getElementById("annual-label");
+        const priceDisplays = document.querySelectorAll(".price-display");
+        const periodDisplays = document.querySelectorAll(".period-display");
+
+        function updateToggleUI(isAnnual: boolean) {
+            if (isAnnual) {
+                toggleLabel?.classList.add("bg-primary");
+                toggleLabel?.classList.remove(
+                    "bg-gray-300",
+                    "dark:bg-gray-600"
+                );
+                toggleThumb?.classList.add("translate-x-7");
+            } else {
+                toggleLabel?.classList.remove("bg-primary");
+                toggleLabel?.classList.add("bg-gray-300", "dark:bg-gray-600");
+                toggleThumb?.classList.remove("translate-x-7");
+            }
+        }
+
+        function updatePricing(isAnnual: boolean) {
+            // Actualizar UI del toggle
+            updateToggleUI(isAnnual);
+
+            // Actualizar labels
+            if (isAnnual) {
+                monthlyLabel?.classList.add("opacity-50");
+                annualLabel?.classList.remove("opacity-50");
+                annualLabel?.classList.add("font-semibold", "text-primary");
+                monthlyLabel?.classList.remove("font-semibold", "text-primary");
+            } else {
+                monthlyLabel?.classList.remove("opacity-50");
+                annualLabel?.classList.add("opacity-50");
+                monthlyLabel?.classList.add("font-semibold", "text-primary");
+                annualLabel?.classList.remove("font-semibold", "text-primary");
+            }
+
+            // Actualizar precios
+            priceDisplays.forEach((priceDisplay) => {
+                const monthlyPrice = priceDisplay.getAttribute("data-monthly");
+                const annualPrice = priceDisplay.getAttribute("data-annual");
+
+                if (isAnnual) {
+                    priceDisplay.textContent = annualPrice || "";
+                } else {
+                    priceDisplay.textContent = monthlyPrice || "";
+                }
+            });
+
+            // Actualizar períodos
+            periodDisplays.forEach((periodDisplay) => {
+                if (isAnnual) {
+                    periodDisplay.textContent = "/mes (facturado anualmente)";
+                } else {
+                    periodDisplay.textContent = "/mes";
+                }
+            });
+        }
+
+        // Event listener para el toggle
+        billingToggle?.addEventListener("change", function (event) {
+            const target = event.target as HTMLInputElement;
+            if (target) {
+                updatePricing(target.checked);
+            }
+        });
+
+        // Inicializar con facturación mensual
+        updatePricing(false);
+    </script>
 </Layout>
