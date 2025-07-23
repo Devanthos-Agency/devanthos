@@ -13,6 +13,119 @@ import {
     Star,
     Users,
 } from "lucide-react";
+
+// Datos de servicios
+const services = [
+    {
+        id: "desarrollo-web-y-mobile",
+        title: "Desarrollo Web y Móvil",
+        description:
+            "Nos especializamos en la creación de soluciones digitales modernas, intuitivas y eficientes, tanto en plataformas web como móviles.",
+        icon: Code2,
+        gradient: "from-blue-500 to-cyan-500",
+        price: "Desde $1,500",
+        features: [
+            "React & Next.js",
+            "Apps Móviles",
+            "APIs REST",
+            "UI/UX Moderno",
+        ],
+        href: "/servicios/desarrollo-web-y-mobile",
+    },
+    {
+        id: "marketing-digital-seo",
+        title: "Marketing Digital y SEO",
+        description:
+            "Nuestro equipo de marketing digital ofrece estrategias personalizadas para mejorar la visibilidad en línea de tu negocio.",
+        icon: TrendingUp,
+        gradient: "from-green-500 to-emerald-500",
+        price: "Desde $450/mes",
+        features: ["SEO Avanzado", "Google Ads", "Social Media", "Analytics"],
+        href: "/servicios/marketing-digital-seo",
+    },
+    {
+        id: "chatbots-inteligentes",
+        title: "Chatbots Inteligentes",
+        description:
+            "Ofrecemos servicios de desarrollo de chatbots inteligentes que mejoran la interacción con los usuarios y optimizan los procesos.",
+        icon: Bot,
+        gradient: "from-purple-500 to-indigo-500",
+        price: "Desde $299/mes",
+        features: [
+            "IA Avanzada",
+            "24/7 Disponible",
+            "Multi-plataforma",
+            "Automatización",
+        ],
+        href: "/servicios/chatbots-inteligentes",
+    },
+];
+
+// Datos de beneficios
+const benefits = [
+    {
+        icon: Users,
+        gradient: "from-blue-500 to-cyan-500",
+        title: "+500 Clientes",
+        description: "Satisfechos en toda Latinoamérica",
+    },
+    {
+        icon: Zap,
+        gradient: "from-green-500 to-emerald-500",
+        title: "Entrega Rápida",
+        description: "Proyectos desde 2 semanas",
+    },
+    {
+        icon: Star,
+        gradient: "from-purple-500 to-indigo-500",
+        title: "Calidad Premium",
+        description: "Código limpio y escalable",
+    },
+    {
+        icon: CheckCircle,
+        gradient: "from-orange-500 to-red-500",
+        title: "Soporte 24/7",
+        description: "Siempre aquí cuando nos necesites",
+    },
+];
+
+// Datos del proceso
+const processSteps = [
+    {
+        number: 1,
+        title: "Análisis",
+        description: "Entendemos tu negocio y objetivos",
+        hasConnector: true,
+    },
+    {
+        number: 2,
+        title: "Estrategia",
+        description: "Diseñamos la mejor solución",
+        hasConnector: true,
+    },
+    {
+        number: 3,
+        title: "Desarrollo",
+        description: "Implementamos con tecnología moderna",
+        hasConnector: true,
+    },
+    {
+        number: 4,
+        title: "Entrega",
+        description: "Lanzamos y damos soporte continuo",
+        hasConnector: false,
+    },
+];
+
+// Datos de elementos de confianza
+const trustElements = [
+    {
+        text: "Sin compromiso",
+    },
+    {
+        text: "Respuesta en 24h",
+    },
+];
 ---
 
 <Layout
@@ -91,237 +204,65 @@ import {
             <div
                 class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
             >
-                <!-- Desarrollo Web y Móvil -->
-                <Card
-                    className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 hover:border-primary/20 overflow-hidden"
-                >
-                    <div class="h-2 bg-gradient-to-r from-blue-500 to-cyan-500">
-                    </div>
-
-                    <CardHeader className="pb-4">
-                        <div class="flex items-center gap-3 mb-4">
-                            <div
-                                class="p-3 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 text-white"
-                            >
-                                <Code2 className="w-6 h-6" />
-                            </div>
-                            <Badge variant="secondary" className="text-xs">
-                                Desde $1,500
-                            </Badge>
-                        </div>
-
-                        <CardTitle
-                            className="text-xl group-hover:text-primary transition-colors"
-                        >
-                            Desarrollo Web y Móvil
-                        </CardTitle>
-                    </CardHeader>
-
-                    <CardContent>
-                        <p class="text-muted-foreground mb-6 line-clamp-3">
-                            Nos especializamos en la creación de soluciones
-                            digitales modernas, intuitivas y eficientes, tanto
-                            en plataformas web como móviles.
-                        </p>
-
-                        <div class="space-y-2 mb-6">
-                            <div class="flex items-center gap-2 text-sm">
-                                <CheckCircle
-                                    className="w-4 h-4 text-green-500"
+                {
+                    services.map((service) => {
+                        const IconComponent = service.icon;
+                        return (
+                            <Card className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 hover:border-primary/20 overflow-hidden">
+                                <div
+                                    class={`h-2 bg-gradient-to-r ${service.gradient}`}
                                 />
-                                <span>React & Next.js</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-sm">
-                                <CheckCircle
-                                    className="w-4 h-4 text-green-500"
-                                />
-                                <span>Apps Móviles</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-sm">
-                                <CheckCircle
-                                    className="w-4 h-4 text-green-500"
-                                />
-                                <span>APIs REST</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-sm">
-                                <CheckCircle
-                                    className="w-4 h-4 text-green-500"
-                                />
-                                <span>UI/UX Moderno</span>
-                            </div>
-                        </div>
 
-                        <div class="flex gap-2">
-                            <Button asChild className="flex-1">
-                                <a
-                                    href="/servicios/desarrollo-web-y-mobile"
-                                    class="flex items-center"
-                                >
-                                    Ver Detalles
-                                    <ArrowRight
-                                        className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"
-                                    />
-                                </a>
-                            </Button>
-                        </div>
-                    </CardContent>
-                </Card>
+                                <CardHeader className="pb-4">
+                                    <div class="flex items-center gap-3 mb-4">
+                                        <div
+                                            class={`p-3 rounded-xl bg-gradient-to-br ${service.gradient} text-white`}
+                                        >
+                                            <IconComponent className="w-6 h-6" />
+                                        </div>
+                                        <Badge
+                                            variant="secondary"
+                                            className="text-xs"
+                                        >
+                                            {service.price}
+                                        </Badge>
+                                    </div>
 
-                <!-- Marketing Digital y SEO -->
-                <Card
-                    className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 hover:border-primary/20 overflow-hidden"
-                >
-                    <div
-                        class="h-2 bg-gradient-to-r from-green-500 to-emerald-500"
-                    >
-                    </div>
+                                    <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                                        {service.title}
+                                    </CardTitle>
+                                </CardHeader>
 
-                    <CardHeader className="pb-4">
-                        <div class="flex items-center gap-3 mb-4">
-                            <div
-                                class="p-3 rounded-xl bg-gradient-to-br from-green-500 to-emerald-500 text-white"
-                            >
-                                <TrendingUp className="w-6 h-6" />
-                            </div>
-                            <Badge variant="secondary" className="text-xs">
-                                Desde $450/mes
-                            </Badge>
-                        </div>
+                                <CardContent>
+                                    <p class="text-muted-foreground mb-6 line-clamp-3">
+                                        {service.description}
+                                    </p>
 
-                        <CardTitle
-                            className="text-xl group-hover:text-primary transition-colors"
-                        >
-                            Marketing Digital y SEO
-                        </CardTitle>
-                    </CardHeader>
+                                    <div class="space-y-2 mb-6">
+                                        {service.features.map((feature) => (
+                                            <div class="flex items-center gap-2 text-sm">
+                                                <CheckCircle className="w-4 h-4 text-green-500" />
+                                                <span>{feature}</span>
+                                            </div>
+                                        ))}
+                                    </div>
 
-                    <CardContent>
-                        <p class="text-muted-foreground mb-6 line-clamp-3">
-                            Nuestro equipo de marketing digital ofrece
-                            estrategias personalizadas para mejorar la
-                            visibilidad en línea de tu negocio.
-                        </p>
-
-                        <div class="space-y-2 mb-6">
-                            <div class="flex items-center gap-2 text-sm">
-                                <CheckCircle
-                                    className="w-4 h-4 text-green-500"
-                                />
-                                <span>SEO Avanzado</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-sm">
-                                <CheckCircle
-                                    className="w-4 h-4 text-green-500"
-                                />
-                                <span>Google Ads</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-sm">
-                                <CheckCircle
-                                    className="w-4 h-4 text-green-500"
-                                />
-                                <span>Social Media</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-sm">
-                                <CheckCircle
-                                    className="w-4 h-4 text-green-500"
-                                />
-                                <span>Analytics</span>
-                            </div>
-                        </div>
-
-                        <div class="flex gap-2">
-                            <Button asChild className="flex-1">
-                                <a
-                                    href="/servicios/marketing-digital-seo"
-                                    class="flex items-center"
-                                >
-                                    Ver Detalles
-                                    <ArrowRight
-                                        className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"
-                                    />
-                                </a>
-                            </Button>
-                        </div>
-                    </CardContent>
-                </Card>
-
-                <!-- Chatbots Inteligentes -->
-                <Card
-                    className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 hover:border-primary/20 overflow-hidden"
-                >
-                    <div
-                        class="h-2 bg-gradient-to-r from-purple-500 to-indigo-500"
-                    >
-                    </div>
-
-                    <CardHeader className="pb-4">
-                        <div class="flex items-center gap-3 mb-4">
-                            <div
-                                class="p-3 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-500 text-white"
-                            >
-                                <Bot className="w-6 h-6" />
-                            </div>
-                            <Badge variant="secondary" className="text-xs">
-                                Desde $299/mes
-                            </Badge>
-                        </div>
-
-                        <CardTitle
-                            className="text-xl group-hover:text-primary transition-colors"
-                        >
-                            Chatbots Inteligentes
-                        </CardTitle>
-                    </CardHeader>
-
-                    <CardContent>
-                        <p class="text-muted-foreground mb-6 line-clamp-3">
-                            Ofrecemos servicios de desarrollo de chatbots
-                            inteligentes que mejoran la interacción con los
-                            usuarios y optimizan los procesos.
-                        </p>
-
-                        <div class="space-y-2 mb-6">
-                            <div class="flex items-center gap-2 text-sm">
-                                <CheckCircle
-                                    className="w-4 h-4 text-green-500"
-                                />
-                                <span>IA Avanzada</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-sm">
-                                <CheckCircle
-                                    className="w-4 h-4 text-green-500"
-                                />
-                                <span>24/7 Disponible</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-sm">
-                                <CheckCircle
-                                    className="w-4 h-4 text-green-500"
-                                />
-                                <span>Multi-plataforma</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-sm">
-                                <CheckCircle
-                                    className="w-4 h-4 text-green-500"
-                                />
-                                <span>Automatización</span>
-                            </div>
-                        </div>
-
-                        <div class="flex gap-2">
-                            <Button asChild className="flex-1">
-                                <a
-                                    href="/servicios/chatbots-inteligentes"
-                                    class="flex items-center"
-                                >
-                                    Ver Detalles
-                                    <ArrowRight
-                                        className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"
-                                    />
-                                </a>
-                            </Button>
-                        </div>
-                    </CardContent>
-                </Card>
+                                    <div class="flex gap-2">
+                                        <Button asChild className="flex-1">
+                                            <a
+                                                href={service.href}
+                                                class="flex items-center"
+                                            >
+                                                Ver Detalles
+                                                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                            </a>
+                                        </Button>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        );
+                    })
+                }
             </div>
         </div>
     </section>
@@ -343,59 +284,26 @@ import {
                 <div
                     class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
                 >
-                    <div class="text-center">
-                        <div
-                            class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4"
-                        >
-                            <Users className="w-8 h-8 text-white" />
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">
-                            +500 Clientes
-                        </h3>
-                        <p class="text-muted-foreground">
-                            Satisfechos en toda Latinoamérica
-                        </p>
-                    </div>
-
-                    <div class="text-center">
-                        <div
-                            class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4"
-                        >
-                            <Zap className="w-8 h-8 text-white" />
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">
-                            Entrega Rápida
-                        </h3>
-                        <p class="text-muted-foreground">
-                            Proyectos desde 2 semanas
-                        </p>
-                    </div>
-
-                    <div class="text-center">
-                        <div
-                            class="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-full flex items-center justify-center mx-auto mb-4"
-                        >
-                            <Star className="w-8 h-8 text-white" />
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">
-                            Calidad Premium
-                        </h3>
-                        <p class="text-muted-foreground">
-                            Código limpio y escalable
-                        </p>
-                    </div>
-
-                    <div class="text-center">
-                        <div
-                            class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4"
-                        >
-                            <CheckCircle className="w-8 h-8 text-white" />
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Soporte 24/7</h3>
-                        <p class="text-muted-foreground">
-                            Siempre aquí cuando nos necesites
-                        </p>
-                    </div>
+                    {
+                        benefits.map((benefit) => {
+                            const IconComponent = benefit.icon;
+                            return (
+                                <div class="text-center">
+                                    <div
+                                        class={`w-16 h-16 bg-gradient-to-br ${benefit.gradient} rounded-full flex items-center justify-center mx-auto mb-4`}
+                                    >
+                                        <IconComponent className="w-8 h-8 text-white" />
+                                    </div>
+                                    <h3 class="text-xl font-semibold mb-2">
+                                        {benefit.title}
+                                    </h3>
+                                    <p class="text-muted-foreground">
+                                        {benefit.description}
+                                    </p>
+                                </div>
+                            );
+                        })
+                    }
                 </div>
             </div>
         </div>
@@ -415,66 +323,24 @@ import {
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                    <div class="text-center relative">
-                        <div
-                            class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-lg"
-                        >
-                            1
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2">Análisis</h3>
-                        <p class="text-muted-foreground text-sm">
-                            Entendemos tu negocio y objetivos
-                        </p>
-                        {/* Conectores */}
-                        <div
-                            class="hidden md:block absolute top-6 left-1/2 w-full h-0.5 bg-border -z-10"
-                        >
-                        </div>
-                    </div>
-
-                    <div class="text-center relative">
-                        <div
-                            class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-lg"
-                        >
-                            2
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2">Estrategia</h3>
-                        <p class="text-muted-foreground text-sm">
-                            Diseñamos la mejor solución
-                        </p>
-                        <div
-                            class="hidden md:block absolute top-6 left-1/2 w-full h-0.5 bg-border -z-10"
-                        >
-                        </div>
-                    </div>
-
-                    <div class="text-center relative">
-                        <div
-                            class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-lg"
-                        >
-                            3
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2">Desarrollo</h3>
-                        <p class="text-muted-foreground text-sm">
-                            Implementamos con tecnología moderna
-                        </p>
-                        <div
-                            class="hidden md:block absolute top-6 left-1/2 w-full h-0.5 bg-border -z-10"
-                        >
-                        </div>
-                    </div>
-
-                    <div class="text-center">
-                        <div
-                            class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-lg"
-                        >
-                            4
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2">Entrega</h3>
-                        <p class="text-muted-foreground text-sm">
-                            Lanzamos y damos soporte continuo
-                        </p>
-                    </div>
+                    {
+                        processSteps.map((step) => (
+                            <div class="text-center relative">
+                                <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-lg">
+                                    {step.number}
+                                </div>
+                                <h3 class="text-lg font-semibold mb-2">
+                                    {step.title}
+                                </h3>
+                                <p class="text-muted-foreground text-sm">
+                                    {step.description}
+                                </p>
+                                {step.hasConnector && (
+                                    <div class="hidden md:block absolute top-6 left-1/2 w-full h-0.5 bg-border -z-10" />
+                                )}
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
         </div>
@@ -516,18 +382,14 @@ import {
                         <div
                             class="flex items-center justify-center gap-4 text-sm text-muted-foreground"
                         >
-                            <div class="flex items-center gap-1">
-                                <CheckCircle
-                                    className="w-4 h-4 text-green-500"
-                                />
-                                <span>Sin compromiso</span>
-                            </div>
-                            <div class="flex items-center gap-1">
-                                <CheckCircle
-                                    className="w-4 h-4 text-green-500"
-                                />
-                                <span>Respuesta en 24h</span>
-                            </div>
+                            {
+                                trustElements.map((element) => (
+                                    <div class="flex items-center gap-1">
+                                        <CheckCircle className="w-4 h-4 text-green-500" />
+                                        <span>{element.text}</span>
+                                    </div>
+                                ))
+                            }
                         </div>
                     </CardContent>
                 </Card>
