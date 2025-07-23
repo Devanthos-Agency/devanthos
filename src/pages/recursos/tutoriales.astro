@@ -97,12 +97,24 @@ const benefits = [
     title="Tutoriales - Próximamente | Devanthos"
     description="Nuestros tutoriales están en desarrollo. Regístrate para ser notificado cuando estén disponibles los mejores cursos de desarrollo."
 >
-    <main class="min-h-screen pt-24">
+    <main class="min-h-screen">
         <!-- Hero Section -->
-        <section
-            class="py-20 bg-gradient-to-br from-amber-50 to-orange-100 dark:from-amber-950/20 dark:to-orange-950/20"
-        >
-            <div class="container mx-auto px-4">
+        <section class="h-dvh md:py-40 md:h-fit relative overflow-hidden">
+            <div
+                class="absolute inset-0 bg-gradient-to-br from-primary/50 via-transparent to-accent/50"
+            >
+            </div>
+            <div
+                class="absolute -top-40 -right-40 w-80 h-80 bg-primary/60 rounded-full blur-3xl"
+            >
+            </div>
+            <div
+                class="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/80 rounded-full blur-3xl"
+            >
+            </div>
+            <div
+                class="container h-full flex justify-center items-center mx-auto px-4"
+            >
                 <div class="max-w-4xl mx-auto text-center">
                     <Badge
                         className="mb-4 bg-amber-100 text-amber-800 dark:bg-amber-900/20 dark:text-amber-200"
