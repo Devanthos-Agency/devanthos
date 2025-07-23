@@ -1,35 +1,53 @@
 ---
-import { ArrowRight } from "lucide-react";
 import Button from "../ui/Button.astro";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Bot, TrendingUp, Code2, ArrowRight, CheckCircle } from "lucide-react";
 
 // Datos de servicios organizados en una estructura reutilizable
 const services = [
     {
-        id: 1,
-        title: "Servicios de Desarrollo Web y Móvil",
+        id: "desarrollo-web-y-mobile",
+        title: "Desarrollo Web y Móvil",
         description:
-            "Nos especializamos en ofrecer servicios de desarrollo web y móvil, tanto en el frontend como en el backend. Nuestro equipo de expertos utiliza las últimas tecnologías y mejores prácticas para crear aplicaciones intuitivas y eficientes.",
-        image: "/images/service/desarrollo-web-y-mobile.png",
-        alt: "Desarrollo Web y Móvil",
+            "Nos especializamos en la creación de soluciones digitales modernas, intuitivas y eficientes, tanto en plataformas web como móviles.",
+        icon: Code2,
+        gradient: "from-blue-500 to-cyan-500",
+        price: "Desde $250",
+        features: [
+            "React & Next.js",
+            "Apps Móviles",
+            "APIs REST",
+            "UI/UX Moderno",
+        ],
         href: "/servicios/desarrollo-web-y-mobile",
     },
     {
-        id: 2,
-        title: "Creación de Chatbots Inteligentes",
+        id: "marketing-digital-seo",
+        title: "Marketing Digital y SEO",
         description:
-            "Ofrecemos servicios de desarrollo de chatbots inteligentes que mejoran la interacción con los usuarios y optimizan los procesos de atención al cliente. Nuestros chatbots son personalizables y se integran fácilmente en diversas plataformas.",
-        image: "/images/service/chatbots-inteligentes.png",
-        alt: "Chatbots Inteligentes",
-        href: "/servicios/chatbots-inteligentes",
+            "Nuestro equipo de marketing digital ofrece estrategias personalizadas para mejorar la visibilidad en línea de tu negocio.",
+        icon: TrendingUp,
+        gradient: "from-green-500 to-emerald-500",
+        price: "Desde $450/mes",
+        features: ["SEO Avanzado", "Google Ads", "Social Media", "Analytics"],
+        href: "/servicios/marketing-digital-seo",
     },
     {
-        id: 3,
-        title: "Marketing Digital y SEO Efectivo",
+        id: "chatbots-inteligentes",
+        title: "Chatbots Inteligentes",
         description:
-            "Nuestro equipo de marketing digital ofrece estrategias personalizadas para mejorar la visibilidad en línea de tu negocio. Desde SEO hasta campañas publicitarias, nos aseguramos de que tu marca alcance su máximo potencial en el mundo digital.",
-        image: "/images/service/marketing-digital-seo.png",
-        alt: "Marketing Digital y SEO",
-        href: "/servicios/marketing-digital-seo",
+            "Ofrecemos servicios de desarrollo de chatbots inteligentes que mejoran la interacción con los usuarios y optimizan los procesos.",
+        icon: Bot,
+        gradient: "from-purple-500 to-indigo-500",
+        price: "Desde $299/mes",
+        features: [
+            "IA Avanzada",
+            "24/7 Disponible",
+            "Multi-plataforma",
+            "Automatización",
+        ],
+        href: "/servicios/chatbots-inteligentes",
     },
 ];
 ---
@@ -67,66 +85,74 @@ const services = [
                     </p>
                 </div>
                 <div class="mt-6 flex items-center gap-4">
-                    <Button href="#" variant="primary" class="group">
+                    <Button href="/contacto" variant="primary" class="group">
                         Comenzar
                     </Button>
-                    <Button href="#" variant="outline" class="group">
+                    <Button href="/servicios" variant="outline" class="group">
                         Más información
                     </Button>
                 </div>
                 <div
-                    class="grid gap-6 mt-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-8"
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
                 >
                     {
-                        services.map((service) => (
-                            <div
-                                data-slot="card"
-                                class="relative bg-card text-card-foreground flex-col gap-6 rounded-xl border py-6 shadow-sm grid grid-rows-[auto_auto_1fr_auto] pt-0 hover:border-primary transition-all duration-200 group"
-                            >
-                                <div class="absolute -z-10 inset-0 bg-gradient-to-b from-primary to-accent h-full rounded-xl group-hover:blur-xl transition-all ease-in-out duration-300" />
+                        services.map((service) => {
+                            const IconComponent = service.icon;
+                            return (
+                                <Card className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 hover:border-primary/20 overflow-hidden">
+                                    <div
+                                        class={`h-2 bg-gradient-to-r ${service.gradient}`}
+                                    />
 
-                                <div class="aspect-16/9 w-full rounded-t-xl overflow-hidden">
-                                    <a
-                                        href={service.href}
-                                        class="transition-opacity duration-200 fade-in hover:opacity-70"
-                                    >
-                                        <img
-                                            src={service.image}
-                                            alt={service.alt}
-                                            class="h-full w-full object-cover object-center"
-                                            loading="lazy"
-                                        />
-                                    </a>
-                                </div>
-                                <div
-                                    data-slot="card-header"
-                                    class="@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6"
-                                >
-                                    <h3 class="text-lg font-semibold hover:underline md:text-xl">
-                                        <a href={service.href}>
+                                    <CardHeader className="pb-4">
+                                        <div class="flex items-center gap-3 mb-4">
+                                            <div
+                                                class={`p-3 rounded-xl bg-gradient-to-br ${service.gradient} text-white`}
+                                            >
+                                                <IconComponent className="w-6 h-6" />
+                                            </div>
+                                            <Badge
+                                                variant="secondary"
+                                                className="text-xs"
+                                            >
+                                                {service.price}
+                                            </Badge>
+                                        </div>
+
+                                        <CardTitle className="text-xl group-hover:text-primary transition-colors">
                                             {service.title}
-                                        </a>
-                                    </h3>
-                                </div>
-                                <div data-slot="card-content" class="px-6">
-                                    <p class="text-muted-foreground">
-                                        {service.description}
-                                    </p>
-                                </div>
-                                <div
-                                    data-slot="card-footer"
-                                    class="flex items-center px-6 [.border-t]:pt-6"
-                                >
-                                    <a
-                                        href={service.href}
-                                        class="flex items-center text-foreground group hover:underline"
-                                    >
-                                        Leer más
-                                        <ArrowRight className="ml-2 size-4 group-hover:translate-x-1.5 transition-transform" />
-                                    </a>
-                                </div>
-                            </div>
-                        ))
+                                        </CardTitle>
+                                    </CardHeader>
+
+                                    <CardContent>
+                                        <p class="text-muted-foreground mb-6 line-clamp-3">
+                                            {service.description}
+                                        </p>
+
+                                        <div class="space-y-2 mb-6">
+                                            {service.features.map((feature) => (
+                                                <div class="flex items-center gap-2 text-sm">
+                                                    <CheckCircle className="w-4 h-4 text-green-500" />
+                                                    <span>{feature}</span>
+                                                </div>
+                                            ))}
+                                        </div>
+
+                                        <div class="flex gap-2">
+                                            <Button
+                                                href={service.href}
+                                                class="flex-1"
+                                            >
+                                                <p class="flex items-center">
+                                                    Ver Detalles
+                                                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                                </p>
+                                            </Button>
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            );
+                        })
                     }
                 </div>
             </div>
