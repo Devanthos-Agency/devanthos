@@ -159,10 +159,24 @@ const stats = [
     title="Sobre Nosotros - Devanthos"
     description="Conoce al equipo detrás de Devanthos, nuestra misión, valores y compromiso con la excelencia en el desarrollo de software."
 >
-    <main class="min-h-screen pt-24">
+    <main class="min-h-screen">
         <!-- Hero Section -->
-        <section class="py-20 bg-gradient-to-br from-primary/5 to-primary/10">
-            <div class="container mx-auto px-4">
+        <section class="h-dvh md:py-40 md:h-fit relative overflow-hidden">
+            <div
+                class="absolute inset-0 bg-gradient-to-br from-primary/50 via-transparent to-accent/50"
+            >
+            </div>
+            <div
+                class="absolute -top-40 -right-40 w-80 h-80 bg-primary/60 rounded-full blur-3xl"
+            >
+            </div>
+            <div
+                class="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/80 rounded-full blur-3xl"
+            >
+            </div>
+            <div
+                class="container h-full flex justify-center items-center mx-auto px-4"
+            >
                 <div class="max-w-4xl mx-auto text-center">
                     <Badge className="mb-4">Sobre Nosotros</Badge>
                     <h1 class="text-4xl md:text-6xl font-bold mb-6">
@@ -237,7 +251,7 @@ const stats = [
                         <img
                             src="/images/hero/sistema-html-diseno-collages-sitios-web_23-2150432955.avif"
                             alt="Equipo trabajando"
-                            class="rounded-lg shadow-lg w-full"
+                            class="rounded-lg shadow-lg w-full h-96 object-cover"
                         />
                     </div>
                 </div>
