@@ -157,10 +157,24 @@ const faqs = [
     title="Precios - Devanthos"
     description="Conoce nuestros planes de precios flexibles y servicios personalizados. Desde startups hasta empresas, tenemos la solución perfecta para ti."
 >
-    <main class="min-h-screen pt-24">
+    <main class="min-h-screen">
         <!-- Hero Section -->
-        <section class="py-20 bg-gradient-to-br from-primary/5 to-primary/10">
-            <div class="container mx-auto px-4">
+        <section class="h-dvh md:py-40 md:h-fit relative overflow-hidden">
+            <div
+                class="absolute inset-0 bg-gradient-to-br from-primary/50 via-transparent to-accent/50"
+            >
+            </div>
+            <div
+                class="absolute -top-40 -right-40 w-80 h-80 bg-primary/60 rounded-full blur-3xl"
+            >
+            </div>
+            <div
+                class="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/80 rounded-full blur-3xl"
+            >
+            </div>
+            <div
+                class="container h-full flex justify-center items-center mx-auto px-4"
+            >
                 <div class="max-w-4xl mx-auto text-center">
                     <Badge className="mb-4">Precios</Badge>
                     <h1 class="text-4xl md:text-6xl font-bold mb-6">
@@ -239,6 +253,12 @@ const faqs = [
                                         >
                                             {plan.price}
                                         </span>
+                                        {plan.price !== "Custom" && (
+                                            <span class="text-xl font-bold text-primary">
+                                                USD
+                                            </span>
+                                        )}
+
                                         <span class="text-muted-foreground period-display">
                                             {plan.period}
                                         </span>
@@ -326,6 +346,9 @@ const faqs = [
                                     <div class="text-center">
                                         <span class="text-2xl font-bold text-primary">
                                             Desde {service.startingPrice}
+                                            <span class="text-sm text-muted-foreground">
+                                                USD
+                                            </span>
                                         </span>
                                     </div>
                                     <ul class="space-y-2">
