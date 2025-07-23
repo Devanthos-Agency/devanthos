@@ -99,12 +99,24 @@ const guidelines = [
     title="Diseño de Sistema - Devanthos"
     description="Sistema de diseño completo con tokens, guías de estilo y patrones reutilizables para crear interfaces consistentes y escalables."
 >
-    <main class="min-h-screen pt-24">
+    <main class="min-h-screen">
         <!-- Hero Section -->
-        <section
-            class="py-20 bg-gradient-to-br from-purple-50 to-blue-100 dark:from-purple-950/20 dark:to-blue-950/20"
-        >
-            <div class="container mx-auto px-4">
+        <section class="h-dvh md:py-40 md:h-fit relative overflow-hidden">
+            <div
+                class="absolute inset-0 bg-gradient-to-br from-primary/50 via-transparent to-accent/50"
+            >
+            </div>
+            <div
+                class="absolute -top-40 -right-40 w-80 h-80 bg-primary/60 rounded-full blur-3xl"
+            >
+            </div>
+            <div
+                class="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/80 rounded-full blur-3xl"
+            >
+            </div>
+            <div
+                class="container h-full flex justify-center items-center mx-auto px-4"
+            >
                 <div class="max-w-4xl mx-auto text-center">
                     <Badge className="mb-4">Diseño de Sistema</Badge>
                     <h1 class="text-4xl md:text-6xl font-bold mb-6">
@@ -118,7 +130,7 @@ const guidelines = [
                         visual y experiencia de usuario excepcional en todos tus
                         productos digitales.
                     </p>
-                    <TailwindCSS className="h-10 w-2xl mx-auto mb-4" />
+                    <TailwindCSS className="h-10 w-xs mx-auto mb-4" />
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
                         <a
                             href="#guias"

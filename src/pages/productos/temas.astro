@@ -2,47 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import {
-    Palette,
-    Moon,
-    Sun,
-    Brush,
-    Zap,
-    Download,
-    Eye,
-    ArrowRight,
-} from "lucide-react";
-
-const themes = [
-    {
-        name: "Dark Theme",
-        description: "Tema oscuro elegante para mejor experiencia nocturna",
-        icon: Moon,
-        preview: "bg-gray-900 text-white",
-        colors: ["#1a1a1a", "#2d2d2d", "#3f3f46", "#6366f1"],
-    },
-    {
-        name: "Light Theme",
-        description: "Tema claro y limpio para máxima legibilidad",
-        icon: Sun,
-        preview: "bg-white text-gray-900",
-        colors: ["#ffffff", "#f8fafc", "#e2e8f0", "#6366f1"],
-    },
-    {
-        name: "Ocean Theme",
-        description: "Inspirado en los colores del océano",
-        icon: Palette,
-        preview: "bg-blue-600 text-white",
-        colors: ["#0ea5e9", "#0284c7", "#0369a1", "#1e40af"],
-    },
-    {
-        name: "Forest Theme",
-        description: "Tonos verdes naturales y relajantes",
-        icon: Brush,
-        preview: "bg-green-600 text-white",
-        colors: ["#059669", "#047857", "#065f46", "#064e3b"],
-    },
-];
+import { Palette, Moon, Brush, Zap, Eye, ArrowRight } from "lucide-react";
 
 const features = [
     {
@@ -70,12 +30,24 @@ const features = [
     title="Temas Personalizados - Devanthos"
     description="Personaliza la apariencia de tu sitio web con nuestros temas profesionales. Dark mode, light mode y temas personalizados."
 >
-    <main class="min-h-screen pt-24">
+    <main class="min-h-screen">
         <!-- Hero Section -->
-        <section
-            class="py-20 bg-gradient-to-br from-purple-50 to-pink-100 dark:from-purple-950/20 dark:to-pink-950/20"
-        >
-            <div class="container mx-auto px-4">
+        <section class="h-dvh md:py-40 md:h-fit relative overflow-hidden">
+            <div
+                class="absolute inset-0 bg-gradient-to-br from-primary/50 via-transparent to-accent/50"
+            >
+            </div>
+            <div
+                class="absolute -top-40 -right-40 w-80 h-80 bg-primary/60 rounded-full blur-3xl"
+            >
+            </div>
+            <div
+                class="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/80 rounded-full blur-3xl"
+            >
+            </div>
+            <div
+                class="container h-full flex justify-center items-center mx-auto px-4"
+            >
                 <div class="max-w-4xl mx-auto text-center">
                     <Badge className="mb-4">Temas Personalizados</Badge>
                     <h1 class="text-4xl md:text-6xl font-bold mb-6">
