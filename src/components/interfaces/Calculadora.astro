@@ -1,0 +1,78 @@
+---
+import { Badge } from "@/components/ui/badge";
+import { Calculator, Shield, Clock } from "lucide-react";
+---
+
+<section class="py-20 bg-gradient-to-br from-primary/5 to-primary/10">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <Badge className="mb-4">Calculadora de Presupuesto</Badge>
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">
+                ¿Necesitas un <span class="text-primary">Sitio Web</span>?
+            </h2>
+            <p class="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+                Utiliza nuestra calculadora interactiva para obtener un
+                presupuesto personalizado al instante. Selecciona las
+                características que necesitas y conoce el costo exacto de tu
+                proyecto web.
+            </p>
+
+            <!-- Features Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                <div class="text-center">
+                    <div
+                        class="mx-auto mb-4 p-3 rounded-lg bg-green-100 dark:bg-green-900/30 w-fit"
+                    >
+                        <Calculator
+                            className="w-6 h-6 text-green-600 dark:text-green-400"
+                        />
+                    </div>
+                    <h3 class="font-semibold mb-2">Cálculo Instantáneo</h3>
+                    <p class="text-sm text-muted-foreground">
+                        Precios en tiempo real según tus necesidades
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="mx-auto mb-4 p-3 rounded-lg bg-blue-100 dark:bg-blue-900/30 w-fit"
+                    >
+                        <Shield
+                            className="w-6 h-6 text-blue-600 dark:text-blue-400"
+                        />
+                    </div>
+                    <h3 class="font-semibold mb-2">Transparencia Total</h3>
+                    <p class="text-sm text-muted-foreground">
+                        Sin costos ocultos, todo incluido
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="mx-auto mb-4 p-3 rounded-lg bg-purple-100 dark:bg-purple-900/30 w-fit"
+                    >
+                        <Clock
+                            className="w-6 h-6 text-purple-600 dark:text-purple-400"
+                        />
+                    </div>
+                    <h3 class="font-semibold mb-2">Tiempo de Entrega</h3>
+                    <p class="text-sm text-muted-foreground">
+                        Estimación automática de plazos
+                    </p>
+                </div>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="space-y-4">
+                <a
+                    href="/precios/presupuesto-web"
+                    class="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold text-lg hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                >
+                    <Calculator className="w-5 h-5 mr-2" />
+                    Calcular mi Presupuesto
+                </a>
+                <p class="text-sm text-muted-foreground">
+                    ¡Gratis y sin compromiso! • Solo toma 2 minutos
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
