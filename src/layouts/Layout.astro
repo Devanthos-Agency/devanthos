@@ -1,7 +1,8 @@
 ---
 import Footer from "@/components/interfaces/Footer.astro";
-import { ClientRouter } from "astro:transitions";
 import SEO from "@/components/interfaces/SEO.astro";
+import Navbar from "@/components/interfaces/Header";
+import { ClientRouter } from "astro:transitions";
 interface Preload {
     as: string;
     href: string;
@@ -22,7 +23,6 @@ const { title, description, preload, canonical, image } = Astro.props;
 
 import "@/styles/global.css";
 import "@/styles/marquee.css";
-import Navbar from "@/components/interfaces/Header";
 ---
 
 <script is:inline>
