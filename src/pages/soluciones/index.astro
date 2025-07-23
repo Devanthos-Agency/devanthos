@@ -8,8 +8,6 @@ import {
     ShoppingCart,
     BarChart3,
     Rocket,
-    Monitor,
-    Building,
     GraduationCap,
     Heart,
     DollarSign,
@@ -296,12 +294,24 @@ const stats = [
     title="Soluciones Digitales - Devanthos"
     description="Soluciones digitales completas: desarrollo web, apps móviles, e-commerce, dashboards y más. Transformamos tu negocio con tecnología de vanguardia."
 >
-    <main class="min-h-screen pt-24">
+    <main class="min-h-screen">
         <!-- Hero Section -->
-        <section
-            class="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-950/20 dark:via-indigo-950/20 dark:to-purple-950/20"
-        >
-            <div class="container mx-auto px-4">
+        <section class="h-dvh md:py-40 md:h-fit relative overflow-hidden">
+            <div
+                class="absolute inset-0 bg-gradient-to-br from-primary/50 via-transparent to-accent/50"
+            >
+            </div>
+            <div
+                class="absolute -top-40 -right-40 w-80 h-80 bg-primary/60 rounded-full blur-3xl"
+            >
+            </div>
+            <div
+                class="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/80 rounded-full blur-3xl"
+            >
+            </div>
+            <div
+                class="container h-full flex justify-center items-center mx-auto px-4"
+            >
                 <div class="max-w-6xl mx-auto">
                     <div class="text-center mb-12">
                         <Badge className="mb-4">Soluciones Digitales</Badge>
