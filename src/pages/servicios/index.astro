@@ -1,0 +1,546 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+    Bot,
+    TrendingUp,
+    Code2,
+    Zap,
+    ArrowRight,
+    CheckCircle,
+    Star,
+    Users,
+} from "lucide-react";
+---
+
+<Layout
+    title="Nuestros Servicios | Devanthos - Soluciones Digitales"
+    description="Descubre nuestros servicios de desarrollo web, aplicaciones móviles, marketing digital, SEO y chatbots inteligentes. Impulsamos tu negocio al siguiente nivel digital."
+>
+    <!-- Hero Section -->
+    <section class="relative py-20 px-4 overflow-hidden">
+        <div
+            class="absolute inset-0 bg-gradient-to-br from-primary/50 via-transparent to-accent/50"
+        >
+        </div>
+        <div
+            class="absolute -top-40 -right-40 w-80 h-80 bg-primary/60 rounded-full blur-3xl"
+        >
+        </div>
+        <div
+            class="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/80 rounded-full blur-3xl"
+        >
+        </div>
+
+        <div class="container mx-auto relative z-10 mt-16">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="flex justify-center mb-6">
+                    <Badge variant="outline" className="text-lg px-4 py-2">
+                        <Star className="w-4 h-4 mr-2" />
+                        Servicios Premium
+                    </Badge>
+                </div>
+
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                    Servicios que Impulsan
+                    <span
+                        class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
+                    >
+                        tu Éxito Digital
+                    </span>
+                </h1>
+
+                <p class="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+                    Ofrecemos soluciones tecnológicas integrales para
+                    transformar tu negocio. Desde desarrollo web hasta marketing
+                    digital e inteligencia artificial.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <Button size="lg" className="text-lg px-8">
+                        Ver Todos los Servicios
+                        <ArrowRight className="ml-2 w-5 h-5" />
+                    </Button>
+                    <Button
+                        variant="outline"
+                        size="lg"
+                        className="text-lg px-8"
+                    >
+                        Consulta Gratuita
+                    </Button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="py-20 px-4">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Nuestros Servicios Especializados
+                </h2>
+                <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                    Cada servicio está diseñado para maximizar tu presencia
+                    digital y acelerar el crecimiento de tu negocio
+                </p>
+            </div>
+
+            <div
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
+            >
+                <!-- Desarrollo Web y Móvil -->
+                <Card
+                    className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 hover:border-primary/20 overflow-hidden"
+                >
+                    <div class="h-2 bg-gradient-to-r from-blue-500 to-cyan-500">
+                    </div>
+
+                    <CardHeader className="pb-4">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div
+                                class="p-3 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 text-white"
+                            >
+                                <Code2 className="w-6 h-6" />
+                            </div>
+                            <Badge variant="secondary" className="text-xs">
+                                Desde $1,500
+                            </Badge>
+                        </div>
+
+                        <CardTitle
+                            className="text-xl group-hover:text-primary transition-colors"
+                        >
+                            Desarrollo Web y Móvil
+                        </CardTitle>
+                    </CardHeader>
+
+                    <CardContent>
+                        <p class="text-muted-foreground mb-6 line-clamp-3">
+                            Nos especializamos en la creación de soluciones
+                            digitales modernas, intuitivas y eficientes, tanto
+                            en plataformas web como móviles.
+                        </p>
+
+                        <div class="space-y-2 mb-6">
+                            <div class="flex items-center gap-2 text-sm">
+                                <CheckCircle
+                                    className="w-4 h-4 text-green-500"
+                                />
+                                <span>React & Next.js</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm">
+                                <CheckCircle
+                                    className="w-4 h-4 text-green-500"
+                                />
+                                <span>Apps Móviles</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm">
+                                <CheckCircle
+                                    className="w-4 h-4 text-green-500"
+                                />
+                                <span>APIs REST</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm">
+                                <CheckCircle
+                                    className="w-4 h-4 text-green-500"
+                                />
+                                <span>UI/UX Moderno</span>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-2">
+                            <Button asChild className="flex-1">
+                                <a
+                                    href="/servicios/desarrollo-web-y-mobile"
+                                    class="flex items-center"
+                                >
+                                    Ver Detalles
+                                    <ArrowRight
+                                        className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"
+                                    />
+                                </a>
+                            </Button>
+                        </div>
+                    </CardContent>
+                </Card>
+
+                <!-- Marketing Digital y SEO -->
+                <Card
+                    className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 hover:border-primary/20 overflow-hidden"
+                >
+                    <div
+                        class="h-2 bg-gradient-to-r from-green-500 to-emerald-500"
+                    >
+                    </div>
+
+                    <CardHeader className="pb-4">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div
+                                class="p-3 rounded-xl bg-gradient-to-br from-green-500 to-emerald-500 text-white"
+                            >
+                                <TrendingUp className="w-6 h-6" />
+                            </div>
+                            <Badge variant="secondary" className="text-xs">
+                                Desde $450/mes
+                            </Badge>
+                        </div>
+
+                        <CardTitle
+                            className="text-xl group-hover:text-primary transition-colors"
+                        >
+                            Marketing Digital y SEO
+                        </CardTitle>
+                    </CardHeader>
+
+                    <CardContent>
+                        <p class="text-muted-foreground mb-6 line-clamp-3">
+                            Nuestro equipo de marketing digital ofrece
+                            estrategias personalizadas para mejorar la
+                            visibilidad en línea de tu negocio.
+                        </p>
+
+                        <div class="space-y-2 mb-6">
+                            <div class="flex items-center gap-2 text-sm">
+                                <CheckCircle
+                                    className="w-4 h-4 text-green-500"
+                                />
+                                <span>SEO Avanzado</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm">
+                                <CheckCircle
+                                    className="w-4 h-4 text-green-500"
+                                />
+                                <span>Google Ads</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm">
+                                <CheckCircle
+                                    className="w-4 h-4 text-green-500"
+                                />
+                                <span>Social Media</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm">
+                                <CheckCircle
+                                    className="w-4 h-4 text-green-500"
+                                />
+                                <span>Analytics</span>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-2">
+                            <Button asChild className="flex-1">
+                                <a
+                                    href="/servicios/marketing-digital-seo"
+                                    class="flex items-center"
+                                >
+                                    Ver Detalles
+                                    <ArrowRight
+                                        className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"
+                                    />
+                                </a>
+                            </Button>
+                        </div>
+                    </CardContent>
+                </Card>
+
+                <!-- Chatbots Inteligentes -->
+                <Card
+                    className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 hover:border-primary/20 overflow-hidden"
+                >
+                    <div
+                        class="h-2 bg-gradient-to-r from-purple-500 to-indigo-500"
+                    >
+                    </div>
+
+                    <CardHeader className="pb-4">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div
+                                class="p-3 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-500 text-white"
+                            >
+                                <Bot className="w-6 h-6" />
+                            </div>
+                            <Badge variant="secondary" className="text-xs">
+                                Desde $299/mes
+                            </Badge>
+                        </div>
+
+                        <CardTitle
+                            className="text-xl group-hover:text-primary transition-colors"
+                        >
+                            Chatbots Inteligentes
+                        </CardTitle>
+                    </CardHeader>
+
+                    <CardContent>
+                        <p class="text-muted-foreground mb-6 line-clamp-3">
+                            Ofrecemos servicios de desarrollo de chatbots
+                            inteligentes que mejoran la interacción con los
+                            usuarios y optimizan los procesos.
+                        </p>
+
+                        <div class="space-y-2 mb-6">
+                            <div class="flex items-center gap-2 text-sm">
+                                <CheckCircle
+                                    className="w-4 h-4 text-green-500"
+                                />
+                                <span>IA Avanzada</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm">
+                                <CheckCircle
+                                    className="w-4 h-4 text-green-500"
+                                />
+                                <span>24/7 Disponible</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm">
+                                <CheckCircle
+                                    className="w-4 h-4 text-green-500"
+                                />
+                                <span>Multi-plataforma</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm">
+                                <CheckCircle
+                                    className="w-4 h-4 text-green-500"
+                                />
+                                <span>Automatización</span>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-2">
+                            <Button asChild className="flex-1">
+                                <a
+                                    href="/servicios/chatbots-inteligentes"
+                                    class="flex items-center"
+                                >
+                                    Ver Detalles
+                                    <ArrowRight
+                                        className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"
+                                    />
+                                </a>
+                            </Button>
+                        </div>
+                    </CardContent>
+                </Card>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-20 px-4 bg-muted/30">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        ¿Por Qué Elegirnos?
+                    </h2>
+                    <p class="text-lg text-muted-foreground">
+                        Más de 8 años de experiencia creando soluciones
+                        digitales exitosas
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+                >
+                    <div class="text-center">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4"
+                        >
+                            <Users className="w-8 h-8 text-white" />
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">
+                            +500 Clientes
+                        </h3>
+                        <p class="text-muted-foreground">
+                            Satisfechos en toda Latinoamérica
+                        </p>
+                    </div>
+
+                    <div class="text-center">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4"
+                        >
+                            <Zap className="w-8 h-8 text-white" />
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">
+                            Entrega Rápida
+                        </h3>
+                        <p class="text-muted-foreground">
+                            Proyectos desde 2 semanas
+                        </p>
+                    </div>
+
+                    <div class="text-center">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-full flex items-center justify-center mx-auto mb-4"
+                        >
+                            <Star className="w-8 h-8 text-white" />
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">
+                            Calidad Premium
+                        </h3>
+                        <p class="text-muted-foreground">
+                            Código limpio y escalable
+                        </p>
+                    </div>
+
+                    <div class="text-center">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4"
+                        >
+                            <CheckCircle className="w-8 h-8 text-white" />
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Soporte 24/7</h3>
+                        <p class="text-muted-foreground">
+                            Siempre aquí cuando nos necesites
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-20 px-4">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Nuestro Proceso de Trabajo
+                    </h2>
+                    <p class="text-lg text-muted-foreground">
+                        Un proceso probado que garantiza el éxito de tu proyecto
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div class="text-center relative">
+                        <div
+                            class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-lg"
+                        >
+                            1
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Análisis</h3>
+                        <p class="text-muted-foreground text-sm">
+                            Entendemos tu negocio y objetivos
+                        </p>
+                        {/* Conectores */}
+                        <div
+                            class="hidden md:block absolute top-6 left-1/2 w-full h-0.5 bg-border -z-10"
+                        >
+                        </div>
+                    </div>
+
+                    <div class="text-center relative">
+                        <div
+                            class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-lg"
+                        >
+                            2
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Estrategia</h3>
+                        <p class="text-muted-foreground text-sm">
+                            Diseñamos la mejor solución
+                        </p>
+                        <div
+                            class="hidden md:block absolute top-6 left-1/2 w-full h-0.5 bg-border -z-10"
+                        >
+                        </div>
+                    </div>
+
+                    <div class="text-center relative">
+                        <div
+                            class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-lg"
+                        >
+                            3
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Desarrollo</h3>
+                        <p class="text-muted-foreground text-sm">
+                            Implementamos con tecnología moderna
+                        </p>
+                        <div
+                            class="hidden md:block absolute top-6 left-1/2 w-full h-0.5 bg-border -z-10"
+                        >
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <div
+                            class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-lg"
+                        >
+                            4
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Entrega</h3>
+                        <p class="text-muted-foreground text-sm">
+                            Lanzamos y damos soporte continuo
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-4">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto text-center">
+                <Card
+                    className="p-12 bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20"
+                >
+                    <CardContent className="space-y-6">
+                        <h2 class="text-3xl md:text-4xl font-bold">
+                            ¿Listo para Transformar tu Negocio?
+                        </h2>
+                        <p
+                            class="text-lg text-muted-foreground max-w-2xl mx-auto"
+                        >
+                            Agenda una consulta gratuita con nuestros expertos y
+                            descubre cómo podemos impulsar tu presencia digital
+                            al siguiente nivel.
+                        </p>
+                        <div
+                            class="flex flex-col sm:flex-row gap-4 justify-center"
+                        >
+                            <Button size="lg" className="text-lg px-8">
+                                Consulta Gratuita
+                                <ArrowRight className="ml-2 w-5 h-5" />
+                            </Button>
+                            <Button
+                                variant="outline"
+                                size="lg"
+                                className="text-lg px-8"
+                            >
+                                Ver Portfolio
+                            </Button>
+                        </div>
+                        <div
+                            class="flex items-center justify-center gap-4 text-sm text-muted-foreground"
+                        >
+                            <div class="flex items-center gap-1">
+                                <CheckCircle
+                                    className="w-4 h-4 text-green-500"
+                                />
+                                <span>Sin compromiso</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <CheckCircle
+                                    className="w-4 h-4 text-green-500"
+                                />
+                                <span>Respuesta en 24h</span>
+                            </div>
+                        </div>
+                    </CardContent>
+                </Card>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    .line-clamp-3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+</style>
