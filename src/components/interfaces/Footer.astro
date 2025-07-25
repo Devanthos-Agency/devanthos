@@ -25,34 +25,49 @@ const SOCIAL_LINKS = [
 
 const NAVIGATION = [
     {
-        title: "Platform",
+        title: "Servicios",
         links: [
-            { name: "Overview", href: "#" },
-            { name: "Use Cases", href: "#" },
+            {
+                name: "Desarrollo Web y Móvil",
+                href: "/servicios/desarrollo-web-y-mobile",
+            },
+            {
+                name: "Marketing Digital y SEO",
+                href: "/servicios/marketing-digital-y-seo",
+            },
+            {
+                name: "Chatbots Inteligentes",
+                href: "/servicios/chatbots-inteligentes",
+            },
         ],
     },
     {
-        title: "About Us",
+        title: "Sobre nosotros",
         links: [
-            { name: "Team", href: "#" },
-            { name: "Support", href: "#" },
-            { name: "Legal", href: "#" },
-            { name: "Security", href: "#" },
+            { name: "Empresa", href: "/empresa" },
+            { name: "Objetivos", href: "/empresa/objetivos" },
+            { name: "Contacto", href: "/contacto" },
         ],
     },
     {
         title: "Learn",
         links: [
-            { name: "Tutorials", href: "#" },
-            { name: "API Reference", href: "#" },
-            { name: "Quickstart", href: "#" },
+            { name: "Blog", href: "/blog" },
+            { name: "Tutoriales", href: "/recursos/tutoriales" },
+            { name: "Comunidad", href: "/comunidad" },
         ],
     },
 ];
 ---
 
-<section class="dark bg-background py-32">
-    <footer class="container mx-auto flex flex-col gap-32 px-2 md:px-6 lg:px-8">
+<section class="relative dark bg-background py-32">
+    <div
+        class="absolute inset-0 z-10 h-full w-full bg-black [background:radial-gradient(175%_175%_at_50%_10%,transparent_40%,#4e64bc_100%)]"
+    >
+    </div>
+    <footer
+        class="relative z-20 container mx-auto flex flex-col gap-32 px-2 md:px-6 lg:px-8"
+    >
         <div class="flex w-full flex-col justify-between gap-y-24 lg:flex-row">
             <div
                 class="flex shrink-0 grow-0 basis-auto flex-col items-start justify-start gap-6"

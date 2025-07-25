@@ -45,7 +45,7 @@ export default function NewsletterFrom() {
                                             {...field}
                                             type="email"
                                             id="emailInput"
-                                            placeholder="Enter your email"
+                                            placeholder="Ingresa tu correo electrónico"
                                             className="block h-9 w-full border bg-inherit p-7 text-lg placeholder-muted-foreground placeholder:text-lg"
                                         />
                                     </FormControl>
