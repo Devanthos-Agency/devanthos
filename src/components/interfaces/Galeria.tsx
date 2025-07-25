@@ -21,57 +21,67 @@ const carouselItems = [
         title: "Dominga Dominguez",
         description:
             "Es un restaurante de comida típica de la región. Ubicado en la ciudad de Coquimbo, Chile.",
+        link: "/galeria/dominga-dominguez",
     },
     {
         image: "/images/gallery/164_1x_shots_so.png",
         title: "Altos de Monardez",
         description:
             "Es un centro de eventos ubicado en la ciudad de La Serena, Chile.",
+        link: "/galeria/altos-de-monardez",
     },
     {
         image: "/images/gallery/227_1x_shots_so.png",
         title: "Trenza Matrimonios",
         description:
             "Es un servicio de fotografía y video para matrimonios. Ubicado en la ciudad de La Serena, Chile.",
+        link: "/galeria/trenza-matrimonios",
     },
     {
         image: "/images/gallery/205_1x_shots_so.png",
         title: "Proviser",
         description:
             "Es una empresa de ventas de insumos y equipos de minería. Ubicada en la ciudad de La Serena, Chile.",
+        link: "/galeria/proviser",
     },
     {
         image: "/images/gallery/454_1x_shots_so.png",
         title: "Oakland Services",
         description: "Es una empresa de arriendo de andamios y herramientas.",
+        link: "/galeria/oakland-services",
     },
     {
         image: "/images/gallery/465_1x_shots_so.png",
-        title: "Trensa",
+        title: "Trenza",
         description: "Es una empresa de servicios de marketing digital.",
+        link: "/galeria/trenza",
     },
     {
         image: "/images/gallery/498_1x_shots_so.png",
-        title: "El Riconcito",
+        title: "El Rinconcito",
         description:
             "Es un complejo de arriendo de cabañas, spa y piscina. Ubicado en la ciudad de La Serena, Chile.",
+        link: "/galeria/el-riconcito",
     },
     {
         image: "/images/gallery/589_1x_shots_so.png",
         title: "Sabor y encanto",
         description: "Es un restaurante de comida típica de la región peruana.",
+        link: "/galeria/sabor-y-encanto",
     },
     {
         image: "/images/gallery/670_1x_shots_so.png",
         title: "Jireh English",
         description:
             "Es una academia de inglés ubicada en la ciudad de La Serena, Chile.",
+        link: "/galeria/jireh-english",
     },
     {
         image: "/images/gallery/879_1x_shots_so.png",
         title: "Destape LS",
         description:
             "Es una empresa de servicios de destape y limpieza de fosas sépticas.",
+        link: "/galeria/destape-ls",
     },
 ];
 
