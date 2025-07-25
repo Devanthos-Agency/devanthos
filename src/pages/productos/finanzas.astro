@@ -1,0 +1,524 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+    DollarSign,
+    TrendingUp,
+    Shield,
+    Building,
+    CreditCard,
+    PieChart,
+    Lock,
+    ArrowRight,
+} from "lucide-react";
+
+const solutions = [
+    {
+        icon: Building,
+        title: "Banca Digital",
+        description: "Plataformas bancarias modernas y seguras",
+        features: [
+            "Aplicaciones móviles bancarias",
+            "Banca online con 2FA",
+            "Gestión de cuentas en tiempo real",
+            "Transferencias y pagos digitales",
+        ],
+    },
+    {
+        icon: CreditCard,
+        title: "Fintech Solutions",
+        description: "Soluciones innovadoras para fintech",
+        features: [
+            "Procesamiento de pagos",
+            "Wallets digitales",
+            "Préstamos automatizados",
+            "Inversiones roboadvisor",
+        ],
+    },
+    {
+        icon: PieChart,
+        title: "Gestión de Inversiones",
+        description: "Plataformas para gestión de portfolios",
+        features: [
+            "Dashboard de inversiones",
+            "Análisis de riesgo automatizado",
+            "Reportes de rendimiento",
+            "Alertas de mercado en tiempo real",
+        ],
+    },
+];
+
+const features = [
+    {
+        icon: Shield,
+        title: "Seguridad PCI DSS",
+        description:
+            "Cumplimiento total con estándares de seguridad financiera internacional.",
+    },
+    {
+        icon: Lock,
+        title: "Encriptación Avanzada",
+        description:
+            "Protección de datos con encriptación AES-256 y protocolos seguros.",
+    },
+    {
+        icon: TrendingUp,
+        title: "Escalabilidad",
+        description:
+            "Arquitectura cloud que se adapta al crecimiento de tu negocio.",
+    },
+];
+
+const regulations = [
+    {
+        name: "PCI DSS",
+        description: "Estándar de seguridad para datos de tarjetas de pago",
+        level: "Nivel 1",
+    },
+    {
+        name: "SOX",
+        description: "Ley Sarbanes-Oxley para transparencia financiera",
+        level: "Compliant",
+    },
+    {
+        name: "GDPR",
+        description: "Reglamento general de protección de datos",
+        level: "Certified",
+    },
+    {
+        name: "ISO 27001",
+        description: "Estándar internacional de seguridad de la información",
+        level: "Certified",
+    },
+];
+
+const benefits = [
+    "Reducción del 60% en costos operativos",
+    "Procesamiento de transacciones 10x más rápido",
+    "99.99% de disponibilidad del sistema",
+    "Cumplimiento automático de regulaciones",
+    "Detección de fraude en tiempo real",
+    "Integración con más de 50 bancos",
+];
+
+const caseStudies = [
+    {
+        title: "Banco Digital Innovador",
+        description: "Lanzamiento de banco 100% digital",
+        results: [
+            "500k usuarios en primer año",
+            "40% reducción en costos vs banca tradicional",
+            "Tiempo de apertura de cuenta: 5 minutos",
+        ],
+    },
+    {
+        title: "Fintech de Préstamos",
+        description: "Plataforma de microcréditos automatizada",
+        results: [
+            "$100M procesados en préstamos",
+            "Aprobación automática en 2 minutos",
+            "Tasa de morosidad 30% menor",
+        ],
+    },
+];
+---
+
+<Layout
+    title="Soluciones para Finanzas - Devanthos"
+    description="Desarrollamos soluciones financieras seguras y escalables. Banca digital, fintech, pagos electrónicos y más con máxima seguridad."
+>
+    <main class="min-h-screen">
+        <!-- Hero Section -->
+        <section class="h-dvh md:py-40 md:h-fit relative overflow-hidden">
+            <div
+                class="absolute inset-0 bg-gradient-to-br from-primary/50 via-transparent to-accent/50"
+            >
+            </div>
+            <div
+                class="absolute -top-40 -right-40 w-80 h-80 bg-primary/60 rounded-full blur-3xl"
+            >
+            </div>
+            <div
+                class="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/80 rounded-full blur-3xl"
+            >
+            </div>
+            <div
+                class="container h-full flex justify-center items-center mx-auto px-4"
+            >
+                <div class="max-w-4xl mx-auto text-center">
+                    <Badge className="mb-4">Soluciones para Finanzas</Badge>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        <span class="text-primary">Fintech</span> del Futuro
+                    </h1>
+                    <p class="text-xl text-muted-foreground mb-8">
+                        Desarrollamos soluciones financieras innovadoras y
+                        seguras. Desde banca digital hasta plataformas de
+                        inversión, cumpliendo con las regulaciones más
+                        estrictas.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a
+                            href="#soluciones"
+                            class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                        >
+                            <DollarSign className="w-4 h-4 mr-2" />
+                            Ver Soluciones
+                        </a>
+                        <a
+                            href="/contacto"
+                            class="inline-flex items-center justify-center px-8 py-3 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+                        >
+                            Consultoría Especializada
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Seguridad y Confianza Garantizada
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        El sector financiero requiere los más altos estándares
+                        de seguridad. Nuestras soluciones cumplen con todas las
+                        regulaciones internacionales.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {
+                        features.map((feature) => (
+                            <Card className="text-center border-0 shadow-md">
+                                <CardHeader>
+                                    <div class="mx-auto mb-4 p-3 rounded-lg bg-primary/10 w-fit">
+                                        <feature.icon className="w-8 h-8 text-primary" />
+                                    </div>
+                                    <CardTitle className="text-xl">
+                                        {feature.title}
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <p class="text-muted-foreground">
+                                        {feature.description}
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Solutions Section -->
+        <section id="soluciones" class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Soluciones Financieras Integrales
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Desde banca tradicional hasta fintech disruptivas,
+                        creamos soluciones que transforman la industria
+                        financiera.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    {
+                        solutions.map((solution) => (
+                            <Card className="border-0 shadow-md hover:shadow-lg transition-shadow">
+                                <CardHeader>
+                                    <div class="mb-4 p-3 rounded-lg bg-primary/10 w-fit">
+                                        <solution.icon className="w-8 h-8 text-primary" />
+                                    </div>
+                                    <CardTitle className="text-xl mb-2">
+                                        {solution.title}
+                                    </CardTitle>
+                                    <p class="text-muted-foreground text-sm">
+                                        {solution.description}
+                                    </p>
+                                </CardHeader>
+                                <CardContent>
+                                    <ul class="space-y-2 mb-4">
+                                        {solution.features.map((feature) => (
+                                            <li class="flex items-center gap-2 text-sm">
+                                                <div class="w-1.5 h-1.5 rounded-full bg-primary" />
+                                                {feature}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    <a
+                                        href="/contacto"
+                                        class="inline-flex items-center text-primary hover:text-primary/80 font-medium text-sm"
+                                    >
+                                        Más información
+                                        <ArrowRight className="w-4 h-4 ml-1" />
+                                    </a>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Regulations Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Cumplimiento Regulatorio
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Nuestras soluciones cumplen con los estándares y
+                        regulaciones más exigentes de la industria financiera.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+                >
+                    {
+                        regulations.map((regulation) => (
+                            <Card className="border-0 shadow-md text-center">
+                                <CardHeader>
+                                    <Shield className="w-12 h-12 text-primary mx-auto mb-4" />
+                                    <CardTitle className="text-lg">
+                                        {regulation.name}
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <p class="text-muted-foreground text-sm mb-3">
+                                        {regulation.description}
+                                    </p>
+                                    <Badge
+                                        variant="outline"
+                                        className="text-primary border-primary"
+                                    >
+                                        {regulation.level}
+                                    </Badge>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <div
+                        class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+                    >
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                                Resultados Comprobados
+                            </h2>
+                            <p class="text-lg text-muted-foreground mb-8">
+                                Nuestras soluciones han ayudado a instituciones
+                                financieras a reducir costos, aumentar
+                                eficiencia y mejorar la experiencia del cliente.
+                            </p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                {
+                                    benefits.map((benefit) => (
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
+                                            <span class="text-sm">
+                                                {benefit}
+                                            </span>
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                        </div>
+                        <div
+                            class="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-950/20 dark:to-indigo-950/20 p-8 rounded-xl"
+                        >
+                            <h3 class="text-2xl font-bold mb-6 text-center">
+                                Estadísticas de Rendimiento
+                            </h3>
+                            <div class="grid grid-cols-2 gap-6">
+                                <div class="text-center">
+                                    <div
+                                        class="text-3xl font-bold text-primary mb-2"
+                                    >
+                                        $1B+
+                                    </div>
+                                    <p class="text-sm text-muted-foreground">
+                                        Transacciones procesadas
+                                    </p>
+                                </div>
+                                <div class="text-center">
+                                    <div
+                                        class="text-3xl font-bold text-primary mb-2"
+                                    >
+                                        99.99%
+                                    </div>
+                                    <p class="text-sm text-muted-foreground">
+                                        Uptime garantizado
+                                    </p>
+                                </div>
+                                <div class="text-center">
+                                    <div
+                                        class="text-3xl font-bold text-primary mb-2"
+                                    >
+                                        2M+
+                                    </div>
+                                    <p class="text-sm text-muted-foreground">
+                                        Usuarios activos
+                                    </p>
+                                </div>
+                                <div class="text-center">
+                                    <div
+                                        class="text-3xl font-bold text-primary mb-2"
+                                    >
+                                        0.001%
+                                    </div>
+                                    <p class="text-sm text-muted-foreground">
+                                        Tasa de fraude
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Studies -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Casos de Éxito
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Descubre cómo hemos ayudado a instituciones financieras
+                        a transformar digitalmente sus operaciones.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto"
+                >
+                    {
+                        caseStudies.map((study) => (
+                            <Card className="border-0 shadow-md">
+                                <CardHeader>
+                                    <CardTitle className="text-xl">
+                                        {study.title}
+                                    </CardTitle>
+                                    <p class="text-muted-foreground text-sm">
+                                        {study.description}
+                                    </p>
+                                </CardHeader>
+                                <CardContent>
+                                    <h4 class="font-semibold mb-3 text-primary">
+                                        Resultados obtenidos:
+                                    </h4>
+                                    <ul class="space-y-2">
+                                        {study.results.map((result) => (
+                                            <li class="flex items-center gap-3">
+                                                <TrendingUp className="w-4 h-4 text-primary flex-shrink-0" />
+                                                <span class="text-sm">
+                                                    {result}
+                                                </span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Security Section -->
+        <section class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <Lock className="w-16 h-16 text-primary mx-auto mb-6" />
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                        Seguridad de Nivel Bancario
+                    </h2>
+                    <p class="text-lg text-muted-foreground mb-8">
+                        Implementamos múltiples capas de seguridad para proteger
+                        los datos financieros más sensibles.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <Card className="border-0 shadow-md">
+                            <CardContent className="p-6 text-center">
+                                <h3 class="font-semibold mb-2">Tokenización</h3>
+                                <p class="text-sm text-muted-foreground">
+                                    Reemplazamos datos sensibles con tokens
+                                    seguros
+                                </p>
+                            </CardContent>
+                        </Card>
+                        <Card className="border-0 shadow-md">
+                            <CardContent className="p-6 text-center">
+                                <h3 class="font-semibold mb-2">
+                                    Fraud Detection
+                                </h3>
+                                <p class="text-sm text-muted-foreground">
+                                    IA para detectar patrones fraudulentos en
+                                    tiempo real
+                                </p>
+                            </CardContent>
+                        </Card>
+                        <Card className="border-0 shadow-md">
+                            <CardContent className="p-6 text-center">
+                                <h3 class="font-semibold mb-2">
+                                    Auditoría Completa
+                                </h3>
+                                <p class="text-sm text-muted-foreground">
+                                    Logs detallados de todas las transacciones
+                                </p>
+                            </CardContent>
+                        </Card>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 bg-primary text-primary-foreground">
+            <div class="container mx-auto px-4 text-center">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                        Revoluciona tu institución financiera
+                    </h2>
+                    <p class="text-lg opacity-90 mb-8">
+                        Únete a las instituciones financieras que ya han
+                        transformado sus operaciones con nuestras soluciones
+                        seguras e innovadoras.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a
+                            href="/contacto"
+                            class="inline-flex items-center justify-center px-8 py-3 bg-white text-primary rounded-lg font-medium hover:bg-gray-100 transition-colors"
+                        >
+                            <Building className="w-4 h-4 mr-2" />
+                            Agendar Consulta
+                        </a>
+                        <a
+                            href="/soluciones"
+                            class="inline-flex items-center justify-center px-8 py-3 border border-white/20 rounded-lg font-medium hover:bg-white/10 transition-colors"
+                        >
+                            Ver Todas las Soluciones
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>

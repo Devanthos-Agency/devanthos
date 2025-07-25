@@ -3,6 +3,22 @@ import Layout from "@/layouts/Layout.astro";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
+    Globe,
+    Smartphone,
+    ShoppingCart,
+    BarChart3,
+    Rocket,
+    GraduationCap,
+    Heart,
+    DollarSign,
+    Code,
+    ArrowRight,
+    CheckCircle,
+    Zap,
+    Users,
+    TrendingUp,
+    Target,
+    Settings,
     FileText,
     Trees,
     Archive,
@@ -11,7 +27,7 @@ import {
     Book,
 } from "lucide-react";
 
-const products = [
+const developmentProducts = [
     {
         title: "Componentes UI",
         description:
@@ -87,34 +103,159 @@ const products = [
     },
 ];
 
-const solutions = [
+const digitalSolutions = [
+    {
+        title: "Web Applications",
+        description:
+            "Aplicaciones web modernas, escalables y seguras para transformar tu negocio",
+        icon: Globe,
+        features: ["SPA", "PWA", "Enterprise Apps", "APIs REST"],
+        timeline: "2-6 meses",
+        investment: "Desde $8,000",
+        link: "/productos/web-app",
+        category: "Desarrollo Digital",
+        highlights: [
+            "React/Vue/Angular",
+            "Cloud Native",
+            "Microservicios",
+            "Seguridad Avanzada",
+        ],
+    },
+    {
+        title: "Apps Móviles",
+        description:
+            "Aplicaciones nativas e híbridas que conectan con tus usuarios en cualquier lugar",
+        icon: Smartphone,
+        features: [
+            "iOS & Android",
+            "React Native",
+            "Flutter",
+            "Push Notifications",
+        ],
+        timeline: "2-4 meses",
+        investment: "Desde $10,000",
+        link: "/productos/app-movil",
+        category: "Desarrollo Digital",
+        highlights: [
+            "App Store Ready",
+            "Offline Support",
+            "Biometric Auth",
+            "Real-time Sync",
+        ],
+    },
+    {
+        title: "E-commerce",
+        description:
+            "Tiendas online completas con gestión de pagos, envíos y analytics avanzados",
+        icon: ShoppingCart,
+        features: ["Shopify", "WooCommerce", "Magento", "Custom"],
+        timeline: "3-8 semanas",
+        investment: "Desde $5,000",
+        link: "/productos/ecommerce",
+        category: "Desarrollo Digital",
+        highlights: [
+            "Conversión Optimizada",
+            "Multi-payment",
+            "Inventory Mgmt",
+            "SEO Ready",
+        ],
+    },
+    {
+        title: "Dashboards & Analytics",
+        description:
+            "Visualización de datos e inteligencia de negocio para decisiones informadas",
+        icon: BarChart3,
+        features: [
+            "Business Intelligence",
+            "Real-time Data",
+            "Custom KPIs",
+            "Alertas",
+        ],
+        timeline: "3-6 semanas",
+        investment: "Desde $8,000",
+        link: "/productos/dashboard",
+        category: "Desarrollo Digital",
+        highlights: [
+            "100+ Data Sources",
+            "Interactive Charts",
+            "Mobile Ready",
+            "Export Tools",
+        ],
+    },
+    {
+        title: "Landing Pages",
+        description:
+            "Páginas de alto rendimiento optimizadas para conversión y captación de leads",
+        icon: Rocket,
+        features: ["CRO Optimized", "A/B Testing", "Analytics", "Mobile First"],
+        timeline: "1-3 semanas",
+        investment: "Desde $2,000",
+        link: "/productos/landing-page",
+        category: "Marketing Digital",
+        highlights: [
+            "300% Aumento Promedio",
+            "7 Días Entrega",
+            "25% Conversión",
+            "SEO Ready",
+        ],
+    },
+    {
+        title: "Portal Personal",
+        description:
+            "Plataformas personalizadas para gestión de usuarios, perfiles y contenido privado",
+        icon: Users,
+        features: [
+            "User Management",
+            "Content CMS",
+            "Role-based Access",
+            "Analytics",
+        ],
+        timeline: "4-8 semanas",
+        investment: "Desde $6,000",
+        link: "/productos/portal-personal",
+        category: "Desarrollo Digital",
+        highlights: [
+            "Multi-tenant",
+            "Secure Login",
+            "Custom Workflows",
+            "API Integration",
+        ],
+    },
+];
+
+const industrySolutions = [
     {
         category: "Industrias",
         items: [
             {
                 name: "E-commerce",
                 description: "Tiendas online completas",
-                link: "/soluciones/ecommerce",
+                link: "/productos/ecommerce",
+                icon: ShoppingCart,
             },
             {
                 name: "Salud",
                 description: "Sistemas médicos y clínicos",
-                link: "/soluciones/salud",
+                link: "/productos/salud",
+                icon: Heart,
             },
             {
                 name: "Educación",
                 description: "Plataformas educativas",
-                link: "/soluciones/educacion",
+                link: "/productos/educacion",
+                icon: GraduationCap,
             },
             {
                 name: "Finanzas",
                 description: "Apps financieras seguras",
-                link: "/soluciones/finanzas",
+                link: "/productos/finanzas",
+                icon: DollarSign,
             },
             {
                 name: "Tecnología",
                 description: "Herramientas tech",
-                link: "/soluciones/tecnologia",
+                link: "/productos/tecnologia",
+                icon: Code,
             },
         ],
     },
@@ -124,36 +265,104 @@ const solutions = [
             {
                 name: "Portal Personalizado",
                 description: "Tu espacio digital único",
-                link: "/soluciones/portal-personal",
+                link: "/productos/portal-personal",
+                icon: Users,
             },
             {
                 name: "Dashboard Admin",
                 description: "Paneles de administración",
-                link: "/soluciones/dashboard",
+                link: "/productos/dashboard",
+                icon: BarChart3,
             },
             {
                 name: "App Móvil",
                 description: "Aplicaciones nativas",
-                link: "/soluciones/app-movil",
+                link: "/productos/app-movil",
+                icon: Smartphone,
             },
             {
                 name: "Landing Page",
                 description: "Páginas de aterrizaje efectivas",
-                link: "/soluciones/landing-page",
+                link: "/productos/landing-page",
+                icon: Rocket,
             },
             {
                 name: "Aplicación Web",
                 description: "Web apps completas",
-                link: "/soluciones/web-app",
+                link: "/productos/web-app",
+                icon: Globe,
             },
         ],
     },
+];
+
+const keyBenefits = [
+    {
+        icon: Zap,
+        title: "Desarrollo Rápido",
+        description:
+            "Entregamos soluciones en tiempo récord sin comprometer la calidad",
+        metric: "50% más rápido que el promedio",
+    },
+    {
+        icon: TrendingUp,
+        title: "ROI Comprobado",
+        description: "Nuestras soluciones generan retorno de inversión medible",
+        metric: "300% ROI promedio",
+    },
+    {
+        icon: Settings,
+        title: "100% Personalizable",
+        description:
+            "Cada solución se adapta perfectamente a tu negocio específico",
+        metric: "Soluciones únicas",
+    },
+    {
+        icon: Target,
+        title: "Optimización Continua",
+        description: "Mejoramos constantemente basándonos en datos y feedback",
+        metric: "A/B testing incluido",
+    },
+];
+
+const processSteps = [
+    {
+        step: "1",
+        title: "Consultoría Inicial",
+        description: "Analizamos tu negocio y definimos la estrategia perfecta",
+        duration: "1-2 días",
+    },
+    {
+        step: "2",
+        title: "Diseño & Planificación",
+        description: "Creamos prototipos y definimos la arquitectura técnica",
+        duration: "3-7 días",
+    },
+    {
+        step: "3",
+        title: "Desarrollo",
+        description: "Construimos tu solución con entregas incrementales",
+        duration: "2-12 semanas",
+    },
+    {
+        step: "4",
+        title: "Testing & Launch",
+        description: "Pruebas exhaustivas y lanzamiento con soporte completo",
+        duration: "1-2 semanas",
+    },
+];
+
+const stats = [
+    { number: "500+", label: "Proyectos Entregados" },
+    { number: "98%", label: "Satisfacción Cliente" },
+    { number: "300%", label: "ROI Promedio" },
+    { number: "24/7", label: "Soporte Técnico" },
 ];
 ---
 
 <Layout
     title="Productos - Devanthos"
-    description="Explora nuestra gama de productos diseñados para mejorar tu flujo de trabajo y potenciar tu desarrollo."
+    description="Explora nuestra gama completa de productos digitales: herramientas de desarrollo, soluciones web, apps móviles y más. Transformamos ideas en realidad digital."
 >
     <main class="min-h-screen">
         <!-- Hero Section -->
@@ -173,32 +382,394 @@ const solutions = [
             <div
                 class="container h-full flex justify-center items-center mx-auto px-4"
             >
-                <div class="text-center max-w-4xl mx-auto">
-                    <Badge className="mb-4">Productos</Badge>
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                        Herramientas que <span class="text-primary"
-                            >impulsan</span
-                        > tu desarrollo
-                    </h1>
-                    <p class="text-xl text-muted-foreground mb-8">
-                        Descubre nuestra suite completa de productos diseñados
-                        para acelerar tu proceso de desarrollo y crear
-                        experiencias digitales excepcionales.
-                    </p>
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-12">
+                        <Badge className="mb-4">Soluciones Digitales</Badge>
+                        <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                            Transformamos Ideas en <span class="text-primary"
+                                >Soluciones Digitales</span
+                            >
+                        </h1>
+                        <p
+                            class="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto"
+                        >
+                            Desde aplicaciones web hasta plataformas enterprise,
+                            desarrollamos soluciones tecnológicas que impulsan
+                            el crecimiento de tu negocio con resultados
+                            medibles.
+                        </p>
+                        <div
+                            class="flex flex-col sm:flex-row gap-4 justify-center"
+                        >
+                            <a
+                                href="/contacto"
+                                class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                            >
+                                <Target className="w-4 h-4 mr-2" />
+                                Consultoría Gratuita
+                            </a>
+                            <a
+                                href="#soluciones-digitales"
+                                class="inline-flex items-center justify-center px-8 py-3 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+                            >
+                                Ver Todas las Soluciones
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Stats -->
+                    <div
+                        class="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 border-t border-muted-foreground/20"
+                    >
+                        {
+                            stats.map((stat) => (
+                                <div class="text-center">
+                                    <div class="text-3xl md:text-4xl font-bold text-primary mb-2">
+                                        {stat.number}
+                                    </div>
+                                    <div class="text-sm text-muted-foreground">
+                                        {stat.label}
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Products Grid -->
-        <section class="py-20">
+        <!-- Development Tools Introduction Section -->
+        <section class="py-20 bg-muted/20">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-16">
+                        <Badge className="mb-4"
+                            >Herramientas de Desarrollo</Badge
+                        >
+                        <h2 class="text-3xl md:text-5xl font-bold mb-6">
+                            Potencia tu <span class="text-primary"
+                                >desarrollo</span
+                            > con nuestras herramientas
+                        </h2>
+                        <p
+                            class="text-lg text-muted-foreground max-w-3xl mx-auto mb-12"
+                        >
+                            Acelera tu flujo de trabajo con nuestra suite
+                            completa de herramientas de desarrollo. Componentes
+                            reutilizables, sistemas de diseño, plantillas y
+                            mucho más para crear interfaces modernas y
+                            profesionales en tiempo récord.
+                        </p>
+                    </div>
+
+                    <div
+                        class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16"
+                    >
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6">
+                                ¿Por qué nuestras herramientas?
+                            </h3>
+                            <div class="space-y-6">
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="p-2 rounded-lg bg-primary/10 mt-1"
+                                    >
+                                        <svg
+                                            class="w-5 h-5 text-primary"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M13 10V3L4 14h7v7l9-11h-7z"
+                                            ></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold mb-2">
+                                            Desarrollo Ultra-Rápido
+                                        </h4>
+                                        <p
+                                            class="text-muted-foreground text-sm"
+                                        >
+                                            Reduce el tiempo de desarrollo hasta
+                                            en un 70% con componentes
+                                            pre-construidos y sistemas probados.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="p-2 rounded-lg bg-primary/10 mt-1"
+                                    >
+                                        <svg
+                                            class="w-5 h-5 text-primary"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                            ></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold mb-2">
+                                            Calidad Garantizada
+                                        </h4>
+                                        <p
+                                            class="text-muted-foreground text-sm"
+                                        >
+                                            Cada herramienta está probada en
+                                            proyectos reales y sigue las mejores
+                                            prácticas de la industria.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="p-2 rounded-lg bg-primary/10 mt-1"
+                                    >
+                                        <svg
+                                            class="w-5 h-5 text-primary"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"
+                                            ></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold mb-2">
+                                            Totalmente Personalizable
+                                        </h4>
+                                        <p
+                                            class="text-muted-foreground text-sm"
+                                        >
+                                            Adapta cada herramienta a tus
+                                            necesidades específicas con
+                                            configuraciones flexibles.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <img
+                                src="/images/hero/placeholder-8-wide.svg"
+                                alt="Herramientas de desarrollo"
+                                class="w-full rounded-2xl shadow-xl"
+                            />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-2xl"
+                            >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tools Categories -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div
+                            class="text-center p-6 rounded-xl border border-border/50 hover:border-primary/50 transition-colors"
+                        >
+                            <div
+                                class="p-4 rounded-lg bg-primary/10 w-fit mx-auto mb-4"
+                            >
+                                <svg
+                                    class="w-8 h-8 text-primary"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                                    ></path>
+                                </svg>
+                            </div>
+                            <h3 class="font-semibold text-lg mb-2">
+                                Componentes UI
+                            </h3>
+                            <p class="text-muted-foreground text-sm">
+                                50+ componentes listos para usar con TypeScript
+                                y Tailwind CSS
+                            </p>
+                        </div>
+                        <div
+                            class="text-center p-6 rounded-xl border border-border/50 hover:border-primary/50 transition-colors"
+                        >
+                            <div
+                                class="p-4 rounded-lg bg-primary/10 w-fit mx-auto mb-4"
+                            >
+                                <svg
+                                    class="w-8 h-8 text-primary"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"
+                                    ></path>
+                                </svg>
+                            </div>
+                            <h3 class="font-semibold text-lg mb-2">
+                                Sistemas de Diseño
+                            </h3>
+                            <p class="text-muted-foreground text-sm">
+                                Guías completas y tokens de diseño para mantener
+                                consistencia
+                            </p>
+                        </div>
+                        <div
+                            class="text-center p-6 rounded-xl border border-border/50 hover:border-primary/50 transition-colors"
+                        >
+                            <div
+                                class="p-4 rounded-lg bg-primary/10 w-fit mx-auto mb-4"
+                            >
+                                <svg
+                                    class="w-8 h-8 text-primary"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                                    ></path>
+                                </svg>
+                            </div>
+                            <h3 class="font-semibold text-lg mb-2">
+                                Plantillas
+                            </h3>
+                            <p class="text-muted-foreground text-sm">
+                                Layouts pre-diseñados para diferentes tipos de
+                                proyectos
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-12">
+                        <button
+                            id="explorar-herramientas-btn"
+                            class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-all duration-300"
+                        >
+                            <span id="btn-text">Ver Todas las Herramientas</span
+                            >
+                            <svg
+                                id="btn-icon"
+                                class="w-4 h-4 ml-2 transition-transform duration-300"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Expandable Development Tools Grid -->
+                    <div
+                        id="herramientas-grid"
+                        class="mt-12 max-h-0 overflow-hidden transition-all duration-700 ease-in-out opacity-0"
+                    >
+                        <div
+                            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8"
+                        >
+                            {
+                                developmentProducts.map((product, index) => (
+                                    <div
+                                        class="development-card opacity-0 translate-y-8 transition-all duration-500 ease-out"
+                                        style={`transition-delay: ${index * 100}ms`}
+                                    >
+                                        <Card className="group hover:shadow-lg transition-all duration-300 border-0 shadow-md h-full">
+                                            <CardHeader>
+                                                <div class="flex items-center gap-3 mb-4">
+                                                    <div class="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                                                        <product.icon className="w-6 h-6 text-primary" />
+                                                    </div>
+                                                    <CardTitle className="text-xl">
+                                                        {product.title}
+                                                    </CardTitle>
+                                                </div>
+                                                <p class="text-muted-foreground">
+                                                    {product.description}
+                                                </p>
+                                            </CardHeader>
+                                            <CardContent>
+                                                <div class="space-y-3 mb-6">
+                                                    {product.features.map(
+                                                        (feature) => (
+                                                            <div class="flex items-center gap-2">
+                                                                <div class="w-2 h-2 rounded-full bg-primary" />
+                                                                <span class="text-sm">
+                                                                    {feature}
+                                                                </span>
+                                                            </div>
+                                                        )
+                                                    )}
+                                                </div>
+                                                <a
+                                                    href={product.link}
+                                                    class="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium group-hover:gap-3 transition-all"
+                                                >
+                                                    Ver más detalles
+                                                    <svg
+                                                        class="w-4 h-4"
+                                                        fill="none"
+                                                        stroke="currentColor"
+                                                        viewBox="0 0 24 24"
+                                                    >
+                                                        <path
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M9 5l7 7-7 7"
+                                                        />
+                                                    </svg>
+                                                </a>
+                                            </CardContent>
+                                        </Card>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Digital Solutions Section -->
+        <section class="py-20 bg-muted/30">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Nuestros Productos
+                        Productos de Desarrollo Digital
                     </h2>
                     <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Cada producto está diseñado con las mejores prácticas y
-                        las últimas tecnologías del mercado.
+                        Soluciones completas que transforman la manera en que tu
+                        negocio opera y crece en el mundo digital.
                     </p>
                 </div>
 
@@ -206,39 +777,90 @@ const solutions = [
                     class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
                 >
                     {
-                        products.map((product) => (
-                            <Card className="group hover:shadow-lg transition-all duration-300 border-0 shadow-md">
-                                <CardHeader>
-                                    <div class="flex items-center gap-3 mb-4">
+                        digitalSolutions.map((solution) => (
+                            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden">
+                                <CardHeader className="pb-6">
+                                    <div class="flex items-center gap-4 mb-4">
                                         <div class="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                                            <product.icon className="w-6 h-6 text-primary" />
+                                            <solution.icon className="w-6 h-6 text-primary" />
                                         </div>
-                                        <CardTitle className="text-xl">
-                                            {product.title}
-                                        </CardTitle>
+                                        <Badge
+                                            variant="outline"
+                                            className="text-xs"
+                                        >
+                                            Producto Digital
+                                        </Badge>
                                     </div>
-                                    <p class="text-muted-foreground">
-                                        {product.description}
+                                    <CardTitle className="text-xl mb-2">
+                                        {solution.title}
+                                    </CardTitle>
+                                    <p class="text-muted-foreground text-sm">
+                                        {solution.description}
                                     </p>
                                 </CardHeader>
-                                <CardContent>
-                                    <div class="space-y-3 mb-6">
-                                        {product.features.map((feature) => (
-                                            <div class="flex items-center gap-2">
-                                                <div class="w-2 h-2 rounded-full bg-primary" />
-                                                <span class="text-sm">
-                                                    {feature}
-                                                </span>
-                                            </div>
-                                        ))}
+                                <CardContent className="space-y-6">
+                                    <div>
+                                        <h4 class="font-semibold mb-3">
+                                            Tecnologías:
+                                        </h4>
+                                        <div class="flex flex-wrap gap-2">
+                                            {solution.features.map(
+                                                (feature) => (
+                                                    <Badge
+                                                        variant="outline"
+                                                        className="text-xs"
+                                                    >
+                                                        {feature}
+                                                    </Badge>
+                                                )
+                                            )}
+                                        </div>
                                     </div>
+
+                                    <div>
+                                        <h4 class="font-semibold mb-3">
+                                            Características destacadas:
+                                        </h4>
+                                        <ul class="space-y-2">
+                                            {solution.highlights
+                                                .slice(0, 3)
+                                                .map((highlight) => (
+                                                    <li class="flex items-center gap-2">
+                                                        <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                                                        <span class="text-sm">
+                                                            {highlight}
+                                                        </span>
+                                                    </li>
+                                                ))}
+                                        </ul>
+                                    </div>
+
+                                    <div class="space-y-3 pt-4 border-t border-border">
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm font-semibold">
+                                                Timeline:
+                                            </span>
+                                            <Badge className="bg-blue-100 text-blue-800">
+                                                {solution.timeline}
+                                            </Badge>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm font-semibold">
+                                                Inversión:
+                                            </span>
+                                            <span class="text-sm font-medium text-primary">
+                                                {solution.investment}
+                                            </span>
+                                        </div>
+                                    </div>
+
                                     <a
-                                        href={product.link}
-                                        class="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium group-hover:gap-3 transition-all"
+                                        href={solution.link}
+                                        class="inline-flex items-center justify-center w-full px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors group"
                                     >
-                                        Ver más detalles
+                                        Conocer Más
                                         <svg
-                                            class="w-4 h-4"
+                                            class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
                                             fill="none"
                                             stroke="currentColor"
                                             viewBox="0 0 24 24"
@@ -259,7 +881,7 @@ const solutions = [
             </div>
         </section>
 
-        <!-- Solutions Section -->
+        <!-- Industry Solutions Section -->
         <section class="py-20 bg-muted/30">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16">
@@ -267,57 +889,529 @@ const solutions = [
                         Soluciones por Industria
                     </h2>
                     <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Soluciones especializadas adaptadas a las necesidades
-                        específicas de cada sector.
+                        Experiencia especializada en sectores clave con
+                        soluciones adaptadas a las necesidades específicas de
+                        cada industria.
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    {
-                        solutions.map((solutionGroup) => (
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <Card
+                        className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                    >
+                        <CardHeader className="pb-6">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div
+                                    class="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors"
+                                >
+                                    <GraduationCap
+                                        className="w-7 h-7 text-primary"
+                                    />
+                                </div>
+                                <Badge variant="outline" className="text-xs">
+                                    Industria
+                                </Badge>
+                            </div>
+                            <CardTitle className="text-xl mb-2">
+                                Soluciones para Educación
+                            </CardTitle>
+                            <p class="text-muted-foreground text-sm">
+                                Plataformas e-learning, LMS y herramientas
+                                educativas interactivas
+                            </p>
+                        </CardHeader>
+                        <CardContent className="space-y-6">
                             <div>
-                                <h3 class="text-2xl font-bold mb-8 text-center lg:text-left">
-                                    {solutionGroup.category}
-                                </h3>
-                                <div class="space-y-4">
-                                    {solutionGroup.items.map((item) => (
-                                        <Card className="group hover:shadow-md transition-all duration-300 cursor-pointer">
-                                            <CardContent className="p-6">
-                                                <a
-                                                    href={item.link}
-                                                    class="block"
-                                                >
-                                                    <div class="flex items-center justify-between">
-                                                        <div>
-                                                            <h4 class="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">
-                                                                {item.name}
-                                                            </h4>
-                                                            <p class="text-muted-foreground">
-                                                                {
-                                                                    item.description
-                                                                }
-                                                            </p>
-                                                        </div>
-                                                        <svg
-                                                            class="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all"
-                                                            fill="none"
-                                                            stroke="currentColor"
-                                                            viewBox="0 0 24 24"
-                                                        >
-                                                            <path
-                                                                stroke-linecap="round"
-                                                                stroke-linejoin="round"
-                                                                stroke-width="2"
-                                                                d="M9 5l7 7-7 7"
-                                                            />
-                                                        </svg>
-                                                    </div>
-                                                </a>
-                                            </CardContent>
-                                        </Card>
-                                    ))}
+                                <h4 class="font-semibold mb-3">
+                                    Funcionalidades principales:
+                                </h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <Badge variant="outline" className="text-xs"
+                                        >LMS</Badge
+                                    >
+                                    <Badge variant="outline" className="text-xs"
+                                        >Virtual Classrooms</Badge
+                                    >
+                                    <Badge variant="outline" className="text-xs"
+                                        >Progress Tracking</Badge
+                                    >
+                                    <Badge variant="outline" className="text-xs"
+                                        >Gamification</Badge
+                                    >
                                 </div>
                             </div>
+
+                            <div>
+                                <h4 class="font-semibold mb-3">
+                                    Industrias objetivo:
+                                </h4>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <div class="text-sm text-muted-foreground">
+                                        • Universidades
+                                    </div>
+                                    <div class="text-sm text-muted-foreground">
+                                        • Colegios
+                                    </div>
+                                    <div class="text-sm text-muted-foreground">
+                                        • Academias
+                                    </div>
+                                    <div class="text-sm text-muted-foreground">
+                                        • Capacitación Corporativa
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h4 class="font-semibold mb-3">
+                                    Características especiales:
+                                </h4>
+                                <ul class="space-y-1">
+                                    <li class="flex items-center gap-2">
+                                        <CheckCircle
+                                            className="w-4 h-4 text-green-500 flex-shrink-0"
+                                        />
+                                        <span class="text-sm"
+                                            >SCORM Compliance</span
+                                        >
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <CheckCircle
+                                            className="w-4 h-4 text-green-500 flex-shrink-0"
+                                        />
+                                        <span class="text-sm"
+                                            >Video Streaming</span
+                                        >
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <CheckCircle
+                                            className="w-4 h-4 text-green-500 flex-shrink-0"
+                                        />
+                                        <span class="text-sm"
+                                            >Assessment Tools</span
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <a
+                                href="/productos/educacion"
+                                class="inline-flex items-center justify-center w-full px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors group mt-6"
+                            >
+                                Explorar Solución
+                                <ArrowRight
+                                    className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
+                                />
+                            </a>
+                        </CardContent>
+                    </Card>
+
+                    <Card
+                        className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                    >
+                        <CardHeader className="pb-6">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div
+                                    class="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors"
+                                >
+                                    <Heart className="w-7 h-7 text-primary" />
+                                </div>
+                                <Badge variant="outline" className="text-xs">
+                                    Industria
+                                </Badge>
+                            </div>
+                            <CardTitle className="text-xl mb-2">
+                                Soluciones para Salud
+                            </CardTitle>
+                            <p class="text-muted-foreground text-sm">
+                                Sistemas médicos, telemedicina y gestión de
+                                pacientes
+                            </p>
+                        </CardHeader>
+                        <CardContent className="space-y-6">
+                            <div>
+                                <h4 class="font-semibold mb-3">
+                                    Funcionalidades principales:
+                                </h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <Badge variant="outline" className="text-xs"
+                                        >Patient Management</Badge
+                                    >
+                                    <Badge variant="outline" className="text-xs"
+                                        >Telemedicine</Badge
+                                    >
+                                    <Badge variant="outline" className="text-xs"
+                                        >EHR Integration</Badge
+                                    >
+                                    <Badge variant="outline" className="text-xs"
+                                        >Appointments</Badge
+                                    >
+                                </div>
+                            </div>
+
+                            <div>
+                                <h4 class="font-semibold mb-3">
+                                    Industrias objetivo:
+                                </h4>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <div class="text-sm text-muted-foreground">
+                                        • Hospitales
+                                    </div>
+                                    <div class="text-sm text-muted-foreground">
+                                        • Clínicas
+                                    </div>
+                                    <div class="text-sm text-muted-foreground">
+                                        • Consultorios
+                                    </div>
+                                    <div class="text-sm text-muted-foreground">
+                                        • Laboratorios
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h4 class="font-semibold mb-3">
+                                    Características especiales:
+                                </h4>
+                                <ul class="space-y-1">
+                                    <li class="flex items-center gap-2">
+                                        <CheckCircle
+                                            className="w-4 h-4 text-green-500 flex-shrink-0"
+                                        />
+                                        <span class="text-sm"
+                                            >HIPAA Compliance</span
+                                        >
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <CheckCircle
+                                            className="w-4 h-4 text-green-500 flex-shrink-0"
+                                        />
+                                        <span class="text-sm"
+                                            >HL7 Integration</span
+                                        >
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <CheckCircle
+                                            className="w-4 h-4 text-green-500 flex-shrink-0"
+                                        />
+                                        <span class="text-sm"
+                                            >Medical Imaging</span
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <a
+                                href="/productos/salud"
+                                class="inline-flex items-center justify-center w-full px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors group mt-6"
+                            >
+                                Explorar Solución
+                                <ArrowRight
+                                    className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
+                                />
+                            </a>
+                        </CardContent>
+                    </Card>
+
+                    <Card
+                        className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                    >
+                        <CardHeader className="pb-6">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div
+                                    class="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors"
+                                >
+                                    <DollarSign
+                                        className="w-7 h-7 text-primary"
+                                    />
+                                </div>
+                                <Badge variant="outline" className="text-xs">
+                                    Industria
+                                </Badge>
+                            </div>
+                            <CardTitle className="text-xl mb-2">
+                                Soluciones Financieras
+                            </CardTitle>
+                            <p class="text-muted-foreground text-sm">
+                                Apps bancarias, fintech y sistemas de gestión
+                                financiera
+                            </p>
+                        </CardHeader>
+                        <CardContent className="space-y-6">
+                            <div>
+                                <h4 class="font-semibold mb-3">
+                                    Funcionalidades principales:
+                                </h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <Badge variant="outline" className="text-xs"
+                                        >Banking Apps</Badge
+                                    >
+                                    <Badge variant="outline" className="text-xs"
+                                        >Payment Processing</Badge
+                                    >
+                                    <Badge variant="outline" className="text-xs"
+                                        >Investment Tracking</Badge
+                                    >
+                                    <Badge variant="outline" className="text-xs"
+                                        >Crypto</Badge
+                                    >
+                                </div>
+                            </div>
+
+                            <div>
+                                <h4 class="font-semibold mb-3">
+                                    Industrias objetivo:
+                                </h4>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <div class="text-sm text-muted-foreground">
+                                        • Bancos
+                                    </div>
+                                    <div class="text-sm text-muted-foreground">
+                                        • Fintech
+                                    </div>
+                                    <div class="text-sm text-muted-foreground">
+                                        • Inversiones
+                                    </div>
+                                    <div class="text-sm text-muted-foreground">
+                                        • Seguros
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h4 class="font-semibold mb-3">
+                                    Características especiales:
+                                </h4>
+                                <ul class="space-y-1">
+                                    <li class="flex items-center gap-2">
+                                        <CheckCircle
+                                            className="w-4 h-4 text-green-500 flex-shrink-0"
+                                        />
+                                        <span class="text-sm"
+                                            >PCI Compliance</span
+                                        >
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <CheckCircle
+                                            className="w-4 h-4 text-green-500 flex-shrink-0"
+                                        />
+                                        <span class="text-sm">KYC/AML</span>
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <CheckCircle
+                                            className="w-4 h-4 text-green-500 flex-shrink-0"
+                                        />
+                                        <span class="text-sm"
+                                            >Real-time Trading</span
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <a
+                                href="/productos/finanzas"
+                                class="inline-flex items-center justify-center w-full px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors group mt-6"
+                            >
+                                Explorar Solución
+                                <ArrowRight
+                                    className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
+                                />
+                            </a>
+                        </CardContent>
+                    </Card>
+
+                    <Card
+                        className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                    >
+                        <CardHeader className="pb-6">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div
+                                    class="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors"
+                                >
+                                    <Code className="w-7 h-7 text-primary" />
+                                </div>
+                                <Badge variant="outline" className="text-xs">
+                                    Industria
+                                </Badge>
+                            </div>
+                            <CardTitle className="text-xl mb-2">
+                                Soluciones Tecnológicas
+                            </CardTitle>
+                            <p class="text-muted-foreground text-sm">
+                                Herramientas para empresas tech, startups y
+                                desarrollo de software
+                            </p>
+                        </CardHeader>
+                        <CardContent className="space-y-6">
+                            <div>
+                                <h4 class="font-semibold mb-3">
+                                    Funcionalidades principales:
+                                </h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <Badge variant="outline" className="text-xs"
+                                        >Developer Tools</Badge
+                                    >
+                                    <Badge variant="outline" className="text-xs"
+                                        >API Platforms</Badge
+                                    >
+                                    <Badge variant="outline" className="text-xs"
+                                        >DevOps</Badge
+                                    >
+                                    <Badge variant="outline" className="text-xs"
+                                        >Monitoring</Badge
+                                    >
+                                </div>
+                            </div>
+
+                            <div>
+                                <h4 class="font-semibold mb-3">
+                                    Industrias objetivo:
+                                </h4>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <div class="text-sm text-muted-foreground">
+                                        • Startups
+                                    </div>
+                                    <div class="text-sm text-muted-foreground">
+                                        • Software Companies
+                                    </div>
+                                    <div class="text-sm text-muted-foreground">
+                                        • IT Services
+                                    </div>
+                                    <div class="text-sm text-muted-foreground">
+                                        • SaaS
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h4 class="font-semibold mb-3">
+                                    Características especiales:
+                                </h4>
+                                <ul class="space-y-1">
+                                    <li class="flex items-center gap-2">
+                                        <CheckCircle
+                                            className="w-4 h-4 text-green-500 flex-shrink-0"
+                                        />
+                                        <span class="text-sm"
+                                            >CI/CD Integration</span
+                                        >
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <CheckCircle
+                                            className="w-4 h-4 text-green-500 flex-shrink-0"
+                                        />
+                                        <span class="text-sm"
+                                            >API Management</span
+                                        >
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <CheckCircle
+                                            className="w-4 h-4 text-green-500 flex-shrink-0"
+                                        />
+                                        <span class="text-sm"
+                                            >Monitoring Tools</span
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <a
+                                href="/productos/tecnologia"
+                                class="inline-flex items-center justify-center w-full px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors group mt-6"
+                            >
+                                Explorar Solución
+                                <ArrowRight
+                                    className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
+                                />
+                            </a>
+                        </CardContent>
+                    </Card>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Benefits -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        ¿Por Qué Elegir Devanthos?
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Más que desarrollo, somos tu socio estratégico en
+                        transformación digital con resultados comprobados.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+                >
+                    {
+                        keyBenefits.map((benefit) => (
+                            <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300 text-center group">
+                                <CardHeader className="pb-6">
+                                    <div class="mx-auto mb-4 p-4 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors w-fit">
+                                        <benefit.icon className="w-8 h-8 text-primary" />
+                                    </div>
+                                    <CardTitle className="text-lg mb-2">
+                                        {benefit.title}
+                                    </CardTitle>
+                                    <p class="text-muted-foreground text-sm">
+                                        {benefit.description}
+                                    </p>
+                                </CardHeader>
+                                <CardContent>
+                                    <Badge className="bg-green-100 text-green-800 font-semibold">
+                                        {benefit.metric}
+                                    </Badge>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Process -->
+        <section class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Nuestro Proceso
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Metodología probada que garantiza entregas exitosas en
+                        tiempo y presupuesto.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+                >
+                    {
+                        processSteps.map((step, index) => (
+                            <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300 relative">
+                                <CardHeader className="text-center pb-6">
+                                    <div class="mx-auto mb-4 flex items-center justify-center w-16 h-16 rounded-full bg-primary text-primary-foreground text-2xl font-bold">
+                                        {step.step}
+                                    </div>
+                                    <CardTitle className="text-lg mb-2">
+                                        {step.title}
+                                    </CardTitle>
+                                    <p class="text-muted-foreground text-sm">
+                                        {step.description}
+                                    </p>
+                                </CardHeader>
+                                <CardContent className="text-center">
+                                    <Badge variant="outline">
+                                        {step.duration}
+                                    </Badge>
+                                </CardContent>
+                                {index < processSteps.length - 1 && (
+                                    <div class="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2">
+                                        <ArrowRight className="w-6 h-6 text-muted-foreground" />
+                                    </div>
+                                )}
+                            </Card>
                         ))
                     }
                 </div>
@@ -325,32 +1419,124 @@ const solutions = [
         </section>
 
         <!-- CTA Section -->
-        <section class="py-20">
+        <section
+            class="py-20 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground"
+        >
             <div class="container mx-auto px-4 text-center">
-                <div class="max-w-3xl mx-auto">
+                <div class="max-w-4xl mx-auto">
                     <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                        ¿Listo para comenzar tu proyecto?
+                        ¿Listo para Transformar tu Negocio?
                     </h2>
-                    <p class="text-lg text-muted-foreground mb-8">
-                        Programa una consultoría gratuita y descubre cómo
-                        nuestros productos pueden transformar tu negocio.
+                    <p class="text-lg opacity-90 mb-8">
+                        Agenda una consultoría gratuita y descubre cómo nuestras
+                        soluciones pueden impulsar tu crecimiento con tecnología
+                        de vanguardia.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <div
+                        class="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+                    >
                         <a
                             href="/contacto"
-                            class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                            class="inline-flex items-center justify-center px-8 py-3 bg-white text-primary rounded-lg font-medium hover:bg-gray-100 transition-colors"
                         >
-                            Programar Consultoría
+                            <Target className="w-4 h-4 mr-2" />
+                            Consultoría Gratuita
                         </a>
                         <a
-                            href="/productos/documentacion"
-                            class="inline-flex items-center justify-center px-8 py-3 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+                            href="/productos"
+                            class="inline-flex items-center justify-center px-8 py-3 border border-white/20 rounded-lg font-medium hover:bg-white/10 transition-colors"
                         >
-                            Ver Documentación
+                            Ver Productos
                         </a>
+                    </div>
+
+                    <div
+                        class="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-white/20"
+                    >
+                        <div class="text-center">
+                            <div class="text-2xl font-bold mb-1">500+</div>
+                            <div class="text-sm opacity-75">
+                                Proyectos Exitosos
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold mb-1">98%</div>
+                            <div class="text-sm opacity-75">
+                                Satisfacción Cliente
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold mb-1">300%</div>
+                            <div class="text-sm opacity-75">ROI Promedio</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold mb-1">24/7</div>
+                            <div class="text-sm opacity-75">
+                                Soporte Técnico
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 </Layout>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const btn = document.getElementById("explorar-herramientas-btn");
+        const grid = document.getElementById("herramientas-grid");
+        const btnText = document.getElementById("btn-text");
+        const btnIcon = document.getElementById("btn-icon");
+        const cards = document.querySelectorAll(".development-card");
+
+        let isExpanded = false;
+
+        btn?.addEventListener("click", function () {
+            if (!isExpanded) {
+                // Expandir
+                if (grid) {
+                    grid.style.maxHeight = "none";
+                    grid.classList.remove("opacity-0");
+                    grid.classList.add("opacity-100");
+                }
+
+                // Animar las cards con delay escalonado
+                setTimeout(() => {
+                    cards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.remove("opacity-0", "translate-y-8");
+                            card.classList.add("opacity-100", "translate-y-0");
+                        }, index * 150);
+                    });
+                }, 200);
+
+                // Cambiar el botón
+                if (btnText) btnText.textContent = "Ocultar Herramientas";
+                if (btnIcon) btnIcon.style.transform = "rotate(180deg)";
+
+                isExpanded = true;
+            } else {
+                // Colapsar
+                cards.forEach((card) => {
+                    card.classList.remove("opacity-100", "translate-y-0");
+                    card.classList.add("opacity-0", "translate-y-8");
+                });
+
+                setTimeout(() => {
+                    if (grid) {
+                        grid.classList.remove("opacity-100");
+                        grid.classList.add("opacity-0");
+                        grid.style.maxHeight = "0";
+                    }
+                }, 400);
+
+                // Cambiar el botón
+                if (btnText) btnText.textContent = "Ver Todas las Herramientas";
+                if (btnIcon) btnIcon.style.transform = "rotate(0deg)";
+
+                isExpanded = false;
+            }
+        });
+    });
+</script>

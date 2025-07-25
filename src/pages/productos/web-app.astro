@@ -1,0 +1,930 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+    Globe,
+    Zap,
+    Users,
+    Shield,
+    Database,
+    Smartphone,
+    BarChart3,
+    Cloud,
+    Search,
+    CheckCircle,
+    Building,
+    Laptop,
+    TrendingUp,
+    Hospital,
+    GraduationCap,
+    ShoppingCart,
+    Container,
+} from "lucide-react";
+
+const webAppTypes = [
+    {
+        title: "SPA (Single Page Application)",
+        description:
+            "Aplicaciones rápidas y fluidas con una sola página que se actualiza dinámicamente",
+        icon: Zap,
+        technologies: ["React", "Vue.js", "Angular", "Svelte"],
+        pros: [
+            "Navegación fluida",
+            "Menor carga servidor",
+            "UX similar a móvil",
+            "Desarrollo ágil",
+        ],
+        bestFor: "Dashboards, admin panels, aplicaciones interactivas",
+        timeline: "2-4 meses",
+        investment: "$8,000 - $25,000",
+    },
+    {
+        title: "Progressive Web App (PWA)",
+        description:
+            "Apps web que funcionan como nativas con capacidades offline",
+        icon: Smartphone,
+        technologies: ["PWA", "Service Workers", "Web APIs", "Workbox"],
+        pros: [
+            "Funciona offline",
+            "Instalable",
+            "Push notifications",
+            "Multiplataforma",
+        ],
+        bestFor: "E-commerce, noticias, productividad, servicios",
+        timeline: "3-5 meses",
+        investment: "$10,000 - $30,000",
+    },
+    {
+        title: "Web App Enterprise",
+        description:
+            "Sistemas complejos para gestión empresarial y procesos internos",
+        icon: Building,
+        technologies: ["Microservicios", "Docker", "Kubernetes", "Cloud"],
+        pros: [
+            "Alta escalabilidad",
+            "Seguridad avanzada",
+            "Integraciones",
+            "Multi-tenant",
+        ],
+        bestFor: "CRM, ERP, sistemas de gestión, plataformas B2B",
+        timeline: "4-8 meses",
+        investment: "$20,000 - $80,000+",
+    },
+];
+
+const features = [
+    {
+        icon: Users,
+        title: "Gestión de Usuarios",
+        description:
+            "Sistema completo de autenticación, roles y permisos granulares.",
+        capabilities: [
+            "Multi-role authentication",
+            "OAuth integration",
+            "Permission matrix",
+            "User analytics",
+        ],
+    },
+    {
+        icon: Database,
+        title: "Base de Datos Avanzada",
+        description:
+            "Arquitectura de datos optimizada con caché, replicación y backup automático.",
+        capabilities: [
+            "Real-time queries",
+            "Data caching",
+            "Automated backups",
+            "Migration tools",
+        ],
+    },
+    {
+        icon: BarChart3,
+        title: "Analytics & Reporting",
+        description:
+            "Dashboards interactivos con métricas en tiempo real y reportes personalizables.",
+        capabilities: [
+            "Custom dashboards",
+            "Real-time metrics",
+            "Export tools",
+            "Automated reports",
+        ],
+    },
+    {
+        icon: Shield,
+        title: "Seguridad Enterprise",
+        description:
+            "Protección avanzada con encriptación, auditoría y cumplimiento normativo.",
+        capabilities: [
+            "End-to-end encryption",
+            "Audit trails",
+            "GDPR compliance",
+            "Penetration testing",
+        ],
+    },
+    {
+        icon: Cloud,
+        title: "Cloud Integration",
+        description:
+            "Integración nativa con AWS, Azure, Google Cloud y servicios terceros.",
+        capabilities: [
+            "Multi-cloud support",
+            "Auto-scaling",
+            "CDN integration",
+            "Serverless functions",
+        ],
+    },
+    {
+        icon: Search,
+        title: "Búsqueda Avanzada",
+        description:
+            "Motor de búsqueda inteligente con filtros, facetas y búsqueda semántica.",
+        capabilities: [
+            "Full-text search",
+            "Faceted navigation",
+            "Auto-complete",
+            "Search analytics",
+        ],
+    },
+];
+
+const industries = [
+    {
+        name: "SaaS & Software",
+        description:
+            "Plataformas de software como servicio escalables y multi-tenant",
+        examples: [
+            "CRM platforms",
+            "Project management",
+            "Analytics tools",
+            "API platforms",
+        ],
+        icon: Laptop,
+        specialFeatures: [
+            "Multi-tenancy",
+            "Billing integration",
+            "API management",
+            "White-label",
+        ],
+    },
+    {
+        name: "Fintech & Banking",
+        description:
+            "Aplicaciones financieras con máxima seguridad y compliance",
+        examples: [
+            "Digital banking",
+            "Investment platforms",
+            "Payment processing",
+            "Crypto exchanges",
+        ],
+        icon: TrendingUp,
+        specialFeatures: [
+            "PCI compliance",
+            "KYC/AML",
+            "Real-time trading",
+            "Risk management",
+        ],
+    },
+    {
+        name: "Healthcare & MedTech",
+        description: "Sistemas médicos con gestión de pacientes y telemedicina",
+        examples: [
+            "Patient portals",
+            "EHR systems",
+            "Telemedicine",
+            "Medical devices",
+        ],
+        icon: Hospital,
+        specialFeatures: [
+            "HIPAA compliance",
+            "HL7 integration",
+            "Clinical workflows",
+            "Medical imaging",
+        ],
+    },
+    {
+        name: "E-learning & EdTech",
+        description:
+            "Plataformas educativas con LMS y herramientas de aprendizaje",
+        examples: [
+            "Learning management",
+            "Online courses",
+            "Assessment tools",
+            "Virtual classrooms",
+        ],
+        icon: GraduationCap,
+        specialFeatures: [
+            "SCORM compliance",
+            "Gamification",
+            "Progress tracking",
+            "Video streaming",
+        ],
+    },
+    {
+        name: "Logística & Supply Chain",
+        description: "Sistemas de gestión logística y cadena de suministro",
+        examples: [
+            "Inventory management",
+            "Fleet tracking",
+            "Warehouse systems",
+            "Order processing",
+        ],
+        icon: Container,
+        specialFeatures: [
+            "Real-time tracking",
+            "Route optimization",
+            "IoT integration",
+            "Predictive analytics",
+        ],
+    },
+    {
+        name: "Marketplace & E-commerce",
+        description:
+            "Plataformas de comercio electrónico y marketplaces multi-vendor",
+        examples: [
+            "Multi-vendor platforms",
+            "B2B marketplaces",
+            "Auction systems",
+            "Subscription commerce",
+        ],
+        icon: ShoppingCart,
+        specialFeatures: [
+            "Multi-vendor support",
+            "Payment gateways",
+            "Inventory sync",
+            "Review system",
+        ],
+    },
+];
+
+const architecture = [
+    {
+        layer: "Frontend",
+        description: "Interfaz de usuario moderna y responsive",
+        technologies: [
+            "React/Vue/Angular",
+            "TypeScript",
+            "Tailwind CSS",
+            "Component libraries",
+        ],
+        features: [
+            "Responsive design",
+            "Accessibility",
+            "Performance optimization",
+            "Cross-browser compatibility",
+        ],
+    },
+    {
+        layer: "Backend API",
+        description: "API RESTful/GraphQL escalable y documentada",
+        technologies: [
+            "Node.js/Python/Java",
+            "Express/FastAPI",
+            "GraphQL",
+            "API Gateway",
+        ],
+        features: [
+            "RESTful/GraphQL APIs",
+            "Authentication",
+            "Rate limiting",
+            "API documentation",
+        ],
+    },
+    {
+        layer: "Database",
+        description: "Arquitectura de datos optimizada y escalable",
+        technologies: ["PostgreSQL", "MongoDB", "Redis", "Elasticsearch"],
+        features: [
+            "Data modeling",
+            "Query optimization",
+            "Caching strategy",
+            "Backup & recovery",
+        ],
+    },
+    {
+        layer: "Infrastructure",
+        description: "Infraestructura cloud escalable y segura",
+        technologies: ["AWS/Azure/GCP", "Docker", "Kubernetes", "CI/CD"],
+        features: [
+            "Auto-scaling",
+            "Load balancing",
+            "Monitoring",
+            "Disaster recovery",
+        ],
+    },
+];
+
+const process = [
+    {
+        phase: "Discovery & Planning",
+        duration: "2-3 semanas",
+        activities: [
+            "Business analysis",
+            "Technical requirements",
+            "User research",
+            "Architecture planning",
+        ],
+        deliverables: [
+            "Requirements document",
+            "Technical architecture",
+            "Project roadmap",
+            "Risk assessment",
+        ],
+    },
+    {
+        phase: "Design & Prototyping",
+        duration: "3-4 semanas",
+        activities: [
+            "UX/UI design",
+            "Information architecture",
+            "Interactive prototypes",
+            "Design system",
+        ],
+        deliverables: [
+            "Design system",
+            "Interactive prototypes",
+            "User flows",
+            "Technical specifications",
+        ],
+    },
+    {
+        phase: "MVP Development",
+        duration: "6-10 semanas",
+        activities: [
+            "Core feature development",
+            "API creation",
+            "Database setup",
+            "Basic integrations",
+        ],
+        deliverables: [
+            "MVP application",
+            "API documentation",
+            "Database schema",
+            "Basic testing",
+        ],
+    },
+    {
+        phase: "Feature Enhancement",
+        duration: "4-8 semanas",
+        activities: [
+            "Advanced features",
+            "Third-party integrations",
+            "Performance optimization",
+            "Security hardening",
+        ],
+        deliverables: [
+            "Full-featured app",
+            "Integration setup",
+            "Security audit",
+            "Performance report",
+        ],
+    },
+    {
+        phase: "Testing & Launch",
+        duration: "2-4 semanas",
+        activities: [
+            "Comprehensive testing",
+            "Security testing",
+            "Performance testing",
+            "Deployment setup",
+        ],
+        deliverables: [
+            "Test reports",
+            "Security certificate",
+            "Live application",
+            "Monitoring setup",
+        ],
+    },
+];
+
+const integrations = [
+    "Payment Gateways (Stripe, PayPal)",
+    "Authentication (Auth0, OAuth)",
+    "Cloud Storage (AWS S3, Cloudinary)",
+    "Email Services (SendGrid, Mailgun)",
+    "Analytics (Google Analytics, Mixpanel)",
+    "CRM Systems (Salesforce, HubSpot)",
+    "Social Media APIs",
+    "Maps & Location (Google Maps)",
+    "Video Streaming (Vimeo, YouTube)",
+    "Chat & Messaging (Twilio, Socket.io)",
+];
+---
+
+<Layout
+    title="Desarrollo de Aplicaciones Web - Devanthos"
+    description="Desarrollamos aplicaciones web modernas: SPA, PWA, sistemas enterprise. React, Vue, Angular. Soluciones escalables para tu negocio."
+>
+    <main class="min-h-screen">
+        <!-- Hero Section -->
+        <section class="h-dvh md:py-40 md:h-fit relative overflow-hidden">
+            <div
+                class="absolute inset-0 bg-gradient-to-br from-primary/50 via-transparent to-accent/50"
+            >
+            </div>
+            <div
+                class="absolute -top-40 -right-40 w-80 h-80 bg-primary/60 rounded-full blur-3xl"
+            >
+            </div>
+            <div
+                class="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/80 rounded-full blur-3xl"
+            >
+            </div>
+            <div
+                class="container h-full flex justify-center items-center mx-auto px-4"
+            >
+                <div class="max-w-4xl mx-auto text-center">
+                    <Badge className="mb-4">Aplicaciones Web</Badge>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        Web Apps que <span class="text-primary"
+                            >Transforman</span
+                        > Negocios
+                    </h1>
+                    <p class="text-xl text-muted-foreground mb-8">
+                        Desarrollamos aplicaciones web modernas, escalables y
+                        seguras que impulsan la productividad y el crecimiento
+                        de tu empresa.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a
+                            href="/contacto?servicio=web-app"
+                            class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                        >
+                            <Globe className="w-4 h-4 mr-2" />
+                            Iniciar Proyecto
+                        </a>
+                        <a
+                            href="#tipos-webapp"
+                            class="inline-flex items-center justify-center px-8 py-3 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+                        >
+                            Explorar Soluciones
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Web App Types -->
+        <section id="tipos-webapp" class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Tipos de Aplicaciones Web
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Desde SPAs ultrarrápidas hasta sistemas enterprise
+                        complejos, creamos la solución perfecta para tu negocio.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    {
+                        webAppTypes.map((type) => (
+                            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                                <CardHeader className="text-center pb-6">
+                                    <div class="mx-auto mb-4 p-4 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors w-fit">
+                                        <type.icon className="w-8 h-8 text-primary" />
+                                    </div>
+                                    <CardTitle className="text-xl mb-2">
+                                        {type.title}
+                                    </CardTitle>
+                                    <p class="text-muted-foreground">
+                                        {type.description}
+                                    </p>
+                                </CardHeader>
+                                <CardContent className="space-y-6">
+                                    <div>
+                                        <h4 class="font-semibold mb-3">
+                                            Tecnologías:
+                                        </h4>
+                                        <div class="flex flex-wrap gap-2">
+                                            {type.technologies.map((tech) => (
+                                                <Badge
+                                                    variant="outline"
+                                                    className="text-xs"
+                                                >
+                                                    {tech}
+                                                </Badge>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <h4 class="font-semibold mb-3">
+                                            Ventajas:
+                                        </h4>
+                                        <ul class="space-y-2">
+                                            {type.pros.map((pro) => (
+                                                <li class="flex items-center gap-2">
+                                                    <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                                                    <span class="text-sm">
+                                                        {pro}
+                                                    </span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+
+                                    <div class="space-y-3 pt-4 border-t border-border">
+                                        <div>
+                                            <span class="text-sm font-semibold">
+                                                Ideal para:{" "}
+                                            </span>
+                                            <span class="text-sm text-muted-foreground">
+                                                {type.bestFor}
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span class="text-sm font-semibold">
+                                                Timeline:{" "}
+                                            </span>
+                                            <span class="text-sm text-muted-foreground">
+                                                {type.timeline}
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span class="text-sm font-semibold">
+                                                Inversión:{" "}
+                                            </span>
+                                            <span class="text-sm text-muted-foreground">
+                                                {type.investment}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Funcionalidades Avanzadas
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Integramos las funcionalidades más demandadas para crear
+                        aplicaciones web robustas y escalables.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
+                    {
+                        features.map((feature) => (
+                            <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300 group">
+                                <CardHeader>
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <div class="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                                            <feature.icon className="w-6 h-6 text-primary" />
+                                        </div>
+                                        <CardTitle className="text-lg">
+                                            {feature.title}
+                                        </CardTitle>
+                                    </div>
+                                    <p class="text-muted-foreground text-sm">
+                                        {feature.description}
+                                    </p>
+                                </CardHeader>
+                                <CardContent>
+                                    <ul class="space-y-2">
+                                        {feature.capabilities.map(
+                                            (capability) => (
+                                                <li class="flex items-center gap-2">
+                                                    <div class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                                                    <span class="text-sm">
+                                                        {capability}
+                                                    </span>
+                                                </li>
+                                            )
+                                        )}
+                                    </ul>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Architecture -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Arquitectura Moderna
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Diseñamos arquitecturas escalables, mantenibles y
+                        seguras siguiendo las mejores prácticas.
+                    </p>
+                </div>
+
+                <div class="space-y-8 max-w-5xl mx-auto">
+                    {
+                        architecture.map((layer, index) => (
+                            <Card className="border-0 shadow-md">
+                                <CardContent className="p-8">
+                                    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 items-center">
+                                        <div class="text-center lg:text-left">
+                                            <div class="flex items-center justify-center lg:justify-start gap-4 mb-4">
+                                                <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-primary-foreground text-xl font-bold">
+                                                    {index + 1}
+                                                </div>
+                                                <div>
+                                                    <h3 class="font-bold text-lg">
+                                                        {layer.layer}
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                            <p class="text-muted-foreground text-sm">
+                                                {layer.description}
+                                            </p>
+                                        </div>
+
+                                        <div>
+                                            <h4 class="font-semibold mb-3">
+                                                Tecnologías:
+                                            </h4>
+                                            <div class="flex flex-wrap gap-2">
+                                                {layer.technologies.map(
+                                                    (tech) => (
+                                                        <Badge
+                                                            variant="outline"
+                                                            className="text-xs"
+                                                        >
+                                                            {tech}
+                                                        </Badge>
+                                                    )
+                                                )}
+                                            </div>
+                                        </div>
+
+                                        <div class="lg:col-span-2">
+                                            <h4 class="font-semibold mb-3">
+                                                Características:
+                                            </h4>
+                                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                                {layer.features.map(
+                                                    (feature) => (
+                                                        <div class="flex items-center gap-2">
+                                                            <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                                                            <span class="text-sm">
+                                                                {feature}
+                                                            </span>
+                                                        </div>
+                                                    )
+                                                )}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Industries -->
+        <section class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Soluciones por Industria
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Experiencia especializada en sectores clave con
+                        soluciones adaptadas a cada industria.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
+                    {
+                        industries.map((industry) => (
+                            <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300">
+                                <CardHeader>
+                                    <div class="text-4xl mb-4">
+                                        <industry.icon className="w-8 h-8 text-primary" />
+                                    </div>
+                                    <CardTitle className="text-xl mb-2">
+                                        {industry.name}
+                                    </CardTitle>
+                                    <p class="text-muted-foreground text-sm">
+                                        {industry.description}
+                                    </p>
+                                </CardHeader>
+                                <CardContent className="space-y-4">
+                                    <div>
+                                        <h4 class="font-semibold mb-3">
+                                            Aplicaciones típicas:
+                                        </h4>
+                                        <ul class="space-y-1">
+                                            {industry.examples.map(
+                                                (example) => (
+                                                    <li class="text-sm text-muted-foreground">
+                                                        • {example}
+                                                    </li>
+                                                )
+                                            )}
+                                        </ul>
+                                    </div>
+
+                                    <div>
+                                        <h4 class="font-semibold mb-3">
+                                            Características especiales:
+                                        </h4>
+                                        <div class="flex flex-wrap gap-2">
+                                            {industry.specialFeatures.map(
+                                                (feature) => (
+                                                    <Badge
+                                                        variant="outline"
+                                                        className="text-xs"
+                                                    >
+                                                        {feature}
+                                                    </Badge>
+                                                )
+                                            )}
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Integrations -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Integraciones Disponibles
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Conectamos tu aplicación con las herramientas y
+                        servicios que ya utilizas.
+                    </p>
+                </div>
+
+                <div class="max-w-4xl mx-auto">
+                    <div
+                        class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
+                    >
+                        {
+                            integrations.map((integration) => (
+                                <Card className="border-0 shadow-sm hover:shadow-md transition-all duration-300 text-center">
+                                    <CardContent className="p-4">
+                                        <div class="text-sm font-medium">
+                                            {integration}
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process -->
+        <section class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Proceso de Desarrollo
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Metodología ágil con entregas incrementales y validación
+                        constante.
+                    </p>
+                </div>
+
+                <div class="space-y-8 max-w-5xl mx-auto">
+                    {
+                        process.map((phase, index) => (
+                            <Card className="border-0 shadow-md">
+                                <CardContent className="p-8">
+                                    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
+                                        <div>
+                                            <div class="flex items-center gap-4 mb-4">
+                                                <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-primary-foreground text-xl font-bold">
+                                                    {index + 1}
+                                                </div>
+                                                <div>
+                                                    <h3 class="font-bold text-lg">
+                                                        {phase.phase}
+                                                    </h3>
+                                                    <Badge variant="outline">
+                                                        {phase.duration}
+                                                    </Badge>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <h4 class="font-semibold mb-3">
+                                                Actividades:
+                                            </h4>
+                                            <ul class="space-y-1">
+                                                {phase.activities.map(
+                                                    (activity) => (
+                                                        <li class="text-sm text-muted-foreground">
+                                                            • {activity}
+                                                        </li>
+                                                    )
+                                                )}
+                                            </ul>
+                                        </div>
+
+                                        <div class="lg:col-span-2">
+                                            <h4 class="font-semibold mb-3">
+                                                Entregables:
+                                            </h4>
+                                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                                {phase.deliverables.map(
+                                                    (deliverable) => (
+                                                        <div class="flex items-center gap-2">
+                                                            <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                                                            <span class="text-sm">
+                                                                {deliverable}
+                                                            </span>
+                                                        </div>
+                                                    )
+                                                )}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section
+            class="py-20 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground"
+        >
+            <div class="container mx-auto px-4 text-center">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                        ¿Listo para transformar tu negocio?
+                    </h2>
+                    <p class="text-lg opacity-90 mb-8">
+                        Desarrollamos la aplicación web perfecta para tus
+                        necesidades. Desde MVPs hasta sistemas enterprise
+                        complejos.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a
+                            href="/contacto?servicio=web-app"
+                            class="inline-flex items-center justify-center px-8 py-3 bg-white text-primary rounded-lg font-medium hover:bg-gray-100 transition-colors"
+                        >
+                            <Globe className="w-4 h-4 mr-2" />
+                            Iniciar Proyecto
+                        </a>
+                        <a
+                            href="/productos"
+                            class="inline-flex items-center justify-center px-8 py-3 border border-white/20 rounded-lg font-medium hover:bg-white/10 transition-colors"
+                        >
+                            Ver Productos
+                        </a>
+                    </div>
+
+                    <div class="mt-12 pt-8 border-t border-white/20">
+                        <div class="grid grid-cols-3 gap-8 max-w-md mx-auto">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold mb-1">200+</div>
+                                <div class="text-sm opacity-75">
+                                    Apps Desarrolladas
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold mb-1">99.9%</div>
+                                <div class="text-sm opacity-75">
+                                    Uptime Promedio
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold mb-1">50+</div>
+                                <div class="text-sm opacity-75">
+                                    Clientes Enterprise
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>

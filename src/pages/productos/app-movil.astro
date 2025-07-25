@@ -1,0 +1,739 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+    Smartphone,
+    Tablet,
+    Bell,
+    Shield,
+    Globe,
+    Camera,
+    Map,
+    CreditCard,
+    Cloud,
+    CheckCircle,
+    ShoppingBag,
+    Hospital,
+    CircleDollarSign,
+    GraduationCap,
+    Clapperboard,
+    Container,
+} from "lucide-react";
+
+const appTypes = [
+    {
+        title: "Apps Nativas",
+        description:
+            "Desarrollo nativo para iOS y Android con máximo rendimiento",
+        icon: Smartphone,
+        technologies: ["Swift", "Kotlin", "Objective-C", "Java"],
+        pros: [
+            "Máximo rendimiento",
+            "Acceso completo a APIs",
+            "UX nativa",
+            "App Store optimization",
+        ],
+        bestFor: "Apps con funcionalidades complejas y alta performance",
+        timeline: "3-6 meses",
+        investment: "$15,000 - $50,000+",
+    },
+    {
+        title: "Apps Híbridas",
+        description: "Una base de código para múltiples plataformas",
+        icon: Tablet,
+        technologies: ["React Native", "Flutter", "Ionic", "Xamarin"],
+        pros: [
+            "Desarrollo más rápido",
+            "Un solo código base",
+            "Menor costo",
+            "Mantenimiento simple",
+        ],
+        bestFor: "Startups y MVPs que necesitan llegar rápido al mercado",
+        timeline: "2-4 meses",
+        investment: "$10,000 - $30,000",
+    },
+    {
+        title: "Progressive Web Apps",
+        description: "Apps web que funcionan como nativas",
+        icon: Globe,
+        technologies: ["PWA", "Service Workers", "Web APIs", "Responsive"],
+        pros: [
+            "Sin app stores",
+            "Actualizaciones automáticas",
+            "Multiplataforma",
+            "SEO friendly",
+        ],
+        bestFor: "Contenido y servicios que necesitan amplio alcance",
+        timeline: "1-3 meses",
+        investment: "$5,000 - $15,000",
+    },
+];
+
+const features = [
+    {
+        icon: Bell,
+        title: "Push Notifications",
+        description:
+            "Mantén a tus usuarios comprometidos con notificaciones personalizadas e inteligentes.",
+        capabilities: [
+            "Segmentación avanzada",
+            "Programación automática",
+            "A/B testing",
+            "Analytics detallados",
+        ],
+    },
+    {
+        icon: Shield,
+        title: "Autenticación Segura",
+        description:
+            "Sistemas de login seguros con biometría, 2FA y protección contra fraudes.",
+        capabilities: [
+            "Biometric login",
+            "Social authentication",
+            "Two-factor auth",
+            "Fraud detection",
+        ],
+    },
+    {
+        icon: Camera,
+        title: "Funciones de Cámara",
+        description:
+            "Integración completa con cámara, galería, filtros y procesamiento de imágenes.",
+        capabilities: [
+            "Photo/video capture",
+            "Filtros en tiempo real",
+            "Image processing",
+            "AR integration",
+        ],
+    },
+    {
+        icon: Map,
+        title: "Geolocalización",
+        description:
+            "Mapas interactivos, navegación GPS, geofencing y servicios basados en ubicación.",
+        capabilities: [
+            "GPS navigation",
+            "Offline maps",
+            "Geofencing",
+            "Location tracking",
+        ],
+    },
+    {
+        icon: CreditCard,
+        title: "Pagos Integrados",
+        description:
+            "Procesamiento de pagos seguro con múltiples métodos y wallets digitales.",
+        capabilities: [
+            "Multiple gateways",
+            "Digital wallets",
+            "Subscription billing",
+            "Fraud protection",
+        ],
+    },
+    {
+        icon: Cloud,
+        title: "Sincronización Cloud",
+        description:
+            "Sincronización en tiempo real entre dispositivos con backup automático.",
+        capabilities: [
+            "Real-time sync",
+            "Offline support",
+            "Auto backup",
+            "Multi-device access",
+        ],
+    },
+];
+
+const industries = [
+    {
+        name: "E-commerce & Retail",
+        description:
+            "Apps de compras con AR, pagos móviles y experiencia personalizada",
+        examples: [
+            "Catálogos con AR",
+            "Pagos one-click",
+            "Loyalty programs",
+            "Inventory tracking",
+        ],
+        icon: ShoppingBag,
+    },
+    {
+        name: "Salud & Fitness",
+        description: "Apps médicas, fitness tracking y telemedicina",
+        examples: [
+            "Health monitoring",
+            "Workout tracking",
+            "Appointment booking",
+            "Prescription mgmt",
+        ],
+        icon: Hospital,
+    },
+    {
+        name: "Finanzas & Banking",
+        description: "Apps bancarias, fintech y gestión de inversiones",
+        examples: [
+            "Mobile banking",
+            "Investment tracking",
+            "Budget management",
+            "Crypto wallets",
+        ],
+        icon: CircleDollarSign,
+    },
+    {
+        name: "Educación & E-learning",
+        description: "Plataformas educativas interactivas y gamificación",
+        examples: [
+            "Interactive courses",
+            "Progress tracking",
+            "Gamification",
+            "Live streaming",
+        ],
+        icon: GraduationCap,
+    },
+    {
+        name: "Entretenimiento & Media",
+        description: "Streaming, gaming y redes sociales",
+        examples: [
+            "Video streaming",
+            "Social features",
+            "Live chat",
+            "Content creation",
+        ],
+        icon: Clapperboard,
+    },
+    {
+        name: "Logística & Delivery",
+        description: "Apps de delivery, tracking y gestión de flotas",
+        examples: [
+            "Real-time tracking",
+            "Route optimization",
+            "Fleet management",
+            "Customer notifications",
+        ],
+        icon: Container,
+    },
+];
+
+const process = [
+    {
+        phase: "Discovery & Strategy",
+        duration: "1-2 semanas",
+        activities: [
+            "Market research",
+            "User personas",
+            "Technical analysis",
+            "Project roadmap",
+        ],
+        deliverables: [
+            "Strategy document",
+            "Technical architecture",
+            "Project timeline",
+        ],
+    },
+    {
+        phase: "UX/UI Design",
+        duration: "2-3 semanas",
+        activities: [
+            "Wireframing",
+            "User flows",
+            "Visual design",
+            "Prototyping",
+        ],
+        deliverables: [
+            "Interactive prototypes",
+            "Design system",
+            "UI specifications",
+        ],
+    },
+    {
+        phase: "Development",
+        duration: "6-12 semanas",
+        activities: [
+            "Frontend development",
+            "Backend APIs",
+            "Third-party integrations",
+            "Quality assurance",
+        ],
+        deliverables: ["Functional app", "API documentation", "Test reports"],
+    },
+    {
+        phase: "Testing & Optimization",
+        duration: "2-3 semanas",
+        activities: [
+            "Device testing",
+            "Performance optimization",
+            "Security audits",
+            "User acceptance testing",
+        ],
+        deliverables: [
+            "Test reports",
+            "Performance metrics",
+            "Security certificate",
+        ],
+    },
+    {
+        phase: "Launch & Support",
+        duration: "1-2 semanas",
+        activities: [
+            "App store submission",
+            "Marketing assets",
+            "Analytics setup",
+            "Team training",
+        ],
+        deliverables: [
+            "Live app",
+            "Analytics dashboard",
+            "Support documentation",
+        ],
+    },
+];
+
+const technologies = [
+    {
+        category: "Frontend",
+        techs: ["React Native", "Flutter", "Swift", "Kotlin", "Ionic"],
+    },
+    {
+        category: "Backend",
+        techs: ["Node.js", "Python", "Java", "Firebase", "AWS"],
+    },
+    {
+        category: "Base de Datos",
+        techs: ["MongoDB", "PostgreSQL", "Firebase", "Redis", "SQLite"],
+    },
+    {
+        category: "Cloud & DevOps",
+        techs: ["AWS", "Google Cloud", "Azure", "Docker", "CI/CD"],
+    },
+];
+---
+
+<Layout
+    title="Desarrollo de Apps Móviles - Devanthos"
+    description="Desarrollamos aplicaciones móviles nativas, híbridas y PWA. iOS, Android, React Native, Flutter. Desde MVPs hasta apps enterprise."
+>
+    <main class="min-h-screen">
+        <!-- Hero Section -->
+        <section class="h-dvh md:py-40 md:h-fit relative overflow-hidden">
+            <div
+                class="absolute inset-0 bg-gradient-to-br from-primary/50 via-transparent to-accent/50"
+            >
+            </div>
+            <div
+                class="absolute -top-40 -right-40 w-80 h-80 bg-primary/60 rounded-full blur-3xl"
+            >
+            </div>
+            <div
+                class="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/80 rounded-full blur-3xl"
+            >
+            </div>
+            <div
+                class="container h-full flex justify-center items-center mx-auto px-4"
+            >
+                <div class="max-w-4xl mx-auto text-center">
+                    <Badge className="mb-4">Desarrollo Móvil</Badge>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        Apps Móviles que <span class="text-primary"
+                            >Conectan</span
+                        >
+                    </h1>
+                    <p class="text-xl text-muted-foreground mb-8">
+                        Desarrollamos aplicaciones móviles nativas, híbridas y
+                        PWAs que destacan en las App Stores y generan engagement
+                        real con tus usuarios.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a
+                            href="/contacto?servicio=app-movil"
+                            class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                        >
+                            <Smartphone className="w-4 h-4 mr-2" />
+                            Iniciar Proyecto
+                        </a>
+                        <a
+                            href="#tipos-app"
+                            class="inline-flex items-center justify-center px-8 py-3 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+                        >
+                            Explorar Opciones
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- App Types Comparison -->
+        <section id="tipos-app" class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        ¿Qué Tipo de App Necesitas?
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Te ayudamos a elegir la tecnología perfecta según tu
+                        presupuesto, timeline y objetivos.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    {
+                        appTypes.map((type) => (
+                            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 relative">
+                                <CardHeader className="text-center pb-6">
+                                    <div class="mx-auto mb-4 p-4 rounded-lg bg-primary/10 w-fit">
+                                        <type.icon className="w-8 h-8 text-primary" />
+                                    </div>
+                                    <CardTitle className="text-xl mb-2">
+                                        {type.title}
+                                    </CardTitle>
+                                    <p class="text-muted-foreground">
+                                        {type.description}
+                                    </p>
+                                </CardHeader>
+                                <CardContent className="space-y-6">
+                                    <div>
+                                        <h4 class="font-semibold mb-3">
+                                            Tecnologías:
+                                        </h4>
+                                        <div class="flex flex-wrap gap-2">
+                                            {type.technologies.map((tech) => (
+                                                <Badge
+                                                    variant="outline"
+                                                    className="text-xs"
+                                                >
+                                                    {tech}
+                                                </Badge>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <h4 class="font-semibold mb-3">
+                                            Ventajas:
+                                        </h4>
+                                        <ul class="space-y-2">
+                                            {type.pros.map((pro) => (
+                                                <li class="flex items-center gap-2">
+                                                    <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                                                    <span class="text-sm">
+                                                        {pro}
+                                                    </span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+
+                                    <div class="space-y-3 pt-4 border-t border-border">
+                                        <div>
+                                            <span class="text-sm font-semibold">
+                                                Ideal para:{" "}
+                                            </span>
+                                            <span class="text-sm text-muted-foreground">
+                                                {type.bestFor}
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span class="text-sm font-semibold">
+                                                Timeline:{" "}
+                                            </span>
+                                            <span class="text-sm text-muted-foreground">
+                                                {type.timeline}
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span class="text-sm font-semibold">
+                                                Inversión:{" "}
+                                            </span>
+                                            <span class="text-sm text-muted-foreground">
+                                                {type.investment}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Funcionalidades Avanzadas
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Integramos las funcionalidades más demandadas para crear
+                        experiencias móviles excepcionales.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
+                    {
+                        features.map((feature) => (
+                            <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300 group">
+                                <CardHeader>
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <div class="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                                            <feature.icon className="w-6 h-6 text-primary" />
+                                        </div>
+                                        <CardTitle className="text-lg">
+                                            {feature.title}
+                                        </CardTitle>
+                                    </div>
+                                    <p class="text-muted-foreground text-sm">
+                                        {feature.description}
+                                    </p>
+                                </CardHeader>
+                                <CardContent>
+                                    <ul class="space-y-2">
+                                        {feature.capabilities.map(
+                                            (capability) => (
+                                                <li class="flex items-center gap-2">
+                                                    <div class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                                                    <span class="text-sm">
+                                                        {capability}
+                                                    </span>
+                                                </li>
+                                            )
+                                        )}
+                                    </ul>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Industries -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Experiencia por Industrias
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Conocemos las necesidades específicas de cada sector y
+                        desarrollamos soluciones especializadas.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
+                    {
+                        industries.map((industry) => (
+                            <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300">
+                                <CardHeader>
+                                    <div class="text-4xl mb-4">
+                                        <industry.icon className="w-8 h-8 text-primary" />
+                                    </div>
+                                    <CardTitle className="text-xl mb-2">
+                                        {industry.name}
+                                    </CardTitle>
+                                    <p class="text-muted-foreground text-sm">
+                                        {industry.description}
+                                    </p>
+                                </CardHeader>
+                                <CardContent>
+                                    <h4 class="font-semibold mb-3">
+                                        Funcionalidades clave:
+                                    </h4>
+                                    <ul class="space-y-2">
+                                        {industry.examples.map((example) => (
+                                            <li class="flex items-center gap-2">
+                                                <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                                                <span class="text-sm">
+                                                    {example}
+                                                </span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Technologies -->
+        <section class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Stack Tecnológico
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Utilizamos las tecnologías más modernas y probadas para
+                        garantizar performance y escalabilidad.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+                >
+                    {
+                        technologies.map((category) => (
+                            <Card className="border-0 shadow-md">
+                                <CardHeader className="text-center">
+                                    <CardTitle className="text-lg">
+                                        {category.category}
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <div class="flex flex-wrap gap-2 justify-center">
+                                        {category.techs.map((tech) => (
+                                            <Badge
+                                                variant="outline"
+                                                className="text-xs"
+                                            >
+                                                {tech}
+                                            </Badge>
+                                        ))}
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Process -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Proceso de Desarrollo
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Metodología ágil con entregas incrementales y feedback
+                        constante.
+                    </p>
+                </div>
+
+                <div class="space-y-8 max-w-4xl mx-auto">
+                    {
+                        process.map((phase, index) => (
+                            <Card className="border-0 shadow-md">
+                                <CardContent className="p-8">
+                                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+                                        <div>
+                                            <div class="flex items-center gap-4 mb-4">
+                                                <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-primary-foreground text-xl font-bold">
+                                                    {index + 1}
+                                                </div>
+                                                <div>
+                                                    <h3 class="font-bold text-lg">
+                                                        {phase.phase}
+                                                    </h3>
+                                                    <Badge variant="outline">
+                                                        {phase.duration}
+                                                    </Badge>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <h4 class="font-semibold mb-3">
+                                                Actividades:
+                                            </h4>
+                                            <ul class="space-y-1">
+                                                {phase.activities.map(
+                                                    (activity) => (
+                                                        <li class="text-sm text-muted-foreground">
+                                                            • {activity}
+                                                        </li>
+                                                    )
+                                                )}
+                                            </ul>
+                                        </div>
+
+                                        <div>
+                                            <h4 class="font-semibold mb-3">
+                                                Entregables:
+                                            </h4>
+                                            <ul class="space-y-1">
+                                                {phase.deliverables.map(
+                                                    (deliverable) => (
+                                                        <li class="flex items-center gap-2">
+                                                            <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                                                            <span class="text-sm">
+                                                                {deliverable}
+                                                            </span>
+                                                        </li>
+                                                    )
+                                                )}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section
+            class="py-20 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground"
+        >
+            <div class="container mx-auto px-4 text-center">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                        ¿Listo para crear tu app móvil?
+                    </h2>
+                    <p class="text-lg opacity-90 mb-8">
+                        Convierte tu idea en una app exitosa. Desde el concepto
+                        hasta el App Store, te acompañamos en todo el proceso.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a
+                            href="/contacto?servicio=app-movil"
+                            class="inline-flex items-center justify-center px-8 py-3 bg-white text-primary rounded-lg font-medium hover:bg-gray-100 transition-colors"
+                        >
+                            <Smartphone className="w-4 h-4 mr-2" />
+                            Iniciar Proyecto
+                        </a>
+                        <a
+                            href="/productos/plantillas"
+                            class="inline-flex items-center justify-center px-8 py-3 border border-white/20 rounded-lg font-medium hover:bg-white/10 transition-colors"
+                        >
+                            Ver Templates Móvil
+                        </a>
+                    </div>
+
+                    <div class="mt-12 pt-8 border-t border-white/20">
+                        <div class="grid grid-cols-3 gap-8 max-w-md mx-auto">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold mb-1">100+</div>
+                                <div class="text-sm opacity-75">
+                                    Apps Desarrolladas
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold mb-1">4.8★</div>
+                                <div class="text-sm opacity-75">
+                                    Rating Promedio
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold mb-1">1M+</div>
+                                <div class="text-sm opacity-75">
+                                    Descargas Totales
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>

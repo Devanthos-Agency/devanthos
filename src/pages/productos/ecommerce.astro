@@ -1,0 +1,618 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+    ShoppingCart,
+    CreditCard,
+    Truck,
+    Shield,
+    BarChart3,
+    Users,
+    Star,
+    Package,
+    Globe,
+    Zap,
+    CheckCircle,
+} from "lucide-react";
+
+const features = [
+    {
+        icon: ShoppingCart,
+        title: "Carrito Avanzado",
+        description:
+            "Carrito con persistencia, wishlist, comparador de productos y checkout optimizado para conversión.",
+        benefits: [
+            "Abandono reducido",
+            "Proceso simplificado",
+            "Múltiples métodos de pago",
+            "Guest checkout",
+        ],
+    },
+    {
+        icon: CreditCard,
+        title: "Pagos Seguros",
+        description:
+            "Integración con múltiples pasarelas de pago y sistemas de facturación automatizada.",
+        benefits: [
+            "Stripe, PayPal, Mercado Pago",
+            "Pagos recurrentes",
+            "Facturación automática",
+            "PCI compliance",
+        ],
+    },
+    {
+        icon: Truck,
+        title: "Gestión de Envíos",
+        description:
+            "Sistema completo de logística con tracking en tiempo real y múltiples transportistas.",
+        benefits: [
+            "Tracking en vivo",
+            "Múltiples carriers",
+            "Cálculo automático",
+            "Notificaciones",
+        ],
+    },
+    {
+        icon: Shield,
+        title: "Seguridad Avanzada",
+        description:
+            "Protección contra fraude, SSL, autenticación de dos factores y auditorías de seguridad.",
+        benefits: [
+            "Detección de fraude",
+            "SSL certificado",
+            "2FA",
+            "Auditorías regulares",
+        ],
+    },
+    {
+        icon: BarChart3,
+        title: "Analytics & Reportes",
+        description:
+            "Dashboard completo con métricas de ventas, comportamiento del usuario y ROI.",
+        benefits: [
+            "Métricas en tiempo real",
+            "Reportes customizables",
+            "Análisis de cohortes",
+            "ROI tracking",
+        ],
+    },
+    {
+        icon: Users,
+        title: "Gestión de Clientes",
+        description:
+            "CRM integrado para gestionar clientes, historial de compras y programa de lealtad.",
+        benefits: [
+            "Perfil completo",
+            "Historial de compras",
+            "Programa de puntos",
+            "Comunicación automática",
+        ],
+    },
+];
+
+const platforms = [
+    {
+        title: "Shopify Plus",
+        description: "Para empresas que necesitan escalabilidad enterprise",
+        icon: Package,
+        pros: [
+            "Fácil de usar",
+            "Apps ecosystem",
+            "Hosting incluido",
+            "Soporte 24/7",
+        ],
+        cons: ["Comisiones por venta", "Limitaciones de customización"],
+        bestFor: "Empresas medianas a grandes",
+    },
+    {
+        title: "WooCommerce",
+        description: "Solución flexible basada en WordPress",
+        icon: Globe,
+        pros: [
+            "Completamente customizable",
+            "Miles de plugins",
+            "Open source",
+            "Sin comisiones",
+        ],
+        cons: ["Requiere hosting", "Mantenimiento técnico"],
+        bestFor: "Empresas que buscan flexibilidad",
+    },
+    {
+        title: "Magento Commerce",
+        description: "Plataforma enterprise con funcionalidades avanzadas",
+        icon: Zap,
+        pros: [
+            "Altamente escalable",
+            "B2B features",
+            "Multi-store",
+            "Advanced SEO",
+        ],
+        cons: ["Curva de aprendizaje", "Recursos requeridos"],
+        bestFor: "Grandes corporaciones",
+    },
+    {
+        title: "Solución Custom",
+        description: "Desarrollo completamente personalizado",
+        icon: Star,
+        pros: [
+            "100% personalizable",
+            "Propiedad completa",
+            "Sin limitaciones",
+            "Integración total",
+        ],
+        cons: ["Tiempo de desarrollo", "Inversión inicial"],
+        bestFor: "Empresas con necesidades específicas",
+    },
+];
+
+const process = [
+    {
+        step: "1",
+        title: "Análisis y Estrategia",
+        description:
+            "Analizamos tu negocio, competencia y objetivos para definir la estrategia perfecta.",
+        duration: "1-2 semanas",
+        deliverables: [
+            "Análisis de mercado",
+            "Arquitectura técnica",
+            "Plan de proyecto",
+        ],
+    },
+    {
+        step: "2",
+        title: "Diseño UX/UI",
+        description:
+            "Creamos wireframes, prototipos y diseño visual optimizado para conversión.",
+        duration: "2-3 semanas",
+        deliverables: [
+            "Wireframes",
+            "Prototipos interactivos",
+            "Design system",
+        ],
+    },
+    {
+        step: "3",
+        title: "Desarrollo",
+        description:
+            "Desarrollamos la tienda con las mejores tecnologías y prácticas del mercado.",
+        duration: "4-8 semanas",
+        deliverables: [
+            "Frontend responsive",
+            "Backend robusto",
+            "Integraciones",
+        ],
+    },
+    {
+        step: "4",
+        title: "Testing y Optimización",
+        description:
+            "Pruebas exhaustivas, optimización de performance y configuración SEO.",
+        duration: "1-2 semanas",
+        deliverables: [
+            "Tests de calidad",
+            "Optimización performance",
+            "SEO setup",
+        ],
+    },
+    {
+        step: "5",
+        title: "Lanzamiento y Soporte",
+        description:
+            "Deploy en producción, capacitación del equipo y soporte post-lanzamiento.",
+        duration: "1 semana",
+        deliverables: ["Deploy production", "Capacitación", "Documentación"],
+    },
+];
+
+const successStories = [
+    {
+        company: "FashionTrend",
+        industry: "Moda",
+        results: "+250% en ventas online",
+        description:
+            "Migración de tienda física a e-commerce completo con gestión de inventario multi-canal.",
+        metrics: [
+            "250% aumento en ventas",
+            "40% menos abandono de carrito",
+            "60% más conversiones móvil",
+        ],
+    },
+    {
+        company: "TechGadgets",
+        industry: "Electrónicos",
+        results: "+180% conversión móvil",
+        description:
+            "Optimización mobile-first con comparador de productos y reviews inteligentes.",
+        metrics: [
+            "180% mejor conversión móvil",
+            "3.2s tiempo de carga",
+            "95% customer satisfaction",
+        ],
+    },
+    {
+        company: "GreenMarket",
+        industry: "Orgánicos",
+        results: "+300% usuarios recurrentes",
+        description:
+            "Marketplace de productos orgánicos con sistema de subscripciones y delivery.",
+        metrics: [
+            "300% más usuarios recurrentes",
+            "85% retention rate",
+            "40% AOV increase",
+        ],
+    },
+];
+---
+
+<Layout
+    title="E-commerce Solutions - Devanthos"
+    description="Desarrollamos tiendas online completas y escalables. Desde startups hasta enterprise, creamos soluciones e-commerce que convierten visitantes en clientes."
+>
+    <main class="min-h-screen">
+        <!-- Hero Section -->
+        <section class="h-dvh md:py-40 md:h-fit relative overflow-hidden">
+            <div
+                class="absolute inset-0 bg-gradient-to-br from-primary/50 via-transparent to-accent/50"
+            >
+            </div>
+            <div
+                class="absolute -top-40 -right-40 w-80 h-80 bg-primary/60 rounded-full blur-3xl"
+            >
+            </div>
+            <div
+                class="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/80 rounded-full blur-3xl"
+            >
+            </div>
+            <div
+                class="container h-full flex justify-center items-center mx-auto px-4"
+            >
+                <div class="max-w-4xl mx-auto text-center">
+                    <Badge className="mb-4">E-commerce Solutions</Badge>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        Tiendas Online que <span class="text-primary"
+                            >Venden</span
+                        >
+                    </h1>
+                    <p class="text-xl text-muted-foreground mb-8">
+                        Desarrollamos plataformas e-commerce completas y
+                        optimizadas para conversión. Desde pequeñas tiendas
+                        hasta marketplaces enterprise.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a
+                            href="/contacto?servicio=ecommerce"
+                            class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                        >
+                            <ShoppingCart className="w-4 h-4 mr-2" />
+                            Iniciar Proyecto
+                        </a>
+                        <a
+                            href="#casos-exito"
+                            class="inline-flex items-center justify-center px-8 py-3 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+                        >
+                            Ver Casos de Éxito
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Funcionalidades Avanzadas
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Cada tienda incluye funcionalidades de nivel enterprise
+                        para maximizar tus ventas.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
+                    {
+                        features.map((feature) => (
+                            <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300 group">
+                                <CardHeader>
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <div class="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                                            <feature.icon className="w-6 h-6 text-primary" />
+                                        </div>
+                                        <CardTitle className="text-xl">
+                                            {feature.title}
+                                        </CardTitle>
+                                    </div>
+                                    <p class="text-muted-foreground">
+                                        {feature.description}
+                                    </p>
+                                </CardHeader>
+                                <CardContent>
+                                    <ul class="space-y-2">
+                                        {feature.benefits.map((benefit) => (
+                                            <li class="flex items-center gap-2">
+                                                <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                                                <span class="text-sm">
+                                                    {benefit}
+                                                </span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Platforms Comparison -->
+        <section class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        ¿Qué Plataforma Elegir?
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Te ayudamos a elegir la plataforma perfecta según tu
+                        negocio, presupuesto y objetivos.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+                >
+                    {
+                        platforms.map((platform) => (
+                            <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300">
+                                <CardHeader className="text-center">
+                                    <div class="mx-auto mb-4 p-3 rounded-lg bg-primary/10 w-fit">
+                                        <platform.icon className="w-8 h-8 text-primary" />
+                                    </div>
+                                    <CardTitle className="text-xl mb-2">
+                                        {platform.title}
+                                    </CardTitle>
+                                    <p class="text-sm text-muted-foreground">
+                                        {platform.description}
+                                    </p>
+                                </CardHeader>
+                                <CardContent className="space-y-4">
+                                    <div>
+                                        <h4 class="font-semibold text-green-600 mb-2">
+                                            Ventajas:
+                                        </h4>
+                                        <ul class="space-y-1">
+                                            {platform.pros.map((pro) => (
+                                                <li class="text-sm flex items-center gap-2">
+                                                    <div class="w-1.5 h-1.5 rounded-full bg-green-500 flex-shrink-0" />
+                                                    {pro}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+
+                                    <div>
+                                        <h4 class="font-semibold text-orange-600 mb-2">
+                                            Consideraciones:
+                                        </h4>
+                                        <ul class="space-y-1">
+                                            {platform.cons.map((con) => (
+                                                <li class="text-sm flex items-center gap-2">
+                                                    <div class="w-1.5 h-1.5 rounded-full bg-orange-500 flex-shrink-0" />
+                                                    {con}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+
+                                    <div class="pt-4 border-t border-border">
+                                        <p class="text-sm font-semibold">
+                                            Ideal para:
+                                        </p>
+                                        <p class="text-sm text-muted-foreground">
+                                            {platform.bestFor}
+                                        </p>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Process -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Nuestro Proceso de Desarrollo
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Metodología probada que garantiza entrega en tiempo y
+                        presupuesto.
+                    </p>
+                </div>
+
+                <div class="space-y-8">
+                    {
+                        process.map((phase, index) => (
+                            <Card className="border-0 shadow-md">
+                                <CardContent className="p-8">
+                                    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
+                                        <div class="text-center lg:text-left">
+                                            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary text-primary-foreground text-2xl font-bold mb-4">
+                                                {phase.step}
+                                            </div>
+                                            <h3 class="font-bold text-xl mb-2">
+                                                {phase.title}
+                                            </h3>
+                                            <Badge variant="outline">
+                                                {phase.duration}
+                                            </Badge>
+                                        </div>
+
+                                        <div class="lg:col-span-2">
+                                            <p class="text-muted-foreground mb-4">
+                                                {phase.description}
+                                            </p>
+                                        </div>
+
+                                        <div>
+                                            <h4 class="font-semibold mb-3">
+                                                Entregables:
+                                            </h4>
+                                            <ul class="space-y-2">
+                                                {phase.deliverables.map(
+                                                    (deliverable) => (
+                                                        <li class="flex items-center gap-2">
+                                                            <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                                                            <span class="text-sm">
+                                                                {deliverable}
+                                                            </span>
+                                                        </li>
+                                                    )
+                                                )}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Success Stories -->
+        <section id="casos-exito" class="py-20 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Casos de Éxito
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Historias reales de clientes que transformaron su
+                        negocio con nuestras soluciones.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {
+                        successStories.map((story) => (
+                            <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300">
+                                <CardHeader>
+                                    <div class="flex items-center gap-3 mb-4">
+                                        <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                                            <Star className="w-6 h-6 text-primary" />
+                                        </div>
+                                        <div>
+                                            <CardTitle className="text-lg">
+                                                {story.company}
+                                            </CardTitle>
+                                            <Badge variant="outline">
+                                                {story.industry}
+                                            </Badge>
+                                        </div>
+                                    </div>
+                                    <div class="text-2xl font-bold text-primary mb-2">
+                                        {story.results}
+                                    </div>
+                                    <p class="text-muted-foreground">
+                                        {story.description}
+                                    </p>
+                                </CardHeader>
+                                <CardContent>
+                                    <div class="space-y-3">
+                                        <h4 class="font-semibold">
+                                            Resultados clave:
+                                        </h4>
+                                        {story.metrics.map((metric) => (
+                                            <div class="flex items-center gap-2">
+                                                <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                                                <span class="text-sm">
+                                                    {metric}
+                                                </span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <Card
+                    className="border-0 shadow-lg bg-gradient-to-r from-primary to-primary/80 text-primary-foreground"
+                >
+                    <CardContent className="p-12 text-center">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                            ¿Listo para lanzar tu tienda online?
+                        </h2>
+                        <p class="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
+                            Programa una consultoría gratuita y descubre cómo
+                            podemos crear la tienda online perfecta para tu
+                            negocio.
+                        </p>
+                        <div
+                            class="flex flex-col sm:flex-row gap-4 justify-center"
+                        >
+                            <a
+                                href="/contacto?servicio=ecommerce"
+                                class="inline-flex items-center justify-center px-8 py-3 bg-white text-primary rounded-lg font-medium hover:bg-gray-100 transition-colors"
+                            >
+                                <ShoppingCart className="w-4 h-4 mr-2" />
+                                Iniciar Proyecto
+                            </a>
+                            <a
+                                href="/productos/plantillas"
+                                class="inline-flex items-center justify-center px-8 py-3 border border-white/20 rounded-lg font-medium hover:bg-white/10 transition-colors"
+                            >
+                                Ver Plantillas E-commerce
+                            </a>
+                        </div>
+
+                        <div class="mt-12 pt-8 border-t border-white/20">
+                            <div
+                                class="grid grid-cols-3 gap-8 max-w-md mx-auto"
+                            >
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold mb-1">
+                                        50+
+                                    </div>
+                                    <div class="text-sm opacity-75">
+                                        Tiendas Creadas
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold mb-1">
+                                        $2M+
+                                    </div>
+                                    <div class="text-sm opacity-75">
+                                        Ventas Generadas
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold mb-1">
+                                        98%
+                                    </div>
+                                    <div class="text-sm opacity-75">
+                                        Satisfacción
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </CardContent>
+                </Card>
+            </div>
+        </section>
+    </main>
+</Layout>
