@@ -73,7 +73,7 @@ const NAVIGATION1: Array<MenuItem> = [
         className: "grid-cols-[400px,300px] xl:grid-cols-[500px_500px]",
         groups: [
             {
-                title: "Productos",
+                title: "Herramientas de Desarrollo",
                 links: [
                     {
                         label: "Componentes UI",
@@ -126,24 +126,24 @@ const NAVIGATION1: Array<MenuItem> = [
                 ],
             },
             {
-                title: "Soluciones",
+                title: "Productos",
                 sections: [
                     {
                         title: "Industrias",
                         links: [
                             {
-                                label: "E-commerce",
-                                url: "/soluciones/ecommerce",
+                                label: "Negocios",
+                                url: "/productos/ecommerce",
                             },
-                            { label: "Salud", url: "/soluciones/salud" },
+                            { label: "Salud", url: "/productos/salud" },
                             {
                                 label: "Educación",
-                                url: "/soluciones/educacion",
+                                url: "/productos/educacion",
                             },
-                            { label: "Finanzas", url: "/soluciones/finanzas" },
+                            { label: "Finanzas", url: "/productos/finanzas" },
                             {
                                 label: "Tecnología",
-                                url: "/soluciones/tecnologia",
+                                url: "/productos/tecnologia",
                             },
                         ],
                     },
@@ -152,23 +152,23 @@ const NAVIGATION1: Array<MenuItem> = [
                         links: [
                             {
                                 label: "Portal personalizado",
-                                url: "/soluciones/portal-personal",
+                                url: "/productos/portal-personal",
                             },
                             {
                                 label: "Dashboard de administrador",
-                                url: "/soluciones/dashboard",
+                                url: "/productos/dashboard",
                             },
                             {
                                 label: "App mobile",
-                                url: "/soluciones/app-movil",
+                                url: "/productos/app-movil",
                             },
                             {
                                 label: "Landing Page",
-                                url: "/soluciones/landing-page",
+                                url: "/productos/landing-page",
                             },
                             {
                                 label: "Aplicación web",
-                                url: "/soluciones/web-app",
+                                url: "/productos/web-app",
                             },
                         ],
                     },
