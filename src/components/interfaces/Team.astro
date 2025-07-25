@@ -1,7 +1,7 @@
 ---
 import { Behance } from "../icons";
-import { Button } from "../ui/button";
 import { Github, Linkedin, Instagram, Globe } from "lucide-react";
+import Button from "../ui/Button.astro";
 
 const people = [
     {
@@ -127,10 +127,19 @@ const people = [
             innovadoras y efectivas a nuestros clientes.
         </p>
         <div class="flex w-full flex-col justify-center gap-2 sm:flex-row">
-            <Button variant="outline" className="w-full sm:w-auto">
-                Secundario
+            <Button href="/contacto" variant="outline" class="w-full sm:w-auto">
+                Contáctanos para más información
+
+                <Globe className="size-4 text-muted-foreground" />
             </Button>
-            <Button className="w-full sm:w-auto">Primario</Button>
+            <Button
+                href="https://wa.me/5492646629632?text=Hola%20me%20interesa%20la%20consultoria%20gratuita"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full sm:w-auto"
+            >
+                Consultoría gratuita
+            </Button>
         </div>
     </div>
     <div
