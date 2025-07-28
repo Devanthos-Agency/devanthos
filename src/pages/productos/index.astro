@@ -25,6 +25,7 @@ import {
     Handshake,
     Sunset,
     Book,
+    ChevronDown,
 } from "lucide-react";
 
 const developmentProducts = [
@@ -433,328 +434,6 @@ const stats = [
                                 </div>
                             ))
                         }
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Development Tools Introduction Section -->
-        <section class="py-20 bg-muted/20">
-            <div class="container mx-auto px-4">
-                <div class="max-w-6xl mx-auto">
-                    <div class="text-center mb-16">
-                        <Badge className="mb-4"
-                            >Herramientas de Desarrollo</Badge
-                        >
-                        <h2 class="text-3xl md:text-5xl font-bold mb-6">
-                            Potencia tu <span class="text-primary"
-                                >desarrollo</span
-                            > con nuestras herramientas
-                        </h2>
-                        <p
-                            class="text-lg text-muted-foreground max-w-3xl mx-auto mb-12"
-                        >
-                            Acelera tu flujo de trabajo con nuestra suite
-                            completa de herramientas de desarrollo. Componentes
-                            reutilizables, sistemas de diseño, plantillas y
-                            mucho más para crear interfaces modernas y
-                            profesionales en tiempo récord.
-                        </p>
-                    </div>
-
-                    <div
-                        class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16"
-                    >
-                        <div>
-                            <h3 class="text-2xl font-bold mb-6">
-                                ¿Por qué nuestras herramientas?
-                            </h3>
-                            <div class="space-y-6">
-                                <div class="flex items-start gap-4">
-                                    <div
-                                        class="p-2 rounded-lg bg-primary/10 mt-1"
-                                    >
-                                        <svg
-                                            class="w-5 h-5 text-primary"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                stroke-width="2"
-                                                d="M13 10V3L4 14h7v7l9-11h-7z"
-                                            ></path>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-semibold mb-2">
-                                            Desarrollo Ultra-Rápido
-                                        </h4>
-                                        <p
-                                            class="text-muted-foreground text-sm"
-                                        >
-                                            Reduce el tiempo de desarrollo hasta
-                                            en un 70% con componentes
-                                            pre-construidos y sistemas probados.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="flex items-start gap-4">
-                                    <div
-                                        class="p-2 rounded-lg bg-primary/10 mt-1"
-                                    >
-                                        <svg
-                                            class="w-5 h-5 text-primary"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                stroke-width="2"
-                                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                                            ></path>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-semibold mb-2">
-                                            Calidad Garantizada
-                                        </h4>
-                                        <p
-                                            class="text-muted-foreground text-sm"
-                                        >
-                                            Cada herramienta está probada en
-                                            proyectos reales y sigue las mejores
-                                            prácticas de la industria.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="flex items-start gap-4">
-                                    <div
-                                        class="p-2 rounded-lg bg-primary/10 mt-1"
-                                    >
-                                        <svg
-                                            class="w-5 h-5 text-primary"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                stroke-width="2"
-                                                d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"
-                                            ></path>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-semibold mb-2">
-                                            Totalmente Personalizable
-                                        </h4>
-                                        <p
-                                            class="text-muted-foreground text-sm"
-                                        >
-                                            Adapta cada herramienta a tus
-                                            necesidades específicas con
-                                            configuraciones flexibles.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="relative">
-                            <img
-                                src="/images/hero/placeholder-8-wide.svg"
-                                alt="Herramientas de desarrollo"
-                                class="w-full rounded-2xl shadow-xl"
-                            />
-                            <div
-                                class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-2xl"
-                            >
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tools Categories -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div
-                            class="text-center p-6 rounded-xl border border-border/50 hover:border-primary/50 transition-colors"
-                        >
-                            <div
-                                class="p-4 rounded-lg bg-primary/10 w-fit mx-auto mb-4"
-                            >
-                                <svg
-                                    class="w-8 h-8 text-primary"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-                                    ></path>
-                                </svg>
-                            </div>
-                            <h3 class="font-semibold text-lg mb-2">
-                                Componentes UI
-                            </h3>
-                            <p class="text-muted-foreground text-sm">
-                                50+ componentes listos para usar con TypeScript
-                                y Tailwind CSS
-                            </p>
-                        </div>
-                        <div
-                            class="text-center p-6 rounded-xl border border-border/50 hover:border-primary/50 transition-colors"
-                        >
-                            <div
-                                class="p-4 rounded-lg bg-primary/10 w-fit mx-auto mb-4"
-                            >
-                                <svg
-                                    class="w-8 h-8 text-primary"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"
-                                    ></path>
-                                </svg>
-                            </div>
-                            <h3 class="font-semibold text-lg mb-2">
-                                Sistemas de Diseño
-                            </h3>
-                            <p class="text-muted-foreground text-sm">
-                                Guías completas y tokens de diseño para mantener
-                                consistencia
-                            </p>
-                        </div>
-                        <div
-                            class="text-center p-6 rounded-xl border border-border/50 hover:border-primary/50 transition-colors"
-                        >
-                            <div
-                                class="p-4 rounded-lg bg-primary/10 w-fit mx-auto mb-4"
-                            >
-                                <svg
-                                    class="w-8 h-8 text-primary"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-                                    ></path>
-                                </svg>
-                            </div>
-                            <h3 class="font-semibold text-lg mb-2">
-                                Plantillas
-                            </h3>
-                            <p class="text-muted-foreground text-sm">
-                                Layouts pre-diseñados para diferentes tipos de
-                                proyectos
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="text-center mt-12">
-                        <button
-                            id="explorar-herramientas-btn"
-                            class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-all duration-300"
-                        >
-                            <span id="btn-text">Ver Todas las Herramientas</span
-                            >
-                            <svg
-                                id="btn-icon"
-                                class="w-4 h-4 ml-2 transition-transform duration-300"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                    </div>
-
-                    <!-- Expandable Development Tools Grid -->
-                    <div
-                        id="herramientas-grid"
-                        class="mt-12 max-h-0 overflow-hidden transition-all duration-700 ease-in-out opacity-0"
-                    >
-                        <div
-                            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8"
-                        >
-                            {
-                                developmentProducts.map((product, index) => (
-                                    <div
-                                        class="development-card opacity-0 translate-y-8 transition-all duration-500 ease-out"
-                                        style={`transition-delay: ${index * 100}ms`}
-                                    >
-                                        <Card className="group hover:shadow-lg transition-all duration-300 border-0 shadow-md h-full">
-                                            <CardHeader>
-                                                <div class="flex items-center gap-3 mb-4">
-                                                    <div class="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                                                        <product.icon className="w-6 h-6 text-primary" />
-                                                    </div>
-                                                    <CardTitle className="text-xl">
-                                                        {product.title}
-                                                    </CardTitle>
-                                                </div>
-                                                <p class="text-muted-foreground">
-                                                    {product.description}
-                                                </p>
-                                            </CardHeader>
-                                            <CardContent>
-                                                <div class="space-y-3 mb-6">
-                                                    {product.features.map(
-                                                        (feature) => (
-                                                            <div class="flex items-center gap-2">
-                                                                <div class="w-2 h-2 rounded-full bg-primary" />
-                                                                <span class="text-sm">
-                                                                    {feature}
-                                                                </span>
-                                                            </div>
-                                                        )
-                                                    )}
-                                                </div>
-                                                <a
-                                                    href={product.link}
-                                                    class="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium group-hover:gap-3 transition-all"
-                                                >
-                                                    Ver más detalles
-                                                    <svg
-                                                        class="w-4 h-4"
-                                                        fill="none"
-                                                        stroke="currentColor"
-                                                        viewBox="0 0 24 24"
-                                                    >
-                                                        <path
-                                                            stroke-linecap="round"
-                                                            stroke-linejoin="round"
-                                                            stroke-width="2"
-                                                            d="M9 5l7 7-7 7"
-                                                        />
-                                                    </svg>
-                                                </a>
-                                            </CardContent>
-                                        </Card>
-                                    </div>
-                                ))
-                            }
-                        </div>
                     </div>
                 </div>
             </div>
@@ -1325,6 +1004,231 @@ const stats = [
                             </a>
                         </CardContent>
                     </Card>
+                </div>
+            </div>
+        </section>
+
+        <!-- Development Tools Introduction Section -->
+        <section class="py-20 bg-muted/20">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-16">
+                        <Badge className="mb-4"
+                            >Herramientas de Desarrollo</Badge
+                        >
+                        <h2 class="text-3xl md:text-5xl font-bold mb-6">
+                            Potencia tu <span class="text-primary"
+                                >desarrollo</span
+                            > con nuestras herramientas
+                        </h2>
+                        <p
+                            class="text-lg text-muted-foreground max-w-3xl mx-auto mb-12"
+                        >
+                            Acelera tu flujo de trabajo con nuestra suite
+                            completa de herramientas de desarrollo. Componentes
+                            reutilizables, sistemas de diseño, plantillas y
+                            mucho más para crear interfaces modernas y
+                            profesionales en tiempo récord.
+                        </p>
+                    </div>
+
+                    <div
+                        class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16"
+                    >
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6">
+                                ¿Por qué nuestras herramientas?
+                            </h3>
+                            <div class="space-y-6">
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="p-2 rounded-lg bg-primary/10 mt-1"
+                                    >
+                                        <svg
+                                            class="w-5 h-5 text-primary"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M13 10V3L4 14h7v7l9-11h-7z"
+                                            ></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold mb-2">
+                                            Desarrollo Ultra-Rápido
+                                        </h4>
+                                        <p
+                                            class="text-muted-foreground text-sm"
+                                        >
+                                            Reduce el tiempo de desarrollo hasta
+                                            en un 70% con componentes
+                                            pre-construidos y sistemas probados.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="p-2 rounded-lg bg-primary/10 mt-1"
+                                    >
+                                        <svg
+                                            class="w-5 h-5 text-primary"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                            ></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold mb-2">
+                                            Calidad Garantizada
+                                        </h4>
+                                        <p
+                                            class="text-muted-foreground text-sm"
+                                        >
+                                            Cada herramienta está probada en
+                                            proyectos reales y sigue las mejores
+                                            prácticas de la industria.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="p-2 rounded-lg bg-primary/10 mt-1"
+                                    >
+                                        <svg
+                                            class="w-5 h-5 text-primary"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"
+                                            ></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold mb-2">
+                                            Totalmente Personalizable
+                                        </h4>
+                                        <p
+                                            class="text-muted-foreground text-sm"
+                                        >
+                                            Adapta cada herramienta a tus
+                                            necesidades específicas con
+                                            configuraciones flexibles.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <img
+                                src="/images/hero/placeholder-8-wide.svg"
+                                alt="Herramientas de desarrollo"
+                                class="w-full rounded-2xl shadow-xl"
+                            />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-2xl"
+                            >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-12">
+                        <button
+                            id="explorar-herramientas-btn"
+                            class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-all duration-300"
+                        >
+                            <span id="btn-text">Ver Todas las Herramientas</span
+                            >
+                            <ChevronDown
+                                id="btn-icon"
+                                className="w-4 h-4 ml-2 transition-transform duration-300"
+                            />
+                        </button>
+                    </div>
+
+                    <!-- Expandable Development Tools Grid -->
+                    <div
+                        id="herramientas-grid"
+                        class="mt-12 max-h-0 overflow-hidden transition-all duration-700 ease-in-out opacity-0"
+                    >
+                        <div
+                            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8"
+                        >
+                            {
+                                developmentProducts.map((product, index) => (
+                                    <div
+                                        class="development-card opacity-0 translate-y-8 transition-all duration-500 ease-out"
+                                        style={`transition-delay: ${index * 100}ms`}
+                                    >
+                                        <Card className="group hover:shadow-lg transition-all duration-300 border-0 shadow-md h-full">
+                                            <CardHeader>
+                                                <div class="flex items-center gap-3 mb-4">
+                                                    <div class="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                                                        <product.icon className="w-6 h-6 text-primary" />
+                                                    </div>
+                                                    <CardTitle className="text-xl">
+                                                        {product.title}
+                                                    </CardTitle>
+                                                </div>
+                                                <p class="text-muted-foreground">
+                                                    {product.description}
+                                                </p>
+                                            </CardHeader>
+                                            <CardContent>
+                                                <div class="space-y-3 mb-6">
+                                                    {product.features.map(
+                                                        (feature) => (
+                                                            <div class="flex items-center gap-2">
+                                                                <div class="w-2 h-2 rounded-full bg-primary" />
+                                                                <span class="text-sm">
+                                                                    {feature}
+                                                                </span>
+                                                            </div>
+                                                        )
+                                                    )}
+                                                </div>
+                                                <a
+                                                    href={product.link}
+                                                    class="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium group-hover:gap-3 transition-all"
+                                                >
+                                                    Ver más detalles
+                                                    <svg
+                                                        class="w-4 h-4"
+                                                        fill="none"
+                                                        stroke="currentColor"
+                                                        viewBox="0 0 24 24"
+                                                    >
+                                                        <path
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M9 5l7 7-7 7"
+                                                        />
+                                                    </svg>
+                                                </a>
+                                            </CardContent>
+                                        </Card>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
