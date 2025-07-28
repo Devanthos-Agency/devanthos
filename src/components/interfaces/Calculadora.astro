@@ -3,9 +3,15 @@ import { Badge } from "@/components/ui/badge";
 import { Calculator, Shield, Clock } from "lucide-react";
 ---
 
-<section
-    class="py-20 bg-gradient-to-br from-primary/5 to-primary/10 backdrop-blur-2xl"
->
+<section class="relative py-20">
+    <div
+        class="absolute bottom-auto left-auto right-0 top-0 h-[500px] w-[500px] -translate-x-[30%] -translate-y-[20%] rounded-full bg-[rgba(173,109,244,0.3)] opacity-30 blur-[100px]"
+    >
+    </div>
+    <div
+        class="absolute bottom-0 left-0 h-[300px] w-[300px] translate-x-[10%] translate-y-[20%] rounded-full bg-[rgba(109,173,244,0.3)] opacity-30 blur-[80px]"
+    >
+    </div>
     <div class="container mx-auto px-4">
         <div class="max-w-4xl mx-auto text-center">
             <Badge className="mb-4">Calculadora de Presupuesto</Badge>
