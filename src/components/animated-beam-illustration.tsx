@@ -23,7 +23,7 @@ export default function AnimatedBeamIllustration() {
     const div7Ref = useRef<HTMLDivElement>(null);
     return (
         <div
-            className="relative flex w-full items-center justify-center overflow-hidden p-10"
+            className="relative flex w-full items-center justify-center overflow-hidden p-16"
             ref={containerRef}
         >
             <div className="flex w-full flex-col items-center justify-between gap-10 lg:flex-row">
