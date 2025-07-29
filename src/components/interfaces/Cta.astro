@@ -7,8 +7,26 @@ import Button from "../ui/Button.astro";
 <section class="pt-32">
     <div class="container mx-auto px-2 md:px-6 lg:px-8">
         <div
-            class="grid overflow-hidden rounded-xl border border-primary/30 md:grid-cols-3 bg-gradient-to-b lg:bg-gradient-to-r from-accent to-primary/50 shadow-2xl"
+            class="grid relative overflow-hidden rounded-xl border border-primary/30 md:grid-cols-3 bg-gradient-to-b lg:bg-gradient-to-r from-accent to-primary/50 shadow-2xl"
         >
+            <div
+                class="absolute inset-0 z-0 opacity-40 dark:opacity-20"
+                style={{
+                    backgroundImage: `
+                        linear-gradient(to right, rgba(229,231,235,0.8) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(229,231,235,0.8) 1px, transparent 1px),
+                        radial-gradient(circle 500px at 20% 100%, rgba(139,92,246,0.3), transparent),
+                        radial-gradient(circle 500px at 100% 80%, rgba(59,130,246,0.3), transparent)
+            `,
+                    backgroundSize:
+                        "48px 48px, 48px 48px, 100% 100%, 100% 100%",
+                    WebkitMaskImage:
+                        "radial-gradient(ellipse 80% 80% at 100% 0%, #000 50%, transparent 90%)",
+                    maskImage:
+                        "radial-gradient(ellipse 80% 80% at 100% 0%, #000 50%, transparent 90%)",
+                }}
+            >
+            </div>
             <div class="my-auto px-6 py-10 sm:px-10 sm:py-12 lg:px-16 lg:py-20">
                 <div class="w-full md:max-w-md">
                     <h2 class="mb-4 text-2xl font-semibold lg:text-3xl">
