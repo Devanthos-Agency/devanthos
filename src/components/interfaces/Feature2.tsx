@@ -12,10 +12,11 @@ export default function ContainerScrollSection() {
                                 Obtenga una interfaz de usuario hermosa y
                                 moderna
                             </p>
-                            <h1 className="text-6xl font-cocogoose text-center font-normal tracking-tighter md:text-8xl xl:text-[10rem]">
+                            <h2 className="text-6xl font-cocogoose text-center font-normal tracking-tighter md:text-8xl xl:text-[10rem]">
                                 <span className="pr-6 text-muted-foreground/40">
                                     Con
                                 </span>
+
                                 <AuroraText
                                     colors={[
                                         "#4c5dab",
@@ -28,7 +29,20 @@ export default function ContainerScrollSection() {
                                 >
                                     Devanthos
                                 </AuroraText>
-                            </h1>
+                                <AuroraText
+                                    className="absolute -top-15 left-0 -z-10 blur-lg xs:translate-x-[72px] md:translate-0 md:-top-24 lg:translate-x-28 xl:translate-x-0 xl:-top-40 xl:blur-xl"
+                                    colors={[
+                                        "#4c5dab",
+                                        "#4c5dab",
+                                        "#f182f1",
+                                        "#f182f1",
+                                        "#614cb9",
+                                        "#614cb9",
+                                    ]}
+                                >
+                                    Devanthos
+                                </AuroraText>
+                            </h2>
                         </>
                     }
                 >
@@ -37,7 +51,7 @@ export default function ContainerScrollSection() {
                         alt="hero"
                         height={720}
                         width={1400}
-                        className="mx-auto h-full rounded-2xl object-cover object-left-top"
+                        className="mx-auto h-full rounded-2xl object-cover object-left-top relative top-0"
                         draggable={false}
                     />
                 </ContainerScroll>
