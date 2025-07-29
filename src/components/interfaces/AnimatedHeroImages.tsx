@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
     motion,
     useScroll,
@@ -22,10 +22,29 @@ const AnimatedHeroImages: React.FC<AnimatedHeroImagesProps> = ({
     animationType = "dynamic",
 }) => {
     const [isHovered, setIsHovered] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
-    const { scrollY } = useScroll();
+    const { scrollY } = useScroll({
+        target: containerRef,
+        offset: ["start end", "end start"],
+    });
 
-    // Parallax effects
+    useEffect(() => {
+        setIsMounted(true);
+
+        // Detectar si es móvil
+        const checkIsMobile = () => {
+            setIsMobile(window.innerWidth < 768); // md breakpoint
+        };
+
+        checkIsMobile();
+        window.addEventListener("resize", checkIsMobile);
+
+        return () => window.removeEventListener("resize", checkIsMobile);
+    }, []);
+
+    // Parallax effects - con verificación de contenedor
     const yParallax = useTransform(scrollY, [0, 500], [0, -50]);
     const scaleParallax = useTransform(scrollY, [0, 500], [1, 1.05]);
     const rotateParallax = useTransform(scrollY, [0, 500], [0, 2]);
@@ -59,46 +78,40 @@ const AnimatedHeroImages: React.FC<AnimatedHeroImagesProps> = ({
     // Diferentes configuraciones de animación
     const animationConfigs = {
         subtle: {
-            // Animaciones suaves y elegantes
+            // Animaciones suaves y elegantes sin afectar layout
             mainImage: {
-                initial: { opacity: 0, scale: 0.95, y: 30 },
+                initial: { opacity: 0, y: 20 },
                 animate: {
                     opacity: 1,
-                    scale: 1,
                     y: 0,
                     transition: { duration: 1, ease: "easeOut", delay: 0.2 },
                 },
                 whileHover: {
-                    scale: 1.02,
-                    y: -5,
+                    y: -3,
                     transition: { duration: 0.3 },
                 },
             },
             floatingImage: {
-                initial: { opacity: 0, y: 40, x: -20, scale: 0.9 },
+                initial: { opacity: 0, y: 30, x: -15 },
                 animate: {
                     opacity: 1,
-                    y: [0, -8, 0],
+                    y: [0, -5, 0],
                     x: 0,
-                    scale: 1,
                     transition: {
                         opacity: { duration: 0.8, delay: 0.6 },
                         x: { duration: 0.8, delay: 0.6 },
-                        scale: { duration: 0.8, delay: 0.6 },
-                        y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                        y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
                     },
                 },
             },
         },
 
         dynamic: {
-            // Animaciones más llamativas
+            // Animaciones más llamativas pero sin afectar layout
             mainImage: {
-                initial: { opacity: 0, scale: 0.8, rotate: -5, y: 50 },
+                initial: { opacity: 0, y: 30 },
                 animate: {
                     opacity: 1,
-                    scale: 1,
-                    rotate: 0,
                     y: 0,
                     transition: {
                         duration: 1.2,
@@ -107,70 +120,56 @@ const AnimatedHeroImages: React.FC<AnimatedHeroImagesProps> = ({
                     },
                 },
                 whileHover: {
-                    scale: 1.05,
-                    rotate: 2,
-                    y: -10,
+                    y: -5,
                     transition: { duration: 0.4, ease: "easeOut" },
                 },
             },
             floatingImage: {
-                initial: { opacity: 0, y: 60, x: -30, scale: 0.7, rotate: -15 },
+                initial: { opacity: 0, y: 40, x: -20 },
                 animate: {
                     opacity: 1,
-                    y: [0, -15, 0],
+                    y: [0, -10, 0],
                     x: 0,
-                    scale: 1,
-                    rotate: [0, 3, 0],
                     transition: {
                         opacity: { duration: 1, delay: 0.8 },
                         x: { duration: 1, delay: 0.8 },
-                        scale: { duration: 1, delay: 0.8 },
-                        y: { duration: 5, repeat: Infinity, ease: "easeInOut" },
-                        rotate: {
-                            duration: 6,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                        },
+                        y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
                     },
                 },
             },
         },
 
         interactive: {
-            // Animaciones que responden al mouse
+            // Animaciones que responden al mouse sin afectar layout
             mainImage: {
-                initial: { opacity: 0, scale: 0.9, z: -100 },
+                initial: { opacity: 0, x: 20 },
                 animate: {
                     opacity: 1,
-                    scale: 1,
-                    z: 0,
+                    x: 0,
                     transition: { duration: 1, delay: 0.2 },
                 },
             },
             floatingImage: {
-                initial: { opacity: 0, y: 40, x: -20, scale: 0.8 },
+                initial: { opacity: 0, y: 40, x: -20 },
                 animate: {
                     opacity: 1,
                     y: 0,
                     x: 0,
-                    scale: 1,
                     transition: { duration: 0.8, delay: 0.6 },
                 },
             },
         },
 
         morphing: {
-            // Efectos de transformación
+            // Efectos de transformación sin afectar layout
             mainImage: {
                 initial: {
                     opacity: 0,
-                    scale: 0.5,
                     borderRadius: "50%",
                     filter: "blur(10px)",
                 },
                 animate: {
                     opacity: 1,
-                    scale: 1,
                     borderRadius: "12px",
                     filter: "blur(0px)",
                     transition: {
@@ -187,20 +186,18 @@ const AnimatedHeroImages: React.FC<AnimatedHeroImagesProps> = ({
             floatingImage: {
                 initial: {
                     opacity: 0,
-                    scale: 0.3,
-                    rotate: 180,
                     filter: "brightness(0.5)",
                 },
                 animate: {
                     opacity: 1,
-                    scale: [1, 1.1, 1],
-                    rotate: 0,
-                    filter: "brightness(1)",
+                    filter: [
+                        "brightness(1)",
+                        "brightness(1.1)",
+                        "brightness(1)",
+                    ],
                     transition: {
                         opacity: { duration: 0.8, delay: 0.8 },
-                        rotate: { duration: 1.2, delay: 0.8 },
-                        filter: { duration: 1, delay: 0.8 },
-                        scale: {
+                        filter: {
                             duration: 3,
                             repeat: Infinity,
                             ease: "easeInOut",
@@ -211,40 +208,28 @@ const AnimatedHeroImages: React.FC<AnimatedHeroImagesProps> = ({
         },
 
         floating: {
-            // Efectos de flotación extremos
+            // Efectos de flotación extremos sin afectar layout
             mainImage: {
-                initial: { opacity: 0, y: 100, scale: 0.8 },
+                initial: { opacity: 0, y: 100 },
                 animate: {
                     opacity: 1,
                     y: [0, -20, 0],
-                    scale: [1, 1.02, 1],
                     transition: {
                         opacity: { duration: 1, delay: 0.2 },
                         y: { duration: 6, repeat: Infinity, ease: "easeInOut" },
-                        scale: {
-                            duration: 4,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                        },
                     },
                 },
             },
             floatingImage: {
-                initial: { opacity: 0, y: 50, x: -40, rotate: -20 },
+                initial: { opacity: 0, y: 50, x: -40 },
                 animate: {
                     opacity: 1,
                     y: [0, -25, 5, -15, 0],
                     x: [0, 5, -5, 0],
-                    rotate: [0, 5, -3, 2, 0],
                     transition: {
                         opacity: { duration: 1, delay: 0.6 },
                         y: { duration: 8, repeat: Infinity, ease: "easeInOut" },
                         x: { duration: 7, repeat: Infinity, ease: "easeInOut" },
-                        rotate: {
-                            duration: 9,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                        },
                     },
                 },
             },
@@ -253,10 +238,47 @@ const AnimatedHeroImages: React.FC<AnimatedHeroImagesProps> = ({
 
     const config = animationConfigs[animationType];
 
+    // Versión estática para móviles
+    if (isMobile) {
+        return (
+            <div className={`relative ${className}`}>
+                {/* Imagen principal estática */}
+                <div className="relative h-full w-full z-10">
+                    <img
+                        src="/images/hero/sistema-html-diseno-collages-sitios-web_23-2150432955.avif"
+                        alt="Desarrollo web y diseño"
+                        className="aspect-square h-full w-full rounded-xl object-cover object-center shadow-lg"
+                    />
+                </div>
+
+                {/* Imagen de fondo con blur estática */}
+                <div className="absolute inset-0 h-full w-full blur-2xl z-0 opacity-60">
+                    <img
+                        src="/images/hero/sistema-html-diseno-collages-sitios-web_23-2150432955.avif"
+                        alt=""
+                        className="aspect-square h-full w-full rounded-xl object-cover object-center"
+                    />
+                </div>
+
+                {/* Imagen flotante estática */}
+                <div className="absolute z-20 bottom-[4%] left-[4%] w-32 lg:w-44">
+                    <div className="relative overflow-hidden rounded-lg border shadow-lg">
+                        <img
+                            src="/images/hero/marketing-influencers-png-collage-redes-sociales-remix-fondo-transparente_53876-1038872.avif"
+                            alt="Marketing digital y redes sociales"
+                            className="h-full w-full object-cover object-center"
+                        />
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div
             ref={containerRef}
             className={`relative ${className}`}
+            style={{ position: "relative" }} // Asegurar posición explícita
             onMouseMove={
                 animationType === "interactive" ? handleMouseMove : undefined
             }
@@ -326,7 +348,7 @@ const AnimatedHeroImages: React.FC<AnimatedHeroImagesProps> = ({
                             : { duration: 2, delay: 0.4 },
                 }}
                 style={
-                    animationType === "interactive"
+                    animationType === "interactive" && isMounted
                         ? {
                               y: useTransform(yParallax, [0, -50], [0, -25]),
                           }
