@@ -127,16 +127,17 @@ const people = [
             innovadoras y efectivas a nuestros clientes.
         </p>
         <div class="flex w-full flex-col justify-center gap-2 sm:flex-row">
-            <Button href="/contacto" variant="outline" class="w-full sm:w-auto">
+            <Button href="/contacto" variant="primary" class="w-full sm:w-auto">
                 Contáctanos para más información
 
-                <Globe className="size-4 text-muted-foreground" />
+                <Globe className="size-4" />
             </Button>
             <Button
                 href="https://wa.me/5492646629632?text=Hola%20me%20interesa%20la%20consultoria%20gratuita"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="w-full sm:w-auto"
+                class="w-full sm:w-auto border-secondary border-2 hover:bg-secondary/20 text-secondary hover:text-white transition-colors"
+                variant="outline"
             >
                 Consultoría gratuita
             </Button>
