@@ -259,17 +259,6 @@ const AnimatedHeroImages: React.FC<AnimatedHeroImagesProps> = ({
                         className="aspect-square h-full w-full rounded-xl object-cover object-center"
                     />
                 </div>
-
-                {/* Imagen flotante estática */}
-                <div className="absolute z-20 bottom-[4%] left-[4%] w-32 lg:w-44">
-                    <div className="relative overflow-hidden rounded-lg border shadow-lg">
-                        <img
-                            src="/images/hero/marketing-influencers-png-collage-redes-sociales-remix-fondo-transparente_53876-1038872.avif"
-                            alt="Marketing digital y redes sociales"
-                            className="h-full w-full object-cover object-center"
-                        />
-                    </div>
-                </div>
             </div>
         );
     }
@@ -361,62 +350,6 @@ const AnimatedHeroImages: React.FC<AnimatedHeroImagesProps> = ({
                     alt=""
                     className="aspect-square h-full w-full rounded-xl object-cover object-center"
                 />
-            </motion.div>
-
-            {/* Imagen flotante */}
-            <motion.div
-                {...config.floatingImage}
-                whileHover={
-                    animationType === "dynamic"
-                        ? {
-                              scale: 1.1,
-                              rotate: 5,
-                              z: 50,
-                              transition: { duration: 0.3 },
-                          }
-                        : animationType === "morphing"
-                        ? {
-                              scale: 1.15,
-                              filter: "brightness(1.2) saturate(1.2)",
-                              transition: { duration: 0.4 },
-                          }
-                        : {}
-                }
-                style={
-                    animationType === "interactive"
-                        ? {
-                              x: useTransform(mouseX, [-0.5, 0.5], [-10, 10]),
-                              y: useTransform(mouseY, [-0.5, 0.5], [-10, 10]),
-                          }
-                        : {}
-                }
-                className="absolute z-20 bottom-[4%] left-[4%] w-36 lg:w-56 cursor-pointer group"
-            >
-                <div className="relative overflow-hidden rounded-lg border shadow-xl hover:shadow-2xl transition-shadow duration-300">
-                    <motion.img
-                        src="/images/hero/marketing-influencers-png-collage-redes-sociales-remix-fondo-transparente_53876-1038872.avif"
-                        alt="Marketing digital y redes sociales"
-                        className="h-full w-full object-cover object-center"
-                        whileHover={
-                            animationType === "subtle"
-                                ? {
-                                      scale: 1.05,
-                                      transition: { duration: 0.3 },
-                                  }
-                                : {}
-                        }
-                    />
-
-                    {/* Efecto de brillo en hover */}
-                    {animationType === "dynamic" && (
-                        <motion.div
-                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                            initial={{ x: "-100%" }}
-                            whileHover={{ x: "100%" }}
-                            transition={{ duration: 0.6 }}
-                        />
-                    )}
-                </div>
             </motion.div>
 
             {/* Elementos decorativos adicionales */}

@@ -167,7 +167,7 @@ export default function AnimatedBeamIllustration() {
 
             <div className="block lg:hidden">
                 <AnimatedBeam
-                    duration={3}
+                    duration={6}
                     endYOffset={-60}
                     direction="vertical"
                     endXOffset={-10}
@@ -175,9 +175,10 @@ export default function AnimatedBeamIllustration() {
                     containerRef={containerRef}
                     fromRef={div1Ref}
                     toRef={div6Ref}
+                    pathColor="rgba(255, 255, 255, 0.5)"
                 />
                 <AnimatedBeam
-                    duration={3}
+                    duration={6}
                     endYOffset={-60}
                     endXOffset={10}
                     curvature={10}
@@ -185,86 +186,97 @@ export default function AnimatedBeamIllustration() {
                     fromRef={div2Ref}
                     toRef={div6Ref}
                     direction="vertical"
+                    pathColor="rgba(255, 255, 255, 0.8)"
                 />
                 <AnimatedBeam
-                    duration={3}
+                    duration={6}
                     containerRef={containerRef}
                     fromRef={div3Ref}
                     toRef={div6Ref}
                     direction="vertical"
+                    pathColor="rgba(255, 255, 255, 0.8)"
                 />
                 <AnimatedBeam
-                    duration={3}
+                    duration={6}
                     containerRef={containerRef}
                     fromRef={div4Ref}
                     toRef={div6Ref}
                     direction="vertical"
+                    pathColor="rgba(255, 255, 255, 0.8)"
                 />
 
                 <AnimatedBeam
-                    duration={3}
+                    duration={6}
                     containerRef={containerRef}
                     fromRef={div5Ref}
                     toRef={div7Ref}
                     direction="vertical"
+                    pathColor="rgba(255, 255, 255, 0.8)"
                 />
                 <AnimatedBeam
-                    duration={3}
+                    duration={6}
                     containerRef={containerRef}
                     fromRef={div6Ref}
                     toRef={div7Ref}
                     direction="vertical"
+                    pathColor="rgba(255, 255, 255, 0.8)"
                 />
             </div>
 
             <div className="hidden lg:block">
                 <AnimatedBeam
-                    duration={3}
+                    duration={6}
                     containerRef={containerRef}
                     fromRef={div1Ref}
                     toRef={div6Ref}
+                    pathColor="rgba(255, 255, 255, 0.8)"
                 />
                 <AnimatedBeam
                     endYOffset={-30}
                     endXOffset={60}
-                    duration={3}
+                    duration={6}
                     curvature={-140}
                     containerRef={containerRef}
                     fromRef={div2Ref}
                     toRef={div6Ref}
+                    pathColor="rgba(255, 255, 255, 0.8)"
                 />
                 <AnimatedBeam
-                    duration={3}
+                    duration={6}
                     endYOffset={30}
                     curvature={140}
                     containerRef={containerRef}
                     fromRef={div3Ref}
                     toRef={div6Ref}
+                    pathColor="rgba(255, 255, 255, 0.8)"
                 />
                 <AnimatedBeam
-                    duration={3}
+                    duration={6}
                     endYOffset={-30}
                     endXOffset={-60}
                     curvature={-180}
                     containerRef={containerRef}
                     fromRef={div4Ref}
                     toRef={div6Ref}
+                    pathColor="rgba(255, 255, 255, 0.8)"
                 />
 
                 <AnimatedBeam
-                    duration={3}
+                    duration={6}
                     endXOffset={-60}
                     endYOffset={30}
                     curvature={180}
                     containerRef={containerRef}
                     fromRef={div5Ref}
                     toRef={div6Ref}
+                    pathColor="rgba(255, 255, 255, 0.8)"
                 />
                 <AnimatedBeam
-                    duration={3}
+                    duration={6}
                     containerRef={containerRef}
                     fromRef={div6Ref}
                     toRef={div7Ref}
+                    pathColor="rgba(255, 255, 255, 0.8)"
                 />
             </div>
         </div>
