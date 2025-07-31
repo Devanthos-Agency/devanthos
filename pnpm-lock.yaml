@@ -98,6 +98,9 @@ importers:
       react-hook-form:
         specifier: ^7.57.0
         version: 7.57.0(react@19.1.0)
+      swiper:
+        specifier: ^11.2.10
+        version: 11.2.10
       tailwind-merge:
         specifier: ^3.3.0
         version: 3.3.0
@@ -2406,6 +2409,10 @@ packages:
 
   style-to-object@1.0.9:
     resolution: {integrity: sha512-G4qppLgKu/k6FwRpHiGiKPaPTFcG3g4wNVX/Qsfu+RqQM30E7Tyu/TEgxcL9PNLF5pdRLwQdE3YKKf+KF2Dzlw==}
+
+  swiper@11.2.10:
+    resolution: {integrity: sha512-RMeVUUjTQH+6N3ckimK93oxz6Sn5la4aDlgPzB+rBrG/smPdCTicXyhxa+woIpopz+jewEloiEE3lKo1h9w2YQ==}
+    engines: {node: '>= 4.7.0'}
 
   tailwind-merge@3.0.2:
     resolution: {integrity: sha512-l7z+OYZ7mu3DTqrL88RiKrKIqO3NcpEO8V/Od04bNpvk0kiIFndGEoqfuzvj4yuhRkHKjRkII2z+KS2HfPcSxw==}
@@ -5508,6 +5515,8 @@ snapshots:
   style-to-object@1.0.9:
     dependencies:
       inline-style-parser: 0.2.4
+
+  swiper@11.2.10: {}
 
   tailwind-merge@3.0.2: {}
 
