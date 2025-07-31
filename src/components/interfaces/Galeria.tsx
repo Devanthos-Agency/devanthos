@@ -102,7 +102,7 @@ export default function Galeria() {
     }, [api]);
 
     return (
-        <section className="overflow-hidden py-32">
+        <section className="overflow-hidden relative py-32">
             <div className="container mx-auto px-2 md:px-6 lg:px-8">
                 <Carousel
                     plugins={[
