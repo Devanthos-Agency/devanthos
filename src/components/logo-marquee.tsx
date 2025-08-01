@@ -102,13 +102,13 @@ const logos = [
 
 export default function LogoMarquee() {
     return (
-        <div className="h-auto relative mt-20 w-full xl:-left-20">
+        <div className="h-auto relative mt-20 w-full md:-left-2 2xl:-left-16">
             <div className="absolute -top-24 mx-auto flex items-center justify-center">
                 <Carousel
                     plugins={[AutoScroll({ playOnInit: true })]}
                     opts={{ loop: true, align: "start" }}
                 >
-                    <CarouselContent className="ml-0">
+                    <CarouselContent className="ml-0 w-full md:w-lg 2xl:w-3xl">
                         {logos.map((logo, index) => (
                             <CarouselItem
                                 key={index}
