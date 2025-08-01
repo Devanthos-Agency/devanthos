@@ -3,6 +3,7 @@ import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import {
     Archive,
     Book,
+    Bot,
     ChevronLeft,
     ChevronRight,
     FileText,
@@ -46,7 +47,8 @@ interface Subgroup {
 type Group = [
     {
         title?: string;
-        links: Link[];
+        links?: Link[];
+        content?: React.ReactNode;
     },
     {
         sections: Subgroup[];
@@ -69,61 +71,123 @@ const PRIMARY_BUTTON = {
 
 const NAVIGATION1: Array<MenuItem> = [
     {
+        title: "Servicios",
+        className:
+            "grid-cols-[400px,300px] lg:grid-cols-[400px_500px] 2xl:grid-cols-[500px_500px]",
+        groups: [
+            {
+                title: "",
+                content: (
+                    <div className="space-y-8">
+                        {/* Bienvenida */}
+                        <div className="">
+                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                                ¡Bienvenido a Devanthos! 👋
+                            </h2>
+                            <p className="text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+                                Transformamos ideas en realidad digital. Somos
+                                tu socio estratégico para impulsar tu negocio
+                                con tecnología de vanguardia.
+                            </p>
+                        </div>
+                        {/* call to action */}
+                        <div className="">
+                            <Button
+                                asChild
+                                size="lg"
+                                className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                            >
+                                <a
+                                    href={PRIMARY_BUTTON.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-2 font-semibold no-underline"
+                                >
+                                    <Headset className="w-4 h-4" />
+                                    {PRIMARY_BUTTON.label}
+                                </a>
+                            </Button>
+                        </div>
+                    </div>
+                ),
+            },
+            {
+                sections: [
+                    {
+                        title: "Servicios",
+                        links: [
+                            {
+                                label: "Consultoría",
+                                url: "/servicios/consultoria-empresarial",
+                                icon: Headset,
+                                description:
+                                    "Asesoramiento personalizado para tu negocio.",
+                            },
+                            {
+                                label: "Desarrollo Web y Móvil",
+                                url: "servicios/desarrollo-web-y-mobile",
+                                icon: FileText,
+                                description:
+                                    "Sitios web y aplicaciones móviles modernas.",
+                            },
+                            {
+                                label: "Marketing Digital y SEO",
+                                url: "/servicios/marketing-digital-seo",
+                                icon: Zap,
+                                description:
+                                    "Estrategias para hacer crecer tu negocio online.",
+                            },
+                            {
+                                label: "Chatbots inteligentes",
+                                url: "/servicios/chatbots-inteligentes",
+                                icon: Bot,
+                                description:
+                                    "Automatiza la atención al cliente con chatbots.",
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
+    },
+    {
         title: "Productos",
         className: "grid-cols-[400px,300px] xl:grid-cols-[500px_500px]",
         groups: [
             {
-                title: "Herramientas de Desarrollo",
-                links: [
-                    {
-                        label: "Componentes UI",
-                        description: "Componentes para tu interfaz",
-                        icon: FileText,
-                        url: "/productos/componentes-ui",
-                    },
-                    {
-                        label: "Diseño de sistema",
-                        description: "Guías de estilo y patrones",
-                        icon: Trees,
-                        url: "/productos/diseno-sistema",
-                    },
-                    {
-                        label: "Plantillas",
-                        description: "Plantillas preconstruidas",
-                        icon: Archive,
-                        url: "/productos/plantillas",
-                    },
-                    {
-                        label: "Responsive",
-                        description: "Diseño adaptable",
-                        icon: Handshake,
-                        url: "/productos/responsive",
-                    },
-                    {
-                        label: "Temas",
-                        description: "Personaliza tu apariencia",
-                        icon: Sunset,
-                        url: "/productos/temas",
-                    },
-                    {
-                        label: "Documentación",
-                        description: "Guías y referencias de uso",
-                        icon: Book,
-                        url: "/productos/documentacion",
-                    },
-                    {
-                        label: "Ver ejemplos",
-                        description: "Ver ejemplos en vivo",
-                        icon: PlayCircle,
-                        url: "/productos/ejemplos",
-                    },
-                    {
-                        label: "Mantenimiento",
-                        description: "Actualizaciones y soporte",
-                        icon: Zap,
-                        url: "/productos/mantenimiento",
-                    },
-                ],
+                title: "¿Qué ofrecemos?",
+                content: (
+                    <div className="space-y-8">
+                        {/* Descripción de Productos */}
+                        <p className="text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Ofrecemos una variedad de productos digitales
+                            diseñados para mejorar la eficiencia y la
+                            productividad de tu negocio. Desde soluciones
+                            personalizadas hasta herramientas listas para usar,
+                            tenemos todo lo que necesitas para llevar tu
+                            proyecto al siguiente nivel.
+                        </p>
+                        {/* Call to Action con forma de card */}
+                        <div className="p-4 border bg-background border-gray-200 rounded-lg">
+                            <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100">
+                                ¿Listo para empezar?
+                            </h3>
+                            <p className="text-sm text-gray-600 dark:text-gray-300">
+                                Contáctanos para obtener más información sobre
+                                nuestros productos.
+                            </p>
+                            <Button asChild>
+                                <a
+                                    href="/contacto"
+                                    className="flex items-center gap-2 font-semibold no-underline"
+                                >
+                                    <Mail className="w-4 h-4" />
+                                    Contáctanos
+                                </a>
+                            </Button>
+                        </div>
+                    </div>
+                ),
             },
             {
                 title: "Productos",
@@ -614,9 +678,23 @@ const Links = ({
                                 <li key={index}>
                                     <a
                                         href={link.url}
-                                        className="inline-block rounded-lg py-2 font-medium hover:bg-muted sm:p-2"
+                                        className="flex items-start gap-3 rounded-lg py-2 font-medium hover:bg-muted sm:p-2 w-full"
                                     >
-                                        {link.label}
+                                        {link.icon && (
+                                            <div className="flex h-8 w-8 rounded-md bg-primary/10 items-center justify-center mt-0.5">
+                                                <link.icon className="h-4 w-4 text-primary" />
+                                            </div>
+                                        )}
+                                        <div className="flex-1">
+                                            <div className="text-sm font-medium">
+                                                {link.label}
+                                            </div>
+                                            {link.description && (
+                                                <p className="text-xs text-muted-foreground mt-1">
+                                                    {link.description}
+                                                </p>
+                                            )}
+                                        </div>
                                     </a>
                                 </li>
                             ))}
@@ -633,7 +711,8 @@ const IconLinks = ({
 }: {
     links: {
         title?: string;
-        links: Link[];
+        links?: Link[];
+        content?: React.ReactNode;
     };
 }) => {
     return (
@@ -641,13 +720,19 @@ const IconLinks = ({
             {links.title && (
                 <div className="mb-4 font-semibold">{links.title}</div>
             )}
-            <ul className="grid grid-cols-[repeat(auto-fit,_minmax(12.5rem,_1fr))] gap-4">
-                {links.links.map((link, index) => (
-                    <li key={index} className="h-full">
-                        <IconMenuLink item={link} />
-                    </li>
-                ))}
-            </ul>
+            {links.content ? (
+                <div className="prose prose-sm max-w-none">{links.content}</div>
+            ) : (
+                links.links && (
+                    <ul className="grid grid-cols-[repeat(auto-fit,_minmax(12.5rem,_1fr))] gap-4">
+                        {links.links.map((link, index) => (
+                            <li key={index} className="h-full">
+                                <IconMenuLink item={link} />
+                            </li>
+                        ))}
+                    </ul>
+                )
+            )}
         </Fragment>
     );
 };
