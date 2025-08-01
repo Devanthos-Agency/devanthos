@@ -2,7 +2,14 @@
 import Button from "../ui/Button.astro";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Bot, TrendingUp, Code2, ArrowRight, CheckCircle } from "lucide-react";
+import {
+    Bot,
+    TrendingUp,
+    Code2,
+    ArrowRight,
+    CheckCircle,
+    Brain,
+} from "lucide-react";
 
 // Datos de servicios organizados en una estructura reutilizable
 const services = [
@@ -49,6 +56,22 @@ const services = [
         ],
         href: "/servicios/chatbots-inteligentes",
     },
+    {
+        id: "consultoria-empresarial",
+        title: "Consultoría Empresarial",
+        description:
+            "Impulsamos el crecimiento de tu empresa con estrategias personalizadas, optimización de procesos y transformación digital integral.",
+        icon: Brain,
+        gradient: "from-orange-500 to-red-500",
+        price: "Desde $2,500",
+        features: [
+            "Transformación Digital",
+            "Optimización Procesos",
+            "Estrategia Empresarial",
+            "Consultoría 24/7",
+        ],
+        href: "/servicios/consultoria-empresarial",
+    },
 ];
 ---
 
@@ -58,9 +81,9 @@ const services = [
     >
     </div>
     <div class="container py-28 md:py-32 mx-auto px-2 md:px-6 lg:px-8">
-        <div class="mx-auto flex max-w-5xl flex-col items-center">
+        <div class="mx-auto flex max-w-7xl flex-col items-center">
             <div
-                class="z-10 mx-auto flex max-w-5xl flex-col items-center gap-6 text-center"
+                class="z-10 mx-auto flex max-w-7xl flex-col items-center gap-6 text-center"
             >
                 <span
                     data-slot="badge"
@@ -93,7 +116,7 @@ const services = [
                     </Button>
                 </div>
                 <div
-                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16"
                 >
                     {
                         services.map((service) => {
