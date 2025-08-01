@@ -3,12 +3,10 @@ import AnimatedHero from "./AnimatedHero";
 import LogoMarquee from "../logo-marquee";
 ---
 
-<!-- Componente Hero animado con Framer Motion -->
 <AnimatedHero client:load imageAnimationType="floating">
     <LogoMarquee client:load />
 </AnimatedHero>
 
-<!-- Fallback para usuarios sin JavaScript -->
 <noscript>
     <section
         class="relative md:overflow-hidden pt-28 pb-12 md:pt-40 md:pb-20 lg:pt-48"
