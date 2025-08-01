@@ -27,6 +27,7 @@ const AnimatedHero: React.FC<AnimatedHeroProps> = ({
     children,
 }) => {
     const [domLoaded, setDomLoaded] = useState(false);
+    const [activeSlide, setActiveSlide] = useState(0);
 
     useEffect(() => {
         setDomLoaded(true);
@@ -199,7 +200,7 @@ const AnimatedHero: React.FC<AnimatedHeroProps> = ({
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
-                className="container relative z-10 mx-auto mt-4 flex flex-col items-center justify-center gap-4 overflow-hidden text-left xl:mt-14 lg:flex-row lg:overflow-visible"
+                className="container relative z-10 mx-auto mt-4 flex flex-col items-center justify-center gap-4 overflow-hidden text-left xl:mt-14 xl:flex-row xl:overflow-visible"
             >
                 {/* Columna izquierda - Contenido de texto */}
                 <div>
@@ -292,7 +293,7 @@ const AnimatedHero: React.FC<AnimatedHeroProps> = ({
                     </div>
                 </div>
 
-                <div className="h-145 relative mt-0 w-full xl:mt-0 lg:w-2/5 xl:w-1/2">
+                <div className="h-145 relative mt-0 w-full xl:mt-0 xl:w-1/2">
                     <div className="mx-auto flex h-full items-center justify-center">
                         {domLoaded && (
                             <Swiper
@@ -319,21 +320,72 @@ const AnimatedHero: React.FC<AnimatedHeroProps> = ({
                                     Pagination,
                                 ]}
                                 pagination={{ clickable: true }}
+                                onSlideChange={(swiper) =>
+                                    setActiveSlide(swiper.realIndex)
+                                }
+                                onSwiper={(swiper) =>
+                                    setActiveSlide(swiper.realIndex)
+                                }
                             >
-                                {images.map((image, index) => (
-                                    <SwiperSlide key={index}>
-                                        <img
-                                            className="h-full w-full overflow-hidden rounded-3xl object-cover shadow-lg"
-                                            src={image.src}
-                                            alt={image.alt}
-                                        />
-                                    </SwiperSlide>
-                                ))}
+                                {images.map((image, index) => {
+                                    const isActive = activeSlide === index;
+                                    return (
+                                        <SwiperSlide key={index}>
+                                            <motion.img
+                                                initial={{
+                                                    opacity: 0,
+                                                    scale: 0.8,
+                                                }}
+                                                animate={{
+                                                    opacity: 1,
+                                                    scale: 1,
+                                                }}
+                                                transition={{
+                                                    duration: 0.6,
+                                                    ease: "easeOut",
+                                                }}
+                                                className="relative z-10 h-full w-full overflow-hidden rounded-3xl object-cover shadow-lg"
+                                                src={image.src}
+                                                alt={image.alt}
+                                            />
+                                            <motion.div
+                                                initial={{ opacity: 0, y: 20 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                transition={{
+                                                    duration: 0.4,
+                                                    delay: 0.3,
+                                                    ease: "easeOut",
+                                                }}
+                                                className="absolute z-20 bottom-2 left-2 text-white bg-black bg-opacity-50 px-3 py-1 rounded-lg"
+                                            >
+                                                {image.name}
+                                            </motion.div>
+                                            <motion.img
+                                                initial={{
+                                                    opacity: isActive ? 0 : 0,
+                                                    scale: isActive ? 1.2 : 1.2,
+                                                }}
+                                                animate={{
+                                                    opacity: isActive ? 1 : 0,
+                                                    scale: isActive ? 1 : 1,
+                                                }}
+                                                transition={{
+                                                    duration: 0.4,
+                                                    delay: isActive ? 0.4 : 0,
+                                                    ease: "easeOut",
+                                                }}
+                                                className="absolute z-0 inset-0 h-full w-full blur-xl"
+                                                src={image.src}
+                                                alt={image.alt}
+                                            />
+                                        </SwiperSlide>
+                                    );
+                                })}
                             </Swiper>
                         )}
                     </div>
 
-                    <div className="-z-1 bg-muted px-2 xl:h-155 xl:w-9/10 absolute right-0 top-0 h-full w-full rounded-3xl xl:top-1/2 xl:mt-4 xl:-translate-y-1/2" />
+                    {/* <div className="-z-1 bg-muted px-2 xl:h-155 xl:w-9/10 absolute right-0 top-0 h-full w-full rounded-3xl xl:top-1/2 xl:mt-4 xl:-translate-y-1/2" /> */}
                 </div>
             </motion.div>
         </section>
