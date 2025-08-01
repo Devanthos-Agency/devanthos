@@ -60,7 +60,7 @@ export const prerender = true;
                     </div>
                 </div>
             </div>
-            <div class="mx-auto mt-12 max-w-6xl rounded-lg border p-2">
+            <div class="mx-auto mt-12 rounded-lg border p-2">
                 <img
                     class="aspect-video rounded-lg object-cover w-full"
                     src={post.data.heroImage}
@@ -68,9 +68,7 @@ export const prerender = true;
                     transition:name={`img${post.id}`}
                 />
             </div>
-            <div
-                class="relative mx-auto mt-12 grid max-w-6xl gap-8 lg:grid-cols-4"
-            >
+            <div class="relative mx-auto mt-12 grid gap-8 lg:grid-cols-4">
                 <!-- Tabla de contenido (sidebar izquierdo) -->
                 <div
                     class="sticky top-28 hidden pl-0.5 h-[calc(100dvh-7rem)] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-background [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-accent lg:block"
