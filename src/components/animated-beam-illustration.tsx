@@ -40,7 +40,7 @@ export default function AnimatedBeamIllustration() {
                                     </div>
                                 </div>
                             </HoverCardTrigger>
-                            <HoverCardContent>
+                            <HoverCardContent side="right">
                                 <div className="text-sm">
                                     <p className="font-semibold">
                                         Base de Datos
@@ -66,7 +66,7 @@ export default function AnimatedBeamIllustration() {
                                     </div>
                                 </div>
                             </HoverCardTrigger>
-                            <HoverCardContent>
+                            <HoverCardContent side="right">
                                 <div className="text-sm">
                                     <p className="font-semibold">Desarrollo</p>
                                     <p className="text-muted-foreground">
@@ -89,7 +89,7 @@ export default function AnimatedBeamIllustration() {
                                     </div>
                                 </div>
                             </HoverCardTrigger>
-                            <HoverCardContent>
+                            <HoverCardContent side="right">
                                 <div className="text-sm">
                                     <p className="font-semibold">Analítica</p>
                                     <p className="text-muted-foreground">
@@ -112,7 +112,7 @@ export default function AnimatedBeamIllustration() {
                                     </div>
                                 </div>
                             </HoverCardTrigger>
-                            <HoverCardContent>
+                            <HoverCardContent side="right">
                                 <div className="text-sm">
                                     <p className="font-semibold">
                                         Colaboración
@@ -137,7 +137,7 @@ export default function AnimatedBeamIllustration() {
                                     </div>
                                 </div>
                             </HoverCardTrigger>
-                            <HoverCardContent>
+                            <HoverCardContent side="right">
                                 <div className="text-sm">
                                     <p className="font-semibold">
                                         Inteligencia Artificial
