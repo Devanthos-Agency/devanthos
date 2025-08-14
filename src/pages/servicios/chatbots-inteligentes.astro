@@ -1,0 +1,946 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import {
+    Bot,
+    MessageCircle,
+    Brain,
+    Zap,
+    Users,
+    Settings,
+    CheckCircle,
+    ArrowRight,
+    Star,
+    TrendingUp,
+    Shield,
+    Clock,
+    DollarSign,
+    BarChart3,
+    Smartphone,
+    Globe,
+    Headphones,
+    ShoppingCart,
+    CreditCard,
+    Building,
+    Utensils,
+    Target,
+    Eye,
+    Lightbulb,
+} from "lucide-react";
+
+// Características principales
+const mainFeatures = [
+    {
+        icon: MessageCircle,
+        title: "Conversaciones Naturales",
+        description:
+            "Entienden el contexto y mantienen conversaciones fluidas como si fuera un humano",
+        gradient: "from-blue-500 to-cyan-500",
+    },
+    {
+        icon: Brain,
+        title: "Aprendizaje Continuo",
+        description:
+            "Mejoran con cada interacción, aprendiendo patrones y preferencias de los usuarios",
+        gradient: "from-purple-500 to-indigo-500",
+    },
+];
+
+// Sectores que atendemos
+const sectors = [
+    "E-commerce",
+    "Servicios Financieros",
+    "Salud",
+    "Educación",
+    "Inmobiliaria",
+    "Turismo",
+    "Restaurantes",
+    "Tecnología",
+    "Retail",
+];
+
+// Plataformas de integración
+const platforms = {
+    web: ["Sitio Web", "Aplicaciones Móviles", "Portales de Cliente"],
+    social: [
+        "WhatsApp Business",
+        "Facebook Messenger",
+        "Instagram",
+        "Telegram",
+        "Discord",
+    ],
+    business: ["Slack", "Microsoft Teams", "Zendesk"],
+};
+
+// Casos de uso exitosos
+const successCases = [
+    {
+        title: "E-commerce: Asistente de Ventas",
+        icon: ShoppingCart,
+        problem:
+            "Una tienda online recibía cientos de consultas diarias sobre productos, disponibilidad y envíos.",
+        results: [
+            "60% reducción en tiempo de respuesta",
+            "35% aumento en conversiones",
+            "80% de consultas resueltas automáticamente",
+        ],
+        gradient: "from-green-500 to-emerald-500",
+    },
+    {
+        title: "Servicios Financieros: Asistente Bancario",
+        icon: CreditCard,
+        problem:
+            "Banco necesitaba atender consultas 24/7 sin aumentar personal.",
+        results: [
+            "Disponibilidad 24/7",
+            "70% reducción en llamadas al call center",
+            "95% satisfacción del cliente",
+        ],
+        gradient: "from-blue-500 to-cyan-500",
+    },
+    {
+        title: "Restaurante: Reservas y Pedidos",
+        icon: Utensils,
+        problem:
+            "Cadena de restaurantes perdía reservas por teléfonos ocupados.",
+        results: [
+            "45% más reservas procesadas",
+            "0% pérdida de llamadas",
+            "25% aumento en pedidos online",
+        ],
+        gradient: "from-orange-500 to-red-500",
+    },
+];
+
+// Tecnologías
+const technologies = {
+    frameworks: [
+        "Dialogflow",
+        "Microsoft Bot Framework",
+        "Rasa",
+        "OpenAI API",
+        "LangChain",
+        "Botpress",
+    ],
+    languages: ["Python", "Node.js", "TypeScript"],
+    databases: ["MongoDB", "PostgreSQL", "Redis"],
+    integrations: [
+        "Salesforce",
+        "HubSpot",
+        "Shopify",
+        "Stripe",
+        "Twilio",
+        "Google Analytics",
+    ],
+};
+
+// Paquetes de precios
+const pricingPackages = [
+    {
+        name: "Paquete Básico",
+        price: "Desde $299/mes",
+        description: "Ideal para pequeñas empresas",
+        gradient: "from-green-500 to-emerald-500",
+        icon: Bot,
+        features: [
+            "Chatbot web básico",
+            "Hasta 1,000 conversaciones/mes",
+            "Integración con WhatsApp",
+            "Panel de administración",
+            "Soporte por email",
+        ],
+    },
+    {
+        name: "Paquete Profesional",
+        price: "Desde $599/mes",
+        description: "Para empresas en crecimiento",
+        gradient: "from-blue-500 to-cyan-500",
+        icon: TrendingUp,
+        features: [
+            "Todo lo del paquete básico",
+            "Hasta 10,000 conversaciones/mes",
+            "Múltiples canales (Facebook, Instagram, Web)",
+            "Integración con CRM",
+            "Analytics avanzados",
+            "Soporte prioritario",
+        ],
+        popular: true,
+    },
+    {
+        name: "Paquete Enterprise",
+        price: "Consultar precio",
+        description: "Soluciones personalizadas",
+        gradient: "from-purple-500 to-indigo-500",
+        icon: Building,
+        features: [
+            "Conversaciones ilimitadas",
+            "Desarrollo 100% personalizado",
+            "Integraciones complejas",
+            "IA avanzada y machine learning",
+            "Soporte 24/7 dedicado",
+            "SLA garantizado",
+        ],
+    },
+];
+
+// Beneficios
+const benefits = [
+    {
+        icon: DollarSign,
+        title: "Reducción de Costos",
+        description: "Hasta 60% menos gastos en atención al cliente",
+        gradient: "from-green-500 to-emerald-500",
+    },
+    {
+        icon: Zap,
+        title: "Respuesta Instantánea",
+        description: "Atención 24/7 sin tiempos de espera",
+        gradient: "from-yellow-500 to-orange-500",
+    },
+    {
+        icon: TrendingUp,
+        title: "Más Conversiones",
+        description: "Guía a usuarios hacia la compra efectivamente",
+        gradient: "from-blue-500 to-cyan-500",
+    },
+    {
+        icon: BarChart3,
+        title: "Datos Valiosos",
+        description: "Insights sobre preferencias y comportamiento de clientes",
+        gradient: "from-purple-500 to-indigo-500",
+    },
+];
+
+// Proceso de desarrollo
+const developmentProcess = [
+    {
+        number: 1,
+        title: "Análisis y Diseño",
+        description:
+            "Definimos objetivos, mapeamos conversaciones y diseñamos la personalidad del bot",
+        icon: Target,
+        features: [
+            "Definición de objetivos y KPIs",
+            "Mapeo de conversaciones",
+            "Diseño de personalidad",
+            "Arquitectura técnica",
+        ],
+    },
+    {
+        number: 2,
+        title: "Desarrollo y Entrenamiento",
+        description:
+            "Desarrollamos el núcleo conversacional y entrenamos con datos específicos",
+        icon: Brain,
+        features: [
+            "Desarrollo del núcleo",
+            "Entrenamiento con datos",
+            "Integración con sistemas",
+            "Pruebas exhaustivas",
+        ],
+    },
+    {
+        number: 3,
+        title: "Implementación y Optimización",
+        description:
+            "Desplegamos gradualmente y optimizamos basado en datos reales",
+        icon: TrendingUp,
+        features: [
+            "Despliegue gradual",
+            "Monitoreo en tiempo real",
+            "Análisis de métricas",
+            "Mejora continua",
+        ],
+    },
+];
+---
+
+<Layout
+    title="Chatbots Inteligentes | Devanthos - Automatización con IA"
+    description="Ofrecemos servicios de desarrollo de chatbots inteligentes que mejoran la interacción con los usuarios y optimizan los procesos de atención al cliente. IA avanzada 24/7."
+>
+    <!-- Hero Section -->
+    <section class="relative py-20 min-h-screen px-4 overflow-hidden">
+        <div
+            class="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-transparent to-indigo-500/20"
+        >
+        </div>
+        <div
+            class="absolute -top-40 -right-40 w-80 h-80 bg-purple-500/30 rounded-full blur-3xl"
+        >
+        </div>
+        <div
+            class="absolute -bottom-40 -left-40 w-80 h-80 bg-indigo-500/40 rounded-full blur-3xl"
+        >
+        </div>
+
+        <div class="container mx-auto relative z-10 mt-16">
+            <div class="max-w-5xl mx-auto">
+                <div class="flex justify-center mb-6">
+                    <Badge variant="outline" className="text-lg px-4 py-2">
+                        <Bot className="w-4 h-4 mr-2 text-purple-500" />
+                        Automatización Inteligente 24/7
+                    </Badge>
+                </div>
+
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        Chatbots
+                        <span
+                            class="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent"
+                        >
+                            Inteligentes
+                        </span>
+                    </h1>
+
+                    <p
+                        class="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto"
+                    >
+                        Desarrollamos <strong
+                            >chatbots inteligentes personalizados</strong
+                        > que no solo responden preguntas, sino que aprenden, se
+                        adaptan y brindan soluciones eficientes las 24 horas del
+                        día utilizando IA avanzada y procesamiento de lenguaje natural.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-6">
+                        <Alert className="border-purple-200 bg-purple-50">
+                            <Bot className="h-4 w-4 text-purple-600" />
+                            <AlertTitle className="text-purple-800"
+                                >¡Demo Interactiva Disponible!</AlertTitle
+                            >
+                            <AlertDescription className="text-purple-700">
+                                Prueba nuestros chatbots en acción. Solicita una
+                                demostración personalizada para tu negocio.
+                            </AlertDescription>
+                        </Alert>
+
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <Button
+                                size="lg"
+                                className="text-lg px-8 bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600"
+                            >
+                                Ver Demo
+                                <ArrowRight className="ml-2 w-5 h-5" />
+                            </Button>
+                            <Button
+                                variant="outline"
+                                size="lg"
+                                className="text-lg px-8 border-purple-500 text-purple-600 hover:bg-purple-50"
+                            >
+                                Consulta Gratuita
+                            </Button>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <img
+                            src="/images/service/chatbots-inteligentes.png"
+                            alt="Chatbots Inteligentes"
+                            class="rounded-2xl shadow-2xl"
+                        />
+                        <div
+                            class="absolute -bottom-4 -right-4 bg-gradient-to-r from-purple-500 to-indigo-500 text-white p-4 rounded-xl shadow-lg"
+                        >
+                            <div class="flex items-center gap-2">
+                                <Bot className="w-6 h-6" />
+                                <div>
+                                    <p class="font-semibold">Desde $299</p>
+                                    <p class="text-sm opacity-90">Por mes</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Features -->
+    <section class="py-20 px-4 bg-muted/30">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    ¿Qué Son los Chatbots Inteligentes?
+                </h2>
+                <p class="text-lg text-muted-foreground">
+                    Van más allá de las respuestas automáticas simples. Utilizan
+                    procesamiento de lenguaje natural (NLP) y machine learning
+                    para ofrecer experiencias conversacionales avanzadas.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+                {
+                    mainFeatures.map((feature) => {
+                        const IconComponent = feature.icon;
+                        return (
+                            <Card className="p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                                <CardHeader className="pb-6">
+                                    <div
+                                        class={`w-16 h-16 bg-gradient-to-br ${feature.gradient} rounded-full flex items-center justify-center mb-4`}
+                                    >
+                                        <IconComponent className="w-8 h-8 text-white" />
+                                    </div>
+                                    <CardTitle className="text-2xl">
+                                        {feature.title}
+                                    </CardTitle>
+                                    <p class="text-muted-foreground">
+                                        {feature.description}
+                                    </p>
+                                </CardHeader>
+                            </Card>
+                        );
+                    })
+                }
+            </div>
+
+            <!-- Sectors -->
+            <div class="text-center mb-12">
+                <h3 class="text-2xl font-bold mb-6">Sectores que Atendemos</h3>
+                <div class="flex flex-wrap justify-center gap-2">
+                    {
+                        sectors.map((sector) => (
+                            <Badge variant="outline" className="text-sm">
+                                {sector}
+                            </Badge>
+                        ))
+                    }
+                </div>
+            </div>
+
+            <!-- Platforms -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <Card className="p-6">
+                    <CardHeader className="pb-4">
+                        <div class="flex items-center gap-2">
+                            <Globe className="w-5 h-5 text-blue-500" />
+                            <CardTitle className="text-lg"
+                                >Plataformas Web</CardTitle
+                            >
+                        </div>
+                    </CardHeader>
+                    <CardContent>
+                        <div class="space-y-2">
+                            {
+                                platforms.web.map((platform) => (
+                                    <div class="flex items-center gap-2">
+                                        <CheckCircle className="w-4 h-4 text-green-500" />
+                                        <span class="text-sm">{platform}</span>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </CardContent>
+                </Card>
+
+                <Card className="p-6">
+                    <CardHeader className="pb-4">
+                        <div class="flex items-center gap-2">
+                            <Smartphone className="w-5 h-5 text-green-500" />
+                            <CardTitle className="text-lg"
+                                >Redes Sociales</CardTitle
+                            >
+                        </div>
+                    </CardHeader>
+                    <CardContent>
+                        <div class="space-y-2">
+                            {
+                                platforms.social.map((platform) => (
+                                    <div class="flex items-center gap-2">
+                                        <CheckCircle className="w-4 h-4 text-green-500" />
+                                        <span class="text-sm">{platform}</span>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </CardContent>
+                </Card>
+
+                <Card className="p-6">
+                    <CardHeader className="pb-4">
+                        <div class="flex items-center gap-2">
+                            <Headphones className="w-5 h-5 text-purple-500" />
+                            <CardTitle className="text-lg"
+                                >Herramientas Empresariales</CardTitle
+                            >
+                        </div>
+                    </CardHeader>
+                    <CardContent>
+                        <div class="space-y-2">
+                            {
+                                platforms.business.map((platform) => (
+                                    <div class="flex items-center gap-2">
+                                        <CheckCircle className="w-4 h-4 text-green-500" />
+                                        <span class="text-sm">{platform}</span>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </CardContent>
+                </Card>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Cases -->
+    <section class="py-20 px-4">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Casos de Uso Exitosos
+                </h2>
+                <p class="text-lg text-muted-foreground">
+                    Proyectos reales con resultados medibles que transformaron
+                    negocios
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                {
+                    successCases.map((case_) => {
+                        const IconComponent = case_.icon;
+                        return (
+                            <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                                <div
+                                    class={`h-2 bg-gradient-to-r ${case_.gradient} mb-6`}
+                                />
+                                <CardHeader className="pb-4">
+                                    <div class="flex items-center gap-3 mb-4">
+                                        <div
+                                            class={`p-3 rounded-xl bg-gradient-to-br ${case_.gradient} text-white`}
+                                        >
+                                            <IconComponent className="w-6 h-6" />
+                                        </div>
+                                    </div>
+                                    <CardTitle className="text-lg">
+                                        {case_.title}
+                                    </CardTitle>
+                                    <p class="text-muted-foreground text-sm">
+                                        {case_.problem}
+                                    </p>
+                                </CardHeader>
+                                <CardContent>
+                                    <div class="space-y-2">
+                                        <h4 class="font-semibold text-sm text-green-600 mb-2">
+                                            RESULTADOS:
+                                        </h4>
+                                        {case_.results.map((result) => (
+                                            <div class="flex items-start gap-2">
+                                                <CheckCircle className="w-4 h-4 text-green-500 mt-0.5" />
+                                                <span class="text-sm">
+                                                    {result}
+                                                </span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        );
+                    })
+                }
+            </div>
+
+            <div class="mt-12 text-center">
+                <Alert
+                    className="border-orange-200 bg-orange-50 max-w-2xl mx-auto"
+                >
+                    <Zap className="h-4 w-4 text-orange-600" />
+                    <AlertTitle className="text-orange-800"
+                        >Integración con IA</AlertTitle
+                    >
+                    <AlertDescription className="text-orange-700">
+                        Utilizamos modelos de IA avanzados como GPT-4, Claude y
+                        modelos propios para conversaciones más inteligentes y
+                        naturales.
+                    </AlertDescription>
+                </Alert>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Process -->
+    <section class="py-20 px-4 bg-muted/30">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Proceso de Desarrollo
+                </h2>
+                <p class="text-lg text-muted-foreground">
+                    Metodología probada que garantiza chatbots eficientes y
+                    escalables
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                {
+                    developmentProcess.map((step) => {
+                        const IconComponent = step.icon;
+                        return (
+                            <Card className="p-8 text-center hover:shadow-lg transition-all duration-300">
+                                <CardHeader className="pb-6">
+                                    <div class="relative mb-4">
+                                        <div class="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto">
+                                            <IconComponent className="w-10 h-10 text-white" />
+                                        </div>
+                                        <div class="absolute -top-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">
+                                            {step.number}
+                                        </div>
+                                    </div>
+                                    <CardTitle className="text-xl">
+                                        {step.title}
+                                    </CardTitle>
+                                    <p class="text-muted-foreground">
+                                        {step.description}
+                                    </p>
+                                </CardHeader>
+                                <CardContent>
+                                    <div class="space-y-2">
+                                        {step.features.map((feature) => (
+                                            <div class="flex items-center gap-2 text-sm">
+                                                <CheckCircle className="w-4 h-4 text-green-500" />
+                                                <span>{feature}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        );
+                    })
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Packages -->
+    <section class="py-20 px-4">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Precios y Paquetes
+                </h2>
+                <p class="text-lg text-muted-foreground">
+                    Soluciones para cada tipo de negocio y presupuesto
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                {
+                    pricingPackages.map((pkg) => {
+                        const IconComponent = pkg.icon;
+                        return (
+                            <Card
+                                className={`relative hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 ${pkg.popular ? "border-2 border-primary ring-2 ring-primary/20" : ""}`}
+                            >
+                                {pkg.popular && (
+                                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                                        <Badge className="bg-primary text-primary-foreground px-4 py-1">
+                                            <Star className="w-4 h-4 mr-1" />
+                                            Más Popular
+                                        </Badge>
+                                    </div>
+                                )}
+
+                                <div
+                                    class={`h-2 bg-gradient-to-r ${pkg.gradient}`}
+                                />
+
+                                <CardHeader className="text-center pb-4">
+                                    <div
+                                        class={`w-16 h-16 bg-gradient-to-br ${pkg.gradient} rounded-full flex items-center justify-center mx-auto mb-4`}
+                                    >
+                                        <IconComponent className="w-8 h-8 text-white" />
+                                    </div>
+                                    <CardTitle className="text-2xl">
+                                        {pkg.name}
+                                    </CardTitle>
+                                    <p class="text-muted-foreground">
+                                        {pkg.description}
+                                    </p>
+                                    <div class="text-3xl font-bold text-primary mt-4">
+                                        {pkg.price}
+                                    </div>
+                                </CardHeader>
+
+                                <CardContent>
+                                    <div class="space-y-3">
+                                        {pkg.features.map((feature) => (
+                                            <div class="flex items-start gap-3">
+                                                <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                                                <span class="text-sm">
+                                                    {feature}
+                                                </span>
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    <Button
+                                        className={`w-full mt-6 bg-gradient-to-r ${pkg.gradient} hover:opacity-90`}
+                                    >
+                                        Elegir {pkg.name}
+                                        <ArrowRight className="ml-2 w-4 h-4" />
+                                    </Button>
+                                </CardContent>
+                            </Card>
+                        );
+                    })
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="py-20 px-4 bg-muted/30">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Beneficios para tu Negocio
+                </h2>
+                <p class="text-lg text-muted-foreground">
+                    Ventajas competitivas que transformarán tu atención al
+                    cliente
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {
+                    benefits.map((benefit) => {
+                        const IconComponent = benefit.icon;
+                        return (
+                            <div class="text-center">
+                                <div
+                                    class={`w-16 h-16 bg-gradient-to-br ${benefit.gradient} rounded-full flex items-center justify-center mx-auto mb-4`}
+                                >
+                                    <IconComponent className="w-8 h-8 text-white" />
+                                </div>
+                                <h3 class="text-lg font-semibold mb-2">
+                                    {benefit.title}
+                                </h3>
+                                <p class="text-muted-foreground text-sm">
+                                    {benefit.description}
+                                </p>
+                            </div>
+                        );
+                    })
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies -->
+    <section class="py-20 px-4">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Tecnologías que Utilizamos
+                </h2>
+                <p class="text-lg text-muted-foreground">
+                    Las mejores herramientas de IA y desarrollo para chatbots
+                    avanzados
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <Card className="p-6">
+                    <CardHeader className="pb-4">
+                        <CardTitle className="text-lg"
+                            >Frameworks de IA</CardTitle
+                        >
+                    </CardHeader>
+                    <CardContent>
+                        <div class="flex flex-wrap gap-2">
+                            {
+                                technologies.frameworks.map((tech) => (
+                                    <Badge
+                                        variant="outline"
+                                        className="text-xs"
+                                    >
+                                        {tech}
+                                    </Badge>
+                                ))
+                            }
+                        </div>
+                    </CardContent>
+                </Card>
+
+                <Card className="p-6">
+                    <CardHeader className="pb-4">
+                        <CardTitle className="text-lg"
+                            >Lenguajes de Programación</CardTitle
+                        >
+                    </CardHeader>
+                    <CardContent>
+                        <div class="flex flex-wrap gap-2">
+                            {
+                                technologies.languages.map((tech) => (
+                                    <Badge
+                                        variant="outline"
+                                        className="text-xs"
+                                    >
+                                        {tech}
+                                    </Badge>
+                                ))
+                            }
+                        </div>
+                    </CardContent>
+                </Card>
+
+                <Card className="p-6">
+                    <CardHeader className="pb-4">
+                        <CardTitle className="text-lg">Bases de Datos</CardTitle
+                        >
+                    </CardHeader>
+                    <CardContent>
+                        <div class="flex flex-wrap gap-2">
+                            {
+                                technologies.databases.map((tech) => (
+                                    <Badge
+                                        variant="outline"
+                                        className="text-xs"
+                                    >
+                                        {tech}
+                                    </Badge>
+                                ))
+                            }
+                        </div>
+                    </CardContent>
+                </Card>
+
+                <Card className="p-6">
+                    <CardHeader className="pb-4">
+                        <CardTitle className="text-lg"
+                            >APIs e Integraciones</CardTitle
+                        >
+                    </CardHeader>
+                    <CardContent>
+                        <div class="flex flex-wrap gap-2">
+                            {
+                                technologies.integrations.map((tech) => (
+                                    <Badge
+                                        variant="outline"
+                                        className="text-xs"
+                                    >
+                                        {tech}
+                                    </Badge>
+                                ))
+                            }
+                        </div>
+                    </CardContent>
+                </Card>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-4 bg-gradient-to-br from-purple-50 to-indigo-50">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto text-center">
+                <Card
+                    className="p-12 bg-white/80 backdrop-blur-sm border-purple-200"
+                >
+                    <CardContent>
+                        <div class="mb-6">
+                            <Settings
+                                className="w-16 h-16 mx-auto text-purple-600"
+                            />
+                        </div>
+
+                        <h2
+                            class="text-3xl md:text-4xl font-bold mb-4 text-purple-800"
+                        >
+                            ¿Listo para Automatizar tu Atención al Cliente?
+                        </h2>
+
+                        <p
+                            class="text-lg text-purple-700 mb-8 max-w-2xl mx-auto"
+                        >
+                            Contacta con nosotros para una <strong
+                                >consulta gratuita</strong
+                            >. Te mostraremos cómo un chatbot inteligente puede
+                            transformar tu negocio.
+                        </p>
+
+                        <div
+                            class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 max-w-2xl mx-auto"
+                        >
+                            <div class="flex items-center gap-3 justify-center">
+                                <Clock className="w-5 h-5 text-purple-600" />
+                                <span class="text-purple-700"
+                                    >Atención 24/7 automatizada</span
+                                >
+                            </div>
+                            <div class="flex items-center gap-3 justify-center">
+                                <DollarSign
+                                    className="w-5 h-5 text-purple-600"
+                                />
+                                <span class="text-purple-700"
+                                    >Reduce costos hasta 60%</span
+                                >
+                            </div>
+                            <div class="flex items-center gap-3 justify-center">
+                                <TrendingUp
+                                    className="w-5 h-5 text-purple-600"
+                                />
+                                <span class="text-purple-700"
+                                    >Aumenta conversiones</span
+                                >
+                            </div>
+                            <div class="flex items-center gap-3 justify-center">
+                                <Brain className="w-5 h-5 text-purple-600" />
+                                <span class="text-purple-700"
+                                    >IA que aprende constantemente</span
+                                >
+                            </div>
+                        </div>
+
+                        <div
+                            class="flex flex-col sm:flex-row gap-4 justify-center"
+                        >
+                            <Button
+                                size="lg"
+                                className="text-lg px-8 bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600"
+                            >
+                                Ver Demo Interactiva
+                                <ArrowRight className="ml-2 w-5 h-5" />
+                            </Button>
+                            <Button
+                                variant="outline"
+                                size="lg"
+                                className="text-lg px-8 border-purple-500 text-purple-600 hover:bg-purple-50"
+                            >
+                                Consulta Gratuita
+                            </Button>
+                        </div>
+
+                        <div
+                            class="flex items-center justify-center gap-4 text-sm text-purple-600 mt-6"
+                        >
+                            <div class="flex items-center gap-1">
+                                <CheckCircle className="w-4 h-4" />
+                                <span>Sin compromiso</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <CheckCircle className="w-4 h-4" />
+                                <span>Demo personalizada</span>
+                            </div>
+                        </div>
+                    </CardContent>
+                </Card>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    .line-clamp-3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+</style>

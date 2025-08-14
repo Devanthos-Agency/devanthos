@@ -1,0 +1,706 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import {
+    TrendingUp,
+    Target,
+    BarChart3,
+    Search,
+    Heart,
+    Lightbulb,
+    Handshake,
+    Eye,
+    Megaphone,
+    CheckCircle,
+    ArrowRight,
+    Star,
+    Users,
+    MousePointer,
+    Instagram,
+    Facebook,
+    MessageSquare,
+    Calendar,
+    MapPin,
+    Clock,
+    Phone,
+    Camera,
+    Zap,
+} from "lucide-react";
+
+// Datos de paquetes de redes sociales
+const socialPackages = [
+    {
+        name: "Paquete Startup",
+        price: "$250 USD/mes",
+        description: "Ideal para emprendedores y pequeños negocios",
+        gradient: "from-green-500 to-emerald-500",
+        icon: TrendingUp,
+        features: [
+            "8 Publicaciones Mensuales",
+            "8 Historias Mensuales",
+            "8 Campañas ADS",
+            "Videos para Instagram, Facebook y TikTok",
+            "Edición de video y guión incluido",
+            "Inversión sugerida: $20 USD por campaña",
+        ],
+        highlight: "2 publicaciones semanales originales",
+    },
+    {
+        name: "Paquete Growth",
+        price: "$400 USD/mes",
+        description: "Para empresas en crecimiento",
+        gradient: "from-blue-500 to-cyan-500",
+        icon: BarChart3,
+        features: [
+            "12 Publicaciones Mensuales",
+            "12 Historias Mensuales",
+            "12 Campañas ADS",
+            "Diseño gráfico o video profesional",
+            "3 publicaciones semanales originales",
+            "Inversión sugerida: $20 USD por campaña",
+        ],
+        highlight: "Mayor frecuencia de contenido",
+        popular: true,
+    },
+    {
+        name: "Paquete Pro",
+        price: "$600 USD/mes",
+        description:
+            "Para empresas establecidas que buscan maximizar resultados",
+        gradient: "from-purple-500 to-indigo-500",
+        icon: Target,
+        features: [
+            "16 Publicaciones Mensuales",
+            "16 Historias Mensuales",
+            "16 Campañas ADS",
+            "Videos de alta calidad",
+            "4 publicaciones semanales originales",
+            "Inversión sugerida: $10 USD por campaña",
+        ],
+        highlight: "Máxima presencia digital",
+    },
+];
+
+// Beneficios de elegirnos
+const benefits = [
+    {
+        icon: Target,
+        title: "Experiencia y Profesionalismo",
+        description:
+            "Equipo altamente capacitado y experimentado en marketing y gestión de redes sociales",
+        gradient: "from-blue-500 to-cyan-500",
+    },
+    {
+        icon: Lightbulb,
+        title: "Creatividad y Originalidad",
+        description:
+            "Estrategias innovadoras y creativas para destacar en un mercado competitivo",
+        gradient: "from-green-500 to-emerald-500",
+    },
+    {
+        icon: Handshake,
+        title: "Compromiso con el Éxito",
+        description:
+            "Colaboración estrecha para comprender necesidades y proporcionar soluciones personalizadas",
+        gradient: "from-purple-500 to-indigo-500",
+    },
+];
+
+// Proceso de trabajo
+const workProcess = [
+    {
+        number: 1,
+        title: "Análisis Inicial",
+        description:
+            "Estudiamos tu marca, competencia y audiencia para crear la estrategia perfecta",
+        icon: Search,
+    },
+    {
+        number: 2,
+        title: "Planificación Estratégica",
+        description:
+            "Desarrollamos un plan detallado con objetivos, métricas y cronograma",
+        icon: Target,
+    },
+    {
+        number: 3,
+        title: "Creación de Contenido",
+        description:
+            "Producimos contenido original, atractivo y alineado con tu marca",
+        icon: Lightbulb,
+    },
+    {
+        number: 4,
+        title: "Monitoreo y Optimización",
+        description:
+            "Seguimiento constante y ajustes para maximizar resultados",
+        icon: BarChart3,
+    },
+];
+
+// Plataformas donde trabajamos
+const platforms = [
+    { name: "Instagram", icon: Instagram, color: "text-pink-500" },
+    { name: "Facebook", icon: Facebook, color: "text-blue-600" },
+    { name: "TikTok", icon: MessageSquare, color: "text-black" },
+    { name: "Google Ads", icon: Search, color: "text-green-600" },
+];
+
+// Servicios de Google My Business
+const googleMyBusinessFeatures = [
+    {
+        icon: MapPin,
+        title: "Información de Ubicación",
+        description: "Dirección exacta y geolocalización precisa",
+    },
+    {
+        icon: Clock,
+        title: "Horarios de Atención",
+        description: "Horarios detallados y actualizados",
+    },
+    {
+        icon: Phone,
+        title: "Información de Contacto",
+        description: "Números de teléfono y enlaces web",
+    },
+    {
+        icon: Camera,
+        title: "Fotos de Alta Calidad",
+        description: "Imágenes profesionales de tu negocio",
+    },
+];
+---
+
+<Layout
+    title="Marketing Digital y SEO | Devanthos - Estrategias que Generan Impacto"
+    description="Potenciamos tu presencia digital con estrategias personalizadas de marketing, gestión de redes sociales y creación de contenido que generan impacto, construyen futuro y crean legado."
+>
+    <!-- Hero Section -->
+    <section class="relative py-20 px-4 min-h-screen overflow-hidden">
+        <div
+            class="absolute inset-0 bg-gradient-to-br from-red-500/20 via-transparent to-rose-400/20"
+        >
+        </div>
+        <div
+            class="absolute -top-40 -right-40 w-80 h-80 bg-rose-500/30 rounded-full blur-3xl"
+        >
+        </div>
+        <div
+            class="absolute -bottom-40 -left-40 w-80 h-80 bg-red-400/40 rounded-full blur-3xl"
+        >
+        </div>
+
+        <div class="container mx-auto relative z-10 mt-16">
+            <div class="max-w-5xl mx-auto">
+                <div class="flex justify-center mb-6">
+                    <Badge variant="outline" className="text-lg px-4 py-2">
+                        <Heart className="w-4 h-4 mr-2 text-red-500" />
+                        Generamos Impacto, Construimos Futuro y Creamos Legado
+                    </Badge>
+                </div>
+
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        Marketing Digital y
+                        <span
+                            class="bg-gradient-to-r text-nowrap from-red-500 to-rose-500 bg-clip-text text-transparent"
+                        >
+                            Gestión de Redes Sociales
+                        </span>
+                    </h1>
+
+                    <p
+                        class="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto"
+                    >
+                        Potenciamos tu presencia digital con estrategias
+                        personalizadas de marketing, gestión de redes sociales y
+                        creación de contenido que <strong
+                            >generan impacto, construyen futuro y crean legado</strong
+                        >.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-6">
+                        <Alert className="border-red-200 bg-red-50">
+                            <Heart
+                                className="h-4 w-4 fill-red-600 stroke-red-600"
+                            />
+                            <AlertTitle className="text-red-800"
+                                >En Devanthos tejemos historias digitales</AlertTitle
+                            >
+                            <AlertDescription className="text-red-700">
+                                Somos un equipo apasionado por el marketing
+                                digital y la creación de contenido, dedicados a
+                                potenciar la presencia en línea de negocios como
+                                el tuyo.
+                            </AlertDescription>
+                        </Alert>
+
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <Button
+                                size="lg"
+                                className="text-lg px-8 bg-gradient-to-r from-red-500 to-rose-500 hover:from-red-600 hover:to-rose-600"
+                            >
+                                Ver Paquetes
+                                <ArrowRight className="ml-2 w-5 h-5" />
+                            </Button>
+                            <Button
+                                variant="outline"
+                                size="lg"
+                                className="text-lg px-8 border-red-500 text-red-600 hover:bg-red-50"
+                            >
+                                Consulta Gratuita
+                            </Button>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <img
+                            src="/images/service/marketing-digital-seo.png"
+                            alt="Marketing Digital y SEO"
+                            class="rounded-2xl shadow-2xl"
+                        />
+                        <div
+                            class="absolute -bottom-4 -right-4 bg-gradient-to-r from-red-500 to-rose-500 text-white p-4 rounded-xl shadow-lg"
+                        >
+                            <div class="flex items-center gap-2">
+                                <TrendingUp className="w-6 h-6" />
+                                <div>
+                                    <p class="font-semibold">+500 Clientes</p>
+                                    <p class="text-sm opacity-90">
+                                        Satisfechos
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do Section -->
+    <section class="py-20 px-4 bg-muted/30">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    ¿Qué Hacemos?
+                </h2>
+                <p class="text-lg text-muted-foreground mb-8">
+                    En <strong>Devanthos</strong>, nos especializamos en
+                    potenciar el alcance de nuestros clientes a través de
+                    servicios integrales de marketing.
+                </p>
+
+                <div class="flex flex-wrap justify-center gap-2 mb-8">
+                    <Badge variant="outline" className="text-sm"
+                        >Auditorías de Marketing</Badge
+                    >
+                    <Badge variant="outline" className="text-sm"
+                        >Campañas Publicitarias</Badge
+                    >
+                    <Badge variant="outline" className="text-sm"
+                        >Creación de Páginas Web</Badge
+                    >
+                    <Badge variant="outline" className="text-sm"
+                        >Gestión de Redes Sociales</Badge
+                    >
+                    <Badge variant="outline" className="text-sm"
+                        >Creación de Contenido</Badge
+                    >
+                    <Badge variant="outline" className="text-sm"
+                        >Google My Business</Badge
+                    >
+                </div>
+            </div>
+
+            <!-- Platforms -->
+            <div class="max-w-2xl mx-auto mb-16">
+                <h3 class="text-xl font-semibold text-center mb-6">
+                    Plataformas donde Trabajamos
+                </h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    {
+                        platforms.map((platform) => {
+                            const IconComponent = platform.icon;
+                            return (
+                                <Card className="text-center p-4 hover:shadow-lg transition-shadow">
+                                    <CardContent className="p-0">
+                                        <IconComponent
+                                            className={`w-8 h-8 mx-auto mb-2 ${platform.color}`}
+                                        />
+                                        <p class="font-medium text-sm">
+                                            {platform.name}
+                                        </p>
+                                    </CardContent>
+                                </Card>
+                            );
+                        })
+                    }
+                </div>
+            </div>
+
+            <!-- Benefits -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {
+                    benefits.map((benefit) => {
+                        const IconComponent = benefit.icon;
+                        return (
+                            <Card className="text-center p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                                <CardContent className="p-0">
+                                    <div
+                                        class={`w-16 h-16 bg-gradient-to-br ${benefit.gradient} rounded-full flex items-center justify-center mx-auto mb-4`}
+                                    >
+                                        <IconComponent className="w-8 h-8 text-white" />
+                                    </div>
+                                    <h3 class="text-xl font-semibold mb-3">
+                                        {benefit.title}
+                                    </h3>
+                                    <p class="text-muted-foreground">
+                                        {benefit.description}
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        );
+                    })
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Packages -->
+    <section class="py-20 px-4">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Gestión de Redes Sociales
+                </h2>
+                <p class="text-lg text-muted-foreground">
+                    Ofrecemos tres paquetes diseñados para diferentes
+                    necesidades y presupuestos. Cada paquete incluye contenido
+                    original, estrategias creativas y campañas publicitarias
+                    optimizadas.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                {
+                    socialPackages.map((pkg) => {
+                        const IconComponent = pkg.icon;
+                        return (
+                            <Card
+                                className={`relative hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 ${pkg.popular ? "border-2 border-primary ring-2 ring-primary/20" : ""}`}
+                            >
+                                {pkg.popular && (
+                                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                                        <Badge className="bg-primary text-primary-foreground px-4 py-1">
+                                            <Star className="w-4 h-4 mr-1" />
+                                            Más Popular
+                                        </Badge>
+                                    </div>
+                                )}
+
+                                <div
+                                    class={`h-2 bg-gradient-to-r ${pkg.gradient}`}
+                                />
+
+                                <CardHeader className="text-center pb-4">
+                                    <div
+                                        class={`w-16 h-16 bg-gradient-to-br ${pkg.gradient} rounded-full flex items-center justify-center mx-auto mb-4`}
+                                    >
+                                        <IconComponent className="w-8 h-8 text-white" />
+                                    </div>
+                                    <CardTitle className="text-2xl">
+                                        {pkg.name}
+                                    </CardTitle>
+                                    <p class="text-muted-foreground">
+                                        {pkg.description}
+                                    </p>
+                                    <div class="text-3xl font-bold text-primary mt-4">
+                                        {pkg.price}
+                                    </div>
+                                    {pkg.highlight && (
+                                        <Badge
+                                            variant="secondary"
+                                            className="mt-2"
+                                        >
+                                            {pkg.highlight}
+                                        </Badge>
+                                    )}
+                                </CardHeader>
+
+                                <CardContent>
+                                    <div class="space-y-3">
+                                        {pkg.features.map((feature) => (
+                                            <div class="flex items-start gap-3">
+                                                <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                                                <span class="text-sm">
+                                                    {feature}
+                                                </span>
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    <Button
+                                        className={`w-full mt-6 bg-gradient-to-r ${pkg.gradient} hover:opacity-90`}
+                                    >
+                                        Elegir {pkg.name}
+                                        <ArrowRight className="ml-2 w-4 h-4" />
+                                    </Button>
+                                </CardContent>
+                            </Card>
+                        );
+                    })
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Google My Business Section -->
+    <section class="py-20 px-4 bg-muted/30">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Ficha de Google My Business
+                    </h2>
+                    <p class="text-lg text-muted-foreground">
+                        Optimiza tu presencia local y atrae más clientes
+                    </p>
+                </div>
+
+                <Card
+                    className="p-8 bg-gradient-to-br from-red-50 to-orange-50 border-red-200"
+                >
+                    <CardHeader className="text-center pb-6">
+                        <div
+                            class="w-20 h-20 bg-gradient-to-br from-red-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4"
+                        >
+                            <Search className="w-10 h-10 text-white" />
+                        </div>
+                        <CardTitle className="text-2xl text-red-800">
+                            Creación y Optimización de Ficha
+                        </CardTitle>
+                        <div class="text-3xl font-bold text-red-600">
+                            $100 USD
+                        </div>
+                        <Badge
+                            variant="outline"
+                            className="text-red-600 border-red-300"
+                        >
+                            Pago Único
+                        </Badge>
+                    </CardHeader>
+
+                    <CardContent>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                            {
+                                googleMyBusinessFeatures.map((feature) => {
+                                    const IconComponent = feature.icon;
+                                    return (
+                                        <div class="flex items-start gap-3">
+                                            <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                                <IconComponent className="w-5 h-5 text-red-600" />
+                                            </div>
+                                            <div>
+                                                <h4 class="font-semibold text-red-800">
+                                                    {feature.title}
+                                                </h4>
+                                                <p class="text-sm text-red-600">
+                                                    {feature.description}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    );
+                                })
+                            }
+                        </div>
+
+                        <Alert className="border-green-200 bg-green-50">
+                            <Eye className="h-4 w-4 text-green-600" />
+                            <AlertTitle className="text-green-800"
+                                >Beneficios de Tener tu Ficha Optimizada</AlertTitle
+                            >
+                            <AlertDescription className="text-green-700">
+                                Cualquier persona que busque tu negocio en
+                                Google podrá encontrarte fácilmente, acceder a
+                                tu ubicación, horarios y demás información
+                                relevante, aumentando la visibilidad en
+                                búsquedas locales y atrayendo más tráfico hacia
+                                tu tienda física.
+                            </AlertDescription>
+                        </Alert>
+
+                        <div class="text-center mt-6">
+                            <Button
+                                size="lg"
+                                className="bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600"
+                            >
+                                Optimizar mi Ficha
+                                <ArrowRight className="ml-2 w-5 h-5" />
+                            </Button>
+                        </div>
+                    </CardContent>
+                </Card>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Process Section -->
+    <section class="py-20 px-4">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Nuestro Proceso de Trabajo
+                    </h2>
+                    <p class="text-lg text-muted-foreground">
+                        En <strong>Devanthos</strong>, trabajamos con una
+                        metodología probada que garantiza resultados
+                        excepcionales
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+                >
+                    {
+                        workProcess.map((step) => {
+                            const IconComponent = step.icon;
+                            return (
+                                <div class="text-center">
+                                    <div class="relative mb-6">
+                                        <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                                            <IconComponent className="w-8 h-8 text-white" />
+                                        </div>
+                                        <div class="absolute -top-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">
+                                            {step.number}
+                                        </div>
+                                    </div>
+                                    <h3 class="text-lg font-semibold mb-2">
+                                        {step.title}
+                                    </h3>
+                                    <p class="text-muted-foreground text-sm">
+                                        {step.description}
+                                    </p>
+                                </div>
+                            );
+                        })
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-4 bg-gradient-to-br from-green-50 to-emerald-50">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto text-center">
+                <Card
+                    className="p-12 bg-white/80 backdrop-blur-sm border-green-200"
+                >
+                    <CardContent>
+                        <div class="mb-6">
+                            <Megaphone
+                                className="w-16 h-16 mx-auto text-green-600"
+                            />
+                        </div>
+
+                        <h2
+                            class="text-3xl md:text-4xl font-bold mb-4 text-green-800"
+                        >
+                            ¿Listo para Transformar tu Presencia Digital?
+                        </h2>
+
+                        <p
+                            class="text-lg text-green-700 mb-8 max-w-2xl mx-auto"
+                        >
+                            En Devanthos tejemos historias digitales que <strong
+                                >generan impacto, construyen futuro y crean
+                                legado</strong
+                            >. Contáctanos hoy mismo para comenzar a potenciar
+                            tu negocio con estrategias de marketing
+                            personalizadas.
+                        </p>
+
+                        <div
+                            class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 max-w-2xl mx-auto"
+                        >
+                            <div class="flex items-center gap-3 justify-center">
+                                <Zap className="w-5 h-5 text-green-600" />
+                                <span class="text-green-700"
+                                    >Impulsa tu presencia digital</span
+                                >
+                            </div>
+                            <div class="flex items-center gap-3 justify-center">
+                                <Target className="w-5 h-5 text-green-600" />
+                                <span class="text-green-700"
+                                    >Atrae a tu audiencia ideal</span
+                                >
+                            </div>
+                            <div class="flex items-center gap-3 justify-center">
+                                <TrendingUp
+                                    className="w-5 h-5 text-green-600"
+                                />
+                                <span class="text-green-700"
+                                    >Aumenta tus ventas y conversiones</span
+                                >
+                            </div>
+                            <div class="flex items-center gap-3 justify-center">
+                                <Star className="w-5 h-5 text-green-600" />
+                                <span class="text-green-700"
+                                    >Destaca por encima de la competencia</span
+                                >
+                            </div>
+                        </div>
+
+                        <div
+                            class="flex flex-col sm:flex-row gap-4 justify-center"
+                        >
+                            <Button
+                                size="lg"
+                                className="text-lg px-8 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600"
+                            >
+                                Comenzar Ahora
+                                <ArrowRight className="ml-2 w-5 h-5" />
+                            </Button>
+                            <Button
+                                variant="outline"
+                                size="lg"
+                                className="text-lg px-8 border-green-500 text-green-600 hover:bg-green-50"
+                            >
+                                Consulta Gratuita
+                            </Button>
+                        </div>
+
+                        <div
+                            class="flex items-center justify-center gap-4 text-sm text-green-600 mt-6"
+                        >
+                            <div class="flex items-center gap-1">
+                                <CheckCircle className="w-4 h-4" />
+                                <span>Sin compromiso</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <CheckCircle className="w-4 h-4" />
+                                <span>Respuesta en 24h</span>
+                            </div>
+                        </div>
+                    </CardContent>
+                </Card>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    .line-clamp-3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+</style>
