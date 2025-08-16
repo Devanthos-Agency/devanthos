@@ -15,6 +15,7 @@ interface Props {
     preload?: Array<Preload>;
     canonical?: string;
     image?: string;
+    keywords?: string;
 }
 
 const {
@@ -23,6 +24,7 @@ const {
     preload,
     canonical,
     image = "https://www.devanthos.com/metadata.jpg",
+    keywords = "desarrollo web, desarrollo de software, aplicaciones web, aplicaciones móviles, diseño web, SEO, marketing digital, DevOps, bases de datos, programación, tecnología",
 } = Astro.props as Props;
 ---
 
@@ -62,10 +64,7 @@ const {
     crossorigin
 />
 
-<meta
-    name="keywords"
-    content="desarrollo web, desarrollo de software, aplicaciones web, aplicaciones móviles, diseño web, SEO, marketing digital, DevOps, bases de datos, programación, tecnología"
-/>
+<meta name="keywords" content={keywords} />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
