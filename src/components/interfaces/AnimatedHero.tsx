@@ -35,34 +35,34 @@ const AnimatedHero: React.FC<AnimatedHeroProps> = ({
 
     const images = [
         {
-            src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/random11.jpeg",
-            alt: "Portrait of Joanna Doe in urban setting",
-            name: "Joanna Doe",
+            src: "/images/hero/CHATBOT.gif",
+            alt: "Chatbot interaction",
+            name: "Chatbot",
         },
         {
-            src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/random1.jpeg",
-            alt: "Portrait of Joan Doe in natural lighting",
-            name: "Joan Doe",
+            src: "/images/hero/DISEÑO WEB.gif",
+            alt: "Web design project",
+            name: "Diseño Web",
         },
         {
-            src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/random2.jpeg",
-            alt: "Portrait of Sarah Chen in studio setting",
-            name: "Sarah Chen",
+            src: "/images/hero/MARKETING DIGITAL.gif",
+            alt: "Marketing digital project",
+            name: "Marketing Digital",
         },
         {
-            src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/random11.jpeg",
-            alt: "Portrait of Joanna Doe in urban setting",
-            name: "Joanna Doe",
+            src: "/images/hero/CHATBOT.gif",
+            alt: "Chatbot interaction",
+            name: "Chatbot",
         },
         {
-            src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/random1.jpeg",
-            alt: "Portrait of Joan Doe in natural lighting",
-            name: "Joan Doe",
+            src: "/images/hero/SEO GIF.gif",
+            alt: "SEO project",
+            name: "Optimización de SEO",
         },
         {
-            src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/random2.jpeg",
-            alt: "Portrait of Sarah Chen in studio setting",
-            name: "Sarah Chen",
+            src: "/images/hero/DISEÑO WEB.gif",
+            alt: "Web design project",
+            name: "Diseño Web",
         },
     ];
     // Variantes de animación para el contenedor principal
