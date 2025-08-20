@@ -35,34 +35,34 @@ const AnimatedHero: React.FC<AnimatedHeroProps> = ({
 
     const images = [
         {
-            src: "/images/hero/CHATBOT.gif",
-            alt: "Chatbot interaction",
-            name: "Chatbot",
+            src: "/videos/hero/Seo avanzado 2.webm",
+            alt: "SEO project",
+            name: "SEO Avanzado",
         },
         {
-            src: "/images/hero/DISEÑO WEB.gif",
+            src: "/videos/hero/Diseño web.webm",
             alt: "Web design project",
             name: "Diseño Web",
         },
         {
-            src: "/images/hero/MARKETING DIGITAL.gif",
+            src: "/videos/hero/marketing digital.webm",
             alt: "Marketing digital project",
             name: "Marketing Digital",
         },
         {
-            src: "/images/hero/CHATBOT.gif",
-            alt: "Chatbot interaction",
-            name: "Chatbot",
-        },
-        {
-            src: "/images/hero/SEO GIF.gif",
+            src: "/videos/hero/Seo avanzado 2.webm",
             alt: "SEO project",
-            name: "Optimización de SEO",
+            name: "SEO Avanzado",
         },
         {
-            src: "/images/hero/DISEÑO WEB.gif",
+            src: "/videos/hero/Diseño web.webm",
             alt: "Web design project",
             name: "Diseño Web",
+        },
+        {
+            src: "/videos/hero/marketing digital.webm",
+            alt: "Marketing digital project",
+            name: "Marketing Digital",
         },
     ];
     // Variantes de animación para el contenedor principal
@@ -299,8 +299,9 @@ const AnimatedHero: React.FC<AnimatedHeroProps> = ({
                             <Swiper
                                 spaceBetween={50}
                                 autoplay={{
-                                    delay: 1500,
+                                    delay: 3500,
                                     disableOnInteraction: false,
+                                    pauseOnMouseEnter: true,
                                 }}
                                 effect="coverflow"
                                 grabCursor={true}
@@ -331,7 +332,7 @@ const AnimatedHero: React.FC<AnimatedHeroProps> = ({
                                     const isActive = activeSlide === index;
                                     return (
                                         <SwiperSlide key={index}>
-                                            <motion.img
+                                            <motion.video
                                                 initial={{
                                                     opacity: 0,
                                                     scale: 0.8,
@@ -346,7 +347,10 @@ const AnimatedHero: React.FC<AnimatedHeroProps> = ({
                                                 }}
                                                 className="relative z-10 h-full w-full overflow-hidden rounded-3xl object-cover shadow-lg"
                                                 src={image.src}
-                                                alt={image.alt}
+                                                autoPlay
+                                                loop
+                                                muted
+                                                playsInline
                                             />
                                             <motion.div
                                                 initial={{ opacity: 0, y: 20 }}
@@ -360,7 +364,7 @@ const AnimatedHero: React.FC<AnimatedHeroProps> = ({
                                             >
                                                 {image.name}
                                             </motion.div>
-                                            <motion.img
+                                            <motion.video
                                                 initial={{
                                                     opacity: isActive ? 0 : 0,
                                                     scale: isActive ? 1.2 : 1.2,
@@ -376,7 +380,8 @@ const AnimatedHero: React.FC<AnimatedHeroProps> = ({
                                                 }}
                                                 className="absolute z-0 inset-0 h-full w-full blur-xl"
                                                 src={image.src}
-                                                alt={image.alt}
+                                                autoPlay
+                                                loop
                                             />
                                         </SwiperSlide>
                                     );
