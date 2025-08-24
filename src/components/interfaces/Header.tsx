@@ -1,19 +1,13 @@
 "use client";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import {
-    Archive,
-    Book,
     Bot,
     ChevronLeft,
     ChevronRight,
     FileText,
-    Handshake,
     Headset,
     LifeBuoy,
     Mail,
-    PlayCircle,
-    Sunset,
-    Trees,
     Zap,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -138,7 +132,7 @@ const NAVIGATION1: Array<MenuItem> = [
                                     "Estrategias para hacer crecer tu negocio online.",
                             },
                             {
-                                label: "Chatbots inteligentes",
+                                label: "Chatbots para Empresas",
                                 url: "/servicios/chatbots-inteligentes",
                                 icon: Bot,
                                 description:
