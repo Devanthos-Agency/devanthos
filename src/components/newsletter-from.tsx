@@ -61,6 +61,7 @@ export default function NewsletterFrom() {
                             size="icon"
                             variant="secondary"
                         >
+                            <span className="sr-only">Subscribe</span>
                             <ArrowRight className="size-6 stroke-foreground" />
                         </Button>
                     </div>
