@@ -73,7 +73,11 @@ const NAVIGATION = [
                 class="flex shrink-0 grow-0 basis-auto flex-col items-start justify-start gap-6"
             >
                 {/* Logo */}
-                <a href="/" class="w-28 flex items-center justify-between">
+                <a 
+                    href="/" 
+                    class="w-28 flex items-center justify-between"
+                    aria-label="Devanthos - Ir a página de inicio"
+                >
                     <span class="inline-flex items-baseline">
                         <DevanthosIcon
                             className="relative -bottom-[3px] size-7.5 align-baseline fill-primary"
@@ -94,14 +98,27 @@ const NAVIGATION = [
                 </p>
                 <div class="flex w-full items-center justify-start gap-7">
                     {
-                        SOCIAL_LINKS.map((item, i) => (
+                        SOCIAL_LINKS.map((item, i) => {
+                            const socialNames = {
+                                'github.com': 'GitHub',
+                                'linkedin.com': 'LinkedIn', 
+                                'facebook.com': 'Facebook',
+                                'instagram.com': 'Instagram'
+                            };
+                            const socialName = Object.entries(socialNames).find(([domain]) => item.href.includes(domain))?.[1] || 'Red social';
+                            return (
                             <a
                                 href={item.href}
                                 class="flex size-6 opacity-100 transition-opacity hover:opacity-50"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={`Visitar perfil de Devanthos en ${socialName}`}
                             >
+                                <span class="sr-only">Seguir a Devanthos en {socialName}</span>
                                 <item.icon className="m-auto size-full stroke-foreground" />
                             </a>
-                        ))
+                            );
+                        })
                     }
                 </div>
                 <div class="pt-6">
@@ -113,7 +130,9 @@ const NAVIGATION = [
                             target="_blank"
                             rel="noopener noreferrer"
                             class="flex items-center gap-2 px-3 py-2"
+                            aria-label="Contactar por WhatsApp - Consultoría gratuita disponible"
                         >
+                            <span class="sr-only">Estado: En línea - Contactar por WhatsApp</span>
                             <div class="relative size-[0.4375rem]">
                                 <span
                                     class="absolute top-1/2 left-1/2 z-10 size-[0.6875rem] -translate-1/2 animate-pulse rounded-full bg-green-400/50"
