@@ -47,11 +47,13 @@ export default function ContainerScrollSection() {
                     }
                 >
                     <img
-                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/dashboard/admin-dashboard-1.png"
-                        alt="hero"
-                        height={720}
-                        width={1400}
-                        className="mx-auto h-full rounded-2xl object-cover object-left-top relative top-0"
+                        src="/images/feature2/feature-2.avif"
+                        alt="Aplicaciones web modernas y receptivas - Desarrollo con React, Next.js y Tailwind CSS"
+                        height={482}
+                        width={936}
+                        decoding="async"
+                        loading="lazy"
+                        className="mx-auto h-full w-full rounded-2xl object-cover object-left-top relative top-0"
                         draggable={false}
                     />
                 </ContainerScroll>
