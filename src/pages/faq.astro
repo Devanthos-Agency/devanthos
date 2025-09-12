@@ -188,15 +188,19 @@ const faqCategories = [
                         <a
                             href="/contacto"
                             class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                            aria-label="Ir a página de contacto para hacer una pregunta"
                         >
                             <MessageCircle className="w-4 h-4 mr-2" />
                             Hacer una Pregunta
+                            <span class="sr-only"> - Formulario de contacto</span>
                         </a>
                         <a
                             href="mailto:soporte@devanthos.com"
                             class="inline-flex items-center justify-center px-8 py-3 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+                            aria-label="Enviar email a soporte técnico - soporte@devanthos.com"
                         >
                             Contactar Soporte
+                            <span class="sr-only"> por email</span>
                         </a>
                     </div>
                 </div>
@@ -358,15 +362,19 @@ const faqCategories = [
                                     variant="info"
                                     href="mailto:contacto@devanthos.com"
                                     class="hover:opacity-80 transition-opacity"
+                                    aria-label="Enviar email a contacto@devanthos.com"
                                 >
                                     <Mail /> contacto@devanthos.com
+                                    <span class="sr-only"> - Enviar email</span>
                                 </Button>
                                 <Button
                                     variant="info"
                                     href="tel:+5492646629632"
                                     class="hover:opacity-80 transition-opacity"
+                                    aria-label="Llamar al teléfono +54 9 2646-629632"
                                 >
                                     <PhoneCall /> +54 9 2646-629632
+                                    <span class="sr-only"> - Realizar llamada</span>
                                 </Button>
                             </div>
                         </div>
