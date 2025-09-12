@@ -438,7 +438,7 @@ export default function Navbar() {
 
 const renderDesktopMenuItem = (item: MenuItem, index: number) => {
     const triggerClasses =
-        "text-base py-1 px-2 rounded-[.375rem] h-8 bg-transparent";
+        "text-base font-semibold py-1 px-2 rounded-[.375rem] h-8 bg-transparent";
 
     if (item.groups) {
         const [group1, group2] = item.groups;
