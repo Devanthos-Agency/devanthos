@@ -33,7 +33,7 @@ export default function AnimatedBeamIllustration() {
                         className="absolute top-40 left-0 z-10 flex size-18 -translate-y-1/2 items-center justify-center rounded-full bg-transparent p-1 xl:top-1/2 xl:left-0 before:content-[''] before:absolute before:inset-0 before:-z-10 before:rounded-full before:bg-white before:drop-shadow-[0_0px_7px_rgba(255,255,255,0.65)] before:animate-aurora before:ease-in-out"
                     >
                         <HoverCard>
-                            <HoverCardTrigger>
+                            <HoverCardTrigger asChild>
                                 <div className="flex size-10 items-center justify-center rounded-xl border border-border bg-background p-[5px]">
                                     <div className="flex size-full items-center justify-center rounded-md border border-border bg-muted">
                                         <DatabaseZap size={16} />
@@ -59,7 +59,7 @@ export default function AnimatedBeamIllustration() {
                         className="absolute top-40 right-0 z-10 flex size-18 -translate-y-1/2 items-center justify-center rounded-full bg-transparent p-1 xl:top-20 xl:left-10 before:content-[''] before:absolute before:inset-0 before:-z-10 before:rounded-full before:bg-white before:drop-shadow-[0_0px_7px_rgba(255,255,255,0.65)] before:animate-aurora before:ease-in-out"
                     >
                         <HoverCard>
-                            <HoverCardTrigger>
+                            <HoverCardTrigger asChild>
                                 <div className="flex size-10 items-center justify-center rounded-xl border border-border bg-background p-[5px]">
                                     <div className="flex size-full items-center justify-center rounded-md border border-border bg-muted">
                                         <Code size={16} />
@@ -82,7 +82,7 @@ export default function AnimatedBeamIllustration() {
                         className="absolute bottom-0 left-6 z-10 flex size-18 -translate-y-1/2 items-center justify-center rounded-full bg-transparent p-1 xl:bottom-2 xl:left-10 before:content-[''] before:absolute before:inset-0 before:-z-10 before:rounded-full before:bg-white before:drop-shadow-[0_0px_7px_rgba(255,255,255,0.65)] before:animate-aurora before:ease-in-out"
                     >
                         <HoverCard>
-                            <HoverCardTrigger>
+                            <HoverCardTrigger asChild>
                                 <div className="flex size-10 items-center justify-center rounded-xl border border-border bg-background p-[5px]">
                                     <div className="flex size-full items-center justify-center rounded-md border border-border bg-muted">
                                         <ChartLine size={16} />
@@ -105,7 +105,7 @@ export default function AnimatedBeamIllustration() {
                         className="absolute right-6 bottom-0 z-10 flex size-18 -translate-y-1/2 items-center justify-center rounded-full bg-transparent p-1 xl:top-0 xl:left-30 before:content-[''] before:absolute before:inset-0 before:-z-10 before:rounded-full before:bg-white before:drop-shadow-[0_0px_7px_rgba(255,255,255,0.65)] before:animate-aurora before:ease-in-out"
                     >
                         <HoverCard>
-                            <HoverCardTrigger>
+                            <HoverCardTrigger asChild>
                                 <div className="flex size-10 items-center justify-center rounded-xl border border-border bg-background p-[5px]">
                                     <div className="flex size-full items-center justify-center rounded-md border border-border bg-muted">
                                         <HeartHandshake size={16} />
@@ -130,7 +130,7 @@ export default function AnimatedBeamIllustration() {
                         className="absolute top-20 z-10 flex size-18 -translate-y-1/2 items-center justify-center rounded-full bg-transparent p-1 xl:top-100 xl:left-30 before:content-[''] before:absolute before:inset-0 before:-z-10 before:rounded-full before:bg-white before:drop-shadow-[0_0px_7px_rgba(255,255,255,0.65)] before:animate-aurora before:ease-in-out"
                     >
                         <HoverCard>
-                            <HoverCardTrigger>
+                            <HoverCardTrigger asChild>
                                 <div className="flex size-10 items-center justify-center rounded-xl border border-border bg-background p-[5px]">
                                     <div className="flex size-full items-center justify-center rounded-md border border-border bg-muted">
                                         <Bot size={16} />
