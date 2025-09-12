@@ -348,8 +348,12 @@ const stats = [
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 class="text-muted-foreground hover:text-primary transition-colors"
-                                                title={social.name}
+                                                title={`${social.name} de ${member.name}`}
+                                                aria-label={`Visitar perfil de ${member.name} en ${social.name}`}
                                             >
+                                                <span class="sr-only">
+                                                    Visitar perfil de {member.name} en {social.name}
+                                                </span>
                                                 <social.icon className="w-5 h-5" />
                                             </a>
                                         ))}
