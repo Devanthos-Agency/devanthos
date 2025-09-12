@@ -76,10 +76,12 @@ export const prerender = true;
                 </div>
                 <span>
                     <a
-                        href="#"
+                        href="/empresa"
                         class="font-medium hover:text-primary transition-colors"
+                        aria-label="Conocer más sobre el equipo de Devanthos"
                     >
-                        DevsHub Team
+                        Equipo Devanthos
+                        <span class="sr-only"> - Ir a página sobre la empresa</span>
                     </a>
                     <span class="text-muted-foreground ml-1">
                         el {
@@ -154,7 +156,9 @@ export const prerender = true;
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     class="inline-flex items-center justify-center rounded-full bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80 h-9 w-9 group transition-colors"
+                                    aria-label={`Compartir "${post.data.title}" en Facebook`}
                                 >
+                                    <span class="sr-only">Compartir en Facebook: {post.data.title}</span>
                                     <svg
                                         class="h-4 w-4 fill-muted-foreground text-muted-foreground group-hover:fill-primary group-hover:text-primary transition-colors"
                                         viewBox="0 0 24 24"
@@ -171,7 +175,9 @@ export const prerender = true;
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     class="inline-flex items-center justify-center rounded-full bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80 h-9 w-9 group transition-colors"
+                                    aria-label={`Compartir "${post.data.title}" en LinkedIn`}
                                 >
+                                    <span class="sr-only">Compartir en LinkedIn: {post.data.title}</span>
                                     <svg
                                         class="h-4 w-4 fill-muted-foreground text-muted-foreground group-hover:fill-primary group-hover:text-primary transition-colors"
                                         viewBox="0 0 24 24"
@@ -188,7 +194,9 @@ export const prerender = true;
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     class="inline-flex items-center justify-center rounded-full bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80 h-9 w-9 group transition-colors"
+                                    aria-label={`Compartir "${post.data.title}" en Twitter/X`}
                                 >
+                                    <span class="sr-only">Compartir en Twitter/X: {post.data.title}</span>
                                     <svg
                                         class="h-4 w-4 fill-muted-foreground text-muted-foreground group-hover:fill-primary group-hover:text-primary transition-colors"
                                         viewBox="0 0 24 24"
