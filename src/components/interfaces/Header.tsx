@@ -96,9 +96,14 @@ const NAVIGATION1: Array<MenuItem> = [
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex items-center gap-2 font-semibold no-underline"
+                                    aria-label="Iniciar consultoría gratuita por WhatsApp"
                                 >
                                     <Headset className="w-4 h-4" />
                                     {PRIMARY_BUTTON.label}
+                                    <span className="sr-only">
+                                        {" "}
+                                        - Contactar por WhatsApp
+                                    </span>
                                 </a>
                             </Button>
                         </div>
@@ -174,9 +179,14 @@ const NAVIGATION1: Array<MenuItem> = [
                                 <a
                                     href="/contacto"
                                     className="flex items-center gap-2 font-semibold no-underline"
+                                    aria-label="Ir a página de contacto - Enviar mensaje"
                                 >
                                     <Mail className="w-4 h-4" />
                                     Contáctanos
+                                    <span className="sr-only">
+                                        {" "}
+                                        - Formulario de contacto
+                                    </span>
                                 </a>
                             </Button>
                         </div>
@@ -346,6 +356,7 @@ export default function Navbar() {
                         <a
                             href="/"
                             className="w-fit inline-flex items-baseline"
+                            aria-label="Devanthos - Ir a página de inicio"
                         >
                             <DevanthosIcon className="relative -bottom-[3px] size-7 align-baseline fill-primary" />
                             <span className="ml-[2px] text-3xl font-cocogoose font-normal">
@@ -366,8 +377,13 @@ export default function Navbar() {
                                     href={PRIMARY_BUTTON.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    aria-label="Iniciar consultoría gratuita - Contactar por WhatsApp"
                                 >
                                     {PRIMARY_BUTTON.label}
+                                    <span className="sr-only">
+                                        {" "}
+                                        por WhatsApp
+                                    </span>
                                 </a>
                             </Button>
                             <ModeToggle />
@@ -376,6 +392,12 @@ export default function Navbar() {
                                     className="mr-[-0.6875rem] size-11"
                                     variant="ghost"
                                     onClick={handleMobileMenu}
+                                    aria-label={
+                                        open
+                                            ? "Cerrar menú de navegación"
+                                            : "Abrir menú de navegación"
+                                    }
+                                    aria-expanded={open}
                                 >
                                     <div className="relative size-5.5">
                                         <span
@@ -530,8 +552,15 @@ const MobileNavigationMenu = ({ open }: { open: boolean }) => {
                                         </Button>
                                     ))}
                                     <Button asChild size="lg">
-                                        <a href={PRIMARY_BUTTON.url}>
+                                        <a
+                                            href={PRIMARY_BUTTON.url}
+                                            aria-label="Iniciar consultoría gratuita - Contactar por WhatsApp"
+                                        >
                                             {PRIMARY_BUTTON.label}
+                                            <span className="sr-only">
+                                                {" "}
+                                                por WhatsApp
+                                            </span>
                                         </a>
                                     </Button>
                                 </div>
