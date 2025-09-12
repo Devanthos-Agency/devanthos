@@ -112,7 +112,7 @@ export default function Galeria() {
                     ]}
                     setApi={setApi}
                 >
-                    <div className="grid gap-8 md:gap-4 lg:grid-cols-2 [&>div[data-slot=carousel-content]]:overflow-visible [&>div[data-slot=carousel-content]]:[clip-path:inset(-100vw_-100vw_-100vw_0)]">
+                    <div className="grid gap-8 md:gap-4 lg:grid-cols-3 [&>div[data-slot=carousel-content]]:overflow-visible [&>div[data-slot=carousel-content]]:[clip-path:inset(-100vw_-100vw_-100vw_0)]">
                         <div>
                             <h2 className="text-4xl font-cocogoose font-normal md:text-5xl">
                                 Tus proyectos. <br />
@@ -131,7 +131,7 @@ export default function Galeria() {
                             </div>
                         </div>
 
-                        <CarouselContent className="max-w-[400px] select-none">
+                        <CarouselContent className="max-w-[400px] select-none lg:col-span-2">
                             {carouselItems.map((item, idx) => (
                                 <CarouselItem className="w-fit" key={idx}>
                                     <div className="relative aspect-4/5 max-h-[500px] rounded-2xl">
