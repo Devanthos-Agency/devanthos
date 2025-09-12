@@ -10,7 +10,7 @@ const people = [
         role: "Programador Full Stack | CEO",
         description:
             "Me encargo de crear interfaces atractivas y funcionales, optimizando la experiencia del usuario. También lidero el equipo de desarrollo y gestiono proyectos. Mi objetivo es ofrecer soluciones tecnológicas innovadoras que impulsen el crecimiento de nuestros clientes. Además, me apasiona la inteligencia artificial y su aplicación en chatbots para mejorar la atención al cliente y automatizar procesos.",
-        avatar: "https://avatars.githubusercontent.com/u/85465719?v=4",
+        avatar: "/images/team/juan-morales.avif",
         socialLinks: [
             {
                 name: "Github",
@@ -40,7 +40,7 @@ const people = [
         role: "Account Manager | Business Developer | Customer Success Manager",
         description:
             "Encargado de gestionar y fortalecer las relaciones con los clientes, asegurando su satisfacción y acompañándolos en todo el proceso. A través de una comunicación clara y empática, identifico necesidades, resuelvo consultas y brindo soporte personalizado. Además, impulso nuevas oportunidades de negocio y desarrollo estratégico, conectando a los clientes con soluciones a medida que potencian sus resultados",
-        avatar: "https://shadcnblocks.com/images/block/avatar-2.webp",
+        avatar: "/images/team/santiago-fernandez.avif",
         socialLinks: [
             {
                 name: "LinkedIn",
@@ -65,7 +65,7 @@ const people = [
         role: "Productor Audiovisual & Motion Graphics | Estratega en Marketing Digital y Redes Sociales",
         description:
             "Creatividad en movimiento: produzco, animo y difundo contenidos que atrapan miradas y transmiten mensajes con fuerza conectando a las marcas con su audiencia ideal a través de estrategias digitales efectivas. Mi misión es potenciar la presencia online de las marcas mediante contenido visual impactante y estrategias de marketing digital que generan resultados medibles.",
-        avatar: "/images/team/pablo-valdebenito.jpg",
+        avatar: "/images/team/pablo-valdebenito.avif",
         socialLinks: [
             {
                 name: "Behance",
@@ -90,7 +90,7 @@ const people = [
         role: "Programador Full Stack | Account Manager",
         description:
             "Soy un apasionado del desarrollo web y móvil, con experiencia en la creación de aplicaciones escalables y eficientes. Me especializo en el desarrollo de soluciones personalizadas que se adaptan a las necesidades de cada cliente. Además, tengo habilidades en la gestión de relaciones con clientes, asegurando una comunicación efectiva y satisfacción continua. Mi objetivo es combinar mis habilidades técnicas y de gestión para ofrecer resultados excepcionales.",
-        avatar: "https://shadcnblocks.com/images/block/avatar-1.webp",
+        avatar: "/images/team/julian-peruzzi.avif",
         socialLinks: [
             {
                 name: "Github",
@@ -171,6 +171,10 @@ const people = [
                             class="aspect-square size-full"
                             src={person.avatar}
                             alt={person.name}
+                            width="96"
+                            height="96"
+                            decoding="async"
+                            loading="lazy"
                         />
                     </span>
                     <p class="text-center font-medium">{person.name}</p>
@@ -187,8 +191,12 @@ const people = [
                                     href={social.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    title={social.name}
+                                    title={`${social.name} de ${person.name}`}
+                                    aria-label={`Visitar perfil de ${person.name} en ${social.name}`}
                                 >
+                                <span class="sr-only">
+                                    Visitar perfil de {person.name} en {social.name}
+                                </span>
                                     <social.icon className="size-4 text-muted-foreground hover:text-primary transition-colors" />
                                 </a>
                             );
