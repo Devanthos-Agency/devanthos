@@ -28,6 +28,8 @@ const services = [
             "UI/UX Moderno",
         ],
         href: "/servicios/desarrollo-web-y-mobile",
+        srOnlyTitle: "profesional con React, Next.js, TypeScript y desarrollo de aplicaciones móviles nativas para iOS y Android",
+        srOnlyDescription: "Especialistas en programación web avanzada, arquitectura de software escalable, diseño responsivo, optimización de rendimiento y desarrollo de PWAs (Progressive Web Apps)."
     },
     {
         id: "marketing-digital-seo",
@@ -39,6 +41,8 @@ const services = [
         price: "Desde $250/mes",
         features: ["SEO Avanzado", "Google Ads", "Social Media", "Analytics"],
         href: "/servicios/marketing-digital-seo",
+        srOnlyTitle: "avanzado, posicionamiento web en Google, campañas de Google Ads y estrategias de redes sociales",
+        srOnlyDescription: "Especialistas en SEO técnico, optimización on-page y off-page, marketing de contenidos, análisis de competencia, Google Analytics 4, Facebook Ads, Instagram Marketing y estrategias de conversión digital."
     },
     {
         id: "chatbots-inteligentes",
@@ -55,6 +59,8 @@ const services = [
             "Automatización",
         ],
         href: "/servicios/chatbots-inteligentes",
+        srOnlyTitle: "con inteligencia artificial para WhatsApp, Facebook Messenger, sitios web y automatización empresarial",
+        srOnlyDescription: "Desarrollo de bots conversacionales con procesamiento de lenguaje natural (NLP), integración con CRM, automatización de ventas, soporte técnico automatizado y análisis de conversaciones para mejorar la experiencia del cliente."
     },
     {
         id: "consultoria-empresarial",
@@ -71,6 +77,8 @@ const services = [
             "Consultoría 24/7",
         ],
         href: "/servicios/consultoria-empresarial",
+        srOnlyTitle: "y transformación digital para pymes, startups y empresas en crecimiento",
+        srOnlyDescription: "Especialistas en análisis de procesos empresariales, implementación de tecnologías disruptivas, migración a la nube, auditoría digital, estrategias de e-commerce, automatización de workflows y consultoría en innovación tecnológica."
     },
 ];
 ---
@@ -97,6 +105,7 @@ const services = [
                     >
                         En Devanthos ofrecemos soluciones digitales
                         personalizadas
+                        <span class="sr-only">para empresas en Argentina - Desarrollo web profesional con React, Next.js, aplicaciones móviles nativas, SEO avanzado y chatbots inteligentes</span>
                     </h2>
                     <p
                         class="mx-auto max-w-2xl text-muted-foreground md:text-lg lg:text-xl"
@@ -105,14 +114,17 @@ const services = [
                         satisfacer las necesidades de tu negocio, incluyendo
                         desarrollo web, marketing digital y consultoría
                         estratégica.
+                        <span class="sr-only">Especialistas en transformación digital, programación web avanzada, diseño UX/UI, automatización de procesos y estrategias de marketing online para pymes y startups.</span>
                     </p>
                 </div>
                 <div class="mt-6 flex items-center gap-4">
                     <Button href="/contacto" variant="primary" class="group">
                         Comenzar
+                        <span class="sr-only">proyecto de desarrollo web o marketing digital - Contacto directo con especialistas</span>
                     </Button>
                     <Button href="/servicios" variant="outline" class="group">
                         Más información
+                        <span class="sr-only">sobre servicios de desarrollo web, apps móviles, SEO y consultoría empresarial</span>
                     </Button>
                 </div>
                 <div
@@ -144,12 +156,14 @@ const services = [
 
                                         <CardTitle className="text-xl group-hover:text-primary transition-colors">
                                             {service.title}
+                                            <span class="sr-only">{service.srOnlyTitle}</span>
                                         </CardTitle>
                                     </CardHeader>
 
                                     <CardContent>
                                         <p class="text-muted-foreground mb-6 line-clamp-3">
                                             {service.description}
+                                            <span class="sr-only">{service.srOnlyDescription}</span>
                                         </p>
 
                                         <div class="space-y-2 mb-6">
@@ -168,6 +182,7 @@ const services = [
                                                 variant="secondary"
                                             >
                                                 Ver Detalles
+                                                <span class="sr-only">del servicio de {service.title.toLowerCase()}</span>
                                                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                             </Button>
                                         </div>
