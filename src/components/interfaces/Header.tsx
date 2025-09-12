@@ -352,7 +352,7 @@ export default function Navbar() {
         <section>
             <div className="pointer-events-auto fixed top-0 z-999 w-full xl:bg-transparent">
                 <nav className="container p-0 mx-auto">
-                    <div className="flex w-full items-center justify-between rounded-b-[0.75rem] px-6 py-4 sm:rounded-[0.75rem]  xl:mt-2.5 xl:h-[5.25rem] dark:bg-black/60 bg-white/60 xl:py-6 backdrop-blur-[5px]">
+                    <div className="flex w-full items-center justify-between rounded-b-[0.75rem] px-6 py-4 sm:rounded-[0.75rem]  xl:mt-2.5 xl:h-[5.25rem]  xl:py-6 ">
                         <a
                             href="/"
                             className="w-fit inline-flex items-baseline"
