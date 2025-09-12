@@ -10,6 +10,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css";
 import "swiper/css/effect-cards";
+import LogoMarquee from "../logo-marquee";
 
 interface AnimatedHeroProps {
     className?: string;
@@ -243,13 +244,7 @@ const AnimatedHero: React.FC<AnimatedHeroProps> = ({
 
                         {/* Logo Marquee */}
                         <motion.div variants={marqueeVariants}>
-                            {children || (
-                                <div className="h-16 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center">
-                                    <span className="text-sm text-muted-foreground">
-                                        Logo Marquee
-                                    </span>
-                                </div>
-                            )}
+                            <LogoMarquee />
                         </motion.div>
 
                         {/* Botones y contacto */}
