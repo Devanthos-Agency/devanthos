@@ -17,67 +17,67 @@ import { ExternalLink } from "lucide-react";
 
 const carouselItems = [
     {
-        image: "/images/gallery/820_1x_shots_so.png",
+        image: "/images/gallery/820_1x_shots_so.avif",
         title: "Dominga Dominguez",
         description:
             "Es un restaurante de comida típica de la región. Ubicado en la ciudad de Coquimbo, Chile.",
         link: "/galeria/dominga-dominguez",
     },
     {
-        image: "/images/gallery/164_1x_shots_so.png",
+        image: "/images/gallery/164_1x_shots_so.avif",
         title: "Altos de Monardez",
         description:
             "Es un centro de eventos ubicado en la ciudad de La Serena, Chile.",
         link: "/galeria/altos-de-monardez",
     },
     {
-        image: "/images/gallery/227_1x_shots_so.png",
+        image: "/images/gallery/227_1x_shots_so.avif",
         title: "Trenza Matrimonios",
         description:
             "Es un servicio de fotografía y video para matrimonios. Ubicado en la ciudad de La Serena, Chile.",
         link: "/galeria/trenza-matrimonios",
     },
     {
-        image: "/images/gallery/205_1x_shots_so.png",
+        image: "/images/gallery/205_1x_shots_so.avif",
         title: "Proviser",
         description:
             "Es una empresa de ventas de insumos y equipos de minería. Ubicada en la ciudad de La Serena, Chile.",
         link: "/galeria/proviser",
     },
     {
-        image: "/images/gallery/454_1x_shots_so.png",
+        image: "/images/gallery/454_1x_shots_so.avif",
         title: "Oakland Services",
         description: "Es una empresa de arriendo de andamios y herramientas.",
         link: "/galeria/oakland-services",
     },
     {
-        image: "/images/gallery/465_1x_shots_so.png",
+        image: "/images/gallery/465_1x_shots_so.avif",
         title: "Trenza",
         description: "Es una empresa de servicios de marketing digital.",
         link: "/galeria/trenza",
     },
     {
-        image: "/images/gallery/498_1x_shots_so.png",
+        image: "/images/gallery/498_1x_shots_so.avif",
         title: "El Rinconcito",
         description:
             "Es un complejo de arriendo de cabañas, spa y piscina. Ubicado en la ciudad de La Serena, Chile.",
         link: "/galeria/el-riconcito",
     },
     {
-        image: "/images/gallery/589_1x_shots_so.png",
+        image: "/images/gallery/589_1x_shots_so.avif",
         title: "Sabor y encanto",
         description: "Es un restaurante de comida típica de la región peruana.",
         link: "/galeria/sabor-y-encanto",
     },
     {
-        image: "/images/gallery/670_1x_shots_so.png",
+        image: "/images/gallery/670_1x_shots_so.avif",
         title: "Jireh English",
         description:
             "Es una academia de inglés ubicada en la ciudad de La Serena, Chile.",
         link: "/galeria/jireh-english",
     },
     {
-        image: "/images/gallery/879_1x_shots_so.png",
+        image: "/images/gallery/879_1x_shots_so.avif",
         title: "Destape LS",
         description:
             "Es una empresa de servicios de destape y limpieza de fosas sépticas.",
@@ -139,6 +139,10 @@ export default function Galeria() {
                                         <img
                                             src={item.image}
                                             alt={item.title}
+                                            width="384"
+                                            height="480"
+                                            decoding="async"
+                                            loading="lazy"
                                             className="size-full rounded-2xl bg-cover"
                                         />
                                         <div className="absolute inset-0 p-8">
@@ -156,8 +160,16 @@ export default function Galeria() {
                                                     variant="secondary"
                                                     className="rounded-full bg-background/50 backdrop-blur-2xl px-3 py-1 text-xs font-semibold text-purple-700 dark:text-purple-400 hover:bg-background/30"
                                                 >
-                                                    <a href="/galeria/el-riconcito">
+                                                    <a
+                                                        href="/galeria/el-riconcito"
+                                                        aria-label="Ver más detalles del proyecto El Rinconcito - Galería de imágenes"
+                                                    >
                                                         Ver más
+                                                        <span className="sr-only">
+                                                            {" "}
+                                                            sobre el proyecto El
+                                                            Rinconcito
+                                                        </span>
                                                         <ExternalLink className="ml-1 h-4 w-4" />
                                                     </a>
                                                 </Button>
