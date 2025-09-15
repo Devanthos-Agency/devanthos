@@ -1,3 +1,12 @@
+import { Textarea } from "@/components/ui/textarea";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useForm } from "react-hook-form";
+import emailjs from "emailjs-com";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
+import { z } from "zod";
 import {
     Facebook,
     Linkedin,
@@ -6,14 +15,6 @@ import {
     AlertCircle,
     Instagram,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { useState } from "react";
 import {
     Form,
     FormControl,
@@ -60,11 +61,13 @@ export default function Contact() {
         try {
             setSubmitStatus("idle");
 
-            // Aquí puedes implementar la lógica para enviar el formulario
-            console.log("Datos del formulario:", data);
-
-            // Simular envío
-            await new Promise((resolve) => setTimeout(resolve, 1000));
+            const result = await emailjs.send(
+                import.meta.env.PUBLIC_EMAILJS_SERVICE_ID as string,
+                import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID as string,
+                data,
+                import.meta.env.PUBLIC_EMAILJS_USER_ID as string
+            );
+            console.log("Mensaje enviado con éxito:", result);
 
             // Resetear formulario después del envío exitoso
             form.reset();
