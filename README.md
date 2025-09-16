@@ -1,8 +1,8 @@
-# 🚀 Devs Hub
+# 🚀 Devanthos
 
 **Potencia tu empresa con soluciones digitales de vanguardia**
 
-Devs Hub es una plataforma integral de servicios digitales que ayuda a empresas y emprendedores a crecer mediante desarrollo web, móvil, marketing digital y chatbots inteligentes. Nuestra misión es proporcionar herramientas y servicios de alta calidad para llevar tu negocio al siguiente nivel.
+Devanthos es una plataforma integral de servicios digitales que ayuda a empresas y emprendedores a crecer mediante desarrollo web, móvil, marketing digital y chatbots inteligentes. Nuestra misión es proporcionar herramientas y servicios de alta calidad para llevar tu negocio al siguiente nivel.
 
 ## ✨ Características Principales
 
@@ -153,7 +153,7 @@ El contenido se gestiona mediante:
 
 ## 🤝 Contribuir
 
-¡Las contribuciones son bienvenidas! Si tienes ideas para mejorar Devs Hub:
+¡Las contribuciones son bienvenidas! Si tienes ideas para mejorar Devanthos:
 
 1. Fork el proyecto
 2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
@@ -165,9 +165,9 @@ El contenido se gestiona mediante:
 
 ¿Necesitas ayuda con tu proyecto? ¡Contáctanos!
 
--   **Web**: [devs-hub.com](https://devs-hub.com)
--   **Email**: info@devs-hub.com
--   **LinkedIn**: [Devs Hub](https://linkedin.com/company/devs-hub)
+-   **Web**: [devanthos.com](https://www.devanthos.com/)
+-   **Email**: contacto@devanthos.com
+-   **LinkedIn**: [Devanthos](https://linkedin.com/company/devanthos)
 
 ## 📄 Licencia
 
