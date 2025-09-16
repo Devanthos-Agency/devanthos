@@ -26,7 +26,9 @@ import {
     Building,
     BarChart3,
     Play,
+ChevronRight,
 } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 // Servicios principales
 const mainServices = [
@@ -59,34 +61,57 @@ const mainServices = [
 ];
 
 // Tecnologías
-const technologies = {
-    frontend: [
-        { name: "React", color: "text-blue-500" },
-        { name: "Next.js", color: "text-black" },
-        { name: "Vue.js", color: "text-green-500" },
-        { name: "Astro", color: "text-orange-500" },
-        { name: "Svelte", color: "text-red-500" },
-        { name: "Tailwind CSS", color: "text-cyan-500" },
-        { name: "ShadCN UI", color: "text-gray-700" },
-    ],
-    backend: [
-        { name: "Node.js", color: "text-green-600" },
-        { name: "Python", color: "text-blue-600" },
-        { name: "FastAPI", color: "text-teal-600" },
-        { name: "Supabase", color: "text-green-500" },
-        { name: "Firebase", color: "text-orange-500" },
-    ],
-    databases: [
-        { name: "PostgreSQL", color: "text-blue-700" },
-        { name: "MongoDB", color: "text-green-700" },
-        { name: "MySQL", color: "text-blue-600" },
-    ],
-    deployment: [
-        { name: "Vercel", color: "text-black" },
-        { name: "Netlify", color: "text-teal-500" },
-        { name: "DigitalOcean", color: "text-blue-500" },
-    ],
-};
+const technologies = [
+    {
+        heading: "Frontend",
+        description: "Frameworks y librerías modernas para interfaces de usuario",
+        color: "blue",
+        icon: Monitor,
+        frameworks: [
+            { name: "React", color: "text-blue-500" },
+            { name: "Next.js", color: "text-black" },
+            { name: "Vue.js", color: "text-green-500" },
+            { name: "Astro", color: "text-orange-500" },
+            { name: "Svelte", color: "text-red-500" },
+            { name: "Tailwind CSS", color: "text-cyan-500" },
+        ]
+    },
+    {
+        heading: "Backend",
+        description: "Tecnologías del lado del servidor y APIs",
+        color: "green",
+        icon: Code,
+        frameworks: [
+            { name: "Node.js", color: "text-green-600" },
+            { name: "Python", color: "text-blue-600" },
+            { name: "FastAPI", color: "text-teal-600" },
+            { name: "Supabase", color: "text-green-500" },
+            { name: "Firebase", color: "text-orange-500" },
+        ]
+    },
+    {
+        heading: "Bases de Datos",
+        description: "Sistemas de gestión de datos robustos y escalables",
+        color: "purple",
+        icon: Database,
+        frameworks: [
+            { name: "PostgreSQL", color: "text-blue-700" },
+            { name: "MongoDB", color: "text-green-700" },
+            { name: "MySQL", color: "text-blue-600" },
+        ]
+    },
+    {
+        heading: "Deployment",
+        description: "Plataformas de despliegue y hosting en la nube",
+        color: "orange",
+        icon: Cloud,
+        frameworks: [
+            { name: "Vercel", color: "text-black" },
+            { name: "Netlify", color: "text-teal-500" },
+            { name: "DigitalOcean", color: "text-blue-500" },
+        ]
+    }
+];
 
 // Proceso de trabajo
 const workProcess = [
@@ -255,9 +280,9 @@ const benefits = [
                 <div class="flex justify-center mb-6">
                     <Badge
                         variant="outline"
-                        className="text-xs md:text-lg px-4 py-2"
+                        className="text-xs md:text-lg px-4 py-2 [&>svg]:size-4 md:[&>svg]:size-6"
                     >
-                        <Code2 className="w-4 h-4 mr-2 text-blue-500" />
+                        <Code2 className="mr-2 text-blue-500" />
                         Soluciones Digitales Modernas
                     </Badge>
                 </div>
@@ -288,12 +313,12 @@ const benefits = [
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                     <div class="space-y-6">
-                        <Alert className="border-blue-200 bg-blue-50">
-                            <Lightbulb className="h-4 w-4 text-blue-600" />
-                            <AlertTitle className="text-blue-800"
-                                >¡Consulta Gratuita!</AlertTitle
-                            >
-                            <AlertDescription className="text-blue-700">
+                        <Alert className="border-blue-200 bg-blue-50 dark:bg-blue-900/50 dark:border-blue-800/50">
+                            <Lightbulb className="h-4 w-4 stroke-blue-600 dark:stroke-blue-400" />
+                            <AlertTitle className="text-blue-800 dark:text-blue-200">
+                                ¡Consulta Gratuita!
+                            </AlertTitle>
+                            <AlertDescription className="text-blue-700 dark:text-blue-300">
                                 Ofrecemos una consulta inicial gratuita para
                                 evaluar tu proyecto y darte la mejor estrategia
                                 de desarrollo.
@@ -320,9 +345,13 @@ const benefits = [
 
                     <div class="relative">
                         <img
-                            src="/images/service/desarrollo-web-y-mobile.png"
+                            src="/images/service/desarrollo-web-y-mobile.avif"
                             alt="Desarrollo Web y Móvil"
                             class="rounded-2xl shadow-2xl"
+                            width="496"
+                            height="331"
+                            decoding="async"
+                            loading="lazy"
                         />
                         <div
                             class="absolute -bottom-4 -right-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white p-4 rounded-xl shadow-lg"
@@ -330,7 +359,7 @@ const benefits = [
                             <div class="flex items-center gap-2">
                                 <Code2 className="w-6 h-6" />
                                 <div>
-                                    <p class="font-semibold">Desde $1,500</p>
+                                    <p class="font-semibold">Desde $250</p>
                                     <p class="text-sm opacity-90">
                                         Por proyecto
                                     </p>
@@ -413,100 +442,61 @@ const benefits = [
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <Card className="p-6">
-                    <CardHeader className="pb-4">
-                        <div class="flex items-center gap-2">
-                            <Monitor className="w-5 h-5 text-blue-500" />
-                            <CardTitle className="text-lg">Frontend</CardTitle>
-                        </div>
-                    </CardHeader>
-                    <CardContent>
-                        <div class="flex flex-wrap gap-2">
-                            {
-                                technologies.frontend.map((tech) => (
-                                    <Badge
-                                        variant="outline"
-                                        className={`text-xs ${tech.color}`}
-                                    >
-                                        {tech.name}
-                                    </Badge>
-                                ))
-                            }
-                        </div>
-                    </CardContent>
-                </Card>
-
-                <Card className="p-6">
-                    <CardHeader className="pb-4">
-                        <div class="flex items-center gap-2">
-                            <Code className="w-5 h-5 text-green-500" />
-                            <CardTitle className="text-lg">Backend</CardTitle>
-                        </div>
-                    </CardHeader>
-                    <CardContent>
-                        <div class="flex flex-wrap gap-2">
-                            {
-                                technologies.backend.map((tech) => (
-                                    <Badge
-                                        variant="outline"
-                                        className={`text-xs ${tech.color}`}
-                                    >
-                                        {tech.name}
-                                    </Badge>
-                                ))
-                            }
-                        </div>
-                    </CardContent>
-                </Card>
-
-                <Card className="p-6">
-                    <CardHeader className="pb-4">
-                        <div class="flex items-center gap-2">
-                            <Database className="w-5 h-5 text-purple-500" />
-                            <CardTitle className="text-lg"
-                                >Bases de Datos</CardTitle
+                {technologies.map((tecnologie) => (
+                <div 
+                class={cn(
+                    "bg-radial-[at_80%_14%] group relative flex h-full flex-col gap-10 overflow-hidden rounded-xl border from-[-50%] via-zinc-50 dark:via-zinc-950 via-75% to-zinc-100 dark:to-zinc-950 p-6",
+                    tecnologie.color === "pink" &&
+                    "from-pink-500 dark:border-pink-500/50",
+                    tecnologie.color === "blue" &&
+                    "from-blue-500 dark:border-blue-500/50",
+                    tecnologie.color === "red" &&
+                    "from-red-500 dark:border-red-500/50",
+                    tecnologie.color === "zinc" &&
+                    "from-zinc-500 dark:border-zinc-500/50",
+                    tecnologie.color === "green" &&
+                    "from-green-500 dark:border-green-500/50",
+                    tecnologie.color === "purple" &&
+                    "from-purple-500 dark:border-purple-500/50",
+                    tecnologie.color === "orange" &&
+                    "from-orange-500 dark:border-orange-500/50",
+                )}
+                >
+                <div class="absolute inset-0 h-full w-full shrink-0 bg-[radial-gradient(white_1px,transparent_1px)] opacity-35 [background-size:3px_3px] [mask-image:radial-gradient(ellipse_at_80%_14%,#000,transparent_40%)]"></div>
+                <div
+                    class={`relative grid size-11 shrink-0 place-items-center rounded-full bg-gradient-to-b from-${tecnologie.color === "zinc" ? "white" : `${tecnologie.color}-500`}/50 via-transparent to-${tecnologie.color === "zinc" ? "white" : `${tecnologie.color}-500`}/50 p-px`}
+                >
+                    <div
+                    class={`grid size-full place-items-center rounded-full bg-zinc-950 bg-gradient-to-b from-${tecnologie.color === "zinc" ? "white" : `${tecnologie.color}-500`}/30 via-transparent to-${tecnologie.color === "zinc" ? "white" : `${tecnologie.color}-500`}/30`}
+                    >
+                    <tecnologie.icon className="size-6 text-white" />
+                    </div>
+                </div>
+                <div class="flex h-full flex-col justify-between">
+                    <div class="mb-5">
+                    <h3 class="relative text-lg font-semibold dark:text-white">
+                        {tecnologie.heading}
+                    </h3>
+                    <p class="mt-2 text-sm dark:text-white/70">
+                        {tecnologie.description}
+                    </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 text-sm font-semibold transition-colors group-hover:text-white">
+                    {
+                        tecnologie.frameworks.map((tech) => (
+                            <Badge 
+                                variant="secondary" 
+                                className="text-xs bg-white/60 text-black/90 dark:text-white/90 hover:bg-white/20 border-white/20 dark:bg-white/10"
                             >
-                        </div>
-                    </CardHeader>
-                    <CardContent>
-                        <div class="flex flex-wrap gap-2">
-                            {
-                                technologies.databases.map((tech) => (
-                                    <Badge
-                                        variant="outline"
-                                        className={`text-xs ${tech.color}`}
-                                    >
-                                        {tech.name}
-                                    </Badge>
-                                ))
-                            }
-                        </div>
-                    </CardContent>
-                </Card>
+                                {tech.name}
+                            </Badge>
+                        ))
+                    }
+                    </div>
+                </div>
+                </div>
+            ))}
 
-                <Card className="p-6">
-                    <CardHeader className="pb-4">
-                        <div class="flex items-center gap-2">
-                            <Cloud className="w-5 h-5 text-orange-500" />
-                            <CardTitle className="text-lg">Deployment</CardTitle
-                            >
-                        </div>
-                    </CardHeader>
-                    <CardContent>
-                        <div class="flex flex-wrap gap-2">
-                            {
-                                technologies.deployment.map((tech) => (
-                                    <Badge
-                                        variant="outline"
-                                        className={`text-xs ${tech.color}`}
-                                    >
-                                        {tech.name}
-                                    </Badge>
-                                ))
-                            }
-                        </div>
-                    </CardContent>
-                </Card>
             </div>
         </div>
     </section>
