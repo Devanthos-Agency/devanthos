@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+pnpm-lock.yaml
+package-lock.json
+
+# Build outputs
+dist/
+.astro/
+
+# Environment variables
+.env
+.env.*
+
+# Logs
+*.log
+
+# Cache directories
+.cache/
+.vscode/
