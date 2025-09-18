@@ -28,8 +28,13 @@ import {
     Play,
     ChevronRight,
     Briefcase,
+    HandPlatter,
+    ShieldCheck,
+    BringToFront,
+    Handshake,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { WorkProcess } from '@/components/interfaces/WorkProcess';
 
 // Servicios principales
 const mainServices = [
@@ -196,7 +201,7 @@ const mainServices = [
         description:
             'Sitio web personal para mostrar trabajos, habilidades y experiencia profesional de forma elegante.',
         basePrice: 400,
-        estimatedDays: 5,
+        estimatedDays: 14,
         icon: Users,
         features: [
             {
@@ -417,9 +422,16 @@ const technologies = [
 // Proceso de trabajo
 const workProcess = [
     {
-        number: 1,
+        id: 'phase1',
+        phase: '1',
         title: 'Análisis y Planificación',
-        description: 'Entendemos tus objetivos y definimos la arquitectura del proyecto',
+        titleReduced: 'Análisis',
+        date: '02/03/2025',
+        heading: 'Cómo Planificar tu Proyecto',
+        description:
+            'Entendemos tus objetivos y definimos la arquitectura del proyecto. Esta fase cubre los fundamentos para comenzar, configurar y preparar los próximos pasos.',
+        imageSrc: '/images/feature2/feature-2.avif',
+        imageAlt: 'Fase de análisis y planificación',
         icon: Target,
         features: [
             'Investigación de mercado',
@@ -429,88 +441,41 @@ const workProcess = [
         ],
     },
     {
-        number: 2,
+        id: 'phase2',
+        phase: '2',
         title: 'Desarrollo y Testing',
-        description: 'Desarrollamos siguiendo las mejores prácticas de la industria',
+        titleReduced: 'Desarrollo',
+        date: '21/03/2025',
+        heading: 'Cómo Desarrollar tu Solución',
+        description:
+            'Desarrollamos siguiendo las mejores prácticas de la industria. En esta fase nos enfocamos en estructurar y construir los componentes principales.',
+        imageSrc: '/images/service/desarrollo-web-y-mobile.avif',
+        imageAlt: 'Fase de desarrollo y testing',
         icon: Code,
         features: ['Código limpio', 'Pruebas automáticas', 'Responsive design', 'Optimización'],
     },
     {
-        number: 3,
+        id: 'phase3',
+        phase: '3',
         title: 'Despliegue y Monitoreo',
-        description: 'Lanzamos tu proyecto con soporte continuo',
+        titleReduced: 'Lanzamiento',
+        date: '06/04/2025',
+        heading: 'Cómo Lanzar tu Proyecto',
+        description:
+            'Lanzamos tu proyecto con soporte continuo. La fase final se enfoca en optimización, despliegue y asegurar que todo funcione correctamente.',
+        imageSrc: '/images/hero/logos/',
+        imageAlt: 'Fase de despliegue y monitoreo',
         icon: Rocket,
         features: ['CI/CD Setup', 'Analytics', 'Soporte técnico', 'Actualizaciones'],
     },
 ];
 
-// Tipos de proyectos
-const projectTypes = [
-    {
-        icon: Building,
-        title: 'Sitios Web Corporativos',
-        description: 'Sitios web profesionales que reflejan la identidad de tu marca',
-        gradient: 'from-blue-500 to-cyan-500',
-        features: [
-            'Diseño moderno y profesional',
-            'Optimización SEO',
-            'Integración redes sociales',
-            'Panel de administración',
-        ],
-    },
-    {
-        icon: ShoppingCart,
-        title: 'E-commerce y Tiendas Online',
-        description: 'Soluciones completas para venta online',
-        gradient: 'from-green-500 to-emerald-500',
-        features: [
-            'Catálogo optimizado',
-            'Carrito y pago seguro',
-            'Pasarelas de pago',
-            'Gestión de inventario',
-        ],
-    },
-    {
-        icon: BarChart3,
-        title: 'Aplicaciones Web (SaaS)',
-        description: 'Plataformas web complejas y escalables',
-        gradient: 'from-purple-500 to-indigo-500',
-        features: [
-            'Arquitectura cloud-native',
-            'API REST/GraphQL',
-            'Dashboard analytics',
-            'Integraciones avanzadas',
-        ],
-    },
-    {
-        icon: Smartphone,
-        title: 'Aplicaciones Móviles',
-        description: 'Apps móviles nativas e híbridas',
-        gradient: 'from-orange-500 to-red-500',
-        features: [
-            'iOS & Android',
-            'React Native/Flutter',
-            'Notificaciones push',
-            'Publicación en stores',
-        ],
-    },
-];
-
-// Casos de éxito
-const successCases = [
-    {
-        title: 'E-commerce de Moda',
-        challenge:
-            'Una boutique local quería expandir sus ventas online con una experiencia premium.',
-        result: '300% de aumento en ventas online en 6 meses',
-        gradient: 'from-pink-500 to-rose-500',
-    },
-    {
-        title: 'Plataforma SaaS de Gestión',
-        challenge: 'Centralizar la gestión de clientes y proyectos de una empresa de servicios.',
-        result: '50% de reducción en tiempo de gestión administrativa',
-        gradient: 'from-blue-500 to-cyan-500',
-    },
+// Scrum Beneficios
+const list = [
+    { icon: HandPlatter, text: 'Metodología ágil con entregas cada 2 semanas' },
+    { icon: ShieldCheck, text: 'Visibilidad completa del progreso y tareas' },
+    { icon: BringToFront, text: 'Flexibilidad para ajustar prioridades según necesidades' },
+    { icon: Handshake, text: 'Comunicación constante entre equipo y cliente' },
 ];
 
 // Beneficios
@@ -567,7 +532,7 @@ const benefits = [
                 </div>
 
                 <div class="mb-12 text-center">
-                    <h1 class="mb-6 text-4xl font-bold md:text-6xl">
+                    <h1 class="font-cocogoose mb-6 text-4xl md:text-6xl">
                         Desarrollo Web y
                         <span
                             class="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-nowrap text-transparent">
@@ -654,7 +619,7 @@ const benefits = [
     <section class="bg-muted/30 px-4 py-20">
         <div class="container mx-auto">
             <div class="mx-auto mb-16 max-w-4xl text-center">
-                <h2 class="mb-4 text-3xl font-bold md:text-4xl">
+                <h2 class="font-cocogoose mb-4 text-3xl md:text-5xl">
                     ¿Qué Ofrecemos?
                     <span class="sr-only"
                         >Desarrollo web profesional, aplicaciones móviles nativas, e-commerce, SaaS
@@ -762,7 +727,7 @@ const benefits = [
     <section class="px-4 py-20">
         <div class="container mx-auto">
             <div class="mx-auto mb-16 max-w-4xl text-center">
-                <h2 class="mb-4 text-3xl font-bold md:text-4xl">
+                <h2 class="font-cocogoose mb-4 text-3xl md:text-5xl">
                     Tecnologías que Dominamos
                     <span class="sr-only"
                         >- Stack tecnológico moderno con React, Next.js, Vue.js, Astro, Node.js,
@@ -834,151 +799,65 @@ const benefits = [
     </section>
 
     <!-- Work Process -->
-    <section class="bg-muted/30 px-4 py-20">
-        <div class="container mx-auto">
-            <div class="mx-auto mb-16 max-w-4xl text-center">
-                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Nuestro Proceso de Trabajo</h2>
-                <p class="text-muted-foreground text-lg">
-                    Metodología ágil con entregas cada 2 semanas para máxima transparencia
-                </p>
-            </div>
+    <WorkProcess phases={workProcess} client:load />
 
-            <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
-                {
-                    workProcess.map((step) => {
-                        const IconComponent = step.icon;
-                        return (
-                            <Card className="p-8 text-center hover:shadow-lg transition-all duration-300">
-                                <CardHeader className="pb-6">
-                                    <div class="relative mb-4">
-                                        <div class="from-primary to-accent mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br">
-                                            <IconComponent className="w-10 h-10 text-white" />
-                                        </div>
-                                        <div class="bg-primary absolute -top-2 -right-2 flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold text-white">
-                                            {step.number}
-                                        </div>
-                                    </div>
-                                    <CardTitle className="text-xl">{step.title}</CardTitle>
-                                    <p class="text-muted-foreground">{step.description}</p>
-                                </CardHeader>
-                                <CardContent>
-                                    <div class="space-y-2">
-                                        {step.features.map((feature) => (
-                                            <div class="flex items-center gap-2 text-sm">
-                                                <CheckCircle className="w-4 h-4 text-green-500" />
-                                                <span>{feature}</span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        );
-                    })
-                }
-            </div>
-
-            <div class="mt-12 text-center">
-                <Alert
-                    className="mx-auto max-w-2xl border-orange-200 bg-orange-50 dark:border-orange-800/50 dark:bg-orange-900/50">
-                    <Code className="h-4 w-4 stroke-orange-600" />
-                    <AlertTitle className="text-orange-800 dark:text-orange-200"
-                        >Metodología Ágil</AlertTitle
-                    >
-                    <AlertDescription className="text-orange-700 dark:text-orange-300">
-                        Trabajamos con metodología Scrum, entregando avances cada 2 semanas para que
-                        tengas visibilidad total del progreso.
-                    </AlertDescription>
-                </Alert>
-            </div>
-        </div>
-    </section>
-
-    <!-- Project Types -->
-    <section class="px-4 py-20">
-        <div class="container mx-auto">
-            <div class="mx-auto mb-16 max-w-4xl text-center">
-                <h2 class="mb-4 text-3xl font-bold md:text-4xl">
-                    Tipos de Proyectos que Realizamos
-                </h2>
-                <p class="text-muted-foreground text-lg">
-                    Desde sitios web corporativos hasta aplicaciones móviles complejas
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
-                {
-                    projectTypes.map((project) => {
-                        const IconComponent = project.icon;
-                        return (
-                            <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                                <div class={`h-2 bg-gradient-to-r ${project.gradient} mb-6`} />
-                                <CardHeader className="pb-4">
-                                    <div class="mb-4 flex items-center gap-3">
-                                        <div
-                                            class={`rounded-xl bg-gradient-to-br p-3 ${project.gradient} text-white`}>
-                                            <IconComponent className="w-6 h-6" />
-                                        </div>
-                                    </div>
-                                    <CardTitle className="text-xl">{project.title}</CardTitle>
-                                    <p class="text-muted-foreground">{project.description}</p>
-                                </CardHeader>
-                                <CardContent>
-                                    <div class="space-y-2">
-                                        {project.features.map((feature) => (
-                                            <div class="flex items-center gap-2 text-sm">
-                                                <CheckCircle className="w-4 h-4 text-green-500" />
-                                                <span>{feature}</span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        );
-                    })
-                }
-            </div>
-        </div>
-    </section>
-
-    <!-- Success Cases -->
-    <section class="bg-muted/30 px-4 py-20">
-        <div class="container mx-auto">
-            <div class="mx-auto mb-16 max-w-4xl text-center">
-                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Casos de Éxito</h2>
-                <p class="text-muted-foreground text-lg">
-                    Proyectos reales con resultados medibles
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
-                {
-                    successCases.map((case_) => (
-                        <Card className="p-8 hover:shadow-lg transition-all duration-300">
-                            <div class={`h-2 bg-gradient-to-r ${case_.gradient} mb-6`} />
-                            <CardHeader className="pb-4">
-                                <CardTitle className="text-xl">{case_.title}</CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <div class="space-y-4">
-                                    <div>
-                                        <h4 class="text-muted-foreground mb-2 text-sm font-semibold">
-                                            DESAFÍO
-                                        </h4>
-                                        <p class="text-sm">{case_.challenge}</p>
-                                    </div>
-                                    <div>
-                                        <h4 class="text-muted-foreground mb-2 text-sm font-semibold">
-                                            RESULTADO
-                                        </h4>
-                                        <p class="text-sm font-semibold text-green-600">
-                                            {case_.result}
-                                        </p>
-                                    </div>
-                                </div>
-                            </CardContent>
-                        </Card>
-                    ))
-                }
+    <!-- Cta Scrum -->
+    <section class="bg-background text-foreground py-32">
+        <div class="container mx-auto px-4">
+            <div
+                class="relative grid grid-cols-1 overflow-hidden rounded-[0.75rem] px-8 pt-10 pb-12 xl:grid-cols-2 xl:px-15.5 xl:pb-15.5">
+                <div class="flex flex-col gap-6 md:gap-9">
+                    <p class="font-cocogoose text-4xl md:text-6xl">
+                        <span class="block">Scrum:</span> Agilidad y Eficiencia
+                    </p>
+                    <p class="text-lg md:text-xl lg:text-2xl">
+                        Metodología ágil para entregar valor continuo y adaptarse rápidamente a los
+                        cambios
+                    </p>
+                    <ul class="grid max-w-[36.25rem] grid-cols-1 gap-x-6 gap-y-4 md:grid-cols-2">
+                        {
+                            list.map((item, i) => (
+                                <li class="flex items-center gap-3">
+                                    <item.icon className="size-5 " />
+                                    <div class="text-sm">{item.text}</div>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                    <div>
+                        <Button size="lg" className="w-full md:w-fit">
+                            Aprende Más
+                            <ArrowRight />
+                        </Button>
+                    </div>
+                </div>
+                <div class="hidden xl:block">
+                    <div class="absolute top-0 right-0 h-[40.9375rem] w-[36.875rem]">
+                        <div class="absolute top-0 right-0 aspect-[1.15] w-[14.375rem] opacity-60">
+                            <img
+                                src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/fabian-centeno-njeVb6E3XB8-unsplash.jpg"
+                                alt=""
+                                class="size-full object-cover object-center"
+                            />
+                        </div>
+                        <div
+                            class="absolute top-50 right-0 z-10 aspect-[0.709248555] w-[17.5rem] overflow-hidden rounded-tl-md">
+                            <img
+                                src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/jason-goodman-ZJlfUi5rTDU-unsplash.jpg"
+                                alt=""
+                                class="size-full object-cover object-center"
+                            />
+                        </div>
+                        <div
+                            class="absolute top-60 right-0 aspect-[1.353211009] w-[36.875rem] overflow-hidden rounded-tl-2xl opacity-25">
+                            <img
+                                src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/redd-f-5U_28ojjgms-unsplash.jpg"
+                                alt=""
+                                class="size-full object-cover object-center"
+                            />
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -987,7 +866,7 @@ const benefits = [
     <section class="px-4 py-20">
         <div class="container mx-auto">
             <div class="mx-auto mb-16 max-w-4xl text-center">
-                <h2 class="mb-4 text-3xl font-bold md:text-4xl">¿Por Qué Elegirnos?</h2>
+                <h2 class="font-cocogoose mb-4 text-3xl md:text-6xl">¿Por Qué Elegirnos?</h2>
                 <p class="text-muted-foreground text-lg">
                     La experiencia y calidad que tu proyecto necesita
                 </p>
@@ -1010,85 +889,24 @@ const benefits = [
                     })
                 }
             </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="bg-gradient-to-br from-blue-50 to-cyan-50 px-4 py-20">
-        <div class="container mx-auto">
-            <div class="mx-auto max-w-4xl text-center">
-                <Card className="border-blue-200 bg-white/80 p-12 backdrop-blur-sm">
-                    <CardContent>
-                        <div class="mb-6">
-                            <Rocket className="mx-auto h-16 w-16 text-blue-600" />
-                        </div>
-
-                        <h2 class="mb-4 text-3xl font-bold text-blue-800 md:text-4xl">
-                            ¿Listo para Comenzar tu Proyecto?
-                        </h2>
-
-                        <p class="mx-auto mb-8 max-w-2xl text-lg text-blue-700">
-                            Contáctanos hoy mismo para una <strong>consulta gratuita</strong>. Te
-                            ayudaremos a convertir tu idea en una realidad digital exitosa.
-                        </p>
-
-                        <div class="mx-auto mb-8 grid max-w-2xl grid-cols-1 gap-6 md:grid-cols-2">
-                            <div class="flex items-center justify-center gap-3">
-                                <Zap className="h-5 w-5 text-blue-600" />
-                                <span class="text-blue-700">Desarrollo rápido y eficiente</span>
-                            </div>
-                            <div class="flex items-center justify-center gap-3">
-                                <Shield className="h-5 w-5 text-blue-600" />
-                                <span class="text-blue-700">Código seguro y escalable</span>
-                            </div>
-                            <div class="flex items-center justify-center gap-3">
-                                <Users className="h-5 w-5 text-blue-600" />
-                                <span class="text-blue-700">Soporte continuo 24/7</span>
-                            </div>
-                            <div class="flex items-center justify-center gap-3">
-                                <Star className="h-5 w-5 text-blue-600" />
-                                <span class="text-blue-700">Calidad garantizada</span>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col justify-center gap-4 sm:flex-row">
-                            <Button
-                                size="lg"
-                                className="bg-gradient-to-r from-blue-500 to-cyan-500 px-8 text-lg hover:from-blue-600 hover:to-cyan-600">
-                                Comenzar Proyecto
-                                <ArrowRight className="ml-2 h-5 w-5" />
-                            </Button>
-                            <Button
-                                variant="outline"
-                                size="lg"
-                                className="border-blue-500 px-8 text-lg text-blue-600 hover:bg-blue-50">
-                                Consulta Gratuita
-                            </Button>
-                        </div>
-
-                        <div
-                            class="mt-6 flex items-center justify-center gap-4 text-sm text-blue-600">
-                            <div class="flex items-center gap-1">
-                                <CheckCircle className="h-4 w-4" />
-                                <span>Sin compromiso</span>
-                            </div>
-                            <div class="flex items-center gap-1">
-                                <CheckCircle className="h-4 w-4" />
-                                <span>Respuesta en 24h</span>
-                            </div>
-                        </div>
-                    </CardContent>
-                </Card>
+            <div class="mt-12 text-center">
+                <Button size="lg" className="mx-auto">
+                    Contáctanos
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+                <p class="text-muted-foreground font-cocogoose mt-4 text-center text-xl">
+                    ¿Tienes un proyecto en mente? ¡Hablemos!
+                </p>
             </div>
         </div>
     </section>
-</Layout>
 
-<style>
-    .line-clamp-3 {
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
-</style>
+    <style>
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+</Layout>
