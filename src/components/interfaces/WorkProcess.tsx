@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { DownloadIcon } from 'lucide-react';
+import { DownloadIcon, Rocket } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -53,9 +53,6 @@ const WorkProcess = ({ phases }: WorkProcessProps) => {
                             value={phase.id}
                             className="mt-12 grid items-start gap-12 lg:grid-cols-2">
                             <div className="col-span-1 flex flex-col gap-2 lg:max-w-lg lg:gap-4">
-                                <p className="text-muted-foreground font-mono text-sm font-semibold tracking-tight">
-                                    {phase.date}
-                                </p>
                                 <h2 className="text-foreground font-cocogoose text-3xl tracking-tighter md:text-5xl">
                                     {phase.heading}
                                 </h2>
@@ -65,10 +62,12 @@ const WorkProcess = ({ phases }: WorkProcessProps) => {
                                 <Button
                                     variant="outline"
                                     className="border-border mt-8 flex w-fit items-center gap-2 rounded-full border px-4! py-2">
-                                    <DownloadIcon className="size-4" />
+                                    <Rocket className="size-4" />
                                     <p className="text-md text-foreground font-medium">
-                                        Click to{' '}
-                                        <span className="text-foreground/80">Download the app</span>
+                                        Contáctanos{' '}
+                                        <span className="text-primary/80 dark:text-secondary">
+                                            para más información
+                                        </span>
                                     </p>
                                 </Button>
                             </div>
@@ -81,7 +80,7 @@ const WorkProcess = ({ phases }: WorkProcessProps) => {
                                     <CardContent className="border-background bg-muted size-full rounded-2xl border-2">
                                         <img
                                             src={phase.imageSrc}
-                                            className="size-full transition-all ease-in-out group-hover:scale-95"
+                                            className="size-full object-cover transition-all ease-in-out group-hover:scale-95"
                                             alt={phase.imageAlt}
                                         />
                                     </CardContent>
