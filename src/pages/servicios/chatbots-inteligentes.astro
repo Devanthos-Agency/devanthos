@@ -1,9 +1,10 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import Layout from '@/layouts/Layout.astro';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import Button from '@/components/ui/Button.astro';
+
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import {
     Bot,
     MessageCircle,
@@ -25,159 +26,144 @@ import {
     Building,
     Utensils,
     Target,
-} from "lucide-react";
+} from 'lucide-react';
 
 // Características principales
 const mainFeatures = [
     {
         icon: MessageCircle,
-        title: "Conversaciones Naturales",
+        title: 'Conversaciones Naturales',
         description:
-            "Entienden el contexto y mantienen conversaciones fluidas como si fuera un humano",
-        gradient: "from-blue-500 to-cyan-500",
+            'Entienden el contexto y mantienen conversaciones fluidas como si fuera un humano',
+        gradient: 'from-blue-500 to-cyan-500',
     },
     {
         icon: Brain,
-        title: "Aprendizaje Continuo",
+        title: 'Aprendizaje Continuo',
         description:
-            "Mejoran con cada interacción, aprendiendo patrones y preferencias de los usuarios",
-        gradient: "from-purple-500 to-indigo-500",
+            'Mejoran con cada interacción, aprendiendo patrones y preferencias de los usuarios',
+        gradient: 'from-purple-500 to-indigo-500',
     },
 ];
 
 // Sectores que atendemos
 const sectors = [
-    "E-commerce",
-    "Servicios Financieros",
-    "Salud",
-    "Educación",
-    "Inmobiliaria",
-    "Turismo",
-    "Restaurantes",
-    "Tecnología",
-    "Retail",
+    'E-commerce',
+    'Servicios Financieros',
+    'Salud',
+    'Educación',
+    'Inmobiliaria',
+    'Turismo',
+    'Restaurantes',
+    'Tecnología',
+    'Retail',
 ];
 
 // Plataformas de integración
 const platforms = {
-    web: ["Sitio Web", "Aplicaciones Móviles", "Portales de Cliente"],
-    social: [
-        "WhatsApp Business",
-        "Facebook Messenger",
-        "Instagram",
-        "Telegram",
-        "Discord",
-    ],
-    business: ["Slack", "Microsoft Teams", "Zendesk"],
+    web: ['Sitio Web', 'Aplicaciones Móviles', 'Portales de Cliente'],
+    social: ['WhatsApp Business', 'Facebook Messenger', 'Instagram', 'Telegram', 'Discord'],
+    business: ['Slack', 'Microsoft Teams', 'Zendesk'],
 };
 
 // Casos de uso exitosos
 const successCases = [
     {
-        title: "E-commerce: Asistente de Ventas",
+        title: 'E-commerce: Asistente de Ventas',
         icon: ShoppingCart,
         problem:
-            "Una tienda online recibía cientos de consultas diarias sobre productos, disponibilidad y envíos.",
+            'Una tienda online recibía cientos de consultas diarias sobre productos, disponibilidad y envíos.',
         results: [
-            "60% reducción en tiempo de respuesta",
-            "35% aumento en conversiones",
-            "80% de consultas resueltas automáticamente",
+            '60% reducción en tiempo de respuesta',
+            '35% aumento en conversiones',
+            '80% de consultas resueltas automáticamente',
         ],
-        gradient: "from-green-500 to-emerald-500",
+        gradient: 'from-green-500 to-emerald-500',
     },
     {
-        title: "Servicios Financieros: Asistente Bancario",
+        title: 'Servicios Financieros: Asistente Bancario',
         icon: CreditCard,
-        problem:
-            "Banco necesitaba atender consultas 24/7 sin aumentar personal.",
+        problem: 'Banco necesitaba atender consultas 24/7 sin aumentar personal.',
         results: [
-            "Disponibilidad 24/7",
-            "70% reducción en llamadas al call center",
-            "95% satisfacción del cliente",
+            'Disponibilidad 24/7',
+            '70% reducción en llamadas al call center',
+            '95% satisfacción del cliente',
         ],
-        gradient: "from-blue-500 to-cyan-500",
+        gradient: 'from-blue-500 to-cyan-500',
     },
     {
-        title: "Restaurante: Reservas y Pedidos",
+        title: 'Restaurante: Reservas y Pedidos',
         icon: Utensils,
-        problem:
-            "Cadena de restaurantes perdía reservas por teléfonos ocupados.",
+        problem: 'Cadena de restaurantes perdía reservas por teléfonos ocupados.',
         results: [
-            "45% más reservas procesadas",
-            "0% pérdida de llamadas",
-            "25% aumento en pedidos online",
+            '45% más reservas procesadas',
+            '0% pérdida de llamadas',
+            '25% aumento en pedidos online',
         ],
-        gradient: "from-orange-500 to-red-500",
+        gradient: 'from-orange-500 to-red-500',
     },
 ];
 
 // Tecnologías
 const technologies = {
     frameworks: [
-        "Dialogflow",
-        "Microsoft Bot Framework",
-        "Rasa",
-        "OpenAI API",
-        "LangChain",
-        "Botpress",
+        'Dialogflow',
+        'Microsoft Bot Framework',
+        'Rasa',
+        'OpenAI API',
+        'LangChain',
+        'Botpress',
     ],
-    languages: ["Python", "Node.js", "TypeScript"],
-    databases: ["MongoDB", "PostgreSQL", "Redis"],
-    integrations: [
-        "Salesforce",
-        "HubSpot",
-        "Shopify",
-        "Stripe",
-        "Twilio",
-        "Google Analytics",
-    ],
+    languages: ['Python', 'Node.js', 'TypeScript'],
+    databases: ['MongoDB', 'PostgreSQL', 'Redis'],
+    integrations: ['Salesforce', 'HubSpot', 'Shopify', 'Stripe', 'Twilio', 'Google Analytics'],
 };
 
 // Paquetes de precios
 const pricingPackages = [
     {
-        name: "Paquete Básico",
-        price: "Desde $299/mes",
-        description: "Ideal para pequeñas empresas",
-        gradient: "from-green-500 to-emerald-500",
+        name: 'Paquete Básico',
+        price: 'Desde $299/mes',
+        description: 'Ideal para pequeñas empresas',
+        gradient: 'from-green-500 to-emerald-500',
         icon: Bot,
         features: [
-            "Chatbot web básico",
-            "Hasta 1,000 conversaciones/mes",
-            "Integración con WhatsApp",
-            "Panel de administración",
-            "Soporte por email",
+            'Chatbot web básico',
+            'Hasta 1,000 conversaciones/mes',
+            'Integración con WhatsApp',
+            'Panel de administración',
+            'Soporte por email',
         ],
     },
     {
-        name: "Paquete Profesional",
-        price: "Desde $599/mes",
-        description: "Para empresas en crecimiento",
-        gradient: "from-blue-500 to-cyan-500",
+        name: 'Paquete Profesional',
+        price: 'Desde $599/mes',
+        description: 'Para empresas en crecimiento',
+        gradient: 'from-blue-500 to-cyan-500',
         icon: TrendingUp,
         features: [
-            "Todo lo del paquete básico",
-            "Hasta 10,000 conversaciones/mes",
-            "Múltiples canales (Facebook, Instagram, Web)",
-            "Integración con CRM",
-            "Analytics avanzados",
-            "Soporte prioritario",
+            'Todo lo del paquete básico',
+            'Hasta 10,000 conversaciones/mes',
+            'Múltiples canales (Facebook, Instagram, Web)',
+            'Integración con CRM',
+            'Analytics avanzados',
+            'Soporte prioritario',
         ],
         popular: true,
     },
     {
-        name: "Paquete Enterprise",
-        price: "Consultar precio",
-        description: "Soluciones personalizadas",
-        gradient: "from-purple-500 to-indigo-500",
+        name: 'Paquete Enterprise',
+        price: 'Consultar precio',
+        description: 'Soluciones personalizadas',
+        gradient: 'from-purple-500 to-indigo-500',
         icon: Building,
         features: [
-            "Conversaciones ilimitadas",
-            "Desarrollo 100% personalizado",
-            "Integraciones complejas",
-            "IA avanzada y machine learning",
-            "Soporte 24/7 dedicado",
-            "SLA garantizado",
+            'Conversaciones ilimitadas',
+            'Desarrollo 100% personalizado',
+            'Integraciones complejas',
+            'IA avanzada y machine learning',
+            'Soporte 24/7 dedicado',
+            'SLA garantizado',
         ],
     },
 ];
@@ -186,27 +172,27 @@ const pricingPackages = [
 const benefits = [
     {
         icon: DollarSign,
-        title: "Reducción de Costos",
-        description: "Hasta 60% menos gastos en atención al cliente",
-        gradient: "from-green-500 to-emerald-500",
+        title: 'Reducción de Costos',
+        description: 'Hasta 60% menos gastos en atención al cliente',
+        gradient: 'from-green-500 to-emerald-500',
     },
     {
         icon: Zap,
-        title: "Respuesta Instantánea",
-        description: "Atención 24/7 sin tiempos de espera",
-        gradient: "from-yellow-500 to-orange-500",
+        title: 'Respuesta Instantánea',
+        description: 'Atención 24/7 sin tiempos de espera',
+        gradient: 'from-yellow-500 to-orange-500',
     },
     {
         icon: TrendingUp,
-        title: "Más Conversiones",
-        description: "Guía a usuarios hacia la compra efectivamente",
-        gradient: "from-blue-500 to-cyan-500",
+        title: 'Más Conversiones',
+        description: 'Guía a usuarios hacia la compra efectivamente',
+        gradient: 'from-blue-500 to-cyan-500',
     },
     {
         icon: BarChart3,
-        title: "Datos Valiosos",
-        description: "Insights sobre preferencias y comportamiento de clientes",
-        gradient: "from-purple-500 to-indigo-500",
+        title: 'Datos Valiosos',
+        description: 'Insights sobre preferencias y comportamiento de clientes',
+        gradient: 'from-purple-500 to-indigo-500',
     },
 ];
 
@@ -214,41 +200,39 @@ const benefits = [
 const developmentProcess = [
     {
         number: 1,
-        title: "Análisis y Diseño",
+        title: 'Análisis y Diseño',
         description:
-            "Definimos objetivos, mapeamos conversaciones y diseñamos la personalidad del bot",
+            'Definimos objetivos, mapeamos conversaciones y diseñamos la personalidad del bot',
         icon: Target,
         features: [
-            "Definición de objetivos y KPIs",
-            "Mapeo de conversaciones",
-            "Diseño de personalidad",
-            "Arquitectura técnica",
+            'Definición de objetivos y KPIs',
+            'Mapeo de conversaciones',
+            'Diseño de personalidad',
+            'Arquitectura técnica',
         ],
     },
     {
         number: 2,
-        title: "Desarrollo y Entrenamiento",
-        description:
-            "Desarrollamos el núcleo conversacional y entrenamos con datos específicos",
+        title: 'Desarrollo y Entrenamiento',
+        description: 'Desarrollamos el núcleo conversacional y entrenamos con datos específicos',
         icon: Brain,
         features: [
-            "Desarrollo del núcleo",
-            "Entrenamiento con datos",
-            "Integración con sistemas",
-            "Pruebas exhaustivas",
+            'Desarrollo del núcleo',
+            'Entrenamiento con datos',
+            'Integración con sistemas',
+            'Pruebas exhaustivas',
         ],
     },
     {
         number: 3,
-        title: "Implementación y Optimización",
-        description:
-            "Desplegamos gradualmente y optimizamos basado en datos reales",
+        title: 'Implementación y Optimización',
+        description: 'Desplegamos gradualmente y optimizamos basado en datos reales',
         icon: TrendingUp,
         features: [
-            "Despliegue gradual",
-            "Monitoreo en tiempo real",
-            "Análisis de métricas",
-            "Mejora continua",
+            'Despliegue gradual',
+            'Monitoreo en tiempo real',
+            'Análisis de métricas',
+            'Mejora continua',
         ],
     },
 ];
@@ -256,84 +240,81 @@ const developmentProcess = [
 
 <Layout
     title="Chatbots Inteligentes | Devanthos - Automatización con IA"
-    description="Ofrecemos servicios de desarrollo de chatbots inteligentes que mejoran la interacción con los usuarios y optimizan los procesos de atención al cliente. IA avanzada 24/7."
->
+    description="Ofrecemos servicios de desarrollo de chatbots inteligentes que mejoran la interacción con los usuarios y optimizan los procesos de atención al cliente. IA avanzada 24/7.">
     <!-- Hero Section -->
-    <section class="relative py-20 min-h-screen px-4 overflow-hidden">
+    <section class="relative min-h-screen overflow-hidden px-4 py-20">
         <div
-            class="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-transparent to-indigo-500/20"
-        >
+            class="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-transparent to-indigo-500/20">
         </div>
-        <div
-            class="absolute -top-40 -right-40 w-80 h-80 bg-purple-500/30 rounded-full blur-3xl"
-        >
+        <div class="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-purple-500/30 blur-3xl">
         </div>
-        <div
-            class="absolute -bottom-40 -left-40 w-80 h-80 bg-indigo-500/40 rounded-full blur-3xl"
-        >
+        <div class="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-indigo-500/40 blur-3xl">
         </div>
 
-        <div class="container mx-auto relative z-10 mt-16">
-            <div class="max-w-5xl mx-auto">
-                <div class="flex justify-center mb-6">
-                    <Badge
-                        variant="outline"
-                        className="text-xs md:text-lg px-4 py-2"
-                    >
-                        <Bot className="w-4 h-4 mr-2 text-purple-500" />
+        <div class="relative z-10 container mx-auto mt-16">
+            <div class="mx-auto max-w-5xl">
+                <div class="mb-6 flex justify-center">
+                    <Badge variant="outline" className="px-4 py-2 text-xs md:text-lg">
+                        <Bot className="mr-2 h-4 w-4 text-purple-500" />
                         Automatización Inteligente 24/7
                     </Badge>
                 </div>
 
-                <div class="text-center mb-12">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                <div class="mb-12 text-center">
+                    <h1 class="mb-6 text-4xl font-bold md:text-6xl">
                         Chatbots
                         <span
-                            class="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent"
-                        >
+                            class="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent">
                             para empresas
                         </span>
-                        <span class="sr-only">inteligentes con IA en Argentina - Desarrollo de bots conversacionales con inteligencia artificial, procesamiento de lenguaje natural, integración con WhatsApp, Facebook Messenger y CRM</span>
+                        <span class="sr-only"
+                            >inteligentes con IA en Argentina - Desarrollo de bots conversacionales
+                            con inteligencia artificial, procesamiento de lenguaje natural,
+                            integración con WhatsApp, Facebook Messenger y CRM</span
+                        >
                     </h1>
 
-                    <p
-                        class="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto"
-                    >
-                        Desarrollamos <strong
-                            >chatbots inteligentes personalizados</strong
-                        > que no solo responden preguntas, sino que aprenden, se
-                        adaptan y brindan soluciones eficientes las 24 horas del
-                        día utilizando IA avanzada y procesamiento de lenguaje natural.
-                        <span class="sr-only">Especialistas en desarrollo con Dialogflow, Microsoft Bot Framework, Rasa, OpenAI GPT, LangChain y Botpress. Integración con Salesforce, HubSpot, Shopify, bases de datos MongoDB y PostgreSQL, y analytics avanzados.</span>
+                    <p class="text-muted-foreground mx-auto mb-8 max-w-3xl text-xl">
+                        Desarrollamos <strong>chatbots inteligentes personalizados</strong> que no solo
+                        responden preguntas, sino que aprenden, se adaptan y brindan soluciones eficientes
+                        las 24 horas del día utilizando IA avanzada y procesamiento de lenguaje natural.
+                        <span class="sr-only"
+                            >Especialistas en desarrollo con Dialogflow, Microsoft Bot Framework,
+                            Rasa, OpenAI GPT, LangChain y Botpress. Integración con Salesforce,
+                            HubSpot, Shopify, bases de datos MongoDB y PostgreSQL, y analytics
+                            avanzados.</span
+                        >
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-2">
                     <div class="space-y-6">
                         <Alert className="border-purple-200 bg-purple-50">
-                            <Bot className="h-4 w-4 text-purple-600" />
+                            <Bot className="h-5 w-5 stroke-purple-600" />
                             <AlertTitle className="text-purple-800">
                                 ¡Demo Interactiva Disponible!
-                                </AlertTitle>
+                            </AlertTitle>
                             <AlertDescription className="text-purple-700">
-                                Prueba nuestros chatbots en acción. Solicita una
-                                demostración personalizada para tu negocio.
+                                Presentamos a Devi - nuestro chatbot inteligente de muestra. Prueba
+                                su capacidad para responder consultas, procesar pedidos y brindar
+                                soporte las 24 horas del día.
                             </AlertDescription>
                         </Alert>
 
-                        <div class="flex flex-col sm:flex-row gap-4">
+                        <div class="flex flex-col gap-4 sm:flex-row">
                             <Button
+                                href="https://devi-chatbot.vercel.app/"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 size="lg"
-                                className="text-lg px-8 bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600"
-                            >
-                                Ver Demo
-                                <ArrowRight className="ml-2 w-5 h-5" />
+                                class="bg-gradient-to-r from-purple-500 to-indigo-500 px-8 text-lg hover:from-purple-600 hover:to-indigo-600">
+                                Charlar con Devi
+                                <ArrowRight className="ml-2 h-5 w-5" />
                             </Button>
                             <Button
                                 variant="outline"
                                 size="lg"
-                                className="text-lg px-8 border-purple-500 text-purple-600 hover:bg-purple-50"
-                            >
+                                class="border-purple-500 px-8 text-lg text-purple-600 hover:bg-purple-50">
                                 Consulta Gratuita
                             </Button>
                         </div>
@@ -346,10 +327,9 @@ const developmentProcess = [
                             class="rounded-2xl shadow-2xl"
                         />
                         <div
-                            class="absolute -bottom-4 -right-4 bg-gradient-to-r from-purple-500 to-indigo-500 text-white p-4 rounded-xl shadow-lg"
-                        >
+                            class="absolute -right-4 -bottom-4 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-500 p-4 text-white shadow-lg">
                             <div class="flex items-center gap-2">
-                                <Bot className="w-6 h-6" />
+                                <Bot className="h-6 w-6" />
                                 <div>
                                     <p class="font-semibold">Desde $299</p>
                                     <p class="text-sm opacity-90">Por mes</p>
@@ -363,22 +343,29 @@ const developmentProcess = [
     </section>
 
     <!-- Main Features -->
-    <section class="py-20 px-4 bg-muted/30">
+    <section class="bg-muted/30 px-4 py-20">
         <div class="container mx-auto">
-            <div class="max-w-4xl mx-auto text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            <div class="mx-auto mb-16 max-w-4xl text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">
                     ¿Qué Son los Chatbots Inteligentes?
-                    <span class="sr-only">con IA - Bots conversacionales con procesamiento de lenguaje natural, machine learning, integración multicanal y analítica conversacional</span>
+                    <span class="sr-only"
+                        >con IA - Bots conversacionales con procesamiento de lenguaje natural,
+                        machine learning, integración multicanal y analítica conversacional</span
+                    >
                 </h2>
-                <p class="text-lg text-muted-foreground">
-                    Van más allá de las respuestas automáticas simples. Utilizan
-                    procesamiento de lenguaje natural (NLP) y machine learning
-                    para ofrecer experiencias conversacionales avanzadas.
-                    <span class="sr-only">Con capacidades de contexto conversacional, análisis de sentimientos, intención del usuario, escalamiento inteligente a agentes humanos, personalización dinámica y métricas de satisfacción en tiempo real.</span>
+                <p class="text-muted-foreground text-lg">
+                    Van más allá de las respuestas automáticas simples. Utilizan procesamiento de
+                    lenguaje natural (NLP) y machine learning para ofrecer experiencias
+                    conversacionales avanzadas.
+                    <span class="sr-only"
+                        >Con capacidades de contexto conversacional, análisis de sentimientos,
+                        intención del usuario, escalamiento inteligente a agentes humanos,
+                        personalización dinámica y métricas de satisfacción en tiempo real.</span
+                    >
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+            <div class="mb-16 grid grid-cols-1 gap-8 lg:grid-cols-2">
                 {
                     mainFeatures.map((feature) => {
                         const IconComponent = feature.icon;
@@ -386,16 +373,11 @@ const developmentProcess = [
                             <Card className="p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                                 <CardHeader className="pb-6">
                                     <div
-                                        class={`w-16 h-16 bg-gradient-to-br ${feature.gradient} rounded-full flex items-center justify-center mb-4`}
-                                    >
+                                        class={`h-16 w-16 bg-gradient-to-br ${feature.gradient} mb-4 flex items-center justify-center rounded-full`}>
                                         <IconComponent className="w-8 h-8 text-white" />
                                     </div>
-                                    <CardTitle className="text-2xl">
-                                        {feature.title}
-                                    </CardTitle>
-                                    <p class="text-muted-foreground">
-                                        {feature.description}
-                                    </p>
+                                    <CardTitle className="text-2xl">{feature.title}</CardTitle>
+                                    <p class="text-muted-foreground">{feature.description}</p>
                                 </CardHeader>
                             </Card>
                         );
@@ -404,8 +386,8 @@ const developmentProcess = [
             </div>
 
             <!-- Sectors -->
-            <div class="text-center mb-12">
-                <h3 class="text-2xl font-bold mb-6">Sectores que Atendemos</h3>
+            <div class="mb-12 text-center">
+                <h3 class="mb-6 text-2xl font-bold">Sectores que Atendemos</h3>
                 <div class="flex flex-wrap justify-center gap-2">
                     {
                         sectors.map((sector) => (
@@ -418,14 +400,12 @@ const developmentProcess = [
             </div>
 
             <!-- Platforms -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
                 <Card className="p-6">
                     <CardHeader className="pb-4">
                         <div class="flex items-center gap-2">
-                            <Globe className="w-5 h-5 text-blue-500" />
-                            <CardTitle className="text-lg"
-                                >Plataformas Web</CardTitle
-                            >
+                            <Globe className="h-5 w-5 text-blue-500" />
+                            <CardTitle className="text-lg">Plataformas Web</CardTitle>
                         </div>
                     </CardHeader>
                     <CardContent>
@@ -445,10 +425,8 @@ const developmentProcess = [
                 <Card className="p-6">
                     <CardHeader className="pb-4">
                         <div class="flex items-center gap-2">
-                            <Smartphone className="w-5 h-5 text-green-500" />
-                            <CardTitle className="text-lg"
-                                >Redes Sociales</CardTitle
-                            >
+                            <Smartphone className="h-5 w-5 text-green-500" />
+                            <CardTitle className="text-lg">Redes Sociales</CardTitle>
                         </div>
                     </CardHeader>
                     <CardContent>
@@ -468,10 +446,8 @@ const developmentProcess = [
                 <Card className="p-6">
                     <CardHeader className="pb-4">
                         <div class="flex items-center gap-2">
-                            <Headphones className="w-5 h-5 text-purple-500" />
-                            <CardTitle className="text-lg"
-                                >Herramientas Empresariales</CardTitle
-                            >
+                            <Headphones className="h-5 w-5 text-purple-500" />
+                            <CardTitle className="text-lg">Herramientas Empresariales</CardTitle>
                         </div>
                     </CardHeader>
                     <CardContent>
@@ -492,55 +468,52 @@ const developmentProcess = [
     </section>
 
     <!-- Success Cases -->
-    <section class="py-20 px-4">
+    <section class="px-4 py-20">
         <div class="container mx-auto">
-            <div class="max-w-4xl mx-auto text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            <div class="mx-auto mb-16 max-w-4xl text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">
                     Casos de Uso Exitosos
-                    <span class="sr-only">con chatbots inteligentes - E-commerce, servicios financieros, restaurantes y automatización de ventas</span>
+                    <span class="sr-only"
+                        >con chatbots inteligentes - E-commerce, servicios financieros, restaurantes
+                        y automatización de ventas</span
+                    >
                 </h2>
-                <p class="text-lg text-muted-foreground">
-                    Proyectos reales con resultados medibles que transformaron
-                    negocios
-                    <span class="sr-only">mediante automatización de procesos de venta, soporte técnico 24/7, gestión de reservas, calificación de leads, integración con sistemas ERP y CRM, y reducción de costos operativos.</span>
+                <p class="text-muted-foreground text-lg">
+                    Proyectos reales con resultados medibles que transformaron negocios
+                    <span class="sr-only"
+                        >mediante automatización de procesos de venta, soporte técnico 24/7, gestión
+                        de reservas, calificación de leads, integración con sistemas ERP y CRM, y
+                        reducción de costos operativos.</span
+                    >
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
                 {
                     successCases.map((case_) => {
                         const IconComponent = case_.icon;
                         return (
                             <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                                <div
-                                    class={`h-2 bg-gradient-to-r ${case_.gradient} mb-6`}
-                                />
+                                <div class={`h-2 bg-gradient-to-r ${case_.gradient} mb-6`} />
                                 <CardHeader className="pb-4">
-                                    <div class="flex items-center gap-3 mb-4">
+                                    <div class="mb-4 flex items-center gap-3">
                                         <div
-                                            class={`p-3 rounded-xl bg-gradient-to-br ${case_.gradient} text-white`}
-                                        >
+                                            class={`rounded-xl bg-gradient-to-br p-3 ${case_.gradient} text-white`}>
                                             <IconComponent className="w-6 h-6" />
                                         </div>
                                     </div>
-                                    <CardTitle className="text-lg">
-                                        {case_.title}
-                                    </CardTitle>
-                                    <p class="text-muted-foreground text-sm">
-                                        {case_.problem}
-                                    </p>
+                                    <CardTitle className="text-lg">{case_.title}</CardTitle>
+                                    <p class="text-muted-foreground text-sm">{case_.problem}</p>
                                 </CardHeader>
                                 <CardContent>
                                     <div class="space-y-2">
-                                        <h4 class="font-semibold text-sm text-green-600 mb-2">
+                                        <h4 class="mb-2 text-sm font-semibold text-green-600">
                                             RESULTADOS:
                                         </h4>
                                         {case_.results.map((result) => (
                                             <div class="flex items-start gap-2">
                                                 <CheckCircle className="w-4 h-4 text-green-500 mt-0.5" />
-                                                <span class="text-sm">
-                                                    {result}
-                                                </span>
+                                                <span class="text-sm">{result}</span>
                                             </div>
                                         ))}
                                     </div>
@@ -552,17 +525,12 @@ const developmentProcess = [
             </div>
 
             <div class="mt-12 text-center">
-                <Alert
-                    className="border-orange-200 bg-orange-50 max-w-2xl mx-auto"
-                >
+                <Alert className="mx-auto max-w-2xl border-orange-200 bg-orange-50">
                     <Zap className="h-4 w-4 text-orange-600" />
-                    <AlertTitle className="text-orange-800"
-                        >Integración con IA</AlertTitle
-                    >
+                    <AlertTitle className="text-orange-800">Integración con IA</AlertTitle>
                     <AlertDescription className="text-orange-700">
-                        Utilizamos modelos de IA avanzados como GPT-4, Claude y
-                        modelos propios para conversaciones más inteligentes y
-                        naturales.
+                        Utilizamos modelos de IA avanzados como GPT-4, Claude y modelos propios para
+                        conversaciones más inteligentes y naturales.
                     </AlertDescription>
                 </Alert>
             </div>
@@ -570,19 +538,16 @@ const developmentProcess = [
     </section>
 
     <!-- Development Process -->
-    <section class="py-20 px-4 bg-muted/30">
+    <section class="bg-muted/30 px-4 py-20">
         <div class="container mx-auto">
-            <div class="max-w-4xl mx-auto text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                    Proceso de Desarrollo
-                </h2>
-                <p class="text-lg text-muted-foreground">
-                    Metodología probada que garantiza chatbots eficientes y
-                    escalables
+            <div class="mx-auto mb-16 max-w-4xl text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Proceso de Desarrollo</h2>
+                <p class="text-muted-foreground text-lg">
+                    Metodología probada que garantiza chatbots eficientes y escalables
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
                 {
                     developmentProcess.map((step) => {
                         const IconComponent = step.icon;
@@ -590,19 +555,15 @@ const developmentProcess = [
                             <Card className="p-8 text-center hover:shadow-lg transition-all duration-300">
                                 <CardHeader className="pb-6">
                                     <div class="relative mb-4">
-                                        <div class="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto">
+                                        <div class="from-primary to-accent mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br">
                                             <IconComponent className="w-10 h-10 text-white" />
                                         </div>
-                                        <div class="absolute -top-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">
+                                        <div class="bg-primary absolute -top-2 -right-2 flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold text-white">
                                             {step.number}
                                         </div>
                                     </div>
-                                    <CardTitle className="text-xl">
-                                        {step.title}
-                                    </CardTitle>
-                                    <p class="text-muted-foreground">
-                                        {step.description}
-                                    </p>
+                                    <CardTitle className="text-xl">{step.title}</CardTitle>
+                                    <p class="text-muted-foreground">{step.description}</p>
                                 </CardHeader>
                                 <CardContent>
                                     <div class="space-y-2">
@@ -623,27 +584,24 @@ const developmentProcess = [
     </section>
 
     <!-- Pricing Packages -->
-    <section class="py-20 px-4">
+    <section class="px-4 py-20">
         <div class="container mx-auto">
-            <div class="max-w-4xl mx-auto text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                    Precios y Paquetes
-                </h2>
-                <p class="text-lg text-muted-foreground">
+            <div class="mx-auto mb-16 max-w-4xl text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Precios y Paquetes</h2>
+                <p class="text-muted-foreground text-lg">
                     Soluciones para cada tipo de negocio y presupuesto
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
                 {
                     pricingPackages.map((pkg) => {
                         const IconComponent = pkg.icon;
                         return (
                             <Card
-                                className={`relative hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 ${pkg.popular ? "border-2 border-primary ring-2 ring-primary/20" : ""}`}
-                            >
+                                className={`relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${pkg.popular ? 'border-primary ring-primary/20 border-2 ring-2' : ''}`}>
                                 {pkg.popular && (
-                                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 transform">
                                         <Badge className="bg-primary text-primary-foreground px-4 py-1">
                                             <Star className="w-4 h-4 mr-1" />
                                             Más Popular
@@ -651,23 +609,16 @@ const developmentProcess = [
                                     </div>
                                 )}
 
-                                <div
-                                    class={`h-2 bg-gradient-to-r ${pkg.gradient}`}
-                                />
+                                <div class={`h-2 bg-gradient-to-r ${pkg.gradient}`} />
 
                                 <CardHeader className="text-center pb-4">
                                     <div
-                                        class={`w-16 h-16 bg-gradient-to-br ${pkg.gradient} rounded-full flex items-center justify-center mx-auto mb-4`}
-                                    >
+                                        class={`h-16 w-16 bg-gradient-to-br ${pkg.gradient} mx-auto mb-4 flex items-center justify-center rounded-full`}>
                                         <IconComponent className="w-8 h-8 text-white" />
                                     </div>
-                                    <CardTitle className="text-2xl">
-                                        {pkg.name}
-                                    </CardTitle>
-                                    <p class="text-muted-foreground">
-                                        {pkg.description}
-                                    </p>
-                                    <div class="text-3xl font-bold text-primary mt-4">
+                                    <CardTitle className="text-2xl">{pkg.name}</CardTitle>
+                                    <p class="text-muted-foreground">{pkg.description}</p>
+                                    <div class="text-primary mt-4 text-3xl font-bold">
                                         {pkg.price}
                                     </div>
                                 </CardHeader>
@@ -677,16 +628,13 @@ const developmentProcess = [
                                         {pkg.features.map((feature) => (
                                             <div class="flex items-start gap-3">
                                                 <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                                                <span class="text-sm">
-                                                    {feature}
-                                                </span>
+                                                <span class="text-sm">{feature}</span>
                                             </div>
                                         ))}
                                     </div>
 
                                     <Button
-                                        className={`w-full mt-6 bg-gradient-to-r ${pkg.gradient} hover:opacity-90`}
-                                    >
+                                        class={`mt-6 w-full bg-gradient-to-r ${pkg.gradient} hover:opacity-90`}>
                                         Elegir {pkg.name}
                                         <ArrowRight className="ml-2 w-4 h-4" />
                                     </Button>
@@ -700,35 +648,27 @@ const developmentProcess = [
     </section>
 
     <!-- Benefits -->
-    <section class="py-20 px-4 bg-muted/30">
+    <section class="bg-muted/30 px-4 py-20">
         <div class="container mx-auto">
-            <div class="max-w-4xl mx-auto text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                    Beneficios para tu Negocio
-                </h2>
-                <p class="text-lg text-muted-foreground">
-                    Ventajas competitivas que transformarán tu atención al
-                    cliente
+            <div class="mx-auto mb-16 max-w-4xl text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Beneficios para tu Negocio</h2>
+                <p class="text-muted-foreground text-lg">
+                    Ventajas competitivas que transformarán tu atención al cliente
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
                 {
                     benefits.map((benefit) => {
                         const IconComponent = benefit.icon;
                         return (
                             <div class="text-center">
                                 <div
-                                    class={`w-16 h-16 bg-gradient-to-br ${benefit.gradient} rounded-full flex items-center justify-center mx-auto mb-4`}
-                                >
+                                    class={`h-16 w-16 bg-gradient-to-br ${benefit.gradient} mx-auto mb-4 flex items-center justify-center rounded-full`}>
                                     <IconComponent className="w-8 h-8 text-white" />
                                 </div>
-                                <h3 class="text-lg font-semibold mb-2">
-                                    {benefit.title}
-                                </h3>
-                                <p class="text-muted-foreground text-sm">
-                                    {benefit.description}
-                                </p>
+                                <h3 class="mb-2 text-lg font-semibold">{benefit.title}</h3>
+                                <p class="text-muted-foreground text-sm">{benefit.description}</p>
                             </div>
                         );
                     })
@@ -738,33 +678,25 @@ const developmentProcess = [
     </section>
 
     <!-- Technologies -->
-    <section class="py-20 px-4">
+    <section class="px-4 py-20">
         <div class="container mx-auto">
-            <div class="max-w-4xl mx-auto text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                    Tecnologías que Utilizamos
-                </h2>
-                <p class="text-lg text-muted-foreground">
-                    Las mejores herramientas de IA y desarrollo para chatbots
-                    avanzados
+            <div class="mx-auto mb-16 max-w-4xl text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Tecnologías que Utilizamos</h2>
+                <p class="text-muted-foreground text-lg">
+                    Las mejores herramientas de IA y desarrollo para chatbots avanzados
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
                 <Card className="p-6">
                     <CardHeader className="pb-4">
-                        <CardTitle className="text-lg"
-                            >Frameworks de IA</CardTitle
-                        >
+                        <CardTitle className="text-lg">Frameworks de IA</CardTitle>
                     </CardHeader>
                     <CardContent>
                         <div class="flex flex-wrap gap-2">
                             {
                                 technologies.frameworks.map((tech) => (
-                                    <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                    >
+                                    <Badge variant="outline" className="text-xs">
                                         {tech}
                                     </Badge>
                                 ))
@@ -775,18 +707,13 @@ const developmentProcess = [
 
                 <Card className="p-6">
                     <CardHeader className="pb-4">
-                        <CardTitle className="text-lg"
-                            >Lenguajes de Programación</CardTitle
-                        >
+                        <CardTitle className="text-lg">Lenguajes de Programación</CardTitle>
                     </CardHeader>
                     <CardContent>
                         <div class="flex flex-wrap gap-2">
                             {
                                 technologies.languages.map((tech) => (
-                                    <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                    >
+                                    <Badge variant="outline" className="text-xs">
                                         {tech}
                                     </Badge>
                                 ))
@@ -797,17 +724,13 @@ const developmentProcess = [
 
                 <Card className="p-6">
                     <CardHeader className="pb-4">
-                        <CardTitle className="text-lg">Bases de Datos</CardTitle
-                        >
+                        <CardTitle className="text-lg">Bases de Datos</CardTitle>
                     </CardHeader>
                     <CardContent>
                         <div class="flex flex-wrap gap-2">
                             {
                                 technologies.databases.map((tech) => (
-                                    <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                    >
+                                    <Badge variant="outline" className="text-xs">
                                         {tech}
                                     </Badge>
                                 ))
@@ -818,18 +741,13 @@ const developmentProcess = [
 
                 <Card className="p-6">
                     <CardHeader className="pb-4">
-                        <CardTitle className="text-lg"
-                            >APIs e Integraciones</CardTitle
-                        >
+                        <CardTitle className="text-lg">APIs e Integraciones</CardTitle>
                     </CardHeader>
                     <CardContent>
                         <div class="flex flex-wrap gap-2">
                             {
                                 technologies.integrations.map((tech) => (
-                                    <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                    >
+                                    <Badge variant="outline" className="text-xs">
                                         {tech}
                                     </Badge>
                                 ))
@@ -842,95 +760,66 @@ const developmentProcess = [
     </section>
 
     <!-- CTA Section -->
-    <section class="py-20 px-4 bg-gradient-to-br from-purple-50 to-indigo-50">
+    <section class="bg-gradient-to-br from-purple-50 to-indigo-50 px-4 py-20">
         <div class="container mx-auto">
-            <div class="max-w-4xl mx-auto text-center">
-                <Card
-                    className="p-12 bg-white/80 backdrop-blur-sm border-purple-200"
-                >
+            <div class="mx-auto max-w-4xl text-center">
+                <Card className="border-purple-200 bg-white/80 p-12 backdrop-blur-sm">
                     <CardContent>
                         <div class="mb-6">
-                            <Settings
-                                className="w-16 h-16 mx-auto text-purple-600"
-                            />
+                            <Settings className="mx-auto h-16 w-16 text-purple-600" />
                         </div>
 
-                        <h2
-                            class="text-3xl md:text-4xl font-bold mb-4 text-purple-800"
-                        >
+                        <h2 class="mb-4 text-3xl font-bold text-purple-800 md:text-4xl">
                             ¿Listo para Automatizar tu Atención al Cliente?
                         </h2>
 
-                        <p
-                            class="text-lg text-purple-700 mb-8 max-w-2xl mx-auto"
-                        >
-                            Contacta con nosotros para una <strong
-                                >consulta gratuita</strong
-                            >. Te mostraremos cómo un chatbot inteligente puede
-                            transformar tu negocio.
+                        <p class="mx-auto mb-8 max-w-2xl text-lg text-purple-700">
+                            Contacta con nosotros para una <strong>consulta gratuita</strong>. Te
+                            mostraremos cómo un chatbot inteligente puede transformar tu negocio.
                         </p>
 
-                        <div
-                            class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 max-w-2xl mx-auto"
-                        >
-                            <div class="flex items-center gap-3 justify-center">
-                                <Clock className="w-5 h-5 text-purple-600" />
-                                <span class="text-purple-700"
-                                    >Atención 24/7 automatizada</span
-                                >
+                        <div class="mx-auto mb-8 grid max-w-2xl grid-cols-1 gap-6 md:grid-cols-2">
+                            <div class="flex items-center justify-center gap-3">
+                                <Clock className="h-5 w-5 text-purple-600" />
+                                <span class="text-purple-700">Atención 24/7 automatizada</span>
                             </div>
-                            <div class="flex items-center gap-3 justify-center">
-                                <DollarSign
-                                    className="w-5 h-5 text-purple-600"
-                                />
-                                <span class="text-purple-700"
-                                    >Reduce costos hasta 60%</span
-                                >
+                            <div class="flex items-center justify-center gap-3">
+                                <DollarSign className="h-5 w-5 text-purple-600" />
+                                <span class="text-purple-700">Reduce costos hasta 60%</span>
                             </div>
-                            <div class="flex items-center gap-3 justify-center">
-                                <TrendingUp
-                                    className="w-5 h-5 text-purple-600"
-                                />
-                                <span class="text-purple-700"
-                                    >Aumenta conversiones</span
-                                >
+                            <div class="flex items-center justify-center gap-3">
+                                <TrendingUp className="h-5 w-5 text-purple-600" />
+                                <span class="text-purple-700">Aumenta conversiones</span>
                             </div>
-                            <div class="flex items-center gap-3 justify-center">
-                                <Brain className="w-5 h-5 text-purple-600" />
-                                <span class="text-purple-700"
-                                    >IA que aprende constantemente</span
-                                >
+                            <div class="flex items-center justify-center gap-3">
+                                <Brain className="h-5 w-5 text-purple-600" />
+                                <span class="text-purple-700">IA que aprende constantemente</span>
                             </div>
                         </div>
 
-                        <div
-                            class="flex flex-col sm:flex-row gap-4 justify-center"
-                        >
+                        <div class="flex flex-col justify-center gap-4 sm:flex-row">
                             <Button
                                 size="lg"
-                                className="text-lg px-8 bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600"
-                            >
+                                class="bg-gradient-to-r from-purple-500 to-indigo-500 px-8 text-lg hover:from-purple-600 hover:to-indigo-600">
                                 Ver Demo Interactiva
-                                <ArrowRight className="ml-2 w-5 h-5" />
+                                <ArrowRight className="ml-2 h-5 w-5" />
                             </Button>
                             <Button
                                 variant="outline"
                                 size="lg"
-                                className="text-lg px-8 border-purple-500 text-purple-600 hover:bg-purple-50"
-                            >
+                                class="border-purple-500 px-8 text-lg text-purple-600 hover:bg-purple-50">
                                 Consulta Gratuita
                             </Button>
                         </div>
 
                         <div
-                            class="flex items-center justify-center gap-4 text-sm text-purple-600 mt-6"
-                        >
+                            class="mt-6 flex items-center justify-center gap-4 text-sm text-purple-600">
                             <div class="flex items-center gap-1">
-                                <CheckCircle className="w-4 h-4" />
+                                <CheckCircle className="h-4 w-4" />
                                 <span>Sin compromiso</span>
                             </div>
                             <div class="flex items-center gap-1">
-                                <CheckCircle className="w-4 h-4" />
+                                <CheckCircle className="h-4 w-4" />
                                 <span>Demo personalizada</span>
                             </div>
                         </div>

@@ -1,51 +1,43 @@
 ---
-import type { HTMLAttributes } from "astro/types";
-import { tv, type VariantProps } from "tailwind-variants";
+import type { HTMLAttributes } from 'astro/types';
+import { tv, type VariantProps } from 'tailwind-variants';
 
 interface Props
-    extends HTMLAttributes<"button">,
-        Omit<HTMLAttributes<"a">, "type">,
+    extends HTMLAttributes<'button'>,
+        Omit<HTMLAttributes<'a'>, 'type'>,
         VariantProps<typeof button> {}
 
 const { variant, size, class: className, ...rest } = Astro.props;
 
 const button = tv({
     base: [
-        "inline-flex items-center justify-center gap-1.5 rounded-md font-medium whitespace-nowrap",
-        "[&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
-        "starwind-transition-colors",
-        "focus-visible:outline-2 focus-visible:outline-offset-2",
-        "disabled:pointer-events-none disabled:opacity-50",
+        "focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all transition-colors outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
     ],
     variants: {
         variant: {
-            default:
-                "bg-foreground text-background hover:bg-foreground/90 focus-visible:outline-outline",
-            primary:
-                "bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:outline-primary",
-            secondary:
-                "bg-secondary text-secondary-foreground hover:bg-secondary/90 focus-visible:outline-secondary",
+            default: 'bg-primary text-primary-foreground hover:bg-primary/90 shadow-xs',
+            destructive:
+                'bg-destructive hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60 text-white shadow-xs',
             outline:
-                "border-border hover:bg-border hover:text-foreground focus-visible:outline-outline border",
-            ghost: "hover:bg-foreground/10 hover:text-foreground focus-visible:outline-outline bg-transparent",
-            info: "bg-info text-info-foreground hover:bg-info/90 focus-visible:outline-info",
-            success:
-                "bg-success text-success-foreground hover:bg-success/90 focus-visible:outline-success",
-            warning:
-                "bg-warning text-warning-foreground hover:bg-warning/90 focus-visible:outline-warning",
-            error: "bg-error text-error-foreground hover:bg-error/90 focus-visible:outline-error",
+                'bg-background hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 border shadow-xs',
+            secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-xs',
+            ghost: 'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',
+            link: 'text-primary underline-offset-4 hover:underline',
         },
         size: {
-            sm: "h-9 px-3 py-2 text-sm",
-            md: "h-11 px-4 py-2 text-base",
-            lg: "h-12 px-8 py-2 text-lg",
-            icon: "h-11 w-11",
+            default: 'h-9 px-4 py-2 has-[>svg]:px-3',
+            sm: 'h-8 gap-1.5 rounded-md px-3 has-[>svg]:px-2.5',
+            lg: 'h-10 rounded-md px-6 has-[>svg]:px-4',
+            icon: 'size-9',
         },
     },
-    defaultVariants: { variant: "default", size: "md" },
+    defaultVariants: {
+        variant: 'default',
+        size: 'default',
+    },
 });
 
-const Tag = Astro.props.href ? "a" : "button";
+const Tag = Astro.props.href ? 'a' : 'button';
 ---
 
 <Tag class={button({ variant, size, class: className })} {...rest}>
