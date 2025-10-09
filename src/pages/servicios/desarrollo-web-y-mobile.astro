@@ -1,17 +1,14 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import {
     Code2,
     Globe,
-    Smartphone,
     Lightbulb,
     CheckCircle,
     ArrowRight,
-    Star,
     Zap,
     Shield,
     Target,
@@ -24,17 +21,19 @@ import {
     Monitor,
     ShoppingCart,
     Building,
-    BarChart3,
-    Play,
-    ChevronRight,
     Briefcase,
     HandPlatter,
     ShieldCheck,
     BringToFront,
     Handshake,
+    Keyboard,
+    Volume2,
+    Eye,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { WorkProcess } from '@/components/interfaces/WorkProcess';
+import { FeatureDesarrolloWeb } from '@/components/interfaces/FeatureDesarroloWeb';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 // Servicios principales
 const mainServices = [
@@ -366,6 +365,27 @@ const mainServices = [
     },
 ];
 
+const FEATURES = [
+    {
+        title: 'Aplicaciones Nativas',
+        summary:
+            'Desarrollamos aplicaciones móviles nativas para iOS y Android utilizando React Native, Flutter o Swift, garantizando rendimiento óptimo y experiencia de usuario fluida.',
+        icon: Keyboard,
+    },
+    {
+        title: 'Accesibilidad Web',
+        summary:
+            'Implementamos prácticas de accesibilidad para asegurar que tu sitio web sea usable por personas con discapacidades, cumpliendo con las normas WCAG.',
+        icon: Volume2,
+    },
+    {
+        title: 'Optimización de Rendimiento',
+        summary:
+            'Implementamos técnicas de optimización para mejorar la velocidad de carga y el rendimiento general de tu sitio web, asegurando una experiencia de usuario fluida y eficiente.',
+        icon: Eye,
+    },
+];
+
 // Tecnologías
 const technologies = [
     {
@@ -532,7 +552,7 @@ const benefits = [
                 </div>
 
                 <div class="mb-12 text-center">
-                    <h1 class="font-cocogoose mb-6 text-4xl md:text-6xl">
+                    <h1 class="font-cocogoose mb-6 text-3xl md:text-6xl">
                         Desarrollo Web y
                         <span
                             class="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-nowrap text-transparent">
@@ -614,7 +634,88 @@ const benefits = [
             </div>
         </div>
     </section>
+    <!-- Feature Section de Desarrollo Web -->
+    <FeatureDesarrolloWeb client:load />
 
+    <!-- Feature Section de Desarrollo Móvil -->
+    <section class="">
+        <div
+            class="relative bg-cover bg-center bg-no-repeat py-10 after:absolute after:inset-0 after:z-10 after:block after:size-full after:bg-black/40 after:content-[''] md:py-16 xl:px-6 xl:py-28"
+            style={{
+                backgroundImage:
+                    "url('https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/futuristic-device-design-qcufu.png')",
+            }}>
+            <div class="relative z-20 container mx-auto px-4">
+                <div
+                    class="grid items-start justify-start gap-14 xl:grid-cols-2 xl:items-center xl:justify-center">
+                    <div class="flex flex-col gap-8">
+                        <h2 class="font-cocogoose text-2xl tracking-tight text-white md:text-7xl">
+                            Tu proximo proyecto móvil, hecho realidad
+                            <span class="sr-only"
+                                >Desarrollo de aplicaciones móviles nativas iOS y Android, PWAs y
+                                soluciones multiplataforma con React Native, Flutter y Swift</span
+                            >
+                        </h2>
+                        <p class="text-lg font-medium tracking-tight text-white">
+                            Creamos aplicaciones móviles nativas y multiplataforma que combinan
+                            rendimiento, usabilidad y diseño excepcional. Ya sea una app iOS,
+                            Android o una PWA, nuestro equipo domina las tecnologías más avanzadas
+                            para llevar tu idea a la realidad.
+                            <span class="sr-only"
+                                >Expertos en React Native, Flutter, Swift, Kotlin, integración con
+                                APIs, notificaciones push, optimización de performance y publicación
+                                en App Store y Google Play.</span
+                            >
+                        </p>
+                        <div class="flex flex-col gap-4 sm:flex-row">
+                            <Button
+                                size="lg"
+                                className="bg-gradient-to-r from-blue-500 to-cyan-500 px-8 text-lg hover:from-blue-600 hover:to-cyan-600">
+                                Ver Proyectos
+                                <ArrowRight className="ml-2 h-5 w-5" />
+                            </Button>
+                            <Button
+                                variant="outline"
+                                size="lg"
+                                className="border-white px-8 text-lg text-white hover:bg-white/10">
+                                Consulta Gratuita
+                            </Button>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-end">
+                        <div class="max-w-xl xl:w-full">
+                            <AspectRatio
+                                ratio={0.80239521}
+                                className="w-full overflow-hidden rounded-xl shadow-xl">
+                                <img
+                                    src="/images/desarrolloWebMobile/desarrollo-mobile.png"
+                                    alt=""
+                                    class="block size-full object-cover object-center"
+                                />
+                            </AspectRatio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-4">
+            <div class="grid items-start gap-16 py-20 lg:grid-cols-3">
+                {
+                    FEATURES.map((item) => (
+                        <div class="flex flex-col items-center justify-center gap-4">
+                            <item.icon className="stroke-muted-foreground size-7" />
+                            <div class="max-w-xs text-center text-xl font-semibold">
+                                {item.title}
+                            </div>
+                            <div class="text-muted-foreground max-w-lg text-center text-base">
+                                {item.summary}
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
     <!-- Main Services -->
     <section class="bg-muted/30 px-4 py-20">
         <div class="container mx-auto">
