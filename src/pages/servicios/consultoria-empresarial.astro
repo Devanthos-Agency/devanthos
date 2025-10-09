@@ -1,13 +1,13 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import Layout from '@/layouts/Layout.astro';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import {
     Brain,
     TrendingUp,
-    Target,                    
+    Target,
     Users,
     Zap,
     Settings,
@@ -27,30 +27,30 @@ import {
     BookOpen,
     Cog,
     Search,
-} from "lucide-react";
+} from 'lucide-react';
 
 // Servicios principales
 const mainServices = [
     {
         icon: Target,
-        title: "Visión Estratégica",
+        title: 'Visión Estratégica',
         description:
-            "Desarrollamos una perspectiva externa objetiva que identifica oportunidades ocultas y riesgos potenciales",
-        gradient: "from-blue-500 to-cyan-500",
+            'Desarrollamos una perspectiva externa objetiva que identifica oportunidades ocultas y riesgos potenciales',
+        gradient: 'from-blue-500 to-cyan-500',
     },
     {
         icon: Zap,
-        title: "Optimización",
+        title: 'Optimización',
         description:
-            "Mejoramos procesos, reducimos costos y aumentamos la eficiencia operativa de manera medible",
-        gradient: "from-green-500 to-emerald-500",
+            'Mejoramos procesos, reducimos costos y aumentamos la eficiencia operativa de manera medible',
+        gradient: 'from-green-500 to-emerald-500',
     },
     {
         icon: TrendingUp,
-        title: "Crecimiento",
+        title: 'Crecimiento',
         description:
-            "Implementamos estrategias probadas que generan resultados tangibles y crecimiento sostenible",
-        gradient: "from-purple-500 to-indigo-500",
+            'Implementamos estrategias probadas que generan resultados tangibles y crecimiento sostenible',
+        gradient: 'from-purple-500 to-indigo-500',
     },
 ];
 
@@ -58,51 +58,50 @@ const mainServices = [
 const consultingAreas = [
     {
         icon: Target,
-        title: "Estrategia y Planificación Empresarial",
-        description:
-            "Desarrollamos roadmaps claros para el futuro de tu empresa",
-        gradient: "from-blue-500 to-cyan-500",
+        title: 'Estrategia y Planificación Empresarial',
+        description: 'Desarrollamos roadmaps claros para el futuro de tu empresa',
+        gradient: 'from-blue-500 to-cyan-500',
         services: [
-            "Análisis FODA y Matriz BCG",
-            "Definición de misión y visión",
-            "Business Model Canvas",
-            "Proyecciones financieras",
+            'Análisis FODA y Matriz BCG',
+            'Definición de misión y visión',
+            'Business Model Canvas',
+            'Proyecciones financieras',
         ],
     },
     {
         icon: Smartphone,
-        title: "Transformación Digital",
-        description: "Modernizamos tu empresa para la era digital",
-        gradient: "from-purple-500 to-indigo-500",
+        title: 'Transformación Digital',
+        description: 'Modernizamos tu empresa para la era digital',
+        gradient: 'from-purple-500 to-indigo-500',
         services: [
-            "Auditoría digital completa",
-            "Automatización de procesos",
-            "Implementación de tecnologías",
-            "Cultura digital y change management",
+            'Auditoría digital completa',
+            'Automatización de procesos',
+            'Implementación de tecnologías',
+            'Cultura digital y change management',
         ],
     },
     {
         icon: Cog,
-        title: "Optimización de Procesos",
-        description: "Mejoramos la eficiencia operativa de tu organización",
-        gradient: "from-green-500 to-emerald-500",
+        title: 'Optimización de Procesos',
+        description: 'Mejoramos la eficiencia operativa de tu organización',
+        gradient: 'from-green-500 to-emerald-500',
         services: [
-            "Mapeo de procesos",
-            "Lean Management y Six Sigma",
-            "Automatización de tareas",
-            "Sistemas de control y monitoreo",
+            'Mapeo de procesos',
+            'Lean Management y Six Sigma',
+            'Automatización de tareas',
+            'Sistemas de control y monitoreo',
         ],
     },
     {
         icon: Users,
-        title: "Recursos Humanos",
-        description: "Fortalecemos el capital humano de tu empresa",
-        gradient: "from-orange-500 to-red-500",
+        title: 'Recursos Humanos',
+        description: 'Fortalecemos el capital humano de tu empresa',
+        gradient: 'from-orange-500 to-red-500',
         services: [
-            "Desarrollo organizacional",
-            "Gestión del talento",
-            "Evaluaciones 360°",
-            "Coaching ejecutivo",
+            'Desarrollo organizacional',
+            'Gestión del talento',
+            'Evaluaciones 360°',
+            'Coaching ejecutivo',
         ],
     },
 ];
@@ -110,109 +109,107 @@ const consultingAreas = [
 // Casos de éxito
 const successCases = [
     {
-        title: "Manufacturera: Transformación Digital Completa",
+        title: 'Manufacturera: Transformación Digital Completa',
         icon: Factory,
-        challenge:
-            "Procesos manuales obsoletos, falta de integración y altos costos operativos",
+        challenge: 'Procesos manuales obsoletos, falta de integración y altos costos operativos',
         results: [
-            "35% reducción en costos operativos",
-            "50% menos errores en procesos",
-            "60% mejora en tiempo de entrega",
-            "ROI del 280% en inversión tecnológica",
+            '35% reducción en costos operativos',
+            '50% menos errores en procesos',
+            '60% mejora en tiempo de entrega',
+            'ROI del 280% en inversión tecnológica',
         ],
-        timeline: "18 meses",
-        gradient: "from-blue-500 to-cyan-500",
+        timeline: '18 meses',
+        gradient: 'from-blue-500 to-cyan-500',
     },
     {
-        title: "Empresa de Servicios: Optimización Organizacional",
+        title: 'Empresa de Servicios: Optimización Organizacional',
         icon: Building,
         challenge:
-            "Alto turnover (45% anual), procesos inconsistentes y baja satisfacción del cliente",
+            'Alto turnover (45% anual), procesos inconsistentes y baja satisfacción del cliente',
         results: [
-            "Reducción del turnover al 12%",
-            "40% mejora en satisfacción del cliente",
-            "25% incremento en productividad",
-            "Certificación ISO 9001 obtenida",
+            'Reducción del turnover al 12%',
+            '40% mejora en satisfacción del cliente',
+            '25% incremento en productividad',
+            'Certificación ISO 9001 obtenida',
         ],
-        timeline: "12 meses",
-        gradient: "from-green-500 to-emerald-500",
+        timeline: '12 meses',
+        gradient: 'from-green-500 to-emerald-500',
     },
     {
-        title: "Startup Tecnológica: Escalamiento Estratégico",
+        title: 'Startup Tecnológica: Escalamiento Estratégico',
         icon: Smartphone,
-        challenge:
-            "Crecimiento desordenado, falta de procesos y dificultades para financiamiento",
+        challenge: 'Crecimiento desordenado, falta de procesos y dificultades para financiamiento',
         results: [
-            "$2M en financiamiento Serie A",
-            "300% crecimiento en facturación",
-            "Team scaling de 8 a 35 empleados",
-            "Expansión a 3 países adicionales",
+            '$2M en financiamiento Serie A',
+            '300% crecimiento en facturación',
+            'Team scaling de 8 a 35 empleados',
+            'Expansión a 3 países adicionales',
         ],
-        timeline: "8 meses",
-        gradient: "from-purple-500 to-indigo-500",
+        timeline: '8 meses',
+        gradient: 'from-purple-500 to-indigo-500',
     },
 ];
 
 // Paquetes de consultoría
 const consultingPackages = [
     {
-        name: "Paquete Diagnóstico",
-        price: "$500 - $1,000",
-        description: "Para empresas que buscan claridad",
-        gradient: "from-blue-500 to-cyan-500",
+        name: 'Paquete Diagnóstico',
+        price: '$500 - $1,000',
+        description: 'Para empresas que buscan claridad',
+        gradient: 'from-blue-500 to-cyan-500',
         icon: Search,
         features: [
-            "Auditoría organizacional completa",
-            "Análisis FODA detallado",
-            "Identificación de oportunidades",
-            "Reporte ejecutivo con recomendaciones",
-            "Sesión de presentación de resultados",
+            'Auditoría organizacional completa',
+            'Análisis FODA detallado',
+            'Identificación de oportunidades',
+            'Reporte ejecutivo con recomendaciones',
+            'Sesión de presentación de resultados',
         ],
-        note: "Según tamaño de empresa",
+        note: 'Según tamaño de empresa',
     },
     {
-        name: "Paquete Estratégico",
-        price: "$2,000 - $4,000",
-        description: "Planificación y desarrollo",
-        gradient: "from-green-500 to-emerald-500",
+        name: 'Paquete Estratégico',
+        price: '$2,000 - $4,000',
+        description: 'Planificación y desarrollo',
+        gradient: 'from-green-500 to-emerald-500',
         icon: Target,
         features: [
-            "Todo lo del paquete Diagnóstico",
-            "Plan estratégico 3-5 años",
-            "Definición de modelo de negocio",
-            "Proyecciones financieras",
-            "3 sesiones de seguimiento mensual",
+            'Todo lo del paquete Diagnóstico',
+            'Plan estratégico 3-5 años',
+            'Definición de modelo de negocio',
+            'Proyecciones financieras',
+            '3 sesiones de seguimiento mensual',
         ],
         popular: true,
     },
     {
-        name: "Paquete Transformación",
-        price: "$8,000 - $10,000",
-        description: "Implementación completa",
-        gradient: "from-purple-500 to-indigo-500",
+        name: 'Paquete Transformación',
+        price: '$8,000 - $10,000',
+        description: 'Implementación completa',
+        gradient: 'from-purple-500 to-indigo-500',
         icon: TrendingUp,
         features: [
-            "Todo lo del paquete Estratégico",
-            "Acompañamiento 6 meses",
-            "Capacitación de equipos",
-            "Implementación de procesos",
-            "Dashboard personalizado",
-            "Soporte continuo",
+            'Todo lo del paquete Estratégico',
+            'Acompañamiento 6 meses',
+            'Capacitación de equipos',
+            'Implementación de procesos',
+            'Dashboard personalizado',
+            'Soporte continuo',
         ],
     },
     {
-        name: "Paquete Retainer",
-        price: "$5,000 - $15,000/mes",
-        description: "Consultoría continua",
-        gradient: "from-orange-500 to-red-500",
+        name: 'Paquete Retainer',
+        price: '$5,000 - $15,000/mes',
+        description: 'Consultoría continua',
+        gradient: 'from-orange-500 to-red-500',
         icon: Users,
         features: [
-            "Consultor dedicado mensual",
-            "Acceso prioritario al equipo",
-            "Revisiones estratégicas trimestrales",
-            "Soporte en decisiones críticas",
-            "Análisis de mercado continuo",
-            "Networking y conexiones estratégicas",
+            'Consultor dedicado mensual',
+            'Acceso prioritario al equipo',
+            'Revisiones estratégicas trimestrales',
+            'Soporte en decisiones críticas',
+            'Análisis de mercado continuo',
+            'Networking y conexiones estratégicas',
         ],
     },
 ];
@@ -221,33 +218,33 @@ const consultingPackages = [
 const industries = [
     {
         icon: Factory,
-        title: "Manufactura e Industria",
-        description: "Optimización de procesos productivos e Industria 4.0",
-        gradient: "from-gray-500 to-gray-700",
+        title: 'Manufactura e Industria',
+        description: 'Optimización de procesos productivos e Industria 4.0',
+        gradient: 'from-gray-500 to-gray-700',
     },
     {
         icon: Briefcase,
-        title: "Servicios Profesionales",
-        description: "Escalamiento de operaciones y automatización",
-        gradient: "from-blue-500 to-cyan-500",
+        title: 'Servicios Profesionales',
+        description: 'Escalamiento de operaciones y automatización',
+        gradient: 'from-blue-500 to-cyan-500',
     },
     {
         icon: ShoppingCart,
-        title: "Retail y E-commerce",
-        description: "Omnicanalidad y customer experience",
-        gradient: "from-green-500 to-emerald-500",
+        title: 'Retail y E-commerce',
+        description: 'Omnicanalidad y customer experience',
+        gradient: 'from-green-500 to-emerald-500',
     },
     {
         icon: Smartphone,
-        title: "Tecnología y Startups",
-        description: "Product-market fit y fundraising",
-        gradient: "from-purple-500 to-indigo-500",
+        title: 'Tecnología y Startups',
+        description: 'Product-market fit y fundraising',
+        gradient: 'from-purple-500 to-indigo-500',
     },
     {
         icon: CreditCard,
-        title: "Servicios Financieros",
-        description: "Transformación digital y fintech",
-        gradient: "from-yellow-500 to-orange-500",
+        title: 'Servicios Financieros',
+        description: 'Transformación digital y fintech',
+        gradient: 'from-yellow-500 to-orange-500',
     },
 ];
 
@@ -255,41 +252,41 @@ const industries = [
 const methodology = [
     {
         number: 1,
-        title: "Descubrimiento y Diagnóstico",
-        duration: "2-4 semanas",
-        description: "Análisis profundo de la situación actual",
+        title: 'Descubrimiento y Diagnóstico',
+        duration: '2-4 semanas',
+        description: 'Análisis profundo de la situación actual',
         icon: Search,
         activities: [
-            "Entrevistas con stakeholders clave",
-            "Análisis documental y procesos",
-            "Benchmarking con mejores prácticas",
-            "Identificación de gaps y oportunidades",
+            'Entrevistas con stakeholders clave',
+            'Análisis documental y procesos',
+            'Benchmarking con mejores prácticas',
+            'Identificación de gaps y oportunidades',
         ],
     },
     {
         number: 2,
-        title: "Estrategia y Planificación",
-        duration: "2-3 semanas",
-        description: "Desarrollo de estrategias personalizadas",
+        title: 'Estrategia y Planificación',
+        duration: '2-3 semanas',
+        description: 'Desarrollo de estrategias personalizadas',
         icon: Target,
         activities: [
-            "Desarrollo de estrategias personalizadas",
-            "Definición de objetivos y KPIs",
-            "Cronograma de implementación",
-            "Plan de gestión del cambio",
+            'Desarrollo de estrategias personalizadas',
+            'Definición de objetivos y KPIs',
+            'Cronograma de implementación',
+            'Plan de gestión del cambio',
         ],
     },
     {
         number: 3,
-        title: "Implementación y Seguimiento",
-        duration: "3-12 meses",
-        description: "Ejecución y monitoreo de resultados",
+        title: 'Implementación y Seguimiento',
+        duration: '3-12 meses',
+        description: 'Ejecución y monitoreo de resultados',
         icon: TrendingUp,
         activities: [
-            "Ejecución de iniciativas planificadas",
-            "Capacitación de equipos internos",
-            "Monitoreo de avances y resultados",
-            "Ajustes y optimizaciones continuas",
+            'Ejecución de iniciativas planificadas',
+            'Capacitación de equipos internos',
+            'Monitoreo de avances y resultados',
+            'Ajustes y optimizaciones continuas',
         ],
     },
 ];
@@ -298,87 +295,82 @@ const methodology = [
 const expertTeam = [
     {
         icon: Award,
-        title: "Consultores Senior",
-        description: "+15 años de experiencia en transformación empresarial",
-        gradient: "from-blue-500 to-cyan-500",
+        title: 'Consultores Senior',
+        description: '+15 años de experiencia en transformación empresarial',
+        gradient: 'from-blue-500 to-cyan-500',
     },
     {
         icon: BookOpen,
-        title: "Especialistas Certificados",
-        description: "MBA, PMP, Six Sigma Black Belt, Lean Master",
-        gradient: "from-green-500 to-emerald-500",
+        title: 'Especialistas Certificados',
+        description: 'MBA, PMP, Six Sigma Black Belt, Lean Master',
+        gradient: 'from-green-500 to-emerald-500',
     },
     {
         icon: Globe,
-        title: "Experiencia Internacional",
-        description: "Proyectos exitosos en +20 países",
-        gradient: "from-purple-500 to-indigo-500",
+        title: 'Experiencia Internacional',
+        description: 'Proyectos exitosos en +20 países',
+        gradient: 'from-purple-500 to-indigo-500',
     },
     {
         icon: Building,
-        title: "Multisectorial",
-        description: "Experiencia en +30 industrias diferentes",
-        gradient: "from-orange-500 to-red-500",
+        title: 'Multisectorial',
+        description: 'Experiencia en +30 industrias diferentes',
+        gradient: 'from-orange-500 to-red-500',
     },
 ];
 ---
 
 <Layout
     title="Consultoría Empresarial | Devanthos - Transformación Digital y Estratégica"
-    description="Impulsamos el crecimiento de tu empresa con estrategias personalizadas, optimización de procesos y transformación digital integral para maximizar tu potencial competitivo."
->
+    description="Impulsamos el crecimiento de tu empresa con estrategias personalizadas, optimización de procesos y transformación digital integral para maximizar tu potencial competitivo.">
     <!-- Hero Section -->
-    <section class="relative py-20 min-h-screen px-4 overflow-hidden">
+    <section class="relative min-h-screen overflow-hidden px-4 py-20">
         <div
-            class="absolute inset-0 bg-gradient-to-br from-orange-500/20 via-transparent to-red-500/20"
-        >
+            class="absolute inset-0 bg-gradient-to-br from-orange-500/20 via-transparent to-red-500/20">
         </div>
-        <div
-            class="absolute -top-40 -right-40 w-80 h-80 bg-orange-500/30 rounded-full blur-3xl"
-        >
+        <div class="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-orange-500/30 blur-3xl">
         </div>
-        <div
-            class="absolute -bottom-40 -left-40 w-80 h-80 bg-red-500/40 rounded-full blur-3xl"
-        >
+        <div class="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-red-500/40 blur-3xl">
         </div>
 
-        <div class="container mx-auto relative z-10 mt-16">
-            <div class="max-w-5xl mx-auto">
-                <div class="flex justify-center mb-6">
-                    <Badge
-                        variant="outline"
-                        className="text-xs md:text-lg px-4 py-2"
-                    >
-                        <Brain className="w-4 h-4 mr-2 text-orange-500" />
+        <div class="relative z-10 container mx-auto mt-16">
+            <div class="mx-auto max-w-5xl">
+                <div class="mb-6 flex justify-center">
+                    <Badge variant="outline" className="px-4 py-2 text-xs md:text-lg">
+                        <Brain className="mr-2 h-4 w-4 text-orange-500" />
                         Transformación Empresarial Integral
                     </Badge>
                 </div>
 
-                <div class="text-center mb-12">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                <div class="mb-12 text-center">
+                    <h1 class="mb-6 text-3xl font-bold md:text-6xl">
                         Consultoría Empresarial y
                         <span
-                            class="bg-gradient-to-r text-nowrap from-orange-500 to-red-500 bg-clip-text text-transparent"
-                        >
+                            class="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-nowrap text-transparent">
                             Transformación Digital
                         </span>
-                        <span class="sr-only">para empresas en Argentina - Especialistas en optimización de procesos, estrategia empresarial, migración a la nube, automatización y transformación digital integral</span>
+                        <span class="sr-only"
+                            >para empresas en Argentina - Especialistas en optimización de procesos,
+                            estrategia empresarial, migración a la nube, automatización y
+                            transformación digital integral</span
+                        >
                     </h1>
 
-                    <p
-                        class="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto"
-                    >
+                    <p class="text-muted-foreground mx-auto mb-8 max-w-3xl text-xl">
                         Impulsamos el crecimiento de tu empresa con <strong
-                            >estrategias personalizadas, optimización de
-                            procesos y transformación digital integral</strong
-                        > para maximizar tu potencial competitivo. La diferencia
-                        entre el éxito y el estancamiento radica en la capacidad
-                        de adaptarse e innovar.
-                        <span class="sr-only">Servicios especializados en análisis FODA, Business Model Canvas, implementación de tecnologías disruptivas, Lean Management, Six Sigma, auditoría digital, gestión del cambio y estrategias de e-commerce.</span>
+                            >estrategias personalizadas, optimización de procesos y transformación
+                            digital integral</strong
+                        > para maximizar tu potencial competitivo. La diferencia entre el éxito y el
+                        estancamiento radica en la capacidad de adaptarse e innovar.
+                        <span class="sr-only"
+                            >Servicios especializados en análisis FODA, Business Model Canvas,
+                            implementación de tecnologías disruptivas, Lean Management, Six Sigma,
+                            auditoría digital, gestión del cambio y estrategias de e-commerce.</span
+                        >
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-2">
                     <div class="space-y-6">
                         <Alert className="border-orange-200 bg-orange-50">
                             <Brain className="h-4 w-4 text-orange-600" />
@@ -386,19 +378,17 @@ const expertTeam = [
                                 >¡Diagnóstico Empresarial Gratuito!</AlertTitle
                             >
                             <AlertDescription className="text-orange-700">
-                                Obtén un análisis completo de tu situación
-                                actual y un plan de acción personalizado sin
-                                costo alguno.
+                                Obtén un análisis completo de tu situación actual y un plan de
+                                acción personalizado sin costo alguno.
                             </AlertDescription>
                         </Alert>
 
-                        <div class="flex flex-col sm:flex-row gap-4">
+                        <div class="flex flex-col gap-4 sm:flex-row">
                             <Button
                                 size="lg"
-                                className="text-lg px-8 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600"
-                            >
+                                className="bg-gradient-to-r from-orange-500 to-red-500 px-8 text-lg hover:from-orange-600 hover:to-red-600">
                                 Primera Consultoría Gratis
-                                <ArrowRight className="ml-2 w-5 h-5" />
+                                <ArrowRight className="ml-2 h-5 w-5" />
                             </Button>
                             <!-- <Button
                                 variant="outline"
@@ -417,15 +407,12 @@ const expertTeam = [
                             class="rounded-2xl shadow-2xl"
                         />
                         <div
-                            class="absolute -bottom-4 -right-4 bg-gradient-to-r from-orange-500 to-red-500 text-white p-4 rounded-xl shadow-lg"
-                        >
+                            class="absolute -right-4 -bottom-4 rounded-xl bg-gradient-to-r from-orange-500 to-red-500 p-4 text-white shadow-lg">
                             <div class="flex items-center gap-2">
-                                <Brain className="w-6 h-6" />
+                                <Brain className="h-6 w-6" />
                                 <div>
                                     <p class="font-semibold">Desde $500</p>
-                                    <p class="text-sm opacity-90">
-                                        Por proyecto
-                                    </p>
+                                    <p class="text-sm opacity-90">Por proyecto</p>
                                 </div>
                             </div>
                         </div>
@@ -436,23 +423,30 @@ const expertTeam = [
     </section>
 
     <!-- Why You Need Consulting -->
-    <section class="py-20 px-4 bg-muted/30">
+    <section class="bg-muted/30 px-4 py-20">
         <div class="container mx-auto">
-            <div class="max-w-4xl mx-auto text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            <div class="mx-auto mb-16 max-w-4xl text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">
                     ¿Por Qué Necesitas Consultoría Empresarial?
-                    <span class="sr-only">Transformación digital empresarial, optimización de procesos operativos y estrategias de crecimiento sostenible</span>
+                    <span class="sr-only"
+                        >Transformación digital empresarial, optimización de procesos operativos y
+                        estrategias de crecimiento sostenible</span
+                    >
                 </h2>
-                <p class="text-lg text-muted-foreground">
+                <p class="text-muted-foreground text-lg">
                     En un mercado donde el <strong
                         >70% de las empresas fallan en sus iniciativas de cambio</strong
-                    >, contar con experiencia especializada es crucial para el
-                    éxito de tu organización.
-                    <span class="sr-only">Expertos en diagnóstico empresarial, implementación de metodologías ágiles, certificaciones ISO, gestión de recursos humanos, planificación estratégica y análisis de competencia.</span>
+                    >, contar con experiencia especializada es crucial para el éxito de tu
+                    organización.
+                    <span class="sr-only"
+                        >Expertos en diagnóstico empresarial, implementación de metodologías ágiles,
+                        certificaciones ISO, gestión de recursos humanos, planificación estratégica
+                        y análisis de competencia.</span
+                    >
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
                 {
                     mainServices.map((service) => {
                         const IconComponent = service.icon;
@@ -460,16 +454,11 @@ const expertTeam = [
                             <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
                                 <CardHeader className="pb-6">
                                     <div
-                                        class={`w-16 h-16 bg-gradient-to-br ${service.gradient} rounded-full flex items-center justify-center mx-auto mb-4`}
-                                    >
+                                        class={`h-16 w-16 bg-gradient-to-br ${service.gradient} mx-auto mb-4 flex items-center justify-center rounded-full`}>
                                         <IconComponent className="w-8 h-8 text-white" />
                                     </div>
-                                    <CardTitle className="text-xl">
-                                        {service.title}
-                                    </CardTitle>
-                                    <p class="text-muted-foreground">
-                                        {service.description}
-                                    </p>
+                                    <CardTitle className="text-xl">{service.title}</CardTitle>
+                                    <p class="text-muted-foreground">{service.description}</p>
                                 </CardHeader>
                             </Card>
                         );
@@ -480,41 +469,33 @@ const expertTeam = [
     </section>
 
     <!-- Consulting Areas -->
-    <section class="py-20 px-4">
+    <section class="px-4 py-20">
         <div class="container mx-auto">
-            <div class="max-w-4xl mx-auto text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            <div class="mx-auto mb-16 max-w-4xl text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">
                     Nuestros Servicios de Consultoría
                 </h2>
-                <p class="text-lg text-muted-foreground">
-                    Cobertura integral para todas las áreas críticas de tu
-                    empresa
+                <p class="text-muted-foreground text-lg">
+                    Cobertura integral para todas las áreas críticas de tu empresa
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
                 {
                     consultingAreas.map((area) => {
                         const IconComponent = area.icon;
                         return (
                             <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                                <div
-                                    class={`h-2 bg-gradient-to-r ${area.gradient} mb-6`}
-                                />
+                                <div class={`h-2 bg-gradient-to-r ${area.gradient} mb-6`} />
                                 <CardHeader className="pb-4">
-                                    <div class="flex items-center gap-3 mb-4">
+                                    <div class="mb-4 flex items-center gap-3">
                                         <div
-                                            class={`p-3 rounded-xl bg-gradient-to-br ${area.gradient} text-white`}
-                                        >
+                                            class={`rounded-xl bg-gradient-to-br p-3 ${area.gradient} text-white`}>
                                             <IconComponent className="w-6 h-6" />
                                         </div>
                                     </div>
-                                    <CardTitle className="text-xl">
-                                        {area.title}
-                                    </CardTitle>
-                                    <p class="text-muted-foreground">
-                                        {area.description}
-                                    </p>
+                                    <CardTitle className="text-xl">{area.title}</CardTitle>
+                                    <p class="text-muted-foreground">{area.description}</p>
                                 </CardHeader>
                                 <CardContent>
                                     <div class="space-y-2">
@@ -533,15 +514,12 @@ const expertTeam = [
             </div>
 
             <div class="mt-12 text-center">
-                <Alert className="border-blue-200 bg-blue-50 max-w-2xl mx-auto">
+                <Alert className="mx-auto max-w-2xl border-blue-200 bg-blue-50">
                     <Settings className="h-4 w-4 text-blue-600" />
-                    <AlertTitle className="text-blue-800"
-                        >Metodología Probada</AlertTitle
-                    >
+                    <AlertTitle className="text-blue-800">Metodología Probada</AlertTitle>
                     <AlertDescription className="text-blue-700">
-                        Utilizamos metodologías internacionales reconocidas y
-                        las adaptamos a las necesidades específicas de tu
-                        industria y empresa.
+                        Utilizamos metodologías internacionales reconocidas y las adaptamos a las
+                        necesidades específicas de tu industria y empresa.
                     </AlertDescription>
                 </Alert>
             </div>
@@ -549,59 +527,46 @@ const expertTeam = [
     </section>
 
     <!-- Success Cases -->
-    <section class="py-20 px-4 bg-muted/30">
+    <section class="bg-muted/30 px-4 py-20">
         <div class="container mx-auto">
-            <div class="max-w-4xl mx-auto text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                    Casos de Éxito Reales
-                </h2>
-                <p class="text-lg text-muted-foreground">
-                    Transformaciones empresariales con resultados medibles y
-                    comprobados
+            <div class="mx-auto mb-16 max-w-4xl text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Casos de Éxito Reales</h2>
+                <p class="text-muted-foreground text-lg">
+                    Transformaciones empresariales con resultados medibles y comprobados
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
                 {
                     successCases.map((case_) => {
                         const IconComponent = case_.icon;
                         return (
                             <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                                <div
-                                    class={`h-2 bg-gradient-to-r ${case_.gradient} mb-6`}
-                                />
+                                <div class={`h-2 bg-gradient-to-r ${case_.gradient} mb-6`} />
                                 <CardHeader className="pb-4">
-                                    <div class="flex items-center gap-3 mb-4">
+                                    <div class="mb-4 flex items-center gap-3">
                                         <div
-                                            class={`p-3 rounded-xl bg-gradient-to-br ${case_.gradient} text-white`}
-                                        >
+                                            class={`rounded-xl bg-gradient-to-br p-3 ${case_.gradient} text-white`}>
                                             <IconComponent className="w-6 h-6" />
                                         </div>
-                                        <Badge
-                                            variant="outline"
-                                            className="text-xs"
-                                        >
+                                        <Badge variant="outline" className="text-xs">
                                             {case_.timeline}
                                         </Badge>
                                     </div>
-                                    <CardTitle className="text-lg">
-                                        {case_.title}
-                                    </CardTitle>
-                                    <p class="text-muted-foreground text-sm mb-4">
+                                    <CardTitle className="text-lg">{case_.title}</CardTitle>
+                                    <p class="text-muted-foreground mb-4 text-sm">
                                         {case_.challenge}
                                     </p>
                                 </CardHeader>
                                 <CardContent>
                                     <div class="space-y-2">
-                                        <h4 class="font-semibold text-sm text-green-600 mb-2">
+                                        <h4 class="mb-2 text-sm font-semibold text-green-600">
                                             RESULTADOS:
                                         </h4>
                                         {case_.results.map((result) => (
                                             <div class="flex items-start gap-2">
                                                 <CheckCircle className="w-4 h-4 text-green-500 mt-0.5" />
-                                                <span class="text-sm">
-                                                    {result}
-                                                </span>
+                                                <span class="text-sm">{result}</span>
                                             </div>
                                         ))}
                                     </div>
@@ -615,27 +580,26 @@ const expertTeam = [
     </section>
 
     <!-- Consulting Packages -->
-    <section class="py-20 px-4">
+    <section class="px-4 py-20">
         <div class="container mx-auto">
-            <div class="max-w-4xl mx-auto text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            <div class="mx-auto mb-16 max-w-4xl text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">
                     Nuestros Paquetes de Consultoría
                 </h2>
-                <p class="text-lg text-muted-foreground">
+                <p class="text-muted-foreground text-lg">
                     Soluciones adaptadas a cada etapa de crecimiento empresarial
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
                 {
                     consultingPackages.map((pkg) => {
                         const IconComponent = pkg.icon;
                         return (
                             <Card
-                                className={`relative hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 ${pkg.popular ? "border-2 border-primary ring-2 ring-primary/20" : ""}`}
-                            >
+                                className={`relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${pkg.popular ? 'border-primary ring-primary/20 border-2 ring-2' : ''}`}>
                                 {pkg.popular && (
-                                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 transform">
                                         <Badge className="bg-primary text-primary-foreground px-4 py-1">
                                             <Star className="w-4 h-4 mr-1" />
                                             Más Popular
@@ -643,27 +607,20 @@ const expertTeam = [
                                     </div>
                                 )}
 
-                                <div
-                                    class={`h-2 bg-gradient-to-r ${pkg.gradient}`}
-                                />
+                                <div class={`h-2 bg-gradient-to-r ${pkg.gradient}`} />
 
                                 <CardHeader className="text-center pb-4">
                                     <div
-                                        class={`w-14 h-14 bg-gradient-to-br ${pkg.gradient} rounded-full flex items-center justify-center mx-auto mb-4`}
-                                    >
+                                        class={`h-14 w-14 bg-gradient-to-br ${pkg.gradient} mx-auto mb-4 flex items-center justify-center rounded-full`}>
                                         <IconComponent className="w-7 h-7 text-white" />
                                     </div>
-                                    <CardTitle className="text-lg">
-                                        {pkg.name}
-                                    </CardTitle>
-                                    <p class="text-muted-foreground text-sm">
-                                        {pkg.description}
-                                    </p>
-                                    <div class="text-2xl font-bold text-primary mt-4">
+                                    <CardTitle className="text-lg">{pkg.name}</CardTitle>
+                                    <p class="text-muted-foreground text-sm">{pkg.description}</p>
+                                    <div class="text-primary mt-4 text-2xl font-bold">
                                         {pkg.price}
                                     </div>
                                     {pkg.note && (
-                                        <p class="text-xs text-muted-foreground italic">
+                                        <p class="text-muted-foreground text-xs italic">
                                             {pkg.note}
                                         </p>
                                     )}
@@ -674,16 +631,13 @@ const expertTeam = [
                                         {pkg.features.map((feature) => (
                                             <div class="flex items-start gap-2">
                                                 <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                                                <span class="text-xs">
-                                                    {feature}
-                                                </span>
+                                                <span class="text-xs">{feature}</span>
                                             </div>
                                         ))}
                                     </div>
 
                                     <Button
-                                        className={`w-full mt-6 bg-gradient-to-r ${pkg.gradient} hover:opacity-90 text-sm`}
-                                    >
+                                        className={`mt-6 w-full bg-gradient-to-r ${pkg.gradient} text-sm hover:opacity-90`}>
                                         Elegir Plan
                                         <ArrowRight className="ml-2 w-4 h-4" />
                                     </Button>
@@ -697,19 +651,16 @@ const expertTeam = [
     </section>
 
     <!-- Methodology -->
-    <section class="py-20 px-4 bg-muted/30">
+    <section class="bg-muted/30 px-4 py-20">
         <div class="container mx-auto">
-            <div class="max-w-4xl mx-auto text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                    Metodología de Trabajo
-                </h2>
-                <p class="text-lg text-muted-foreground">
-                    Proceso estructurado y probado que garantiza resultados
-                    exitosos
+            <div class="mx-auto mb-16 max-w-4xl text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Metodología de Trabajo</h2>
+                <p class="text-muted-foreground text-lg">
+                    Proceso estructurado y probado que garantiza resultados exitosos
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
                 {
                     methodology.map((phase) => {
                         const IconComponent = phase.icon;
@@ -717,25 +668,18 @@ const expertTeam = [
                             <Card className="p-8 text-center hover:shadow-lg transition-all duration-300">
                                 <CardHeader className="pb-6">
                                     <div class="relative mb-4">
-                                        <div class="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto">
+                                        <div class="from-primary to-accent mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br">
                                             <IconComponent className="w-10 h-10 text-white" />
                                         </div>
-                                        <div class="absolute -top-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">
+                                        <div class="bg-primary absolute -top-2 -right-2 flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold text-white">
                                             {phase.number}
                                         </div>
                                     </div>
-                                    <CardTitle className="text-xl">
-                                        {phase.title}
-                                    </CardTitle>
-                                    <Badge
-                                        variant="outline"
-                                        className="text-xs mb-2"
-                                    >
+                                    <CardTitle className="text-xl">{phase.title}</CardTitle>
+                                    <Badge variant="outline" className="text-xs mb-2">
                                         {phase.duration}
                                     </Badge>
-                                    <p class="text-muted-foreground">
-                                        {phase.description}
-                                    </p>
+                                    <p class="text-muted-foreground">{phase.description}</p>
                                 </CardHeader>
                                 <CardContent>
                                     <div class="space-y-2">
@@ -756,35 +700,27 @@ const expertTeam = [
     </section>
 
     <!-- Industries -->
-    <section class="py-20 px-4">
+    <section class="px-4 py-20">
         <div class="container mx-auto">
-            <div class="max-w-4xl mx-auto text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                    Industrias que Atendemos
-                </h2>
-                <p class="text-lg text-muted-foreground">
-                    Experiencia especializada en múltiples sectores
-                    empresariales
+            <div class="mx-auto mb-16 max-w-4xl text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Industrias que Atendemos</h2>
+                <p class="text-muted-foreground text-lg">
+                    Experiencia especializada en múltiples sectores empresariales
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-5">
                 {
                     industries.map((industry) => {
                         const IconComponent = industry.icon;
                         return (
                             <div class="text-center">
                                 <div
-                                    class={`w-16 h-16 bg-gradient-to-br ${industry.gradient} rounded-full flex items-center justify-center mx-auto mb-4`}
-                                >
+                                    class={`h-16 w-16 bg-gradient-to-br ${industry.gradient} mx-auto mb-4 flex items-center justify-center rounded-full`}>
                                     <IconComponent className="w-8 h-8 text-white" />
                                 </div>
-                                <h3 class="text-sm font-semibold mb-2">
-                                    {industry.title}
-                                </h3>
-                                <p class="text-muted-foreground text-xs">
-                                    {industry.description}
-                                </p>
+                                <h3 class="mb-2 text-sm font-semibold">{industry.title}</h3>
+                                <p class="text-muted-foreground text-xs">{industry.description}</p>
                             </div>
                         );
                     })
@@ -794,34 +730,27 @@ const expertTeam = [
     </section>
 
     <!-- Expert Team -->
-    <section class="py-20 px-4 bg-muted/30">
+    <section class="bg-muted/30 px-4 py-20">
         <div class="container mx-auto">
-            <div class="max-w-4xl mx-auto text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                    Nuestro Equipo de Expertos
-                </h2>
-                <p class="text-lg text-muted-foreground">
+            <div class="mx-auto mb-16 max-w-4xl text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Nuestro Equipo de Expertos</h2>
+                <p class="text-muted-foreground text-lg">
                     Profesionales certificados con experiencia internacional
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
                 {
                     expertTeam.map((expert) => {
                         const IconComponent = expert.icon;
                         return (
                             <div class="text-center">
                                 <div
-                                    class={`w-16 h-16 bg-gradient-to-br ${expert.gradient} rounded-full flex items-center justify-center mx-auto mb-4`}
-                                >
+                                    class={`h-16 w-16 bg-gradient-to-br ${expert.gradient} mx-auto mb-4 flex items-center justify-center rounded-full`}>
                                     <IconComponent className="w-8 h-8 text-white" />
                                 </div>
-                                <h3 class="text-lg font-semibold mb-2">
-                                    {expert.title}
-                                </h3>
-                                <p class="text-muted-foreground text-sm">
-                                    {expert.description}
-                                </p>
+                                <h3 class="mb-2 text-lg font-semibold">{expert.title}</h3>
+                                <p class="text-muted-foreground text-sm">{expert.description}</p>
                             </div>
                         );
                     })
@@ -831,93 +760,68 @@ const expertTeam = [
     </section>
 
     <!-- CTA Section -->
-    <section class="py-20 px-4 bg-gradient-to-br from-orange-50 to-red-50">
+    <section class="bg-gradient-to-br from-orange-50 to-red-50 px-4 py-20">
         <div class="container mx-auto">
-            <div class="max-w-4xl mx-auto text-center">
-                <Card
-                    className="p-12 bg-white/80 backdrop-blur-sm border-orange-200"
-                >
+            <div class="mx-auto max-w-4xl text-center">
+                <Card className="border-orange-200 bg-white/80 p-12 backdrop-blur-sm">
                     <CardContent>
                         <div class="mb-6">
-                            <Lightbulb
-                                className="w-16 h-16 mx-auto text-orange-600"
-                            />
+                            <Lightbulb className="mx-auto h-16 w-16 text-orange-600" />
                         </div>
 
-                        <h2
-                            class="text-3xl md:text-4xl font-bold mb-4 text-orange-800"
-                        >
+                        <h2 class="mb-4 text-3xl font-bold text-orange-800 md:text-4xl">
                             ¿Listo para Transformar tu Empresa?
                         </h2>
 
-                        <p
-                            class="text-lg text-orange-700 mb-8 max-w-2xl mx-auto"
-                        >
+                        <p class="mx-auto mb-8 max-w-2xl text-lg text-orange-700">
                             Contáctanos hoy mismo para tu <strong
                                 >diagnóstico empresarial gratuito</strong
                             >
                             y descubre el potencial oculto de tu organización.
                         </p>
 
-                        <div
-                            class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 max-w-2xl mx-auto"
-                        >
-                            <div class="flex items-center gap-3 justify-center">
-                                <Target className="w-5 h-5 text-orange-600" />
-                                <span class="text-orange-700"
-                                    >Estrategias personalizadas</span
-                                >
+                        <div class="mx-auto mb-8 grid max-w-2xl grid-cols-1 gap-6 md:grid-cols-2">
+                            <div class="flex items-center justify-center gap-3">
+                                <Target className="h-5 w-5 text-orange-600" />
+                                <span class="text-orange-700">Estrategias personalizadas</span>
                             </div>
-                            <div class="flex items-center gap-3 justify-center">
-                                <TrendingUp
-                                    className="w-5 h-5 text-orange-600"
-                                />
-                                <span class="text-orange-700"
-                                    >Resultados medibles</span
-                                >
+                            <div class="flex items-center justify-center gap-3">
+                                <TrendingUp className="h-5 w-5 text-orange-600" />
+                                <span class="text-orange-700">Resultados medibles</span>
                             </div>
-                            <div class="flex items-center gap-3 justify-center">
-                                <Users className="w-5 h-5 text-orange-600" />
-                                <span class="text-orange-700"
-                                    >Expertos certificados</span
-                                >
+                            <div class="flex items-center justify-center gap-3">
+                                <Users className="h-5 w-5 text-orange-600" />
+                                <span class="text-orange-700">Expertos certificados</span>
                             </div>
-                            <div class="flex items-center gap-3 justify-center">
-                                <Clock className="w-5 h-5 text-orange-600" />
-                                <span class="text-orange-700"
-                                    >Implementación ágil</span
-                                >
+                            <div class="flex items-center justify-center gap-3">
+                                <Clock className="h-5 w-5 text-orange-600" />
+                                <span class="text-orange-700">Implementación ágil</span>
                             </div>
                         </div>
 
-                        <div
-                            class="flex flex-col sm:flex-row gap-4 justify-center"
-                        >
+                        <div class="flex flex-col justify-center gap-4 sm:flex-row">
                             <Button
                                 size="lg"
-                                className="text-lg px-8 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600"
-                            >
+                                className="bg-gradient-to-r from-orange-500 to-red-500 px-8 text-lg hover:from-orange-600 hover:to-red-600">
                                 Diagnóstico Gratuito
-                                <ArrowRight className="ml-2 w-5 h-5" />
+                                <ArrowRight className="ml-2 h-5 w-5" />
                             </Button>
                             <Button
                                 variant="outline"
                                 size="lg"
-                                className="text-lg px-8 border-orange-500 text-orange-600 hover:bg-orange-50"
-                            >
+                                className="border-orange-500 px-8 text-lg text-orange-600 hover:bg-orange-50">
                                 Ver Metodología
                             </Button>
                         </div>
 
                         <div
-                            class="flex items-center justify-center gap-4 text-sm text-orange-600 mt-6"
-                        >
+                            class="mt-6 flex items-center justify-center gap-4 text-sm text-orange-600">
                             <div class="flex items-center gap-1">
-                                <CheckCircle className="w-4 h-4" />
+                                <CheckCircle className="h-4 w-4" />
                                 <span>Sin compromiso</span>
                             </div>
                             <div class="flex items-center gap-1">
-                                <CheckCircle className="w-4 h-4" />
+                                <CheckCircle className="h-4 w-4" />
                                 <span>Consulta personalizada</span>
                             </div>
                         </div>
