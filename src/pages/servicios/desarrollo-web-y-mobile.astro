@@ -34,6 +34,7 @@ import { cn } from '@/lib/utils';
 import { WorkProcess } from '@/components/interfaces/WorkProcess';
 import { FeatureDesarrolloWeb } from '@/components/interfaces/FeatureDesarroloWeb';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 
 // Servicios principales
 const mainServices = [
@@ -90,11 +91,62 @@ const mainServices = [
         ],
     },
     {
+        id: 'portfolio',
+        name: 'Portafolio Personal',
+        description:
+            'Sitio web personal para mostrar trabajos, habilidades y experiencia profesional de forma elegante.',
+        basePrice: 400,
+        estimatedDays: 14,
+        icon: Users,
+        features: [
+            {
+                name: 'Galería de trabajos',
+                description: 'Showcase profesional de proyectos y trabajos realizados',
+                details: [
+                    'Organización por categorías',
+                    'Imágenes en alta calidad',
+                    'Descripción detallada de proyectos',
+                    'Enlaces a trabajos en vivo',
+                ],
+            },
+            {
+                name: 'CV descargable',
+                description: 'Currículum profesional disponible para descarga en PDF',
+                details: [
+                    'Diseño profesional',
+                    'Información actualizable',
+                    'Descarga directa en PDF',
+                    'Optimizado para impresión',
+                ],
+            },
+            {
+                name: 'Formulario de contacto',
+                description: 'Sistema de contacto directo para oportunidades laborales',
+                details: [
+                    'Formulario personalizado',
+                    'Notificaciones inmediatas',
+                    'Filtro anti-spam',
+                    'Respuesta automática',
+                ],
+            },
+            {
+                name: 'Blog personal',
+                description: 'Espacio para compartir experiencias, conocimientos y actualizaciones',
+                details: [
+                    'Editor de contenido simple',
+                    'Categorización de posts',
+                    'Compartir en redes sociales',
+                    'Comentarios de lectores',
+                ],
+            },
+        ],
+    },
+    {
         id: 'corporate',
         name: 'Página Corporativa',
         description:
             'Sitio web profesional para empresas con múltiples secciones, portafolio e información institucional.',
-        basePrice: 400,
+        basePrice: 500,
         estimatedDays: 14,
         icon: Building,
         features: [
@@ -190,57 +242,6 @@ const mainServices = [
                     'Reportes de ventas',
                     'Administración de productos',
                     'Base de datos de clientes',
-                ],
-            },
-        ],
-    },
-    {
-        id: 'portfolio',
-        name: 'Portafolio Personal',
-        description:
-            'Sitio web personal para mostrar trabajos, habilidades y experiencia profesional de forma elegante.',
-        basePrice: 400,
-        estimatedDays: 14,
-        icon: Users,
-        features: [
-            {
-                name: 'Galería de trabajos',
-                description: 'Showcase profesional de proyectos y trabajos realizados',
-                details: [
-                    'Organización por categorías',
-                    'Imágenes en alta calidad',
-                    'Descripción detallada de proyectos',
-                    'Enlaces a trabajos en vivo',
-                ],
-            },
-            {
-                name: 'CV descargable',
-                description: 'Currículum profesional disponible para descarga en PDF',
-                details: [
-                    'Diseño profesional',
-                    'Información actualizable',
-                    'Descarga directa en PDF',
-                    'Optimizado para impresión',
-                ],
-            },
-            {
-                name: 'Formulario de contacto',
-                description: 'Sistema de contacto directo para oportunidades laborales',
-                details: [
-                    'Formulario personalizado',
-                    'Notificaciones inmediatas',
-                    'Filtro anti-spam',
-                    'Respuesta automática',
-                ],
-            },
-            {
-                name: 'Blog personal',
-                description: 'Espacio para compartir experiencias, conocimientos y actualizaciones',
-                details: [
-                    'Editor de contenido simple',
-                    'Categorización de posts',
-                    'Compartir en redes sociales',
-                    'Comentarios de lectores',
                 ],
             },
         ],
@@ -450,7 +451,7 @@ const workProcess = [
         heading: 'Cómo Planificar tu Proyecto',
         description:
             'Entendemos tus objetivos y definimos la arquitectura del proyecto. Esta fase cubre los fundamentos para comenzar, configurar y preparar los próximos pasos.',
-        imageSrc: '/images/workProcess/Gemini_Generated_Image_15yw9v15yw9v15yw.png',
+        imageSrc: '/images/workProcess/Gemini_Generated_Image_15yw9v15yw9v15yw.avif',
         imageAlt: 'Fase de análisis y planificación',
         icon: Target,
         features: [
@@ -469,7 +470,7 @@ const workProcess = [
         heading: 'Cómo Desarrollar tu Solución',
         description:
             'Desarrollamos siguiendo las mejores prácticas de la industria. En esta fase nos enfocamos en estructurar y construir los componentes principales.',
-        imageSrc: '/images/workProcess/Gemini_Generated_Image_yikvysyikvysyikv.png',
+        imageSrc: '/images/workProcess/Gemini_Generated_Image_yikvysyikvysyikv.avif',
         imageAlt: 'Fase de desarrollo y testing',
         icon: Code,
         features: ['Código limpio', 'Pruebas automáticas', 'Responsive design', 'Optimización'],
@@ -483,7 +484,7 @@ const workProcess = [
         heading: 'Cómo Lanzar tu Proyecto',
         description:
             'Lanzamos tu proyecto con soporte continuo. La fase final se enfoca en optimización, despliegue y asegurar que todo funcione correctamente.',
-        imageSrc: '/images/workProcess/Gemini_Generated_Image_t4nvnft4nvnft4nv.png',
+        imageSrc: '/images/workProcess/Gemini_Generated_Image_t4nvnft4nvnft4nv.avif',
         imageAlt: 'Fase de despliegue y monitoreo',
         icon: Rocket,
         features: ['CI/CD Setup', 'Analytics', 'Soporte técnico', 'Actualizaciones'],
@@ -552,7 +553,7 @@ const benefits = [
                 </div>
 
                 <div class="mb-12 text-center">
-                    <h1 class="font-cocogoose mb-6 text-3xl md:text-6xl">
+                    <h1 class="font-cocogoose mb-6 text-3xl leading-tight md:text-7xl">
                         Desarrollo Web y
                         <span
                             class="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-nowrap text-transparent">
@@ -618,6 +619,7 @@ const benefits = [
                             height="331"
                             decoding="async"
                             loading="lazy"
+                            fetchpriority="high"
                         />
                         <div
                             class="absolute -right-4 -bottom-4 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 p-4 text-white shadow-lg">
@@ -642,21 +644,21 @@ const benefits = [
         <div
             class="relative bg-cover bg-center bg-no-repeat py-10 after:absolute after:inset-0 after:z-10 after:block after:size-full after:bg-black/40 after:content-[''] md:py-16 xl:px-6 xl:py-28"
             style={{
-                backgroundImage:
-                    "url('https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/futuristic-device-design-qcufu.png')",
+                backgroundImage: "url('/images/desarrolloWebMobile/background-mobile.avif')",
             }}>
             <div class="relative z-20 container mx-auto px-4">
                 <div
                     class="grid items-start justify-start gap-14 xl:grid-cols-2 xl:items-center xl:justify-center">
                     <div class="flex flex-col gap-8">
-                        <h2 class="font-cocogoose text-2xl tracking-tight text-white md:text-7xl">
+                        <h2
+                            class="font-cocogoose text-2xl leading-tight tracking-tight text-white md:text-6xl">
                             Tu proximo proyecto móvil, hecho realidad
                             <span class="sr-only"
                                 >Desarrollo de aplicaciones móviles nativas iOS y Android, PWAs y
                                 soluciones multiplataforma con React Native, Flutter y Swift</span
                             >
                         </h2>
-                        <p class="text-lg font-medium tracking-tight text-white">
+                        <p class="text-xl font-medium tracking-tight text-white">
                             Creamos aplicaciones móviles nativas y multiplataforma que combinan
                             rendimiento, usabilidad y diseño excepcional. Ya sea una app iOS,
                             Android o una PWA, nuestro equipo domina las tecnologías más avanzadas
@@ -688,7 +690,7 @@ const benefits = [
                                 ratio={0.80239521}
                                 className="w-full overflow-hidden rounded-xl shadow-xl">
                                 <img
-                                    src="/images/desarrolloWebMobile/desarrollo-mobile.png"
+                                    src="/images/desarrolloWebMobile/desarrollo-mobile.avif"
                                     alt="Desarrollo de aplicaciones móviles"
                                     class="block size-full object-cover object-center"
                                 />
@@ -720,14 +722,14 @@ const benefits = [
     <section class="bg-muted/30 px-4 py-20">
         <div class="container mx-auto">
             <div class="mx-auto mb-16 max-w-4xl text-center">
-                <h2 class="font-cocogoose mb-4 text-3xl md:text-5xl">
+                <h2 class="font-cocogoose mb-4 text-3xl md:text-6xl">
                     ¿Qué Ofrecemos?
                     <span class="sr-only"
                         >Desarrollo web profesional, aplicaciones móviles nativas, e-commerce, SaaS
                         y soluciones tecnológicas escalables</span
                     >
                 </h2>
-                <p class="text-muted-foreground text-lg">
+                <p class="text-muted-foreground text-xl">
                     Soluciones digitales completas que combinan la mejor tecnología con diseño
                     excepcional
                     <span class="sr-only"
@@ -741,22 +743,21 @@ const benefits = [
             <div class="mb-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
                 {
                     mainServices.map((service) => (
-                        <div class="group border-border bg-background/80 hover:bg-background relative overflow-hidden rounded-xl border backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                            <div class="p-8">
-                                <div class="flex items-start justify-between">
-                                    <div class="flex items-center gap-3">
-                                        <div class="bg-muted text-muted-foreground rounded-lg p-3">
-                                            <service.icon className="h-6 w-6" />
-                                        </div>
-                                        <div>
-                                            <h3 class="text-xl font-semibold">{service.name}</h3>
-                                            <div class="text-muted-foreground mt-1 text-sm">
-                                                {service.estimatedDays} días
-                                            </div>
+                        <Card className="group border-border bg-background/20 hover:bg-background relative overflow-hidden rounded-xl border backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ">
+                            <CardHeader>
+                                <div class="flex items-center gap-3">
+                                    <div class="bg-muted text-muted-foreground group-hover:bg-primary group-hover:text-primary-foreground rounded-lg p-3 transition-colors">
+                                        <service.icon className="h-6 w-6" />
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-semibold">{service.name}</h3>
+                                        <div class="text-muted-foreground mt-1 text-sm">
+                                            {service.estimatedDays} días
                                         </div>
                                     </div>
                                 </div>
-
+                            </CardHeader>
+                            <CardContent className="flex-1">
                                 <p class="text-muted-foreground mt-6 leading-relaxed">
                                     {service.description}
                                 </p>
@@ -796,28 +797,26 @@ const benefits = [
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="border-border mt-8 border-t pt-6">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="text-lg font-semibold">
-                                                Desde ${service.basePrice}
-                                            </div>
-                                            <div class="text-muted-foreground text-xs">
-                                                Cotización personalizada disponible
-                                            </div>
+                            </CardContent>
+                            <CardFooter className="border-border border-t pt-6">
+                                <div class="flex w-full items-center justify-between">
+                                    <div>
+                                        <div class="text-lg font-semibold">
+                                            Desde ${service.basePrice}
                                         </div>
-                                        <Button
-                                            size="sm"
-                                            variant="outline"
-                                            className="transition-all group-hover:shadow-md">
-                                            Comenzar
-                                            <ArrowRight className="ml-1 h-3 w-3 transition-transform group-hover:translate-x-1" />
-                                        </Button>
+                                        <div class="text-muted-foreground text-xs">
+                                            Cotización personalizada disponible
+                                        </div>
                                     </div>
+                                    <Button
+                                        size="sm"
+                                        className="transition-all border  bg-transparent group-hover:shadow-md group-hover:bg-primary">
+                                        Comenzar
+                                        <ArrowRight className="ml-1 h-3 w-3 transition-transform group-hover:translate-x-1" />
+                                    </Button>
                                 </div>
-                            </div>
-                        </div>
+                            </CardFooter>
+                        </Card>
                     ))
                 }
             </div>
@@ -827,15 +826,15 @@ const benefits = [
     <!-- Technologies -->
     <section class="px-4 py-20">
         <div class="container mx-auto">
-            <div class="mx-auto mb-16 max-w-4xl text-center">
-                <h2 class="font-cocogoose mb-4 text-3xl md:text-5xl">
+            <div class="mx-auto mb-16 max-w-5xl text-center">
+                <h2 class="font-cocogoose li mb-4 text-3xl leading-tight md:text-6xl">
                     Tecnologías que Dominamos
                     <span class="sr-only"
                         >- Stack tecnológico moderno con React, Next.js, Vue.js, Astro, Node.js,
                         Python, PostgreSQL y deployment en cloud</span
                     >
                 </h2>
-                <p class="text-muted-foreground text-lg">
+                <p class="text-muted-foreground text-xl">
                     Trabajamos con las tecnologías más modernas y confiables del mercado
                     <span class="sr-only"
                         >incluyendo frameworks frontend avanzados, librerías de UI como Tailwind CSS
@@ -908,9 +907,9 @@ const benefits = [
             <div
                 class="relative grid grid-cols-1 overflow-hidden rounded-[0.75rem] px-8 pt-10 pb-12 xl:grid-cols-2 xl:px-15.5 xl:pb-15.5">
                 <div class="flex flex-col gap-6 md:gap-9">
-                    <p class="font-cocogoose text-4xl md:text-6xl">
+                    <h2 class="font-cocogoose text-4xl leading-tight md:text-6xl">
                         <span class="block">Scrum:</span> Agilidad y Eficiencia
-                    </p>
+                    </h2>
                     <p class="text-lg md:text-xl lg:text-2xl">
                         Metodología ágil para entregar valor continuo y adaptarse rápidamente a los
                         cambios
@@ -936,7 +935,7 @@ const benefits = [
                     <div class="absolute top-0 right-0 h-[40.9375rem] w-[36.875rem]">
                         <div class="absolute top-0 right-0 aspect-[1.15] w-[14.375rem] opacity-60">
                             <img
-                                src="/images/scrum/Gemini_Generated_Image_expk0gexpk0gexpk.png"
+                                src="/images/scrum/Gemini_Generated_Image_expk0gexpk0gexpk.avif"
                                 alt=""
                                 class="size-full object-cover object-center"
                             />
@@ -944,7 +943,7 @@ const benefits = [
                         <div
                             class="absolute top-50 right-0 z-10 aspect-[0.709248555] w-[17.5rem] overflow-hidden rounded-tl-md">
                             <img
-                                src="/images/scrum/Gemini_Generated_Image_ps3uwsps3uwsps3u.png"
+                                src="/images/scrum/Gemini_Generated_Image_ps3uwsps3uwsps3u.avif"
                                 alt=""
                                 class="size-full object-cover object-center"
                             />
@@ -952,7 +951,7 @@ const benefits = [
                         <div
                             class="absolute top-60 right-0 aspect-[1.353211009] w-[36.875rem] overflow-hidden rounded-tl-2xl opacity-25">
                             <img
-                                src="/images/scrum/Gemini_Generated_Image_hre3pshre3pshre3.png"
+                                src="/images/scrum/Gemini_Generated_Image_hre3pshre3pshre3.avif"
                                 alt=""
                                 class="size-full object-cover object-center"
                             />
@@ -968,7 +967,7 @@ const benefits = [
         <div class="container mx-auto">
             <div class="mx-auto mb-16 max-w-4xl text-center">
                 <h2 class="font-cocogoose mb-4 text-3xl md:text-6xl">¿Por Qué Elegirnos?</h2>
-                <p class="text-muted-foreground text-lg">
+                <p class="text-muted-foreground text-xl">
                     La experiencia y calidad que tu proyecto necesita
                 </p>
             </div>
