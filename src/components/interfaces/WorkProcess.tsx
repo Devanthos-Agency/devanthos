@@ -25,10 +25,10 @@ const WorkProcess = ({ phases }: WorkProcessProps) => {
     return (
         <section className="bg-background">
             <div className="container mx-auto flex flex-col items-center justify-center px-4 py-32">
-                <h2 className="font-cocogoose mb-12 text-5xl tracking-tighter lg:text-7xl">
+                <h2 className="font-cocogoose mb-12 text-5xl tracking-tighter lg:text-6xl">
                     Nuestro Proceso de Trabajo
                 </h2>
-                <p className="text-muted-foreground text-lg lg:mb-25">
+                <p className="text-muted-foreground text-xl lg:mb-25">
                     Metodología ágil con entregas cada 2 semanas para máxima transparencia
                 </p>
                 <Tabs defaultValue="phase1" className="w-full">
