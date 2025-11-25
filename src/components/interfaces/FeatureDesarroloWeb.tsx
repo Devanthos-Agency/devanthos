@@ -4,42 +4,36 @@ import { Button } from '@/components/ui/button';
 
 const FeatureDesarrolloWeb = () => {
     const images = [
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img1.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img2.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img3.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img4.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img5.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img6.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img7.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img8.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img9.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img10.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img11.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img12.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img13.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img14.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img15.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img16.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img17.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img18.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img19.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img20.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img21.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img22.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img23.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img24.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img25.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img26.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img27.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img1.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img2.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img3.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img4.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img5.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img6.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img7.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img8.jpeg',
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img9.jpeg',
+        '/images/featureDesarrolloWeb/image2.avif',
+        '/images/featureDesarrolloWeb/image3.avif',
+        '/images/featureDesarrolloWeb/image4.avif',
+        '/images/featureDesarrolloWeb/image5.avif',
+        '/images/featureDesarrolloWeb/image6.avif',
+        '/images/featureDesarrolloWeb/image7.avif',
+        '/images/featureDesarrolloWeb/image8.avif',
+        '/images/featureDesarrolloWeb/image9.avif',
+        '/images/featureDesarrolloWeb/image10.avif',
+        '/images/featureDesarrolloWeb/image11.avif',
+        '/images/featureDesarrolloWeb/image12.avif',
+        '/images/featureDesarrolloWeb/image13.avif',
+        '/images/featureDesarrolloWeb/image14.avif',
+        '/images/featureDesarrolloWeb/image15.avif',
+        '/images/featureDesarrolloWeb/image16.avif',
+        '/images/featureDesarrolloWeb/image17.avif',
+        '/images/featureDesarrolloWeb/image18.avif',
+        '/images/featureDesarrolloWeb/image19.avif',
+        '/images/featureDesarrolloWeb/image20.avif',
+        '/images/featureDesarrolloWeb/image21.avif',
+        '/images/featureDesarrolloWeb/image22.avif',
+        '/images/featureDesarrolloWeb/image23.avif',
+        '/images/featureDesarrolloWeb/image3.avif',
+        '/images/featureDesarrolloWeb/image4.avif',
+        '/images/featureDesarrolloWeb/image5.avif',
+        '/images/featureDesarrolloWeb/image2.avif',
+        '/images/featureDesarrolloWeb/image8.avif',
+        '/images/featureDesarrolloWeb/image9.avif',
+        '/images/featureDesarrolloWeb/image10.avif',
+        '/images/featureDesarrolloWeb/image11.avif',
     ];
 
     return (
@@ -52,10 +46,10 @@ const FeatureDesarrolloWeb = () => {
                             Tu aliado en desarrollo web y móvil
                         </p>
                     </div>
-                    <h1 className="font-cocogoose mt-3 mb-8 max-w-xl text-5xl tracking-tighter lg:max-w-3xl lg:text-6xl">
+                    <h2 className="font-cocogoose mt-3 mb-8 max-w-xl text-5xl leading-tight tracking-tighter lg:max-w-3xl lg:text-6xl">
                         Tu sueño digital, nuestro compromiso
-                    </h1>
-                    <p className="text-muted-foreground max-w-xl">
+                    </h2>
+                    <p className="text-muted-foreground max-w-xl text-xl">
                         Alcanza nuevas alturas con nuestras soluciones de desarrollo web y móvil a
                         medida. Desde aplicaciones móviles intuitivas hasta sitios web dinámicos,
                         estamos aquí para transformar tus ideas en realidades digitales que cautivan
