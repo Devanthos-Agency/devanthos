@@ -17,15 +17,13 @@ import {
     CheckCircle,
     ArrowRight,
     Star,
-    Instagram,
-    Facebook,
-    MessageSquare,
     MapPin,
     Clock,
     Phone,
     Camera,
     Zap,
 } from 'lucide-react';
+import { Facebook, Google, Instagram, TikTok } from '@/components/icons';
 
 // Datos de paquetes de redes sociales
 const socialPackages = [
@@ -137,8 +135,8 @@ const workProcess = [
 const platforms = [
     { name: 'Instagram', icon: Instagram, color: 'text-pink-500' },
     { name: 'Facebook', icon: Facebook, color: 'text-blue-600' },
-    { name: 'TikTok', icon: MessageSquare, color: 'text-black' },
-    { name: 'Google Ads', icon: Search, color: 'text-green-600' },
+    { name: 'TikTok', icon: TikTok, color: 'text-black' },
+    { name: 'Google Ads', icon: Google, color: 'text-green-600' },
 ];
 
 // Servicios de Google My Business
@@ -189,7 +187,7 @@ const googleMyBusinessFeatures = [
                 </div>
 
                 <div class="mb-12 text-center">
-                    <h1 class="mb-6 text-3xl font-bold md:text-6xl">
+                    <h1 class="font-cocogoose mb-6 text-3xl leading-tight md:text-7xl">
                         Marketing Digital y
                         <span
                             class="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-nowrap text-transparent">
@@ -257,7 +255,7 @@ const googleMyBusinessFeatures = [
                             <div class="flex items-center gap-2">
                                 <TrendingUp className="h-6 w-6" />
                                 <div>
-                                    <p class="font-semibold">+500 Clientes</p>
+                                    <p class="font-semibold">+100 Clientes</p>
                                     <p class="text-sm opacity-90">Satisfechos</p>
                                 </div>
                             </div>
@@ -272,14 +270,14 @@ const googleMyBusinessFeatures = [
     <section class="bg-muted/30 px-4 py-20">
         <div class="container mx-auto">
             <div class="mx-auto mb-16 max-w-4xl text-center">
-                <h2 class="mb-4 text-3xl font-bold md:text-4xl">
+                <h2 class="font-cocogoose text-2xl leading-tight tracking-tight md:text-6xl">
                     ¿Qué Hacemos?
                     <span class="sr-only"
                         >Agencia de marketing digital especializada en posicionamiento SEO,
                         publicidad digital y gestión de redes sociales</span
                     >
                 </h2>
-                <p class="text-muted-foreground mb-8 text-lg">
+                <p class="text-muted-foreground mb-8 text-xl">
                     En <strong>Devanthos</strong>, nos especializamos en potenciar el alcance de
                     nuestros clientes a través de servicios integrales de marketing.
                     <span class="sr-only"
@@ -309,9 +307,7 @@ const googleMyBusinessFeatures = [
                             return (
                                 <Card className="text-center p-4 hover:shadow-lg transition-shadow">
                                     <CardContent className="p-0">
-                                        <IconComponent
-                                            className={`mx-auto mb-2 h-8 w-8 ${platform.color}`}
-                                        />
+                                        <IconComponent className="mx-auto mb-2 size-12" />
                                         <p class="text-sm font-medium">{platform.name}</p>
                                     </CardContent>
                                 </Card>
@@ -348,7 +344,7 @@ const googleMyBusinessFeatures = [
     <section class="px-4 py-20">
         <div class="container mx-auto">
             <div class="mx-auto mb-16 max-w-4xl text-center">
-                <h2 class="mb-4 text-3xl font-bold md:text-4xl">
+                <h2 class="font-cocogoose text-2xl leading-tight tracking-tight md:text-6xl">
                     Gestión de Redes Sociales
                     <span class="sr-only"
                         >profesional para Instagram, Facebook, TikTok y LinkedIn con creación de
@@ -356,7 +352,7 @@ const googleMyBusinessFeatures = [
                         segmentadas</span
                     >
                 </h2>
-                <p class="text-muted-foreground text-lg">
+                <p class="text-muted-foreground text-xl">
                     Ofrecemos tres paquetes diseñados para diferentes necesidades y presupuestos.
                     Cada paquete incluye contenido original, estrategias creativas y campañas
                     publicitarias optimizadas.
@@ -432,14 +428,14 @@ const googleMyBusinessFeatures = [
         <div class="container mx-auto">
             <div class="mx-auto max-w-4xl">
                 <div class="mb-16 text-center">
-                    <h2 class="mb-4 text-3xl font-bold md:text-4xl">
+                    <h2 class="font-cocogoose text-2xl leading-tight tracking-tight md:text-6xl">
                         Ficha de Google My Business
                         <span class="sr-only"
                             >y SEO local - optimización de ficha empresarial, gestión de reseñas,
                             posicionamiento en Maps y estrategias de marketing de proximidad</span
                         >
                     </h2>
-                    <p class="text-muted-foreground text-lg">
+                    <p class="text-muted-foreground text-xl">
                         Optimiza tu presencia local y atrae más clientes
                         <span class="sr-only"
                             >mediante técnicas de SEO local avanzado, optimización de NAP (nombre,
@@ -449,17 +445,22 @@ const googleMyBusinessFeatures = [
                     </p>
                 </div>
 
-                <Card className="border-red-200 bg-gradient-to-br from-red-50 to-orange-50 p-8">
+                <Card
+                    className="border-red-200 bg-gradient-to-br from-red-50 to-orange-50 p-8 dark:border-red-700 dark:bg-gradient-to-br dark:from-red-900/50 dark:to-orange-900/50">
                     <CardHeader className="pb-6 text-center">
                         <div
-                            class="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-red-500 to-orange-500">
+                            class="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-red-500 to-orange-500 dark:from-red-600 dark:to-orange-600">
                             <Search className="h-10 w-10 text-white" />
                         </div>
-                        <CardTitle className="text-2xl text-red-800">
+                        <CardTitle className="mb-2 text-2xl text-red-800 dark:text-red-200">
                             Creación y Optimización de Ficha
                         </CardTitle>
-                        <div class="text-3xl font-bold text-red-600">$100 USD</div>
-                        <Badge variant="outline" className="border-red-300 text-red-600">
+                        <div class="text-3xl font-bold text-red-600 dark:text-red-200">
+                            $100 USD
+                        </div>
+                        <Badge
+                            variant="outline"
+                            className="mt-2 border-red-300 text-red-600 dark:text-red-400 *:dark:border-red-700">
                             Pago Único
                         </Badge>
                     </CardHeader>
@@ -472,13 +473,13 @@ const googleMyBusinessFeatures = [
                                     return (
                                         <div class="flex items-start gap-3">
                                             <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-red-100">
-                                                <IconComponent className="w-5 h-5 text-red-600" />
+                                                <IconComponent className="w-5 h-5 text-red-600 dark:text-red-400" />
                                             </div>
                                             <div>
-                                                <h4 class="font-semibold text-red-800">
+                                                <h4 class="font-semibold text-red-800 dark:text-red-200">
                                                     {feature.title}
                                                 </h4>
-                                                <p class="text-sm text-red-600">
+                                                <p class="text-sm text-red-600 dark:text-red-400">
                                                     {feature.description}
                                                 </p>
                                             </div>
@@ -488,12 +489,13 @@ const googleMyBusinessFeatures = [
                             }
                         </div>
 
-                        <Alert className="border-green-200 bg-green-50">
-                            <Eye className="h-4 w-4 text-green-600" />
-                            <AlertTitle className="text-green-800"
+                        <Alert
+                            className="mb-6 border-green-200 bg-green-50 dark:border-green-700 dark:bg-green-900/50">
+                            <Eye className="h-4 w-4 text-green-600 dark:text-green-400" />
+                            <AlertTitle className="text-green-800 dark:text-green-200"
                                 >Beneficios de Tener tu Ficha Optimizada</AlertTitle
                             >
-                            <AlertDescription className="text-green-700">
+                            <AlertDescription className="text-green-700 dark:text-green-400">
                                 Cualquier persona que busque tu negocio en Google podrá encontrarte
                                 fácilmente, acceder a tu ubicación, horarios y demás información
                                 relevante, aumentando la visibilidad en búsquedas locales y
@@ -504,7 +506,7 @@ const googleMyBusinessFeatures = [
                         <div class="mt-6 text-center">
                             <Button
                                 size="lg"
-                                className="bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600">
+                                className="bg-gradient-to-r from-red-500 to-orange-500 px-8 text-lg transition-colors hover:from-red-600 hover:to-orange-600 dark:text-white">
                                 Optimizar mi Ficha
                                 <ArrowRight className="ml-2 h-5 w-5" />
                             </Button>
