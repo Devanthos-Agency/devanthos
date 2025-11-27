@@ -1,6 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Button from '@/components/ui/Button.astro';
 
@@ -8,7 +8,6 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import {
     Bot,
     MessageCircle,
-    Brain,
     Zap,
     Settings,
     CheckCircle,
@@ -17,153 +16,174 @@ import {
     TrendingUp,
     Clock,
     DollarSign,
-    BarChart3,
     Smartphone,
     Globe,
-    Headphones,
     ShoppingCart,
-    CreditCard,
-    Building,
     Utensils,
-    Target,
+    ChevronRight,
 } from 'lucide-react';
+import Avatar from '@/components/starwind/avatar/Avatar.astro';
+import { AvatarFallback, AvatarImage } from '@/components/starwind/avatar';
 
-// Características principales
-const mainFeatures = [
+// Tipos de chatbots que ofrecemos
+const chatbotTypes = [
     {
-        icon: MessageCircle,
-        title: 'Conversaciones Naturales',
+        icon: Globe,
+        title: 'Chatbot para tu Sitio Web',
         description:
-            'Entienden el contexto y mantienen conversaciones fluidas como si fuera un humano',
+            'Un asistente virtual que atiende a tus visitantes 24/7, responde preguntas frecuentes y captura clientes potenciales mientras duermes',
         gradient: 'from-blue-500 to-cyan-500',
+        benefits: [
+            'Atención automática 24/7',
+            'Respuestas instantáneas',
+            'Captura de datos de clientes',
+            'Fácil de instalar en cualquier web',
+        ],
     },
     {
-        icon: Brain,
-        title: 'Aprendizaje Continuo',
+        icon: Smartphone,
+        title: 'Chatbot para WhatsApp',
         description:
-            'Mejoran con cada interacción, aprendiendo patrones y preferencias de los usuarios',
-        gradient: 'from-purple-500 to-indigo-500',
+            'Automatiza la atención en WhatsApp Business. Tus clientes reciben respuestas inmediatas sin que tengas que estar pendiente del celular',
+        gradient: 'from-green-500 to-emerald-500',
+        benefits: [
+            'Responde automáticamente',
+            'Envía catálogos y precios',
+            'Agenda citas y reservas',
+            'Recibe pedidos 24/7',
+        ],
     },
 ];
 
 // Sectores que atendemos
 const sectors = [
-    'E-commerce',
-    'Servicios Financieros',
-    'Salud',
-    'Educación',
-    'Inmobiliaria',
-    'Turismo',
+    'Tiendas Online',
     'Restaurantes',
-    'Tecnología',
-    'Retail',
+    'Clínicas y Consultorios',
+    'Inmobiliarias',
+    'Salones de Belleza',
+    'Servicios Profesionales',
+    'Hoteles y Turismo',
 ];
 
-// Plataformas de integración
-const platforms = {
-    web: ['Sitio Web', 'Aplicaciones Móviles', 'Portales de Cliente'],
-    social: ['WhatsApp Business', 'Facebook Messenger', 'Instagram', 'Telegram', 'Discord'],
-    business: ['Slack', 'Microsoft Teams', 'Zendesk'],
+// Qué puede hacer tu chatbot
+const chatbotCapabilities = {
+    web: [
+        'Responder preguntas frecuentes',
+        'Mostrar productos y servicios',
+        'Agendar citas',
+        'Capturar datos de contacto',
+    ],
+    whatsapp: [
+        'Enviar catálogos y precios',
+        'Confirmar reservas',
+        'Recibir pedidos',
+        'Dar seguimiento a clientes',
+    ],
 };
 
-// Casos de uso exitosos
+// Casos de éxito reales
 const successCases = [
     {
-        title: 'E-commerce: Asistente de Ventas',
+        title: 'Tienda de Ropa Online',
         icon: ShoppingCart,
         problem:
-            'Una tienda online recibía cientos de consultas diarias sobre productos, disponibilidad y envíos.',
+            'Perdían ventas porque no podían responder a tiempo las consultas sobre tallas, envíos y stock.',
         results: [
-            '60% reducción en tiempo de respuesta',
-            '35% aumento en conversiones',
-            '80% de consultas resueltas automáticamente',
+            'Ahora responden al instante, día y noche',
+            '35% más ventas por mes',
+            'Clientes más satisfechos',
         ],
         gradient: 'from-green-500 to-emerald-500',
     },
     {
-        title: 'Servicios Financieros: Asistente Bancario',
-        icon: CreditCard,
-        problem: 'Banco necesitaba atender consultas 24/7 sin aumentar personal.',
+        title: 'Clínica Dental',
+        icon: Clock,
+        problem: 'Perdían pacientes porque no contestaban llamadas fuera de horario.',
         results: [
-            'Disponibilidad 24/7',
-            '70% reducción en llamadas al call center',
-            '95% satisfacción del cliente',
+            'Agenda citas 24/7 por WhatsApp',
+            '50% menos llamadas perdidas',
+            'Recordatorios automáticos de citas',
         ],
         gradient: 'from-blue-500 to-cyan-500',
     },
     {
-        title: 'Restaurante: Reservas y Pedidos',
+        title: 'Restaurante con Delivery',
         icon: Utensils,
-        problem: 'Cadena de restaurantes perdía reservas por teléfonos ocupados.',
+        problem: 'El teléfono sonaba sin parar y perdían pedidos en horas pico.',
         results: [
-            '45% más reservas procesadas',
-            '0% pérdida de llamadas',
-            '25% aumento en pedidos online',
+            'Reciben pedidos por WhatsApp automáticamente',
+            '40% más pedidos procesados',
+            'Menos errores en los pedidos',
         ],
         gradient: 'from-orange-500 to-red-500',
     },
 ];
 
-// Tecnologías
-const technologies = {
-    frameworks: [
-        'Dialogflow',
-        'Microsoft Bot Framework',
-        'Rasa',
-        'OpenAI API',
-        'LangChain',
-        'Botpress',
-    ],
-    languages: ['Python', 'Node.js', 'TypeScript'],
-    databases: ['MongoDB', 'PostgreSQL', 'Redis'],
-    integrations: ['Salesforce', 'HubSpot', 'Shopify', 'Stripe', 'Twilio', 'Google Analytics'],
-};
+// Preguntas frecuentes
+const faqs = [
+    {
+        question: '¿Necesito conocimientos técnicos para usar el chatbot?',
+        answer: 'No, nosotros nos encargamos de todo. Solo necesitas decirnos qué quieres que responda tu chatbot.',
+    },
+    {
+        question: '¿Cuánto tiempo tarda en estar listo?',
+        answer: 'Un chatbot básico puede estar funcionando en 3-5 días. Proyectos más personalizados toman 1-2 semanas.',
+    },
+    {
+        question: '¿Funciona en cualquier sitio web?',
+        answer: 'Sí, se integra con cualquier página web mediante un simple código que nosotros instalamos.',
+    },
+    {
+        question: '¿Puedo cambiar las respuestas después?',
+        answer: 'Claro, tienes un panel fácil de usar donde puedes actualizar respuestas cuando quieras.',
+    },
+];
 
 // Paquetes de precios
 const pricingPackages = [
     {
-        name: 'Paquete Básico',
-        price: 'Desde $299/mes',
-        description: 'Ideal para pequeñas empresas',
-        gradient: 'from-green-500 to-emerald-500',
-        icon: Bot,
+        name: 'Chatbot Web',
+        price: 'Desde $199/mes',
+        description: 'Para tu sitio web',
+        gradient: 'from-blue-500 to-cyan-500',
+        icon: Globe,
         features: [
-            'Chatbot web básico',
-            'Hasta 1,000 conversaciones/mes',
-            'Integración con WhatsApp',
-            'Panel de administración',
-            'Soporte por email',
+            'Chatbot en tu página web',
+            'Respuestas automáticas 24/7',
+            'Captura datos de clientes',
+            'Panel para ver conversaciones',
+            'Soporte incluido',
         ],
     },
     {
-        name: 'Paquete Profesional',
-        price: 'Desde $599/mes',
-        description: 'Para empresas en crecimiento',
-        gradient: 'from-blue-500 to-cyan-500',
-        icon: TrendingUp,
+        name: 'Chatbot WhatsApp',
+        price: 'Desde $299/mes',
+        description: 'Para WhatsApp Business',
+        gradient: 'from-green-500 to-emerald-500',
+        icon: Smartphone,
         features: [
-            'Todo lo del paquete básico',
-            'Hasta 10,000 conversaciones/mes',
-            'Múltiples canales (Facebook, Instagram, Web)',
-            'Integración con CRM',
-            'Analytics avanzados',
+            'Automatiza tu WhatsApp',
+            'Envía catálogos y precios',
+            'Recibe pedidos automáticamente',
+            'Agenda citas sin esfuerzo',
             'Soporte prioritario',
         ],
         popular: true,
     },
     {
-        name: 'Paquete Enterprise',
-        price: 'Consultar precio',
-        description: 'Soluciones personalizadas',
+        name: 'Combo Completo',
+        price: 'Desde $449/mes',
+        description: 'Web + WhatsApp',
         gradient: 'from-purple-500 to-indigo-500',
-        icon: Building,
+        icon: Star,
         features: [
-            'Conversaciones ilimitadas',
-            'Desarrollo 100% personalizado',
-            'Integraciones complejas',
-            'IA avanzada y machine learning',
-            'Soporte 24/7 dedicado',
-            'SLA garantizado',
+            'Chatbot Web + WhatsApp',
+            'Todo conectado entre sí',
+            'Un solo panel de control',
+            'Reportes de ventas y consultas',
+            'Soporte VIP',
+            'Actualizaciones gratis',
         ],
     },
 ];
@@ -171,76 +191,73 @@ const pricingPackages = [
 // Beneficios
 const benefits = [
     {
-        icon: DollarSign,
-        title: 'Reducción de Costos',
-        description: 'Hasta 60% menos gastos en atención al cliente',
+        icon: Clock,
+        title: 'Nunca Pierdas un Cliente',
+        description: 'Atiende consultas a cualquier hora, incluso cuando duermes',
         gradient: 'from-green-500 to-emerald-500',
     },
     {
         icon: Zap,
-        title: 'Respuesta Instantánea',
-        description: 'Atención 24/7 sin tiempos de espera',
+        title: 'Respuestas al Instante',
+        description: 'Tus clientes no esperan, reciben respuesta inmediata',
         gradient: 'from-yellow-500 to-orange-500',
     },
     {
-        icon: TrendingUp,
-        title: 'Más Conversiones',
-        description: 'Guía a usuarios hacia la compra efectivamente',
+        icon: DollarSign,
+        title: 'Ahorra Tiempo y Dinero',
+        description: 'Deja de responder las mismas preguntas una y otra vez',
         gradient: 'from-blue-500 to-cyan-500',
     },
     {
-        icon: BarChart3,
-        title: 'Datos Valiosos',
-        description: 'Insights sobre preferencias y comportamiento de clientes',
+        icon: TrendingUp,
+        title: 'Vende Más',
+        description: 'Cada visitante recibe atención personalizada que convierte',
         gradient: 'from-purple-500 to-indigo-500',
     },
 ];
 
-// Proceso de desarrollo
-const developmentProcess = [
+// Cómo funciona
+const howItWorks = [
     {
         number: 1,
-        title: 'Análisis y Diseño',
+        title: 'Cuéntanos tu Negocio',
         description:
-            'Definimos objetivos, mapeamos conversaciones y diseñamos la personalidad del bot',
-        icon: Target,
+            'Nos dices qué vendes, qué preguntas te hacen más seguido y cómo quieres que responda tu chatbot',
+        icon: MessageCircle,
         features: [
-            'Definición de objetivos y KPIs',
-            'Mapeo de conversaciones',
-            'Diseño de personalidad',
-            'Arquitectura técnica',
+            'Llamada o videollamada de 30 minutos',
+            'Analizamos tus necesidades',
+            'Te mostramos ejemplos similares',
         ],
     },
     {
         number: 2,
-        title: 'Desarrollo y Entrenamiento',
-        description: 'Desarrollamos el núcleo conversacional y entrenamos con datos específicos',
-        icon: Brain,
+        title: 'Lo Creamos Para Ti',
+        description: 'Nosotros hacemos todo el trabajo técnico. Tú solo revisas y apruebas',
+        icon: Settings,
         features: [
-            'Desarrollo del núcleo',
-            'Entrenamiento con datos',
-            'Integración con sistemas',
-            'Pruebas exhaustivas',
+            'Configuramos todas las respuestas',
+            'Lo probamos antes de entregarlo',
+            'Te enseñamos a usarlo',
         ],
     },
     {
         number: 3,
-        title: 'Implementación y Optimización',
-        description: 'Desplegamos gradualmente y optimizamos basado en datos reales',
-        icon: TrendingUp,
+        title: '¡Listo para Vender!',
+        description: 'Tu chatbot empieza a trabajar. Tú te relajas mientras él atiende clientes',
+        icon: CheckCircle,
         features: [
-            'Despliegue gradual',
-            'Monitoreo en tiempo real',
-            'Análisis de métricas',
-            'Mejora continua',
+            'Instalación en tu web o WhatsApp',
+            'Soporte continuo incluido',
+            'Mejoras cuando las necesites',
         ],
     },
 ];
 ---
 
 <Layout
-    title="Chatbots Inteligentes | Devanthos - Automatización con IA"
-    description="Ofrecemos servicios de desarrollo de chatbots inteligentes que mejoran la interacción con los usuarios y optimizan los procesos de atención al cliente. IA avanzada 24/7.">
+    title="Chatbots para Web y WhatsApp | Devanthos - Atención Automática 24/7"
+    description="Creamos chatbots para tu sitio web y WhatsApp que atienden clientes 24/7, responden preguntas, agendan citas y reciben pedidos automáticamente. Desde $199/mes.">
     <!-- Hero Section -->
     <section class="relative min-h-screen overflow-hidden px-4 py-20">
         <div
@@ -261,29 +278,25 @@ const developmentProcess = [
                 </div>
 
                 <div class="mb-12 text-center">
-                    <h1 class="mb-6 text-3xl font-bold md:text-6xl">
-                        Chatbots
+                    <h1 class="font-cocogoose mb-6 text-2xl leading-tight sm:text-3xl md:text-7xl">
+                        Chatbots para
                         <span
                             class="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent">
-                            para empresas
+                            Web y WhatsApp
                         </span>
-                        <span class="sr-only"
-                            >inteligentes con IA en Argentina - Desarrollo de bots conversacionales
-                            con inteligencia artificial, procesamiento de lenguaje natural,
-                            integración con WhatsApp, Facebook Messenger y CRM</span
-                        >
+                        <span class="sr-only">
+                            - Asistentes virtuales automáticos para tu negocio, chatbot para sitio
+                            web y WhatsApp Business
+                        </span>
                     </h1>
 
-                    <p class="text-muted-foreground mx-auto mb-8 max-w-3xl text-xl">
-                        Desarrollamos <strong>chatbots inteligentes personalizados</strong> que no solo
-                        responden preguntas, sino que aprenden, se adaptan y brindan soluciones eficientes
-                        las 24 horas del día utilizando IA avanzada y procesamiento de lenguaje natural.
-                        <span class="sr-only"
-                            >Especialistas en desarrollo con Dialogflow, Microsoft Bot Framework,
-                            Rasa, OpenAI GPT, LangChain y Botpress. Integración con Salesforce,
-                            HubSpot, Shopify, bases de datos MongoDB y PostgreSQL, y analytics
-                            avanzados.</span
+                    <p class="text-muted-foreground mx-auto mb-8 max-w-3xl md:text-xl">
+                        <strong
+                            >¿Cansado de perder clientes porque no puedes responder a tiempo?</strong
                         >
+                        Creamos chatbots que atienden a tus clientes las 24 horas, responden preguntas,
+                        agendan citas y reciben pedidos todo automáticamente, mientras tú te enfocas
+                        en lo importante.
                     </p>
                 </div>
 
@@ -303,7 +316,7 @@ const developmentProcess = [
 
                         <div class="flex flex-col gap-4 sm:flex-row">
                             <Button
-                                href="https://devi-chatbot.vercel.app/"
+                                href="https://devi.devanthos.com/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 size="lg"
@@ -312,6 +325,9 @@ const developmentProcess = [
                                 <ArrowRight className="ml-2 h-5 w-5" />
                             </Button>
                             <Button
+                                href="https://api.whatsapp.com/send?phone=56934248692&text=Hola%2C%20quiero%20una%20consulta%20gratuita%20sobre%20marketing%20digital%20y%20SEO."
+                                target="_blank"
+                                rel="noreferrer"
                                 variant="outline"
                                 size="lg"
                                 class="border-purple-500 px-8 text-lg text-purple-600 hover:bg-purple-50">
@@ -331,7 +347,7 @@ const developmentProcess = [
                             <div class="flex items-center gap-2">
                                 <Bot className="h-6 w-6" />
                                 <div>
-                                    <p class="font-semibold">Desde $299</p>
+                                    <p class="font-semibold">Desde $199</p>
                                     <p class="text-sm opacity-90">Por mes</p>
                                 </div>
                             </div>
@@ -342,52 +358,130 @@ const developmentProcess = [
         </div>
     </section>
 
-    <!-- Main Features -->
+    <!-- Introducción a Devi -->
+    <section class="dark flex">
+        <div class="bg-background flex w-full items-center justify-center lg:w-1/2">
+            <div class="container mx-auto my-10 flex w-[500px] flex-col gap-24 px-4">
+                <h2 class="text-foreground text-4xl">Chatbot Inteligente</h2>
+                <div>
+                    <h3 class="text-foreground font-cocogoose text-4xl text-balance lg:text-6xl">
+                        Prueba <span class="text-primary">Devi</span>, nuestro chatbot inteligente
+                    </h3>
+                    <p class="text-foreground mt-2.5 lg:text-xl">
+                        Puedes configurar el chatbot para simular diferentes escenarios de negocio y
+                        probar sus capacidades.
+                    </p>
+                    <Button
+                        href="https://devi.devanthos.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="mt-10 flex h-fit items-center gap-2.5 rounded-xl px-5 py-4 font-bold">
+                        <span> Probar Devi Ahora </span>
+                        <ChevronRight className="size-5!" />
+                    </Button>
+                </div>
+                <div class="flex items-center gap-3.5">
+                    <div class="flex -space-x-3">
+                        <Avatar
+                            class="block size-11 min-h-11 min-w-11 rounded-full object-cover lg:size-11">
+                            <AvatarImage
+                                alt=""
+                                src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-1.webp"
+                            />
+                            <AvatarFallback>A</AvatarFallback>
+                        </Avatar>
+                        <Avatar
+                            class="block size-11 min-h-11 min-w-11 rounded-full object-cover lg:size-11">
+                            <AvatarImage
+                                alt=""
+                                src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-2.webp"
+                            />
+                            <AvatarFallback>B</AvatarFallback>
+                        </Avatar>
+                        <Avatar
+                            class="block size-11 min-h-11 min-w-11 rounded-full object-cover lg:size-11">
+                            <AvatarImage
+                                alt=""
+                                src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-3.webp"
+                            />
+                            <AvatarFallback>C</AvatarFallback>
+                        </Avatar>
+                        <Avatar
+                            class="block size-11 min-h-11 min-w-11 rounded-full object-cover lg:size-11">
+                            <AvatarImage
+                                alt=""
+                                src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-4.webp"
+                            />
+                            <AvatarFallback>D</AvatarFallback>
+                        </Avatar>
+                        <Avatar
+                            class="block size-11 min-h-11 min-w-11 rounded-full object-cover lg:size-11">
+                            <AvatarImage
+                                alt=""
+                                src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-5.webp"
+                            />
+                            <AvatarFallback>E</AvatarFallback>
+                        </Avatar>
+                    </div>
+                    <span class="text-foreground text-xs lg:text-sm">
+                        Mas de 100 empresas ya prueban Devi
+                    </span>
+                </div>
+            </div>
+        </div>
+        <img
+            src="/images/service/chatbot-devi.avif"
+            alt=""
+            class="hidden h-screen w-1/2 object-cover lg:block"
+        />
+    </section>
+
+    <!-- Tipos de Chatbots -->
     <section class="bg-muted/30 px-4 py-20">
         <div class="container mx-auto">
             <div class="mx-auto mb-16 max-w-4xl text-center">
-                <h2 class="mb-4 text-3xl font-bold md:text-4xl">
-                    ¿Qué Son los Chatbots Inteligentes?
-                    <span class="sr-only"
-                        >con IA - Bots conversacionales con procesamiento de lenguaje natural,
-                        machine learning, integración multicanal y analítica conversacional</span
-                    >
+                <h2 class="font-cocogoose mb-4 text-2xl leading-tight tracking-tight md:text-6xl">
+                    ¿Qué Chatbot Necesitas?
                 </h2>
-                <p class="text-muted-foreground text-lg">
-                    Van más allá de las respuestas automáticas simples. Utilizan procesamiento de
-                    lenguaje natural (NLP) y machine learning para ofrecer experiencias
-                    conversacionales avanzadas.
-                    <span class="sr-only"
-                        >Con capacidades de contexto conversacional, análisis de sentimientos,
-                        intención del usuario, escalamiento inteligente a agentes humanos,
-                        personalización dinámica y métricas de satisfacción en tiempo real.</span
-                    >
+                <p class="text-muted-foreground md:text-xl">
+                    Elige la opción perfecta para tu negocio. Nosotros nos encargamos de todo lo
+                    técnico.
                 </p>
             </div>
 
             <div class="mb-16 grid grid-cols-1 gap-8 lg:grid-cols-2">
                 {
-                    mainFeatures.map((feature) => {
-                        const IconComponent = feature.icon;
+                    chatbotTypes.map((chatbot) => {
+                        const IconComponent = chatbot.icon;
                         return (
-                            <Card className="p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                            <Card className="hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                                 <CardHeader className="pb-6">
                                     <div
-                                        class={`h-16 w-16 bg-gradient-to-br ${feature.gradient} mb-4 flex items-center justify-center rounded-full`}>
+                                        class={`h-16 w-16 bg-gradient-to-br ${chatbot.gradient} mb-4 flex items-center justify-center rounded-full`}>
                                         <IconComponent className="w-8 h-8 text-white" />
                                     </div>
-                                    <CardTitle className="text-2xl">{feature.title}</CardTitle>
-                                    <p class="text-muted-foreground">{feature.description}</p>
+                                    <CardTitle className="text-2xl">{chatbot.title}</CardTitle>
+                                    <p class="text-muted-foreground">{chatbot.description}</p>
                                 </CardHeader>
+                                <CardContent>
+                                    <div class="space-y-2">
+                                        {chatbot.benefits.map((benefit) => (
+                                            <div class="flex items-center gap-2">
+                                                <CheckCircle className="w-4 h-4 text-green-500" />
+                                                <span class="text-sm">{benefit}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </CardContent>
                             </Card>
                         );
                     })
                 }
             </div>
 
-            <!-- Sectors -->
+            <!-- Sectores -->
             <div class="mb-12 text-center">
-                <h3 class="mb-6 text-2xl font-bold">Sectores que Atendemos</h3>
+                <h3 class="mb-6 text-2xl font-bold">Ideal para Negocios Como el Tuyo</h3>
                 <div class="flex flex-wrap justify-center gap-2">
                     {
                         sectors.map((sector) => (
@@ -399,22 +493,22 @@ const developmentProcess = [
                 </div>
             </div>
 
-            <!-- Platforms -->
-            <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
-                <Card className="p-6">
+            <!-- Capacidades -->
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+                <Card>
                     <CardHeader className="pb-4">
                         <div class="flex items-center gap-2">
                             <Globe className="h-5 w-5 text-blue-500" />
-                            <CardTitle className="text-lg">Plataformas Web</CardTitle>
+                            <CardTitle className="text-lg">Tu Chatbot Web Puede:</CardTitle>
                         </div>
                     </CardHeader>
                     <CardContent>
                         <div class="space-y-2">
                             {
-                                platforms.web.map((platform) => (
+                                chatbotCapabilities.web.map((capability) => (
                                     <div class="flex items-center gap-2">
                                         <CheckCircle className="w-4 h-4 text-green-500" />
-                                        <span class="text-sm">{platform}</span>
+                                        <span class="text-sm">{capability}</span>
                                     </div>
                                 ))
                             }
@@ -422,41 +516,20 @@ const developmentProcess = [
                     </CardContent>
                 </Card>
 
-                <Card className="p-6">
+                <Card>
                     <CardHeader className="pb-4">
                         <div class="flex items-center gap-2">
                             <Smartphone className="h-5 w-5 text-green-500" />
-                            <CardTitle className="text-lg">Redes Sociales</CardTitle>
+                            <CardTitle className="text-lg">Tu Chatbot WhatsApp Puede:</CardTitle>
                         </div>
                     </CardHeader>
                     <CardContent>
                         <div class="space-y-2">
                             {
-                                platforms.social.map((platform) => (
+                                chatbotCapabilities.whatsapp.map((capability) => (
                                     <div class="flex items-center gap-2">
                                         <CheckCircle className="w-4 h-4 text-green-500" />
-                                        <span class="text-sm">{platform}</span>
-                                    </div>
-                                ))
-                            }
-                        </div>
-                    </CardContent>
-                </Card>
-
-                <Card className="p-6">
-                    <CardHeader className="pb-4">
-                        <div class="flex items-center gap-2">
-                            <Headphones className="h-5 w-5 text-purple-500" />
-                            <CardTitle className="text-lg">Herramientas Empresariales</CardTitle>
-                        </div>
-                    </CardHeader>
-                    <CardContent>
-                        <div class="space-y-2">
-                            {
-                                platforms.business.map((platform) => (
-                                    <div class="flex items-center gap-2">
-                                        <CheckCircle className="w-4 h-4 text-green-500" />
-                                        <span class="text-sm">{platform}</span>
+                                        <span class="text-sm">{capability}</span>
                                     </div>
                                 ))
                             }
@@ -467,24 +540,15 @@ const developmentProcess = [
         </div>
     </section>
 
-    <!-- Success Cases -->
+    <!-- Casos de Éxito -->
     <section class="px-4 py-20">
         <div class="container mx-auto">
             <div class="mx-auto mb-16 max-w-4xl text-center">
-                <h2 class="mb-4 text-3xl font-bold md:text-4xl">
-                    Casos de Uso Exitosos
-                    <span class="sr-only"
-                        >con chatbots inteligentes - E-commerce, servicios financieros, restaurantes
-                        y automatización de ventas</span
-                    >
+                <h2 class="font-cocogoose mb-4 text-2xl leading-tight tracking-tight md:text-6xl">
+                    Negocios que ya Usan Nuestros Chatbots
                 </h2>
-                <p class="text-muted-foreground text-lg">
-                    Proyectos reales con resultados medibles que transformaron negocios
-                    <span class="sr-only"
-                        >mediante automatización de procesos de venta, soporte técnico 24/7, gestión
-                        de reservas, calificación de leads, integración con sistemas ERP y CRM, y
-                        reducción de costos operativos.</span
-                    >
+                <p class="text-muted-foreground md:text-xl">
+                    Mira cómo otros negocios como el tuyo están vendiendo más y trabajando menos
                 </p>
             </div>
 
@@ -493,8 +557,10 @@ const developmentProcess = [
                     successCases.map((case_) => {
                         const IconComponent = case_.icon;
                         return (
-                            <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                                <div class={`h-2 bg-gradient-to-r ${case_.gradient} mb-6`} />
+                            <Card className="hover:shadow-xl overflow-hidden transition-all duration-300 hover:-translate-y-1">
+                                <div
+                                    class={`h-2 bg-gradient-to-r ${case_.gradient} mb-6 blur-2xl`}
+                                />
                                 <CardHeader className="pb-4">
                                     <div class="mb-4 flex items-center gap-3">
                                         <div
@@ -508,7 +574,7 @@ const developmentProcess = [
                                 <CardContent>
                                     <div class="space-y-2">
                                         <h4 class="mb-2 text-sm font-semibold text-green-600">
-                                            RESULTADOS:
+                                            AHORA:
                                         </h4>
                                         {case_.results.map((result) => (
                                             <div class="flex items-start gap-2">
@@ -523,36 +589,27 @@ const developmentProcess = [
                     })
                 }
             </div>
-
-            <div class="mt-12 text-center">
-                <Alert className="mx-auto max-w-2xl border-orange-200 bg-orange-50">
-                    <Zap className="h-4 w-4 text-orange-600" />
-                    <AlertTitle className="text-orange-800">Integración con IA</AlertTitle>
-                    <AlertDescription className="text-orange-700">
-                        Utilizamos modelos de IA avanzados como GPT-4, Claude y modelos propios para
-                        conversaciones más inteligentes y naturales.
-                    </AlertDescription>
-                </Alert>
-            </div>
         </div>
     </section>
 
-    <!-- Development Process -->
+    <!-- Cómo Funciona -->
     <section class="bg-muted/30 px-4 py-20">
         <div class="container mx-auto">
             <div class="mx-auto mb-16 max-w-4xl text-center">
-                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Proceso de Desarrollo</h2>
-                <p class="text-muted-foreground text-lg">
-                    Metodología probada que garantiza chatbots eficientes y escalables
+                <h2 class="font-cocogoose mb-4 text-2xl leading-tight tracking-tight md:text-6xl">
+                    ¿Cómo Funciona?
+                </h2>
+                <p class="text-muted-foreground md:text-xl">
+                    En 3 simples pasos tienes tu chatbot funcionando. Sin complicaciones.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
                 {
-                    developmentProcess.map((step) => {
+                    howItWorks.map((step) => {
                         const IconComponent = step.icon;
                         return (
-                            <Card className="p-8 text-center hover:shadow-lg transition-all duration-300">
+                            <Card className="text-center hover:shadow-lg transition-all duration-300">
                                 <CardHeader className="pb-6">
                                     <div class="relative mb-4">
                                         <div class="from-primary to-accent mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br">
@@ -583,13 +640,16 @@ const developmentProcess = [
         </div>
     </section>
 
-    <!-- Pricing Packages -->
+    <!-- Precios -->
     <section class="px-4 py-20">
         <div class="container mx-auto">
             <div class="mx-auto mb-16 max-w-4xl text-center">
-                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Precios y Paquetes</h2>
-                <p class="text-muted-foreground text-lg">
-                    Soluciones para cada tipo de negocio y presupuesto
+                <h2 class="font-cocogoose mb-4 text-2xl leading-tight tracking-tight md:text-6xl">
+                    Precios Claros, Sin Sorpresas
+                </h2>
+                <p class="text-muted-foreground md:text-xl">
+                    Elige el plan que mejor se adapte a tu negocio. Incluye soporte y
+                    actualizaciones.
                 </p>
             </div>
 
@@ -599,7 +659,7 @@ const developmentProcess = [
                         const IconComponent = pkg.icon;
                         return (
                             <Card
-                                className={`relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${pkg.popular ? 'border-primary ring-primary/20 border-2 ring-2' : ''}`}>
+                                className={`relative pt-0 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${pkg.popular ? 'border-primary ring-primary/20 border-2 ring-2' : ''}`}>
                                 {pkg.popular && (
                                     <div class="absolute -top-4 left-1/2 -translate-x-1/2 transform">
                                         <Badge className="bg-primary text-primary-foreground px-4 py-1">
@@ -609,9 +669,8 @@ const developmentProcess = [
                                     </div>
                                 )}
 
-                                <div class={`h-2 bg-gradient-to-r ${pkg.gradient}`} />
-
-                                <CardHeader className="text-center pb-4">
+                                <CardHeader className="text-center overflow-hidden pt-8 pb-4">
+                                    <div class={`h-2 bg-gradient-to-r blur-2xl ${pkg.gradient}`} />
                                     <div
                                         class={`h-16 w-16 bg-gradient-to-br ${pkg.gradient} mx-auto mb-4 flex items-center justify-center rounded-full`}>
                                         <IconComponent className="w-8 h-8 text-white" />
@@ -623,7 +682,7 @@ const developmentProcess = [
                                     </div>
                                 </CardHeader>
 
-                                <CardContent>
+                                <CardContent className="flex-1">
                                     <div class="space-y-3">
                                         {pkg.features.map((feature) => (
                                             <div class="flex items-start gap-3">
@@ -632,13 +691,19 @@ const developmentProcess = [
                                             </div>
                                         ))}
                                     </div>
-
+                                </CardContent>
+                                <CardFooter className="pt-4">
                                     <Button
+                                        href={`https://api.whatsapp.com/send?phone=56934248692&text=Hola%2C%20quiero%20contratar%20el%20paquete%20${encodeURIComponent(
+                                            pkg.name
+                                        )}.`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         class={`mt-6 w-full bg-gradient-to-r ${pkg.gradient} hover:opacity-90`}>
                                         Elegir {pkg.name}
                                         <ArrowRight className="ml-2 w-4 h-4" />
                                     </Button>
-                                </CardContent>
+                                </CardFooter>
                             </Card>
                         );
                     })
@@ -647,13 +712,15 @@ const developmentProcess = [
         </div>
     </section>
 
-    <!-- Benefits -->
+    <!-- Beneficios -->
     <section class="bg-muted/30 px-4 py-20">
         <div class="container mx-auto">
             <div class="mx-auto mb-16 max-w-4xl text-center">
-                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Beneficios para tu Negocio</h2>
-                <p class="text-muted-foreground text-lg">
-                    Ventajas competitivas que transformarán tu atención al cliente
+                <h2 class="font-cocogoose mb-4 text-2xl leading-tight tracking-tight md:text-6xl">
+                    ¿Por Qué Necesitas un Chatbot?
+                </h2>
+                <p class="text-muted-foreground md:text-xl">
+                    Descubre cómo un chatbot puede cambiar tu negocio
                 </p>
             </div>
 
@@ -677,84 +744,32 @@ const developmentProcess = [
         </div>
     </section>
 
-    <!-- Technologies -->
+    <!-- Preguntas Frecuentes -->
     <section class="px-4 py-20">
         <div class="container mx-auto">
             <div class="mx-auto mb-16 max-w-4xl text-center">
-                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Tecnologías que Utilizamos</h2>
-                <p class="text-muted-foreground text-lg">
-                    Las mejores herramientas de IA y desarrollo para chatbots avanzados
-                </p>
+                <h2 class="font-cocogoose mb-4 text-2xl leading-tight tracking-tight md:text-6xl">
+                    Preguntas Frecuentes
+                </h2>
+                <p class="text-muted-foreground md:text-xl">Resolvemos tus dudas más comunes</p>
             </div>
 
-            <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
-                <Card className="p-6">
-                    <CardHeader className="pb-4">
-                        <CardTitle className="text-lg">Frameworks de IA</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <div class="flex flex-wrap gap-2">
-                            {
-                                technologies.frameworks.map((tech) => (
-                                    <Badge variant="outline" className="text-xs">
-                                        {tech}
-                                    </Badge>
-                                ))
-                            }
-                        </div>
-                    </CardContent>
-                </Card>
-
-                <Card className="p-6">
-                    <CardHeader className="pb-4">
-                        <CardTitle className="text-lg">Lenguajes de Programación</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <div class="flex flex-wrap gap-2">
-                            {
-                                technologies.languages.map((tech) => (
-                                    <Badge variant="outline" className="text-xs">
-                                        {tech}
-                                    </Badge>
-                                ))
-                            }
-                        </div>
-                    </CardContent>
-                </Card>
-
-                <Card className="p-6">
-                    <CardHeader className="pb-4">
-                        <CardTitle className="text-lg">Bases de Datos</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <div class="flex flex-wrap gap-2">
-                            {
-                                technologies.databases.map((tech) => (
-                                    <Badge variant="outline" className="text-xs">
-                                        {tech}
-                                    </Badge>
-                                ))
-                            }
-                        </div>
-                    </CardContent>
-                </Card>
-
-                <Card className="p-6">
-                    <CardHeader className="pb-4">
-                        <CardTitle className="text-lg">APIs e Integraciones</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <div class="flex flex-wrap gap-2">
-                            {
-                                technologies.integrations.map((tech) => (
-                                    <Badge variant="outline" className="text-xs">
-                                        {tech}
-                                    </Badge>
-                                ))
-                            }
-                        </div>
-                    </CardContent>
-                </Card>
+            <div class="mx-auto max-w-3xl space-y-4">
+                {
+                    faqs.map((faq) => (
+                        <Card>
+                            <CardHeader className="pb-2">
+                                <CardTitle className="text-lg flex items-start gap-3">
+                                    <MessageCircle className="w-5 h-5 text-purple-500 mt-1 flex-shrink-0" />
+                                    {faq.question}
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p class="text-muted-foreground ml-8">{faq.answer}</p>
+                            </CardContent>
+                        </Card>
+                    ))
+                }
             </div>
         </div>
     </section>
@@ -766,49 +781,56 @@ const developmentProcess = [
                 <Card className="border-purple-200 bg-white/80 p-12 backdrop-blur-sm">
                     <CardContent>
                         <div class="mb-6">
-                            <Settings className="mx-auto h-16 w-16 text-purple-600" />
+                            <Bot className="mx-auto h-16 w-16 text-purple-600" />
                         </div>
 
                         <h2 class="mb-4 text-3xl font-bold text-purple-800 md:text-4xl">
-                            ¿Listo para Automatizar tu Atención al Cliente?
+                            ¿Listo para que tu Negocio Trabaje Solo?
                         </h2>
 
                         <p class="mx-auto mb-8 max-w-2xl text-lg text-purple-700">
-                            Contacta con nosotros para una <strong>consulta gratuita</strong>. Te
-                            mostraremos cómo un chatbot inteligente puede transformar tu negocio.
+                            Agenda una <strong>llamada gratuita de 15 minutos</strong> y te mostramos
+                            cómo un chatbot puede ayudar a tu negocio específico. Sin compromiso.
                         </p>
 
                         <div class="mx-auto mb-8 grid max-w-2xl grid-cols-1 gap-6 md:grid-cols-2">
                             <div class="flex items-center justify-center gap-3">
                                 <Clock className="h-5 w-5 text-purple-600" />
-                                <span class="text-purple-700">Atención 24/7 automatizada</span>
+                                <span class="text-purple-700">Atiende clientes 24/7</span>
                             </div>
                             <div class="flex items-center justify-center gap-3">
                                 <DollarSign className="h-5 w-5 text-purple-600" />
-                                <span class="text-purple-700">Reduce costos hasta 60%</span>
+                                <span class="text-purple-700">Desde $199/mes</span>
                             </div>
                             <div class="flex items-center justify-center gap-3">
-                                <TrendingUp className="h-5 w-5 text-purple-600" />
-                                <span class="text-purple-700">Aumenta conversiones</span>
+                                <Zap className="h-5 w-5 text-purple-600" />
+                                <span class="text-purple-700">Listo en días, no meses</span>
                             </div>
                             <div class="flex items-center justify-center gap-3">
-                                <Brain className="h-5 w-5 text-purple-600" />
-                                <span class="text-purple-700">IA que aprende constantemente</span>
+                                <CheckCircle className="h-5 w-5 text-purple-600" />
+                                <span class="text-purple-700">Sin conocimiento técnico</span>
                             </div>
                         </div>
 
                         <div class="flex flex-col justify-center gap-4 sm:flex-row">
                             <Button
+                                href="https://devi.devanthos.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 size="lg"
                                 class="bg-gradient-to-r from-purple-500 to-indigo-500 px-8 text-lg hover:from-purple-600 hover:to-indigo-600">
-                                Ver Demo Interactiva
+                                Probar Demo Gratis
                                 <ArrowRight className="ml-2 h-5 w-5" />
                             </Button>
                             <Button
+                                href="https://api.whatsapp.com/send?phone=56934248692&text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20chatbots%20para%20mi%20negocio"
+                                target="_blank"
+                                rel="noreferrer"
                                 variant="outline"
                                 size="lg"
                                 class="border-purple-500 px-8 text-lg text-purple-600 hover:bg-purple-50">
-                                Consulta Gratuita
+                                <Smartphone className="mr-2 h-5 w-5" />
+                                Hablar por WhatsApp
                             </Button>
                         </div>
 
@@ -820,7 +842,7 @@ const developmentProcess = [
                             </div>
                             <div class="flex items-center gap-1">
                                 <CheckCircle className="h-4 w-4" />
-                                <span>Demo personalizada</span>
+                                <span>Respuesta en menos de 24h</span>
                             </div>
                         </div>
                     </CardContent>
