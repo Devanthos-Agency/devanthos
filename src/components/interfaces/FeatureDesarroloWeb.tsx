@@ -46,18 +46,23 @@ const FeatureDesarrolloWeb = () => {
                             Tu aliado en desarrollo web y móvil
                         </p>
                     </div>
-                    <h2 className="font-cocogoose mt-3 mb-8 max-w-xl text-5xl leading-tight tracking-tighter lg:max-w-3xl lg:text-6xl">
+                    <h2 className="font-cocogoose mt-3 mb-8 max-w-xl text-2xl leading-tight tracking-tighter lg:max-w-3xl lg:text-6xl">
                         Tu sueño digital, nuestro compromiso
                     </h2>
-                    <p className="text-muted-foreground max-w-xl text-xl">
+                    <p className="text-muted-foreground max-w-xl md:text-xl">
                         Alcanza nuevas alturas con nuestras soluciones de desarrollo web y móvil a
                         medida. Desde aplicaciones móviles intuitivas hasta sitios web dinámicos,
                         estamos aquí para transformar tus ideas en realidades digitales que cautivan
                         y convierten.
                     </p>
                     <div className="mt-10 flex gap-4">
-                        <Button size="lg" className="w-full md:w-auto">
-                            Comienza tu proyecto
+                        <Button asChild size="lg" className="w-full md:w-auto">
+                            <a
+                                href="https://api.whatsapp.com/send?phone=56934248692&text=Hola%2C%20quiero%20comenzar%20mi%20proyecto"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                Comienza tu proyecto
+                            </a>
                         </Button>
                         <Button variant="outline" size="lg" className="w-full md:w-auto">
                             Consulta nuestros servicios
