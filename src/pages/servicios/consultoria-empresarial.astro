@@ -1,6 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
@@ -343,7 +343,7 @@ const expertTeam = [
                 </div>
 
                 <div class="mb-12 text-center">
-                    <h1 class="mb-6 text-3xl font-bold md:text-6xl">
+                    <h1 class="font-cocogoose mb-6 text-2xl leading-tight sm:text-3xl md:text-7xl">
                         Consultoría Empresarial y
                         <span
                             class="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-nowrap text-transparent">
@@ -356,7 +356,7 @@ const expertTeam = [
                         >
                     </h1>
 
-                    <p class="text-muted-foreground mx-auto mb-8 max-w-3xl text-xl">
+                    <p class="text-muted-foreground mx-auto mb-8 max-w-3xl md:text-xl">
                         Impulsamos el crecimiento de tu empresa con <strong
                             >estrategias personalizadas, optimización de procesos y transformación
                             digital integral</strong
@@ -426,14 +426,14 @@ const expertTeam = [
     <section class="bg-muted/30 px-4 py-20">
         <div class="container mx-auto">
             <div class="mx-auto mb-16 max-w-4xl text-center">
-                <h2 class="mb-4 text-3xl font-bold md:text-4xl">
+                <h2 class="font-cocogoose mb-4 text-2xl leading-tight tracking-tight md:text-6xl">
                     ¿Por Qué Necesitas Consultoría Empresarial?
                     <span class="sr-only"
                         >Transformación digital empresarial, optimización de procesos operativos y
                         estrategias de crecimiento sostenible</span
                     >
                 </h2>
-                <p class="text-muted-foreground text-lg">
+                <p class="text-muted-foreground md:text-xl">
                     En un mercado donde el <strong
                         >70% de las empresas fallan en sus iniciativas de cambio</strong
                     >, contar con experiencia especializada es crucial para el éxito de tu
@@ -451,7 +451,7 @@ const expertTeam = [
                     mainServices.map((service) => {
                         const IconComponent = service.icon;
                         return (
-                            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                            <Card className="text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
                                 <CardHeader className="pb-6">
                                     <div
                                         class={`h-16 w-16 bg-gradient-to-br ${service.gradient} mx-auto mb-4 flex items-center justify-center rounded-full`}>
@@ -472,10 +472,10 @@ const expertTeam = [
     <section class="px-4 py-20">
         <div class="container mx-auto">
             <div class="mx-auto mb-16 max-w-4xl text-center">
-                <h2 class="mb-4 text-3xl font-bold md:text-4xl">
+                <h2 class="font-cocogoose mb-4 text-2xl leading-tight tracking-tight md:text-6xl">
                     Nuestros Servicios de Consultoría
                 </h2>
-                <p class="text-muted-foreground text-lg">
+                <p class="text-muted-foreground md:text-xl">
                     Cobertura integral para todas las áreas críticas de tu empresa
                 </p>
             </div>
@@ -485,8 +485,10 @@ const expertTeam = [
                     consultingAreas.map((area) => {
                         const IconComponent = area.icon;
                         return (
-                            <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                                <div class={`h-2 bg-gradient-to-r ${area.gradient} mb-6`} />
+                            <Card className="hover:shadow-xl overflow-hidden transition-all duration-300 hover:-translate-y-1">
+                                <div
+                                    class={`h-2 bg-gradient-to-r ${area.gradient} mb-6 blur-2xl`}
+                                />
                                 <CardHeader className="pb-4">
                                     <div class="mb-4 flex items-center gap-3">
                                         <div
@@ -530,8 +532,10 @@ const expertTeam = [
     <section class="bg-muted/30 px-4 py-20">
         <div class="container mx-auto">
             <div class="mx-auto mb-16 max-w-4xl text-center">
-                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Casos de Éxito Reales</h2>
-                <p class="text-muted-foreground text-lg">
+                <h2 class="font-cocogoose mb-4 text-2xl leading-tight tracking-tight md:text-6xl">
+                    Casos de Éxito Reales
+                </h2>
+                <p class="text-muted-foreground md:text-xl">
                     Transformaciones empresariales con resultados medibles y comprobados
                 </p>
             </div>
@@ -541,8 +545,10 @@ const expertTeam = [
                     successCases.map((case_) => {
                         const IconComponent = case_.icon;
                         return (
-                            <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                                <div class={`h-2 bg-gradient-to-r ${case_.gradient} mb-6`} />
+                            <Card className="hover:shadow-xl overflow-hidden transition-all duration-300 hover:-translate-y-1">
+                                <div
+                                    class={`h-2 bg-gradient-to-r ${case_.gradient} mb-6 blur-2xl`}
+                                />
                                 <CardHeader className="pb-4">
                                     <div class="mb-4 flex items-center gap-3">
                                         <div
@@ -583,10 +589,10 @@ const expertTeam = [
     <section class="px-4 py-20">
         <div class="container mx-auto">
             <div class="mx-auto mb-16 max-w-4xl text-center">
-                <h2 class="mb-4 text-3xl font-bold md:text-4xl">
+                <h2 class="font-cocogoose mb-4 text-2xl leading-tight tracking-tight md:text-6xl">
                     Nuestros Paquetes de Consultoría
                 </h2>
-                <p class="text-muted-foreground text-lg">
+                <p class="text-muted-foreground md:text-xl">
                     Soluciones adaptadas a cada etapa de crecimiento empresarial
                 </p>
             </div>
@@ -597,7 +603,7 @@ const expertTeam = [
                         const IconComponent = pkg.icon;
                         return (
                             <Card
-                                className={`relative transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${pkg.popular ? 'border-primary ring-primary/20 border-2 ring-2' : ''}`}>
+                                className={`relative pt-0 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${pkg.popular ? 'border-primary ring-primary/20 border-2 ring-2' : ''}`}>
                                 {pkg.popular && (
                                     <div class="absolute -top-4 left-1/2 -translate-x-1/2 transform">
                                         <Badge className="bg-primary text-primary-foreground px-4 py-1">
@@ -607,9 +613,10 @@ const expertTeam = [
                                     </div>
                                 )}
 
-                                <div class={`h-2 bg-gradient-to-r ${pkg.gradient}`} />
-
-                                <CardHeader className="text-center pb-4">
+                                <CardHeader className="text-center overflow-hidden       pb-4">
+                                    <div
+                                        class={`h-2 bg-gradient-to-r ${pkg.gradient} mb-6 blur-2xl`}
+                                    />
                                     <div
                                         class={`h-14 w-14 bg-gradient-to-br ${pkg.gradient} mx-auto mb-4 flex items-center justify-center rounded-full`}>
                                         <IconComponent className="w-7 h-7 text-white" />
@@ -626,7 +633,7 @@ const expertTeam = [
                                     )}
                                 </CardHeader>
 
-                                <CardContent>
+                                <CardContent className="flex-1">
                                     <div class="space-y-2">
                                         {pkg.features.map((feature) => (
                                             <div class="flex items-start gap-2">
@@ -635,13 +642,14 @@ const expertTeam = [
                                             </div>
                                         ))}
                                     </div>
-
+                                </CardContent>
+                                <CardFooter>
                                     <Button
                                         className={`mt-6 w-full bg-gradient-to-r ${pkg.gradient} text-sm hover:opacity-90`}>
                                         Elegir Plan
                                         <ArrowRight className="ml-2 w-4 h-4" />
                                     </Button>
-                                </CardContent>
+                                </CardFooter>
                             </Card>
                         );
                     })
@@ -654,8 +662,10 @@ const expertTeam = [
     <section class="bg-muted/30 px-4 py-20">
         <div class="container mx-auto">
             <div class="mx-auto mb-16 max-w-4xl text-center">
-                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Metodología de Trabajo</h2>
-                <p class="text-muted-foreground text-lg">
+                <h2 class="font-cocogoose mb-4 text-2xl leading-tight tracking-tight md:text-6xl">
+                    Metodología de Trabajo
+                </h2>
+                <p class="text-muted-foreground md:text-xl">
                     Proceso estructurado y probado que garantiza resultados exitosos
                 </p>
             </div>
@@ -665,7 +675,7 @@ const expertTeam = [
                     methodology.map((phase) => {
                         const IconComponent = phase.icon;
                         return (
-                            <Card className="p-8 text-center hover:shadow-lg transition-all duration-300">
+                            <Card className="text-center hover:shadow-lg transition-all duration-300">
                                 <CardHeader className="pb-6">
                                     <div class="relative mb-4">
                                         <div class="from-primary to-accent mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br">
@@ -703,8 +713,10 @@ const expertTeam = [
     <section class="px-4 py-20">
         <div class="container mx-auto">
             <div class="mx-auto mb-16 max-w-4xl text-center">
-                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Industrias que Atendemos</h2>
-                <p class="text-muted-foreground text-lg">
+                <h2 class="font-cocogoose mb-4 text-2xl leading-tight tracking-tight md:text-6xl">
+                    Industrias que Atendemos
+                </h2>
+                <p class="text-muted-foreground md:text-xl">
                     Experiencia especializada en múltiples sectores empresariales
                 </p>
             </div>
@@ -733,8 +745,10 @@ const expertTeam = [
     <section class="bg-muted/30 px-4 py-20">
         <div class="container mx-auto">
             <div class="mx-auto mb-16 max-w-4xl text-center">
-                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Nuestro Equipo de Expertos</h2>
-                <p class="text-muted-foreground text-lg">
+                <h2 class="font-cocogoose mb-4 text-2xl leading-tight tracking-tight md:text-6xl">
+                    Nuestro Equipo de Expertos
+                </h2>
+                <p class="text-muted-foreground md:text-xl">
                     Profesionales certificados con experiencia internacional
                 </p>
             </div>
