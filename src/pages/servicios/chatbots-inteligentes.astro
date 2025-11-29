@@ -20,6 +20,8 @@ import {
     ShoppingCart,
     Utensils,
     ChevronRight,
+    AppleIcon,
+    Play,
 } from 'lucide-react';
 import Avatar from '@/components/starwind/avatar/Avatar.astro';
 import { AvatarFallback, AvatarImage } from '@/components/starwind/avatar';
@@ -64,22 +66,6 @@ const sectors = [
     'Servicios Profesionales',
     'Hoteles y Turismo',
 ];
-
-// Qué puede hacer tu chatbot
-const chatbotCapabilities = {
-    web: [
-        'Responder preguntas frecuentes',
-        'Mostrar productos y servicios',
-        'Agendar citas',
-        'Capturar datos de contacto',
-    ],
-    whatsapp: [
-        'Enviar catálogos y precios',
-        'Confirmar reservas',
-        'Recibir pedidos',
-        'Dar seguimiento a clientes',
-    ],
-};
 
 // Casos de éxito reales
 const successCases = [
@@ -480,61 +466,16 @@ const howItWorks = [
 
             <!-- Sectores -->
             <div class="mb-12 text-center">
-                <h3 class="mb-6 text-2xl font-bold">Ideal para Negocios Como el Tuyo</h3>
+                <h3 class="font-cocogoose mb-6 text-4xl">Ideal para Negocios Como el Tuyo</h3>
                 <div class="flex flex-wrap justify-center gap-2">
                     {
                         sectors.map((sector) => (
-                            <Badge variant="outline" className="text-sm">
+                            <Badge variant="outline" className="text-sm md:text-base px-4 py-2">
                                 {sector}
                             </Badge>
                         ))
                     }
                 </div>
-            </div>
-
-            <!-- Capacidades -->
-            <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
-                <Card>
-                    <CardHeader className="pb-4">
-                        <div class="flex items-center gap-2">
-                            <Globe className="h-5 w-5 text-blue-500" />
-                            <CardTitle className="text-lg">Tu Chatbot Web Puede:</CardTitle>
-                        </div>
-                    </CardHeader>
-                    <CardContent>
-                        <div class="space-y-2">
-                            {
-                                chatbotCapabilities.web.map((capability) => (
-                                    <div class="flex items-center gap-2">
-                                        <CheckCircle className="w-4 h-4 text-green-500" />
-                                        <span class="text-sm">{capability}</span>
-                                    </div>
-                                ))
-                            }
-                        </div>
-                    </CardContent>
-                </Card>
-
-                <Card>
-                    <CardHeader className="pb-4">
-                        <div class="flex items-center gap-2">
-                            <Smartphone className="h-5 w-5 text-green-500" />
-                            <CardTitle className="text-lg">Tu Chatbot WhatsApp Puede:</CardTitle>
-                        </div>
-                    </CardHeader>
-                    <CardContent>
-                        <div class="space-y-2">
-                            {
-                                chatbotCapabilities.whatsapp.map((capability) => (
-                                    <div class="flex items-center gap-2">
-                                        <CheckCircle className="w-4 h-4 text-green-500" />
-                                        <span class="text-sm">{capability}</span>
-                                    </div>
-                                ))
-                            }
-                        </div>
-                    </CardContent>
-                </Card>
             </div>
         </div>
     </section>
@@ -753,20 +694,13 @@ const howItWorks = [
                 <p class="text-muted-foreground md:text-xl">Resolvemos tus dudas más comunes</p>
             </div>
 
-            <div class="mx-auto max-w-3xl space-y-4">
+            <div class="mx-auto max-w-3xl space-y-8">
                 {
-                    faqs.map((faq) => (
-                        <Card>
-                            <CardHeader className="pb-2">
-                                <CardTitle className="text-lg flex items-start gap-3">
-                                    <MessageCircle className="w-5 h-5 text-purple-500 mt-1 flex-shrink-0" />
-                                    {faq.question}
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <p class="text-muted-foreground ml-8">{faq.answer}</p>
-                            </CardContent>
-                        </Card>
+                    faqs.map((item) => (
+                        <div class="border-b pb-6">
+                            <h3 class="mb-2 font-semibold">{item.question}</h3>
+                            <p class="text-muted-foreground">{item.answer}</p>
+                        </div>
                     ))
                 }
             </div>
@@ -774,78 +708,98 @@ const howItWorks = [
     </section>
 
     <!-- CTA Section -->
-    <section class="bg-gradient-to-br from-purple-50 to-indigo-50 px-4 py-20">
-        <div class="container mx-auto">
-            <div class="mx-auto max-w-4xl text-center">
-                <Card className="border-purple-200 bg-white/80 p-12 backdrop-blur-sm">
-                    <CardContent>
-                        <div class="mb-6">
-                            <Bot className="mx-auto h-16 w-16 text-purple-600" />
-                        </div>
-
-                        <h2 class="mb-4 text-3xl font-bold text-purple-800 md:text-4xl">
-                            ¿Listo para que tu Negocio Trabaje Solo?
-                        </h2>
-
-                        <p class="mx-auto mb-8 max-w-2xl text-lg text-purple-700">
-                            Agenda una <strong>llamada gratuita de 15 minutos</strong> y te mostramos
-                            cómo un chatbot puede ayudar a tu negocio específico. Sin compromiso.
-                        </p>
-
-                        <div class="mx-auto mb-8 grid max-w-2xl grid-cols-1 gap-6 md:grid-cols-2">
-                            <div class="flex items-center justify-center gap-3">
-                                <Clock className="h-5 w-5 text-purple-600" />
-                                <span class="text-purple-700">Atiende clientes 24/7</span>
-                            </div>
-                            <div class="flex items-center justify-center gap-3">
-                                <DollarSign className="h-5 w-5 text-purple-600" />
-                                <span class="text-purple-700">Desde $199/mes</span>
-                            </div>
-                            <div class="flex items-center justify-center gap-3">
-                                <Zap className="h-5 w-5 text-purple-600" />
-                                <span class="text-purple-700">Listo en días, no meses</span>
-                            </div>
-                            <div class="flex items-center justify-center gap-3">
-                                <CheckCircle className="h-5 w-5 text-purple-600" />
-                                <span class="text-purple-700">Sin conocimiento técnico</span>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col justify-center gap-4 sm:flex-row">
-                            <Button
-                                href="https://devi.devanthos.com/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                size="lg"
-                                class="bg-gradient-to-r from-purple-500 to-indigo-500 px-8 text-lg hover:from-purple-600 hover:to-indigo-600">
-                                Probar Demo Gratis
-                                <ArrowRight className="ml-2 h-5 w-5" />
-                            </Button>
-                            <Button
-                                href="https://api.whatsapp.com/send?phone=56934248692&text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20chatbots%20para%20mi%20negocio"
-                                target="_blank"
-                                rel="noreferrer"
-                                variant="outline"
-                                size="lg"
-                                class="border-purple-500 px-8 text-lg text-purple-600 hover:bg-purple-50">
-                                <Smartphone className="mr-2 h-5 w-5" />
-                                Hablar por WhatsApp
-                            </Button>
-                        </div>
-
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-8">
+                <div
+                    class="bg-background dark relative h-[350px] overflow-hidden rounded-xl text-white md:col-span-2">
+                    <div class="flex h-full flex-row p-4 sm:p-8 md:p-12">
                         <div
-                            class="mt-6 flex items-center justify-center gap-4 text-sm text-purple-600">
-                            <div class="flex items-center gap-1">
-                                <CheckCircle className="h-4 w-4" />
-                                <span>Sin compromiso</span>
-                            </div>
-                            <div class="flex items-center gap-1">
-                                <CheckCircle className="h-4 w-4" />
-                                <span>Respuesta en menos de 24h</span>
+                            class="relative z-10 w-full self-center px-2 text-center sm:w-auto sm:flex-1 sm:px-0 md:text-left">
+                            <h1
+                                class="font-cocogoose mb-4 text-3xl sm:mb-6 sm:text-2xl md:text-3xl">
+                                ¿Listo para que tu Negocio Trabaje Solo?
+                            </h1>
+                            <p class="text-muted-foreground mb-6 text-lg">
+                                Agenda una <strong>llamada gratuita de 15 minutos</strong> y te mostramos
+                                cómo un chatbot puede ayudar a tu negocio específico. Sin compromiso.
+                            </p>
+                            <div
+                                class="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4 md:justify-start">
+                                <Button
+                                    href="https://api.whatsapp.com/send?phone=56934248692&text=Hola%2C%20quiero%20una%20consulta%20gratuita%20sobre%20chatbots%20para%20mi%20negocio."
+                                    target="_blank"
+                                    rel="noreferrer">
+                                    Quiero una Consulta Gratis
+                                    <ArrowRight className="ml-2 h-5 w-5" />
+                                </Button>
+                                <Button
+                                    href="https://api.whatsapp.com/send?phone=56934248692&text=Hola%2C%20quiero%20un%20chatbot%20para%20mi%20negocio."
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    variant="outline"
+                                    class="border border-white">
+                                    Quiero un chatbot para mi negocio
+                                    <ArrowRight className="ml-2 h-5 w-5" />
+                                </Button>
                             </div>
                         </div>
-                    </CardContent>
-                </Card>
+                        {/* Phone section */}
+                        <div class="relative z-10 hidden md:block">
+                            <div
+                                class="absolute top-0 left-1/2 h-[120%] w-[69%] -translate-x-1/2 overflow-hidden rounded-t-[32px]">
+                                <img
+                                    src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-dark-7-tall.svg"
+                                    alt=""
+                                    class="h-full w-full object-cover"
+                                />
+                            </div>
+                            <div class="relative z-10 h-[350px] overflow-hidden">
+                                <img
+                                    class="h-[600px] w-auto max-w-none"
+                                    src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/mockups/phone-2.png"
+                                    width={340}
+                                    height={600}
+                                    alt=""
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-muted hidden h-[350px] items-center justify-center rounded-xl p-6 sm:flex">
+                    <div class="w-full">
+                        <h3 class="mb-6 text-xl font-semibold sm:text-2xl">Comienza Hoy Mismo</h3>
+                        <div class="mx-auto mb-8 grid max-w-2xl grid-cols-1 gap-6 md:grid-cols-2">
+                            <Badge variant="outline" className="text-sm">
+                                <Clock />
+                                <span class="">Atiende clientes 24/7</span>
+                            </Badge>
+                            <Badge variant="outline" className="text-sm">
+                                <DollarSign />
+                                <span class="">Desde $199/mes</span>
+                            </Badge>
+                            <Badge variant="outline" className="text-sm">
+                                <Zap />
+                                <span class="">Listo en días, no meses</span>
+                            </Badge>
+                            <Badge variant="outline" className="text-sm">
+                                <CheckCircle />
+                                <span class="">Sin conocimiento técnico</span>
+                            </Badge>
+                        </div>
+
+                        <Button
+                            href="https://devi.devanthos.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="w-full">
+                            Probar Demo Gratis
+                            <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
