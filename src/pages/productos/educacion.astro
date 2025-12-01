@@ -1,7 +1,6 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import Layout from '@/layouts/Layout.astro';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
     GraduationCap,
     BookOpen,
@@ -11,40 +10,41 @@ import {
     PieChart,
     Monitor,
     ArrowRight,
-} from "lucide-react";
+} from 'lucide-react';
+import HeroProductos from '@/components/interfaces/HeroProductos.astro';
 
 const solutions = [
     {
         icon: Video,
-        title: "Plataformas de E-Learning",
-        description: "Sistemas completos de aprendizaje en línea",
+        title: 'Plataformas de E-Learning',
+        description: 'Sistemas completos de aprendizaje en línea',
         features: [
-            "Aulas virtuales interactivas",
-            "Gestión de cursos y contenido",
-            "Evaluaciones y exámenes online",
-            "Seguimiento del progreso",
+            'Aulas virtuales interactivas',
+            'Gestión de cursos y contenido',
+            'Evaluaciones y exámenes online',
+            'Seguimiento del progreso',
         ],
     },
     {
         icon: Users,
-        title: "Gestión Académica",
-        description: "Sistemas integrales para administración educativa",
+        title: 'Gestión Académica',
+        description: 'Sistemas integrales para administración educativa',
         features: [
-            "Gestión de estudiantes y profesores",
-            "Horarios y calendario académico",
-            "Calificaciones y reportes",
-            "Comunicación institucional",
+            'Gestión de estudiantes y profesores',
+            'Horarios y calendario académico',
+            'Calificaciones y reportes',
+            'Comunicación institucional',
         ],
     },
     {
         icon: BookOpen,
-        title: "Bibliotecas Digitales",
-        description: "Repositorios digitales de recursos educativos",
+        title: 'Bibliotecas Digitales',
+        description: 'Repositorios digitales de recursos educativos',
         features: [
-            "Catálogo digital de recursos",
-            "Búsqueda avanzada",
-            "Acceso remoto seguro",
-            "Gestión de préstamos digitales",
+            'Catálogo digital de recursos',
+            'Búsqueda avanzada',
+            'Acceso remoto seguro',
+            'Gestión de préstamos digitales',
         ],
     },
 ];
@@ -52,89 +52,70 @@ const solutions = [
 const features = [
     {
         icon: Monitor,
-        title: "Acceso Multiplataforma",
-        description:
-            "Accede desde computadoras, tablets y smartphones con la misma experiencia.",
+        title: 'Acceso Multiplataforma',
+        description: 'Accede desde computadoras, tablets y smartphones con la misma experiencia.',
     },
     {
         icon: PieChart,
-        title: "Analytics Educativo",
-        description:
-            "Métricas detalladas del rendimiento académico y participación estudiantil.",
+        title: 'Analytics Educativo',
+        description: 'Métricas detalladas del rendimiento académico y participación estudiantil.',
     },
     {
         icon: Award,
-        title: "Gamificación",
-        description:
-            "Elementos de juego que aumentan la motivación y participación.",
+        title: 'Gamificación',
+        description: 'Elementos de juego que aumentan la motivación y participación.',
     },
 ];
 
 const benefits = [
-    "Aumento del 65% en la participación estudiantil",
-    "Reducción del 40% en costos administrativos",
-    "Mejora del 50% en el seguimiento académico",
-    "Acceso 24/7 a recursos educativos",
-    "Comunicación eficiente entre stakeholders",
-    "Reportes automáticos de rendimiento",
+    'Aumento del 65% en la participación estudiantil',
+    'Reducción del 40% en costos administrativos',
+    'Mejora del 50% en el seguimiento académico',
+    'Acceso 24/7 a recursos educativos',
+    'Comunicación eficiente entre stakeholders',
+    'Reportes automáticos de rendimiento',
 ];
 
 const educationLevels = [
     {
-        level: "Educación Básica",
-        description: "Soluciones para escuelas primarias y secundarias",
-        features: [
-            "Gestión de aulas",
-            "Comunicación con padres",
-            "Actividades interactivas",
-        ],
+        level: 'Educación Básica',
+        description: 'Soluciones para escuelas primarias y secundarias',
+        features: ['Gestión de aulas', 'Comunicación con padres', 'Actividades interactivas'],
     },
     {
-        level: "Educación Superior",
-        description: "Plataformas para universidades e institutos",
-        features: [
-            "Campus virtual",
-            "Investigación colaborativa",
-            "Gestión de títulos",
-        ],
+        level: 'Educación Superior',
+        description: 'Plataformas para universidades e institutos',
+        features: ['Campus virtual', 'Investigación colaborativa', 'Gestión de títulos'],
     },
     {
-        level: "Educación Corporativa",
-        description: "Capacitación y desarrollo de talento empresarial",
-        features: [
-            "Cursos corporativos",
-            "Certificaciones",
-            "Onboarding digital",
-        ],
+        level: 'Educación Corporativa',
+        description: 'Capacitación y desarrollo de talento empresarial',
+        features: ['Cursos corporativos', 'Certificaciones', 'Onboarding digital'],
     },
     {
-        level: "Educación Continua",
-        description: "Programas de formación profesional continua",
-        features: [
-            "Microlearning",
-            "Certificaciones profesionales",
-            "Rutas de aprendizaje",
-        ],
+        level: 'Educación Continua',
+        description: 'Programas de formación profesional continua',
+        features: ['Microlearning', 'Certificaciones profesionales', 'Rutas de aprendizaje'],
     },
 ];
 
 const caseStudies = [
     {
-        title: "Universidad Digital del Norte",
-        description: "Transformación digital completa de campus universitario",
+        title: 'Universidad Digital del Norte',
+        description: 'Transformación digital completa de campus universitario',
         results: [
-            "15,000 estudiantes en plataforma virtual",
-            "80% reducción en procesos manuales",
-            "95% satisfacción estudiantil",
+            '15,000 estudiantes en plataforma virtual',
+            '80% reducción en procesos manuales',
+            '95% satisfacción estudiantil',
         ],
     },
     {
-        title: "Red de Colegios Innovadores",
-        description: "Implementación de aulas digitales en 25 colegios",
+        title: 'Red de Colegios Innovadores',
+        description: 'Implementación de aulas digitales en 25 colegios',
         results: [
-            "5,000 estudiantes beneficiados",
-            "45% mejora en calificaciones",
-            "100% de padres conectados",
+            '5,000 estudiantes beneficiados',
+            '45% mejora en calificaciones',
+            '100% de padres conectados',
         ],
     },
 ];
@@ -142,401 +123,290 @@ const caseStudies = [
 
 <Layout
     title="Soluciones para Educación - Devanthos"
-    description="Desarrollamos plataformas educativas innovadoras. E-learning, gestión académica, aulas virtuales y más para transformar la educación."
->
-    <main class="min-h-screen">
-        <!-- Hero Section -->
-        <section class="h-dvh md:py-40 md:h-fit relative overflow-hidden">
-            <div
-                class="absolute inset-0 bg-gradient-to-br from-primary/50 via-transparent to-accent/50"
-            >
-            </div>
-            <div
-                class="absolute -top-40 -right-40 w-80 h-80 bg-primary/60 rounded-full blur-3xl"
-            >
-            </div>
-            <div
-                class="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/80 rounded-full blur-3xl"
-            >
-            </div>
-            <div
-                class="container h-full flex justify-center items-center mx-auto px-4"
-            >
-                <div class="max-w-4xl mx-auto text-center">
-                    <Badge className="mb-4">Soluciones para Educación</Badge>
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                        <span class="text-primary">Educación</span> del Futuro
-                    </h1>
-                    <p class="text-xl text-muted-foreground mb-8">
-                        Transformamos la educación con tecnología innovadora.
-                        Desde aulas virtuales hasta sistemas de gestión
-                        académica, creamos soluciones que mejoran el
-                        aprendizaje.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a
-                            href="#soluciones"
-                            class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
-                        >
-                            <GraduationCap className="w-4 h-4 mr-2" />
-                            Ver Soluciones
-                        </a>
-                        <a
-                            href="/contacto"
-                            class="inline-flex items-center justify-center px-8 py-3 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
-                        >
-                            Demo Personalizado
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
+    description="Desarrollamos plataformas educativas innovadoras. E-learning, gestión académica, aulas virtuales y más para transformar la educación.">
+    <!-- Hero Section -->
+    <HeroProductos
+        badge="Soluciones para Educación"
+        title="<span>Educación</span> del Futuro"
+        description="Transformamos la educación con tecnología innovadora. Desde aulas virtuales hasta sistemas de gestión académica, creamos soluciones que mejoran el aprendizaje."
+        imageSrc="/images/productos/educacion-hero.avif"
+        buttons={[
+            { text: 'Ver Soluciones', href: '#soluciones', icon: GraduationCap },
+            { text: 'Demo Personalizado', variant: 'secondary', href: '/contacto' },
+        ]}
+    />
 
-        <!-- Features Section -->
-        <section class="py-20">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Tecnología Educativa Avanzada
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Nuestras plataformas educativas incluyen las últimas
-                        innovaciones tecnológicas para crear experiencias de
-                        aprendizaje excepcionales.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {
-                        features.map((feature) => (
-                            <Card className="text-center border-0 shadow-md">
-                                <CardHeader>
-                                    <div class="mx-auto mb-4 p-3 rounded-lg bg-primary/10 w-fit">
-                                        <feature.icon className="w-8 h-8 text-primary" />
-                                    </div>
-                                    <CardTitle className="text-xl">
-                                        {feature.title}
-                                    </CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p class="text-muted-foreground">
-                                        {feature.description}
-                                    </p>
-                                </CardContent>
-                            </Card>
-                        ))
-                    }
-                </div>
+    <!-- Features Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Tecnología Educativa Avanzada</h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Nuestras plataformas educativas incluyen las últimas innovaciones tecnológicas
+                    para crear experiencias de aprendizaje excepcionales.
+                </p>
             </div>
-        </section>
 
-        <!-- Solutions Section -->
-        <section id="soluciones" class="py-20 bg-muted/30">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Soluciones Educativas Completas
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Desde educación básica hasta corporativa, tenemos la
-                        solución perfecta para cada nivel educativo.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    {
-                        solutions.map((solution) => (
-                            <Card className="border-0 shadow-md hover:shadow-lg transition-shadow">
-                                <CardHeader>
-                                    <div class="mb-4 p-3 rounded-lg bg-primary/10 w-fit">
-                                        <solution.icon className="w-8 h-8 text-primary" />
-                                    </div>
-                                    <CardTitle className="text-xl mb-2">
-                                        {solution.title}
-                                    </CardTitle>
-                                    <p class="text-muted-foreground text-sm">
-                                        {solution.description}
-                                    </p>
-                                </CardHeader>
-                                <CardContent>
-                                    <ul class="space-y-2 mb-4">
-                                        {solution.features.map((feature) => (
-                                            <li class="flex items-center gap-2 text-sm">
-                                                <div class="w-1.5 h-1.5 rounded-full bg-primary" />
-                                                {feature}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                    <a
-                                        href="/contacto"
-                                        class="inline-flex items-center text-primary hover:text-primary/80 font-medium text-sm"
-                                    >
-                                        Más información
-                                        <ArrowRight className="w-4 h-4 ml-1" />
-                                    </a>
-                                </CardContent>
-                            </Card>
-                        ))
-                    }
-                </div>
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+                {
+                    features.map((feature) => (
+                        <Card className="text-center border-0 shadow-md">
+                            <CardHeader>
+                                <div class="bg-primary/10 mx-auto mb-4 w-fit rounded-lg p-3">
+                                    <feature.icon className="w-8 h-8 text-primary" />
+                                </div>
+                                <CardTitle className="text-xl">{feature.title}</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p class="text-muted-foreground">{feature.description}</p>
+                            </CardContent>
+                        </Card>
+                    ))
+                }
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Education Levels -->
-        <section class="py-20">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Soluciones para Todos los Niveles
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Adaptamos nuestras soluciones a las necesidades
-                        específicas de cada nivel educativo.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {
-                        educationLevels.map((level) => (
-                            <Card className="border-0 shadow-md">
-                                <CardHeader>
-                                    <CardTitle className="text-xl text-primary">
-                                        {level.level}
-                                    </CardTitle>
-                                    <p class="text-muted-foreground text-sm">
-                                        {level.description}
-                                    </p>
-                                </CardHeader>
-                                <CardContent>
-                                    <div class="grid grid-cols-1 gap-2">
-                                        {level.features.map((feature) => (
-                                            <div class="flex items-center gap-3">
-                                                <div class="w-2 h-2 rounded-full bg-primary" />
-                                                <span class="text-sm">
-                                                    {feature}
-                                                </span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        ))
-                    }
-                </div>
+    <!-- Solutions Section -->
+    <section id="soluciones" class="bg-muted/30 py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Soluciones Educativas Completas</h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Desde educación básica hasta corporativa, tenemos la solución perfecta para cada
+                    nivel educativo.
+                </p>
             </div>
-        </section>
 
-        <!-- Benefits Section -->
-        <section class="py-20 bg-muted/30">
-            <div class="container mx-auto px-4">
-                <div class="max-w-6xl mx-auto">
-                    <div
-                        class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
-                    >
-                        <div>
-                            <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                                Impacto Medible en la Educación
-                            </h2>
-                            <p class="text-lg text-muted-foreground mb-8">
-                                Nuestras soluciones han demostrado mejoras
-                                significativas en el rendimiento académico y la
-                                eficiencia institucional.
-                            </p>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                {
-                                    benefits.map((benefit) => (
+            <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+                {
+                    solutions.map((solution) => (
+                        <Card className="border-0 shadow-md hover:shadow-lg transition-shadow">
+                            <CardHeader>
+                                <div class="bg-primary/10 mb-4 w-fit rounded-lg p-3">
+                                    <solution.icon className="w-8 h-8 text-primary" />
+                                </div>
+                                <CardTitle className="text-xl mb-2">{solution.title}</CardTitle>
+                                <p class="text-muted-foreground text-sm">{solution.description}</p>
+                            </CardHeader>
+                            <CardContent>
+                                <ul class="mb-4 space-y-2">
+                                    {solution.features.map((feature) => (
+                                        <li class="flex items-center gap-2 text-sm">
+                                            <div class="bg-primary h-1.5 w-1.5 rounded-full" />
+                                            {feature}
+                                        </li>
+                                    ))}
+                                </ul>
+                                <a
+                                    href="/contacto"
+                                    class="text-primary hover:text-primary/80 inline-flex items-center text-sm font-medium">
+                                    Más información
+                                    <ArrowRight className="w-4 h-4 ml-1" />
+                                </a>
+                            </CardContent>
+                        </Card>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Levels -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">
+                    Soluciones para Todos los Niveles
+                </h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Adaptamos nuestras soluciones a las necesidades específicas de cada nivel
+                    educativo.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+                {
+                    educationLevels.map((level) => (
+                        <Card className="border-0 shadow-md">
+                            <CardHeader>
+                                <CardTitle className="text-xl text-primary">
+                                    {level.level}
+                                </CardTitle>
+                                <p class="text-muted-foreground text-sm">{level.description}</p>
+                            </CardHeader>
+                            <CardContent>
+                                <div class="grid grid-cols-1 gap-2">
+                                    {level.features.map((feature) => (
                                         <div class="flex items-center gap-3">
-                                            <div class="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
-                                            <span class="text-sm">
-                                                {benefit}
-                                            </span>
+                                            <div class="bg-primary h-2 w-2 rounded-full" />
+                                            <span class="text-sm">{feature}</span>
                                         </div>
-                                    ))
-                                }
-                            </div>
-                        </div>
-                        <div
-                            class="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-950/20 dark:to-indigo-950/20 p-8 rounded-xl"
-                        >
-                            <h3 class="text-2xl font-bold mb-6 text-center">
-                                Resultados Comprobados
-                            </h3>
-                            <div class="grid grid-cols-2 gap-6">
-                                <div class="text-center">
-                                    <div
-                                        class="text-3xl font-bold text-primary mb-2"
-                                    >
-                                        50k+
-                                    </div>
-                                    <p class="text-sm text-muted-foreground">
-                                        Estudiantes activos
-                                    </p>
+                                    ))}
                                 </div>
-                                <div class="text-center">
-                                    <div
-                                        class="text-3xl font-bold text-primary mb-2"
-                                    >
-                                        200+
+                            </CardContent>
+                        </Card>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="bg-muted/30 py-20">
+        <div class="container mx-auto px-4">
+            <div class="mx-auto max-w-6xl">
+                <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+                    <div>
+                        <h2 class="mb-6 text-3xl font-bold md:text-4xl">
+                            Impacto Medible en la Educación
+                        </h2>
+                        <p class="text-muted-foreground mb-8 text-lg">
+                            Nuestras soluciones han demostrado mejoras significativas en el
+                            rendimiento académico y la eficiencia institucional.
+                        </p>
+                        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                            {
+                                benefits.map((benefit) => (
+                                    <div class="flex items-center gap-3">
+                                        <div class="bg-primary h-2 w-2 flex-shrink-0 rounded-full" />
+                                        <span class="text-sm">{benefit}</span>
                                     </div>
-                                    <p class="text-sm text-muted-foreground">
-                                        Instituciones
-                                    </p>
-                                </div>
-                                <div class="text-center">
-                                    <div
-                                        class="text-3xl font-bold text-primary mb-2"
-                                    >
-                                        98%
-                                    </div>
-                                    <p class="text-sm text-muted-foreground">
-                                        Satisfacción
-                                    </p>
-                                </div>
-                                <div class="text-center">
-                                    <div
-                                        class="text-3xl font-bold text-primary mb-2"
-                                    >
-                                        24/7
-                                    </div>
-                                    <p class="text-sm text-muted-foreground">
-                                        Disponibilidad
-                                    </p>
-                                </div>
-                            </div>
+                                ))
+                            }
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Case Studies -->
-        <section class="py-20">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Casos de Éxito
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Descubre cómo hemos transformado la experiencia
-                        educativa en diferentes instituciones.
-                    </p>
-                </div>
-
-                <div
-                    class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto"
-                >
-                    {
-                        caseStudies.map((study) => (
-                            <Card className="border-0 shadow-md">
-                                <CardHeader>
-                                    <CardTitle className="text-xl">
-                                        {study.title}
-                                    </CardTitle>
-                                    <p class="text-muted-foreground text-sm">
-                                        {study.description}
-                                    </p>
-                                </CardHeader>
-                                <CardContent>
-                                    <h4 class="font-semibold mb-3 text-primary">
-                                        Resultados obtenidos:
-                                    </h4>
-                                    <ul class="space-y-2">
-                                        {study.results.map((result) => (
-                                            <li class="flex items-center gap-3">
-                                                <GraduationCap className="w-4 h-4 text-primary flex-shrink-0" />
-                                                <span class="text-sm">
-                                                    {result}
-                                                </span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </CardContent>
-                            </Card>
-                        ))
-                    }
-                </div>
-            </div>
-        </section>
-
-        <!-- Technology Stack -->
-        <section class="py-20 bg-muted/30">
-            <div class="container mx-auto px-4">
-                <div class="max-w-4xl mx-auto text-center">
-                    <BookOpen className="w-16 h-16 text-primary mx-auto mb-6" />
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                        Tecnología de Vanguardia
-                    </h2>
-                    <p class="text-lg text-muted-foreground mb-8">
-                        Utilizamos las mejores tecnologías para crear
-                        plataformas educativas robustas, escalables y fáciles de
-                        usar.
-                    </p>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <Card className="border-0 shadow-md">
-                            <CardContent className="p-6 text-center">
-                                <h3 class="font-semibold mb-2">
-                                    Inteligencia Artificial
-                                </h3>
-                                <p class="text-sm text-muted-foreground">
-                                    Personalización del aprendizaje y
-                                    recomendaciones inteligentes
-                                </p>
-                            </CardContent>
-                        </Card>
-                        <Card className="border-0 shadow-md">
-                            <CardContent className="p-6 text-center">
-                                <h3 class="font-semibold mb-2">
-                                    Realidad Virtual
-                                </h3>
-                                <p class="text-sm text-muted-foreground">
-                                    Experiencias inmersivas para laboratorios
-                                    virtuales
-                                </p>
-                            </CardContent>
-                        </Card>
-                        <Card className="border-0 shadow-md">
-                            <CardContent className="p-6 text-center">
-                                <h3 class="font-semibold mb-2">Blockchain</h3>
-                                <p class="text-sm text-muted-foreground">
-                                    Certificaciones digitales seguras e
-                                    inmutables
-                                </p>
-                            </CardContent>
-                        </Card>
+                    <div
+                        class="rounded-xl bg-gradient-to-br from-blue-50 to-indigo-100 p-8 dark:from-blue-950/20 dark:to-indigo-950/20">
+                        <h3 class="mb-6 text-center text-2xl font-bold">Resultados Comprobados</h3>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="text-center">
+                                <div class="text-primary mb-2 text-3xl font-bold">50k+</div>
+                                <p class="text-muted-foreground text-sm">Estudiantes activos</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-primary mb-2 text-3xl font-bold">200+</div>
+                                <p class="text-muted-foreground text-sm">Instituciones</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-primary mb-2 text-3xl font-bold">98%</div>
+                                <p class="text-muted-foreground text-sm">Satisfacción</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-primary mb-2 text-3xl font-bold">24/7</div>
+                                <p class="text-muted-foreground text-sm">Disponibilidad</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- CTA Section -->
-        <section class="py-20 bg-primary text-primary-foreground">
-            <div class="container mx-auto px-4 text-center">
-                <div class="max-w-3xl mx-auto">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                        Transforma la educación en tu institución
-                    </h2>
-                    <p class="text-lg opacity-90 mb-8">
-                        Únete a las instituciones educativas que ya han mejorado
-                        sus resultados académicos con nuestras soluciones
-                        tecnológicas innovadoras.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a
-                            href="/contacto"
-                            class="inline-flex items-center justify-center px-8 py-3 bg-white text-primary rounded-lg font-medium hover:bg-gray-100 transition-colors"
-                        >
-                            <Video className="w-4 h-4 mr-2" />
-                            Solicitar Demo
-                        </a>
-                        <a
-                            href="/soluciones"
-                            class="inline-flex items-center justify-center px-8 py-3 border border-white/20 rounded-lg font-medium hover:bg-white/10 transition-colors"
-                        >
-                            Ver Todas las Soluciones
-                        </a>
-                    </div>
+    <!-- Case Studies -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Casos de Éxito</h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Descubre cómo hemos transformado la experiencia educativa en diferentes
+                    instituciones.
+                </p>
+            </div>
+
+            <div class="mx-auto grid max-w-5xl grid-cols-1 gap-8 lg:grid-cols-2">
+                {
+                    caseStudies.map((study) => (
+                        <Card className="border-0 shadow-md">
+                            <CardHeader>
+                                <CardTitle className="text-xl">{study.title}</CardTitle>
+                                <p class="text-muted-foreground text-sm">{study.description}</p>
+                            </CardHeader>
+                            <CardContent>
+                                <h4 class="text-primary mb-3 font-semibold">
+                                    Resultados obtenidos:
+                                </h4>
+                                <ul class="space-y-2">
+                                    {study.results.map((result) => (
+                                        <li class="flex items-center gap-3">
+                                            <GraduationCap className="w-4 h-4 text-primary flex-shrink-0" />
+                                            <span class="text-sm">{result}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </CardContent>
+                        </Card>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="bg-muted/30 py-20">
+        <div class="container mx-auto px-4">
+            <div class="mx-auto max-w-4xl text-center">
+                <BookOpen className="text-primary mx-auto mb-6 h-16 w-16" />
+                <h2 class="mb-6 text-3xl font-bold md:text-4xl">Tecnología de Vanguardia</h2>
+                <p class="text-muted-foreground mb-8 text-lg">
+                    Utilizamos las mejores tecnologías para crear plataformas educativas robustas,
+                    escalables y fáciles de usar.
+                </p>
+                <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+                    <Card className="border-0 shadow-md">
+                        <CardContent className="p-6 text-center">
+                            <h3 class="mb-2 font-semibold">Inteligencia Artificial</h3>
+                            <p class="text-muted-foreground text-sm">
+                                Personalización del aprendizaje y recomendaciones inteligentes
+                            </p>
+                        </CardContent>
+                    </Card>
+                    <Card className="border-0 shadow-md">
+                        <CardContent className="p-6 text-center">
+                            <h3 class="mb-2 font-semibold">Realidad Virtual</h3>
+                            <p class="text-muted-foreground text-sm">
+                                Experiencias inmersivas para laboratorios virtuales
+                            </p>
+                        </CardContent>
+                    </Card>
+                    <Card className="border-0 shadow-md">
+                        <CardContent className="p-6 text-center">
+                            <h3 class="mb-2 font-semibold">Blockchain</h3>
+                            <p class="text-muted-foreground text-sm">
+                                Certificaciones digitales seguras e inmutables
+                            </p>
+                        </CardContent>
+                    </Card>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-primary text-primary-foreground py-20">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mx-auto max-w-3xl">
+                <h2 class="mb-6 text-3xl font-bold md:text-4xl">
+                    Transforma la educación en tu institución
+                </h2>
+                <p class="mb-8 text-lg opacity-90">
+                    Únete a las instituciones educativas que ya han mejorado sus resultados
+                    académicos con nuestras soluciones tecnológicas innovadoras.
+                </p>
+                <div class="flex flex-col justify-center gap-4 sm:flex-row">
+                    <a
+                        href="/contacto"
+                        class="text-primary inline-flex items-center justify-center rounded-lg bg-white px-8 py-3 font-medium transition-colors hover:bg-gray-100">
+                        <Video className="mr-2 h-4 w-4" />
+                        Solicitar Demo
+                    </a>
+                    <a
+                        href="/soluciones"
+                        class="inline-flex items-center justify-center rounded-lg border border-white/20 px-8 py-3 font-medium transition-colors hover:bg-white/10">
+                        Ver Todas las Soluciones
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 </Layout>
