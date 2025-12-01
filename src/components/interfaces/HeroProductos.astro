@@ -1,0 +1,85 @@
+---
+import Button from '../ui/Button.astro';
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props {
+    badge?: string;
+    title: string;
+    description: string;
+    buttons?: Array<{
+        icon?: astroHTML.JSX.Element;
+        text: string;
+        variant?: 'default' | 'secondary' | 'link' | 'destructive' | 'outline' | 'ghost';
+        href: string;
+    }>;
+    videoSrc?: string;
+    imageSrc?: string;
+}
+const { badge, title, description, videoSrc, imageSrc, buttons } = Astro.props;
+---
+
+<section class="relative flex min-h-screen items-center justify-between py-14">
+    <div
+        class="absolute inset-0 z-0"
+        style={{
+        background: `
+            radial-gradient(ellipse 120% 80% at 70% 20%, rgba(255, 20, 147, 0.15), transparent 50%),
+            radial-gradient(ellipse 100% 60% at 30% 10%, rgba(0, 255, 255, 0.12), transparent 60%),
+            radial-gradient(ellipse 90% 70% at 50% 0%, rgba(138, 43, 226, 0.18), transparent 65%),
+            radial-gradient(ellipse 110% 50% at 80% 30%, rgba(255, 215, 0, 0.08), transparent 40%),
+            `,
+        }}
+    />
+    <div class="relative z-10 flex flex-col gap-5 px-[10%] lg:w-[50%] lg:pr-0">
+        {badge && <p class="text-foreground font-light uppercase">{badge}</p>}
+        <h1
+            class="text-foreground leading-tight font-cocogoose text-5xl md:text-6xl lg:text-7xl [text-shadow:0_0_10px_rgba(255,255,255,0.65)] [&_span]:[text-shadow:0_0_10px_rgba(94,111,182,0.65)] [&_span]:text-primary"
+            set:html={title}
+        />
+        <p class="text-foreground my-8 md:text-xl">{description}</p>
+        <div class="flex flex-col gap-4 font-medium md:flex-row">
+            {
+                buttons?.map((button) => (
+                    <Button
+                        variant={button.variant || 'default'}
+                        href={button.href}
+                        class="h-fit items-center gap-1 rounded-full px-6 py-3">
+                        {button.icon && <button.icon />}
+                        {button.text}
+                    </Button>
+                ))
+            }
+        </div>
+    </div>
+    <div class="relative hidden h-[720px] w-[45%]  rounded-l-full lg:block">
+        {
+            videoSrc && (
+                <video
+                    autoplay
+                    loop
+                    muted
+                    playsinline
+                    data-wf-ignore="true"
+                    data-object-fit="cover"
+                    poster={imageSrc}
+                    class="h-full w-full rounded-l-full object-cover">
+                    <source src={videoSrc} type="video/mp4" />
+                </video>
+            )
+        }
+        {
+            imageSrc && !videoSrc && (
+                <img
+                    src={imageSrc}
+                    alt={title}
+                    class="relative z-10 h-full w-full rounded-l-full object-cover"
+                />
+                <img 
+                    src={imageSrc}
+                    alt={title}
+                    class="h-full w-full rounded-l-full object-cover absolute inset-0 blur-2xl"
+                />
+            )
+        }
+    </div>
+</section>
