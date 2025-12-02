@@ -1,7 +1,7 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import Layout from '@/layouts/Layout.astro';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import {
     BarChart3,
     PieChart,
@@ -22,239 +22,177 @@ import {
     Factory,
     Landmark,
     Hospital,
-} from "lucide-react";
+} from 'lucide-react';
+import HeroProductos from '@/components/interfaces/HeroProductos.astro';
 
 const dashboardTypes = [
     {
-        title: "Business Intelligence Dashboard",
-        description:
-            "Dashboards ejecutivos con KPIs y métricas de negocio en tiempo real",
+        title: 'Business Intelligence Dashboard',
+        description: 'Dashboards ejecutivos con KPIs y métricas de negocio en tiempo real',
         icon: BarChart3,
-        features: [
-            "KPI tracking",
-            "Real-time data",
-            "Executive reporting",
-            "Drill-down analytics",
-        ],
-        bestFor: "CEOs, directores, analistas de negocio",
-        dataTypes: ["Sales", "Revenue", "Growth", "Performance"],
-        timeline: "3-6 semanas",
-        investment: "$8,000 - $20,000",
+        features: ['KPI tracking', 'Real-time data', 'Executive reporting', 'Drill-down analytics'],
+        bestFor: 'CEOs, directores, analistas de negocio',
+        dataTypes: ['Sales', 'Revenue', 'Growth', 'Performance'],
+        timeline: '3-6 semanas',
+        investment: '$8,000 - $20,000',
     },
     {
-        title: "Operational Dashboard",
-        description:
-            "Monitoreo operacional para equipos técnicos y de producción",
+        title: 'Operational Dashboard',
+        description: 'Monitoreo operacional para equipos técnicos y de producción',
         icon: Activity,
-        features: [
-            "System monitoring",
-            "Alert management",
-            "Performance metrics",
-            "SLA tracking",
-        ],
-        bestFor: "DevOps, IT managers, equipos operacionales",
-        dataTypes: [
-            "Server metrics",
-            "Application logs",
-            "User activity",
-            "System health",
-        ],
-        timeline: "2-4 semanas",
-        investment: "$5,000 - $15,000",
+        features: ['System monitoring', 'Alert management', 'Performance metrics', 'SLA tracking'],
+        bestFor: 'DevOps, IT managers, equipos operacionales',
+        dataTypes: ['Server metrics', 'Application logs', 'User activity', 'System health'],
+        timeline: '2-4 semanas',
+        investment: '$5,000 - $15,000',
     },
     {
-        title: "Analytics Dashboard",
-        description: "Análisis profundo de datos con visualizaciones avanzadas",
+        title: 'Analytics Dashboard',
+        description: 'Análisis profundo de datos con visualizaciones avanzadas',
         icon: PieChart,
         features: [
-            "Custom visualizations",
-            "Statistical analysis",
-            "Predictive models",
-            "Data exploration",
+            'Custom visualizations',
+            'Statistical analysis',
+            'Predictive models',
+            'Data exploration',
         ],
-        bestFor: "Data analysts, researchers, marketing teams",
-        dataTypes: [
-            "User behavior",
-            "Campaign performance",
-            "Market trends",
-            "Customer insights",
-        ],
-        timeline: "4-8 semanas",
-        investment: "$10,000 - $30,000",
+        bestFor: 'Data analysts, researchers, marketing teams',
+        dataTypes: ['User behavior', 'Campaign performance', 'Market trends', 'Customer insights'],
+        timeline: '4-8 semanas',
+        investment: '$10,000 - $30,000',
     },
 ];
 
 const visualizations = [
     {
         icon: BarChart3,
-        title: "Gráficos de Barras",
-        description:
-            "Comparación de valores categóricos y tendencias temporales.",
+        title: 'Gráficos de Barras',
+        description: 'Comparación de valores categóricos y tendencias temporales.',
         useCases: [
-            "Sales by region",
-            "Monthly performance",
-            "Team productivity",
-            "Budget allocation",
+            'Sales by region',
+            'Monthly performance',
+            'Team productivity',
+            'Budget allocation',
         ],
     },
     {
         icon: PieChart,
-        title: "Gráficos Circulares",
-        description: "Distribución porcentual y composición de datos.",
-        useCases: [
-            "Market share",
-            "Traffic sources",
-            "Budget breakdown",
-            "Customer segments",
-        ],
+        title: 'Gráficos Circulares',
+        description: 'Distribución porcentual y composición de datos.',
+        useCases: ['Market share', 'Traffic sources', 'Budget breakdown', 'Customer segments'],
     },
     {
         icon: TrendingUp,
-        title: "Líneas de Tendencia",
-        description: "Evolución temporal y predicciones futuras.",
-        useCases: [
-            "Revenue growth",
-            "User acquisition",
-            "Performance trends",
-            "Forecasting",
-        ],
+        title: 'Líneas de Tendencia',
+        description: 'Evolución temporal y predicciones futuras.',
+        useCases: ['Revenue growth', 'User acquisition', 'Performance trends', 'Forecasting'],
     },
     {
         icon: Activity,
-        title: "Métricas en Tiempo Real",
-        description: "Indicadores live con alertas automáticas.",
-        useCases: [
-            "Active users",
-            "System status",
-            "Live sales",
-            "Server performance",
-        ],
+        title: 'Métricas en Tiempo Real',
+        description: 'Indicadores live con alertas automáticas.',
+        useCases: ['Active users', 'System status', 'Live sales', 'Server performance'],
     },
     {
         icon: Filter,
-        title: "Filtros Interactivos",
-        description: "Segmentación dinámica y exploración de datos.",
-        useCases: [
-            "Date ranges",
-            "Product categories",
-            "User segments",
-            "Geographic filters",
-        ],
+        title: 'Filtros Interactivos',
+        description: 'Segmentación dinámica y exploración de datos.',
+        useCases: ['Date ranges', 'Product categories', 'User segments', 'Geographic filters'],
     },
     {
         icon: Download,
-        title: "Exportación de Datos",
-        description: "Descarga en múltiples formatos para análisis externos.",
-        useCases: [
-            "PDF reports",
-            "Excel exports",
-            "CSV data",
-            "Scheduled reports",
-        ],
+        title: 'Exportación de Datos',
+        description: 'Descarga en múltiples formatos para análisis externos.',
+        useCases: ['PDF reports', 'Excel exports', 'CSV data', 'Scheduled reports'],
     },
 ];
 
 const industries = [
     {
-        name: "E-commerce & Retail",
-        description: "Dashboards para ventas, inventory y customer analytics",
+        name: 'E-commerce & Retail',
+        description: 'Dashboards para ventas, inventory y customer analytics',
         icon: ShoppingBag,
-        metrics: [
-            "Revenue tracking",
-            "Conversion rates",
-            "Inventory levels",
-            "Customer LTV",
-        ],
+        metrics: ['Revenue tracking', 'Conversion rates', 'Inventory levels', 'Customer LTV'],
         specialFeatures: [
-            "Product performance",
-            "Cart abandonment",
-            "Customer journey",
-            "Seasonal trends",
+            'Product performance',
+            'Cart abandonment',
+            'Customer journey',
+            'Seasonal trends',
         ],
     },
     {
-        name: "SaaS & Software",
-        description: "Métricas de producto, usuarios y crecimiento",
+        name: 'SaaS & Software',
+        description: 'Métricas de producto, usuarios y crecimiento',
         icon: LaptopMinimal,
-        metrics: [
-            "MRR/ARR",
-            "Churn rate",
-            "User engagement",
-            "Feature adoption",
-        ],
+        metrics: ['MRR/ARR', 'Churn rate', 'User engagement', 'Feature adoption'],
         specialFeatures: [
-            "Cohort analysis",
-            "Funnel optimization",
-            "A/B test results",
-            "Product analytics",
+            'Cohort analysis',
+            'Funnel optimization',
+            'A/B test results',
+            'Product analytics',
         ],
     },
     {
-        name: "Marketing & Advertising",
-        description: "Performance de campañas y ROI tracking",
+        name: 'Marketing & Advertising',
+        description: 'Performance de campañas y ROI tracking',
         icon: ChartNoAxesCombined,
         metrics: [
-            "Campaign ROI",
-            "Lead generation",
-            "Cost per acquisition",
-            "Attribution modeling",
+            'Campaign ROI',
+            'Lead generation',
+            'Cost per acquisition',
+            'Attribution modeling',
         ],
         specialFeatures: [
-            "Multi-channel attribution",
-            "Campaign comparison",
-            "Audience insights",
-            "Creative performance",
+            'Multi-channel attribution',
+            'Campaign comparison',
+            'Audience insights',
+            'Creative performance',
         ],
     },
     {
-        name: "Finanzas & Banking",
-        description: "Risk management y financial reporting",
+        name: 'Finanzas & Banking',
+        description: 'Risk management y financial reporting',
         icon: Landmark,
         metrics: [
-            "Portfolio performance",
-            "Risk metrics",
-            "Compliance tracking",
-            "Transaction monitoring",
+            'Portfolio performance',
+            'Risk metrics',
+            'Compliance tracking',
+            'Transaction monitoring',
         ],
         specialFeatures: [
-            "Regulatory reporting",
-            "Fraud detection",
-            "Credit scoring",
-            "Market analysis",
+            'Regulatory reporting',
+            'Fraud detection',
+            'Credit scoring',
+            'Market analysis',
         ],
     },
     {
-        name: "Healthcare & MedTech",
-        description: "Patient outcomes y operational efficiency",
+        name: 'Healthcare & MedTech',
+        description: 'Patient outcomes y operational efficiency',
         icon: Hospital,
         metrics: [
-            "Patient satisfaction",
-            "Treatment outcomes",
-            "Resource utilization",
-            "Cost per case",
+            'Patient satisfaction',
+            'Treatment outcomes',
+            'Resource utilization',
+            'Cost per case',
         ],
         specialFeatures: [
-            "Clinical pathways",
-            "Population health",
-            "Quality measures",
-            "Operational KPIs",
+            'Clinical pathways',
+            'Population health',
+            'Quality measures',
+            'Operational KPIs',
         ],
     },
     {
-        name: "Manufacturing & IoT",
-        description: "Production monitoring y predictive maintenance",
+        name: 'Manufacturing & IoT',
+        description: 'Production monitoring y predictive maintenance',
         icon: Factory,
-        metrics: [
-            "OEE tracking",
-            "Quality metrics",
-            "Downtime analysis",
-            "Energy consumption",
-        ],
+        metrics: ['OEE tracking', 'Quality metrics', 'Downtime analysis', 'Energy consumption'],
         specialFeatures: [
-            "Machine learning insights",
-            "Predictive maintenance",
-            "Supply chain visibility",
-            "Quality control",
+            'Machine learning insights',
+            'Predictive maintenance',
+            'Supply chain visibility',
+            'Quality control',
         ],
     },
 ];
@@ -262,875 +200,483 @@ const industries = [
 const features = [
     {
         icon: Database,
-        title: "Conectores de Datos",
-        description: "Integración con múltiples fuentes de datos sin código.",
+        title: 'Conectores de Datos',
+        description: 'Integración con múltiples fuentes de datos sin código.',
         integrations: [
-            "SQL databases",
-            "APIs REST",
-            "Cloud services",
-            "File uploads",
-            "Real-time streams",
+            'SQL databases',
+            'APIs REST',
+            'Cloud services',
+            'File uploads',
+            'Real-time streams',
         ],
     },
     {
         icon: Zap,
-        title: "Actualización en Tiempo Real",
-        description:
-            "Datos actualizados automáticamente con alertas inteligentes.",
+        title: 'Actualización en Tiempo Real',
+        description: 'Datos actualizados automáticamente con alertas inteligentes.',
         capabilities: [
-            "Live data feeds",
-            "Automatic refresh",
-            "Smart alerts",
-            "Threshold monitoring",
+            'Live data feeds',
+            'Automatic refresh',
+            'Smart alerts',
+            'Threshold monitoring',
         ],
     },
     {
         icon: Users,
-        title: "Control de Acceso",
-        description: "Gestión granular de permisos y roles de usuario.",
-        features: [
-            "Role-based access",
-            "Data privacy",
-            "Audit trails",
-            "SSO integration",
-        ],
+        title: 'Control de Acceso',
+        description: 'Gestión granular de permisos y roles de usuario.',
+        features: ['Role-based access', 'Data privacy', 'Audit trails', 'SSO integration'],
     },
     {
         icon: Smartphone,
-        title: "Responsive Design",
-        description: "Acceso optimizado desde cualquier dispositivo.",
-        benefits: [
-            "Mobile-first",
-            "Touch interfaces",
-            "Offline support",
-            "Progressive web app",
-        ],
+        title: 'Responsive Design',
+        description: 'Acceso optimizado desde cualquier dispositivo.',
+        benefits: ['Mobile-first', 'Touch interfaces', 'Offline support', 'Progressive web app'],
     },
     {
         icon: Share,
-        title: "Colaboración",
-        description: "Compartir insights y colaborar en análisis.",
-        tools: [
-            "Share dashboards",
-            "Commenting",
-            "Annotations",
-            "Team workspaces",
-        ],
+        title: 'Colaboración',
+        description: 'Compartir insights y colaborar en análisis.',
+        tools: ['Share dashboards', 'Commenting', 'Annotations', 'Team workspaces'],
     },
     {
         icon: Settings,
-        title: "Personalización",
-        description: "Dashboards adaptables a necesidades específicas.",
-        options: [
-            "Custom layouts",
-            "Branded themes",
-            "Widget library",
-            "Template system",
-        ],
-    },
-];
-
-const dataSources = [
-    {
-        category: "Databases",
-        sources: [
-            "PostgreSQL",
-            "MySQL",
-            "MongoDB",
-            "Microsoft SQL Server",
-            "Oracle",
-            "Redis",
-        ],
-    },
-    {
-        category: "Cloud Platforms",
-        sources: [
-            "AWS",
-            "Google Cloud",
-            "Microsoft Azure",
-            "Snowflake",
-            "BigQuery",
-            "Redshift",
-        ],
-    },
-    {
-        category: "Analytics Tools",
-        sources: [
-            "Google Analytics",
-            "Mixpanel",
-            "Amplitude",
-            "Segment",
-            "Adobe Analytics",
-            "Hotjar",
-        ],
-    },
-    {
-        category: "Business Tools",
-        sources: [
-            "Salesforce",
-            "HubSpot",
-            "Stripe",
-            "PayPal",
-            "Shopify",
-            "Mailchimp",
-        ],
-    },
-    {
-        category: "Social Media",
-        sources: [
-            "Facebook Ads",
-            "Google Ads",
-            "LinkedIn Ads",
-            "Twitter API",
-            "Instagram API",
-            "YouTube Analytics",
-        ],
-    },
-    {
-        category: "File Formats",
-        sources: [
-            "CSV/Excel",
-            "JSON",
-            "XML",
-            "APIs REST",
-            "GraphQL",
-            "Webhooks",
-        ],
+        title: 'Personalización',
+        description: 'Dashboards adaptables a necesidades específicas.',
+        options: ['Custom layouts', 'Branded themes', 'Widget library', 'Template system'],
     },
 ];
 
 const process = [
     {
-        phase: "Discovery & Requirements",
-        duration: "1-2 semanas",
+        phase: 'Discovery & Requirements',
+        duration: '1-2 semanas',
         activities: [
-            "Stakeholder interviews",
-            "Data audit",
-            "KPI definition",
-            "User persona analysis",
+            'Stakeholder interviews',
+            'Data audit',
+            'KPI definition',
+            'User persona analysis',
         ],
-        deliverables: [
-            "Requirements document",
-            "Data mapping",
-            "KPI framework",
-            "User stories",
-        ],
+        deliverables: ['Requirements document', 'Data mapping', 'KPI framework', 'User stories'],
     },
     {
-        phase: "Data Architecture",
-        duration: "2-3 semanas",
+        phase: 'Data Architecture',
+        duration: '2-3 semanas',
         activities: [
-            "Data source integration",
-            "ETL pipeline setup",
-            "Data validation",
-            "Performance optimization",
+            'Data source integration',
+            'ETL pipeline setup',
+            'Data validation',
+            'Performance optimization',
         ],
-        deliverables: [
-            "Data pipeline",
-            "Integration documentation",
-            "Data quality report",
-        ],
+        deliverables: ['Data pipeline', 'Integration documentation', 'Data quality report'],
     },
     {
-        phase: "Dashboard Design",
-        duration: "2-4 semanas",
+        phase: 'Dashboard Design',
+        duration: '2-4 semanas',
         activities: [
-            "Information architecture",
-            "Visual design",
-            "Interaction design",
-            "Prototype creation",
+            'Information architecture',
+            'Visual design',
+            'Interaction design',
+            'Prototype creation',
         ],
-        deliverables: [
-            "Design system",
-            "Interactive prototypes",
-            "Style guide",
-        ],
+        deliverables: ['Design system', 'Interactive prototypes', 'Style guide'],
     },
     {
-        phase: "Development & Testing",
-        duration: "3-6 semanas",
+        phase: 'Development & Testing',
+        duration: '3-6 semanas',
         activities: [
-            "Frontend development",
-            "Backend APIs",
-            "Integration testing",
-            "Performance optimization",
+            'Frontend development',
+            'Backend APIs',
+            'Integration testing',
+            'Performance optimization',
         ],
-        deliverables: [
-            "Functional dashboard",
-            "API documentation",
-            "Test reports",
-        ],
+        deliverables: ['Functional dashboard', 'API documentation', 'Test reports'],
     },
     {
-        phase: "Deployment & Training",
-        duration: "1-2 semanas",
-        activities: [
-            "Production deployment",
-            "User training",
-            "Documentation",
-            "Monitoring setup",
-        ],
-        deliverables: [
-            "Live dashboard",
-            "User manual",
-            "Training materials",
-            "Monitoring alerts",
-        ],
-    },
-];
-
-const technologies = [
-    {
-        category: "Frontend",
-        techs: ["React/Vue/Angular", "D3.js", "Chart.js", "Plotly", "Recharts"],
-    },
-    {
-        category: "Backend",
-        techs: [
-            "Node.js",
-            "Python",
-            "ETL Tools",
-            "Apache Kafka",
-            "Apache Airflow",
-        ],
-    },
-    {
-        category: "Databases",
-        techs: ["PostgreSQL", "ClickHouse", "TimescaleDB", "InfluxDB", "Redis"],
-    },
-    {
-        category: "Visualization",
-        techs: ["Tableau", "Power BI", "Grafana", "Looker", "Custom Solutions"],
+        phase: 'Deployment & Training',
+        duration: '1-2 semanas',
+        activities: ['Production deployment', 'User training', 'Documentation', 'Monitoring setup'],
+        deliverables: ['Live dashboard', 'User manual', 'Training materials', 'Monitoring alerts'],
     },
 ];
 
 const kpis = [
-    "Revenue & Sales Metrics",
-    "Customer Acquisition Cost (CAC)",
-    "Customer Lifetime Value (CLV)",
-    "Monthly Recurring Revenue (MRR)",
-    "Churn Rate & Retention",
-    "Conversion Rates",
-    "User Engagement Metrics",
-    "Operational Efficiency",
-    "Cost per Lead (CPL)",
-    "Return on Investment (ROI)",
-    "Net Promoter Score (NPS)",
-    "System Performance Metrics",
+    'Revenue & Sales Metrics',
+    'Customer Acquisition Cost (CAC)',
+    'Customer Lifetime Value (CLV)',
+    'Monthly Recurring Revenue (MRR)',
+    'Churn Rate & Retention',
+    'Conversion Rates',
+    'User Engagement Metrics',
+    'Operational Efficiency',
+    'Cost per Lead (CPL)',
+    'Return on Investment (ROI)',
+    'Net Promoter Score (NPS)',
+    'System Performance Metrics',
 ];
 ---
 
 <Layout
     title="Desarrollo de Dashboards - Devanthos"
-    description="Creamos dashboards interactivos y visualizaciones de datos. Business Intelligence, analytics en tiempo real, KPIs personalizados."
->
-    <main class="min-h-screen">
-        <!-- Hero Section -->
-        <section class="h-dvh md:py-40 md:h-fit relative overflow-hidden">
-            <div
-                class="absolute inset-0 bg-gradient-to-br from-primary/50 via-transparent to-accent/50"
-            >
+    description="Creamos dashboards interactivos y visualizaciones de datos. Business Intelligence, analytics en tiempo real, KPIs personalizados.">
+    <!-- Hero Section -->
+    <HeroProductos
+        badge="Dashboards & Analytics"
+        title="Dashboards que <span >Impulsan Decisiones</span>"
+        description="Transformamos tus datos en insights accionables con dashboards interactivos, visualizaciones avanzadas y analytics en tiempo real."
+        imageSrc="/images/productos/dashboard-hero.avif"
+        buttons={[
+            { text: 'Crear Dashboard', href: '/contacto?servicio=dashboard', icon: BarChart3 },
+            { text: 'Ver Ejemplos', variant: 'secondary', href: '#tipos-dashboard' },
+        ]}
+    />
+
+    <!-- Dashboard Types -->
+    <section id="tipos-dashboard" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Tipos de Dashboards</h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Cada tipo de dashboard está diseñado para usuarios específicos y objetivos de
+                    negocio únicos.
+                </p>
             </div>
-            <div
-                class="absolute -top-40 -right-40 w-80 h-80 bg-primary/60 rounded-full blur-3xl"
-            >
-            </div>
-            <div
-                class="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/80 rounded-full blur-3xl"
-            >
-            </div>
-            <div
-                class="container h-full flex justify-center items-center mx-auto px-4"
-            >
-                <div class="max-w-4xl mx-auto text-center">
-                    <Badge className="mb-4">Dashboards & Analytics</Badge>
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                        Dashboards que <span class="text-primary"
-                            >Impulsan Decisiones</span
-                        >
-                    </h1>
-                    <p class="text-xl text-muted-foreground mb-8">
-                        Transformamos tus datos en insights accionables con
-                        dashboards interactivos, visualizaciones avanzadas y
-                        analytics en tiempo real.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a
-                            href="/contacto?servicio=dashboard"
-                            class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
-                        >
-                            <BarChart3 className="w-4 h-4 mr-2" />
-                            Crear Dashboard
-                        </a>
-                        <a
-                            href="#tipos-dashboard"
-                            class="inline-flex items-center justify-center px-8 py-3 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
-                        >
-                            Ver Ejemplos
-                        </a>
-                    </div>
 
-                    <div class="mt-12 pt-8 border-t border-muted-foreground/20">
-                        <div class="grid grid-cols-3 gap-8 max-w-md mx-auto">
-                            <div class="text-center">
-                                <div
-                                    class="text-2xl font-bold mb-1 text-primary"
-                                >
-                                    100+
+            <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+                {
+                    dashboardTypes.map((type) => (
+                        <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                            <CardHeader className="text-center pb-6">
+                                <div class="bg-primary/10 group-hover:bg-primary/20 mx-auto mb-4 w-fit rounded-lg p-4 transition-colors">
+                                    <type.icon className="w-8 h-8 text-primary" />
                                 </div>
-                                <div class="text-sm text-muted-foreground">
-                                    Data Sources
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <div
-                                    class="text-2xl font-bold mb-1 text-primary"
-                                >
-                                    Real-time
-                                </div>
-                                <div class="text-sm text-muted-foreground">
-                                    Data Updates
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <div
-                                    class="text-2xl font-bold mb-1 text-primary"
-                                >
-                                    24/7
-                                </div>
-                                <div class="text-sm text-muted-foreground">
-                                    Monitoring
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Dashboard Types -->
-        <section id="tipos-dashboard" class="py-20">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Tipos de Dashboards
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Cada tipo de dashboard está diseñado para usuarios
-                        específicos y objetivos de negocio únicos.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    {
-                        dashboardTypes.map((type) => (
-                            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
-                                <CardHeader className="text-center pb-6">
-                                    <div class="mx-auto mb-4 p-4 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors w-fit">
-                                        <type.icon className="w-8 h-8 text-primary" />
-                                    </div>
-                                    <CardTitle className="text-xl mb-2">
-                                        {type.title}
-                                    </CardTitle>
-                                    <p class="text-muted-foreground">
-                                        {type.description}
-                                    </p>
-                                </CardHeader>
-                                <CardContent className="space-y-6">
-                                    <div>
-                                        <h4 class="font-semibold mb-3">
-                                            Características:
-                                        </h4>
-                                        <ul class="space-y-2">
-                                            {type.features.map((feature) => (
-                                                <li class="flex items-center gap-2">
-                                                    <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                                                    <span class="text-sm">
-                                                        {feature}
-                                                    </span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-
-                                    <div>
-                                        <h4 class="font-semibold mb-3">
-                                            Tipos de datos:
-                                        </h4>
-                                        <div class="flex flex-wrap gap-2">
-                                            {type.dataTypes.map((dataType) => (
-                                                <Badge
-                                                    variant="outline"
-                                                    className="text-xs"
-                                                >
-                                                    {dataType}
-                                                </Badge>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    <div class="space-y-3 pt-4 border-t border-border">
-                                        <div>
-                                            <span class="text-sm font-semibold">
-                                                Ideal para:{" "}
-                                            </span>
-                                            <span class="text-sm text-muted-foreground">
-                                                {type.bestFor}
-                                            </span>
-                                        </div>
-                                        <div>
-                                            <span class="text-sm font-semibold">
-                                                Timeline:{" "}
-                                            </span>
-                                            <span class="text-sm text-muted-foreground">
-                                                {type.timeline}
-                                            </span>
-                                        </div>
-                                        <div>
-                                            <span class="text-sm font-semibold">
-                                                Inversión:{" "}
-                                            </span>
-                                            <span class="text-sm text-muted-foreground">
-                                                {type.investment}
-                                            </span>
-                                        </div>
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        ))
-                    }
-                </div>
-            </div>
-        </section>
-
-        <!-- Visualizations -->
-        <section class="py-20 bg-muted/30">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Visualizaciones Avanzadas
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Creamos visualizaciones interactivas que revelan
-                        patrones ocultos en tus datos.
-                    </p>
-                </div>
-
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-                >
-                    {
-                        visualizations.map((viz) => (
-                            <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300 group">
-                                <CardHeader>
-                                    <div class="flex items-center gap-4 mb-4">
-                                        <div class="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                                            <viz.icon className="w-6 h-6 text-primary" />
-                                        </div>
-                                        <CardTitle className="text-lg">
-                                            {viz.title}
-                                        </CardTitle>
-                                    </div>
-                                    <p class="text-muted-foreground text-sm">
-                                        {viz.description}
-                                    </p>
-                                </CardHeader>
-                                <CardContent>
-                                    <h4 class="font-semibold mb-3">
-                                        Casos de uso:
-                                    </h4>
+                                <CardTitle className="text-xl mb-2">{type.title}</CardTitle>
+                                <p class="text-muted-foreground">{type.description}</p>
+                            </CardHeader>
+                            <CardContent className="space-y-6">
+                                <div>
+                                    <h4 class="mb-3 font-semibold">Características:</h4>
                                     <ul class="space-y-2">
-                                        {viz.useCases.map((useCase) => (
-                                            <li class="flex items-center gap-2">
-                                                <div class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                                                <span class="text-sm">
-                                                    {useCase}
-                                                </span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </CardContent>
-                            </Card>
-                        ))
-                    }
-                </div>
-            </div>
-        </section>
-
-        <!-- Features -->
-        <section class="py-20">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Funcionalidades Avanzadas
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Dashboards completos con todas las herramientas que
-                        necesitas para tomar decisiones informadas.
-                    </p>
-                </div>
-
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-                >
-                    {
-                        features.map((feature) => (
-                            <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300 group">
-                                <CardHeader>
-                                    <div class="flex items-center gap-4 mb-4">
-                                        <div class="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                                            <feature.icon className="w-6 h-6 text-primary" />
-                                        </div>
-                                        <CardTitle className="text-lg">
-                                            {feature.title}
-                                        </CardTitle>
-                                    </div>
-                                    <p class="text-muted-foreground text-sm">
-                                        {feature.description}
-                                    </p>
-                                </CardHeader>
-                                <CardContent>
-                                    <ul class="space-y-2">
-                                        {(
-                                            feature.integrations ||
-                                            feature.capabilities ||
-                                            feature.features ||
-                                            feature.benefits ||
-                                            feature.tools ||
-                                            feature.options
-                                        ).map((item) => (
+                                        {type.features.map((feature) => (
                                             <li class="flex items-center gap-2">
                                                 <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                                                <span class="text-sm">
-                                                    {item}
-                                                </span>
+                                                <span class="text-sm">{feature}</span>
                                             </li>
                                         ))}
                                     </ul>
-                                </CardContent>
-                            </Card>
-                        ))
-                    }
-                </div>
+                                </div>
+
+                                <div>
+                                    <h4 class="mb-3 font-semibold">Tipos de datos:</h4>
+                                    <div class="flex flex-wrap gap-2">
+                                        {type.dataTypes.map((dataType) => (
+                                            <Badge variant="outline" className="text-xs">
+                                                {dataType}
+                                            </Badge>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                <div class="border-border space-y-3 border-t pt-4">
+                                    <div>
+                                        <span class="text-sm font-semibold">Ideal para: </span>
+                                        <span class="text-muted-foreground text-sm">
+                                            {type.bestFor}
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span class="text-sm font-semibold">Timeline: </span>
+                                        <span class="text-muted-foreground text-sm">
+                                            {type.timeline}
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span class="text-sm font-semibold">Inversión: </span>
+                                        <span class="text-muted-foreground text-sm">
+                                            {type.investment}
+                                        </span>
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    ))
+                }
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Data Sources -->
-        <section class="py-20 bg-muted/30">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Fuentes de Datos
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Conectamos con más de 100 fuentes de datos populares sin
-                        necesidad de código.
-                    </p>
-                </div>
+    <!-- Features -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Funcionalidades Avanzadas</h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Dashboards completos con todas las herramientas que necesitas para tomar
+                    decisiones informadas.
+                </p>
+            </div>
 
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-                >
-                    {
-                        dataSources.map((category) => (
-                            <Card className="border-0 shadow-md">
-                                <CardHeader className="text-center">
-                                    <CardTitle className="text-lg">
-                                        {category.category}
-                                    </CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <div class="grid grid-cols-2 gap-2">
-                                        {category.sources.map((source) => (
-                                            <div class="text-center p-2 rounded-lg bg-muted/50 text-sm font-medium">
-                                                {source}
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {
+                    features.map((feature) => (
+                        <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300 group">
+                            <CardHeader>
+                                <div class="mb-4 flex items-center gap-4">
+                                    <div class="bg-primary/10 group-hover:bg-primary/20 rounded-lg p-3 transition-colors">
+                                        <feature.icon className="w-6 h-6 text-primary" />
+                                    </div>
+                                    <CardTitle className="text-lg">{feature.title}</CardTitle>
+                                </div>
+                                <p class="text-muted-foreground text-sm">{feature.description}</p>
+                            </CardHeader>
+                            <CardContent>
+                                <ul class="space-y-2">
+                                    {(
+                                        feature.integrations ||
+                                        feature.capabilities ||
+                                        feature.features ||
+                                        feature.benefits ||
+                                        feature.tools ||
+                                        feature.options
+                                    ).map((item) => (
+                                        <li class="flex items-center gap-2">
+                                            <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                                            <span class="text-sm">{item}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </CardContent>
+                        </Card>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Visualizations -->
+    <section class="bg-muted/30 py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Visualizaciones Avanzadas</h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Creamos visualizaciones interactivas que revelan patrones ocultos en tus datos.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {
+                    visualizations.map((viz) => (
+                        <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300 group">
+                            <CardHeader>
+                                <div class="mb-4 flex items-center gap-4">
+                                    <div class="bg-primary/10 group-hover:bg-primary/20 rounded-lg p-3 transition-colors">
+                                        <viz.icon className="w-6 h-6 text-primary" />
+                                    </div>
+                                    <CardTitle className="text-lg">{viz.title}</CardTitle>
+                                </div>
+                                <p class="text-muted-foreground text-sm">{viz.description}</p>
+                            </CardHeader>
+                            <CardContent>
+                                <h4 class="mb-3 font-semibold">Casos de uso:</h4>
+                                <ul class="space-y-2">
+                                    {viz.useCases.map((useCase) => (
+                                        <li class="flex items-center gap-2">
+                                            <div class="bg-primary h-1.5 w-1.5 flex-shrink-0 rounded-full" />
+                                            <span class="text-sm">{useCase}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </CardContent>
+                        </Card>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Soluciones por Industria</h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Dashboards especializados para las métricas más importantes de cada sector.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {
+                    industries.map((industry) => (
+                        <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300">
+                            <CardHeader>
+                                <div class="mb-4 text-4xl">
+                                    <industry.icon className="w-8 h-8 text-primary" />
+                                </div>
+                                <CardTitle className="text-xl mb-2">{industry.name}</CardTitle>
+                                <p class="text-muted-foreground text-sm">{industry.description}</p>
+                            </CardHeader>
+                            <CardContent className="space-y-4">
+                                <div>
+                                    <h4 class="mb-3 font-semibold">Métricas clave:</h4>
+                                    <ul class="space-y-1">
+                                        {industry.metrics.map((metric) => (
+                                            <li class="text-muted-foreground text-sm">
+                                                • {metric}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h4 class="mb-3 font-semibold">Características especiales:</h4>
+                                    <div class="space-y-2">
+                                        {industry.specialFeatures.map((feature) => (
+                                            <div class="flex items-center gap-2">
+                                                <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                                                <span class="text-sm">{feature}</span>
                                             </div>
                                         ))}
                                     </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- KPIs -->
+    <section class="bg-muted/30 py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">KPIs Más Importantes</h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Medimos las métricas que realmente importan para tu negocio.
+                </p>
+            </div>
+
+            <div class="mx-auto max-w-4xl">
+                <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+                    {
+                        kpis.map((kpi) => (
+                            <Card className="border-0 shadow-sm hover:shadow-md transition-all duration-300 text-center">
+                                <CardContent className="p-4">
+                                    <div class="text-sm font-medium">{kpi}</div>
                                 </CardContent>
                             </Card>
                         ))
                     }
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Industries -->
-        <section class="py-20">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Soluciones por Industria
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Dashboards especializados para las métricas más
-                        importantes de cada sector.
-                    </p>
-                </div>
+    <!-- Process -->
+    <section class="bg-muted/30 py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Proceso de Desarrollo</h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Metodología estructurada desde la definición de KPIs hasta el deployment final.
+                </p>
+            </div>
 
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-                >
-                    {
-                        industries.map((industry) => (
-                            <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300">
-                                <CardHeader>
-                                    <div class="text-4xl mb-4">
-                                        <industry.icon className="w-8 h-8 text-primary" />
-                                    </div>
-                                    <CardTitle className="text-xl mb-2">
-                                        {industry.name}
-                                    </CardTitle>
-                                    <p class="text-muted-foreground text-sm">
-                                        {industry.description}
-                                    </p>
-                                </CardHeader>
-                                <CardContent className="space-y-4">
+            <div class="mx-auto max-w-5xl space-y-8">
+                {
+                    process.map((phase, index) => (
+                        <Card className="border-0 shadow-md">
+                            <CardContent className="p-8">
+                                <div class="grid grid-cols-1 items-start gap-8 lg:grid-cols-4">
                                     <div>
-                                        <h4 class="font-semibold mb-3">
-                                            Métricas clave:
-                                        </h4>
+                                        <div class="mb-4 flex items-center gap-4">
+                                            <div class="bg-primary text-primary-foreground flex h-12 w-12 items-center justify-center rounded-full text-xl font-bold">
+                                                {index + 1}
+                                            </div>
+                                            <div>
+                                                <h3 class="text-lg font-bold">{phase.phase}</h3>
+                                                <Badge variant="outline">{phase.duration}</Badge>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <h4 class="mb-3 font-semibold">Actividades:</h4>
                                         <ul class="space-y-1">
-                                            {industry.metrics.map((metric) => (
-                                                <li class="text-sm text-muted-foreground">
-                                                    • {metric}
+                                            {phase.activities.map((activity) => (
+                                                <li class="text-muted-foreground text-sm">
+                                                    • {activity}
                                                 </li>
                                             ))}
                                         </ul>
                                     </div>
 
-                                    <div>
-                                        <h4 class="font-semibold mb-3">
-                                            Características especiales:
-                                        </h4>
-                                        <div class="space-y-2">
-                                            {industry.specialFeatures.map(
-                                                (feature) => (
-                                                    <div class="flex items-center gap-2">
-                                                        <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                                                        <span class="text-sm">
-                                                            {feature}
-                                                        </span>
-                                                    </div>
-                                                )
-                                            )}
-                                        </div>
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        ))
-                    }
-                </div>
-            </div>
-        </section>
-
-        <!-- KPIs -->
-        <section class="py-20 bg-muted/30">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        KPIs Más Importantes
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Medimos las métricas que realmente importan para tu
-                        negocio.
-                    </p>
-                </div>
-
-                <div class="max-w-4xl mx-auto">
-                    <div
-                        class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
-                    >
-                        {
-                            kpis.map((kpi) => (
-                                <Card className="border-0 shadow-sm hover:shadow-md transition-all duration-300 text-center">
-                                    <CardContent className="p-4">
-                                        <div class="text-sm font-medium">
-                                            {kpi}
-                                        </div>
-                                    </CardContent>
-                                </Card>
-                            ))
-                        }
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Technologies -->
-        <section class="py-20">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Stack Tecnológico
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Utilizamos las mejores herramientas para crear
-                        dashboards escalables y performantes.
-                    </p>
-                </div>
-
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-                >
-                    {
-                        technologies.map((category) => (
-                            <Card className="border-0 shadow-md">
-                                <CardHeader className="text-center">
-                                    <CardTitle className="text-lg">
-                                        {category.category}
-                                    </CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <div class="space-y-2">
-                                        {category.techs.map((tech) => (
-                                            <div class="text-center p-2 rounded-lg bg-muted/50 text-sm font-medium">
-                                                {tech}
-                                            </div>
-                                        ))}
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        ))
-                    }
-                </div>
-            </div>
-        </section>
-
-        <!-- Process -->
-        <section class="py-20 bg-muted/30">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Proceso de Desarrollo
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Metodología estructurada desde la definición de KPIs
-                        hasta el deployment final.
-                    </p>
-                </div>
-
-                <div class="space-y-8 max-w-5xl mx-auto">
-                    {
-                        process.map((phase, index) => (
-                            <Card className="border-0 shadow-md">
-                                <CardContent className="p-8">
-                                    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
-                                        <div>
-                                            <div class="flex items-center gap-4 mb-4">
-                                                <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-primary-foreground text-xl font-bold">
-                                                    {index + 1}
+                                    <div class="lg:col-span-2">
+                                        <h4 class="mb-3 font-semibold">Entregables:</h4>
+                                        <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                                            {phase.deliverables.map((deliverable) => (
+                                                <div class="flex items-center gap-2">
+                                                    <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                                                    <span class="text-sm">{deliverable}</span>
                                                 </div>
-                                                <div>
-                                                    <h3 class="font-bold text-lg">
-                                                        {phase.phase}
-                                                    </h3>
-                                                    <Badge variant="outline">
-                                                        {phase.duration}
-                                                    </Badge>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div>
-                                            <h4 class="font-semibold mb-3">
-                                                Actividades:
-                                            </h4>
-                                            <ul class="space-y-1">
-                                                {phase.activities.map(
-                                                    (activity) => (
-                                                        <li class="text-sm text-muted-foreground">
-                                                            • {activity}
-                                                        </li>
-                                                    )
-                                                )}
-                                            </ul>
-                                        </div>
-
-                                        <div class="lg:col-span-2">
-                                            <h4 class="font-semibold mb-3">
-                                                Entregables:
-                                            </h4>
-                                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                                                {phase.deliverables.map(
-                                                    (deliverable) => (
-                                                        <div class="flex items-center gap-2">
-                                                            <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                                                            <span class="text-sm">
-                                                                {deliverable}
-                                                            </span>
-                                                        </div>
-                                                    )
-                                                )}
-                                            </div>
+                                            ))}
                                         </div>
                                     </div>
-                                </CardContent>
-                            </Card>
-                        ))
-                    }
-                </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    ))
+                }
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- CTA Section -->
-        <section
-            class="py-20 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground"
-        >
-            <div class="container mx-auto px-4 text-center">
-                <div class="max-w-3xl mx-auto">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                        ¿Listo para visualizar tus datos?
-                    </h2>
-                    <p class="text-lg opacity-90 mb-8">
-                        Transformamos tus datos en insights accionables con
-                        dashboards interactivos que impulsan mejores decisiones
-                        de negocio.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a
-                            href="/contacto?servicio=dashboard"
-                            class="inline-flex items-center justify-center px-8 py-3 bg-white text-primary rounded-lg font-medium hover:bg-gray-100 transition-colors"
-                        >
-                            <BarChart3 className="w-4 h-4 mr-2" />
-                            Crear Mi Dashboard
-                        </a>
-                        <a
-                            href="/productos"
-                            class="inline-flex items-center justify-center px-8 py-3 border border-white/20 rounded-lg font-medium hover:bg-white/10 transition-colors"
-                        >
-                            Ver Demos
-                        </a>
-                    </div>
+    <!-- CTA Section -->
+    <section class="from-primary to-primary/80 text-primary-foreground bg-gradient-to-r py-20">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mx-auto max-w-3xl">
+                <h2 class="mb-6 text-3xl font-bold md:text-4xl">
+                    ¿Listo para visualizar tus datos?
+                </h2>
+                <p class="mb-8 text-lg opacity-90">
+                    Transformamos tus datos en insights accionables con dashboards interactivos que
+                    impulsan mejores decisiones de negocio.
+                </p>
+                <div class="flex flex-col justify-center gap-4 sm:flex-row">
+                    <a
+                        href="/contacto?servicio=dashboard"
+                        class="text-primary inline-flex items-center justify-center rounded-lg bg-white px-8 py-3 font-medium transition-colors hover:bg-gray-100">
+                        <BarChart3 className="mr-2 h-4 w-4" />
+                        Crear Mi Dashboard
+                    </a>
+                    <a
+                        href="/productos"
+                        class="inline-flex items-center justify-center rounded-lg border border-white/20 px-8 py-3 font-medium transition-colors hover:bg-white/10">
+                        Ver Demos
+                    </a>
+                </div>
 
-                    <div class="mt-12 pt-8 border-t border-white/20">
-                        <div class="grid grid-cols-4 gap-8 max-w-2xl mx-auto">
-                            <div class="text-center">
-                                <div class="text-2xl font-bold mb-1">150+</div>
-                                <div class="text-sm opacity-75">
-                                    Dashboards Creados
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-2xl font-bold mb-1">99.9%</div>
-                                <div class="text-sm opacity-75">Uptime</div>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-2xl font-bold mb-1">100+</div>
-                                <div class="text-sm opacity-75">
-                                    Data Sources
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-2xl font-bold mb-1">
-                                    Real-time
-                                </div>
-                                <div class="text-sm opacity-75">Updates</div>
-                            </div>
+                <div class="mt-12 border-t border-white/20 pt-8">
+                    <div class="mx-auto grid max-w-2xl grid-cols-4 gap-8">
+                        <div class="text-center">
+                            <div class="mb-1 text-2xl font-bold">150+</div>
+                            <div class="text-sm opacity-75">Dashboards Creados</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="mb-1 text-2xl font-bold">99.9%</div>
+                            <div class="text-sm opacity-75">Uptime</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="mb-1 text-2xl font-bold">100+</div>
+                            <div class="text-sm opacity-75">Data Sources</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="mb-1 text-2xl font-bold">Real-time</div>
+                            <div class="text-sm opacity-75">Updates</div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 </Layout>
