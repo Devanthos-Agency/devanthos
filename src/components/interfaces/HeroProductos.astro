@@ -1,6 +1,5 @@
 ---
 import Button from '../ui/Button.astro';
-import type { HTMLAttributes } from 'astro/types';
 
 interface Props {
     badge?: string;
@@ -14,29 +13,34 @@ interface Props {
     }>;
     videoSrc?: string;
     imageSrc?: string;
+    image768Src?: string;
+    image430Src?: string;
+
 }
-const { badge, title, description, videoSrc, imageSrc, buttons } = Astro.props;
+const { badge, title, description, videoSrc, imageSrc, image768Src, image430Src, buttons } = Astro.props;
 ---
 
-<section class="relative flex min-h-screen items-center justify-between py-14">
+<section
+    class="relative flex min-h-screen flex-col-reverse items-center justify-between py-0 lg:flex-row lg:py-0">
     <div
-        class="absolute inset-0 z-0"
+        class="absolute inset-0 z-0 hidden lg:block"
         style={{
-        background: `
+            background: `
             radial-gradient(ellipse 120% 80% at 70% 20%, rgba(255, 20, 147, 0.15), transparent 50%),
             radial-gradient(ellipse 100% 60% at 30% 10%, rgba(0, 255, 255, 0.12), transparent 60%),
             radial-gradient(ellipse 90% 70% at 50% 0%, rgba(138, 43, 226, 0.18), transparent 65%),
             radial-gradient(ellipse 110% 50% at 80% 30%, rgba(255, 215, 0, 0.08), transparent 40%),
             `,
-        }}
-    />
-    <div class="relative z-10 flex flex-col gap-5 px-[10%] lg:w-[50%] lg:pr-0">
+        }}>
+    </div>
+    <div
+        class="absolute bottom-10 z-20 flex flex-col px-4 lg:relative lg:w-[50%] lg:gap-5 lg:px-[10%] lg:pr-0">
         {badge && <p class="text-foreground font-light uppercase">{badge}</p>}
         <h1
-            class="text-foreground leading-tight font-cocogoose text-5xl md:text-6xl lg:text-7xl [text-shadow:0_0_10px_rgba(255,255,255,0.65)] [&_span]:[text-shadow:0_0_10px_rgba(94,111,182,0.65)] [&_span]:text-primary"
+            class="text-foreground font-cocogoose [&_span]:text-primary text-5xl leading-tight [text-shadow:0_0_10px_rgba(255,255,255,0.65)] md:text-6xl lg:text-7xl [&_span]:[text-shadow:0_0_10px_rgba(94,111,182,0.65)]"
             set:html={title}
         />
-        <p class="text-foreground my-8 md:text-xl">{description}</p>
+        <p class="text-foreground my-4 md:text-xl lg:my-8">{description}</p>
         <div class="flex flex-col gap-4 font-medium md:flex-row">
             {
                 buttons?.map((button) => (
@@ -51,7 +55,7 @@ const { badge, title, description, videoSrc, imageSrc, buttons } = Astro.props;
             }
         </div>
     </div>
-    <div class="relative hidden h-[720px] w-[45%]  rounded-l-full lg:block">
+    <div class="relative h-screen lg:block lg:h-[720px] lg:w-[45%] lg:rounded-l-full">
         {
             videoSrc && (
                 <video
@@ -62,23 +66,34 @@ const { badge, title, description, videoSrc, imageSrc, buttons } = Astro.props;
                     data-wf-ignore="true"
                     data-object-fit="cover"
                     poster={imageSrc}
-                    class="h-full w-full rounded-l-full object-cover">
+                    class="h-full w-full [mask-image:radial-gradient(ellipse_70%_70%_at_50%_-10%,#000_90%,transparent_110%)] object-cover lg:rounded-l-full">
                     <source src={videoSrc} type="video/mp4" />
                 </video>
             )
         }
         {
             imageSrc && !videoSrc && (
-                <img
-                    src={imageSrc}
-                    alt={title}
-                    class="relative z-10 h-full w-full rounded-l-full object-cover"
-                />
-                <img 
-                    src={imageSrc}
-                    alt={title}
-                    class="h-full w-full rounded-l-full object-cover absolute inset-0 blur-2xl"
-                />
+                <picture >
+                    <source srcset={image430Src} type="image/avif" media="(max-width: 430px)" />
+                    <source srcset={image768Src} type="image/avif" media="(max-width: 767px)" />
+                    <img src={imageSrc} alt={title} class="relative z-10 h-full w-full [mask-image:radial-gradient(ellipse_130%_80%_at_50%_-10%,#000_30%,transparent_90%)] object-cover lg:rounded-l-full lg:[mask-image:none]"/>
+                </picture>
+                <picture >
+                    <source srcset={image430Src} type="image/avif" media="(max-width: 430px)" />
+                    <source srcset={image768Src} type="image/avif" media="(max-width: 767px)" />
+                    <img src={imageSrc} alt={title} class="h-full w-full lg:rounded-l-full object-cover absolute inset-0 blur-2xl [mask-image:radial-gradient(ellipse_130%_80%_at_50%_-10%,#000_30%,transparent_110%)] lg:[mask-image:none]"/>
+                </picture>
+
+                // <img
+                //     src={imageSrc}
+                //     alt={title}
+                //     class="relative z-10 h-full w-full lg:rounded-l-full object-cover [mask-image:radial-gradient(ellipse_130%_80%_at_50%_-10%,#000_30%,transparent_90%)] lg:[mask-image:none]"
+                // />
+                // <img
+                //     src={imageSrc}
+                //     alt={title}
+                //     class="h-full w-full lg:rounded-l-full object-cover absolute inset-0 blur-2xl [mask-image:radial-gradient(ellipse_130%_80%_at_50%_-10%,#000_30%,transparent_110%)] lg:[mask-image:none]"
+                // />
             )
         }
     </div>
