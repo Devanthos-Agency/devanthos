@@ -1,7 +1,7 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import Layout from '@/layouts/Layout.astro';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge, badgeVariants } from '@/components/ui/badge';
 import {
     Target,
     Users,
@@ -13,134 +13,148 @@ import {
     Linkedin,
     Instagram,
     Globe,
-} from "lucide-react";
+    ArrowRight,
+    CirclePlay,
+    Facebook,
+} from 'lucide-react';
 
-import { Behance } from "@/components/icons";
+import { Behance } from '@/components/icons';
+import Button from '@/components/ui/Button.astro';
 
 const values = [
     {
         icon: Code2,
-        title: "Excelencia Técnica",
+        title: 'Excelencia Técnica',
         description:
-            "Nos comprometemos a entregar código de la más alta calidad usando las mejores prácticas y tecnologías modernas.",
+            'Nos comprometemos a entregar código de la más alta calidad usando las mejores prácticas y tecnologías modernas.',
     },
     {
         icon: Heart,
-        title: "Pasión por el Desarrollo",
+        title: 'Pasión por el Desarrollo',
         description:
-            "Amamos lo que hacemos y se refleja en cada línea de código que escribimos y cada proyecto que entregamos.",
+            'Amamos lo que hacemos y se refleja en cada línea de código que escribimos y cada proyecto que entregamos.',
     },
     {
         icon: Lightbulb,
-        title: "Innovación Constante",
+        title: 'Innovación Constante',
         description:
-            "Siempre buscamos nuevas formas de resolver problemas y mejorar la experiencia del usuario.",
+            'Siempre buscamos nuevas formas de resolver problemas y mejorar la experiencia del usuario.',
     },
     {
         icon: Users,
-        title: "Trabajo en Equipo",
+        title: 'Trabajo en Equipo',
         description:
-            "Creemos en la colaboración y el poder del trabajo conjunto para lograr resultados extraordinarios.",
+            'Creemos en la colaboración y el poder del trabajo conjunto para lograr resultados extraordinarios.',
     },
 ];
 
-const team = [
+const people = [
     {
-        id: "person-1",
-        name: "Juan Morales",
-        role: "Programador Full Stack | CEO",
+        id: 'person-1',
+        name: 'Juan Morales',
+        role: 'Programador Full Stack | CEO',
         description:
-            "Me encargo de crear interfaces atractivas y funcionales, optimizando la experiencia del usuario. También lidero el equipo de desarrollo y gestiono proyectos.",
-        avatar: "https://avatars.githubusercontent.com/u/85465719?v=4",
+            'Me encargo de crear interfaces atractivas y funcionales, optimizando la experiencia del usuario. También lidero el equipo de desarrollo y gestiono proyectos. Mi objetivo es ofrecer soluciones tecnológicas innovadoras que impulsen el crecimiento de nuestros clientes. Además, me apasiona la inteligencia artificial y su aplicación en chatbots para mejorar la atención al cliente y automatizar procesos.',
+        avatar: '/images/team/juan-morales.avif',
         socialLinks: [
             {
-                name: "Github",
-                url: "https://github.com/juanmorales1810",
+                name: 'Github',
+                url: 'https://github.com/juanmorales1810',
                 icon: Github,
             },
             {
-                name: "LinkedIn",
-                url: "https://www.linkedin.com/in/juan-exequiel-morales/",
+                name: 'LinkedIn',
+                url: 'https://www.linkedin.com/in/juan-exequiel-morales/',
                 icon: Linkedin,
             },
             {
-                name: "Portfolio",
-                url: "https://juan-morales.is-a.dev/",
+                name: 'Portfolio',
+                url: 'https://juan-morales.is-a.dev/',
                 icon: Globe,
             },
             {
-                name: "Instagram",
-                url: "https://www.instagram.com/elchiche0_o",
+                name: 'Instagram',
+                url: 'https://www.instagram.com/elchiche0_o',
                 icon: Instagram,
             },
         ],
     },
     {
-        id: "person-2",
-        name: "Santiago Fernández Salinas",
-        role: "Account Manager | Business Developer",
+        id: 'person-2',
+        name: 'Santiago Fernández Salinas',
+        role: 'Account Manager | Business Developer | Customer Success Manager',
         description:
-            "Encargado de gestionar las relaciones con los clientes y asegurar su satisfacción. A través de la comunicación efectiva y la empatía, busco entender sus necesidades y ofrecer soluciones a medida.",
-        avatar: "https://shadcnblocks.com/images/block/avatar-2.webp",
+            'Encargado de gestionar y fortalecer las relaciones con los clientes, asegurando su satisfacción y acompañándolos en todo el proceso. A través de una comunicación clara y empática, identifico necesidades, resuelvo consultas y brindo soporte personalizado. Además, impulso nuevas oportunidades de negocio y desarrollo estratégico, conectando a los clientes con soluciones a medida que potencian sus resultados',
+        avatar: '/images/team/santiago-fernandez.avif',
         socialLinks: [
             {
-                name: "LinkedIn",
-                url: "https://www.linkedin.com/in/santiago-fernandez-salinas/",
+                name: 'LinkedIn',
+                url: 'https://www.linkedin.com/in/santiago-fernandez-salinas/',
                 icon: Linkedin,
+            },
+            {
+                name: 'Instagram',
+                url: 'https://www.instagram.com/santiagofernandezsalinas/',
+                icon: Instagram,
+            },
+            {
+                name: 'Facebook',
+                url: 'https://www.facebook.com/share/19HtSBcG5C/',
+                icon: Facebook,
             },
         ],
     },
     {
-        id: "person-3",
-        name: "Pablo Valdebenito",
-        role: "Estratega en Marketing Digital y Redes Sociales",
+        id: 'person-3',
+        name: 'Pablo Valdebenito',
+        role: 'Productor Audiovisual & Motion Graphics | Estratega en Marketing Digital y Redes Sociales',
         description:
-            "Creatividad en movimiento: produzco, animo y difundo contenidos que atrapan miradas y transmiten mensajes con fuerza conectando a las marcas con su audiencia ideal",
-        avatar: "/images/team/pablo-valdebenito.jpg",
+            'Creatividad en movimiento: produzco, animo y difundo contenidos que atrapan miradas y transmiten mensajes con fuerza conectando a las marcas con su audiencia ideal a través de estrategias digitales efectivas. Mi misión es potenciar la presencia online de las marcas mediante contenido visual impactante y estrategias de marketing digital que generan resultados medibles.',
+        avatar: '/images/team/pablo-valdebenito.avif',
         socialLinks: [
             {
-                name: "Behance",
-                url: "https://www.behance.net/pablovaldebe",
+                name: 'Behance',
+                url: 'https://www.behance.net/pablovaldebe',
                 icon: Behance,
             },
             {
-                name: "LinkedIn",
-                url: "https://www.linkedin.com/in/pablo-valdebenito-26173a21b/",
+                name: 'LinkedIn',
+                url: 'https://www.linkedin.com/in/pablo-valdebenito-26173a21b/',
                 icon: Linkedin,
             },
             {
-                name: "Instagram",
-                url: "https://www.instagram.com/pavalsig/",
+                name: 'Instagram',
+                url: 'https://www.instagram.com/pavalsig/',
                 icon: Instagram,
             },
         ],
     },
     {
-        id: "person-4",
-        name: "Julian Peruzzi",
-        role: "Programador Full Stack | Account Manager",
+        id: 'person-4',
+        name: 'Julian Peruzzi',
+        role: 'Programador Full Stack | Account Manager',
         description:
-            "Soy un apasionado del desarrollo web y móvil, con experiencia en la creación de aplicaciones escalables y eficientes. Me especializo en el desarrollo de soluciones personalizadas que se adaptan a las necesidades de cada cliente.",
-        avatar: "https://shadcnblocks.com/images/block/avatar-1.webp",
+            'Soy un apasionado del desarrollo web y móvil, con experiencia en la creación de aplicaciones escalables y eficientes. Me especializo en el desarrollo de soluciones personalizadas que se adaptan a las necesidades de cada cliente. Además, tengo habilidades en la gestión de relaciones con clientes, asegurando una comunicación efectiva y satisfacción continua. Mi objetivo es combinar mis habilidades técnicas y de gestión para ofrecer resultados excepcionales.',
+        avatar: '/images/team/julian-peruzzi.avif',
         socialLinks: [
             {
-                name: "Github",
-                url: "https://github.com/julianperuzzi",
+                name: 'Github',
+                url: 'https://github.com/julianperuzzi',
                 icon: Github,
             },
             {
-                name: "LinkedIn",
-                url: "https://www.linkedin.com/in/julianperuzzi/",
+                name: 'LinkedIn',
+                url: 'https://www.linkedin.com/in/julianperuzzi/',
                 icon: Linkedin,
             },
             {
-                name: "Instagram",
-                url: "https://www.instagram.com/julianperuzzi/",
+                name: 'Instagram',
+                url: 'https://www.instagram.com/julianperuzzi/',
                 icon: Instagram,
             },
             {
-                name: "Portfolio",
-                url: "https://julianperuzzi.vercel.app/",
+                name: 'Portfolio',
+                url: 'https://julianperuzzi.vercel.app/',
                 icon: Globe,
             },
         ],
@@ -148,259 +162,235 @@ const team = [
 ];
 
 const stats = [
-    { number: "100+", label: "Proyectos Completados" },
-    { number: "50+", label: "Clientes Satisfechos" },
-    { number: "3", label: "Años de Experiencia" },
-    { number: "24/7", label: "Soporte Técnico" },
+    { number: '100+', label: 'Proyectos Completados' },
+    { number: '50+', label: 'Clientes Satisfechos' },
+    { number: '3', label: 'Años de Experiencia' },
+    { number: '24/7', label: 'Soporte Técnico' },
 ];
 ---
 
 <Layout
     title="Sobre Nosotros - Devanthos"
-    description="Conoce al equipo detrás de Devanthos, nuestra misión, valores y compromiso con la excelencia en el desarrollo de software."
->
-    <main class="min-h-screen pt-24">
-        <!-- Hero Section -->
-        <section class="py-20 bg-gradient-to-br from-primary/5 to-primary/10">
-            <div class="container mx-auto px-4">
-                <div class="max-w-4xl mx-auto text-center">
-                    <Badge className="mb-4">Sobre Nosotros</Badge>
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                        Construyendo el <span class="text-primary"
-                            >futuro digital</span
-                        > juntos
-                    </h1>
-                    <p class="text-xl text-muted-foreground mb-8">
-                        Somos un equipo apasionado de desarrolladores,
-                        diseñadores y estrategas digitales comprometidos con
-                        transformar ideas en experiencias digitales
-                        excepcionales.
-                    </p>
+    description="Conoce al equipo detrás de Devanthos, nuestra misión, valores y compromiso con la excelencia en el desarrollo de software.">
+    <!-- Hero Section -->
+    <section
+        class="font-public_sans bg-background before:from-muted dark relative py-12 before:absolute before:top-0 before:left-0 before:z-10 before:block before:h-[15rem] before:w-full before:bg-linear-to-b before:to-transparent before:content-[''] md:py-32">
+        <div class="relative z-20 container mx-auto px-4">
+            <div class="relative z-20 mx-auto flex max-w-[56.25rem] flex-col items-center gap-6">
+                <Badge
+                    className="border-muted bg-muted hover:border-primary mb-4 flex w-fit items-center gap-1 rounded-full border px-2.5 py-1.5"
+                    >Sobre Nosotros</Badge
+                >
+                <h1
+                    class="text-foreground font-cocogoose [&_span]:text-primary text-center text-5xl leading-tight [text-shadow:0_0_10px_rgba(255,255,255,0.65)] md:text-6xl lg:text-7xl [&_span]:[text-shadow:0_0_10px_rgba(94,111,182,0.65)]">
+                    Construyendo el <span>futuro digital</span> juntos
+                </h1>
+                <p class="text-muted-foreground text-center text-lg">
+                    Somos un equipo apasionado de desarrolladores, diseñadores y estrategas
+                    digitales comprometidos con transformar ideas en experiencias digitales
+                    excepcionales.
+                </p>
+                <div class="mt-4 flex items-center gap-2">
+                    <Button
+                        class="flex h-fit items-center gap-2 rounded-md px-3.5 py-2.5 text-sm font-medium">
+                        Nuestra Historia
+                        <ArrowRight className="size-5!" />
+                    </Button>
+                    <Button
+                        variant="ghost"
+                        class="flex h-fit items-center gap-2 rounded-md px-3.5 py-2.5 text-sm font-medium text-white">
+                        Ver Video
+                        <CirclePlay className="size-5! stroke-white" />
+                    </Button>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Mission Section -->
-        <section class="py-20">
-            <div class="container mx-auto px-4">
-                <div
-                    class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
-                >
-                    <div>
-                        <div class="flex items-center gap-2 mb-4">
-                            <Target className="w-6 h-6 text-primary" />
-                            <Badge variant="outline">Nuestra Misión</Badge>
+    <!-- Mission Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+                <div>
+                    <div class="mb-4 flex items-center gap-2">
+                        <Target className="text-primary h-6 w-6" />
+                        <Badge variant="outline">Nuestra Misión</Badge>
+                    </div>
+                    <h2 class="mb-6 text-3xl font-bold md:text-4xl">
+                        Democratizar el desarrollo de software
+                    </h2>
+                    <p class="text-muted-foreground mb-6 text-lg">
+                        Creemos que toda empresa, sin importar su tamaño, merece tener acceso a
+                        tecnología de clase mundial. Nuestra misión es hacer que el desarrollo de
+                        software sea más accesible, eficiente y efectivo.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <div class="bg-primary mt-2 h-2 w-2 flex-shrink-0 rounded-full"></div>
+                            <p class="text-muted-foreground">
+                                Crear herramientas que simplifiquen el proceso de desarrollo
+                            </p>
                         </div>
-                        <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                            Democratizar el desarrollo de software
-                        </h2>
-                        <p class="text-lg text-muted-foreground mb-6">
-                            Creemos que toda empresa, sin importar su tamaño,
-                            merece tener acceso a tecnología de clase mundial.
-                            Nuestra misión es hacer que el desarrollo de
-                            software sea más accesible, eficiente y efectivo.
-                        </p>
-                        <div class="space-y-4">
-                            <div class="flex items-start gap-3">
-                                <div
-                                    class="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"
-                                >
-                                </div>
-                                <p class="text-muted-foreground">
-                                    Crear herramientas que simplifiquen el
-                                    proceso de desarrollo
-                                </p>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <div
-                                    class="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"
-                                >
-                                </div>
-                                <p class="text-muted-foreground">
-                                    Proporcionar soluciones escalables y
-                                    sostenibles
-                                </p>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <div
-                                    class="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"
-                                >
-                                </div>
-                                <p class="text-muted-foreground">
-                                    Impulsar la innovación en la industria
-                                    tecnológica
-                                </p>
-                            </div>
+                        <div class="flex items-start gap-3">
+                            <div class="bg-primary mt-2 h-2 w-2 flex-shrink-0 rounded-full"></div>
+                            <p class="text-muted-foreground">
+                                Proporcionar soluciones escalables y sostenibles
+                            </p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="bg-primary mt-2 h-2 w-2 flex-shrink-0 rounded-full"></div>
+                            <p class="text-muted-foreground">
+                                Impulsar la innovación en la industria tecnológica
+                            </p>
                         </div>
                     </div>
-                    <div class="relative">
-                        <img
-                            src="/images/hero/sistema-html-diseno-collages-sitios-web_23-2150432955.avif"
-                            alt="Equipo trabajando"
-                            class="rounded-lg shadow-lg w-full"
-                        />
-                    </div>
+                </div>
+                <div class="relative">
+                    <img
+                        src="/images/workProcess/Gemini_Generated_Image_15yw9v15yw9v15yw.avif"
+                        alt="Equipo trabajando"
+                        class="w-full rounded-lg shadow-lg"
+                    />
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Values Section -->
-        <section class="py-20 bg-muted/30">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Nuestros Valores
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Los principios que guían nuestro trabajo y nuestras
-                        relaciones con clientes y colaboradores.
-                    </p>
-                </div>
-
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-                >
-                    {
-                        values.map((value) => (
-                            <Card className="text-center border-0 shadow-md group hover:shadow-lg transition-all duration-300">
-                                <CardHeader>
-                                    <div class="mx-auto mb-4 p-4 rounded-lg bg-primary/10 w-fit group-hover:bg-primary/20 transition-colors">
-                                        <value.icon className="w-8 h-8 text-primary" />
-                                    </div>
-                                    <CardTitle className="text-xl">
-                                        {value.title}
-                                    </CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p class="text-muted-foreground">
-                                        {value.description}
-                                    </p>
-                                </CardContent>
-                            </Card>
-                        ))
-                    }
-                </div>
+    <!-- Values Section -->
+    <section class="bg-muted/30 py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Nuestros Valores</h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Los principios que guían nuestro trabajo y nuestras relaciones con clientes y
+                    colaboradores.
+                </p>
             </div>
-        </section>
 
-        <!-- Stats Section -->
-        <section class="py-20">
-            <div class="container mx-auto px-4">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                    {
-                        stats.map((stat) => (
-                            <div class="text-center">
-                                <div class="text-4xl md:text-5xl font-bold text-primary mb-2">
-                                    {stat.number}
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+                {
+                    values.map((value) => (
+                        <Card className="text-center border-0 shadow-md group hover:shadow-lg transition-all duration-300">
+                            <CardHeader>
+                                <div class="bg-primary/10 group-hover:bg-primary/20 mx-auto mb-4 w-fit rounded-lg p-4 transition-colors">
+                                    <value.icon className="w-8 h-8 text-primary" />
                                 </div>
-                                <div class="text-muted-foreground font-medium">
-                                    {stat.label}
-                                </div>
+                                <CardTitle className="text-xl">{value.title}</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p class="text-muted-foreground">{value.description}</p>
+                            </CardContent>
+                        </Card>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
+                {
+                    stats.map((stat) => (
+                        <div class="text-center">
+                            <div class="text-primary mb-2 text-4xl font-bold md:text-5xl">
+                                {stat.number}
                             </div>
-                        ))
-                    }
-                </div>
-            </div>
-        </section>
-
-        <!-- Team Section -->
-        <section class="py-20 bg-muted/30">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Conoce a Nuestro Equipo
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Las personas talentosas que hacen posible todo lo que
-                        creamos.
-                    </p>
-                </div>
-
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto"
-                >
-                    {
-                        team.map((member) => (
-                            <Card className="text-center border-0 shadow-md group hover:shadow-lg transition-all duration-300">
-                                <CardHeader>
-                                    <div class="mb-6">
-                                        <img
-                                            src={member.avatar}
-                                            alt={member.name}
-                                            class="w-24 h-24 rounded-full mx-auto object-cover mb-4"
-                                        />
-                                        <CardTitle className="text-xl mb-2">
-                                            {member.name}
-                                        </CardTitle>
-                                        <Badge variant="outline">
-                                            {member.role}
-                                        </Badge>
-                                    </div>
-                                </CardHeader>
-                                <CardContent>
-                                    <p class="text-muted-foreground mb-6">
-                                        {member.description}
-                                    </p>
-                                    <div class="flex justify-center gap-4">
-                                        {member.socialLinks.map((social) => (
-                                            <a
-                                                href={social.url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                class="text-muted-foreground hover:text-primary transition-colors"
-                                                title={`${social.name} de ${member.name}`}
-                                                aria-label={`Visitar perfil de ${member.name} en ${social.name}`}
-                                            >
-                                                <span class="sr-only">
-                                                    Visitar perfil de {member.name} en {social.name}
-                                                </span>
-                                                <social.icon className="w-5 h-5" />
-                                            </a>
-                                        ))}
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        ))
-                    }
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact CTA -->
-        <section class="py-20">
-            <div class="container mx-auto px-4">
-                <Card
-                    className="border-0 shadow-lg bg-gradient-to-r from-primary to-primary/80 text-primary-foreground"
-                >
-                    <CardContent className="p-12 text-center">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                            ¿Listo para trabajar con nosotros?
-                        </h2>
-                        <p class="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
-                            Nos encantaría conocer tu proyecto y ayudarte a
-                            convertir tus ideas en realidad. Programa una
-                            consultoría gratuita hoy mismo.
-                        </p>
-                        <div
-                            class="flex flex-col sm:flex-row gap-4 justify-center"
-                        >
-                            <a
-                                href="/contacto"
-                                class="inline-flex items-center justify-center px-8 py-3 bg-white text-primary rounded-lg font-medium hover:bg-gray-100 transition-colors"
-                            >
-                                <Mail className="w-4 h-4 mr-2" />
-                                Contactar Ahora
-                            </a>
-                            <a
-                                href="/productos"
-                                class="inline-flex items-center justify-center px-8 py-3 border border-white/20 rounded-lg font-medium hover:bg-white/10 transition-colors"
-                            >
-                                Ver Nuestros Productos
-                            </a>
+                            <div class="text-muted-foreground font-medium">{stat.label}</div>
                         </div>
-                    </CardContent>
-                </Card>
+                    ))
+                }
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="bg-muted/30 py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Conoce a Nuestro Equipo</h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Las personas talentosas que hacen posible todo lo que creamos.
+                </p>
+            </div>
+
+            <div
+                class="container mx-auto mt-16 grid gap-8 px-2 md:grid-cols-2 md:px-6 lg:grid-cols-4">
+                {
+                    people.map((person) => (
+                        <div class="bg-accent flex flex-grow flex-col items-center rounded-2xl p-8 shadow-lg">
+                            <span
+                                data-slot="avatar"
+                                class="relative mb-4 flex size-20 shrink-0 overflow-hidden rounded-full md:mb-5 lg:size-24">
+                                <img
+                                    data-slot="avatar-image"
+                                    class="aspect-square size-full"
+                                    src={person.avatar}
+                                    alt={person.name}
+                                    width="96"
+                                    height="96"
+                                    decoding="async"
+                                    loading="lazy"
+                                />
+                            </span>
+                            <p class="text-center font-medium">{person.name}</p>
+                            <p class="text-muted-foreground text-center">{person.role}</p>
+                            <p class="text-muted-foreground flex-1 py-3 text-center text-sm text-balance">
+                                {person.description}
+                            </p>
+                            <div class="mt-2 flex gap-4">
+                                {person.socialLinks.map((social) => {
+                                    return (
+                                        <a
+                                            href={social.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            title={`${social.name} de ${person.name}`}
+                                            aria-label={`Visitar perfil de ${person.name} en ${social.name}`}>
+                                            <span class="sr-only">
+                                                Visitar perfil de {person.name} en {social.name}
+                                            </span>
+                                            <social.icon className="size-4 text-muted-foreground hover:text-primary transition-colors" />
+                                        </a>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <Card
+                className="from-primary to-primary/80 text-primary-foreground border-0 bg-gradient-to-r shadow-lg">
+                <CardContent className="p-12 text-center">
+                    <h2 class="mb-6 text-3xl font-bold md:text-4xl">
+                        ¿Listo para trabajar con nosotros?
+                    </h2>
+                    <p class="mx-auto mb-8 max-w-2xl text-lg opacity-90">
+                        Nos encantaría conocer tu proyecto y ayudarte a convertir tus ideas en
+                        realidad. Programa una consultoría gratuita hoy mismo.
+                    </p>
+                    <div class="flex flex-col justify-center gap-4 sm:flex-row">
+                        <a
+                            href="/contacto"
+                            class="text-primary inline-flex items-center justify-center rounded-lg bg-white px-8 py-3 font-medium transition-colors hover:bg-gray-100">
+                            <Mail className="mr-2 h-4 w-4" />
+                            Contactar Ahora
+                        </a>
+                        <a
+                            href="/productos"
+                            class="inline-flex items-center justify-center rounded-lg border border-white/20 px-8 py-3 font-medium transition-colors hover:bg-white/10">
+                            Ver Nuestros Productos
+                        </a>
+                    </div>
+                </CardContent>
+            </Card>
+        </div>
+    </section>
 </Layout>
