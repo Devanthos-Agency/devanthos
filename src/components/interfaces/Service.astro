@@ -1,155 +1,144 @@
 ---
-import Button from "../ui/Button.astro";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import {
-    Bot,
-    TrendingUp,
-    Code2,
-    ArrowRight,
-    CheckCircle,
-    Brain,
-} from "lucide-react";
+import Button from '../ui/Button.astro';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Bot, TrendingUp, Code2, ArrowRight, CheckCircle, Brain } from 'lucide-react';
 
 // Datos de servicios organizados en una estructura reutilizable
 const services = [
     {
-        id: "desarrollo-web-y-mobile",
-        title: "Desarrollo Web y Móvil",
+        id: 'desarrollo-web-y-mobile',
+        title: 'Desarrollo Web y Móvil',
         description:
-            "Nos especializamos en la creación de soluciones digitales modernas, intuitivas y eficientes, tanto en plataformas web como móviles.",
+            'Nos especializamos en la creación de soluciones digitales modernas, intuitivas y eficientes, tanto en plataformas web como móviles.',
         icon: Code2,
-        gradient: "from-blue-500 to-cyan-500",
-        price: "Desde $250",
-        features: [
-            "React & Next.js",
-            "Apps Móviles",
-            "APIs REST",
-            "UI/UX Moderno",
-        ],
-        href: "/servicios/desarrollo-web-y-mobile",
-        srOnlyTitle: "profesional con React, Next.js, TypeScript y desarrollo de aplicaciones móviles nativas para iOS y Android",
-        srOnlyDescription: "Especialistas en programación web avanzada, arquitectura de software escalable, diseño responsivo, optimización de rendimiento y desarrollo de PWAs (Progressive Web Apps)."
+        gradient: 'from-blue-500 to-cyan-500',
+        price: 'Desde $250',
+        features: ['React & Next.js', 'Apps Móviles', 'APIs REST', 'UI/UX Moderno'],
+        href: '/servicios/desarrollo-web-y-mobile',
+        srOnlyTitle:
+            'profesional con React, Next.js, TypeScript y desarrollo de aplicaciones móviles nativas para iOS y Android',
+        srOnlyDescription:
+            'Especialistas en programación web avanzada, arquitectura de software escalable, diseño responsivo, optimización de rendimiento y desarrollo de PWAs (Progressive Web Apps).',
     },
     {
-        id: "marketing-digital-seo",
-        title: "Marketing Digital y SEO",
+        id: 'marketing-digital-seo',
+        title: 'Marketing Digital y SEO',
         description:
-            "Nuestro equipo de marketing digital ofrece estrategias personalizadas para mejorar la visibilidad en línea de tu negocio.",
+            'Nuestro equipo de marketing digital ofrece estrategias personalizadas para mejorar la visibilidad en línea de tu negocio.',
         icon: TrendingUp,
-        gradient: "from-red-500 to-rose-500",
-        price: "Desde $250/mes",
-        features: ["SEO Avanzado", "Google Ads", "Social Media", "Analytics"],
-        href: "/servicios/marketing-digital-seo",
-        srOnlyTitle: "avanzado, posicionamiento web en Google, campañas de Google Ads y estrategias de redes sociales",
-        srOnlyDescription: "Especialistas en SEO técnico, optimización on-page y off-page, marketing de contenidos, análisis de competencia, Google Analytics 4, Facebook Ads, Instagram Marketing y estrategias de conversión digital."
+        gradient: 'from-red-500 to-rose-500',
+        price: 'Desde $250/mes',
+        features: ['SEO Avanzado', 'Google Ads', 'Social Media', 'Analytics'],
+        href: '/servicios/marketing-digital-seo',
+        srOnlyTitle:
+            'avanzado, posicionamiento web en Google, campañas de Google Ads y estrategias de redes sociales',
+        srOnlyDescription:
+            'Especialistas en SEO técnico, optimización on-page y off-page, marketing de contenidos, análisis de competencia, Google Analytics 4, Facebook Ads, Instagram Marketing y estrategias de conversión digital.',
     },
     {
-        id: "chatbots-inteligentes",
-        title: "Chatbots para empresas",
+        id: 'chatbots-inteligentes',
+        title: 'Chatbots para empresas',
         description:
-            "Desarrollamos chatbots personalizados que mejoran la atención al cliente y optimizan los procesos internos.",
+            'Desarrollamos chatbots personalizados que mejoran la atención al cliente y optimizan los procesos internos.',
         icon: Bot,
-        gradient: "from-purple-500 to-indigo-500",
-        price: "Desde $199/mes",
-        features: [
-            "IA Avanzada",
-            "24/7 Disponible",
-            "Multi-plataforma",
-            "Automatización",
-        ],
-        href: "/servicios/chatbots-inteligentes",
-        srOnlyTitle: "con inteligencia artificial para WhatsApp, Facebook Messenger, sitios web y automatización empresarial",
-        srOnlyDescription: "Desarrollo de bots conversacionales con procesamiento de lenguaje natural (NLP), integración con CRM, automatización de ventas, soporte técnico automatizado y análisis de conversaciones para mejorar la experiencia del cliente."
+        gradient: 'from-purple-500 to-indigo-500',
+        price: 'Desde $199/mes',
+        features: ['IA Avanzada', '24/7 Disponible', 'Multi-plataforma', 'Automatización'],
+        href: '/servicios/chatbots-inteligentes',
+        srOnlyTitle:
+            'con inteligencia artificial para WhatsApp, Facebook Messenger, sitios web y automatización empresarial',
+        srOnlyDescription:
+            'Desarrollo de bots conversacionales con procesamiento de lenguaje natural (NLP), integración con CRM, automatización de ventas, soporte técnico automatizado y análisis de conversaciones para mejorar la experiencia del cliente.',
     },
     {
-        id: "consultoria-empresarial",
-        title: "Consultoría Empresarial",
+        id: 'consultoria-empresarial',
+        title: 'Consultoría Empresarial',
         description:
-            "Impulsamos el crecimiento de tu empresa con estrategias personalizadas, optimización de procesos y transformación digital integral.",
+            'Impulsamos el crecimiento de tu empresa con estrategias personalizadas, optimización de procesos y transformación digital integral.',
         icon: Brain,
-        gradient: "from-orange-500 to-red-500",
-        price: "Primera consultoría gratis",
+        gradient: 'from-orange-500 to-red-500',
+        price: 'Primera consultoría gratis',
         features: [
-            "Transformación Digital",
-            "Optimización Procesos",
-            "Estrategia Empresarial",
-            "Consultoría 24/7",
+            'Transformación Digital',
+            'Optimización Procesos',
+            'Estrategia Empresarial',
+            'Consultoría 24/7',
         ],
-        href: "/servicios/consultoria-empresarial",
-        srOnlyTitle: "y transformación digital para pymes, startups y empresas en crecimiento",
-        srOnlyDescription: "Especialistas en análisis de procesos empresariales, implementación de tecnologías disruptivas, migración a la nube, auditoría digital, estrategias de e-commerce, automatización de workflows y consultoría en innovación tecnológica."
+        href: '/servicios/consultoria-empresarial',
+        srOnlyTitle: 'y transformación digital para pymes, startups y empresas en crecimiento',
+        srOnlyDescription:
+            'Especialistas en análisis de procesos empresariales, implementación de tecnologías disruptivas, migración a la nube, auditoría digital, estrategias de e-commerce, automatización de workflows y consultoría en innovación tecnológica.',
     },
 ];
 ---
 
 <section class="relative p-0">
     <div
-        class="absolute h-full w-full bg-[url('/images/llleaves.svg')] [mask-image:linear-gradient(to_right,white,transparent,transparent,white)] bg-cover opacity-100 lg:block dark:opacity-50"
-    >
+        class="absolute h-full w-full bg-[url('/images/llleaves.svg')] [mask-image:linear-gradient(to_right,white,transparent,transparent,white)] bg-cover opacity-100 lg:block dark:opacity-50">
     </div>
-    <div class="container py-28 md:py-32 mx-auto px-2 md:px-6 lg:px-8">
+    <div class="container mx-auto px-2 py-28 md:px-6 md:py-32 lg:px-8">
         <div class="mx-auto flex max-w-7xl flex-col items-center">
-            <div
-                class="z-10 mx-auto flex max-w-7xl flex-col items-center gap-6 text-center"
-            >
+            <div class="z-10 mx-auto flex max-w-7xl flex-col items-center gap-6 text-center">
                 <span
                     data-slot="badge"
-                    class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive overflow-hidden text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground transition-colors hover:bg-secondary/20"
-                >
+                    class="focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground hover:bg-secondary/20 inline-flex w-fit shrink-0 items-center justify-center gap-1 overflow-hidden rounded-md border px-2 py-0.5 text-xs font-medium whitespace-nowrap transition-colors focus-visible:ring-[3px] [&>svg]:pointer-events-none [&>svg]:size-3">
                     Nuestros servicios
                 </span>
                 <div>
                     <h2
-                        class="mb-6 text-4xl font-cocogoose font-normal tracking-tight text-pretty md:text-5xl lg:text-6xl"
-                    >
-                        En Devanthos ofrecemos soluciones digitales
-                        personalizadas
-                        <span class="sr-only">para empresas en Argentina - Desarrollo web profesional con React, Next.js, aplicaciones móviles nativas, SEO avanzado y chatbots inteligentes</span>
+                        class="font-cocogoose mb-6 text-4xl font-normal tracking-tight text-pretty md:text-5xl lg:text-6xl">
+                        En Devanthos ofrecemos soluciones digitales personalizadas
+                        <span class="sr-only"
+                            >para empresas en Argentina - Desarrollo web profesional con React,
+                            Next.js, aplicaciones móviles nativas, SEO avanzado y chatbots
+                            inteligentes</span
+                        >
                     </h2>
-                    <p
-                        class="mx-auto max-w-2xl text-muted-foreground md:text-lg lg:text-xl"
-                    >
-                        Ofrecemos una amplia gama de servicios diseñados para
-                        satisfacer las necesidades de tu negocio, incluyendo
-                        desarrollo web, marketing digital y consultoría
-                        estratégica.
-                        <span class="sr-only">Especialistas en transformación digital, programación web avanzada, diseño UX/UI, automatización de procesos y estrategias de marketing online para pymes y startups.</span>
+                    <p class="text-muted-foreground mx-auto max-w-2xl md:text-lg lg:text-xl">
+                        Ofrecemos una amplia gama de servicios diseñados para satisfacer las
+                        necesidades de tu negocio, incluyendo desarrollo web, marketing digital y
+                        consultoría estratégica.
+                        <span class="sr-only"
+                            >Especialistas en transformación digital, programación web avanzada,
+                            diseño UX/UI, automatización de procesos y estrategias de marketing
+                            online para pymes y startups.</span
+                        >
                     </p>
                 </div>
                 <div class="mt-6 flex items-center gap-4">
-                    <Button href="/contacto" variant="primary" class="group">
+                    <Button href="/contacto" class="group">
                         Comenzar
-                        <span class="sr-only">proyecto de desarrollo web o marketing digital - Contacto directo con especialistas</span>
+                        <span class="sr-only"
+                            >proyecto de desarrollo web o marketing digital - Contacto directo con
+                            especialistas</span
+                        >
                     </Button>
                     <Button href="/servicios" variant="outline" class="group">
                         Ver Todos los Servicios
-                        <span class="sr-only"> - Desarrollo web, apps móviles, SEO, marketing digital y consultoría empresarial</span>
+                        <span class="sr-only">
+                            - Desarrollo web, apps móviles, SEO, marketing digital y consultoría
+                            empresarial</span
+                        >
                     </Button>
                 </div>
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16"
-                >
+                <div class="mb-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
                     {
                         services.map((service) => {
                             const IconComponent = service.icon;
                             return (
                                 <Card className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 hover:border-primary/20 overflow-hidden">
                                     <div
-                                        class={`h-2 bg-gradient-to-r ${service.gradient} scale-110 blur-xl group-hover:blur-2xl group-hover:scale-150 group-hover:saturate-200 transition-all duration-500 animate-aurora`}
+                                        class={`h-2 bg-gradient-to-r ${service.gradient} animate-aurora scale-110 blur-xl transition-all duration-500 group-hover:scale-150 group-hover:blur-2xl group-hover:saturate-200`}
                                     />
 
                                     <CardHeader className="pb-4">
-                                        <div class="flex items-center gap-3 mb-4">
+                                        <div class="mb-4 flex items-center gap-3">
                                             <div
-                                                class={`p-3 rounded-xl bg-gradient-to-br ${service.gradient} text-white`}
-                                            >
+                                                class={`rounded-xl bg-gradient-to-br p-3 ${service.gradient} text-white`}>
                                                 <IconComponent className="w-6 h-6" />
                                             </div>
-                                            <Badge
-                                                variant="secondary"
-                                                className="text-xs"
-                                            >
+                                            <Badge variant="secondary" className="text-xs">
                                                 {service.price}
                                             </Badge>
                                         </div>
@@ -166,7 +155,7 @@ const services = [
                                             <span class="sr-only">{service.srOnlyDescription}</span>
                                         </p>
 
-                                        <div class="space-y-2 mb-6">
+                                        <div class="mb-6 space-y-2">
                                             {service.features.map((feature) => (
                                                 <div class="flex items-center gap-2 text-sm">
                                                     <CheckCircle className="w-4 h-4 text-green-500" />
@@ -179,10 +168,11 @@ const services = [
                                             <Button
                                                 href={service.href}
                                                 class="flex-1"
-                                                variant="secondary"
-                                            >
+                                                variant="secondary">
                                                 Ver Detalles
-                                                <span class="sr-only">del servicio de {service.title.toLowerCase()}</span>
+                                                <span class="sr-only">
+                                                    del servicio de {service.title.toLowerCase()}
+                                                </span>
                                                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                             </Button>
                                         </div>
