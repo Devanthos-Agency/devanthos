@@ -1,48 +1,39 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import {
-    Target,
-    Globe,
-    Users,
-    Lightbulb,
-    Heart,
-    Zap,
-    Award,
-    ArrowRight,
-} from "lucide-react";
+import Layout from '@/layouts/Layout.astro';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Target, Globe, Users, Lightbulb, Heart, Zap, Award, ArrowRight } from 'lucide-react';
+import Button from '@/components/ui/Button.astro';
 
 const objectives = [
     {
         icon: Globe,
-        title: "Transformación Digital Global",
-        description:
-            "Liderar la transformación digital de empresas en Latinoamérica",
+        title: 'Transformación Digital Global',
+        description: 'Liderar la transformación digital de empresas en Latinoamérica',
         details: [
-            "Implementar soluciones tecnológicas innovadoras",
-            "Democratizar el acceso a tecnología de vanguardia",
-            "Crear ecosistemas digitales sostenibles",
+            'Implementar soluciones tecnológicas innovadoras',
+            'Democratizar el acceso a tecnología de vanguardia',
+            'Crear ecosistemas digitales sostenibles',
         ],
     },
     {
         icon: Users,
-        title: "Capacitación y Desarrollo",
-        description: "Formar a la próxima generación de desarrolladores",
+        title: 'Capacitación y Desarrollo',
+        description: 'Formar a la próxima generación de desarrolladores',
         details: [
-            "Programas de mentoría para desarrolladores junior",
-            "Workshops y cursos especializados",
-            "Creación de comunidades tech locales",
+            'Programas de mentoría para desarrolladores junior',
+            'Workshops y cursos especializados',
+            'Creación de comunidades tech locales',
         ],
     },
     {
         icon: Lightbulb,
-        title: "Innovación Continua",
-        description: "Investigar y desarrollar nuevas tecnologías",
+        title: 'Innovación Continua',
+        description: 'Investigar y desarrollar nuevas tecnologías',
         details: [
-            "I+D en inteligencia artificial y machine learning",
-            "Experimentación con tecnologías emergentes",
-            "Colaboración con universidades y centros de investigación",
+            'I+D en inteligencia artificial y machine learning',
+            'Experimentación con tecnologías emergentes',
+            'Colaboración con universidades y centros de investigación',
         ],
     },
 ];
@@ -50,442 +41,369 @@ const objectives = [
 const values = [
     {
         icon: Heart,
-        title: "Pasión",
-        description: "Amamos lo que hacemos y se refleja en cada proyecto",
+        title: 'Pasión',
+        description: 'Amamos lo que hacemos y se refleja en cada proyecto',
     },
     {
         icon: Target,
-        title: "Excelencia",
-        description: "Buscamos la perfección en cada línea de código",
+        title: 'Excelencia',
+        description: 'Buscamos la perfección en cada línea de código',
     },
     {
         icon: Users,
-        title: "Colaboración",
-        description:
-            "Trabajamos en equipo para lograr resultados excepcionales",
+        title: 'Colaboración',
+        description: 'Trabajamos en equipo para lograr resultados excepcionales',
     },
     {
         icon: Zap,
-        title: "Innovación",
-        description:
-            "Siempre buscamos formas nuevas y mejores de hacer las cosas",
+        title: 'Innovación',
+        description: 'Siempre buscamos formas nuevas y mejores de hacer las cosas',
     },
 ];
 
 const milestones = [
     {
-        year: "2020",
-        title: "Fundación de Devanthos",
-        description: "Iniciamos con la visión de democratizar la tecnología",
+        year: '2020',
+        title: 'Fundación de Devanthos',
+        description: 'Iniciamos con la visión de democratizar la tecnología',
     },
     {
-        year: "2021",
-        title: "Primeros 100 Clientes",
-        description: "Alcanzamos nuestra primera meta de clientes satisfechos",
+        year: '2021',
+        title: 'Primeros 100 Clientes',
+        description: 'Alcanzamos nuestra primera meta de clientes satisfechos',
     },
     {
-        year: "2022",
-        title: "Expansión Regional",
-        description: "Expandimos operaciones a 5 países de Latinoamérica",
+        year: '2022',
+        title: 'Expansión Regional',
+        description: 'Expandimos operaciones a 5 países de Latinoamérica',
     },
     {
-        year: "2023",
-        title: "Centro de Innovación",
-        description: "Abrimos nuestro centro de I+D en tecnologías emergentes",
+        year: '2023',
+        title: 'Centro de Innovación',
+        description: 'Abrimos nuestro centro de I+D en tecnologías emergentes',
     },
     {
-        year: "2024",
-        title: "1000+ Proyectos",
-        description: "Superamos los 1000 proyectos exitosos entregados",
+        year: '2024',
+        title: '1000+ Proyectos',
+        description: 'Superamos los 1000 proyectos exitosos entregados',
     },
     {
-        year: "2025",
-        title: "Vision 2030",
-        description: "Lanzamos nuestra hoja de ruta hacia la próxima década",
+        year: '2025',
+        title: 'Vision 2030',
+        description: 'Lanzamos nuestra hoja de ruta hacia la próxima década',
     },
 ];
 
 const goals2030 = [
     {
-        metric: "10k+",
-        description: "Empresas transformadas digitalmente",
+        metric: '10k+',
+        description: 'Empresas transformadas digitalmente',
     },
     {
-        metric: "50k+",
-        description: "Desarrolladores capacitados",
+        metric: '50k+',
+        description: 'Desarrolladores capacitados',
     },
     {
-        metric: "15",
-        description: "Países con presencia directa",
+        metric: '15',
+        description: 'Países con presencia directa',
     },
     {
-        metric: "Zero",
-        description: "Emisiones de carbono (Carbon Neutral)",
+        metric: 'Zero',
+        description: 'Emisiones de carbono (Carbon Neutral)',
     },
 ];
 ---
 
 <Layout
     title="Nuestros Objetivos - Devanthos"
-    description="Conoce la misión, visión y objetivos de Devanthos. Nuestro compromiso con la transformación digital y el desarrollo tecnológico en Latinoamérica."
->
-    <main class="min-h-screen">
-        <!-- Hero Section -->
-        <section class="h-dvh md:py-40 md:h-fit relative overflow-hidden">
-            <div
-                class="absolute inset-0 bg-gradient-to-br from-primary/50 via-transparent to-accent/50"
-            >
+    description="Conoce la misión, visión y objetivos de Devanthos. Nuestro compromiso con la transformación digital y el desarrollo tecnológico en Latinoamérica.">
+    <!-- Hero Section -->
+    <section
+        class="font-public_sans bg-background before:from-muted dark relative py-12 before:absolute before:top-0 before:left-0 before:z-10 before:block before:h-[15rem] before:w-full before:bg-linear-to-b before:to-transparent before:content-[''] md:py-32">
+        <div class="relative z-20 container mx-auto px-4">
+            <div class="relative z-20 mx-auto flex max-w-[56.25rem] flex-col items-center gap-6">
+                <Badge
+                    className="border-muted bg-muted hover:border-primary mb-4 flex w-fit items-center gap-1 rounded-full border px-2.5 py-1.5"
+                    >Nuestros Objetivos</Badge
+                >
+                <h1
+                    class="text-foreground font-cocogoose [&_span]:text-primary text-center text-5xl leading-tight [text-shadow:0_0_10px_rgba(255,255,255,0.65)] md:text-6xl lg:text-7xl [&_span]:[text-shadow:0_0_10px_rgba(94,111,182,0.65)]">
+                    Construyendo el <span>Futuro Digital</span>
+                </h1>
+                <p class="text-muted-foreground text-center text-lg">
+                    Nuestra misión es democratizar la tecnología y empoderar a las empresas de
+                    Latinoamérica para que lideren la transformación digital global.
+                </p>
+                <div class="mt-4 flex items-center gap-2">
+                    <Button
+                        href="#objetivos"
+                        class="flex h-fit items-center gap-2 rounded-md px-3.5 py-2.5 text-sm font-medium">
+                        <Target className="size-5!" />
+                        Ver Objetivos
+                    </Button>
+                    <Button
+                        href="/empresa"
+                        variant="ghost"
+                        class="flex h-fit items-center gap-2 rounded-md px-3.5 py-2.5 text-sm font-medium text-white">
+                        Conocer la Empresa
+                    </Button>
+                </div>
             </div>
-            <div
-                class="absolute -top-40 -right-40 w-80 h-80 bg-primary/60 rounded-full blur-3xl"
-            >
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="mx-auto grid max-w-6xl grid-cols-1 gap-12 lg:grid-cols-2">
+                <Card className="border-0 shadow-lg">
+                    <CardHeader className="text-center">
+                        <Target className="text-primary mx-auto mb-4 h-16 w-16" />
+                        <CardTitle className="text-3xl">Misión</CardTitle>
+                    </CardHeader>
+                    <CardContent className="text-center">
+                        <p class="text-muted-foreground text-lg leading-relaxed">
+                            Democratizar el acceso a tecnología de vanguardia, empoderando a
+                            empresas y desarrolladores para crear soluciones innovadoras que
+                            transformen la sociedad.
+                        </p>
+                    </CardContent>
+                </Card>
+
+                <Card className="border-0 shadow-lg">
+                    <CardHeader className="text-center">
+                        <Globe className="text-primary mx-auto mb-4 h-16 w-16" />
+                        <CardTitle className="text-3xl">Visión</CardTitle>
+                    </CardHeader>
+                    <CardContent className="text-center">
+                        <p class="text-muted-foreground text-lg leading-relaxed">
+                            Ser la empresa líder en transformación digital en Latinoamérica,
+                            reconocida por la excelencia técnica y el impacto positivo en la
+                            comunidad.
+                        </p>
+                    </CardContent>
+                </Card>
             </div>
-            <div
-                class="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/80 rounded-full blur-3xl"
-            >
+        </div>
+    </section>
+
+    <!-- Strategic Objectives -->
+    <section id="objetivos" class="bg-muted/30 py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Objetivos Estratégicos</h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Nuestros objetivos están alineados con nuestra misión de transformar
+                    digitalmente a Latinoamérica y crear un impacto positivo duradero.
+                </p>
             </div>
-            <div
-                class="container h-full flex justify-center items-center mx-auto px-4"
-            >
-                <div class="max-w-4xl mx-auto text-center">
-                    <Badge className="mb-4">Nuestros Objetivos</Badge>
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                        Construyendo el <span class="text-primary"
-                            >Futuro Digital</span
-                        >
-                    </h1>
-                    <p class="text-xl text-muted-foreground mb-8">
-                        Nuestra misión es democratizar la tecnología y empoderar
-                        a las empresas de Latinoamérica para que lideren la
-                        transformación digital global.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a
-                            href="#objetivos"
-                            class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
-                        >
-                            <Target className="w-4 h-4 mr-2" />
-                            Ver Objetivos
-                        </a>
-                        <a
-                            href="/empresa"
-                            class="inline-flex items-center justify-center px-8 py-3 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
-                        >
-                            Conocer la Empresa
-                        </a>
+
+            <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+                {
+                    objectives.map((objective) => (
+                        <Card className="border-0 shadow-md hover:shadow-lg transition-shadow">
+                            <CardHeader>
+                                <div class="bg-primary/10 mb-4 w-fit rounded-lg p-3">
+                                    <objective.icon className="w-8 h-8 text-primary" />
+                                </div>
+                                <CardTitle className="text-xl mb-2">{objective.title}</CardTitle>
+                                <p class="text-muted-foreground text-sm">{objective.description}</p>
+                            </CardHeader>
+                            <CardContent>
+                                <ul class="space-y-2">
+                                    {objective.details.map((detail) => (
+                                        <li class="flex items-center gap-2 text-sm">
+                                            <div class="bg-primary h-1.5 w-1.5 rounded-full" />
+                                            {detail}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </CardContent>
+                        </Card>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Values -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Nuestros Valores</h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Los valores que guían cada decisión y definen nuestra cultura empresarial.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+                {
+                    values.map((value) => (
+                        <Card className="text-center border-0 shadow-md">
+                            <CardHeader>
+                                <div class="bg-primary/10 mx-auto mb-4 w-fit rounded-lg p-3">
+                                    <value.icon className="w-8 h-8 text-primary" />
+                                </div>
+                                <CardTitle className="text-xl">{value.title}</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p class="text-muted-foreground text-sm">{value.description}</p>
+                            </CardContent>
+                        </Card>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="bg-muted/30 py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Nuestro Camino</h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Los hitos más importantes en nuestro viaje hacia la transformación digital.
+                </p>
+            </div>
+
+            <div class="mx-auto max-w-4xl">
+                <div class="relative">
+                    {/* Timeline line */}
+                    <div class="bg-primary/20 absolute top-0 bottom-0 left-8 w-0.5"></div>
+
+                    <div class="space-y-8">
+                        {
+                            milestones.map((milestone, index) => (
+                                <div class="relative flex items-center gap-8">
+                                    {/* Timeline dot */}
+                                    <div
+                                        class={`z-10 flex h-16 w-16 items-center justify-center rounded-full text-sm font-bold ${
+                                            milestone.year === '2025'
+                                                ? 'bg-primary text-primary-foreground'
+                                                : 'bg-primary/10 text-primary border-background border-4'
+                                        }`}>
+                                        {milestone.year}
+                                    </div>
+
+                                    {/* Content */}
+                                    <Card
+                                        className={`flex-1 border-0 shadow-md ${
+                                            milestone.year === '2025' ? 'ring-primary ring-2' : ''
+                                        }`}>
+                                        <CardContent className="p-6">
+                                            <h3 class="mb-2 text-lg font-semibold">
+                                                {milestone.title}
+                                            </h3>
+                                            <p class="text-muted-foreground text-sm">
+                                                {milestone.description}
+                                            </p>
+                                        </CardContent>
+                                    </Card>
+                                </div>
+                            ))
+                        }
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Mission & Vision -->
-        <section class="py-20">
-            <div class="container mx-auto px-4">
-                <div
-                    class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto"
-                >
-                    <Card className="border-0 shadow-lg">
-                        <CardHeader className="text-center">
-                            <Target
-                                className="w-16 h-16 text-primary mx-auto mb-4"
-                            />
-                            <CardTitle className="text-3xl">Misión</CardTitle>
-                        </CardHeader>
-                        <CardContent className="text-center">
-                            <p
-                                class="text-lg text-muted-foreground leading-relaxed"
-                            >
-                                Democratizar el acceso a tecnología de
-                                vanguardia, empoderando a empresas y
-                                desarrolladores para crear soluciones
-                                innovadoras que transformen la sociedad.
+    <!-- 2030 Goals -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <Award className="text-primary mx-auto mb-6 h-16 w-16" />
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Metas 2030</h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Nuestras metas ambiciosas para la próxima década, comprometidas con un futuro
+                    sostenible y próspero.
+                </p>
+            </div>
+
+            <div class="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+                {
+                    goals2030.map((goal) => (
+                        <Card className="text-center border-0 shadow-md bg-gradient-to-br from-primary/5 to-primary/10">
+                            <CardContent className="p-8">
+                                <div class="text-primary mb-3 text-4xl font-bold">
+                                    {goal.metric}
+                                </div>
+                                <p class="text-muted-foreground text-sm">{goal.description}</p>
+                            </CardContent>
+                        </Card>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="bg-muted/30 py-20">
+        <div class="container mx-auto px-4">
+            <div class="mx-auto max-w-4xl text-center">
+                <h2 class="mb-6 text-3xl font-bold md:text-4xl">Nuestro Compromiso Social</h2>
+                <p class="text-muted-foreground mb-8 text-lg">
+                    Creemos que la tecnología debe ser una fuerza para el bien. Por eso dedicamos el
+                    5% de nuestros ingresos a iniciativas sociales y programas de educación
+                    tecnológica gratuita.
+                </p>
+
+                <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+                    <Card className="border-0 shadow-md">
+                        <CardContent className="p-6 text-center">
+                            <h3 class="mb-2 font-semibold">Becas Tech</h3>
+                            <p class="text-muted-foreground text-sm">
+                                500+ jóvenes becados en programas de desarrollo
                             </p>
                         </CardContent>
                     </Card>
 
-                    <Card className="border-0 shadow-lg">
-                        <CardHeader className="text-center">
-                            <Globe
-                                className="w-16 h-16 text-primary mx-auto mb-4"
-                            />
-                            <CardTitle className="text-3xl">Visión</CardTitle>
-                        </CardHeader>
-                        <CardContent className="text-center">
-                            <p
-                                class="text-lg text-muted-foreground leading-relaxed"
-                            >
-                                Ser la empresa líder en transformación digital
-                                en Latinoamérica, reconocida por la excelencia
-                                técnica y el impacto positivo en la comunidad.
+                    <Card className="border-0 shadow-md">
+                        <CardContent className="p-6 text-center">
+                            <h3 class="mb-2 font-semibold">ONGs Digitalizadas</h3>
+                            <p class="text-muted-foreground text-sm">
+                                100+ organizaciones sin fines de lucro transformadas
+                            </p>
+                        </CardContent>
+                    </Card>
+
+                    <Card className="border-0 shadow-md">
+                        <CardContent className="p-6 text-center">
+                            <h3 class="mb-2 font-semibold">Open Source</h3>
+                            <p class="text-muted-foreground text-sm">
+                                50+ proyectos de código abierto contribuidos
                             </p>
                         </CardContent>
                     </Card>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Strategic Objectives -->
-        <section id="objetivos" class="py-20 bg-muted/30">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Objetivos Estratégicos
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Nuestros objetivos están alineados con nuestra misión de
-                        transformar digitalmente a Latinoamérica y crear un
-                        impacto positivo duradero.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    {
-                        objectives.map((objective) => (
-                            <Card className="border-0 shadow-md hover:shadow-lg transition-shadow">
-                                <CardHeader>
-                                    <div class="mb-4 p-3 rounded-lg bg-primary/10 w-fit">
-                                        <objective.icon className="w-8 h-8 text-primary" />
-                                    </div>
-                                    <CardTitle className="text-xl mb-2">
-                                        {objective.title}
-                                    </CardTitle>
-                                    <p class="text-muted-foreground text-sm">
-                                        {objective.description}
-                                    </p>
-                                </CardHeader>
-                                <CardContent>
-                                    <ul class="space-y-2">
-                                        {objective.details.map((detail) => (
-                                            <li class="flex items-center gap-2 text-sm">
-                                                <div class="w-1.5 h-1.5 rounded-full bg-primary" />
-                                                {detail}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </CardContent>
-                            </Card>
-                        ))
-                    }
+    <!-- CTA Section -->
+    <section class="bg-primary text-primary-foreground py-20">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mx-auto max-w-3xl">
+                <h2 class="mb-6 text-3xl font-bold md:text-4xl">Únete a nuestra misión</h2>
+                <p class="mb-8 text-lg opacity-90">
+                    Si compartes nuestra visión de transformar Latinoamérica a través de la
+                    tecnología, nos encantaría conocerte y trabajar juntos.
+                </p>
+                <div class="flex flex-col justify-center gap-4 sm:flex-row">
+                    <a
+                        href="/empresa/careers"
+                        class="text-primary inline-flex items-center justify-center rounded-lg bg-white px-8 py-3 font-medium transition-colors hover:bg-gray-100">
+                        <Users className="mr-2 h-4 w-4" />
+                        Únete al Equipo
+                    </a>
+                    <a
+                        href="/contacto"
+                        class="inline-flex items-center justify-center rounded-lg border border-white/20 px-8 py-3 font-medium transition-colors hover:bg-white/10">
+                        Seamos Socios
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                    </a>
                 </div>
             </div>
-        </section>
-
-        <!-- Values -->
-        <section class="py-20">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Nuestros Valores
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Los valores que guían cada decisión y definen nuestra
-                        cultura empresarial.
-                    </p>
-                </div>
-
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-                >
-                    {
-                        values.map((value) => (
-                            <Card className="text-center border-0 shadow-md">
-                                <CardHeader>
-                                    <div class="mx-auto mb-4 p-3 rounded-lg bg-primary/10 w-fit">
-                                        <value.icon className="w-8 h-8 text-primary" />
-                                    </div>
-                                    <CardTitle className="text-xl">
-                                        {value.title}
-                                    </CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p class="text-muted-foreground text-sm">
-                                        {value.description}
-                                    </p>
-                                </CardContent>
-                            </Card>
-                        ))
-                    }
-                </div>
-            </div>
-        </section>
-
-        <!-- Timeline -->
-        <section class="py-20 bg-muted/30">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Nuestro Camino
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Los hitos más importantes en nuestro viaje hacia la
-                        transformación digital.
-                    </p>
-                </div>
-
-                <div class="max-w-4xl mx-auto">
-                    <div class="relative">
-                        {/* Timeline line */}
-                        <div
-                            class="absolute left-8 top-0 bottom-0 w-0.5 bg-primary/20"
-                        >
-                        </div>
-
-                        <div class="space-y-8">
-                            {
-                                milestones.map((milestone, index) => (
-                                    <div class="relative flex items-center gap-8">
-                                        {/* Timeline dot */}
-                                        <div
-                                            class={`w-16 h-16 rounded-full flex items-center justify-center font-bold text-sm z-10 ${
-                                                milestone.year === "2025"
-                                                    ? "bg-primary text-primary-foreground"
-                                                    : "bg-primary/10 text-primary border-4 border-background"
-                                            }`}
-                                        >
-                                            {milestone.year}
-                                        </div>
-
-                                        {/* Content */}
-                                        <Card
-                                            className={`flex-1 border-0 shadow-md ${
-                                                milestone.year === "2025"
-                                                    ? "ring-2 ring-primary"
-                                                    : ""
-                                            }`}
-                                        >
-                                            <CardContent className="p-6">
-                                                <h3 class="font-semibold text-lg mb-2">
-                                                    {milestone.title}
-                                                </h3>
-                                                <p class="text-muted-foreground text-sm">
-                                                    {milestone.description}
-                                                </p>
-                                            </CardContent>
-                                        </Card>
-                                    </div>
-                                ))
-                            }
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 2030 Goals -->
-        <section class="py-20">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <Award className="w-16 h-16 text-primary mx-auto mb-6" />
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Metas 2030
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Nuestras metas ambiciosas para la próxima década,
-                        comprometidas con un futuro sostenible y próspero.
-                    </p>
-                </div>
-
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto"
-                >
-                    {
-                        goals2030.map((goal) => (
-                            <Card className="text-center border-0 shadow-md bg-gradient-to-br from-primary/5 to-primary/10">
-                                <CardContent className="p-8">
-                                    <div class="text-4xl font-bold text-primary mb-3">
-                                        {goal.metric}
-                                    </div>
-                                    <p class="text-muted-foreground text-sm">
-                                        {goal.description}
-                                    </p>
-                                </CardContent>
-                            </Card>
-                        ))
-                    }
-                </div>
-            </div>
-        </section>
-
-        <!-- Impact Section -->
-        <section class="py-20 bg-muted/30">
-            <div class="container mx-auto px-4">
-                <div class="max-w-4xl mx-auto text-center">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                        Nuestro Compromiso Social
-                    </h2>
-                    <p class="text-lg text-muted-foreground mb-8">
-                        Creemos que la tecnología debe ser una fuerza para el
-                        bien. Por eso dedicamos el 5% de nuestros ingresos a
-                        iniciativas sociales y programas de educación
-                        tecnológica gratuita.
-                    </p>
-
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <Card className="border-0 shadow-md">
-                            <CardContent className="p-6 text-center">
-                                <h3 class="font-semibold mb-2">Becas Tech</h3>
-                                <p class="text-sm text-muted-foreground">
-                                    500+ jóvenes becados en programas de
-                                    desarrollo
-                                </p>
-                            </CardContent>
-                        </Card>
-
-                        <Card className="border-0 shadow-md">
-                            <CardContent className="p-6 text-center">
-                                <h3 class="font-semibold mb-2">
-                                    ONGs Digitalizadas
-                                </h3>
-                                <p class="text-sm text-muted-foreground">
-                                    100+ organizaciones sin fines de lucro
-                                    transformadas
-                                </p>
-                            </CardContent>
-                        </Card>
-
-                        <Card className="border-0 shadow-md">
-                            <CardContent className="p-6 text-center">
-                                <h3 class="font-semibold mb-2">Open Source</h3>
-                                <p class="text-sm text-muted-foreground">
-                                    50+ proyectos de código abierto contribuidos
-                                </p>
-                            </CardContent>
-                        </Card>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="py-20 bg-primary text-primary-foreground">
-            <div class="container mx-auto px-4 text-center">
-                <div class="max-w-3xl mx-auto">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                        Únete a nuestra misión
-                    </h2>
-                    <p class="text-lg opacity-90 mb-8">
-                        Si compartes nuestra visión de transformar Latinoamérica
-                        a través de la tecnología, nos encantaría conocerte y
-                        trabajar juntos.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a
-                            href="/empresa/careers"
-                            class="inline-flex items-center justify-center px-8 py-3 bg-white text-primary rounded-lg font-medium hover:bg-gray-100 transition-colors"
-                        >
-                            <Users className="w-4 h-4 mr-2" />
-                            Únete al Equipo
-                        </a>
-                        <a
-                            href="/contacto"
-                            class="inline-flex items-center justify-center px-8 py-3 border border-white/20 rounded-lg font-medium hover:bg-white/10 transition-colors"
-                        >
-                            Seamos Socios
-                            <ArrowRight className="w-4 h-4 ml-2" />
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+        </div>
+    </section>
 </Layout>
