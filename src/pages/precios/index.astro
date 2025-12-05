@@ -1,7 +1,7 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import Layout from '@/layouts/Layout.astro';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import {
     Check,
     Star,
@@ -16,619 +16,499 @@ import {
     Smartphone,
     Globe,
     Calculator,
-} from "lucide-react";
+} from 'lucide-react';
 
 const plans = [
     {
-        name: "Básico",
-        price: "$499",
-        priceAnnual: "$399", // 20% descuento
-        period: "/mes",
-        description: "Perfecto para startups y pequeños proyectos",
+        name: 'Básico',
+        price: '$799',
+        priceAnnual: '$639', // 20% descuento
+        period: '/mes',
+        description: 'Perfecto para startups y pequeños proyectos',
         icon: Zap,
         popular: false,
         features: [
-            "Hasta 3 proyectos activos",
-            "Componentes UI básicos",
-            "Soporte por email",
-            "Documentación completa",
-            "Actualizaciones mensuales",
-            "Hosting básico incluido",
+            'Hasta 3 proyectos activos',
+            'Componentes UI básicos',
+            'Soporte por email',
+            'Documentación completa',
+            'Actualizaciones mensuales',
+            'Hosting básico incluido',
         ],
-        cta: "Comenzar Gratis",
-        ctaLink: "/contacto?plan=basico",
+        cta: 'Comenzar Gratis',
+        ctaLink: '/contacto?plan=basico',
     },
     {
-        name: "Profesional",
-        price: "$799",
-        priceAnnual: "$639", // 20% descuento
-        period: "/mes",
-        description: "Ideal para equipos en crecimiento",
+        name: 'Profesional',
+        price: '$1499',
+        priceAnnual: '$1199', // 20% descuento
+        period: '/mes',
+        description: 'Ideal para equipos en crecimiento',
         icon: Crown,
         popular: true,
         features: [
-            "Proyectos ilimitados",
-            "Biblioteca completa de componentes",
-            "Soporte prioritario 24/7",
-            "Consultoría técnica incluida",
-            "Actualizaciones semanales",
-            "Hosting premium + CDN",
-            "Integración con APIs",
-            "Análisis y métricas",
+            'Proyectos ilimitados',
+            'Biblioteca completa de componentes',
+            'Soporte prioritario 24/7',
+            'Consultoría técnica incluida',
+            'Actualizaciones semanales',
+            'Hosting premium + CDN',
+            'Integración con APIs',
+            'Análisis y métricas',
         ],
-        cta: "Más Popular",
-        ctaLink: "/contacto?plan=profesional",
+        cta: 'Más Popular',
+        ctaLink: '/contacto?plan=profesional',
     },
     {
-        name: "Enterprise",
-        price: "Custom",
-        priceAnnual: "Custom",
-        period: "",
-        description: "Soluciones personalizadas para grandes empresas",
+        name: 'Enterprise',
+        price: 'Custom',
+        priceAnnual: 'Custom',
+        period: '',
+        description: 'Soluciones personalizadas para grandes empresas',
         icon: Rocket,
         popular: false,
         features: [
-            "Todo lo del plan Profesional",
-            "Desarrollo personalizado",
-            "Arquitectura escalable",
-            "Soporte dedicado",
-            "SLA garantizado",
-            "Integración con sistemas existentes",
-            "Capacitación del equipo",
-            "Mantenimiento y actualizaciones",
+            'Todo lo del plan Profesional',
+            'Desarrollo personalizado',
+            'Arquitectura escalable',
+            'Soporte dedicado',
+            'SLA garantizado',
+            'Integración con sistemas existentes',
+            'Capacitación del equipo',
+            'Mantenimiento y actualizaciones',
         ],
-        cta: "Contactar Ventas",
-        ctaLink: "/contacto?plan=enterprise",
+        cta: 'Contactar Ventas',
+        ctaLink: '/contacto?plan=enterprise',
     },
 ];
 
 const services = [
     {
-        title: "Desarrollo Web",
-        description: "Sitios web modernos y responsivos",
+        title: 'Desarrollo Web',
+        description: 'Sitios web modernos y responsivos',
         icon: Globe,
-        startingPrice: "$250",
+        startingPrice: '$250',
         features: [
-            "Diseño responsive",
-            "SEO optimizado",
-            "Performance optimizada",
-            "CMS integrado",
+            'Diseño responsive',
+            'SEO optimizado',
+            'Performance optimizada',
+            'CMS integrado',
         ],
     },
     {
-        title: "Aplicaciones Móviles",
-        description: "Apps nativas para iOS y Android",
+        title: 'Aplicaciones Móviles',
+        description: 'Apps nativas para iOS y Android',
         icon: Smartphone,
-        startingPrice: "$999",
-        features: [
-            "Multiplataforma",
-            "UI/UX nativo",
-            "Push notifications",
-            "App Store deployment",
-        ],
+        startingPrice: '$999',
+        features: ['Multiplataforma', 'UI/UX nativo', 'Push notifications', 'App Store deployment'],
     },
     {
-        title: "Sistemas Personalizados",
-        description: "Software a medida para tu negocio",
+        title: 'Sistemas Personalizados',
+        description: 'Software a medida para tu negocio',
         icon: Code,
-        startingPrice: "$1,999",
+        startingPrice: '$1,999',
         features: [
-            "Arquitectura escalable",
-            "Integración APIs",
-            "Base de datos custom",
-            "Panel de administración",
+            'Arquitectura escalable',
+            'Integración APIs',
+            'Base de datos custom',
+            'Panel de administración',
         ],
     },
     {
-        title: "Diseño UI/UX",
-        description: "Interfaces que conectan con usuarios",
+        title: 'Diseño UI/UX',
+        description: 'Interfaces que conectan con usuarios',
         icon: Palette,
-        startingPrice: "$199",
+        startingPrice: '$199',
         features: [
-            "Research de usuarios",
-            "Wireframes",
-            "Prototipos interactivos",
-            "Design system",
+            'Research de usuarios',
+            'Wireframes',
+            'Prototipos interactivos',
+            'Design system',
         ],
     },
 ];
 
 const faqs = [
     {
-        question: "¿Puedo cambiar de plan en cualquier momento?",
-        answer: "Sí, puedes actualizar o reducir tu plan en cualquier momento. Los cambios se reflejan en tu próxima facturación.",
+        question: '¿Puedo cambiar de plan en cualquier momento?',
+        answer: 'Sí, puedes actualizar o reducir tu plan en cualquier momento. Los cambios se reflejan en tu próxima facturación.',
     },
     {
-        question: "¿Ofrecen garantía de devolución de dinero?",
-        answer: "Ofrecemos una garantía de 30 días. Si no estás satisfecho, te devolvemos el 100% de tu dinero.",
+        question: '¿Ofrecen garantía de devolución de dinero?',
+        answer: 'Ofrecemos una garantía de 30 días. Si no estás satisfecho, te devolvemos el 100% de tu dinero.',
     },
     {
-        question: "¿Qué incluye el soporte técnico?",
-        answer: "Nuestro soporte incluye asistencia técnica, resolución de bugs, consultas sobre implementación y actualizaciones.",
+        question: '¿Qué incluye el soporte técnico?',
+        answer: 'Nuestro soporte incluye asistencia técnica, resolución de bugs, consultas sobre implementación y actualizaciones.',
     },
     {
-        question: "¿Los precios incluyen impuestos?",
-        answer: "Los precios mostrados no incluyen impuestos. Los impuestos se calculan según tu ubicación geográfica.",
+        question: '¿Los precios incluyen impuestos?',
+        answer: 'Los precios mostrados no incluyen impuestos. Los impuestos se calculan según tu ubicación geográfica.',
     },
 ];
 ---
 
 <Layout
     title="Precios - Devanthos"
-    description="Conoce nuestros planes de precios flexibles y servicios personalizados. Desde startups hasta empresas, tenemos la solución perfecta para ti."
->
-    <main class="min-h-screen">
-        <!-- Hero Section -->
-        <section class="h-dvh md:py-40 md:h-fit relative overflow-hidden">
-            <div
-                class="absolute inset-0 bg-gradient-to-br from-primary/50 via-transparent to-accent/50"
-            >
+    description="Conoce nuestros planes de precios flexibles y servicios personalizados. Desde startups hasta empresas, tenemos la solución perfecta para ti.">
+    <!-- Hero Section -->
+    <section
+        class="font-public_sans bg-background before:from-muted dark relative py-24 before:absolute before:top-0 before:left-0 before:z-10 before:block before:h-[15rem] before:w-full before:bg-linear-to-b before:to-transparent before:content-[''] md:py-32">
+        <div class="relative z-20 container mx-auto px-4">
+            <div class="relative z-20 mx-auto flex max-w-[56.25rem] flex-col items-center gap-6">
+                <Badge
+                    className="border-muted bg-muted hover:border-primary mb-4 flex w-fit items-center gap-1 rounded-full border px-2.5 py-1.5"
+                    >Precios</Badge
+                >
+                <h1
+                    class="text-foreground font-cocogoose [&_span]:text-primary text-center text-5xl leading-tight [text-shadow:0_0_10px_rgba(255,255,255,0.65)] md:text-6xl lg:text-7xl [&_span]:[text-shadow:0_0_10px_rgba(94,111,182,0.65)]">
+                    Planes que se adaptan a <span>tu crecimiento</span>
+                </h1>
+                <p class="text-muted-foreground text-center text-lg">
+                    Desde startups hasta grandes empresas, tenemos la solución perfecta para
+                    impulsar tu negocio digital.
+                </p>
+                <div class="mb-8 flex items-center justify-center gap-4">
+                    <span class="text-muted-foreground" id="monthly-label">Mensual</span>
+                    <div class="relative">
+                        <input type="checkbox" id="billing-toggle" class="sr-only" />
+                        <label
+                            for="billing-toggle"
+                            class="toggle-label relative flex h-7 w-14 cursor-pointer items-center rounded-full bg-gray-300 transition-colors duration-300 dark:bg-gray-600">
+                            <span
+                                class="toggle-thumb absolute top-0.5 left-0.5 h-6 w-6 rounded-full bg-white shadow-md transition-transform duration-300"
+                            ></span>
+                        </label>
+                    </div>
+                    <span class="text-muted-foreground" id="annual-label"
+                        >Anual <Badge variant="secondary" className="ml-2">-20%</Badge></span
+                    >
+                </div>
             </div>
-            <div
-                class="absolute -top-40 -right-40 w-80 h-80 bg-primary/60 rounded-full blur-3xl"
-            >
+        </div>
+    </section>
+
+    <!-- Pricing Plans -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-3">
+                {
+                    plans.map((plan) => (
+                        <Card
+                            className={`relative border-0 shadow-lg transition-all duration-300 hover:shadow-xl ${plan.popular ? 'ring-primary scale-105 ring-2' : ''}`}>
+                            {plan.popular && (
+                                <div class="absolute -top-4 left-1/2 -translate-x-1/2 transform">
+                                    <Badge className="px-4 py-1 bg-primary text-primary-foreground">
+                                        <Star className="w-3 h-3 mr-1" />
+                                        Más Popular
+                                    </Badge>
+                                </div>
+                            )}
+
+                            <CardHeader className="text-center pb-8">
+                                <div class="bg-primary/10 mx-auto mb-4 w-fit rounded-lg p-3">
+                                    <plan.icon className="w-8 h-8 text-primary" />
+                                </div>
+                                <CardTitle className="text-2xl font-bold">{plan.name}</CardTitle>
+                                <p class="text-muted-foreground mt-2">{plan.description}</p>
+                                <div class="mt-6">
+                                    <span
+                                        class="text-primary price-display text-4xl font-bold"
+                                        data-monthly={plan.price}
+                                        data-annual={plan.priceAnnual}>
+                                        {plan.price}
+                                    </span>
+                                    {plan.price !== 'Custom' && (
+                                        <span class="text-primary text-xl font-bold">USD</span>
+                                    )}
+
+                                    <span class="text-muted-foreground period-display">
+                                        {plan.period}
+                                    </span>
+                                </div>
+                            </CardHeader>
+
+                            <CardContent className="space-y-6">
+                                <ul class="space-y-3">
+                                    {plan.features.map((feature) => (
+                                        <li class="flex items-start gap-3">
+                                            <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                                            <span class="text-sm">{feature}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+
+                                <a
+                                    href={plan.ctaLink}
+                                    class={`inline-flex w-full items-center justify-center rounded-lg px-6 py-3 font-medium transition-colors ${
+                                        plan.popular
+                                            ? 'bg-primary text-primary-foreground hover:bg-primary/90'
+                                            : 'border-input hover:bg-accent hover:text-accent-foreground border'
+                                    }`}>
+                                    {plan.cta}
+                                </a>
+                            </CardContent>
+                        </Card>
+                    ))
+                }
             </div>
-            <div
-                class="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/80 rounded-full blur-3xl"
-            >
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="bg-muted/30 py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Servicios Personalizados</h2>
+                <p class="text-muted-foreground mx-auto mb-6 max-w-2xl text-lg">
+                    Además de nuestros planes, ofrecemos servicios de desarrollo completamente
+                    personalizados.
+                </p>
+                <div class="flex flex-col justify-center gap-4 sm:flex-row">
+                    <a
+                        href="/precios/presupuesto-web"
+                        class="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center rounded-lg px-6 py-3 font-medium transition-colors">
+                        <Calculator className="mr-2 h-4 w-4" />
+                        Calcular Presupuesto Web
+                    </a>
+                    <a
+                        href="/contacto"
+                        class="border-input hover:bg-accent hover:text-accent-foreground inline-flex items-center justify-center rounded-lg border px-6 py-3 font-medium transition-colors">
+                        Consultoría Personalizada
+                    </a>
+                </div>
             </div>
-            <div
-                class="container h-full flex justify-center items-center mx-auto px-4"
-            >
-                <div class="max-w-4xl mx-auto text-center">
-                    <Badge className="mb-4">Precios</Badge>
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                        Planes que se adaptan a <span class="text-primary"
-                            >tu crecimiento</span
-                        >
-                    </h1>
-                    <p class="text-xl text-muted-foreground mb-8">
-                        Desde startups hasta grandes empresas, tenemos la
-                        solución perfecta para impulsar tu negocio digital.
-                    </p>
-                    <div class="flex items-center justify-center gap-4 mb-8">
-                        <span class="text-muted-foreground" id="monthly-label"
-                            >Mensual</span
-                        >
-                        <div class="relative">
-                            <input
-                                type="checkbox"
-                                id="billing-toggle"
-                                class="sr-only"
-                            />
-                            <label
-                                for="billing-toggle"
-                                class="toggle-label relative flex items-center w-14 h-7 bg-gray-300 dark:bg-gray-600 rounded-full cursor-pointer transition-colors duration-300"
-                            >
-                                <span
-                                    class="toggle-thumb absolute top-0.5 left-0.5 w-6 h-6 bg-white rounded-full shadow-md transition-transform duration-300"
-                                ></span>
-                            </label>
+
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+                {
+                    services.map((service) => (
+                        <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300 group">
+                            <CardHeader className="text-center">
+                                <div class="bg-primary/10 group-hover:bg-primary/20 mx-auto mb-4 w-fit rounded-lg p-3 transition-colors">
+                                    <service.icon className="w-6 h-6 text-primary" />
+                                </div>
+                                <CardTitle className="text-lg">{service.title}</CardTitle>
+                                <p class="text-muted-foreground mt-2 text-sm">
+                                    {service.description}
+                                </p>
+                            </CardHeader>
+                            <CardContent className="space-y-4">
+                                <div class="text-center">
+                                    <span class="text-primary text-2xl font-bold">
+                                        Desde {service.startingPrice}
+                                        <span class="text-muted-foreground text-sm">USD</span>
+                                    </span>
+                                </div>
+                                <ul class="space-y-2">
+                                    {service.features.map((feature) => (
+                                        <li class="flex items-center gap-2">
+                                            <div class="bg-primary h-1.5 w-1.5 flex-shrink-0 rounded-full" />
+                                            <span class="text-muted-foreground text-xs">
+                                                {feature}
+                                            </span>
+                                        </li>
+                                    ))}
+                                </ul>
+                                <a
+                                    href={
+                                        service.title === 'Desarrollo Web'
+                                            ? '/precios/presupuesto-web'
+                                            : `/contacto?service=${service.title.toLowerCase().replace(' ', '-')}`
+                                    }
+                                    class="border-input hover:bg-accent hover:text-accent-foreground inline-flex w-full items-center justify-center rounded-lg border px-4 py-2 text-sm font-medium transition-colors">
+                                    {service.title === 'Desarrollo Web'
+                                        ? 'Calcular Presupuesto'
+                                        : 'Solicitar Cotización'}
+                                </a>
+                            </CardContent>
+                        </Card>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action for Budget Calculator -->
+    <section class="from-primary/5 to-primary/10 bg-gradient-to-br py-20">
+        <div class="container mx-auto px-4">
+            <div class="mx-auto max-w-4xl text-center">
+                <Badge className="mb-4">Calculadora de Presupuesto</Badge>
+                <h2 class="mb-6 text-3xl font-bold md:text-5xl">
+                    ¿Necesitas un <span class="text-primary">Sitio Web</span>?
+                </h2>
+                <p class="text-muted-foreground mx-auto mb-8 max-w-2xl text-xl">
+                    Utiliza nuestra calculadora interactiva para obtener un presupuesto
+                    personalizado al instante. Selecciona las características que necesitas y conoce
+                    el costo exacto de tu proyecto web.
+                </p>
+
+                <!-- Features Grid -->
+                <div class="mb-10 grid grid-cols-1 gap-6 md:grid-cols-3">
+                    <div class="text-center">
+                        <div
+                            class="mx-auto mb-4 w-fit rounded-lg bg-green-100 p-3 dark:bg-green-900/30">
+                            <Calculator className="h-6 w-6 text-green-600 dark:text-green-400" />
                         </div>
-                        <span class="text-muted-foreground" id="annual-label"
-                            >Anual <Badge variant="secondary" className="ml-2"
-                                >-20%</Badge
-                            ></span
-                        >
+                        <h3 class="mb-2 font-semibold">Cálculo Instantáneo</h3>
+                        <p class="text-muted-foreground text-sm">
+                            Precios en tiempo real según tus necesidades
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <div
+                            class="mx-auto mb-4 w-fit rounded-lg bg-blue-100 p-3 dark:bg-blue-900/30">
+                            <Shield className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                        </div>
+                        <h3 class="mb-2 font-semibold">Transparencia Total</h3>
+                        <p class="text-muted-foreground text-sm">
+                            Sin costos ocultos, todo incluido
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <div
+                            class="mx-auto mb-4 w-fit rounded-lg bg-purple-100 p-3 dark:bg-purple-900/30">
+                            <Clock className="h-6 w-6 text-purple-600 dark:text-purple-400" />
+                        </div>
+                        <h3 class="mb-2 font-semibold">Tiempo de Entrega</h3>
+                        <p class="text-muted-foreground text-sm">Estimación automática de plazos</p>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Pricing Plans -->
-        <section class="py-20">
-            <div class="container mx-auto px-4">
-                <div
-                    class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto"
-                >
-                    {
-                        plans.map((plan) => (
-                            <Card
-                                className={`relative border-0 shadow-lg transition-all duration-300 hover:shadow-xl ${plan.popular ? "ring-2 ring-primary scale-105" : ""}`}
-                            >
-                                {plan.popular && (
-                                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                                        <Badge className="px-4 py-1 bg-primary text-primary-foreground">
-                                            <Star className="w-3 h-3 mr-1" />
-                                            Más Popular
-                                        </Badge>
-                                    </div>
-                                )}
-
-                                <CardHeader className="text-center pb-8">
-                                    <div class="mx-auto mb-4 p-3 rounded-lg bg-primary/10 w-fit">
-                                        <plan.icon className="w-8 h-8 text-primary" />
-                                    </div>
-                                    <CardTitle className="text-2xl font-bold">
-                                        {plan.name}
-                                    </CardTitle>
-                                    <p class="text-muted-foreground mt-2">
-                                        {plan.description}
-                                    </p>
-                                    <div class="mt-6">
-                                        <span
-                                            class="text-4xl font-bold text-primary price-display"
-                                            data-monthly={plan.price}
-                                            data-annual={plan.priceAnnual}
-                                        >
-                                            {plan.price}
-                                        </span>
-                                        {plan.price !== "Custom" && (
-                                            <span class="text-xl font-bold text-primary">
-                                                USD
-                                            </span>
-                                        )}
-
-                                        <span class="text-muted-foreground period-display">
-                                            {plan.period}
-                                        </span>
-                                    </div>
-                                </CardHeader>
-
-                                <CardContent className="space-y-6">
-                                    <ul class="space-y-3">
-                                        {plan.features.map((feature) => (
-                                            <li class="flex items-start gap-3">
-                                                <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                                                <span class="text-sm">
-                                                    {feature}
-                                                </span>
-                                            </li>
-                                        ))}
-                                    </ul>
-
-                                    <a
-                                        href={plan.ctaLink}
-                                        class={`w-full inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-colors ${
-                                            plan.popular
-                                                ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                                                : "border border-input hover:bg-accent hover:text-accent-foreground"
-                                        }`}
-                                    >
-                                        {plan.cta}
-                                    </a>
-                                </CardContent>
-                            </Card>
-                        ))
-                    }
+                <!-- CTA Button -->
+                <div class="space-y-4">
+                    <a
+                        href="/precios/presupuesto-web"
+                        class="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex transform items-center justify-center rounded-lg px-8 py-4 text-lg font-semibold shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                        <Calculator className="mr-2 h-5 w-5" />
+                        Calcular mi Presupuesto
+                    </a>
+                    <p class="text-muted-foreground text-sm">
+                        ¡Gratis y sin compromiso! • Solo toma 2 minutos
+                    </p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Services Section -->
-        <section class="py-20 bg-muted/30">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Servicios Personalizados
-                    </h2>
-                    <p
-                        class="text-lg text-muted-foreground max-w-2xl mx-auto mb-6"
-                    >
-                        Además de nuestros planes, ofrecemos servicios de
-                        desarrollo completamente personalizados.
+    <!-- Features Comparison -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">¿Por qué elegir Devanthos?</h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Más que un proveedor de servicios, somos tu socio tecnológico de confianza.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+                <div class="text-center">
+                    <div class="mx-auto mb-4 w-fit rounded-lg bg-green-100 p-3">
+                        <Shield className="h-8 w-8 text-green-600" />
+                    </div>
+                    <h3 class="mb-2 font-semibold">Garantía de Calidad</h3>
+                    <p class="text-muted-foreground text-sm">
+                        Código limpio, probado y documentado
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a
-                            href="/precios/presupuesto-web"
-                            class="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
-                        >
-                            <Calculator className="w-4 h-4 mr-2" />
-                            Calcular Presupuesto Web
-                        </a>
+                </div>
+                <div class="text-center">
+                    <div class="mx-auto mb-4 w-fit rounded-lg bg-blue-100 p-3">
+                        <Clock className="h-8 w-8 text-blue-600" />
+                    </div>
+                    <h3 class="mb-2 font-semibold">Entrega Puntual</h3>
+                    <p class="text-muted-foreground text-sm">Cumplimos con los plazos acordados</p>
+                </div>
+                <div class="text-center">
+                    <div class="mx-auto mb-4 w-fit rounded-lg bg-purple-100 p-3">
+                        <MessageCircle className="h-8 w-8 text-purple-600" />
+                    </div>
+                    <h3 class="mb-2 font-semibold">Comunicación Constante</h3>
+                    <p class="text-muted-foreground text-sm">Updates regulares del progreso</p>
+                </div>
+                <div class="text-center">
+                    <div class="mx-auto mb-4 w-fit rounded-lg bg-orange-100 p-3">
+                        <Zap className="h-8 w-8 text-orange-600" />
+                    </div>
+                    <h3 class="mb-2 font-semibold">Soporte Continuo</h3>
+                    <p class="text-muted-foreground text-sm">Asistencia post-lanzamiento</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="bg-muted/30 py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Preguntas Frecuentes</h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Resolvemos las dudas más comunes sobre nuestros servicios y precios.
+                </p>
+            </div>
+
+            <div class="mx-auto max-w-3xl space-y-6">
+                {
+                    faqs.map((faq) => (
+                        <Card className="border-0 shadow-md">
+                            <CardContent className="p-6">
+                                <h3 class="mb-3 text-lg font-semibold">{faq.question}</h3>
+                                <p class="text-muted-foreground">{faq.answer}</p>
+                            </CardContent>
+                        </Card>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <Card
+                className="from-primary to-primary/80 text-primary-foreground border-0 bg-gradient-to-r shadow-lg">
+                <CardContent className="p-12 text-center">
+                    <h2 class="mb-6 text-3xl font-bold md:text-4xl">
+                        ¿Listo para comenzar tu proyecto?
+                    </h2>
+                    <p class="mx-auto mb-8 max-w-2xl text-lg opacity-90">
+                        Agenda una consultoría gratuita y descubre cómo podemos ayudarte a alcanzar
+                        tus objetivos digitales.
+                    </p>
+                    <div class="flex flex-col justify-center gap-4 sm:flex-row">
                         <a
                             href="/contacto"
-                            class="inline-flex items-center justify-center px-6 py-3 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
-                        >
-                            Consultoría Personalizada
+                            class="text-primary inline-flex items-center justify-center rounded-lg bg-white px-8 py-3 font-medium transition-colors hover:bg-gray-100">
+                            Consultoría Gratuita
                         </a>
-                    </div>
-                </div>
-
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-                >
-                    {
-                        services.map((service) => (
-                            <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300 group">
-                                <CardHeader className="text-center">
-                                    <div class="mx-auto mb-4 p-3 rounded-lg bg-primary/10 w-fit group-hover:bg-primary/20 transition-colors">
-                                        <service.icon className="w-6 h-6 text-primary" />
-                                    </div>
-                                    <CardTitle className="text-lg">
-                                        {service.title}
-                                    </CardTitle>
-                                    <p class="text-sm text-muted-foreground mt-2">
-                                        {service.description}
-                                    </p>
-                                </CardHeader>
-                                <CardContent className="space-y-4">
-                                    <div class="text-center">
-                                        <span class="text-2xl font-bold text-primary">
-                                            Desde {service.startingPrice}
-                                            <span class="text-sm text-muted-foreground">
-                                                USD
-                                            </span>
-                                        </span>
-                                    </div>
-                                    <ul class="space-y-2">
-                                        {service.features.map((feature) => (
-                                            <li class="flex items-center gap-2">
-                                                <div class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                                                <span class="text-xs text-muted-foreground">
-                                                    {feature}
-                                                </span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                    <a
-                                        href={
-                                            service.title === "Desarrollo Web"
-                                                ? "/precios/presupuesto-web"
-                                                : `/contacto?service=${service.title.toLowerCase().replace(" ", "-")}`
-                                        }
-                                        class="w-full inline-flex items-center justify-center px-4 py-2 border border-input rounded-lg text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
-                                    >
-                                        {service.title === "Desarrollo Web"
-                                            ? "Calcular Presupuesto"
-                                            : "Solicitar Cotización"}
-                                    </a>
-                                </CardContent>
-                            </Card>
-                        ))
-                    }
-                </div>
-            </div>
-        </section>
-
-        <!-- Call to Action for Budget Calculator -->
-        <section class="py-20 bg-gradient-to-br from-primary/5 to-primary/10">
-            <div class="container mx-auto px-4">
-                <div class="max-w-4xl mx-auto text-center">
-                    <Badge className="mb-4">Calculadora de Presupuesto</Badge>
-                    <h2 class="text-3xl md:text-5xl font-bold mb-6">
-                        ¿Necesitas un <span class="text-primary">Sitio Web</span
-                        >?
-                    </h2>
-                    <p
-                        class="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
-                    >
-                        Utiliza nuestra calculadora interactiva para obtener un
-                        presupuesto personalizado al instante. Selecciona las
-                        características que necesitas y conoce el costo exacto
-                        de tu proyecto web.
-                    </p>
-
-                    <!-- Features Grid -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                        <div class="text-center">
-                            <div
-                                class="mx-auto mb-4 p-3 rounded-lg bg-green-100 dark:bg-green-900/30 w-fit"
-                            >
-                                <Calculator
-                                    className="w-6 h-6 text-green-600 dark:text-green-400"
-                                />
-                            </div>
-                            <h3 class="font-semibold mb-2">
-                                Cálculo Instantáneo
-                            </h3>
-                            <p class="text-sm text-muted-foreground">
-                                Precios en tiempo real según tus necesidades
-                            </p>
-                        </div>
-                        <div class="text-center">
-                            <div
-                                class="mx-auto mb-4 p-3 rounded-lg bg-blue-100 dark:bg-blue-900/30 w-fit"
-                            >
-                                <Shield
-                                    className="w-6 h-6 text-blue-600 dark:text-blue-400"
-                                />
-                            </div>
-                            <h3 class="font-semibold mb-2">
-                                Transparencia Total
-                            </h3>
-                            <p class="text-sm text-muted-foreground">
-                                Sin costos ocultos, todo incluido
-                            </p>
-                        </div>
-                        <div class="text-center">
-                            <div
-                                class="mx-auto mb-4 p-3 rounded-lg bg-purple-100 dark:bg-purple-900/30 w-fit"
-                            >
-                                <Clock
-                                    className="w-6 h-6 text-purple-600 dark:text-purple-400"
-                                />
-                            </div>
-                            <h3 class="font-semibold mb-2">
-                                Tiempo de Entrega
-                            </h3>
-                            <p class="text-sm text-muted-foreground">
-                                Estimación automática de plazos
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- CTA Button -->
-                    <div class="space-y-4">
                         <a
-                            href="/precios/presupuesto-web"
-                            class="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold text-lg hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-                        >
-                            <Calculator className="w-5 h-5 mr-2" />
-                            Calcular mi Presupuesto
+                            href="/productos"
+                            class="inline-flex items-center justify-center rounded-lg border border-white/20 px-8 py-3 font-medium transition-colors hover:bg-white/10">
+                            Ver Productos
                         </a>
-                        <p class="text-sm text-muted-foreground">
-                            ¡Gratis y sin compromiso! • Solo toma 2 minutos
-                        </p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Features Comparison -->
-        <section class="py-20">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        ¿Por qué elegir Devanthos?
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Más que un proveedor de servicios, somos tu socio
-                        tecnológico de confianza.
-                    </p>
-                </div>
-
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-                >
-                    <div class="text-center">
-                        <div
-                            class="mx-auto mb-4 p-3 rounded-lg bg-green-100 w-fit"
-                        >
-                            <Shield className="w-8 h-8 text-green-600" />
-                        </div>
-                        <h3 class="font-semibold mb-2">Garantía de Calidad</h3>
-                        <p class="text-sm text-muted-foreground">
-                            Código limpio, probado y documentado
-                        </p>
-                    </div>
-                    <div class="text-center">
-                        <div
-                            class="mx-auto mb-4 p-3 rounded-lg bg-blue-100 w-fit"
-                        >
-                            <Clock className="w-8 h-8 text-blue-600" />
-                        </div>
-                        <h3 class="font-semibold mb-2">Entrega Puntual</h3>
-                        <p class="text-sm text-muted-foreground">
-                            Cumplimos con los plazos acordados
-                        </p>
-                    </div>
-                    <div class="text-center">
-                        <div
-                            class="mx-auto mb-4 p-3 rounded-lg bg-purple-100 w-fit"
-                        >
-                            <MessageCircle
-                                className="w-8 h-8 text-purple-600"
-                            />
-                        </div>
-                        <h3 class="font-semibold mb-2">
-                            Comunicación Constante
-                        </h3>
-                        <p class="text-sm text-muted-foreground">
-                            Updates regulares del progreso
-                        </p>
-                    </div>
-                    <div class="text-center">
-                        <div
-                            class="mx-auto mb-4 p-3 rounded-lg bg-orange-100 w-fit"
-                        >
-                            <Zap className="w-8 h-8 text-orange-600" />
-                        </div>
-                        <h3 class="font-semibold mb-2">Soporte Continuo</h3>
-                        <p class="text-sm text-muted-foreground">
-                            Asistencia post-lanzamiento
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section class="py-20 bg-muted/30">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Preguntas Frecuentes
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Resolvemos las dudas más comunes sobre nuestros
-                        servicios y precios.
-                    </p>
-                </div>
-
-                <div class="max-w-3xl mx-auto space-y-6">
-                    {
-                        faqs.map((faq) => (
-                            <Card className="border-0 shadow-md">
-                                <CardContent className="p-6">
-                                    <h3 class="font-semibold text-lg mb-3">
-                                        {faq.question}
-                                    </h3>
-                                    <p class="text-muted-foreground">
-                                        {faq.answer}
-                                    </p>
-                                </CardContent>
-                            </Card>
-                        ))
-                    }
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="py-20">
-            <div class="container mx-auto px-4">
-                <Card
-                    className="border-0 shadow-lg bg-gradient-to-r from-primary to-primary/80 text-primary-foreground"
-                >
-                    <CardContent className="p-12 text-center">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                            ¿Listo para comenzar tu proyecto?
-                        </h2>
-                        <p class="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
-                            Agenda una consultoría gratuita y descubre cómo
-                            podemos ayudarte a alcanzar tus objetivos digitales.
-                        </p>
-                        <div
-                            class="flex flex-col sm:flex-row gap-4 justify-center"
-                        >
-                            <a
-                                href="/contacto"
-                                class="inline-flex items-center justify-center px-8 py-3 bg-white text-primary rounded-lg font-medium hover:bg-gray-100 transition-colors"
-                            >
-                                Consultoría Gratuita
-                            </a>
-                            <a
-                                href="/productos"
-                                class="inline-flex items-center justify-center px-8 py-3 border border-white/20 rounded-lg font-medium hover:bg-white/10 transition-colors"
-                            >
-                                Ver Productos
-                            </a>
-                        </div>
-                    </CardContent>
-                </Card>
-            </div>
-        </section>
-    </main>
+                </CardContent>
+            </Card>
+        </div>
+    </section>
 
     <script>
         // Funcionalidad del toggle de facturación
-        const billingToggle = document.getElementById(
-            "billing-toggle"
-        ) as HTMLInputElement;
-        const toggleLabel = document.querySelector(
-            ".toggle-label"
-        ) as HTMLElement;
-        const toggleThumb = document.querySelector(
-            ".toggle-thumb"
-        ) as HTMLElement;
-        const monthlyLabel = document.getElementById("monthly-label");
-        const annualLabel = document.getElementById("annual-label");
-        const priceDisplays = document.querySelectorAll(".price-display");
-        const periodDisplays = document.querySelectorAll(".period-display");
+        const billingToggle = document.getElementById('billing-toggle') as HTMLInputElement;
+        const toggleLabel = document.querySelector('.toggle-label') as HTMLElement;
+        const toggleThumb = document.querySelector('.toggle-thumb') as HTMLElement;
+        const monthlyLabel = document.getElementById('monthly-label');
+        const annualLabel = document.getElementById('annual-label');
+        const priceDisplays = document.querySelectorAll('.price-display');
+        const periodDisplays = document.querySelectorAll('.period-display');
 
         function updateToggleUI(isAnnual: boolean) {
             if (isAnnual) {
-                toggleLabel?.classList.add("bg-primary");
-                toggleLabel?.classList.remove(
-                    "bg-gray-300",
-                    "dark:bg-gray-600"
-                );
-                toggleThumb?.classList.add("translate-x-7");
+                toggleLabel?.classList.add('bg-primary');
+                toggleLabel?.classList.remove('bg-gray-300', 'dark:bg-gray-600');
+                toggleThumb?.classList.add('translate-x-7');
             } else {
-                toggleLabel?.classList.remove("bg-primary");
-                toggleLabel?.classList.add("bg-gray-300", "dark:bg-gray-600");
-                toggleThumb?.classList.remove("translate-x-7");
+                toggleLabel?.classList.remove('bg-primary');
+                toggleLabel?.classList.add('bg-gray-300', 'dark:bg-gray-600');
+                toggleThumb?.classList.remove('translate-x-7');
             }
         }
 
@@ -638,41 +518,41 @@ const faqs = [
 
             // Actualizar labels
             if (isAnnual) {
-                monthlyLabel?.classList.add("opacity-50");
-                annualLabel?.classList.remove("opacity-50");
-                annualLabel?.classList.add("font-semibold", "text-primary");
-                monthlyLabel?.classList.remove("font-semibold", "text-primary");
+                monthlyLabel?.classList.add('opacity-50');
+                annualLabel?.classList.remove('opacity-50');
+                annualLabel?.classList.add('font-semibold', 'text-primary');
+                monthlyLabel?.classList.remove('font-semibold', 'text-primary');
             } else {
-                monthlyLabel?.classList.remove("opacity-50");
-                annualLabel?.classList.add("opacity-50");
-                monthlyLabel?.classList.add("font-semibold", "text-primary");
-                annualLabel?.classList.remove("font-semibold", "text-primary");
+                monthlyLabel?.classList.remove('opacity-50');
+                annualLabel?.classList.add('opacity-50');
+                monthlyLabel?.classList.add('font-semibold', 'text-primary');
+                annualLabel?.classList.remove('font-semibold', 'text-primary');
             }
 
             // Actualizar precios
             priceDisplays.forEach((priceDisplay) => {
-                const monthlyPrice = priceDisplay.getAttribute("data-monthly");
-                const annualPrice = priceDisplay.getAttribute("data-annual");
+                const monthlyPrice = priceDisplay.getAttribute('data-monthly');
+                const annualPrice = priceDisplay.getAttribute('data-annual');
 
                 if (isAnnual) {
-                    priceDisplay.textContent = annualPrice || "";
+                    priceDisplay.textContent = annualPrice || '';
                 } else {
-                    priceDisplay.textContent = monthlyPrice || "";
+                    priceDisplay.textContent = monthlyPrice || '';
                 }
             });
 
             // Actualizar períodos
             periodDisplays.forEach((periodDisplay) => {
                 if (isAnnual) {
-                    periodDisplay.textContent = "/mes (facturado anualmente)";
+                    periodDisplay.textContent = '/mes (facturado anualmente)';
                 } else {
-                    periodDisplay.textContent = "/mes";
+                    periodDisplay.textContent = '/mes';
                 }
             });
         }
 
         // Event listener para el toggle
-        billingToggle?.addEventListener("change", function (event) {
+        billingToggle?.addEventListener('change', function (event) {
             const target = event.target as HTMLInputElement;
             if (target) {
                 updatePricing(target.checked);
