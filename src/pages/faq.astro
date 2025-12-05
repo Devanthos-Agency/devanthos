@@ -1,7 +1,7 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import Layout from '@/layouts/Layout.astro';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import {
     HelpCircle,
     MessageCircle,
@@ -13,139 +13,139 @@ import {
     Users,
     Mail,
     PhoneCall,
-} from "lucide-react";
-import Button from "@/components/ui/Button.astro";
+} from 'lucide-react';
+import Button from '@/components/ui/Button.astro';
 
 const faqCategories = [
     {
-        title: "General",
+        title: 'General',
         icon: HelpCircle,
         faqs: [
             {
-                question: "¿Qué servicios ofrece Devanthos?",
-                answer: "Ofrecemos desarrollo web y móvil, diseño UI/UX, consultoría técnica, sistemas personalizados y mantenimiento de aplicaciones. Nos especializamos en tecnologías modernas como React, Next.js, React Native y Node.js.",
+                question: '¿Qué servicios ofrece Devanthos?',
+                answer: 'Ofrecemos desarrollo web y móvil, diseño UI/UX, consultoría técnica, sistemas personalizados y mantenimiento de aplicaciones. Nos especializamos en tecnologías modernas como React, Next.js, React Native y Node.js.',
             },
             {
-                question: "¿Cuánto tiempo toma desarrollar un proyecto?",
-                answer: "Los tiempos varían según la complejidad. Una landing page puede tomar 1-2 semanas, una aplicación web completa 4-8 semanas, y una app móvil 6-12 semanas. Proporcionamos estimaciones detalladas después de la consulta inicial.",
+                question: '¿Cuánto tiempo toma desarrollar un proyecto?',
+                answer: 'Los tiempos varían según la complejidad. Una landing page puede tomar 1-2 semanas, una aplicación web completa 4-8 semanas, y una app móvil 6-12 semanas. Proporcionamos estimaciones detalladas después de la consulta inicial.',
             },
             {
-                question: "¿Trabajan con clientes internacionales?",
-                answer: "Sí, trabajamos con clientes de todo el mundo. Tenemos experiencia colaborando en diferentes zonas horarias y ofrecemos comunicación en español e inglés.",
+                question: '¿Trabajan con clientes internacionales?',
+                answer: 'Sí, trabajamos con clientes de todo el mundo. Tenemos experiencia colaborando en diferentes zonas horarias y ofrecemos comunicación en español e inglés.',
             },
             {
-                question: "¿Qué tecnologías utilizan?",
-                answer: "Utilizamos tecnologías modernas y probadas: React, Next.js, TypeScript, Node.js, Python, React Native, Flutter, AWS, Docker, y bases de datos como PostgreSQL y MongoDB.",
+                question: '¿Qué tecnologías utilizan?',
+                answer: 'Utilizamos tecnologías modernas y probadas: React, Next.js, TypeScript, Node.js, Python, React Native, Flutter, AWS, Docker, y bases de datos como PostgreSQL y MongoDB.',
             },
         ],
     },
     {
-        title: "Desarrollo Web",
+        title: 'Desarrollo Web',
         icon: Code,
         faqs: [
             {
-                question: "¿Los sitios web son responsivos?",
+                question: '¿Los sitios web son responsivos?',
                 answer: "Absolutamente. Todos nuestros desarrollos siguen el principio 'mobile-first' y se adaptan perfectamente a todos los dispositivos: móviles, tablets y escritorio.",
             },
             {
-                question: "¿Incluyen SEO en el desarrollo?",
-                answer: "Sí, implementamos SEO técnico desde el desarrollo: estructura semántica, meta tags, sitemap, velocidad de carga optimizada, y mejores prácticas para motores de búsqueda.",
+                question: '¿Incluyen SEO en el desarrollo?',
+                answer: 'Sí, implementamos SEO técnico desde el desarrollo: estructura semántica, meta tags, sitemap, velocidad de carga optimizada, y mejores prácticas para motores de búsqueda.',
             },
             {
-                question: "¿Puedo actualizar el contenido yo mismo?",
-                answer: "Sí, podemos integrar un CMS (Sistema de Gestión de Contenido) como Strapi, Sanity o WordPress headless para que puedas actualizar contenido fácilmente.",
+                question: '¿Puedo actualizar el contenido yo mismo?',
+                answer: 'Sí, podemos integrar un CMS (Sistema de Gestión de Contenido) como Strapi, Sanity o WordPress headless para que puedas actualizar contenido fácilmente.',
             },
             {
-                question: "¿Qué incluye el hosting?",
-                answer: "Ofrecemos opciones de hosting en plataformas como Vercel, Netlify o AWS. Incluye SSL, CDN global, backups automáticos y monitoreo de uptime.",
+                question: '¿Qué incluye el hosting?',
+                answer: 'Ofrecemos opciones de hosting en plataformas como Vercel, Netlify o AWS. Incluye SSL, CDN global, backups automáticos y monitoreo de uptime.',
             },
         ],
     },
     {
-        title: "Aplicaciones Móviles",
+        title: 'Aplicaciones Móviles',
         icon: Smartphone,
         faqs: [
             {
-                question: "¿Desarrollan para iOS y Android?",
-                answer: "Sí, desarrollamos aplicaciones nativas para iOS y Android, así como aplicaciones híbridas con React Native o Flutter que funcionan en ambas plataformas.",
+                question: '¿Desarrollan para iOS y Android?',
+                answer: 'Sí, desarrollamos aplicaciones nativas para iOS y Android, así como aplicaciones híbridas con React Native o Flutter que funcionan en ambas plataformas.',
             },
             {
-                question: "¿Se encargan de publicar en las tiendas?",
-                answer: "Sí, manejamos todo el proceso de publicación en App Store y Google Play, incluyendo la preparación de assets, descripción de la app y gestión de las revisiones.",
+                question: '¿Se encargan de publicar en las tiendas?',
+                answer: 'Sí, manejamos todo el proceso de publicación en App Store y Google Play, incluyendo la preparación de assets, descripción de la app y gestión de las revisiones.',
             },
             {
-                question: "¿Las apps funcionan offline?",
-                answer: "Dependiendo de los requisitos, podemos implementar funcionalidad offline usando tecnologías como Service Workers o almacenamiento local para que ciertas funciones trabajen sin conexión.",
+                question: '¿Las apps funcionan offline?',
+                answer: 'Dependiendo de los requisitos, podemos implementar funcionalidad offline usando tecnologías como Service Workers o almacenamiento local para que ciertas funciones trabajen sin conexión.',
             },
             {
-                question: "¿Incluyen notificaciones push?",
-                answer: "Sí, implementamos notificaciones push personalizadas que te permiten mantener a tus usuarios comprometidos y informados sobre actualizaciones importantes.",
+                question: '¿Incluyen notificaciones push?',
+                answer: 'Sí, implementamos notificaciones push personalizadas que te permiten mantener a tus usuarios comprometidos y informados sobre actualizaciones importantes.',
             },
         ],
     },
     {
-        title: "Precios y Pagos",
+        title: 'Precios y Pagos',
         icon: CreditCard,
         faqs: [
             {
-                question: "¿Cómo manejan los pagos?",
-                answer: "Trabajamos con pagos por etapas: 50% al inicio del proyecto, 25% en la entrega del prototipo, y 25% final al completar el proyecto. Aceptamos transferencias bancarias y PayPal.",
+                question: '¿Cómo manejan los pagos?',
+                answer: 'Trabajamos con pagos por etapas: 50% al inicio del proyecto, 25% en la entrega del prototipo, y 25% final al completar el proyecto. Aceptamos transferencias bancarias y PayPal.',
             },
             {
-                question: "¿Ofrecen planes de financiamiento?",
-                answer: "Para proyectos grandes (>$5,000), ofrecemos planes de pago flexibles. Podemos dividir el costo en hasta 6 pagos mensuales sin intereses adicionales.",
+                question: '¿Ofrecen planes de financiamiento?',
+                answer: 'Para proyectos grandes (>$5,000), ofrecemos planes de pago flexibles. Podemos dividir el costo en hasta 6 pagos mensuales sin intereses adicionales.',
             },
             {
-                question: "¿Los precios incluyen mantenimiento?",
-                answer: "Los precios incluyen 3 meses de mantenimiento básico (corrección de bugs). El mantenimiento extendido y nuevas funcionalidades se cotizar por separado.",
+                question: '¿Los precios incluyen mantenimiento?',
+                answer: 'Los precios incluyen 3 meses de mantenimiento básico (corrección de bugs). El mantenimiento extendido y nuevas funcionalidades se cotizar por separado.',
             },
             {
-                question: "¿Hay costos ocultos?",
-                answer: "No, somos transparentes con nuestros precios. Te proporcionamos una cotización detallada que incluye todos los costos. Solo podrían haber costos adicionales si solicitas cambios significativos durante el desarrollo.",
+                question: '¿Hay costos ocultos?',
+                answer: 'No, somos transparentes con nuestros precios. Te proporcionamos una cotización detallada que incluye todos los costos. Solo podrían haber costos adicionales si solicitas cambios significativos durante el desarrollo.',
             },
         ],
     },
     {
-        title: "Soporte y Mantenimiento",
+        title: 'Soporte y Mantenimiento',
         icon: Shield,
         faqs: [
             {
-                question: "¿Qué incluye el mantenimiento?",
-                answer: "El mantenimiento incluye corrección de bugs, actualizaciones de seguridad, optimización de rendimiento, backups regulares y actualizaciones de dependencias.",
+                question: '¿Qué incluye el mantenimiento?',
+                answer: 'El mantenimiento incluye corrección de bugs, actualizaciones de seguridad, optimización de rendimiento, backups regulares y actualizaciones de dependencias.',
             },
             {
-                question: "¿Cómo es el soporte técnico?",
-                answer: "Ofrecemos soporte por email, chat y videollamada. Los tiempos de respuesta varían: crítico (2 horas), alto (24 horas), medio (48 horas), bajo (72 horas).",
+                question: '¿Cómo es el soporte técnico?',
+                answer: 'Ofrecemos soporte por email, chat y videollamada. Los tiempos de respuesta varían: crítico (2 horas), alto (24 horas), medio (48 horas), bajo (72 horas).',
             },
             {
-                question: "¿Proporcionan documentación?",
-                answer: "Sí, entregamos documentación completa del proyecto incluyendo: guía de usuario, documentación técnica, código comentado y guías de despliegue.",
+                question: '¿Proporcionan documentación?',
+                answer: 'Sí, entregamos documentación completa del proyecto incluyendo: guía de usuario, documentación técnica, código comentado y guías de despliegue.',
             },
             {
-                question: "¿Qué pasa si mi desarrollador se va?",
-                answer: "Todo nuestro código está documentado y versionado. Si un desarrollador deja el equipo, otro puede continuar sin problemas. Además, te entregamos acceso completo al código fuente.",
+                question: '¿Qué pasa si mi desarrollador se va?',
+                answer: 'Todo nuestro código está documentado y versionado. Si un desarrollador deja el equipo, otro puede continuar sin problemas. Además, te entregamos acceso completo al código fuente.',
             },
         ],
     },
     {
-        title: "Proceso de Trabajo",
+        title: 'Proceso de Trabajo',
         icon: Users,
         faqs: [
             {
-                question: "¿Cómo es el proceso de desarrollo?",
-                answer: "Seguimos metodología ágil: 1) Consulta y análisis, 2) Diseño y prototipado, 3) Desarrollo iterativo, 4) Testing y QA, 5) Despliegue y lanzamiento, 6) Soporte post-lanzamiento.",
+                question: '¿Cómo es el proceso de desarrollo?',
+                answer: 'Seguimos metodología ágil: 1) Consulta y análisis, 2) Diseño y prototipado, 3) Desarrollo iterativo, 4) Testing y QA, 5) Despliegue y lanzamiento, 6) Soporte post-lanzamiento.',
             },
             {
-                question: "¿Con qué frecuencia recibo actualizaciones?",
-                answer: "Enviamos reportes de progreso semanales con capturas de pantalla, funcionalidades completadas y próximos pasos. También organizamos calls de seguimiento cada 2 semanas.",
+                question: '¿Con qué frecuencia recibo actualizaciones?',
+                answer: 'Enviamos reportes de progreso semanales con capturas de pantalla, funcionalidades completadas y próximos pasos. También organizamos calls de seguimiento cada 2 semanas.',
             },
             {
-                question: "¿Puedo solicitar cambios durante el desarrollo?",
-                answer: "Sí, los cambios menores están incluidos. Para cambios significativos que afecten el alcance original, proporcionamos una cotización adicional antes de proceder.",
+                question: '¿Puedo solicitar cambios durante el desarrollo?',
+                answer: 'Sí, los cambios menores están incluidos. Para cambios significativos que afecten el alcance original, proporcionamos una cotización adicional antes de proceder.',
             },
             {
-                question: "¿Entregan el código fuente?",
-                answer: "Sí, al finalizar el proyecto recibes acceso completo al código fuente, documentación, assets de diseño y credenciales de las cuentas creadas para tu proyecto.",
+                question: '¿Entregan el código fuente?',
+                answer: 'Sí, al finalizar el proyecto recibes acceso completo al código fuente, documentación, assets de diseño y credenciales de las cuentas creadas para tu proyecto.',
             },
         ],
     },
@@ -154,233 +154,177 @@ const faqCategories = [
 
 <Layout
     title="Preguntas Frecuentes - Devanthos"
-    description="Encuentra respuestas a las preguntas más comunes sobre nuestros servicios de desarrollo web, aplicaciones móviles, precios y proceso de trabajo."
->
-    <main class="min-h-screen">
-        <!-- Hero Section -->
-        <section class="h-dvh md:py-40 md:h-fit relative overflow-hidden">
-            <div
-                class="absolute inset-0 bg-gradient-to-br from-primary/50 via-transparent to-accent/50"
-            >
+    description="Encuentra respuestas a las preguntas más comunes sobre nuestros servicios de desarrollo web, aplicaciones móviles, precios y proceso de trabajo.">
+    <!-- Hero Section -->
+    <section
+        class="font-public_sans bg-background before:from-muted dark relative py-24 before:absolute before:top-0 before:left-0 before:z-10 before:block before:h-[15rem] before:w-full before:bg-linear-to-b before:to-transparent before:content-[''] md:py-32">
+        <div class="relative z-20 container mx-auto px-4">
+            <div class="relative z-20 mx-auto flex max-w-[56.25rem] flex-col items-center gap-6">
+                <Badge
+                    className="border-muted bg-muted hover:border-primary mb-4 flex w-fit items-center gap-1 rounded-full border px-2.5 py-1.5"
+                    >FAQ</Badge
+                >
+                <h1
+                    class="text-foreground font-cocogoose [&_span]:text-primary text-center text-5xl leading-tight [text-shadow:0_0_10px_rgba(255,255,255,0.65)] md:text-6xl lg:text-7xl [&_span]:[text-shadow:0_0_10px_rgba(94,111,182,0.65)]">
+                    Preguntas <span>Frecuentes</span>
+                </h1>
+                <p class="text-muted-foreground text-center text-lg">
+                    Encuentra respuestas rápidas a las preguntas más comunes sobre nuestros
+                    servicios, proceso de trabajo y políticas.
+                </p>
+                <div class="mt-4 flex items-center gap-2">
+                    <Button
+                        href="/contacto"
+                        class="flex h-fit items-center gap-2 rounded-md px-3.5 py-2.5 text-sm font-medium">
+                        <MessageCircle className="size-5!" />
+                        Hacer una Pregunta
+                    </Button>
+                    <Button
+                        href="mailto:soporte@devanthos.com"
+                        variant="ghost"
+                        class="flex h-fit items-center gap-2 rounded-md px-3.5 py-2.5 text-sm font-medium text-white">
+                        Contactar Soporte
+                    </Button>
+                </div>
             </div>
-            <div
-                class="absolute -top-40 -right-40 w-80 h-80 bg-primary/60 rounded-full blur-3xl"
-            >
+        </div>
+    </section>
+
+    <!-- FAQ Categories -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="mx-auto max-w-6xl">
+                {
+                    faqCategories.map((category) => (
+                        <div class="mb-16">
+                            <div class="mb-8 flex items-center gap-3">
+                                <div class="bg-primary/10 rounded-lg p-2">
+                                    <category.icon className="w-6 h-6 text-primary" />
+                                </div>
+                                <h2 class="text-2xl font-bold md:text-3xl">{category.title}</h2>
+                            </div>
+
+                            <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+                                {category.faqs.map((faq) => (
+                                    <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300">
+                                        <CardContent className="p-6">
+                                            <h3 class="text-primary mb-4 text-lg font-semibold">
+                                                {faq.question}
+                                            </h3>
+                                            <p class="text-muted-foreground leading-relaxed">
+                                                {faq.answer}
+                                            </p>
+                                        </CardContent>
+                                    </Card>
+                                ))}
+                            </div>
+                        </div>
+                    ))
+                }
             </div>
-            <div
-                class="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/80 rounded-full blur-3xl"
-            >
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <section class="bg-muted/30 py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Nuestro Compromiso</h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Estas métricas reflejan nuestro compromiso con la excelencia y la satisfacción
+                    del cliente.
+                </p>
             </div>
-            <div
-                class="container h-full flex justify-center items-center mx-auto px-4"
-            >
-                <div class="max-w-4xl mx-auto text-center">
-                    <Badge className="mb-4">FAQ</Badge>
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                        Preguntas <span class="text-primary">Frecuentes</span>
-                    </h1>
-                    <p class="text-xl text-muted-foreground mb-8">
-                        Encuentra respuestas rápidas a las preguntas más comunes
-                        sobre nuestros servicios, proceso de trabajo y
-                        políticas.
+
+            <div class="mx-auto grid max-w-4xl grid-cols-2 gap-8 md:grid-cols-4">
+                <div class="text-center">
+                    <div
+                        class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
+                        <Clock className="h-8 w-8 text-green-600" />
+                    </div>
+                    <div class="text-primary mb-2 text-3xl font-bold">98%</div>
+                    <div class="text-muted-foreground text-sm">Entregas a tiempo</div>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-100">
+                        <Users className="h-8 w-8 text-blue-600" />
+                    </div>
+                    <div class="text-primary mb-2 text-3xl font-bold">95%</div>
+                    <div class="text-muted-foreground text-sm">Satisfacción del cliente</div>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-purple-100">
+                        <MessageCircle className="h-8 w-8 text-purple-600" />
+                    </div>
+                    <div class="text-primary mb-2 text-3xl font-bold">2h</div>
+                    <div class="text-muted-foreground text-sm">Tiempo de respuesta</div>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-orange-100">
+                        <Shield className="h-8 w-8 text-orange-600" />
+                    </div>
+                    <div class="text-primary mb-2 text-3xl font-bold">100%</div>
+                    <div class="text-muted-foreground text-sm">Código seguro</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Still Have Questions -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <Card
+                className="from-primary to-primary/80 text-primary-foreground mx-auto max-w-4xl border-0 bg-gradient-to-r shadow-lg">
+                <CardContent className="p-8 text-center md:p-12">
+                    <h2 class="mb-6 text-3xl font-bold md:text-4xl">
+                        ¿No encontraste lo que buscabas?
+                    </h2>
+                    <p class="mb-8 text-lg opacity-90">
+                        Nuestro equipo está listo para responder cualquier pregunta específica sobre
+                        tu proyecto. No dudes en contactarnos.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <div class="flex flex-col justify-center gap-4 sm:flex-row">
                         <a
                             href="/contacto"
-                            class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
-                            aria-label="Ir a página de contacto para hacer una pregunta"
-                        >
-                            <MessageCircle className="w-4 h-4 mr-2" />
-                            Hacer una Pregunta
-                            <span class="sr-only"> - Formulario de contacto</span>
+                            class="text-primary inline-flex items-center justify-center rounded-lg bg-white px-8 py-3 font-medium transition-colors hover:bg-gray-100">
+                            <MessageCircle className="mr-2 h-4 w-4" />
+                            Enviar Pregunta
                         </a>
                         <a
-                            href="mailto:soporte@devanthos.com"
-                            class="inline-flex items-center justify-center px-8 py-3 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
-                            aria-label="Enviar email a soporte técnico - soporte@devanthos.com"
-                        >
-                            Contactar Soporte
-                            <span class="sr-only"> por email</span>
+                            href="https://wa.me/5492646629632?text=Hola,%20tengo%20una%20pregunta%20sobre%20sus%20servicios."
+                            class="inline-flex items-center justify-center rounded-lg border border-white/20 px-8 py-3 font-medium transition-colors hover:bg-white/10">
+                            WhatsApp
                         </a>
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- FAQ Categories -->
-        <section class="py-20">
-            <div class="container mx-auto px-4">
-                <div class="max-w-6xl mx-auto">
-                    {
-                        faqCategories.map((category, categoryIndex) => (
-                            <div class="mb-16">
-                                <div class="flex items-center gap-3 mb-8">
-                                    <div class="p-2 rounded-lg bg-primary/10">
-                                        <category.icon className="w-6 h-6 text-primary" />
-                                    </div>
-                                    <h2 class="text-2xl md:text-3xl font-bold">
-                                        {category.title}
-                                    </h2>
-                                </div>
-
-                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                    {category.faqs.map((faq, faqIndex) => (
-                                        <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300">
-                                            <CardContent className="p-6">
-                                                <h3 class="font-semibold text-lg mb-4 text-primary">
-                                                    {faq.question}
-                                                </h3>
-                                                <p class="text-muted-foreground leading-relaxed">
-                                                    {faq.answer}
-                                                </p>
-                                            </CardContent>
-                                        </Card>
-                                    ))}
-                                </div>
-                            </div>
-                        ))
-                    }
-                </div>
-            </div>
-        </section>
-
-        <!-- Quick Stats -->
-        <section class="py-20 bg-muted/30">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Nuestro Compromiso
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Estas métricas reflejan nuestro compromiso con la
-                        excelencia y la satisfacción del cliente.
-                    </p>
-                </div>
-
-                <div
-                    class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto"
-                >
-                    <div class="text-center">
-                        <div
-                            class="flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mx-auto mb-4"
-                        >
-                            <Clock className="w-8 h-8 text-green-600" />
-                        </div>
-                        <div class="text-3xl font-bold text-primary mb-2">
-                            98%
-                        </div>
-                        <div class="text-sm text-muted-foreground">
-                            Entregas a tiempo
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <div
-                            class="flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 mx-auto mb-4"
-                        >
-                            <Users className="w-8 h-8 text-blue-600" />
-                        </div>
-                        <div class="text-3xl font-bold text-primary mb-2">
-                            95%
-                        </div>
-                        <div class="text-sm text-muted-foreground">
-                            Satisfacción del cliente
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <div
-                            class="flex items-center justify-center w-16 h-16 rounded-full bg-purple-100 mx-auto mb-4"
-                        >
-                            <MessageCircle
-                                className="w-8 h-8 text-purple-600"
-                            />
-                        </div>
-                        <div class="text-3xl font-bold text-primary mb-2">
-                            2h
-                        </div>
-                        <div class="text-sm text-muted-foreground">
-                            Tiempo de respuesta
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <div
-                            class="flex items-center justify-center w-16 h-16 rounded-full bg-orange-100 mx-auto mb-4"
-                        >
-                            <Shield className="w-8 h-8 text-orange-600" />
-                        </div>
-                        <div class="text-3xl font-bold text-primary mb-2">
-                            100%
-                        </div>
-                        <div class="text-sm text-muted-foreground">
-                            Código seguro
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Still Have Questions -->
-        <section class="py-20">
-            <div class="container mx-auto px-4">
-                <Card
-                    className="border-0 shadow-lg bg-gradient-to-r from-primary to-primary/80 text-primary-foreground max-w-4xl mx-auto"
-                >
-                    <CardContent className="p-8 md:p-12 text-center">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                            ¿No encontraste lo que buscabas?
-                        </h2>
-                        <p class="text-lg opacity-90 mb-8">
-                            Nuestro equipo está listo para responder cualquier
-                            pregunta específica sobre tu proyecto. No dudes en
-                            contactarnos.
+                    <div class="mt-8 border-t border-white/20 pt-8">
+                        <p class="mb-4 text-sm opacity-75">
+                            También puedes contactarnos directamente:
                         </p>
-                        <div
-                            class="flex flex-col sm:flex-row gap-4 justify-center"
-                        >
-                            <a
-                                href="/contacto"
-                                class="inline-flex items-center justify-center px-8 py-3 bg-white text-primary rounded-lg font-medium hover:bg-gray-100 transition-colors"
-                            >
-                                <MessageCircle className="w-4 h-4 mr-2" />
-                                Enviar Pregunta
-                            </a>
-                            <a
-                                href="https://wa.me/5492646629632?text=Hola,%20tengo%20una%20pregunta%20sobre%20sus%20servicios."
-                                class="inline-flex items-center justify-center px-8 py-3 border border-white/20 rounded-lg font-medium hover:bg-white/10 transition-colors"
-                            >
-                                WhatsApp
-                            </a>
+                        <div class="flex flex-col justify-center gap-4 text-sm sm:flex-row">
+                            <Button
+                                variant="ghost"
+                                href="mailto:contacto@devanthos.com"
+                                class="transition-opacity hover:opacity-80"
+                                aria-label="Enviar email a contacto@devanthos.com">
+                                <Mail /> contacto@devanthos.com
+                                <span class="sr-only"> - Enviar email</span>
+                            </Button>
+                            <Button
+                                variant="ghost"
+                                href="tel:+5492646629632"
+                                class="transition-opacity hover:opacity-80"
+                                aria-label="Llamar al teléfono +54 9 2646-629632">
+                                <PhoneCall /> +54 9 2646-629632
+                                <span class="sr-only"> - Realizar llamada</span>
+                            </Button>
                         </div>
-
-                        <div class="mt-8 pt-8 border-t border-white/20">
-                            <p class="text-sm opacity-75 mb-4">
-                                También puedes contactarnos directamente:
-                            </p>
-                            <div
-                                class="flex flex-col sm:flex-row gap-4 justify-center text-sm"
-                            >
-                                <Button
-                                    variant="info"
-                                    href="mailto:contacto@devanthos.com"
-                                    class="hover:opacity-80 transition-opacity"
-                                    aria-label="Enviar email a contacto@devanthos.com"
-                                >
-                                    <Mail /> contacto@devanthos.com
-                                    <span class="sr-only"> - Enviar email</span>
-                                </Button>
-                                <Button
-                                    variant="info"
-                                    href="tel:+5492646629632"
-                                    class="hover:opacity-80 transition-opacity"
-                                    aria-label="Llamar al teléfono +54 9 2646-629632"
-                                >
-                                    <PhoneCall /> +54 9 2646-629632
-                                    <span class="sr-only"> - Realizar llamada</span>
-                                </Button>
-                            </div>
-                        </div>
-                    </CardContent>
-                </Card>
-            </div>
-        </section>
-    </main>
+                    </div>
+                </CardContent>
+            </Card>
+        </div>
+    </section>
 </Layout>
