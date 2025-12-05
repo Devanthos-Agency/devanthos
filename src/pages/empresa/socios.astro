@@ -1,7 +1,7 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import Layout from '@/layouts/Layout.astro';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import {
     Users,
     Handshake,
@@ -13,156 +13,157 @@ import {
     Award,
     CheckCircle,
     Rocket,
-} from "lucide-react";
+} from 'lucide-react';
+import Button from '@/components/ui/Button.astro';
 
 const partnerTiers = [
     {
-        name: "Partner Tecnológico",
-        description: "Colaboración en proyectos de desarrollo",
+        name: 'Partner Tecnológico',
+        description: 'Colaboración en proyectos de desarrollo',
         benefits: [
-            "Acceso a APIs exclusivas",
-            "Soporte técnico prioritario",
-            "Documentación avanzada",
-            "Beta testing de nuevas funcionalidades",
+            'Acceso a APIs exclusivas',
+            'Soporte técnico prioritario',
+            'Documentación avanzada',
+            'Beta testing de nuevas funcionalidades',
         ],
         icon: Zap,
-        color: "text-blue-600",
-        bgColor: "bg-blue-100 dark:bg-blue-900/20",
+        color: 'text-blue-600',
+        bgColor: 'bg-blue-100 dark:bg-blue-900/20',
     },
     {
-        name: "Partner Comercial",
-        description: "Reventa y distribución de soluciones",
+        name: 'Partner Comercial',
+        description: 'Reventa y distribución de soluciones',
         benefits: [
-            "Márgenes competitivos",
-            "Material de marketing",
-            "Capacitación comercial",
-            "Portal de partners dedicado",
+            'Márgenes competitivos',
+            'Material de marketing',
+            'Capacitación comercial',
+            'Portal de partners dedicado',
         ],
         icon: Handshake,
-        color: "text-green-600",
-        bgColor: "bg-green-100 dark:bg-green-900/20",
+        color: 'text-green-600',
+        bgColor: 'bg-green-100 dark:bg-green-900/20',
     },
     {
-        name: "Partner Estratégico",
-        description: "Alianzas a largo plazo y co-desarrollo",
+        name: 'Partner Estratégico',
+        description: 'Alianzas a largo plazo y co-desarrollo',
         benefits: [
-            "Desarrollo conjunto de productos",
-            "Roadmap compartido",
-            "Soporte ejecutivo directo",
-            "Eventos exclusivos",
+            'Desarrollo conjunto de productos',
+            'Roadmap compartido',
+            'Soporte ejecutivo directo',
+            'Eventos exclusivos',
         ],
         icon: Trophy,
-        color: "text-purple-600",
-        bgColor: "bg-purple-100 dark:bg-purple-900/20",
+        color: 'text-purple-600',
+        bgColor: 'bg-purple-100 dark:bg-purple-900/20',
     },
 ];
 
 const currentPartners = [
     {
-        name: "TechCorp Solutions",
-        category: "Tecnología",
-        description: "Proveedor líder en infraestructura cloud",
-        partnership: "Partner Estratégico",
-        since: "2023",
-        logo: "🏢",
+        name: 'TechCorp Solutions',
+        category: 'Tecnología',
+        description: 'Proveedor líder en infraestructura cloud',
+        partnership: 'Partner Estratégico',
+        since: '2023',
+        logo: '🏢',
     },
     {
-        name: "DevTools Inc",
-        category: "Herramientas",
-        description: "Plataforma de desarrollo y CI/CD",
-        partnership: "Partner Tecnológico",
-        since: "2024",
-        logo: "🛠️",
+        name: 'DevTools Inc',
+        category: 'Herramientas',
+        description: 'Plataforma de desarrollo y CI/CD',
+        partnership: 'Partner Tecnológico',
+        since: '2024',
+        logo: '🛠️',
     },
     {
-        name: "CloudFirst",
-        category: "Infraestructura",
-        description: "Servicios cloud especializados",
-        partnership: "Partner Comercial",
-        since: "2023",
-        logo: "☁️",
+        name: 'CloudFirst',
+        category: 'Infraestructura',
+        description: 'Servicios cloud especializados',
+        partnership: 'Partner Comercial',
+        since: '2023',
+        logo: '☁️',
     },
     {
-        name: "AI Innovations",
-        category: "Inteligencia Artificial",
-        description: "Soluciones de machine learning",
-        partnership: "Partner Tecnológico",
-        since: "2024",
-        logo: "🤖",
+        name: 'AI Innovations',
+        category: 'Inteligencia Artificial',
+        description: 'Soluciones de machine learning',
+        partnership: 'Partner Tecnológico',
+        since: '2024',
+        logo: '🤖',
     },
     {
-        name: "SecureNet",
-        category: "Ciberseguridad",
-        description: "Auditoría y seguridad informática",
-        partnership: "Partner Estratégico",
-        since: "2022",
-        logo: "🔒",
+        name: 'SecureNet',
+        category: 'Ciberseguridad',
+        description: 'Auditoría y seguridad informática',
+        partnership: 'Partner Estratégico',
+        since: '2022',
+        logo: '🔒',
     },
     {
-        name: "DataFlow Systems",
-        category: "Análisis de Datos",
-        description: "Plataformas de business intelligence",
-        partnership: "Partner Comercial",
-        since: "2024",
-        logo: "📊",
+        name: 'DataFlow Systems',
+        category: 'Análisis de Datos',
+        description: 'Plataformas de business intelligence',
+        partnership: 'Partner Comercial',
+        since: '2024',
+        logo: '📊',
     },
 ];
 
 const partnershipProcess = [
     {
         step: 1,
-        title: "Solicitud Inicial",
-        description: "Completa el formulario de partnership",
+        title: 'Solicitud Inicial',
+        description: 'Completa el formulario de partnership',
         icon: Target,
     },
     {
         step: 2,
-        title: "Evaluación",
-        description: "Revisamos tu propuesta y capacidades",
+        title: 'Evaluación',
+        description: 'Revisamos tu propuesta y capacidades',
         icon: Users,
     },
     {
         step: 3,
-        title: "Negociación",
-        description: "Definimos términos y condiciones",
+        title: 'Negociación',
+        description: 'Definimos términos y condiciones',
         icon: Handshake,
     },
     {
         step: 4,
-        title: "Onboarding",
-        description: "Integración y capacitación inicial",
+        title: 'Onboarding',
+        description: 'Integración y capacitación inicial',
         icon: Rocket,
     },
 ];
 
 const benefits = [
-    "Acceso a mercados globales",
-    "Tecnología cutting-edge",
-    "Soporte técnico especializado",
-    "Programas de capacitación",
-    "Co-marketing estratégico",
-    "Revenue sharing competitivo",
+    'Acceso a mercados globales',
+    'Tecnología cutting-edge',
+    'Soporte técnico especializado',
+    'Programas de capacitación',
+    'Co-marketing estratégico',
+    'Revenue sharing competitivo',
 ];
 
 const requirements = [
     {
-        title: "Experiencia Técnica",
-        description: "Mínimo 3 años en desarrollo de software",
+        title: 'Experiencia Técnica',
+        description: 'Mínimo 3 años en desarrollo de software',
         icon: Award,
     },
     {
-        title: "Capacidad de Entrega",
-        description: "Equipo dedicado y procesos establecidos",
+        title: 'Capacidad de Entrega',
+        description: 'Equipo dedicado y procesos establecidos',
         icon: CheckCircle,
     },
     {
-        title: "Referencias Comerciales",
-        description: "Casos de éxito y clientes satisfechos",
+        title: 'Referencias Comerciales',
+        description: 'Casos de éxito y clientes satisfechos',
         icon: Star,
     },
     {
-        title: "Alineación Estratégica",
-        description: "Visión compartida y valores compatibles",
+        title: 'Alineación Estratégica',
+        description: 'Visión compartida y valores compatibles',
         icon: Target,
     },
 ];
@@ -170,377 +171,278 @@ const requirements = [
 
 <Layout
     title="Socios Estratégicos - Devanthos"
-    description="Únete a nuestro programa de socios. Partnerships tecnológicos, comerciales y estratégicos para hacer crecer tu negocio con Devanthos."
->
-    <main class="min-h-screen">
-        <!-- Hero Section -->
-        <section class="h-dvh md:py-40 md:h-fit relative overflow-hidden">
-            <div
-                class="absolute inset-0 bg-gradient-to-br from-primary/50 via-transparent to-accent/50"
-            >
-            </div>
-            <div
-                class="absolute -top-40 -right-40 w-80 h-80 bg-primary/60 rounded-full blur-3xl"
-            >
-            </div>
-            <div
-                class="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/80 rounded-full blur-3xl"
-            >
-            </div>
-            <div
-                class="container h-full flex justify-center items-center mx-auto px-4"
-            >
-                <div class="max-w-4xl mx-auto text-center">
-                    <Badge className="mb-4">Programa de Socios</Badge>
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                        Construyamos el <span class="text-primary">Futuro</span>
-                        Juntos
-                    </h1>
-                    <p class="text-xl text-muted-foreground mb-8">
-                        Únete a nuestro ecosistema de socios estratégicos.
-                        Colabora, innova y crece con Devanthos a través de
-                        partnerships que transforman industrias.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a
-                            href="#programa"
-                            class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
-                        >
-                            <Handshake className="w-4 h-4 mr-2" />
-                            Ver Programa
-                        </a>
-                        <a
-                            href="#aplicar"
-                            class="inline-flex items-center justify-center px-8 py-3 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
-                        >
-                            Aplicar como Socio
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Current Partners -->
-        <section class="py-20">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Nuestros Socios Actuales
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Colaboramos con líderes de la industria para ofrecer
-                        soluciones integrales y de vanguardia.
-                    </p>
-                </div>
-
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+    description="Únete a nuestro programa de socios. Partnerships tecnológicos, comerciales y estratégicos para hacer crecer tu negocio con Devanthos.">
+    <!-- Hero Section -->
+    <section
+        class="font-public_sans bg-background before:from-muted dark relative py-24 before:absolute before:top-0 before:left-0 before:z-10 before:block before:h-[15rem] before:w-full before:bg-linear-to-b before:to-transparent before:content-[''] md:py-32">
+        <div class="relative z-20 container mx-auto px-4">
+            <div class="relative z-20 mx-auto flex max-w-[56.25rem] flex-col items-center gap-6">
+                <Badge
+                    className="border-muted bg-muted hover:border-primary mb-4 flex w-fit items-center gap-1 rounded-full border px-2.5 py-1.5"
+                    >Programa de Socios</Badge
                 >
-                    {
-                        currentPartners.map((partner) => (
-                            <Card className="border-0 shadow-md hover:shadow-lg transition-shadow">
-                                <CardHeader>
-                                    <div class="flex items-center gap-4 mb-4">
-                                        <div class="text-3xl">
-                                            {partner.logo}
-                                        </div>
-                                        <div>
-                                            <CardTitle className="text-lg">
-                                                {partner.name}
-                                            </CardTitle>
-                                            <Badge
-                                                variant="outline"
-                                                className="text-xs mt-1"
-                                            >
-                                                {partner.category}
-                                            </Badge>
-                                        </div>
-                                    </div>
-                                    <p class="text-sm text-muted-foreground">
-                                        {partner.description}
-                                    </p>
-                                </CardHeader>
-                                <CardContent>
-                                    <div class="flex justify-between items-center">
-                                        <div>
-                                            <p class="text-xs text-muted-foreground">
-                                                Partnership
-                                            </p>
-                                            <p class="font-medium text-sm">
-                                                {partner.partnership}
-                                            </p>
-                                        </div>
-                                        <div class="text-right">
-                                            <p class="text-xs text-muted-foreground">
-                                                Desde
-                                            </p>
-                                            <p class="font-medium text-sm">
-                                                {partner.since}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        ))
-                    }
+                <h1
+                    class="text-foreground font-cocogoose [&_span]:text-primary text-center text-5xl leading-tight [text-shadow:0_0_10px_rgba(255,255,255,0.65)] md:text-6xl lg:text-7xl [&_span]:[text-shadow:0_0_10px_rgba(94,111,182,0.65)]">
+                    Construyamos el <span>Futuro</span>
+                    Juntos
+                </h1>
+                <p class="text-muted-foreground text-center text-lg">
+                    Únete a nuestro ecosistema de socios estratégicos. Colabora, innova y crece con
+                    Devanthos a través de partnerships que transforman industrias.
+                </p>
+                <div class="mt-4 flex items-center gap-2">
+                    <Button
+                        href="#programa"
+                        class="flex h-fit items-center gap-2 rounded-md px-3.5 py-2.5 text-sm font-medium">
+                        <Handshake className="size-5!" />
+                        Ver Programa
+                    </Button>
+                    <Button
+                        href="#aplicar"
+                        variant="ghost"
+                        class="flex h-fit items-center gap-2 rounded-md px-3.5 py-2.5 text-sm font-medium text-white">
+                        Aplicar como Socio
+                    </Button>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Partner Program -->
-        <section id="programa" class="py-20 bg-muted/30">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Programa de Partners
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Diferentes niveles de partnership diseñados para
-                        maximizar el valor mutuo y el crecimiento conjunto.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    {
-                        partnerTiers.map((tier) => (
-                            <Card className="border-0 shadow-md hover:shadow-lg transition-shadow">
-                                <CardHeader>
-                                    <div
-                                        class={`mb-4 p-3 rounded-lg w-fit ${tier.bgColor}`}
-                                    >
-                                        <tier.icon
-                                            className={`w-8 h-8 ${tier.color}`}
-                                        />
-                                    </div>
-                                    <CardTitle className="text-xl mb-2">
-                                        {tier.name}
-                                    </CardTitle>
-                                    <p class="text-muted-foreground text-sm">
-                                        {tier.description}
-                                    </p>
-                                </CardHeader>
-                                <CardContent>
-                                    <h4 class="font-semibold mb-3 text-primary">
-                                        Beneficios incluidos:
-                                    </h4>
-                                    <ul class="space-y-2 mb-6">
-                                        {tier.benefits.map((benefit) => (
-                                            <li class="flex items-center gap-2 text-sm">
-                                                <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
-                                                {benefit}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                    <a
-                                        href="#aplicar"
-                                        class="inline-flex items-center text-primary hover:text-primary/80 font-medium text-sm"
-                                    >
-                                        Aplicar a este nivel
-                                        <ArrowRight className="w-4 h-4 ml-1" />
-                                    </a>
-                                </CardContent>
-                            </Card>
-                        ))
-                    }
-                </div>
+    <!-- Current Partners -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Nuestros Socios Actuales</h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Colaboramos con líderes de la industria para ofrecer soluciones integrales y de
+                    vanguardia.
+                </p>
             </div>
-        </section>
 
-        <!-- Partnership Process -->
-        <section class="py-20">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Proceso de Partnership
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Un proceso transparente y eficiente para establecer
-                        partnerships exitosos y duraderos.
-                    </p>
-                </div>
-
-                <div class="max-w-4xl mx-auto">
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                        {
-                            partnershipProcess.map((step, index) => (
-                                <div class="text-center relative">
-                                    <div class="mb-4 mx-auto p-4 rounded-full bg-primary/10 w-fit">
-                                        <step.icon className="w-8 h-8 text-primary" />
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {
+                    currentPartners.map((partner) => (
+                        <Card className="border-0 shadow-md hover:shadow-lg transition-shadow">
+                            <CardHeader>
+                                <div class="mb-4 flex items-center gap-4">
+                                    <div class="text-3xl">{partner.logo}</div>
+                                    <div>
+                                        <CardTitle className="text-lg">{partner.name}</CardTitle>
+                                        <Badge variant="outline" className="text-xs mt-1">
+                                            {partner.category}
+                                        </Badge>
                                     </div>
-                                    <div class="mb-2 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm mx-auto">
-                                        {step.step}
-                                    </div>
-                                    <h3 class="font-semibold mb-2">
-                                        {step.title}
-                                    </h3>
-                                    <p class="text-sm text-muted-foreground">
-                                        {step.description}
-                                    </p>
-                                    {index < partnershipProcess.length - 1 && (
-                                        <div class="hidden md:block absolute top-12 left-full w-full h-0.5 bg-primary/20 -translate-x-1/2" />
-                                    )}
                                 </div>
-                            ))
-                        }
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Requirements -->
-        <section class="py-20 bg-muted/30">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Requisitos para Ser Socio
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Buscamos socios que compartan nuestra visión de
-                        excelencia y tengan la capacidad de entregar valor
-                        excepcional.
-                    </p>
-                </div>
-
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-                >
-                    {
-                        requirements.map((req) => (
-                            <Card className="border-0 shadow-md text-center">
-                                <CardHeader>
-                                    <div class="mx-auto mb-4 p-3 rounded-lg bg-primary/10 w-fit">
-                                        <req.icon className="w-8 h-8 text-primary" />
+                                <p class="text-muted-foreground text-sm">{partner.description}</p>
+                            </CardHeader>
+                            <CardContent>
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="text-muted-foreground text-xs">Partnership</p>
+                                        <p class="text-sm font-medium">{partner.partnership}</p>
                                     </div>
-                                    <CardTitle className="text-lg">
-                                        {req.title}
-                                    </CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p class="text-sm text-muted-foreground">
-                                        {req.description}
-                                    </p>
-                                </CardContent>
-                            </Card>
+                                    <div class="text-right">
+                                        <p class="text-muted-foreground text-xs">Desde</p>
+                                        <p class="text-sm font-medium">{partner.since}</p>
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner Program -->
+    <section id="programa" class="bg-muted/30 py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Programa de Partners</h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Diferentes niveles de partnership diseñados para maximizar el valor mutuo y el
+                    crecimiento conjunto.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+                {
+                    partnerTiers.map((tier) => (
+                        <Card className="border-0 shadow-md hover:shadow-lg transition-shadow">
+                            <CardHeader>
+                                <div class={`mb-4 w-fit rounded-lg p-3 ${tier.bgColor}`}>
+                                    <tier.icon className={`h-8 w-8 ${tier.color}`} />
+                                </div>
+                                <CardTitle className="text-xl mb-2">{tier.name}</CardTitle>
+                                <p class="text-muted-foreground text-sm">{tier.description}</p>
+                            </CardHeader>
+                            <CardContent>
+                                <h4 class="text-primary mb-3 font-semibold">
+                                    Beneficios incluidos:
+                                </h4>
+                                <ul class="mb-6 space-y-2">
+                                    {tier.benefits.map((benefit) => (
+                                        <li class="flex items-center gap-2 text-sm">
+                                            <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
+                                            {benefit}
+                                        </li>
+                                    ))}
+                                </ul>
+                                <a
+                                    href="#aplicar"
+                                    class="text-primary hover:text-primary/80 inline-flex items-center text-sm font-medium">
+                                    Aplicar a este nivel
+                                    <ArrowRight className="w-4 h-4 ml-1" />
+                                </a>
+                            </CardContent>
+                        </Card>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Process -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Proceso de Partnership</h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Un proceso transparente y eficiente para establecer partnerships exitosos y
+                    duraderos.
+                </p>
+            </div>
+
+            <div class="mx-auto max-w-4xl">
+                <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
+                    {
+                        partnershipProcess.map((step, index) => (
+                            <div class="relative text-center">
+                                <div class="bg-primary/10 mx-auto mb-4 w-fit rounded-full p-4">
+                                    <step.icon className="w-8 h-8 text-primary" />
+                                </div>
+                                <div class="bg-primary text-primary-foreground mx-auto mb-2 flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold">
+                                    {step.step}
+                                </div>
+                                <h3 class="mb-2 font-semibold">{step.title}</h3>
+                                <p class="text-muted-foreground text-sm">{step.description}</p>
+                                {index < partnershipProcess.length - 1 && (
+                                    <div class="bg-primary/20 absolute top-12 left-full hidden h-0.5 w-full -translate-x-1/2 md:block" />
+                                )}
+                            </div>
                         ))
                     }
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Benefits Section -->
-        <section class="py-20">
-            <div class="container mx-auto px-4">
-                <div class="max-w-6xl mx-auto">
+    <!-- Requirements -->
+    <section class="bg-muted/30 py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Requisitos para Ser Socio</h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Buscamos socios que compartan nuestra visión de excelencia y tengan la capacidad
+                    de entregar valor excepcional.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+                {
+                    requirements.map((req) => (
+                        <Card className="border-0 shadow-md text-center">
+                            <CardHeader>
+                                <div class="bg-primary/10 mx-auto mb-4 w-fit rounded-lg p-3">
+                                    <req.icon className="w-8 h-8 text-primary" />
+                                </div>
+                                <CardTitle className="text-lg">{req.title}</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p class="text-muted-foreground text-sm">{req.description}</p>
+                            </CardContent>
+                        </Card>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="mx-auto max-w-6xl">
+                <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+                    <div>
+                        <h2 class="mb-6 text-3xl font-bold md:text-4xl">
+                            ¿Por Qué Ser Nuestro Socio?
+                        </h2>
+                        <p class="text-muted-foreground mb-8 text-lg">
+                            Nuestro programa de socios está diseñado para crear relaciones
+                            mutuamente beneficiosas que impulsen el crecimiento y la innovación.
+                        </p>
+                        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                            {
+                                benefits.map((benefit) => (
+                                    <div class="flex items-center gap-3">
+                                        <div class="bg-primary h-2 w-2 flex-shrink-0 rounded-full" />
+                                        <span class="text-sm">{benefit}</span>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
                     <div
-                        class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
-                    >
-                        <div>
-                            <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                                ¿Por Qué Ser Nuestro Socio?
-                            </h2>
-                            <p class="text-lg text-muted-foreground mb-8">
-                                Nuestro programa de socios está diseñado para
-                                crear relaciones mutuamente beneficiosas que
-                                impulsen el crecimiento y la innovación.
-                            </p>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                {
-                                    benefits.map((benefit) => (
-                                        <div class="flex items-center gap-3">
-                                            <div class="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
-                                            <span class="text-sm">
-                                                {benefit}
-                                            </span>
-                                        </div>
-                                    ))
-                                }
+                        class="rounded-xl bg-gradient-to-br from-blue-50 to-indigo-100 p-8 dark:from-blue-950/20 dark:to-indigo-950/20">
+                        <h3 class="mb-6 text-center text-2xl font-bold">Crecimiento Conjunto</h3>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="text-center">
+                                <div class="text-primary mb-2 text-3xl font-bold">150+</div>
+                                <p class="text-muted-foreground text-sm">Proyectos colaborativos</p>
                             </div>
-                        </div>
-                        <div
-                            class="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-950/20 dark:to-indigo-950/20 p-8 rounded-xl"
-                        >
-                            <h3 class="text-2xl font-bold mb-6 text-center">
-                                Crecimiento Conjunto
-                            </h3>
-                            <div class="grid grid-cols-2 gap-6">
-                                <div class="text-center">
-                                    <div
-                                        class="text-3xl font-bold text-primary mb-2"
-                                    >
-                                        150+
-                                    </div>
-                                    <p class="text-sm text-muted-foreground">
-                                        Proyectos colaborativos
-                                    </p>
-                                </div>
-                                <div class="text-center">
-                                    <div
-                                        class="text-3xl font-bold text-primary mb-2"
-                                    >
-                                        95%
-                                    </div>
-                                    <p class="text-sm text-muted-foreground">
-                                        Satisfacción de socios
-                                    </p>
-                                </div>
-                                <div class="text-center">
-                                    <div
-                                        class="text-3xl font-bold text-primary mb-2"
-                                    >
-                                        200%
-                                    </div>
-                                    <p class="text-sm text-muted-foreground">
-                                        Crecimiento promedio
-                                    </p>
-                                </div>
-                                <div class="text-center">
-                                    <div
-                                        class="text-3xl font-bold text-primary mb-2"
-                                    >
-                                        24/7
-                                    </div>
-                                    <p class="text-sm text-muted-foreground">
-                                        Soporte especializado
-                                    </p>
-                                </div>
+                            <div class="text-center">
+                                <div class="text-primary mb-2 text-3xl font-bold">95%</div>
+                                <p class="text-muted-foreground text-sm">Satisfacción de socios</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-primary mb-2 text-3xl font-bold">200%</div>
+                                <p class="text-muted-foreground text-sm">Crecimiento promedio</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-primary mb-2 text-3xl font-bold">24/7</div>
+                                <p class="text-muted-foreground text-sm">Soporte especializado</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Application Section -->
-        <section id="aplicar" class="py-20 bg-primary text-primary-foreground">
-            <div class="container mx-auto px-4 text-center">
-                <div class="max-w-3xl mx-auto">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                        ¿Listo para Ser Nuestro Socio?
-                    </h2>
-                    <p class="text-lg opacity-90 mb-8">
-                        Comienza tu journey como socio de DevsHub y descubre las
-                        oportunidades ilimitadas de crecimiento conjunto.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a
-                            href="/contacto"
-                            class="inline-flex items-center justify-center px-8 py-3 bg-white text-primary rounded-lg font-medium hover:bg-gray-100 transition-colors"
-                        >
-                            <Users className="w-4 h-4 mr-2" />
-                            Aplicar Ahora
-                        </a>
-                        <a
-                            href="/contacto"
-                            class="inline-flex items-center justify-center px-8 py-3 border border-white/20 rounded-lg font-medium hover:bg-white/10 transition-colors"
-                        >
-                            Programar Reunión
-                        </a>
-                    </div>
-                    <p class="text-sm opacity-75 mt-6">
-                        Tiempo promedio de respuesta: 48 horas
-                    </p>
+    <!-- Application Section -->
+    <section id="aplicar" class="bg-primary text-primary-foreground py-20">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mx-auto max-w-3xl">
+                <h2 class="mb-6 text-3xl font-bold md:text-4xl">¿Listo para Ser Nuestro Socio?</h2>
+                <p class="mb-8 text-lg opacity-90">
+                    Comienza tu journey como socio de DevsHub y descubre las oportunidades
+                    ilimitadas de crecimiento conjunto.
+                </p>
+                <div class="flex flex-col justify-center gap-4 sm:flex-row">
+                    <a
+                        href="/contacto"
+                        class="text-primary inline-flex items-center justify-center rounded-lg bg-white px-8 py-3 font-medium transition-colors hover:bg-gray-100">
+                        <Users className="mr-2 h-4 w-4" />
+                        Aplicar Ahora
+                    </a>
+                    <a
+                        href="/contacto"
+                        class="inline-flex items-center justify-center rounded-lg border border-white/20 px-8 py-3 font-medium transition-colors hover:bg-white/10">
+                        Programar Reunión
+                    </a>
                 </div>
+                <p class="mt-6 text-sm opacity-75">Tiempo promedio de respuesta: 48 horas</p>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 </Layout>
