@@ -271,8 +271,8 @@ const NAVIGATION1: Array<MenuItem> = [
                         title: 'Recursos',
                         links: [
                             {
-                                label: 'Documentación',
-                                url: '/productos/documentacion',
+                                label: 'Casos de Éxito',
+                                url: '/recursos/casos-de-exito',
                             },
                             {
                                 label: 'Tutoriales',
@@ -281,11 +281,11 @@ const NAVIGATION1: Array<MenuItem> = [
                             { label: 'Comunidad', url: '/comunidad' },
                             {
                                 label: 'GitHub',
-                                url: 'https://github.com/devsHub',
+                                url: 'https://github.com/Devanthos-Agency',
                             },
                             {
                                 label: 'Discord',
-                                url: 'https://discord.gg/devshub',
+                                url: 'https://discord.gg/devanthos',
                             },
                         ],
                     },
