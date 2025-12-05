@@ -1,7 +1,7 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import Layout from '@/layouts/Layout.astro';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import {
     Users,
     MessageCircle,
@@ -16,613 +16,480 @@ import {
     Github,
     MessageSquare,
     ArrowRight,
-} from "lucide-react";
+} from 'lucide-react';
+import Button from '@/components/ui/Button.astro';
 
 const communityFeatures = [
     {
         icon: MessageCircle,
-        title: "Foros de Discusión",
-        description:
-            "Conecta con desarrolladores, haz preguntas y comparte conocimiento",
+        title: 'Foros de Discusión',
+        description: 'Conecta con desarrolladores, haz preguntas y comparte conocimiento',
     },
     {
         icon: Code2,
-        title: "Proyectos Colaborativos",
-        description: "Participa en proyectos open source y construye juntos",
+        title: 'Proyectos Colaborativos',
+        description: 'Participa en proyectos open source y construye juntos',
     },
     {
         icon: Calendar,
-        title: "Eventos y Meetups",
-        description: "Asiste a charlas, workshops y eventos de networking",
+        title: 'Eventos y Meetups',
+        description: 'Asiste a charlas, workshops y eventos de networking',
     },
     {
         icon: Trophy,
-        title: "Challenges y Concursos",
-        description: "Demuestra tus habilidades en desafíos de programación",
+        title: 'Challenges y Concursos',
+        description: 'Demuestra tus habilidades en desafíos de programación',
     },
     {
         icon: BookOpen,
-        title: "Recursos Compartidos",
-        description: "Biblioteca comunitaria de tutoriales y herramientas",
+        title: 'Recursos Compartidos',
+        description: 'Biblioteca comunitaria de tutoriales y herramientas',
     },
     {
         icon: Heart,
-        title: "Mentorías",
-        description:
-            "Programa de mentorías entre desarrolladores senior y junior",
+        title: 'Mentorías',
+        description: 'Programa de mentorías entre desarrolladores senior y junior',
     },
 ];
 
 const plannedActivities = [
     {
-        title: "Weekly Code Reviews",
-        description:
-            "Sesiones semanales de revisión de código con feedback constructivo",
-        participants: "15-20 desarrolladores",
-        frequency: "Semanal",
+        title: 'Weekly Code Reviews',
+        description: 'Sesiones semanales de revisión de código con feedback constructivo',
+        participants: '15-20 desarrolladores',
+        frequency: 'Semanal',
     },
     {
-        title: "Tech Talks",
-        description: "Charlas sobre las últimas tecnologías y tendencias",
-        participants: "50+ asistentes",
-        frequency: "Mensual",
+        title: 'Tech Talks',
+        description: 'Charlas sobre las últimas tecnologías y tendencias',
+        participants: '50+ asistentes',
+        frequency: 'Mensual',
     },
     {
-        title: "Hackathons",
-        description:
-            "Competencias de 48 horas para crear proyectos innovadores",
-        participants: "100+ participantes",
-        frequency: "Trimestral",
+        title: 'Hackathons',
+        description: 'Competencias de 48 horas para crear proyectos innovadores',
+        participants: '100+ participantes',
+        frequency: 'Trimestral',
     },
     {
-        title: "Study Groups",
-        description: "Grupos de estudio para tecnologías específicas",
-        participants: "8-12 miembros",
-        frequency: "Bi-semanal",
+        title: 'Study Groups',
+        description: 'Grupos de estudio para tecnologías específicas',
+        participants: '8-12 miembros',
+        frequency: 'Bi-semanal',
     },
 ];
 
 const platformFeatures = [
-    "Sistema de reputación y badges",
-    "Chat en tiempo real",
-    "Compartir snippets de código",
-    "Integración con GitHub",
-    "Notificaciones personalizables",
-    "Perfil de desarrollador personalizable",
+    'Sistema de reputación y badges',
+    'Chat en tiempo real',
+    'Compartir snippets de código',
+    'Integración con GitHub',
+    'Notificaciones personalizables',
+    'Perfil de desarrollador personalizable',
 ];
 
 const socialChannels = [
     {
-        name: "Discord",
-        description: "Chat en tiempo real y voice channels",
+        name: 'Discord',
+        description: 'Chat en tiempo real y voice channels',
         icon: MessageSquare,
-        members: "1,000+ miembros",
-        status: "En desarrollo",
+        members: '1,000+ miembros',
+        status: 'En desarrollo',
     },
     {
-        name: "GitHub",
-        description: "Repositorios open source y contribuciones",
+        name: 'GitHub',
+        description: 'Repositorios open source y contribuciones',
         icon: Github,
-        members: "500+ contributors",
-        status: "En desarrollo",
+        members: '500+ contributors',
+        status: 'En desarrollo',
     },
     {
-        name: "Forum",
-        description: "Foro web dedicado para discusiones largas",
+        name: 'Forum',
+        description: 'Foro web dedicado para discusiones largas',
         icon: MessageCircle,
-        members: "2,000+ posts planificados",
-        status: "En desarrollo",
+        members: '2,000+ posts planificados',
+        status: 'En desarrollo',
     },
 ];
 ---
 
 <Layout
     title="Comunidad - Próximamente | Devanthos"
-    description="Nuestra comunidad de desarrolladores está en construcción. Únete a la lista de espera para ser parte de esta increíble comunidad."
->
-    <main class="min-h-screen">
-        <!-- Hero Section -->
-        <section class="h-dvh md:py-40 md:h-fit relative overflow-hidden">
-            <div
-                class="absolute inset-0 bg-gradient-to-br from-primary/50 via-transparent to-accent/50"
-            >
+    description="Nuestra comunidad de desarrolladores está en construcción. Únete a la lista de espera para ser parte de esta increíble comunidad.">
+    <!-- Hero Section -->
+    <section
+        class="font-public_sans bg-background before:from-muted dark relative py-24 before:absolute before:top-0 before:left-0 before:z-10 before:block before:h-[15rem] before:w-full before:bg-linear-to-b before:to-transparent before:content-[''] md:py-32">
+        <div class="relative z-20 container mx-auto px-4">
+            <div class="relative z-20 mx-auto flex max-w-[56.25rem] flex-col items-center gap-6">
+                <Badge
+                    className="border-muted bg-muted hover:border-primary mb-4 flex w-fit items-center gap-1 rounded-full border px-2.5 py-1.5"
+                    >Próximamente</Badge
+                >
+                <h1
+                    class="text-foreground font-cocogoose [&_span]:text-primary text-center text-5xl leading-tight [text-shadow:0_0_10px_rgba(255,255,255,0.65)] md:text-6xl lg:text-7xl [&_span]:[text-shadow:0_0_10px_rgba(94,111,182,0.65)]">
+                    Una <span>Comunidad</span> para Desarrolladores
+                </h1>
+                <p class="text-muted-foreground text-center text-lg">
+                    Estamos construyendo el lugar donde los desarrolladores se conectan, aprenden y
+                    crecen juntos. Una comunidad vibrante llena de oportunidades y colaboración.
+                </p>
+                <div class="mt-4 flex items-center gap-2">
+                    <Button
+                        href="#unirme"
+                        class="flex h-fit items-center gap-2 rounded-md px-3.5 py-2.5 text-sm font-medium">
+                        <Users className="size-5!" />
+                        Unirme a la Lista de Espera
+                    </Button>
+                    <Button
+                        href="#discord"
+                        variant="ghost"
+                        class="flex h-fit items-center gap-2 rounded-md px-3.5 py-2.5 text-sm font-medium text-white">
+                        Pre-registrarme en Discord
+                    </Button>
+                </div>
             </div>
-            <div
-                class="absolute -top-40 -right-40 w-80 h-80 bg-primary/60 rounded-full blur-3xl"
-            >
+        </div>
+    </section>
+
+    <!-- Community Features -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">
+                    Qué Encontrarás en Nuestra Comunidad
+                </h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Una plataforma completa diseñada para que los desarrolladores colaboren,
+                    aprendan y construyan juntos.
+                </p>
             </div>
-            <div
-                class="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/80 rounded-full blur-3xl"
-            >
+
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {
+                    communityFeatures.map((feature) => (
+                        <Card className="border-0 shadow-md text-center hover:shadow-lg transition-shadow">
+                            <CardHeader>
+                                <div class="bg-primary/10 mx-auto mb-4 w-fit rounded-lg p-3">
+                                    <feature.icon className="w-8 h-8 text-primary" />
+                                </div>
+                                <CardTitle className="text-lg">{feature.title}</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p class="text-muted-foreground text-sm">{feature.description}</p>
+                            </CardContent>
+                        </Card>
+                    ))
+                }
             </div>
-            <div
-                class="container h-full flex justify-center items-center mx-auto px-4"
-            >
-                <div class="max-w-4xl mx-auto text-center">
-                    <Badge
-                        className="mb-4 bg-purple-100 text-purple-800 dark:bg-purple-900/20 dark:text-purple-200"
-                    >
-                        Próximamente
-                    </Badge>
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                        Una <span class="text-primary">Comunidad</span> para Desarrolladores
-                    </h1>
-                    <p class="text-xl text-muted-foreground mb-8">
-                        Estamos construyendo el lugar donde los desarrolladores
-                        se conectan, aprenden y crecen juntos. Una comunidad
-                        vibrante llena de oportunidades y colaboración.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        </div>
+    </section>
+
+    <!-- Planned Activities -->
+    <section class="bg-muted/30 py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Actividades Planificadas</h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Eventos y actividades regulares para mantener la comunidad activa y en constante
+                    aprendizaje.
+                </p>
+            </div>
+
+            <div class="mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-2">
+                {
+                    plannedActivities.map((activity) => (
+                        <Card className="border-0 shadow-md">
+                            <CardHeader>
+                                <CardTitle className="text-xl mb-2">{activity.title}</CardTitle>
+                                <p class="text-muted-foreground text-sm">{activity.description}</p>
+                            </CardHeader>
+                            <CardContent>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <p class="text-muted-foreground text-xs">Participantes</p>
+                                        <p class="text-sm font-medium">{activity.participants}</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-muted-foreground text-xs">Frecuencia</p>
+                                        <p class="text-sm font-medium">{activity.frequency}</p>
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Preview -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="mx-auto max-w-6xl">
+                <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+                    <div>
+                        <h2 class="mb-6 text-3xl font-bold md:text-4xl">
+                            Plataforma Comunitaria Avanzada
+                        </h2>
+                        <p class="text-muted-foreground mb-8 text-lg">
+                            No solo será otro foro. Estamos creando una experiencia completa con
+                            herramientas modernas para facilitar la colaboración y el aprendizaje.
+                        </p>
+                        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                            {
+                                platformFeatures.map((feature) => (
+                                    <div class="flex items-center gap-3">
+                                        <div class="bg-primary h-2 w-2 flex-shrink-0 rounded-full" />
+                                        <span class="text-sm">{feature}</span>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+                    <div
+                        class="rounded-xl bg-gradient-to-br from-indigo-50 to-purple-100 p-8 dark:from-indigo-950/20 dark:to-purple-950/20">
+                        <h3 class="mb-6 text-center text-2xl font-bold">
+                            Estadísticas Proyectadas
+                        </h3>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="text-center">
+                                <div class="text-primary mb-2 text-3xl font-bold">1,000+</div>
+                                <p class="text-muted-foreground text-sm">Miembros al lanzamiento</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-primary mb-2 text-3xl font-bold">50+</div>
+                                <p class="text-muted-foreground text-sm">Eventos por año</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-primary mb-2 text-3xl font-bold">24/7</div>
+                                <p class="text-muted-foreground text-sm">Actividad comunitaria</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-primary mb-2 text-3xl font-bold">100%</div>
+                                <p class="text-muted-foreground text-sm">Gratuito y abierto</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Channels -->
+    <section class="bg-muted/30 py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Canales de Comunicación</h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Múltiples plataformas para diferentes tipos de interacción y preferencias de
+                    comunicación.
+                </p>
+            </div>
+
+            <div class="mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-3">
+                {
+                    socialChannels.map((channel) => (
+                        <Card className="border-0 shadow-md text-center">
+                            <CardHeader>
+                                <div class="bg-primary/10 mx-auto mb-4 w-fit rounded-lg p-3">
+                                    <channel.icon className="w-8 h-8 text-primary" />
+                                </div>
+                                <CardTitle className="text-lg mb-2">{channel.name}</CardTitle>
+                                <p class="text-muted-foreground text-sm">{channel.description}</p>
+                            </CardHeader>
+                            <CardContent>
+                                <div class="space-y-2">
+                                    <p class="text-sm font-medium">{channel.members}</p>
+                                    <Badge variant="outline" className="text-xs">
+                                        {channel.status}
+                                    </Badge>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Roadmap de Desarrollo</h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Nuestro plan para crear la mejor comunidad de desarrolladores.
+                </p>
+            </div>
+
+            <div class="mx-auto max-w-4xl">
+                <div class="relative">
+                    <!-- Timeline line -->
+                    <div
+                        class="bg-primary/20 absolute left-1/2 h-full w-0.5 -translate-x-1/2 transform">
+                    </div>
+
+                    <div class="space-y-12">
+                        <!-- Q3 2025 -->
+                        <div class="relative flex items-center">
+                            <div class="flex-1 pr-8 text-right">
+                                <h3 class="text-lg font-bold">Q3 2025</h3>
+                                <p class="text-muted-foreground text-sm">
+                                    Desarrollo de plataforma
+                                </p>
+                            </div>
+                            <div
+                                class="bg-primary absolute left-1/2 h-4 w-4 -translate-x-1/2 transform rounded-full">
+                            </div>
+                            <div class="flex-1 pl-8">
+                                <p class="text-sm">Diseño de interfaz y funcionalidades básicas</p>
+                            </div>
+                        </div>
+
+                        <!-- Q4 2025 -->
+                        <div class="relative flex items-center">
+                            <div class="flex-1 pr-8 text-right">
+                                <p class="text-sm">Lanzamiento del Discord y foro beta</p>
+                            </div>
+                            <div
+                                class="bg-primary absolute left-1/2 h-4 w-4 -translate-x-1/2 transform rounded-full">
+                            </div>
+                            <div class="flex-1 pl-8">
+                                <h3 class="text-lg font-bold">Q4 2025</h3>
+                                <p class="text-muted-foreground text-sm">Beta privada</p>
+                            </div>
+                        </div>
+
+                        <!-- Q1 2026 -->
+                        <div class="relative flex items-center">
+                            <div class="flex-1 pr-8 text-right">
+                                <h3 class="text-lg font-bold">Q1 2026</h3>
+                                <p class="text-muted-foreground text-sm">Lanzamiento público</p>
+                            </div>
+                            <div
+                                class="bg-primary absolute left-1/2 h-4 w-4 -translate-x-1/2 transform rounded-full">
+                            </div>
+                            <div class="flex-1 pl-8">
+                                <p class="text-sm">
+                                    Plataforma completa con todas las funcionalidades
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Q2 2026 -->
+                        <div class="relative flex items-center">
+                            <div class="flex-1 pr-8 text-right">
+                                <p class="text-sm">Eventos presenciales y expansión global</p>
+                            </div>
+                            <div
+                                class="bg-primary/60 absolute left-1/2 h-4 w-4 -translate-x-1/2 transform rounded-full">
+                            </div>
+                            <div class="flex-1 pl-8">
+                                <h3 class="text-lg font-bold">Q2 2026</h3>
+                                <p class="text-muted-foreground text-sm">Eventos físicos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Early Access -->
+    <section id="unirme" class="bg-primary text-primary-foreground py-20">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mx-auto max-w-3xl">
+                <Users className="mx-auto mb-6 h-16 w-16 opacity-90" />
+                <h2 class="mb-6 text-3xl font-bold md:text-4xl">Sé Miembro Fundador</h2>
+                <p class="mb-8 text-lg opacity-90">
+                    Los primeros 500 miembros en registrarse obtendrán acceso early bird, badge
+                    especial de fundador y beneficios exclusivos de por vida.
+                </p>
+                <div class="mx-auto flex max-w-md flex-col justify-center gap-4 sm:flex-row">
+                    <input
+                        type="email"
+                        placeholder="tu@email.com"
+                        class="text-foreground flex-1 rounded-lg px-4 py-3 focus:ring-2 focus:ring-white/20 focus:outline-none"
+                    />
+                    <button
+                        class="text-primary inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 font-medium transition-colors hover:bg-gray-100">
+                        <Bell className="mr-2 h-4 w-4" />
+                        Reservar Lugar
+                    </button>
+                </div>
+                <p class="mt-4 text-sm opacity-75">
+                    Solo 127 lugares restantes para miembros fundadores
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Resources -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Mientras Esperamos...</h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Conecta con nosotros en nuestros canales actuales y mantente al día con las
+                    novedades.
+                </p>
+            </div>
+
+            <div class="mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-3">
+                <Card className="border-0 text-center shadow-md transition-shadow hover:shadow-lg">
+                    <CardHeader>
+                        <Coffee className="text-primary mx-auto mb-4 h-12 w-12" />
+                        <CardTitle>Newsletter</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <p class="text-muted-foreground mb-4 text-sm">
+                            Actualizaciones semanales sobre desarrollo
+                        </p>
                         <a
                             href="#unirme"
-                            class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
-                        >
-                            <Users className="w-4 h-4 mr-2" />
-                            Unirme a la Lista de Espera
+                            class="text-primary hover:text-primary/80 inline-flex items-center text-sm font-medium">
+                            Suscribirse
+                            <ArrowRight className="ml-1 h-4 w-4" />
                         </a>
+                    </CardContent>
+                </Card>
+
+                <Card className="border-0 text-center shadow-md transition-shadow hover:shadow-lg">
+                    <CardHeader>
+                        <Rocket className="text-primary mx-auto mb-4 h-12 w-12" />
+                        <CardTitle>Blog</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <p class="text-muted-foreground mb-4 text-sm">
+                            Artículos técnicos y novedades
+                        </p>
                         <a
-                            href="#discord"
-                            class="inline-flex items-center justify-center px-8 py-3 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
-                        >
-                            Pre-registrarme en Discord
+                            href="/blog"
+                            class="text-primary hover:text-primary/80 inline-flex items-center text-sm font-medium">
+                            Leer Blog
+                            <ArrowRight className="ml-1 h-4 w-4" />
                         </a>
-                    </div>
-                </div>
+                    </CardContent>
+                </Card>
+
+                <Card className="border-0 text-center shadow-md transition-shadow hover:shadow-lg">
+                    <CardHeader>
+                        <MessageCircle className="text-primary mx-auto mb-4 h-12 w-12" />
+                        <CardTitle>Contacto</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <p class="text-muted-foreground mb-4 text-sm">
+                            Habla directamente con nuestro equipo
+                        </p>
+                        <a
+                            href="/contacto"
+                            class="text-primary hover:text-primary/80 inline-flex items-center text-sm font-medium">
+                            Contactar
+                            <ArrowRight className="ml-1 h-4 w-4" />
+                        </a>
+                    </CardContent>
+                </Card>
             </div>
-        </section>
-
-        <!-- Community Features -->
-        <section class="py-20">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Qué Encontrarás en Nuestra Comunidad
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Una plataforma completa diseñada para que los
-                        desarrolladores colaboren, aprendan y construyan juntos.
-                    </p>
-                </div>
-
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-                >
-                    {
-                        communityFeatures.map((feature) => (
-                            <Card className="border-0 shadow-md text-center hover:shadow-lg transition-shadow">
-                                <CardHeader>
-                                    <div class="mx-auto mb-4 p-3 rounded-lg bg-primary/10 w-fit">
-                                        <feature.icon className="w-8 h-8 text-primary" />
-                                    </div>
-                                    <CardTitle className="text-lg">
-                                        {feature.title}
-                                    </CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p class="text-muted-foreground text-sm">
-                                        {feature.description}
-                                    </p>
-                                </CardContent>
-                            </Card>
-                        ))
-                    }
-                </div>
-            </div>
-        </section>
-
-        <!-- Planned Activities -->
-        <section class="py-20 bg-muted/30">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Actividades Planificadas
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Eventos y actividades regulares para mantener la
-                        comunidad activa y en constante aprendizaje.
-                    </p>
-                </div>
-
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto"
-                >
-                    {
-                        plannedActivities.map((activity) => (
-                            <Card className="border-0 shadow-md">
-                                <CardHeader>
-                                    <CardTitle className="text-xl mb-2">
-                                        {activity.title}
-                                    </CardTitle>
-                                    <p class="text-muted-foreground text-sm">
-                                        {activity.description}
-                                    </p>
-                                </CardHeader>
-                                <CardContent>
-                                    <div class="grid grid-cols-2 gap-4">
-                                        <div>
-                                            <p class="text-xs text-muted-foreground">
-                                                Participantes
-                                            </p>
-                                            <p class="font-medium text-sm">
-                                                {activity.participants}
-                                            </p>
-                                        </div>
-                                        <div>
-                                            <p class="text-xs text-muted-foreground">
-                                                Frecuencia
-                                            </p>
-                                            <p class="font-medium text-sm">
-                                                {activity.frequency}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        ))
-                    }
-                </div>
-            </div>
-        </section>
-
-        <!-- Platform Preview -->
-        <section class="py-20">
-            <div class="container mx-auto px-4">
-                <div class="max-w-6xl mx-auto">
-                    <div
-                        class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
-                    >
-                        <div>
-                            <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                                Plataforma Comunitaria Avanzada
-                            </h2>
-                            <p class="text-lg text-muted-foreground mb-8">
-                                No solo será otro foro. Estamos creando una
-                                experiencia completa con herramientas modernas
-                                para facilitar la colaboración y el aprendizaje.
-                            </p>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                {
-                                    platformFeatures.map((feature) => (
-                                        <div class="flex items-center gap-3">
-                                            <div class="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
-                                            <span class="text-sm">
-                                                {feature}
-                                            </span>
-                                        </div>
-                                    ))
-                                }
-                            </div>
-                        </div>
-                        <div
-                            class="bg-gradient-to-br from-indigo-50 to-purple-100 dark:from-indigo-950/20 dark:to-purple-950/20 p-8 rounded-xl"
-                        >
-                            <h3 class="text-2xl font-bold mb-6 text-center">
-                                Estadísticas Proyectadas
-                            </h3>
-                            <div class="grid grid-cols-2 gap-6">
-                                <div class="text-center">
-                                    <div
-                                        class="text-3xl font-bold text-primary mb-2"
-                                    >
-                                        1,000+
-                                    </div>
-                                    <p class="text-sm text-muted-foreground">
-                                        Miembros al lanzamiento
-                                    </p>
-                                </div>
-                                <div class="text-center">
-                                    <div
-                                        class="text-3xl font-bold text-primary mb-2"
-                                    >
-                                        50+
-                                    </div>
-                                    <p class="text-sm text-muted-foreground">
-                                        Eventos por año
-                                    </p>
-                                </div>
-                                <div class="text-center">
-                                    <div
-                                        class="text-3xl font-bold text-primary mb-2"
-                                    >
-                                        24/7
-                                    </div>
-                                    <p class="text-sm text-muted-foreground">
-                                        Actividad comunitaria
-                                    </p>
-                                </div>
-                                <div class="text-center">
-                                    <div
-                                        class="text-3xl font-bold text-primary mb-2"
-                                    >
-                                        100%
-                                    </div>
-                                    <p class="text-sm text-muted-foreground">
-                                        Gratuito y abierto
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Social Channels -->
-        <section class="py-20 bg-muted/30">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Canales de Comunicación
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Múltiples plataformas para diferentes tipos de
-                        interacción y preferencias de comunicación.
-                    </p>
-                </div>
-
-                <div
-                    class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto"
-                >
-                    {
-                        socialChannels.map((channel) => (
-                            <Card className="border-0 shadow-md text-center">
-                                <CardHeader>
-                                    <div class="mx-auto mb-4 p-3 rounded-lg bg-primary/10 w-fit">
-                                        <channel.icon className="w-8 h-8 text-primary" />
-                                    </div>
-                                    <CardTitle className="text-lg mb-2">
-                                        {channel.name}
-                                    </CardTitle>
-                                    <p class="text-muted-foreground text-sm">
-                                        {channel.description}
-                                    </p>
-                                </CardHeader>
-                                <CardContent>
-                                    <div class="space-y-2">
-                                        <p class="text-sm font-medium">
-                                            {channel.members}
-                                        </p>
-                                        <Badge
-                                            variant="outline"
-                                            className="text-xs"
-                                        >
-                                            {channel.status}
-                                        </Badge>
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        ))
-                    }
-                </div>
-            </div>
-        </section>
-
-        <!-- Timeline -->
-        <section class="py-20">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Roadmap de Desarrollo
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Nuestro plan para crear la mejor comunidad de
-                        desarrolladores.
-                    </p>
-                </div>
-
-                <div class="max-w-4xl mx-auto">
-                    <div class="relative">
-                        <!-- Timeline line -->
-                        <div
-                            class="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-primary/20"
-                        >
-                        </div>
-
-                        <div class="space-y-12">
-                            <!-- Q3 2025 -->
-                            <div class="relative flex items-center">
-                                <div class="flex-1 text-right pr-8">
-                                    <h3 class="font-bold text-lg">Q3 2025</h3>
-                                    <p class="text-sm text-muted-foreground">
-                                        Desarrollo de plataforma
-                                    </p>
-                                </div>
-                                <div
-                                    class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full"
-                                >
-                                </div>
-                                <div class="flex-1 pl-8">
-                                    <p class="text-sm">
-                                        Diseño de interfaz y funcionalidades
-                                        básicas
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Q4 2025 -->
-                            <div class="relative flex items-center">
-                                <div class="flex-1 text-right pr-8">
-                                    <p class="text-sm">
-                                        Lanzamiento del Discord y foro beta
-                                    </p>
-                                </div>
-                                <div
-                                    class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full"
-                                >
-                                </div>
-                                <div class="flex-1 pl-8">
-                                    <h3 class="font-bold text-lg">Q4 2025</h3>
-                                    <p class="text-sm text-muted-foreground">
-                                        Beta privada
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Q1 2026 -->
-                            <div class="relative flex items-center">
-                                <div class="flex-1 text-right pr-8">
-                                    <h3 class="font-bold text-lg">Q1 2026</h3>
-                                    <p class="text-sm text-muted-foreground">
-                                        Lanzamiento público
-                                    </p>
-                                </div>
-                                <div
-                                    class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full"
-                                >
-                                </div>
-                                <div class="flex-1 pl-8">
-                                    <p class="text-sm">
-                                        Plataforma completa con todas las
-                                        funcionalidades
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Q2 2026 -->
-                            <div class="relative flex items-center">
-                                <div class="flex-1 text-right pr-8">
-                                    <p class="text-sm">
-                                        Eventos presenciales y expansión global
-                                    </p>
-                                </div>
-                                <div
-                                    class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary/60 rounded-full"
-                                >
-                                </div>
-                                <div class="flex-1 pl-8">
-                                    <h3 class="font-bold text-lg">Q2 2026</h3>
-                                    <p class="text-sm text-muted-foreground">
-                                        Eventos físicos
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Early Access -->
-        <section id="unirme" class="py-20 bg-primary text-primary-foreground">
-            <div class="container mx-auto px-4 text-center">
-                <div class="max-w-3xl mx-auto">
-                    <Users className="w-16 h-16 mx-auto mb-6 opacity-90" />
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                        Sé Miembro Fundador
-                    </h2>
-                    <p class="text-lg opacity-90 mb-8">
-                        Los primeros 500 miembros en registrarse obtendrán
-                        acceso early bird, badge especial de fundador y
-                        beneficios exclusivos de por vida.
-                    </p>
-                    <div
-                        class="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto"
-                    >
-                        <input
-                            type="email"
-                            placeholder="tu@email.com"
-                            class="flex-1 px-4 py-3 rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-white/20"
-                        />
-                        <button
-                            class="px-6 py-3 bg-white text-primary rounded-lg font-medium hover:bg-gray-100 transition-colors inline-flex items-center justify-center"
-                        >
-                            <Bell className="w-4 h-4 mr-2" />
-                            Reservar Lugar
-                        </button>
-                    </div>
-                    <p class="text-sm opacity-75 mt-4">
-                        Solo 127 lugares restantes para miembros fundadores
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Current Resources -->
-        <section class="py-20">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Mientras Esperamos...
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Conecta con nosotros en nuestros canales actuales y
-                        mantente al día con las novedades.
-                    </p>
-                </div>
-
-                <div
-                    class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto"
-                >
-                    <Card
-                        className="border-0 shadow-md text-center hover:shadow-lg transition-shadow"
-                    >
-                        <CardHeader>
-                            <Coffee
-                                className="w-12 h-12 text-primary mx-auto mb-4"
-                            />
-                            <CardTitle>Newsletter</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <p class="text-muted-foreground text-sm mb-4">
-                                Actualizaciones semanales sobre desarrollo
-                            </p>
-                            <a
-                                href="#unirme"
-                                class="inline-flex items-center text-primary hover:text-primary/80 font-medium text-sm"
-                            >
-                                Suscribirse
-                                <ArrowRight className="w-4 h-4 ml-1" />
-                            </a>
-                        </CardContent>
-                    </Card>
-
-                    <Card
-                        className="border-0 shadow-md text-center hover:shadow-lg transition-shadow"
-                    >
-                        <CardHeader>
-                            <Rocket
-                                className="w-12 h-12 text-primary mx-auto mb-4"
-                            />
-                            <CardTitle>Blog</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <p class="text-muted-foreground text-sm mb-4">
-                                Artículos técnicos y novedades
-                            </p>
-                            <a
-                                href="/blog"
-                                class="inline-flex items-center text-primary hover:text-primary/80 font-medium text-sm"
-                            >
-                                Leer Blog
-                                <ArrowRight className="w-4 h-4 ml-1" />
-                            </a>
-                        </CardContent>
-                    </Card>
-
-                    <Card
-                        className="border-0 shadow-md text-center hover:shadow-lg transition-shadow"
-                    >
-                        <CardHeader>
-                            <MessageCircle
-                                className="w-12 h-12 text-primary mx-auto mb-4"
-                            />
-                            <CardTitle>Contacto</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <p class="text-muted-foreground text-sm mb-4">
-                                Habla directamente con nuestro equipo
-                            </p>
-                            <a
-                                href="/contacto"
-                                class="inline-flex items-center text-primary hover:text-primary/80 font-medium text-sm"
-                            >
-                                Contactar
-                                <ArrowRight className="w-4 h-4 ml-1" />
-                            </a>
-                        </CardContent>
-                    </Card>
-                </div>
-            </div>
-        </section>
-    </main>
+        </div>
+    </section>
 </Layout>
