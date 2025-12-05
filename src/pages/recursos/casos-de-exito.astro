@@ -1,0 +1,498 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import {
+    TrendingUp,
+    Users,
+    Clock,
+    Star,
+    ArrowRight,
+    Quote,
+    BarChart3,
+    Rocket,
+    CheckCircle2,
+    Building2,
+    ShoppingCart,
+    Stethoscope,
+    GraduationCap,
+    Briefcase,
+} from 'lucide-react';
+import Button from '@/components/ui/Button.astro';
+
+// Casos de éxito destacados
+const featuredCases = [
+    {
+        id: 1,
+        company: 'TechStore Pro',
+        industry: 'E-commerce',
+        icon: ShoppingCart,
+        logo: '/images/casos/techstore-logo.avif',
+        image: '/images/gallery/164_1x_shots_so.avif',
+        challenge:
+            'Necesitaban modernizar su tienda online que tenía una tasa de conversión del 1.2% y tiempos de carga superiores a 5 segundos.',
+        solution:
+            'Desarrollamos una plataforma e-commerce personalizada con Astro y React, optimizada para SEO y velocidad.',
+        results: [
+            { metric: 'Conversión', before: '1.2%', after: '4.8%', improvement: '+300%' },
+            { metric: 'Velocidad', before: '5.2s', after: '0.8s', improvement: '-85%' },
+            { metric: 'Ventas mensuales', before: '$45K', after: '$180K', improvement: '+300%' },
+        ],
+        testimonial: {
+            quote: 'Devanthos transformó completamente nuestra presencia online. Los resultados superaron todas nuestras expectativas.',
+            author: 'María González',
+            role: 'CEO, TechStore Pro',
+        },
+        tags: ['E-commerce', 'React', 'SEO', 'Performance'],
+        duration: '3 meses',
+        year: '2024',
+    },
+    {
+        id: 2,
+        company: 'Clínica Salud Integral',
+        industry: 'Salud',
+        icon: Stethoscope,
+        logo: '/images/casos/clinica-logo.avif',
+        image: '/images/gallery/205_1x_shots_so.avif',
+        challenge:
+            'Sistema de citas obsoleto que causaba pérdida de pacientes y tiempos de espera excesivos.',
+        solution:
+            'Implementamos un sistema de gestión integral con reservas online, recordatorios automáticos y dashboard administrativo.',
+        results: [
+            { metric: 'Cancelaciones', before: '35%', after: '8%', improvement: '-77%' },
+            { metric: 'Pacientes/mes', before: '450', after: '720', improvement: '+60%' },
+            { metric: 'Satisfacción', before: '3.2/5', after: '4.8/5', improvement: '+50%' },
+        ],
+        testimonial: {
+            quote: 'El nuevo sistema nos permitió enfocarnos en lo importante: nuestros pacientes. La eficiencia administrativa mejoró drásticamente.',
+            author: 'Dr. Roberto Sánchez',
+            role: 'Director Médico',
+        },
+        tags: ['Healthcare', 'Dashboard', 'Automatización', 'Mobile App'],
+        duration: '4 meses',
+        year: '2024',
+    },
+    {
+        id: 3,
+        company: 'EduTech Academy',
+        industry: 'Educación',
+        icon: GraduationCap,
+        logo: '/images/casos/edutech-logo.avif',
+        image: '/images/gallery/227_1x_shots_so.avif',
+        challenge:
+            'Plataforma educativa con baja retención de estudiantes y experiencia de usuario deficiente.',
+        solution:
+            'Creamos una plataforma de e-learning gamificada con seguimiento de progreso, certificaciones y comunidad integrada.',
+        results: [
+            { metric: 'Retención', before: '25%', after: '78%', improvement: '+212%' },
+            { metric: 'Completación', before: '18%', after: '65%', improvement: '+261%' },
+            { metric: 'NPS Score', before: '32', after: '72', improvement: '+125%' },
+        ],
+        testimonial: {
+            quote: 'La nueva plataforma revolucionó cómo nuestros estudiantes aprenden. Los índices de completación se triplicaron.',
+            author: 'Laura Martínez',
+            role: 'Directora de Producto',
+        },
+        tags: ['EdTech', 'Gamificación', 'LMS', 'React'],
+        duration: '5 meses',
+        year: '2023',
+    },
+];
+
+// Más casos de éxito (versión resumida)
+const moreCases = [
+    {
+        company: 'FinanceHub',
+        industry: 'Finanzas',
+        icon: Briefcase,
+        result: '+45% en eficiencia operativa',
+        description: 'Dashboard financiero con análisis en tiempo real',
+    },
+    {
+        company: 'LogiTrans',
+        industry: 'Logística',
+        icon: Building2,
+        result: '-30% en costos operativos',
+        description: 'Sistema de gestión de flotas y rutas optimizadas',
+    },
+    {
+        company: 'FoodDelivery+',
+        industry: 'Delivery',
+        icon: ShoppingCart,
+        result: '+200% en pedidos diarios',
+        description: 'App móvil con tracking en tiempo real',
+    },
+    {
+        company: 'LegalDocs Pro',
+        industry: 'Legal',
+        icon: Briefcase,
+        result: '-60% en tiempo de gestión',
+        description: 'Automatización de documentos legales',
+    },
+    {
+        company: 'GymFit 360',
+        industry: 'Fitness',
+        icon: Users,
+        result: '+85% en retención de clientes',
+        description: 'App de entrenamiento personalizado',
+    },
+    {
+        company: 'AgriTech Solutions',
+        industry: 'Agricultura',
+        icon: TrendingUp,
+        result: '+40% en productividad',
+        description: 'IoT y monitoreo de cultivos',
+    },
+];
+
+// Estadísticas globales
+const globalStats = [
+    { value: '100+', label: 'Proyectos Completados' },
+    { value: '98%', label: 'Clientes Satisfechos' },
+    { value: '45%', label: 'Mejora Promedio en Conversión' },
+    { value: '3x', label: 'ROI Promedio' },
+];
+
+// Industrias que servimos
+const industries = [
+    { name: 'E-commerce', count: 45, icon: ShoppingCart },
+    { name: 'Salud', count: 28, icon: Stethoscope },
+    { name: 'Educación', count: 22, icon: GraduationCap },
+    { name: 'Finanzas', count: 18, icon: Briefcase },
+    { name: 'Startups', count: 35, icon: Rocket },
+];
+---
+
+<Layout
+    title="Casos de Éxito | Devanthos"
+    description="Descubre cómo hemos ayudado a empresas a transformar su presencia digital. Casos reales con resultados medibles.">
+    <!-- Hero Section -->
+    <section
+        class="font-public_sans bg-background before:from-muted dark relative py-24 before:absolute before:top-0 before:left-0 before:z-10 before:block before:h-[15rem] before:w-full before:bg-linear-to-b before:to-transparent before:content-[''] md:py-32">
+        <div class="relative z-20 container mx-auto px-4">
+            <div class="relative z-20 mx-auto flex max-w-[56.25rem] flex-col items-center gap-6">
+                <Badge
+                    className="border-muted bg-muted hover:border-primary mb-4 flex w-fit items-center gap-1 rounded-full border px-2.5 py-1.5"
+                    >Resultados Comprobados</Badge
+                >
+                <h1
+                    class="text-foreground font-cocogoose [&_span]:text-primary text-center text-5xl leading-tight [text-shadow:0_0_10px_rgba(255,255,255,0.65)] md:text-6xl lg:text-7xl [&_span]:[text-shadow:0_0_10px_rgba(94,111,182,0.65)]">
+                    <span>Casos de Éxito</span> que Inspiran
+                </h1>
+                <p class="text-muted-foreground text-center text-lg">
+                    Historias reales de transformación digital. Descubre cómo hemos ayudado a
+                    empresas como la tuya a alcanzar resultados extraordinarios.
+                </p>
+                <div class="mt-4 flex items-center gap-2">
+                    <Button
+                        href="#casos"
+                        class="flex h-fit items-center gap-2 rounded-md px-3.5 py-2.5 text-sm font-medium">
+                        <BarChart3 className="size-5!" />
+                        Ver Casos de Éxito
+                    </Button>
+                    <Button
+                        href="/contacto"
+                        class="flex h-fit items-center gap-2 rounded-md px-3.5 py-2.5 text-sm font-medium">
+                        Iniciar Mi Proyecto
+                    </Button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Stats -->
+    <section class="bg-muted/30 py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
+                {
+                    globalStats.map((stat) => (
+                        <div class="text-center">
+                            <div class="text-primary mb-2 text-4xl font-bold md:text-5xl">
+                                {stat.value}
+                            </div>
+                            <p class="text-muted-foreground text-sm md:text-base">{stat.label}</p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Cases -->
+    <section id="casos" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Casos Destacados</h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Proyectos que demuestran nuestro compromiso con resultados medibles y
+                    transformación real.
+                </p>
+            </div>
+
+            <div class="space-y-20">
+                {
+                    featuredCases.map((caseStudy, index) => (
+                        <div
+                            class={`grid grid-cols-1 items-center gap-12 lg:grid-cols-2 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+                            <div class={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+                                <div class="relative">
+                                    <img
+                                        src={caseStudy.image}
+                                        alt={`Proyecto ${caseStudy.company}`}
+                                        class="w-full rounded-xl shadow-2xl"
+                                    />
+                                    <div class="bg-primary text-primary-foreground absolute -right-4 -bottom-4 rounded-lg px-4 py-2 shadow-lg">
+                                        <span class="font-bold">{caseStudy.year}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                                <div class="mb-4 flex items-center gap-3">
+                                    <div class="bg-primary/10 rounded-lg p-2">
+                                        <caseStudy.icon className="w-6 h-6 text-primary" />
+                                    </div>
+                                    <Badge variant="outline">{caseStudy.industry}</Badge>
+                                    <Badge variant="secondary">{caseStudy.duration}</Badge>
+                                </div>
+
+                                <h3 class="mb-4 text-2xl font-bold md:text-3xl">
+                                    {caseStudy.company}
+                                </h3>
+
+                                <div class="mb-6 space-y-4">
+                                    <div>
+                                        <h4 class="text-muted-foreground mb-2 text-sm font-semibold tracking-wide uppercase">
+                                            El Desafío
+                                        </h4>
+                                        <p class="text-muted-foreground">{caseStudy.challenge}</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-muted-foreground mb-2 text-sm font-semibold tracking-wide uppercase">
+                                            Nuestra Solución
+                                        </h4>
+                                        <p class="text-muted-foreground">{caseStudy.solution}</p>
+                                    </div>
+                                </div>
+
+                                {/* Results */}
+                                <div class="mb-6 grid grid-cols-3 gap-4">
+                                    {caseStudy.results.map((result) => (
+                                        <div class="bg-muted/50 rounded-lg p-3 text-center">
+                                            <div class="text-muted-foreground mb-1 text-xs">
+                                                {result.metric}
+                                            </div>
+                                            <div class="text-primary text-lg font-bold">
+                                                {result.improvement}
+                                            </div>
+                                            <div class="text-muted-foreground text-xs">
+                                                {result.before} → {result.after}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                {/* Testimonial */}
+                                <div class="bg-muted/30 border-primary rounded-xl border-l-4 p-6">
+                                    <Quote className="w-8 h-8 text-primary/30 mb-3" />
+                                    <p class="text-muted-foreground mb-4 italic">
+                                        "{caseStudy.testimonial.quote}"
+                                    </p>
+                                    <div class="flex items-center gap-3">
+                                        <div class="bg-primary/20 flex h-10 w-10 items-center justify-center rounded-full">
+                                            <span class="text-primary font-bold">
+                                                {caseStudy.testimonial.author.charAt(0)}
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <div class="text-sm font-semibold">
+                                                {caseStudy.testimonial.author}
+                                            </div>
+                                            <div class="text-muted-foreground text-xs">
+                                                {caseStudy.testimonial.role}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Tags */}
+                                <div class="mt-6 flex flex-wrap gap-2">
+                                    {caseStudy.tags.map((tag) => (
+                                        <Badge variant="outline" className="text-xs">
+                                            {tag}
+                                        </Badge>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- More Cases Grid -->
+    <section class="bg-muted/30 py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Más Historias de Éxito</h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Cada proyecto es una oportunidad para crear impacto real.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {
+                    moreCases.map((caseItem) => (
+                        <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                            <CardHeader>
+                                <div class="mb-2 flex items-center gap-3">
+                                    <div class="bg-primary/10 rounded-lg p-2">
+                                        <caseItem.icon className="w-5 h-5 text-primary" />
+                                    </div>
+                                    <Badge variant="outline" className="text-xs">
+                                        {caseItem.industry}
+                                    </Badge>
+                                </div>
+                                <CardTitle className="text-lg">{caseItem.company}</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p class="text-muted-foreground mb-4 text-sm">
+                                    {caseItem.description}
+                                </p>
+                                <div class="text-primary flex items-center gap-2 font-bold">
+                                    <TrendingUp className="w-4 h-4" />
+                                    {caseItem.result}
+                                </div>
+                            </CardContent>
+                        </Card>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries We Serve -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Industrias que Transformamos</h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Experiencia comprobada en múltiples sectores.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-5">
+                {
+                    industries.map((industry) => (
+                        <div class="bg-muted/30 hover:bg-muted/50 rounded-xl p-6 text-center transition-colors">
+                            <div class="bg-primary/10 mb-4 inline-flex rounded-lg p-3">
+                                <industry.icon className="w-8 h-8 text-primary" />
+                            </div>
+                            <h3 class="mb-1 font-semibold">{industry.name}</h3>
+                            <p class="text-muted-foreground text-sm">{industry.count}+ proyectos</p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="bg-muted/30 py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Nuestro Proceso de Éxito</h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Un enfoque probado que garantiza resultados.
+                </p>
+            </div>
+
+            <div class="mx-auto max-w-4xl">
+                <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
+                    {
+                        [
+                            {
+                                step: '01',
+                                title: 'Descubrimiento',
+                                description:
+                                    'Analizamos tu negocio, objetivos y desafíos actuales.',
+                            },
+                            {
+                                step: '02',
+                                title: 'Estrategia',
+                                description:
+                                    'Diseñamos una solución personalizada con métricas claras.',
+                            },
+                            {
+                                step: '03',
+                                title: 'Ejecución',
+                                description: 'Desarrollamos e implementamos con metodología ágil.',
+                            },
+                            {
+                                step: '04',
+                                title: 'Optimización',
+                                description: 'Medimos resultados y optimizamos continuamente.',
+                            },
+                        ].map((process) => (
+                            <div class="text-center">
+                                <div class="bg-primary text-primary-foreground mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full text-2xl font-bold">
+                                    {process.step}
+                                </div>
+                                <h3 class="mb-2 font-semibold">{process.title}</h3>
+                                <p class="text-muted-foreground text-sm">{process.description}</p>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-primary text-primary-foreground py-20">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mx-auto max-w-3xl">
+                <Rocket className="mx-auto mb-6 h-16 w-16 opacity-90" />
+                <h2 class="mb-6 text-3xl font-bold md:text-4xl">
+                    ¿Listo para Escribir tu Historia de Éxito?
+                </h2>
+                <p class="mb-8 text-lg opacity-90">
+                    Cada gran proyecto comienza con una conversación. Cuéntanos sobre tu visión y
+                    descubre cómo podemos ayudarte a alcanzar resultados extraordinarios.
+                </p>
+                <div class="flex flex-col justify-center gap-4 sm:flex-row">
+                    <a
+                        href="/contacto"
+                        class="text-primary inline-flex items-center justify-center rounded-lg bg-white px-8 py-3 font-medium transition-colors hover:bg-gray-100">
+                        <CheckCircle2 className="mr-2 h-4 w-4" />
+                        Iniciar Consultoría Gratuita
+                    </a>
+                    <a
+                        href="/precios"
+                        class="inline-flex items-center justify-center rounded-lg border border-white/30 px-8 py-3 font-medium transition-colors hover:bg-white/10">
+                        Ver Planes y Precios
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="mb-8 text-center">
+                <p class="text-muted-foreground">Empresas que confían en nosotros</p>
+            </div>
+            <div class="flex flex-wrap items-center justify-center gap-8 opacity-50">
+                {
+                    [1, 2, 3, 4, 5, 6].map((i) => (
+                        <div class="bg-muted flex h-12 w-32 items-center justify-center rounded">
+                            <span class="text-muted-foreground text-sm">Logo {i}</span>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+</Layout>
