@@ -3,6 +3,13 @@ import { Behance } from '../icons';
 import { Github, Linkedin, Instagram, Globe, Facebook } from 'lucide-react';
 import Button from '../ui/Button.astro';
 
+const personAccents = [
+    'from-blue-500 to-cyan-400',
+    'from-emerald-500 to-teal-400',
+    'from-orange-500 to-amber-400',
+    'from-rose-500 to-pink-400',
+];
+
 const people = [
     {
         id: 'person-1',
@@ -125,22 +132,14 @@ const people = [
         </p>
         <h2 class="font-cocogoose my-6 text-2xl font-normal text-pretty lg:text-4xl">
             Conoce a nuestro equipo de expertos
-            <span class="sr-only"
-                >en desarrollo web, marketing digital y producción audiovisual de Argentina</span
-            >
         </h2>
         <p class="text-muted-foreground mb-8 max-w-3xl lg:text-xl">
             Somos un equipo apasionado y comprometido con la excelencia. Cada miembro aporta su
             experiencia única para ofrecer soluciones innovadoras y efectivas a nuestros clientes.
-            <span class="sr-only"
-                >Especialistas en React, Next.js, Full Stack Development, Customer Success, Motion
-                Graphics, SEO y estrategias digitales.</span
-            >
         </p>
         <div class="flex w-full flex-col justify-center gap-2 sm:flex-row">
             <Button href="/contacto" class="w-full sm:w-auto">
                 Contáctanos para más información
-                <span class="sr-only">sobre servicios de desarrollo web y marketing digital</span>
                 <Globe className="size-4" />
             </Button>
             <Button
@@ -150,54 +149,63 @@ const people = [
                 class="border-secondary hover:bg-secondary/20 text-secondary w-full border-2 transition-colors hover:text-white sm:w-auto"
                 variant="outline">
                 Consultoría gratuita
-                <span class="sr-only"
-                    >con expertos en desarrollo web y transformación digital - WhatsApp</span
-                >
             </Button>
         </div>
     </div>
-    <div class="container mx-auto mt-16 grid gap-8 px-2 md:grid-cols-2 md:px-6 lg:grid-cols-4">
+    <div class="container mx-auto mt-16 grid gap-6 px-2 md:grid-cols-2 md:px-6 lg:grid-cols-4">
         {
-            people.map((person) => (
-                <div class="bg-accent flex flex-grow flex-col items-center rounded-2xl p-8 shadow-lg">
-                    <span
-                        data-slot="avatar"
-                        class="relative mb-4 flex size-20 shrink-0 overflow-hidden rounded-full md:mb-5 lg:size-24">
-                        <img
-                            data-slot="avatar-image"
-                            class="aspect-square size-full"
-                            src={person.avatar}
-                            alt={person.name}
-                            width="96"
-                            height="96"
-                            decoding="async"
-                            loading="lazy"
-                        />
-                    </span>
-                    <p class="text-center font-medium">{person.name}</p>
-                    <p class="text-muted-foreground text-center">{person.role}</p>
-                    <p class="text-muted-foreground flex-1 py-3 text-center text-sm text-balance">
-                        {person.description}
-                    </p>
-                    <div class="mt-2 flex gap-4">
-                        {person.socialLinks.map((social) => {
-                            return (
-                                <a
-                                    href={social.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    title={`${social.name} de ${person.name}`}
-                                    aria-label={`Visitar perfil de ${person.name} en ${social.name}`}>
-                                    <span class="sr-only">
-                                        Visitar perfil de {person.name} en {social.name}
-                                    </span>
-                                    <social.icon className="size-4 text-muted-foreground hover:text-primary transition-colors" />
-                                </a>
-                            );
-                        })}
-                    </div>
-                </div>
-            ))
+            people.map((person, index) => {
+                const accent = personAccents[index % personAccents.length];
+                return (
+                    <article class="group border-border/40 bg-card relative flex flex-col overflow-hidden rounded-2xl border shadow-sm transition-all duration-500 hover:shadow-xl">
+                        {/* Photo region */}
+                        <div class="bg-muted relative h-56 overflow-hidden">
+                            <img
+                                src={person.avatar}
+                                alt={person.name}
+                                width="400"
+                                height="224"
+                                decoding="async"
+                                loading="lazy"
+                                class="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                            />
+                            {/* Gradient bleed into card */}
+                            <div class="from-card absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t to-transparent" />
+                        </div>
+
+                        {/* Content */}
+                        <div class="flex flex-1 flex-col px-6 pt-4 pb-6">
+                            <h3 class="font-cocogoose text-foreground text-lg leading-tight font-normal">
+                                {person.name}
+                            </h3>
+                            <p class="text-muted-foreground mt-2 line-clamp-2 text-[10px] tracking-[0.16em] uppercase">
+                                {person.role}
+                            </p>
+                            <p class="text-muted-foreground mt-4 line-clamp-3 flex-1 text-sm leading-relaxed">
+                                {person.description}
+                            </p>
+
+                            {/* Social links */}
+                            <div class="mt-5 flex flex-wrap gap-2">
+                                {person.socialLinks.map((social) => (
+                                    <a
+                                        href={social.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        title={`${social.name} de ${person.name}`}
+                                        aria-label={`Visitar perfil de ${person.name} en ${social.name}`}
+                                        class="border-border/60 text-muted-foreground hover:border-primary/60 hover:bg-primary/5 hover:text-primary inline-flex size-8 items-center justify-center rounded-full border transition-all duration-200">
+                                        <span class="sr-only">
+                                            Visitar perfil de {person.name} en {social.name}
+                                        </span>
+                                        <social.icon className="size-3.5" />
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+                    </article>
+                );
+            })
         }
     </div>
 </section>

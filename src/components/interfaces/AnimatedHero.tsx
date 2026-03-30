@@ -1,188 +1,182 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { MoveRight } from 'lucide-react';
-import AnimatedDevanthosIcon from './AnimatedDevanthosIcon';
-import { useEffect, useState } from 'react';
 import { Autoplay, EffectCoverflow, Pagination } from 'swiper/modules';
+import AnimatedDevanthosIcon from './AnimatedDevanthosIcon';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import LogoMarquee from '../logo-marquee';
+import { MoveRight } from 'lucide-react';
+import { motion } from 'motion/react';
+
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css';
 import 'swiper/css/effect-cards';
-import LogoMarquee from '../logo-marquee';
-import { DevanthosIcon } from '../icons';
-
 interface AnimatedHeroProps {
     className?: string;
     children?: React.ReactNode;
     imageAnimationType?: 'subtle' | 'dynamic' | 'interactive' | 'morphing' | 'floating';
 }
 
+// Static data hoisted outside the component to avoid recreation on every render
+const images = [
+    {
+        src: '/videos/hero/Seo avanzado 2.webm',
+        alt: 'SEO project',
+        name: 'SEO Avanzado',
+    },
+    {
+        src: '/videos/hero/Diseño web.webm',
+        alt: 'Web design project',
+        name: 'Diseño Web',
+    },
+    {
+        src: '/videos/hero/marketing digital.webm',
+        alt: 'Marketing digital project',
+        name: 'Marketing Digital',
+    },
+    {
+        src: '/videos/hero/Seo avanzado 2.webm',
+        alt: 'SEO project',
+        name: 'SEO Avanzado',
+    },
+    {
+        src: '/videos/hero/Diseño web.webm',
+        alt: 'Web design project',
+        name: 'Diseño Web',
+    },
+    {
+        src: '/videos/hero/marketing digital.webm',
+        alt: 'Marketing digital project',
+        name: 'Marketing Digital',
+    },
+];
+
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.2,
+            delayChildren: 0.1,
+        },
+    },
+};
+
+const slideUpVariants = {
+    hidden: {
+        opacity: 0,
+        y: 60,
+        scale: 0.95,
+    },
+    visible: {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        transition: {
+            duration: 0.8,
+            ease: [0.25, 0.46, 0.45, 0.94],
+        },
+    },
+};
+
+const marqueeVariants = {
+    hidden: {
+        opacity: 0,
+        y: 30,
+    },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.6,
+            delay: 0.4,
+            ease: 'easeOut',
+        },
+    },
+};
+
+const buttonVariants = {
+    hidden: {
+        opacity: 0,
+        y: 30,
+        scale: 0.9,
+    },
+    visible: {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        transition: {
+            duration: 0.6,
+            delay: 0.6,
+            ease: 'easeOut',
+        },
+    },
+    hover: {
+        scale: 1.05,
+        transition: {
+            duration: 0.2,
+            ease: 'easeInOut',
+        },
+    },
+    tap: {
+        scale: 0.98,
+    },
+};
+
+const swiperCss = `
+    .mySwiperHero231 {
+        width: 100%;
+        min-width: 750px;
+        height: 100%;
+        padding-bottom: 50px;
+    } 
+
+    .mySwiperHero231 .swiper-slide {
+        background-position: center;
+        background-size: cover;
+        width: 300px;
+        margin-top: 60px;
+        height: 420px;
+    }
+    
+    .mySwiperHero231 .swiper-slide img {
+        display: block;
+        width: 100%;
+    }
+    
+    .swiper-3d .swiper-slide-shadow-left {
+        background-image: none;
+    }
+    .swiper-3d .swiper-slide-shadow-right{
+        background: none;
+    }
+    .swiper-pagination {
+        bottom: 10px !important;
+        width: 100% !important;
+        left: 0% !important;
+    }
+    .swiper-pagination-bullet-active {
+        background-color: var(--primary);
+    }
+
+    @media (min-width: 768px) {
+        .swiper-pagination {
+        width: fit-content !important;
+        left: 80% !important;
+        }
+    }
+    `;
+
 const AnimatedHero: React.FC<AnimatedHeroProps> = ({ className = '', children }) => {
     const [domLoaded, setDomLoaded] = useState(false);
-    const [activeSlide, setActiveSlide] = useState(0);
 
     useEffect(() => {
         setDomLoaded(true);
     }, []);
 
-    const images = [
-        {
-            src: '/videos/hero/Seo avanzado 2.webm',
-            alt: 'SEO project',
-            name: 'SEO Avanzado',
-        },
-        {
-            src: '/videos/hero/Diseño web.webm',
-            alt: 'Web design project',
-            name: 'Diseño Web',
-        },
-        {
-            src: '/videos/hero/marketing digital.webm',
-            alt: 'Marketing digital project',
-            name: 'Marketing Digital',
-        },
-        {
-            src: '/videos/hero/Seo avanzado 2.webm',
-            alt: 'SEO project',
-            name: 'SEO Avanzado',
-        },
-        {
-            src: '/videos/hero/Diseño web.webm',
-            alt: 'Web design project',
-            name: 'Diseño Web',
-        },
-        {
-            src: '/videos/hero/marketing digital.webm',
-            alt: 'Marketing digital project',
-            name: 'Marketing Digital',
-        },
-    ];
-    // Variantes de animación para el contenedor principal
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.2,
-                delayChildren: 0.1,
-            },
-        },
-    };
-
-    // Variantes para elementos que aparecen desde abajo
-    const slideUpVariants = {
-        hidden: {
-            opacity: 0,
-            y: 60,
-            scale: 0.95,
-        },
-        visible: {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            transition: {
-                duration: 0.8,
-                ease: [0.25, 0.46, 0.45, 0.94],
-            },
-        },
-    };
-
-    // Variantes para el logo marquee con delay
-    const marqueeVariants = {
-        hidden: {
-            opacity: 0,
-            y: 30,
-        },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.6,
-                delay: 0.4,
-                ease: 'easeOut',
-            },
-        },
-    };
-
-    // Variantes para el botón con hover effect
-    const buttonVariants = {
-        hidden: {
-            opacity: 0,
-            y: 30,
-            scale: 0.9,
-        },
-        visible: {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            transition: {
-                duration: 0.6,
-                delay: 0.6,
-                ease: 'easeOut',
-            },
-        },
-        hover: {
-            scale: 1.05,
-            transition: {
-                duration: 0.2,
-                ease: 'easeInOut',
-            },
-        },
-        tap: {
-            scale: 0.98,
-        },
-    };
-
-    const css = `
-        .mySwiperHero231 {
-            width: 100%;
-            min-width: 750px;
-            height: 100%;
-            padding-bottom: 50px;
-        } 
-
-        .mySwiperHero231 .swiper-slide {
-            background-position: center;
-            background-size: cover;
-            width: 300px;
-            margin-top: 60px;
-            height: 420px;
-        }
-        
-        .mySwiperHero231 .swiper-slide img {
-            display: block;
-            width: 100%;
-        }
-        
-        .swiper-3d .swiper-slide-shadow-left {
-            background-image: none;
-        }
-        .swiper-3d .swiper-slide-shadow-right{
-            background: none;
-        }
-        .swiper-pagination {
-            bottom: 10px !important;
-            width: 100% !important;
-            left: 0% !important;
-        }
-        .swiper-pagination-bullet-active {
-            background-color: var(--primary);
-        }
-
-        @media (min-width: 768px) {
-            .swiper-pagination {
-            width: fit-content !important;
-            left: 80% !important;
-            }
-        }
-
-        `;
-
     return (
         <section className="relative overflow-hidden py-32">
-            <style>{css}</style>
+            <style>{swiperCss}</style>
             <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 0.5, scale: 1 }}
@@ -288,11 +282,8 @@ const AnimatedHero: React.FC<AnimatedHeroProps> = ({ className = '', children })
                                 }}
                                 className="mySwiperHero231"
                                 modules={[EffectCoverflow, Autoplay, Pagination]}
-                                pagination={{ clickable: true }}
-                                onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
-                                onSwiper={(swiper) => setActiveSlide(swiper.realIndex)}>
+                                pagination={{ clickable: true }}>
                                 {images.map((image, index) => {
-                                    const isActive = activeSlide === index;
                                     return (
                                         <SwiperSlide key={index}>
                                             <motion.video
@@ -326,33 +317,12 @@ const AnimatedHero: React.FC<AnimatedHeroProps> = ({ className = '', children })
                                                 className="bg-opacity-50 absolute bottom-2 left-2 z-20 rounded-lg bg-black px-3 py-1 text-white">
                                                 {image.name}
                                             </motion.div>
-                                            <motion.video
-                                                initial={{
-                                                    opacity: isActive ? 0 : 0,
-                                                    scale: isActive ? 1.2 : 1.2,
-                                                }}
-                                                animate={{
-                                                    opacity: isActive ? 1 : 0,
-                                                    scale: isActive ? 1 : 1,
-                                                }}
-                                                transition={{
-                                                    duration: 0.4,
-                                                    delay: isActive ? 0.4 : 0,
-                                                    ease: 'easeOut',
-                                                }}
-                                                className="absolute inset-0 z-0 h-full w-full blur-xl"
-                                                src={image.src}
-                                                autoPlay
-                                                loop
-                                            />
                                         </SwiperSlide>
                                     );
                                 })}
                             </Swiper>
                         )}
                     </div>
-
-                    {/* <div className="-z-1 bg-muted px-2 xl:h-155 xl:w-9/10 absolute right-0 top-0 h-full w-full rounded-3xl xl:top-1/2 xl:mt-4 xl:-translate-y-1/2" /> */}
                 </div>
             </motion.div>
         </section>

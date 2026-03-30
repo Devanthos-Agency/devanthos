@@ -1,14 +1,13 @@
 ---
-import { ArrowRight } from "lucide-react";
-import AnimatedBeamIllustration from "../animated-beam-illustration";
-import Button from "../ui/Button.astro";
+import { ArrowRight } from 'lucide-react';
+import AnimatedBeamIllustration from '../animated-beam-illustration';
+import Button from '../ui/Button.astro';
 ---
 
 <section class="pt-32">
     <div class="container mx-auto px-2 md:px-6 lg:px-8">
         <div
-            class="grid relative overflow-hidden rounded-xl border border-primary/30 md:grid-cols-3 bg-gradient-to-b lg:bg-gradient-to-r from-primary to-primary/50 shadow-2xl"
-        >
+            class="border-primary/30 from-primary to-primary/50 relative grid overflow-hidden rounded-xl border bg-gradient-to-b shadow-2xl md:grid-cols-3 lg:bg-gradient-to-r">
             <div
                 class="absolute inset-0 z-0 opacity-40 dark:opacity-20"
                 style={{
@@ -18,47 +17,37 @@ import Button from "../ui/Button.astro";
                         radial-gradient(circle 500px at 20% 100%, rgba(139,92,246,0.3), transparent),
                         radial-gradient(circle 500px at 100% 80%, rgba(59,130,246,0.3), transparent)
             `,
-                    backgroundSize:
-                        "48px 48px, 48px 48px, 100% 100%, 100% 100%",
+                    backgroundSize: '48px 48px, 48px 48px, 100% 100%, 100% 100%',
                     WebkitMaskImage:
-                        "radial-gradient(ellipse 80% 80% at 100% 0%, #000 50%, transparent 90%)",
+                        'radial-gradient(ellipse 80% 80% at 100% 0%, #000 50%, transparent 90%)',
                     maskImage:
-                        "radial-gradient(ellipse 80% 80% at 100% 0%, #000 50%, transparent 90%)",
-                }}
-            >
+                        'radial-gradient(ellipse 80% 80% at 100% 0%, #000 50%, transparent 90%)',
+                }}>
             </div>
-            <div
-                class="relative my-auto z-10 px-6 py-10 sm:px-10 sm:py-12 lg:px-16 lg:py-20"
-            >
-                <div class="w-full md:max-w-md text-white">
+            <div class="relative z-10 my-auto px-6 py-10 sm:px-10 sm:py-12 lg:px-16 lg:py-20">
+                <div class="w-full text-white md:max-w-md">
                     <h2 class="mb-4 text-2xl font-semibold lg:text-3xl">
                         Listo para llevar tu proyecto al siguiente nivel?
-                        <span class="sr-only">Desarrollo web profesional, aplicaciones móviles y marketing digital en Argentina</span>
                     </h2>
                     <p class="mb-6 text-lg">
                         En
-                        <span class="font-cocogoose font-normal">
-                            Devanthos&ZeroWidthSpace;
-                        </span>, ofrecemos soluciones personalizadas para
-                        potenciar tu empresa o emprendimiento. Desde desarrollo
-                        web y móvil hasta marketing digital, nuestro equipo de
-                        expertos está listo para ayudarte a alcanzar tus
+                        <span class="font-cocogoose font-normal"> Devanthos&ZeroWidthSpace; </span>,
+                        ofrecemos soluciones personalizadas para potenciar tu empresa o
+                        emprendimiento. Desde desarrollo web y móvil hasta marketing digital,
+                        nuestro equipo de expertos está listo para ayudarte a alcanzar tus
                         objetivos.
-                        <span class="sr-only">Especialistas en React, Next.js, TypeScript, SEO técnico, Google Ads, chatbots con IA y transformación digital para empresas.</span>
                     </p>
                     <Button
                         href="/contacto"
-                        class="group bg-white text-primary hover:bg-white/40 hover:text-white transition-colors flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-medium"
-                    >
+                        class="group text-primary flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-medium transition-colors hover:bg-white/40 hover:text-white">
                         <ArrowRight
-                            className="mr-2 size-5 group-hover:translate-x-1.5 transition-transform"
+                            className="mr-2 size-5 transition-transform group-hover:translate-x-1.5"
                         />
                         Comienza tu asesoría gratuita
-                        <span class="sr-only">de desarrollo web, marketing digital y transformación digital - Sin costo ni compromiso</span>
                     </Button>
                 </div>
             </div>
-            <div class="md:col-span-2 flex items-center justify-center">
+            <div class="flex items-center justify-center md:col-span-2">
                 <AnimatedBeamIllustration client:load />
             </div>
         </div>

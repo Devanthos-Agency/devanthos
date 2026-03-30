@@ -1,7 +1,7 @@
-import React, { useEffect, useState, useRef } from "react";
-import { motion, useScroll, useTransform, useSpring } from "motion/react";
-import { MoveRight } from "lucide-react";
-import { DevanthosIcon } from "../icons";
+import React, { useEffect, useState, useRef } from 'react';
+import { motion, useScroll, useTransform, useSpring } from 'motion/react';
+import { MoveRight } from 'lucide-react';
+import { DevanthosIcon } from '../icons';
 
 interface AdvancedAnimatedHeroProps {
     className?: string;
@@ -9,14 +9,14 @@ interface AdvancedAnimatedHeroProps {
 }
 
 const AdvancedAnimatedHero: React.FC<AdvancedAnimatedHeroProps> = ({
-    className = "",
+    className = '',
     children,
 }) => {
     const [isLoaded, setIsLoaded] = useState(false);
     const containerRef = useRef<HTMLElement>(null);
     const { scrollY } = useScroll({
         target: containerRef,
-        offset: ["start end", "end start"],
+        offset: ['start end', 'end start'],
     });
 
     // Parallax effects
@@ -25,7 +25,7 @@ const AdvancedAnimatedHero: React.FC<AdvancedAnimatedHeroProps> = ({
 
     // Spring configurations
     const springConfig = {
-        type: "spring",
+        type: 'spring',
         stiffness: 300,
         damping: 30,
         mass: 0.8,
@@ -50,7 +50,7 @@ const AdvancedAnimatedHero: React.FC<AdvancedAnimatedHeroProps> = ({
             transition: {
                 staggerChildren: 0.15,
                 delayChildren: 0.2,
-                when: "beforeChildren",
+                when: 'beforeChildren',
             },
         },
     };
@@ -60,13 +60,13 @@ const AdvancedAnimatedHero: React.FC<AdvancedAnimatedHeroProps> = ({
             opacity: 0,
             y: 80,
             scale: 0.9,
-            filter: "blur(4px)",
+            filter: 'blur(4px)',
         },
         visible: {
             opacity: 1,
             y: 0,
             scale: 1,
-            filter: "blur(0px)",
+            filter: 'blur(0px)',
             transition: {
                 ...springConfig,
                 duration: 1.2,
@@ -120,7 +120,7 @@ const AdvancedAnimatedHero: React.FC<AdvancedAnimatedHeroProps> = ({
             transition: {
                 duration: 6,
                 repeat: Infinity,
-                ease: "easeInOut",
+                ease: 'easeInOut',
             },
         },
     };
@@ -143,9 +143,9 @@ const AdvancedAnimatedHero: React.FC<AdvancedAnimatedHeroProps> = ({
         hover: {
             scale: 1.05,
             y: -2,
-            boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
+            boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
             transition: {
-                type: "spring",
+                type: 'spring',
                 stiffness: 400,
                 damping: 10,
             },
@@ -167,7 +167,7 @@ const AdvancedAnimatedHero: React.FC<AdvancedAnimatedHeroProps> = ({
             rotate: 0,
             opacity: 1,
             transition: {
-                type: "spring",
+                type: 'spring',
                 stiffness: 200,
                 damping: 15,
                 delay: 0.6,
@@ -178,7 +178,7 @@ const AdvancedAnimatedHero: React.FC<AdvancedAnimatedHeroProps> = ({
             transition: {
                 duration: 2,
                 repeat: Infinity,
-                ease: "easeInOut",
+                ease: 'easeInOut',
             },
         },
     };
@@ -195,7 +195,7 @@ const AdvancedAnimatedHero: React.FC<AdvancedAnimatedHeroProps> = ({
             rotate: 0,
             transition: {
                 duration: 3,
-                ease: "easeOut",
+                ease: 'easeOut',
             },
         },
         pulse: {
@@ -204,26 +204,25 @@ const AdvancedAnimatedHero: React.FC<AdvancedAnimatedHeroProps> = ({
             transition: {
                 duration: 8,
                 repeat: Infinity,
-                ease: "easeInOut",
+                ease: 'easeInOut',
             },
         },
     };
 
-    const title = "Potencia tu empresa con";
-    const words = title.split(" ");
+    const title = 'Potencia tu empresa con';
+    const words = title.split(' ');
 
     return (
         <section
             ref={containerRef}
-            className={`relative md:overflow-hidden pt-28 pb-12 md:pt-40 md:pb-20 lg:pt-48 ${className}`}
-        >
+            className={`relative pt-28 pb-12 md:overflow-hidden md:pt-40 md:pb-20 lg:pt-48 ${className}`}>
             {/* Animated background gradient */}
             <motion.div
                 variants={backgroundVariants}
                 initial="hidden"
-                animate={["visible", "pulse"]}
+                animate={['visible', 'pulse']}
                 style={{ y: yParallax }}
-                className="absolute bottom-auto left-auto right-0 top-0 h-[500px] w-[500px] -translate-x-[50%] -translate-y-[10%] rounded-full bg-[rgba(173,109,244,0.5)] blur-[80px]"
+                className="absolute top-0 right-0 bottom-auto left-auto h-[500px] w-[500px] -translate-x-[50%] -translate-y-[10%] rounded-full bg-[rgba(173,109,244,0.5)] blur-[80px]"
             />
 
             {/* Additional floating elements */}
@@ -231,23 +230,22 @@ const AdvancedAnimatedHero: React.FC<AdvancedAnimatedHeroProps> = ({
                 initial={{ opacity: 0, x: -100 }}
                 animate={{ opacity: 0.2, x: 0 }}
                 transition={{ duration: 2, delay: 1 }}
-                className="absolute top-20 left-10 w-32 h-32 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 blur-xl"
+                className="absolute top-20 left-10 h-32 w-32 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 blur-xl"
             />
 
             <motion.div
                 initial={{ opacity: 0, x: 100 }}
                 animate={{ opacity: 0.15, x: 0 }}
                 transition={{ duration: 2.5, delay: 1.5 }}
-                className="absolute bottom-20 right-20 w-24 h-24 rounded-full bg-gradient-to-r from-pink-400 to-orange-400 blur-lg"
+                className="absolute right-20 bottom-20 h-24 w-24 rounded-full bg-gradient-to-r from-pink-400 to-orange-400 blur-lg"
             />
 
-            <div className="relative 2xl:h-[calc(100vh-272px)] z-10 container mx-auto px-2 md:px-6 lg:px-8">
+            <div className="relative z-10 container mx-auto px-2 md:px-6 lg:px-8 2xl:h-[calc(100vh-272px)]">
                 <motion.div
                     variants={containerVariants}
                     initial="hidden"
                     animate="visible"
-                    className="relative grid h-full grid-cols-1 gap-x-20 gap-y-10 md:grid-cols-[1fr_1fr] xl:gap-x-48"
-                >
+                    className="relative grid h-full grid-cols-1 gap-x-20 gap-y-10 md:grid-cols-[1fr_1fr] xl:gap-x-48">
                     {/* Left column - Text content */}
                     <div>
                         <div className="flex h-full flex-col justify-between gap-6 2xl:gap-10">
@@ -255,31 +253,27 @@ const AdvancedAnimatedHero: React.FC<AdvancedAnimatedHeroProps> = ({
                                 {/* Animated title */}
                                 <motion.h1
                                     variants={titleVariants}
-                                    className="mb-4 text-4xl leading-tight font-cocogoose font-normal text-gray-900 lg:text-[3.625rem] xl:text-6xl dark:text-white overflow-hidden"
-                                >
+                                    className="font-cocogoose mb-4 overflow-hidden text-4xl leading-tight font-normal text-gray-900 lg:text-[3.625rem] xl:text-6xl dark:text-white">
                                     {words.map((word, i) => (
                                         <motion.span
                                             key={i}
                                             variants={wordVariants}
                                             custom={i}
-                                            className="inline-block mr-3"
-                                            style={{ originX: 0.5, originY: 1 }}
-                                        >
+                                            className="mr-3 inline-block"
+                                            style={{ originX: 0.5, originY: 1 }}>
                                             {word}
                                         </motion.span>
                                     ))}
                                     <span className="inline-flex items-baseline">
                                         <motion.div
                                             variants={iconVariants}
-                                            animate={["visible", "pulse"]}
-                                        >
-                                            <DevanthosIcon className="relative -bottom-[3px] size-9 lg:size-12 align-baseline fill-primary" />
+                                            animate={['visible', 'pulse']}>
+                                            <DevanthosIcon className="fill-primary relative -bottom-[3px] size-9 align-baseline lg:size-12" />
                                         </motion.div>
                                         <motion.span
                                             variants={wordVariants}
                                             custom={words.length}
-                                            className="ml-[2px]"
-                                        >
+                                            className="ml-[2px]">
                                             <span className="sr-only">D</span>
                                             evanthos
                                         </motion.span>
@@ -293,19 +287,15 @@ const AdvancedAnimatedHero: React.FC<AdvancedAnimatedHeroProps> = ({
                                     transition={{
                                         delay: 1.2,
                                         duration: 0.8,
-                                        ease: "easeOut",
+                                        ease: 'easeOut',
                                     }}
-                                    className="text-lg text-balance text-muted-foreground"
-                                >
-                                    Encontrarás todo lo que necesitas para
-                                    potenciar tu empresa o emprendimiento, desde
-                                    desarrollo web y móvil hasta marketing
-                                    digital. Ofrecemos soluciones personalizadas
-                                    para ayudarte a alcanzar tus objetivos.
-                                    Nuestro equipo de expertos está listo para
-                                    llevar tu proyecto al siguiente nivel.
-                                    ¡Contáctanos hoy mismo y descubre cómo
-                                    podemos ayudarte a crecer!
+                                    className="text-muted-foreground text-lg text-balance">
+                                    Encontrarás todo lo que necesitas para potenciar tu empresa o
+                                    emprendimiento, desde desarrollo web y móvil hasta marketing
+                                    digital. Ofrecemos soluciones personalizadas para ayudarte a
+                                    alcanzar tus objetivos. Nuestro equipo de expertos está listo
+                                    para llevar tu proyecto al siguiente nivel. ¡Contáctanos hoy
+                                    mismo y descubre cómo podemos ayudarte a crecer!
                                 </motion.p>
                             </div>
 
@@ -316,13 +306,12 @@ const AdvancedAnimatedHero: React.FC<AdvancedAnimatedHeroProps> = ({
                                 transition={{
                                     delay: 1.5,
                                     duration: 0.8,
-                                    type: "spring",
+                                    type: 'spring',
                                     stiffness: 100,
-                                }}
-                            >
+                                }}>
                                 {children || (
-                                    <div className="h-16 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 rounded-lg flex items-center justify-center">
-                                        <span className="text-sm text-muted-foreground">
+                                    <div className="flex h-16 items-center justify-center rounded-lg bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700">
+                                        <span className="text-muted-foreground text-sm">
                                             Logo Marquee
                                         </span>
                                     </div>
@@ -338,26 +327,24 @@ const AdvancedAnimatedHero: React.FC<AdvancedAnimatedHeroProps> = ({
                                     href="https://wa.me/5492646629632?text=Hola%20me%20interesa%20la%20consultoria%20gratuita"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="group inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-primary to-purple-600 px-6 py-3 text-sm font-medium text-white shadow-lg overflow-hidden relative"
-                                >
+                                    className="group from-primary relative inline-flex items-center gap-2 overflow-hidden rounded-lg bg-gradient-to-r to-purple-600 px-6 py-3 text-sm font-medium text-white shadow-lg">
                                     <motion.div
-                                        className="absolute inset-0 bg-gradient-to-r from-purple-600 to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                        className="to-primary absolute inset-0 bg-gradient-to-r from-purple-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                                         initial={false}
                                     />
 
-                                    <div className="font-medium text-white relative z-10">
+                                    <div className="relative z-10 font-medium text-white">
                                         Consultoría gratuita
                                     </div>
 
                                     <motion.div
-                                        className="relative h-6 w-7 overflow-hidden z-10"
+                                        className="relative z-10 h-6 w-7 overflow-hidden"
                                         whileHover={{ x: 3 }}
                                         transition={{
-                                            type: "spring",
+                                            type: 'spring',
                                             stiffness: 400,
                                             damping: 10,
-                                        }}
-                                    >
+                                        }}>
                                         <div className="absolute top-0 left-0 flex -translate-x-1/2 items-center transition-all duration-500 group-hover:translate-x-0">
                                             <MoveRight className="h-6! w-6! stroke-white px-1" />
                                             <MoveRight className="h-6! w-6! stroke-white px-1" />
@@ -369,16 +356,12 @@ const AdvancedAnimatedHero: React.FC<AdvancedAnimatedHeroProps> = ({
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 1.8, duration: 0.6 }}
-                                    className="text-muted-foreground"
-                                >
-                                    <span className="font-semibold">
-                                        ¡Contáctanos!
-                                    </span>
+                                    className="text-muted-foreground">
+                                    <span className="font-semibold">¡Contáctanos!</span>
                                     <br />
                                     <a
                                         href="mailto:contacto@devanthos.com"
-                                        className="hover:text-primary transition-colors duration-200"
-                                    >
+                                        className="hover:text-primary transition-colors duration-200">
                                         contacto@devanthos.com
                                     </a>
                                 </motion.p>
@@ -387,7 +370,7 @@ const AdvancedAnimatedHero: React.FC<AdvancedAnimatedHeroProps> = ({
                     </div>
 
                     {/* Right column - Images with 3D effects */}
-                    <div className="relative perspective-1000">
+                    <div className="perspective-1000 relative">
                         <motion.div
                             variants={imageContainerVariants}
                             animate="visible"
@@ -395,8 +378,7 @@ const AdvancedAnimatedHero: React.FC<AdvancedAnimatedHeroProps> = ({
                                 y: yParallax,
                                 scale: scaleParallax,
                             }}
-                            className="relative h-full w-full z-10"
-                        >
+                            className="relative z-10 h-full w-full">
                             <motion.img
                                 whileHover={{
                                     scale: 1.05,
@@ -404,7 +386,7 @@ const AdvancedAnimatedHero: React.FC<AdvancedAnimatedHeroProps> = ({
                                     z: 50,
                                 }}
                                 transition={{
-                                    type: "spring",
+                                    type: 'spring',
                                     stiffness: 300,
                                     damping: 20,
                                 }}
@@ -419,8 +401,7 @@ const AdvancedAnimatedHero: React.FC<AdvancedAnimatedHeroProps> = ({
                             initial={{ opacity: 0, scale: 1.3 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 2, delay: 0.5 }}
-                            className="absolute inset-0 h-full w-full blur-2xl z-0"
-                        >
+                            className="absolute inset-0 z-0 h-full w-full blur-2xl">
                             <img
                                 src="/images/hero/sistema-html-diseno-collages-sitios-web_23-2150432955.avif"
                                 alt=""
@@ -449,24 +430,24 @@ const AdvancedAnimatedHero: React.FC<AdvancedAnimatedHeroProps> = ({
                                 x: {
                                     duration: 1.2,
                                     delay: 1,
-                                    type: "spring",
+                                    type: 'spring',
                                     stiffness: 100,
                                     damping: 15,
                                 },
                                 y: {
                                     duration: 6,
                                     repeat: Infinity,
-                                    ease: "easeInOut",
+                                    ease: 'easeInOut',
                                 },
                                 scale: {
                                     duration: 6,
                                     repeat: Infinity,
-                                    ease: "easeInOut",
+                                    ease: 'easeInOut',
                                 },
                                 rotate: {
                                     duration: 6,
                                     repeat: Infinity,
-                                    ease: "easeInOut",
+                                    ease: 'easeInOut',
                                 },
                             }}
                             whileHover={{
@@ -474,21 +455,19 @@ const AdvancedAnimatedHero: React.FC<AdvancedAnimatedHeroProps> = ({
                                 rotate: 5,
                                 z: 30,
                                 transition: {
-                                    type: "spring",
+                                    type: 'spring',
                                     stiffness: 300,
                                     damping: 20,
                                 },
                             }}
-                            className="absolute z-20 bottom-[4%] left-[4%] w-36 lg:w-56 cursor-pointer"
-                        >
+                            className="absolute bottom-[4%] left-[4%] z-20 w-36 cursor-pointer lg:w-56">
                             <div data-radix-aspect-ratio-wrapper="">
                                 <div
                                     data-slot="aspect-ratio"
-                                    className="overflow-hidden rounded-lg border shadow-xl hover:shadow-2xl transition-shadow duration-300"
-                                >
+                                    className="overflow-hidden rounded-lg border shadow-xl transition-shadow duration-300 hover:shadow-2xl">
                                     <img
                                         src="/images/hero/marketing-influencers-png-collage-redes-sociales-remix-fondo-transparente_53876-1038872.avif"
-                                        alt=""
+                                        alt="Marketing digital y redes sociales"
                                         className="h-full w-full object-cover object-center"
                                     />
                                 </div>
@@ -502,15 +481,14 @@ const AdvancedAnimatedHero: React.FC<AdvancedAnimatedHeroProps> = ({
             <motion.div
                 initial={{ opacity: 0, x: 200, scale: 0.8 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
-                transition={{ duration: 2, delay: 0.3, ease: "easeOut" }}
+                transition={{ duration: 2, delay: 0.3, ease: 'easeOut' }}
                 style={{ y: useTransform(scrollY, [0, 300], [0, -50]) }}
-                className="absolute -top-36 right-0 hidden w-1/2 rounded-bl-[1.875rem] md:block md:h-[34.375rem] xl:h-[41.5625rem] overflow-hidden"
-            >
+                className="absolute -top-36 right-0 hidden w-1/2 overflow-hidden rounded-bl-[1.875rem] md:block md:h-[34.375rem] xl:h-[41.5625rem]">
                 <motion.img
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                     src="/images/hero/placeholder-8-wide.svg"
-                    alt=""
+                    alt="Soluciones digitales Devanthos"
                     className="h-full w-full object-cover object-center"
                 />
             </motion.div>

@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { cn } from "@/lib/utils";
-import type { CarouselApi } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
+import { useEffect, useState } from 'react';
+import { cn } from '@/lib/utils';
+import type { CarouselApi } from '@/components/ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
 
 import {
     Carousel,
@@ -11,77 +11,74 @@ import {
     CarouselItem,
     CarouselNext,
     CarouselPrevious,
-} from "@/components/ui/carousel";
-import { Button } from "../ui/button";
-import { ExternalLink } from "lucide-react";
+} from '@/components/ui/carousel';
+import { Button } from '../ui/button';
+import { ExternalLink } from 'lucide-react';
 
 const carouselItems = [
     {
-        image: "/images/gallery/820_1x_shots_so.avif",
-        title: "Dominga Dominguez",
+        image: '/images/gallery/820_1x_shots_so.avif',
+        title: 'Dominga Dominguez',
         description:
-            "Es un restaurante de comida típica de la región. Ubicado en la ciudad de Coquimbo, Chile.",
-        link: "/galeria/dominga-dominguez",
+            'Es un restaurante de comida típica de la región. Ubicado en la ciudad de Coquimbo, Chile.',
+        link: '/galeria/dominga-dominguez',
     },
     {
-        image: "/images/gallery/164_1x_shots_so.avif",
-        title: "Altos de Monardez",
+        image: '/images/gallery/164_1x_shots_so.avif',
+        title: 'Altos de Monardez',
+        description: 'Es un centro de eventos ubicado en la ciudad de La Serena, Chile.',
+        link: '/galeria/altos-de-monardez',
+    },
+    {
+        image: '/images/gallery/227_1x_shots_so.avif',
+        title: 'Trenza Matrimonios',
         description:
-            "Es un centro de eventos ubicado en la ciudad de La Serena, Chile.",
-        link: "/galeria/altos-de-monardez",
+            'Es un servicio de fotografía y video para matrimonios. Ubicado en la ciudad de La Serena, Chile.',
+        link: '/galeria/trenza-matrimonios',
     },
     {
-        image: "/images/gallery/227_1x_shots_so.avif",
-        title: "Trenza Matrimonios",
+        image: '/images/gallery/205_1x_shots_so.avif',
+        title: 'Proviser',
         description:
-            "Es un servicio de fotografía y video para matrimonios. Ubicado en la ciudad de La Serena, Chile.",
-        link: "/galeria/trenza-matrimonios",
+            'Es una empresa de ventas de insumos y equipos de minería. Ubicada en la ciudad de La Serena, Chile.',
+        link: '/galeria/proviser',
     },
     {
-        image: "/images/gallery/205_1x_shots_so.avif",
-        title: "Proviser",
+        image: '/images/gallery/454_1x_shots_so.avif',
+        title: 'Oakland Services',
+        description: 'Es una empresa de arriendo de andamios y herramientas.',
+        link: '/galeria/oakland-services',
+    },
+    {
+        image: '/images/gallery/465_1x_shots_so.avif',
+        title: 'Trenza',
+        description: 'Es una empresa de servicios de marketing digital.',
+        link: '/galeria/trenza',
+    },
+    {
+        image: '/images/gallery/498_1x_shots_so.avif',
+        title: 'El Rinconcito',
         description:
-            "Es una empresa de ventas de insumos y equipos de minería. Ubicada en la ciudad de La Serena, Chile.",
-        link: "/galeria/proviser",
+            'Es un complejo de arriendo de cabañas, spa y piscina. Ubicado en la ciudad de La Serena, Chile.',
+        link: '/galeria/el-riconcito',
     },
     {
-        image: "/images/gallery/454_1x_shots_so.avif",
-        title: "Oakland Services",
-        description: "Es una empresa de arriendo de andamios y herramientas.",
-        link: "/galeria/oakland-services",
+        image: '/images/gallery/589_1x_shots_so.avif',
+        title: 'Sabor y encanto',
+        description: 'Es un restaurante de comida típica de la región peruana.',
+        link: '/galeria/sabor-y-encanto',
     },
     {
-        image: "/images/gallery/465_1x_shots_so.avif",
-        title: "Trenza",
-        description: "Es una empresa de servicios de marketing digital.",
-        link: "/galeria/trenza",
+        image: '/images/gallery/670_1x_shots_so.avif',
+        title: 'Jireh English',
+        description: 'Es una academia de inglés ubicada en la ciudad de La Serena, Chile.',
+        link: '/galeria/jireh-english',
     },
     {
-        image: "/images/gallery/498_1x_shots_so.avif",
-        title: "El Rinconcito",
-        description:
-            "Es un complejo de arriendo de cabañas, spa y piscina. Ubicado en la ciudad de La Serena, Chile.",
-        link: "/galeria/el-riconcito",
-    },
-    {
-        image: "/images/gallery/589_1x_shots_so.avif",
-        title: "Sabor y encanto",
-        description: "Es un restaurante de comida típica de la región peruana.",
-        link: "/galeria/sabor-y-encanto",
-    },
-    {
-        image: "/images/gallery/670_1x_shots_so.avif",
-        title: "Jireh English",
-        description:
-            "Es una academia de inglés ubicada en la ciudad de La Serena, Chile.",
-        link: "/galeria/jireh-english",
-    },
-    {
-        image: "/images/gallery/879_1x_shots_so.avif",
-        title: "Destape LS",
-        description:
-            "Es una empresa de servicios de destape y limpieza de fosas sépticas.",
-        link: "/galeria/destape-ls",
+        image: '/images/gallery/879_1x_shots_so.avif',
+        title: 'Destape LS',
+        description: 'Es una empresa de servicios de destape y limpieza de fosas sépticas.',
+        link: '/galeria/destape-ls',
     },
 ];
 
@@ -96,13 +93,13 @@ export default function Galeria() {
 
         setCurrent(api.selectedScrollSnap() + 1);
 
-        api.on("select", () => {
+        api.on('select', () => {
             setCurrent(api.selectedScrollSnap() + 1);
         });
     }, [api]);
 
     return (
-        <section className="overflow-hidden relative py-32">
+        <section className="relative overflow-hidden py-32">
             <div className="container mx-auto px-2 md:px-6 lg:px-8">
                 <Carousel
                     plugins={[
@@ -110,20 +107,18 @@ export default function Galeria() {
                             delay: 2000,
                         }),
                     ]}
-                    setApi={setApi}
-                >
+                    setApi={setApi}>
                     <div className="grid gap-8 md:gap-4 lg:grid-cols-3 [&>div[data-slot=carousel-content]]:overflow-visible [&>div[data-slot=carousel-content]]:[clip-path:inset(-100vw_-100vw_-100vw_0)]">
                         <div>
-                            <h2 className="text-4xl font-cocogoose font-normal md:text-5xl">
+                            <h2 className="font-cocogoose text-4xl font-normal md:text-5xl">
                                 Tus proyectos. <br />
-                                <span className="bg-gradient-to-r from-primary/50 dark:from-primary to-primary/80 bg-clip-text text-transparent">
+                                <span className="from-primary/50 dark:from-primary to-primary/80 bg-gradient-to-r bg-clip-text text-transparent">
                                     Nuestra inspiración.
                                 </span>
                             </h2>
-                            <p className="mt-8 text-xl text-primary">
-                                Descubre nuestra galería de proyectos y trabajos
-                                realizados. Cada imagen cuenta una historia de
-                                creatividad y dedicación.
+                            <p className="text-primary mt-8 text-xl">
+                                Descubre nuestra galería de proyectos y trabajos realizados. Cada
+                                imagen cuenta una historia de creatividad y dedicación.
                             </p>
                             <div className="mt-8 hidden items-center gap-4 md:flex">
                                 <CarouselPrevious className="static size-12 translate-x-0 translate-y-0" />
@@ -147,29 +142,22 @@ export default function Galeria() {
                                         />
                                         <div className="absolute inset-0 p-8">
                                             <p className="text-sm font-semibold text-zinc-300">
-                                                <span className="mr-1 text-purple-400 dark:text-primary">
+                                                <span className="dark:text-primary mr-1 text-purple-400">
                                                     {item.title}.
                                                 </span>
                                                 {item.description}
                                             </p>
                                         </div>
                                         <div>
-                                            <div className="absolute bottom-4 right-4">
+                                            <div className="absolute right-4 bottom-4">
                                                 <Button
                                                     asChild
                                                     variant="secondary"
-                                                    className="rounded-full bg-background/50 backdrop-blur-2xl px-3 py-1 text-xs font-semibold text-purple-700 dark:text-purple-400 hover:bg-background/30"
-                                                >
+                                                    className="bg-background/50 hover:bg-background/30 rounded-full px-3 py-1 text-xs font-semibold text-purple-700 backdrop-blur-2xl dark:text-purple-400">
                                                     <a
-                                                        href="/galeria/el-riconcito"
-                                                        aria-label="Ver más detalles del proyecto El Rinconcito - Galería de imágenes"
-                                                    >
+                                                        href={item.link}
+                                                        aria-label={`Ver más detalles del proyecto ${item.title}`}>
                                                         Ver más
-                                                        <span className="sr-only">
-                                                            {" "}
-                                                            sobre el proyecto El
-                                                            Rinconcito
-                                                        </span>
                                                         <ExternalLink className="ml-1 h-4 w-4" />
                                                     </a>
                                                 </Button>
@@ -182,45 +170,37 @@ export default function Galeria() {
                     </div>
                 </Carousel>
                 <div className="mt-8 flex items-center lg:ml-[50%]">
-                    {Array.from({ length: carouselItems.length }).map(
-                        (_, index) => (
+                    {Array.from({ length: carouselItems.length }).map((_, index) => (
+                        <span
+                            key={index}
+                            className={cn(
+                                'bg-muted-foreground/15 flex h-8 cursor-pointer items-center justify-center overflow-hidden rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-300',
+                                index + 1 === current
+                                    ? 'text-primary w-12 md:w-36'
+                                    : 'm-2.5 size-4 md:m-4'
+                            )}
+                            onClick={() => api && api.scrollTo(index)}>
                             <span
-                                key={index}
                                 className={cn(
-                                    "flex h-8 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-muted-foreground/15 text-xs font-semibold whitespace-nowrap transition-all duration-300",
+                                    'hidden transition-all duration-300 md:inline-block',
                                     index + 1 === current
-                                        ? "w-12 md:w-36 text-primary"
-                                        : "m-2.5 md:m-4 size-4"
-                                )}
-                                onClick={() => api && api.scrollTo(index)}
-                            >
-                                <span
-                                    className={cn(
-                                        "md:inline-block hidden transition-all duration-300",
-                                        index + 1 === current
-                                            ? "translate-x-0 opacity-100"
-                                            : "translate-x-6 opacity-0"
-                                    )}
-                                >
-                                    {carouselItems[index].title}
-                                </span>
-                                <span
-                                    className={cn(
-                                        "inline-block md:hidden transition-all duration-300",
-                                        index + 1 === current
-                                            ? "translate-x-0 opacity-100"
-                                            : "translate-x-6 opacity-0"
-                                    )}
-                                >
-                                    {index + 1}
-                                    <span className="sr-only">
-                                        {" "}
-                                        de {carouselItems.length}
-                                    </span>
-                                </span>
+                                        ? 'translate-x-0 opacity-100'
+                                        : 'translate-x-6 opacity-0'
+                                )}>
+                                {carouselItems[index].title}
                             </span>
-                        )
-                    )}
+                            <span
+                                className={cn(
+                                    'inline-block transition-all duration-300 md:hidden',
+                                    index + 1 === current
+                                        ? 'translate-x-0 opacity-100'
+                                        : 'translate-x-6 opacity-0'
+                                )}>
+                                {index + 1}
+                                <span className="sr-only"> de {carouselItems.length}</span>
+                            </span>
+                        </span>
+                    ))}
                 </div>
             </div>
         </section>
