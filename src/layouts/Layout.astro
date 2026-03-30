@@ -1,7 +1,9 @@
 ---
+import '@/styles/starwind.css';
 import Footer from '@/components/interfaces/Footer.astro';
 import SEO from '@/components/interfaces/SEO.astro';
 import Navbar from '@/components/interfaces/Header';
+import PageBreadcrumb from '@/components/interfaces/PageBreadcrumb.astro';
 import { ClientRouter } from 'astro:transitions';
 interface Preload {
     as: string;
@@ -93,6 +95,7 @@ import GradualBlur from '@/components/gradual-blur';
             <div
                 class="absolute -z-20 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] [background-size:16px_16px] dark:bg-[radial-gradient(#1f2937_1px,transparent_1px)] dark:[mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]">
             </div>
+            <PageBreadcrumb />
             <slot />
 
             <Footer />
