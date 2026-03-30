@@ -1,0 +1,101 @@
+---
+/**
+ * Auto-generated breadcrumb from URL pathname.
+ * Uses starwind breadcrumb components.
+ * Only renders on non-homepage pages.
+ */
+import Breadcrumb from '@/components/starwind/breadcrumb/Breadcrumb.astro';
+import BreadcrumbItem from '@/components/starwind/breadcrumb/BreadcrumbItem.astro';
+import BreadcrumbLink from '@/components/starwind/breadcrumb/BreadcrumbLink.astro';
+import BreadcrumbList from '@/components/starwind/breadcrumb/BreadcrumbList.astro';
+import BreadcrumbPage from '@/components/starwind/breadcrumb/BreadcrumbPage.astro';
+import BreadcrumbSeparator from '@/components/starwind/breadcrumb/BreadcrumbSeparator.astro';
+import { ChevronRight, Home } from 'lucide-react';
+
+interface Props {
+    /** Override the current page name (last breadcrumb item) */
+    currentPage?: string;
+}
+
+const { currentPage } = Astro.props;
+
+const pathname = Astro.url.pathname;
+const segments = pathname.split('/').filter(Boolean);
+
+const breadcrumbNames: Record<string, string> = {
+    blog: 'Blog',
+    autor: 'Autores',
+    servicios: 'Servicios',
+    productos: 'Productos',
+    soluciones: 'Soluciones',
+    empresa: 'Empresa',
+    precios: 'Precios',
+    contacto: 'Contacto',
+    faq: 'Preguntas Frecuentes',
+    recursos: 'Recursos',
+    comunidad: 'Comunidad',
+    'chatbots-inteligentes': 'Chatbots Inteligentes',
+    'consultoria-empresarial': 'Consultoría Empresarial',
+    'desarrollo-web-y-mobile': 'Desarrollo Web y Móvil',
+    'marketing-digital-seo': 'Marketing Digital y SEO',
+    'presupuesto-web': 'Presupuesto Web',
+    'casos-de-exito': 'Casos de Éxito',
+    tutoriales: 'Tutoriales',
+    objetivos: 'Objetivos',
+    socios: 'Socios',
+    ecommerce: 'E-commerce',
+    dashboard: 'Dashboard',
+    'app-movil': 'App Móvil',
+    'web-app': 'Web App',
+    tecnologia: 'Tecnología',
+    salud: 'Salud',
+    'portal-personal': 'Portal Personal',
+    'landing-page': 'Landing Page',
+    finanzas: 'Finanzas',
+    educacion: 'Educación',
+    mantenimiento: 'Mantenimiento',
+};
+
+function getSegmentName(segment: string): string {
+    return (
+        breadcrumbNames[segment] ||
+        segment.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
+    );
+}
+
+// Build breadcrumb items: [{name, href}] for intermediate, last is current page
+const items = segments.map((segment, index) => ({
+    name: getSegmentName(segment),
+    href: '/' + segments.slice(0, index + 1).join('/'),
+    isLast: index === segments.length - 1,
+}));
+---
+
+{
+    segments.length > 0 && (
+        <Breadcrumb class="absolute left-1/2 z-50 container mx-auto -translate-x-1/2 px-5 pt-24 pb-0">
+            <BreadcrumbList>
+                <BreadcrumbItem>
+                    <BreadcrumbLink href="/">
+                        <Home className="size-4" />
+                        <span class="sr-only">Inicio</span>
+                    </BreadcrumbLink>
+                </BreadcrumbItem>
+                {items.map((item) => (
+                    <>
+                        <BreadcrumbSeparator>
+                            <ChevronRight className="size-4" />
+                        </BreadcrumbSeparator>
+                        <BreadcrumbItem>
+                            {item.isLast ? (
+                                <BreadcrumbPage>{currentPage || item.name}</BreadcrumbPage>
+                            ) : (
+                                <BreadcrumbLink href={item.href}>{item.name}</BreadcrumbLink>
+                            )}
+                        </BreadcrumbItem>
+                    </>
+                ))}
+            </BreadcrumbList>
+        </Breadcrumb>
+    )
+}
