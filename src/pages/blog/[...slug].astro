@@ -2,6 +2,7 @@
 import Contact from '@/components/interfaces/Contact';
 import Layout from '@/layouts/Layout.astro';
 import { type CollectionEntry, getCollection } from 'astro:content';
+import { getAuthorByName } from '@/data/authors';
 
 import { render } from 'astro:content';
 
@@ -17,47 +18,44 @@ type Props = CollectionEntry<'blog'>;
 const post = Astro.props;
 const { Content } = await render(post);
 export const prerender = true;
+const author = getAuthorByName(post.data.author);
+
+const blogPostingSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.data.title,
+    description: post.data.summary,
+    image: post.data.heroImage
+        ? new URL(post.data.heroImage, 'https://www.devanthos.com').href
+        : undefined,
+    author: {
+        '@type': author ? 'Person' : 'Organization',
+        name: post.data.author,
+        url: author
+            ? new URL(`/blog/autor/${author.id}`, 'https://www.devanthos.com').href
+            : 'https://www.devanthos.com',
+    },
+    publisher: {
+        '@type': 'Organization',
+        name: 'Devanthos',
+        logo: {
+            '@type': 'ImageObject',
+            url: 'https://www.devanthos.com/metadata.jpg',
+        },
+    },
+    datePublished: post.data.published.toISOString(),
+    dateModified: (post.data.updatedDate || post.data.published).toISOString(),
+    mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': new URL(`/blog/${post.id}`, 'https://www.devanthos.com').href,
+    },
+};
 ---
 
 <Layout title={post.data.title} description={post.data.summary} image={post.data.heroImage}>
+    <script type="application/ld+json" set:html={JSON.stringify(blogPostingSchema)} />
     <section class="py-32">
         <div class="container mx-auto px-2">
-            <!-- Breadcrumbs -->
-            <nav aria-label="breadcrumb">
-                <ol class="flex items-center space-x-2 text-sm">
-                    <li>
-                        <a
-                            href="/"
-                            class="text-muted-foreground hover:text-primary flex items-center transition-colors">
-                            <svg
-                                class="h-4 w-4"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                                ></path>
-                            </svg>
-                        </a>
-                    </li>
-                    <li class="text-muted-foreground">/</li>
-                    <li>
-                        <a
-                            href="/blog"
-                            class="text-muted-foreground hover:text-primary transition-colors">
-                            Blog
-                        </a>
-                    </li>
-                    <li class="text-muted-foreground">/</li>
-                    <li class="text-foreground line-clamp-1 font-medium">
-                        {post.data.title}
-                    </li>
-                </ol>
-            </nav>
-
             <!-- Título principal -->
             <h1
                 class="font-cocogoose mt-9 mb-7 max-w-3xl text-4xl leading-tight [text-shadow:0_0_10px_rgba(255,255,255,0.65)] md:mb-10 md:text-6xl">
@@ -72,10 +70,10 @@ export const prerender = true;
                 </div>
                 <span>
                     <a
-                        href="/empresa"
+                        href={author ? `/blog/autor/${author.id}` : '/empresa'}
                         class="hover:text-primary font-medium transition-colors"
-                        aria-label="Conocer más sobre el equipo de Devanthos">
-                        Equipo Devanthos
+                        aria-label={`Ver perfil de ${post.data.author}`}>
+                        {post.data.author}
                         <span class="sr-only"> - Ir a página sobre la empresa</span>
                     </a>
                     <span class="text-muted-foreground ml-1">

@@ -1,0 +1,148 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { authors, type Author } from '@/data/authors';
+import { getCollection } from 'astro:content';
+import { BookOpen, ArrowRight, Calendar, Instagram } from 'lucide-react';
+import Button from '@/components/ui/Button.astro';
+
+export function getStaticPaths() {
+    return authors.map((author) => ({
+        params: { autor: author.id },
+        props: { author },
+    }));
+}
+
+interface Props {
+    author: Author;
+}
+
+const { author } = Astro.props;
+const posts = await getCollection('blog');
+const authorPosts = posts
+    .filter((p) => p.data.author === author.name)
+    .sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
+
+const personSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    mainEntity: {
+        '@type': 'Person',
+        name: author.name,
+        description: author.bio,
+        image: author.avatar,
+        jobTitle: author.role,
+        worksFor: {
+            '@type': 'Organization',
+            name: 'Devanthos',
+            url: 'https://www.devanthos.com',
+        },
+        sameAs: Object.values(author.social || {}).filter(Boolean),
+    },
+};
+---
+
+<Layout title={`${author.name} - Autor | Devanthos`} description={author.bio}>
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+
+    <section class="relative overflow-hidden px-4 py-24">
+        <div
+            class="from-primary/50 to-accent/50 absolute inset-0 bg-gradient-to-br via-transparent">
+        </div>
+        <div class="relative z-10 container mx-auto">
+            <div class="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
+                <img
+                    src={author.avatar}
+                    alt={`Foto de ${author.name}`}
+                    class="border-primary/20 h-28 w-28 rounded-full border-4 object-cover"
+                    width="112"
+                    height="112"
+                />
+                <h1
+                    class="font-cocogoose text-foreground text-4xl leading-tight [text-shadow:0_0_10px_rgba(255,255,255,0.65)] md:text-5xl">
+                    {author.name}
+                </h1>
+                <p class="text-primary text-lg font-medium">{author.role}</p>
+                <p class="text-muted-foreground max-w-2xl">{author.bio}</p>
+                {
+                    author.social?.instagram && (
+                        <a
+                            href={author.social.instagram}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-muted-foreground hover:text-primary inline-flex items-center gap-2 transition-colors">
+                            <Instagram className="size-5" />
+                            Instagram
+                        </a>
+                    )
+                }
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="mx-auto max-w-4xl">
+                <h2 class="mb-8 flex items-center gap-2 text-2xl font-bold">
+                    <BookOpen className="text-primary size-6" />
+                    Artículos de {author.name}
+                    <Badge className="ml-2">{authorPosts.length}</Badge>
+                </h2>
+
+                {
+                    authorPosts.length === 0 ? (
+                        <p class="text-muted-foreground py-12 text-center">
+                            Este autor aún no ha publicado artículos.
+                        </p>
+                    ) : (
+                        <div class="grid gap-6">
+                            {authorPosts.map((post) => (
+                                <a href={`/blog/${post.id}`} class="group block">
+                                    <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300">
+                                        <CardContent className="p-6">
+                                            <div class="flex flex-col gap-6 md:flex-row">
+                                                {post.data.heroImage && (
+                                                    <img
+                                                        src={post.data.heroImage}
+                                                        alt={post.data.title}
+                                                        class="h-32 w-full rounded-lg object-cover md:w-48"
+                                                        width="192"
+                                                        height="128"
+                                                        loading="lazy"
+                                                    />
+                                                )}
+                                                <div class="flex-1">
+                                                    <Badge className="mb-2">
+                                                        {post.data.label}
+                                                    </Badge>
+                                                    <h3 class="group-hover:text-primary mb-2 text-xl font-bold transition-colors">
+                                                        {post.data.title}
+                                                    </h3>
+                                                    <p class="text-muted-foreground mb-3 line-clamp-2 text-sm">
+                                                        {post.data.summary}
+                                                    </p>
+                                                    <span class="text-muted-foreground flex items-center gap-1.5 text-xs">
+                                                        <Calendar className="size-3.5" />
+                                                        {post.data.published.toLocaleDateString(
+                                                            'es-ES',
+                                                            {
+                                                                year: 'numeric',
+                                                                month: 'long',
+                                                                day: 'numeric',
+                                                            }
+                                                        )}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </CardContent>
+                                    </Card>
+                                </a>
+                            ))}
+                        </div>
+                    )
+                }
+            </div>
+        </div>
+    </section>
+</Layout>
