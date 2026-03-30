@@ -1,22 +1,79 @@
 ---
 /** https://developers.google.com/search/docs/appearance/structured-data/organization */
 const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    url: "https://www.devanthos.com/",
-    image: "https://www.devanthos.com/metadata.jpg",
-    sameAs: ["https://www.instagram.com/devanthos"],
-    logo: "https://www.devanthos.com/metadata.jpg",
-    name: "Devanthos",
-    email: "contacto@devanthos.com",
-    telephone: "+5492646629632",
-    alternateName: "Devanthos",
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    url: 'https://www.devanthos.com/',
+    image: 'https://www.devanthos.com/metadata.jpg',
+    sameAs: ['https://www.instagram.com/devanthos'],
+    logo: 'https://www.devanthos.com/metadata.jpg',
+    name: 'Devanthos',
+    email: 'contacto@devanthos.com',
+    telephone: '+5492646629632',
+    alternateName: 'Devanthos',
     description:
-        "En Devanthos encontrarás todo lo que necesitas para potenciar tu empresa o emprendimiento. Desde desarrollo web y móvil hasta marketing digital, ofrecemos soluciones personalizadas para ayudarte a alcanzar tus objetivos. Nuestro equipo de expertos está listo para llevar tu proyecto al siguiente nivel. ¡Contáctanos hoy mismo y descubre cómo podemos ayudarte a crecer!",
+        'En Devanthos encontrarás todo lo que necesitas para potenciar tu empresa o emprendimiento. Desde desarrollo web y móvil hasta marketing digital, ofrecemos soluciones personalizadas para ayudarte a alcanzar tus objetivos. Nuestro equipo de expertos está listo para llevar tu proyecto al siguiente nivel. ¡Contáctanos hoy mismo y descubre cómo podemos ayudarte a crecer!',
 };
+
+/** https://developers.google.com/search/docs/appearance/structured-data/sitelinks-searchbox */
+const webSiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Devanthos',
+    url: 'https://www.devanthos.com/',
+};
+
+/** https://developers.google.com/search/docs/appearance/structured-data/breadcrumb */
+const pathname = Astro.url.pathname;
+const segments = pathname.split('/').filter(Boolean);
+
+const breadcrumbNames: Record<string, string> = {
+    blog: 'Blog',
+    servicios: 'Servicios',
+    productos: 'Productos',
+    soluciones: 'Soluciones',
+    empresa: 'Empresa',
+    precios: 'Precios',
+    contacto: 'Contacto',
+    faq: 'Preguntas Frecuentes',
+    recursos: 'Recursos',
+    comunidad: 'Comunidad',
+};
+
+const breadcrumbItems = segments.map((segment, index) => {
+    const path = '/' + segments.slice(0, index + 1).join('/');
+    return {
+        '@type': 'ListItem',
+        position: index + 2,
+        name:
+            breadcrumbNames[segment] ||
+            segment.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()),
+        item: new URL(path, 'https://www.devanthos.com').href,
+    };
+});
+
+const breadcrumbSchema =
+    segments.length > 0
+        ? {
+              '@context': 'https://schema.org',
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                  {
+                      '@type': 'ListItem',
+                      position: 1,
+                      name: 'Inicio',
+                      item: 'https://www.devanthos.com/',
+                  },
+                  ...breadcrumbItems,
+              ],
+          }
+        : null;
 ---
 
-<script
-    type="application/ld+json"
-    set:html={JSON.stringify(organizationSchema)}
-/>
+<script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(webSiteSchema)} />
+{
+    breadcrumbSchema && (
+        <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    )
+}

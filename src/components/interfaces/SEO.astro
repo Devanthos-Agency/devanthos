@@ -1,11 +1,11 @@
 ---
-import RichResults from "./RichResults.astro";
+import RichResults from './RichResults.astro';
 
 interface Preload {
     as: string;
     href: string;
     type: string;
-    rel?: "preload" | "prefetch";
+    rel?: 'preload' | 'prefetch';
     crossorigin?: string;
 }
 
@@ -22,9 +22,9 @@ const {
     title,
     description,
     preload,
-    canonical,
-    image = "https://www.devanthos.com/metadata.jpg",
-    keywords = "desarrollo web, desarrollo de software, aplicaciones web, aplicaciones móviles, diseño web, SEO, marketing digital, DevOps, bases de datos, programación, tecnología",
+    canonical = new URL(Astro.url.pathname, 'https://www.devanthos.com').href,
+    image = 'https://www.devanthos.com/metadata.jpg',
+    keywords = 'desarrollo web, desarrollo de software, aplicaciones web, aplicaciones móviles, diseño web, SEO, marketing digital, DevOps, bases de datos, programación, tecnología',
 } = Astro.props as Props;
 ---
 
@@ -34,7 +34,7 @@ const {
 <meta name="description" content={description} />
 
 {
-    preload?.map(({ href, as, type, rel = "preload", crossorigin }) => (
+    preload?.map(({ href, as, type, rel = 'preload', crossorigin }) => (
         <link {rel} {href} {as} {type} {crossorigin} />
     ))
 }
@@ -42,20 +42,8 @@ const {
 <link rel="canonical" href={canonical} />
 <meta name="viewport" content="width=device-width" />
 <meta name="theme-color" content="#27272a" />
-<link
-    rel="preload"
-    href="/fonts/Cocogoose-Regular.woff2"
-    as="font"
-    type="font/woff2"
-    crossorigin
-/>
-<link
-    rel="preload"
-    href="/fonts/Cocogoose-Light.woff2"
-    as="font"
-    type="font/woff2"
-    crossorigin
-/>
+<link rel="preload" href="/fonts/Cocogoose-Regular.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/Cocogoose-Light.woff2" as="font" type="font/woff2" crossorigin />
 <link
     rel="preload"
     href="/fonts/Cocogoose-Semilight.woff2"
@@ -84,12 +72,9 @@ const {
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="apple-touch-icon" href="/favicon.svg" />
-
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="msapplication-config" content="/browserconfig.xml" />
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZRZ7N7QZSL"
-></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZRZ7N7QZSL"></script>
 <script>
     //@ts-ignore
     window.dataLayer = window.dataLayer || [];
@@ -98,9 +83,9 @@ const {
         dataLayer.push(arguments);
     }
     //@ts-ignore
-    gtag("js", new Date());
+    gtag('js', new Date());
     //@ts-ignore
-    gtag("config", "G-ZRZ7N7QZSL");
+    gtag('config', 'G-ZRZ7N7QZSL');
 </script>
 
 <!-- <script is:inline src="/registerSW.js"></script> -->
