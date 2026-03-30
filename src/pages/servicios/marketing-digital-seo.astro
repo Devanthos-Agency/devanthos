@@ -181,9 +181,27 @@ const googleMyBusinessFeatures = [
 ---
 
 <Layout
-    title="Marketing Digital y SEO | Devanthos - Estrategias que Generan Impacto"
-    description="Potenciamos tu presencia digital con estrategias personalizadas de marketing, gestión de redes sociales y creación de contenido que generan impacto, construyen futuro y crean legado."
+    title="Marketing Digital y SEO para Empresas | Devanthos"
+    description="Potenciamos tu presencia digital con estrategias de marketing, SEO, gestión de redes sociales y creación de contenido que generan resultados medibles."
     overFlowHidden>
+    <script
+        type="application/ld+json"
+        set:html={JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Service',
+            name: 'Marketing Digital y SEO',
+            description:
+                'Potenciamos tu presencia digital con estrategias de marketing, SEO, gestión de redes sociales y creación de contenido que generan resultados medibles.',
+            provider: {
+                '@type': 'Organization',
+                name: 'Devanthos',
+                url: 'https://www.devanthos.com',
+            },
+            areaServed: { '@type': 'Country', name: 'Argentina' },
+            serviceType: 'Marketing Digital',
+            url: 'https://www.devanthos.com/servicios/marketing-digital-seo',
+        })}
+    />
     <!-- Hero Section -->
     <section class="relative min-h-screen overflow-hidden px-4 py-20">
         <div

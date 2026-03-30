@@ -1,96 +1,87 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import {
-    Settings,
-    Shield,
-    Clock,
-    Zap,
-    CheckCircle,
-    Phone,
-    AlertTriangle,
-} from "lucide-react";
+import Layout from '@/layouts/Layout.astro';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Settings, Shield, Clock, Zap, CheckCircle, Phone, AlertTriangle } from 'lucide-react';
 
 const services = [
     {
         icon: Shield,
-        title: "Actualizaciones de Seguridad",
-        description:
-            "Mantén tu sitio web protegido con las últimas actualizaciones de seguridad",
+        title: 'Actualizaciones de Seguridad',
+        description: 'Mantén tu sitio web protegido con las últimas actualizaciones de seguridad',
         features: [
-            "Parches de seguridad críticos",
-            "Monitoreo de vulnerabilidades",
-            "Backup automático antes de actualizaciones",
-            "Restauración en caso de problemas",
+            'Parches de seguridad críticos',
+            'Monitoreo de vulnerabilidades',
+            'Backup automático antes de actualizaciones',
+            'Restauración en caso de problemas',
         ],
     },
     {
         icon: Zap,
-        title: "Optimización de Rendimiento",
-        description: "Mejora continua del rendimiento y velocidad de carga",
+        title: 'Optimización de Rendimiento',
+        description: 'Mejora continua del rendimiento y velocidad de carga',
         features: [
-            "Optimización de imágenes",
-            "Minificación de código",
-            "Configuración de caché",
-            "Monitoreo de velocidad",
+            'Optimización de imágenes',
+            'Minificación de código',
+            'Configuración de caché',
+            'Monitoreo de velocidad',
         ],
     },
     {
         icon: Settings,
-        title: "Actualizaciones de Contenido",
-        description: "Modificaciones y actualizaciones de contenido regulares",
+        title: 'Actualizaciones de Contenido',
+        description: 'Modificaciones y actualizaciones de contenido regulares',
         features: [
-            "Cambios de texto e imágenes",
-            "Nuevas secciones y páginas",
-            "Actualizaciones de productos/servicios",
-            "Mantenimiento de formularios",
+            'Cambios de texto e imágenes',
+            'Nuevas secciones y páginas',
+            'Actualizaciones de productos/servicios',
+            'Mantenimiento de formularios',
         ],
     },
 ];
 
 const plans = [
     {
-        name: "Básico",
-        price: "$99",
-        period: "/mes",
-        description: "Ideal para sitios web pequeños",
+        name: 'Básico',
+        price: '$99',
+        period: '/mes',
+        description: 'Ideal para sitios web pequeños',
         features: [
-            "Actualizaciones de seguridad",
-            "Backup semanal",
-            "Monitoreo básico",
-            "Soporte por email",
-            "1 hora de cambios menores",
+            'Actualizaciones de seguridad',
+            'Backup semanal',
+            'Monitoreo básico',
+            'Soporte por email',
+            '1 hora de cambios menores',
         ],
         popular: false,
     },
     {
-        name: "Profesional",
-        price: "$199",
-        period: "/mes",
-        description: "Perfecto para sitios comerciales",
+        name: 'Profesional',
+        price: '$199',
+        period: '/mes',
+        description: 'Perfecto para sitios comerciales',
         features: [
-            "Todo lo del plan Básico",
-            "Backup diario",
-            "Monitoreo avanzado 24/7",
-            "Optimización de rendimiento",
-            "3 horas de cambios mensuales",
-            "Soporte prioritario",
+            'Todo lo del plan Básico',
+            'Backup diario',
+            'Monitoreo avanzado 24/7',
+            'Optimización de rendimiento',
+            '3 horas de cambios mensuales',
+            'Soporte prioritario',
         ],
         popular: true,
     },
     {
-        name: "Enterprise",
-        price: "$399",
-        period: "/mes",
-        description: "Para sitios de alta demanda",
+        name: 'Enterprise',
+        price: '$399',
+        period: '/mes',
+        description: 'Para sitios de alta demanda',
         features: [
-            "Todo lo del plan Profesional",
-            "Backup en tiempo real",
-            "CDN y optimización global",
-            "Desarrollo de nuevas funcionalidades",
-            "8 horas de desarrollo mensual",
-            "Soporte 24/7 con SLA",
+            'Todo lo del plan Profesional',
+            'Backup en tiempo real',
+            'CDN y optimización global',
+            'Desarrollo de nuevas funcionalidades',
+            '8 horas de desarrollo mensual',
+            'Soporte 24/7 con SLA',
         ],
         popular: false,
     },
@@ -98,76 +89,65 @@ const plans = [
 
 const urgencyLevels = [
     {
-        level: "Crítico",
-        time: "< 2 horas",
-        description: "Sitio web caído o problema de seguridad crítico",
-        color: "text-red-600 bg-red-50 dark:bg-red-950/20",
+        level: 'Crítico',
+        time: '< 2 horas',
+        description: 'Sitio web caído o problema de seguridad crítico',
+        color: 'text-red-600 bg-red-50 dark:bg-red-950/20',
     },
     {
-        level: "Alto",
-        time: "< 24 horas",
-        description: "Funcionalidad importante no disponible",
-        color: "text-orange-600 bg-orange-50 dark:bg-orange-950/20",
+        level: 'Alto',
+        time: '< 24 horas',
+        description: 'Funcionalidad importante no disponible',
+        color: 'text-orange-600 bg-orange-50 dark:bg-orange-950/20',
     },
     {
-        level: "Medio",
-        time: "< 72 horas",
-        description: "Problemas menores que afectan la experiencia",
-        color: "text-yellow-600 bg-yellow-50 dark:bg-yellow-950/20",
+        level: 'Medio',
+        time: '< 72 horas',
+        description: 'Problemas menores que afectan la experiencia',
+        color: 'text-yellow-600 bg-yellow-50 dark:bg-yellow-950/20',
     },
     {
-        level: "Bajo",
-        time: "< 1 semana",
-        description: "Mejoras y optimizaciones generales",
-        color: "text-green-600 bg-green-50 dark:bg-green-950/20",
+        level: 'Bajo',
+        time: '< 1 semana',
+        description: 'Mejoras y optimizaciones generales',
+        color: 'text-green-600 bg-green-50 dark:bg-green-950/20',
     },
 ];
 ---
 
 <Layout
-    title="Mantenimiento Web - Devanthos"
-    description="Servicios de mantenimiento web profesional. Actualizaciones, seguridad, soporte técnico y más para mantener tu sitio web en óptimas condiciones."
->
+    title="Mantenimiento Web Profesional y Soporte Técnico | Devanthos"
+    description="Mantenimiento web integral: actualizaciones, seguridad, backups, soporte técnico y optimización de rendimiento para tu sitio.">
     <main class="min-h-screen">
         <!-- Hero Section -->
-        <section class="h-dvh md:py-40 md:h-fit relative overflow-hidden">
+        <section class="relative h-dvh overflow-hidden md:h-fit md:py-40">
             <div
-                class="absolute inset-0 bg-gradient-to-br from-primary/50 via-transparent to-accent/50"
-            >
+                class="from-primary/50 to-accent/50 absolute inset-0 bg-gradient-to-br via-transparent">
             </div>
-            <div
-                class="absolute -top-40 -right-40 w-80 h-80 bg-primary/60 rounded-full blur-3xl"
-            >
+            <div class="bg-primary/60 absolute -top-40 -right-40 h-80 w-80 rounded-full blur-3xl">
             </div>
-            <div
-                class="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/80 rounded-full blur-3xl"
-            >
+            <div class="bg-accent/80 absolute -bottom-40 -left-40 h-80 w-80 rounded-full blur-3xl">
             </div>
-            <div
-                class="container h-full flex justify-center items-center mx-auto px-4"
-            >
-                <div class="max-w-4xl mx-auto text-center">
+            <div class="container mx-auto flex h-full items-center justify-center px-4">
+                <div class="mx-auto max-w-4xl text-center">
                     <Badge className="mb-4">Mantenimiento Web</Badge>
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                    <h1 class="mb-6 text-4xl font-bold md:text-6xl">
                         <span class="text-primary">Mantén</span> Tu Sitio Web Seguro
                     </h1>
-                    <p class="text-xl text-muted-foreground mb-8">
-                        Servicios de mantenimiento web profesional para
-                        garantizar que tu sitio esté siempre actualizado, seguro
-                        y funcionando perfectamente.
+                    <p class="text-muted-foreground mb-8 text-xl">
+                        Servicios de mantenimiento web profesional para garantizar que tu sitio esté
+                        siempre actualizado, seguro y funcionando perfectamente.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <div class="flex flex-col justify-center gap-4 sm:flex-row">
                         <a
                             href="#planes"
-                            class="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
-                        >
-                            <Settings className="w-4 h-4 mr-2" />
+                            class="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center rounded-lg px-8 py-3 font-medium transition-colors">
+                            <Settings className="mr-2 h-4 w-4" />
                             Ver Planes
                         </a>
                         <a
                             href="/contacto"
-                            class="inline-flex items-center justify-center px-8 py-3 border border-input rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
-                        >
+                            class="border-input hover:bg-accent hover:text-accent-foreground inline-flex items-center justify-center rounded-lg border px-8 py-3 font-medium transition-colors">
                             Consulta Gratuita
                         </a>
                     </div>
@@ -178,27 +158,23 @@ const urgencyLevels = [
         <!-- Services Section -->
         <section class="py-20">
             <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Servicios de Mantenimiento
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Cubrimos todos los aspectos del mantenimiento web para
-                        que puedas enfocarte en hacer crecer tu negocio.
+                <div class="mb-16 text-center">
+                    <h2 class="mb-4 text-3xl font-bold md:text-4xl">Servicios de Mantenimiento</h2>
+                    <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                        Cubrimos todos los aspectos del mantenimiento web para que puedas enfocarte
+                        en hacer crecer tu negocio.
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
                     {
                         services.map((service) => (
                             <Card className="border-0 shadow-md">
                                 <CardHeader>
-                                    <div class="mb-4 p-3 rounded-lg bg-primary/10 w-fit">
+                                    <div class="bg-primary/10 mb-4 w-fit rounded-lg p-3">
                                         <service.icon className="w-8 h-8 text-primary" />
                                     </div>
-                                    <CardTitle className="text-xl mb-2">
-                                        {service.title}
-                                    </CardTitle>
+                                    <CardTitle className="text-xl mb-2">{service.title}</CardTitle>
                                     <p class="text-muted-foreground text-sm">
                                         {service.description}
                                     </p>
@@ -208,9 +184,7 @@ const urgencyLevels = [
                                         {service.features.map((feature) => (
                                             <li class="flex items-center gap-3">
                                                 <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
-                                                <span class="text-sm">
-                                                    {feature}
-                                                </span>
+                                                <span class="text-sm">{feature}</span>
                                             </li>
                                         ))}
                                     </ul>
@@ -223,33 +197,26 @@ const urgencyLevels = [
         </section>
 
         <!-- Response Times -->
-        <section class="py-20 bg-muted/30">
+        <section class="bg-muted/30 py-20">
             <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                <div class="mb-16 text-center">
+                    <h2 class="mb-4 text-3xl font-bold md:text-4xl">
                         Tiempos de Respuesta Garantizados
                     </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Clasificamos los problemas por nivel de urgencia para
-                        garantizar tiempos de respuesta apropiados.
+                    <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                        Clasificamos los problemas por nivel de urgencia para garantizar tiempos de
+                        respuesta apropiados.
                     </p>
                 </div>
 
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-                >
+                <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
                     {
                         urgencyLevels.map((level) => (
-                            <Card
-                                className={`border-0 shadow-md ${level.color}`}
-                            >
+                            <Card className={`border-0 shadow-md ${level.color}`}>
                                 <CardHeader className="text-center">
-                                    <div class="flex items-center justify-center gap-2 mb-2">
+                                    <div class="mb-2 flex items-center justify-center gap-2">
                                         <AlertTriangle className="w-5 h-5" />
-                                        <Badge
-                                            variant="outline"
-                                            className="border-current"
-                                        >
+                                        <Badge variant="outline" className="border-current">
                                             {level.level}
                                         </Badge>
                                     </div>
@@ -258,9 +225,7 @@ const urgencyLevels = [
                                     </CardTitle>
                                 </CardHeader>
                                 <CardContent className="text-center">
-                                    <p class="text-sm opacity-80">
-                                        {level.description}
-                                    </p>
+                                    <p class="text-sm opacity-80">{level.description}</p>
                                 </CardContent>
                             </Card>
                         ))
@@ -272,68 +237,51 @@ const urgencyLevels = [
         <!-- Pricing Plans -->
         <section id="planes" class="py-20">
             <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Planes de Mantenimiento
-                    </h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Elige el plan que mejor se adapte a las necesidades de
-                        tu sitio web.
+                <div class="mb-16 text-center">
+                    <h2 class="mb-4 text-3xl font-bold md:text-4xl">Planes de Mantenimiento</h2>
+                    <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                        Elige el plan que mejor se adapte a las necesidades de tu sitio web.
                     </p>
                 </div>
 
-                <div
-                    class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
-                >
+                <div class="mx-auto grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-3">
                     {
                         plans.map((plan) => (
                             <Card
-                                className={`border-0 shadow-md relative ${
-                                    plan.popular
-                                        ? "ring-2 ring-primary scale-105"
-                                        : ""
-                                }`}
-                            >
+                                className={`relative border-0 shadow-md ${
+                                    plan.popular ? 'ring-primary scale-105 ring-2' : ''
+                                }`}>
                                 {plan.popular && (
                                     <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                                         Más Popular
                                     </Badge>
                                 )}
                                 <CardHeader className="text-center">
-                                    <CardTitle className="text-2xl mb-2">
-                                        {plan.name}
-                                    </CardTitle>
+                                    <CardTitle className="text-2xl mb-2">{plan.name}</CardTitle>
                                     <div class="mb-4">
-                                        <span class="text-4xl font-bold text-primary">
+                                        <span class="text-primary text-4xl font-bold">
                                             {plan.price}
                                         </span>
-                                        <span class="text-muted-foreground">
-                                            {plan.period}
-                                        </span>
+                                        <span class="text-muted-foreground">{plan.period}</span>
                                     </div>
-                                    <p class="text-muted-foreground text-sm">
-                                        {plan.description}
-                                    </p>
+                                    <p class="text-muted-foreground text-sm">{plan.description}</p>
                                 </CardHeader>
                                 <CardContent>
-                                    <ul class="space-y-3 mb-6">
+                                    <ul class="mb-6 space-y-3">
                                         {plan.features.map((feature) => (
                                             <li class="flex items-center gap-3">
                                                 <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
-                                                <span class="text-sm">
-                                                    {feature}
-                                                </span>
+                                                <span class="text-sm">{feature}</span>
                                             </li>
                                         ))}
                                     </ul>
                                     <a
                                         href="/contacto"
-                                        class={`block w-full text-center px-6 py-3 rounded-lg font-medium transition-colors ${
+                                        class={`block w-full rounded-lg px-6 py-3 text-center font-medium transition-colors ${
                                             plan.popular
-                                                ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                                                : "border border-input hover:bg-accent hover:text-accent-foreground"
-                                        }`}
-                                    >
+                                                ? 'bg-primary text-primary-foreground hover:bg-primary/90'
+                                                : 'border-input hover:bg-accent hover:text-accent-foreground border'
+                                        }`}>
                                         Comenzar
                                     </a>
                                 </CardContent>
@@ -345,152 +293,100 @@ const urgencyLevels = [
         </section>
 
         <!-- Process Section -->
-        <section class="py-20 bg-muted/30">
+        <section class="bg-muted/30 py-20">
             <div class="container mx-auto px-4">
-                <div class="max-w-6xl mx-auto">
-                    <div
-                        class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
-                    >
+                <div class="mx-auto max-w-6xl">
+                    <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
                         <div>
-                            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                            <h2 class="mb-6 text-3xl font-bold md:text-4xl">
                                 Nuestro Proceso de Mantenimiento
                             </h2>
-                            <p class="text-lg text-muted-foreground mb-8">
-                                Seguimos un proceso estructurado para garantizar
-                                que tu sitio web reciba el mejor cuidado
-                                posible.
+                            <p class="text-muted-foreground mb-8 text-lg">
+                                Seguimos un proceso estructurado para garantizar que tu sitio web
+                                reciba el mejor cuidado posible.
                             </p>
                             <div class="space-y-6">
                                 <div class="flex items-start gap-4">
                                     <div
-                                        class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center"
-                                    >
-                                        <span
-                                            class="text-primary font-bold text-sm"
-                                            >1</span
-                                        >
+                                        class="bg-primary/10 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full">
+                                        <span class="text-primary text-sm font-bold">1</span>
                                     </div>
                                     <div>
-                                        <h3 class="font-semibold mb-2">
-                                            Auditoría Inicial
-                                        </h3>
-                                        <p
-                                            class="text-muted-foreground text-sm"
-                                        >
-                                            Evaluamos el estado actual de tu
-                                            sitio web y identificamos áreas de
-                                            mejora.
+                                        <h3 class="mb-2 font-semibold">Auditoría Inicial</h3>
+                                        <p class="text-muted-foreground text-sm">
+                                            Evaluamos el estado actual de tu sitio web y
+                                            identificamos áreas de mejora.
                                         </p>
                                     </div>
                                 </div>
                                 <div class="flex items-start gap-4">
                                     <div
-                                        class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center"
-                                    >
-                                        <span
-                                            class="text-primary font-bold text-sm"
-                                            >2</span
-                                        >
+                                        class="bg-primary/10 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full">
+                                        <span class="text-primary text-sm font-bold">2</span>
                                     </div>
                                     <div>
-                                        <h3 class="font-semibold mb-2">
-                                            Monitoreo Continuo
-                                        </h3>
-                                        <p
-                                            class="text-muted-foreground text-sm"
-                                        >
-                                            Supervisamos tu sitio 24/7 para
-                                            detectar problemas antes de que
-                                            afecten a los usuarios.
+                                        <h3 class="mb-2 font-semibold">Monitoreo Continuo</h3>
+                                        <p class="text-muted-foreground text-sm">
+                                            Supervisamos tu sitio 24/7 para detectar problemas antes
+                                            de que afecten a los usuarios.
                                         </p>
                                     </div>
                                 </div>
                                 <div class="flex items-start gap-4">
                                     <div
-                                        class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center"
-                                    >
-                                        <span
-                                            class="text-primary font-bold text-sm"
-                                            >3</span
-                                        >
+                                        class="bg-primary/10 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full">
+                                        <span class="text-primary text-sm font-bold">3</span>
                                     </div>
                                     <div>
-                                        <h3 class="font-semibold mb-2">
-                                            Mantenimiento Proactivo
-                                        </h3>
-                                        <p
-                                            class="text-muted-foreground text-sm"
-                                        >
-                                            Realizamos actualizaciones y
-                                            optimizaciones regulares para
-                                            mantener el rendimiento óptimo.
+                                        <h3 class="mb-2 font-semibold">Mantenimiento Proactivo</h3>
+                                        <p class="text-muted-foreground text-sm">
+                                            Realizamos actualizaciones y optimizaciones regulares
+                                            para mantener el rendimiento óptimo.
                                         </p>
                                     </div>
                                 </div>
                                 <div class="flex items-start gap-4">
                                     <div
-                                        class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center"
-                                    >
-                                        <span
-                                            class="text-primary font-bold text-sm"
-                                            >4</span
-                                        >
+                                        class="bg-primary/10 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full">
+                                        <span class="text-primary text-sm font-bold">4</span>
                                     </div>
                                     <div>
-                                        <h3 class="font-semibold mb-2">
-                                            Reportes Mensuales
-                                        </h3>
-                                        <p
-                                            class="text-muted-foreground text-sm"
-                                        >
-                                            Te enviamos reportes detallados de
-                                            todas las actividades y métricas de
-                                            rendimiento.
+                                        <h3 class="mb-2 font-semibold">Reportes Mensuales</h3>
+                                        <p class="text-muted-foreground text-sm">
+                                            Te enviamos reportes detallados de todas las actividades
+                                            y métricas de rendimiento.
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div
-                            class="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-950/20 dark:to-indigo-950/20 p-8 rounded-xl"
-                        >
+                            class="rounded-xl bg-gradient-to-br from-blue-50 to-indigo-100 p-8 dark:from-blue-950/20 dark:to-indigo-950/20">
                             <div class="text-center">
-                                <Clock
-                                    className="w-16 h-16 text-primary mx-auto mb-6"
-                                />
-                                <h3 class="text-2xl font-bold mb-4">
-                                    Soporte de Emergencia
-                                </h3>
+                                <Clock className="text-primary mx-auto mb-6 h-16 w-16" />
+                                <h3 class="mb-4 text-2xl font-bold">Soporte de Emergencia</h3>
                                 <p class="text-muted-foreground mb-6">
-                                    ¿Tu sitio web tiene un problema crítico?
-                                    Nuestro equipo de emergencia está disponible
-                                    para resolver problemas urgentes.
+                                    ¿Tu sitio web tiene un problema crítico? Nuestro equipo de
+                                    emergencia está disponible para resolver problemas urgentes.
                                 </p>
-                                <div class="space-y-3 mb-6 text-sm">
-                                    <div
-                                        class="flex items-center justify-between"
-                                    >
+                                <div class="mb-6 space-y-3 text-sm">
+                                    <div class="flex items-center justify-between">
                                         <span>Línea de emergencia:</span>
                                         <strong>24/7</strong>
                                     </div>
-                                    <div
-                                        class="flex items-center justify-between"
-                                    >
+                                    <div class="flex items-center justify-between">
                                         <span>Tiempo de respuesta:</span>
                                         <strong> 2 horas</strong>
                                     </div>
-                                    <div
-                                        class="flex items-center justify-between"
-                                    >
+                                    <div class="flex items-center justify-between">
                                         <span>Disponibilidad:</span>
                                         <strong>99.9%</strong>
                                     </div>
                                 </div>
                                 <a
                                     href="/contacto"
-                                    class="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
-                                >
-                                    <Phone className="w-4 h-4 mr-2" />
+                                    class="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center rounded-lg px-6 py-3 font-medium transition-colors">
+                                    <Phone className="mr-2 h-4 w-4" />
                                     Contactar Emergencia
                                 </a>
                             </div>
@@ -501,28 +397,25 @@ const urgencyLevels = [
         </section>
 
         <!-- CTA Section -->
-        <section class="py-20 bg-primary text-primary-foreground">
+        <section class="bg-primary text-primary-foreground py-20">
             <div class="container mx-auto px-4 text-center">
-                <div class="max-w-3xl mx-auto">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                <div class="mx-auto max-w-3xl">
+                    <h2 class="mb-6 text-3xl font-bold md:text-4xl">
                         No dejes que tu sitio web se quede obsoleto
                     </h2>
-                    <p class="text-lg opacity-90 mb-8">
-                        Un sitio web mal mantenido puede costar más que su
-                        mantenimiento regular. Protege tu inversión con nuestros
-                        servicios profesionales.
+                    <p class="mb-8 text-lg opacity-90">
+                        Un sitio web mal mantenido puede costar más que su mantenimiento regular.
+                        Protege tu inversión con nuestros servicios profesionales.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <div class="flex flex-col justify-center gap-4 sm:flex-row">
                         <a
                             href="/contacto"
-                            class="inline-flex items-center justify-center px-8 py-3 bg-white text-primary rounded-lg font-medium hover:bg-gray-100 transition-colors"
-                        >
+                            class="text-primary inline-flex items-center justify-center rounded-lg bg-white px-8 py-3 font-medium transition-colors hover:bg-gray-100">
                             Comenzar Mantenimiento
                         </a>
                         <a
                             href="/productos"
-                            class="inline-flex items-center justify-center px-8 py-3 border border-white/20 rounded-lg font-medium hover:bg-white/10 transition-colors"
-                        >
+                            class="inline-flex items-center justify-center rounded-lg border border-white/20 px-8 py-3 font-medium transition-colors hover:bg-white/10">
                             Ver Otros Servicios
                         </a>
                     </div>

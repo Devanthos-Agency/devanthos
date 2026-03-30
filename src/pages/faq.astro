@@ -150,11 +150,27 @@ const faqCategories = [
         ],
     },
 ];
+
+const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqCategories.flatMap((cat) =>
+        cat.faqs.map((faq) => ({
+            '@type': 'Question',
+            name: faq.question,
+            acceptedAnswer: {
+                '@type': 'Answer',
+                text: faq.answer,
+            },
+        }))
+    ),
+};
 ---
 
 <Layout
-    title="Preguntas Frecuentes - Devanthos"
-    description="Encuentra respuestas a las preguntas más comunes sobre nuestros servicios de desarrollo web, aplicaciones móviles, precios y proceso de trabajo.">
+    title="Preguntas Frecuentes sobre Desarrollo Web | Devanthos"
+    description="Respuestas a las preguntas más comunes sobre desarrollo web, apps móviles, precios, plazos y proceso de trabajo en Devanthos.">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
     <!-- Hero Section -->
     <section
         class="font-public_sans bg-background before:from-muted dark relative py-24 before:absolute before:top-0 before:left-0 before:z-10 before:block before:h-[15rem] before:w-full before:bg-linear-to-b before:to-transparent before:content-[''] md:py-32">

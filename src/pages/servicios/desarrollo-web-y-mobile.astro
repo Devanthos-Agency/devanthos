@@ -529,8 +529,26 @@ const benefits = [
 ---
 
 <Layout
-    title="Desarrollo Web y Móvil | Devanthos - Soluciones Digitales Modernas"
+    title="Desarrollo Web y Apps Móviles a Medida | Devanthos"
     description="Nos especializamos en la creación de soluciones digitales modernas, intuitivas y eficientes, tanto en plataformas web como móviles. React, Next.js, apps móviles y más.">
+    <script
+        type="application/ld+json"
+        set:html={JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Service',
+            name: 'Desarrollo Web y Apps Móviles a Medida',
+            description:
+                'Creación de soluciones digitales modernas, intuitivas y eficientes en plataformas web y móviles. React, Next.js, React Native y más.',
+            provider: {
+                '@type': 'Organization',
+                name: 'Devanthos',
+                url: 'https://www.devanthos.com',
+            },
+            areaServed: { '@type': 'Country', name: 'Argentina' },
+            serviceType: 'Desarrollo Web y Móvil',
+            url: 'https://www.devanthos.com/servicios/desarrollo-web-y-mobile',
+        })}
+    />
     <!-- Hero Section -->
     <section class="relative min-h-screen overflow-hidden px-4 py-20">
         <div
@@ -936,7 +954,7 @@ const benefits = [
                         <div class="absolute top-0 right-0 aspect-[1.15] w-[14.375rem] opacity-60">
                             <img
                                 src="/images/scrum/Gemini_Generated_Image_expk0gexpk0gexpk.avif"
-                                alt=""
+                                alt="Equipo de desarrollo trabajando en proyecto web"
                                 class="size-full object-cover object-center"
                             />
                         </div>
@@ -944,7 +962,7 @@ const benefits = [
                             class="absolute top-50 right-0 z-10 aspect-[0.709248555] w-[17.5rem] overflow-hidden rounded-tl-md">
                             <img
                                 src="/images/scrum/Gemini_Generated_Image_ps3uwsps3uwsps3u.avif"
-                                alt=""
+                                alt="Metodología ágil para desarrollo de software"
                                 class="size-full object-cover object-center"
                             />
                         </div>
@@ -952,7 +970,7 @@ const benefits = [
                             class="absolute top-60 right-0 aspect-[1.353211009] w-[36.875rem] overflow-hidden rounded-tl-2xl opacity-25">
                             <img
                                 src="/images/scrum/Gemini_Generated_Image_hre3pshre3pshre3.avif"
-                                alt=""
+                                alt="Proceso de desarrollo web profesional"
                                 class="size-full object-cover object-center"
                             />
                         </div>

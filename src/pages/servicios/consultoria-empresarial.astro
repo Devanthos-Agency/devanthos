@@ -321,8 +321,26 @@ const expertTeam = [
 ---
 
 <Layout
-    title="Consultoría Empresarial | Devanthos - Transformación Digital y Estratégica"
+    title="Consultoría en Transformación Digital | Devanthos"
     description="Impulsamos el crecimiento de tu empresa con estrategias personalizadas, optimización de procesos y transformación digital integral para maximizar tu potencial competitivo.">
+    <script
+        type="application/ld+json"
+        set:html={JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Service',
+            name: 'Consultoría en Transformación Digital',
+            description:
+                'Impulsamos el crecimiento de tu empresa con estrategias personalizadas, optimización de procesos y transformación digital integral.',
+            provider: {
+                '@type': 'Organization',
+                name: 'Devanthos',
+                url: 'https://www.devanthos.com',
+            },
+            areaServed: { '@type': 'Country', name: 'Argentina' },
+            serviceType: 'Consultoría Empresarial',
+            url: 'https://www.devanthos.com/servicios/consultoria-empresarial',
+        })}
+    />
     <!-- Hero Section -->
     <section class="relative min-h-screen overflow-hidden px-4 py-20">
         <div

@@ -239,8 +239,37 @@ const howItWorks = [
 ---
 
 <Layout
-    title="Chatbots para Web y WhatsApp | Devanthos - Atención Automática 24/7"
-    description="Creamos chatbots para tu sitio web y WhatsApp que atienden clientes 24/7, responden preguntas, agendan citas y reciben pedidos automáticamente. Desde $199/mes.">
+    title="Chatbots Inteligentes para Web y WhatsApp | Devanthos"
+    description="Chatbots con IA para tu sitio web y WhatsApp que atienden clientes 24/7, responden preguntas, agendan citas y reciben pedidos. Desde $199/mes.">
+    <script
+        type="application/ld+json"
+        set:html={JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Service',
+            name: 'Chatbots Inteligentes para Web y WhatsApp',
+            description:
+                'Chatbots con IA para tu sitio web y WhatsApp que atienden clientes 24/7, responden preguntas, agendan citas y reciben pedidos.',
+            provider: {
+                '@type': 'Organization',
+                name: 'Devanthos',
+                url: 'https://www.devanthos.com',
+            },
+            areaServed: { '@type': 'Country', name: 'Argentina' },
+            serviceType: 'Desarrollo de Chatbots',
+            offers: {
+                '@type': 'Offer',
+                priceCurrency: 'USD',
+                price: '199',
+                priceSpecification: {
+                    '@type': 'UnitPriceSpecification',
+                    price: '199',
+                    priceCurrency: 'USD',
+                    unitText: 'mes',
+                },
+            },
+            url: 'https://www.devanthos.com/servicios/chatbots-inteligentes',
+        })}
+    />
     <!-- Hero Section -->
     <section class="relative min-h-screen overflow-hidden px-4 py-20">
         <div
@@ -368,7 +397,7 @@ const howItWorks = [
                         <Avatar
                             class="block size-11 min-h-11 min-w-11 rounded-full object-cover lg:size-11">
                             <AvatarImage
-                                alt=""
+                                alt="Cliente de Devi"
                                 src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-1.webp"
                             />
                             <AvatarFallback>A</AvatarFallback>
@@ -376,7 +405,7 @@ const howItWorks = [
                         <Avatar
                             class="block size-11 min-h-11 min-w-11 rounded-full object-cover lg:size-11">
                             <AvatarImage
-                                alt=""
+                                alt="Cliente de Devi"
                                 src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-2.webp"
                             />
                             <AvatarFallback>B</AvatarFallback>
@@ -384,7 +413,7 @@ const howItWorks = [
                         <Avatar
                             class="block size-11 min-h-11 min-w-11 rounded-full object-cover lg:size-11">
                             <AvatarImage
-                                alt=""
+                                alt="Cliente de Devi"
                                 src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-3.webp"
                             />
                             <AvatarFallback>C</AvatarFallback>
@@ -392,7 +421,7 @@ const howItWorks = [
                         <Avatar
                             class="block size-11 min-h-11 min-w-11 rounded-full object-cover lg:size-11">
                             <AvatarImage
-                                alt=""
+                                alt="Cliente de Devi"
                                 src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-4.webp"
                             />
                             <AvatarFallback>D</AvatarFallback>
@@ -400,7 +429,7 @@ const howItWorks = [
                         <Avatar
                             class="block size-11 min-h-11 min-w-11 rounded-full object-cover lg:size-11">
                             <AvatarImage
-                                alt=""
+                                alt="Cliente de Devi"
                                 src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-5.webp"
                             />
                             <AvatarFallback>E</AvatarFallback>
@@ -414,7 +443,7 @@ const howItWorks = [
         </div>
         <img
             src="/images/service/chatbot-devi.avif"
-            alt=""
+            alt="Interfaz del chatbot Devi para empresas"
             class="hidden h-screen w-1/2 object-cover lg:block"
         />
     </section>
@@ -748,7 +777,7 @@ const howItWorks = [
                                 class="absolute top-0 left-1/2 h-[120%] w-[70%] -translate-x-1/2 overflow-hidden rounded-t-[32px]">
                                 <img
                                     src="/images/service/devi-whats-app.avif"
-                                    alt=""
+                                    alt="Chatbot Devi integrado con WhatsApp"
                                     class="h-full w-full object-cover"
                                 />
                             </div>
@@ -758,7 +787,7 @@ const howItWorks = [
                                     src="/images/service/phone-2.avif"
                                     width={340}
                                     height={600}
-                                    alt=""
+                                    alt="Teléfono con chatbot Devi"
                                 />
                             </div>
                         </div>

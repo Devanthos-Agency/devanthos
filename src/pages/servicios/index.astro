@@ -1,8 +1,8 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import Layout from '@/layouts/Layout.astro';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import {
     Bot,
     TrendingUp,
@@ -13,68 +13,58 @@ import {
     Star,
     Users,
     Brain,
-} from "lucide-react";
+} from 'lucide-react';
 
 // Datos de servicios
 const services = [
     {
-        id: "desarrollo-web-y-mobile",
-        title: "Desarrollo Web y Móvil",
+        id: 'desarrollo-web-y-mobile',
+        title: 'Desarrollo Web y Móvil',
         description:
-            "Nos especializamos en la creación de soluciones digitales modernas, intuitivas y eficientes, tanto en plataformas web como móviles.",
+            'Nos especializamos en la creación de soluciones digitales modernas, intuitivas y eficientes, tanto en plataformas web como móviles.',
         icon: Code2,
-        gradient: "from-blue-500 to-cyan-500",
-        price: "Desde $250",
-        features: [
-            "React & Next.js",
-            "Apps Móviles",
-            "APIs REST",
-            "UI/UX Moderno",
-        ],
-        href: "/servicios/desarrollo-web-y-mobile",
+        gradient: 'from-blue-500 to-cyan-500',
+        price: 'Desde $250',
+        features: ['React & Next.js', 'Apps Móviles', 'APIs REST', 'UI/UX Moderno'],
+        href: '/servicios/desarrollo-web-y-mobile',
     },
     {
-        id: "marketing-digital-seo",
-        title: "Marketing Digital y SEO",
+        id: 'marketing-digital-seo',
+        title: 'Marketing Digital y SEO',
         description:
-            "Nuestro equipo de marketing digital ofrece estrategias personalizadas para mejorar la visibilidad en línea de tu negocio.",
+            'Nuestro equipo de marketing digital ofrece estrategias personalizadas para mejorar la visibilidad en línea de tu negocio.',
         icon: TrendingUp,
-        gradient: "from-red-500 to-rose-500",
-        price: "Desde $250/mes",
-        features: ["SEO Avanzado", "Google Ads", "Social Media", "Analytics"],
-        href: "/servicios/marketing-digital-seo",
+        gradient: 'from-red-500 to-rose-500',
+        price: 'Desde $250/mes',
+        features: ['SEO Avanzado', 'Google Ads', 'Social Media', 'Analytics'],
+        href: '/servicios/marketing-digital-seo',
     },
     {
-        id: "chatbots-inteligentes",
-        title: "Chatbots Inteligentes",
+        id: 'chatbots-inteligentes',
+        title: 'Chatbots Inteligentes',
         description:
-            "Ofrecemos servicios de desarrollo de chatbots inteligentes que mejoran la interacción con los usuarios y optimizan los procesos.",
+            'Ofrecemos servicios de desarrollo de chatbots inteligentes que mejoran la interacción con los usuarios y optimizan los procesos.',
         icon: Bot,
-        gradient: "from-purple-500 to-indigo-500",
-        price: "Desde $199/mes",
-        features: [
-            "IA Avanzada",
-            "24/7 Disponible",
-            "Multi-plataforma",
-            "Automatización",
-        ],
-        href: "/servicios/chatbots-inteligentes",
+        gradient: 'from-purple-500 to-indigo-500',
+        price: 'Desde $199/mes',
+        features: ['IA Avanzada', '24/7 Disponible', 'Multi-plataforma', 'Automatización'],
+        href: '/servicios/chatbots-inteligentes',
     },
     {
-        id: "consultoria-empresarial",
-        title: "Consultoría Empresarial",
+        id: 'consultoria-empresarial',
+        title: 'Consultoría Empresarial',
         description:
-            "Impulsamos el crecimiento de tu empresa con estrategias personalizadas, optimización de procesos y transformación digital integral.",
+            'Impulsamos el crecimiento de tu empresa con estrategias personalizadas, optimización de procesos y transformación digital integral.',
         icon: Brain,
-        gradient: "from-orange-500 to-red-500",
-        price: "Desde $500",
+        gradient: 'from-orange-500 to-red-500',
+        price: 'Desde $500',
         features: [
-            "Transformación Digital",
-            "Optimización Procesos",
-            "Estrategia Empresarial",
-            "Consultoría 24/7",
+            'Transformación Digital',
+            'Optimización Procesos',
+            'Estrategia Empresarial',
+            'Consultoría 24/7',
         ],
-        href: "/servicios/consultoria-empresarial",
+        href: '/servicios/consultoria-empresarial',
     },
 ];
 
@@ -82,27 +72,27 @@ const services = [
 const benefits = [
     {
         icon: Users,
-        gradient: "from-blue-500 to-cyan-500",
-        title: "+500 Clientes",
-        description: "Satisfechos en toda Latinoamérica",
+        gradient: 'from-blue-500 to-cyan-500',
+        title: '+500 Clientes',
+        description: 'Satisfechos en toda Latinoamérica',
     },
     {
         icon: Zap,
-        gradient: "from-green-500 to-emerald-500",
-        title: "Entrega Rápida",
-        description: "Proyectos desde 2 semanas",
+        gradient: 'from-green-500 to-emerald-500',
+        title: 'Entrega Rápida',
+        description: 'Proyectos desde 2 semanas',
     },
     {
         icon: Star,
-        gradient: "from-purple-500 to-indigo-500",
-        title: "Calidad Premium",
-        description: "Código limpio y escalable",
+        gradient: 'from-purple-500 to-indigo-500',
+        title: 'Calidad Premium',
+        description: 'Código limpio y escalable',
     },
     {
         icon: CheckCircle,
-        gradient: "from-orange-500 to-red-500",
-        title: "Soporte 24/7",
-        description: "Siempre aquí cuando nos necesites",
+        gradient: 'from-orange-500 to-red-500',
+        title: 'Soporte 24/7',
+        description: 'Siempre aquí cuando nos necesites',
     },
 ];
 
@@ -110,26 +100,26 @@ const benefits = [
 const processSteps = [
     {
         number: 1,
-        title: "Análisis",
-        description: "Entendemos tu negocio y objetivos",
+        title: 'Análisis',
+        description: 'Entendemos tu negocio y objetivos',
         hasConnector: true,
     },
     {
         number: 2,
-        title: "Estrategia",
-        description: "Diseñamos la mejor solución",
+        title: 'Estrategia',
+        description: 'Diseñamos la mejor solución',
         hasConnector: true,
     },
     {
         number: 3,
-        title: "Desarrollo",
-        description: "Implementamos con tecnología moderna",
+        title: 'Desarrollo',
+        description: 'Implementamos con tecnología moderna',
         hasConnector: true,
     },
     {
         number: 4,
-        title: "Entrega",
-        description: "Lanzamos y damos soporte continuo",
+        title: 'Entrega',
+        description: 'Lanzamos y damos soporte continuo',
         hasConnector: false,
     },
 ];
@@ -137,67 +127,54 @@ const processSteps = [
 // Datos de elementos de confianza
 const trustElements = [
     {
-        text: "Sin compromiso",
+        text: 'Sin compromiso',
     },
     {
-        text: "Respuesta en 24h",
+        text: 'Respuesta en 24h',
     },
 ];
 ---
 
 <Layout
-    title="Nuestros Servicios | Devanthos - Soluciones Digitales"
-    description="Descubre nuestros servicios de desarrollo web, aplicaciones móviles, marketing digital, SEO y chatbots inteligentes. Impulsamos tu negocio al siguiente nivel digital."
->
+    title="Servicios de Desarrollo Web y Marketing | Devanthos"
+    description="Descubre nuestros servicios de desarrollo web, aplicaciones móviles, marketing digital, SEO y chatbots inteligentes. Impulsamos tu negocio al siguiente nivel digital.">
     <!-- Hero Section -->
-    <section class="relative py-20 px-4 overflow-hidden">
+    <section class="relative overflow-hidden px-4 py-20">
         <div
-            class="absolute inset-0 bg-gradient-to-br from-primary/50 via-transparent to-accent/50"
-        >
+            class="from-primary/50 to-accent/50 absolute inset-0 bg-gradient-to-br via-transparent">
         </div>
-        <div
-            class="absolute -top-40 -right-40 w-80 h-80 bg-primary/60 rounded-full blur-3xl"
-        >
-        </div>
-        <div
-            class="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/80 rounded-full blur-3xl"
-        >
+        <div class="bg-primary/60 absolute -top-40 -right-40 h-80 w-80 rounded-full blur-3xl"></div>
+        <div class="bg-accent/80 absolute -bottom-40 -left-40 h-80 w-80 rounded-full blur-3xl">
         </div>
 
-        <div class="container mx-auto relative z-10 mt-16">
-            <div class="max-w-4xl mx-auto text-center">
-                <div class="flex justify-center mb-6">
-                    <Badge variant="outline" className="text-lg px-4 py-2">
-                        <Star className="w-4 h-4 mr-2" />
+        <div class="relative z-10 container mx-auto mt-16">
+            <div class="mx-auto max-w-4xl text-center">
+                <div class="mb-6 flex justify-center">
+                    <Badge variant="outline" className="px-4 py-2 text-lg">
+                        <Star className="mr-2 h-4 w-4" />
                         Servicios Premium
                     </Badge>
                 </div>
 
-                <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                <h1 class="mb-6 text-4xl font-bold md:text-6xl">
                     Servicios que Impulsan
                     <span
-                        class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
-                    >
+                        class="from-primary to-accent bg-gradient-to-r bg-clip-text text-transparent">
                         tu Éxito Digital
                     </span>
                 </h1>
 
-                <p class="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                    Ofrecemos soluciones tecnológicas integrales para
-                    transformar tu negocio. Desde desarrollo web hasta marketing
-                    digital e inteligencia artificial.
+                <p class="text-muted-foreground mx-auto mb-8 max-w-2xl text-xl">
+                    Ofrecemos soluciones tecnológicas integrales para transformar tu negocio. Desde
+                    desarrollo web hasta marketing digital e inteligencia artificial.
                 </p>
 
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button size="lg" className="text-lg px-8">
+                <div class="flex flex-col justify-center gap-4 sm:flex-row">
+                    <Button size="lg" className="px-8 text-lg">
                         Ver Todos los Servicios
-                        <ArrowRight className="ml-2 w-5 h-5" />
+                        <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
-                    <Button
-                        variant="outline"
-                        size="lg"
-                        className="text-lg px-8"
-                    >
+                    <Button variant="outline" size="lg" className="px-8 text-lg">
                         Consulta Gratuita
                     </Button>
                 </div>
@@ -206,41 +183,33 @@ const trustElements = [
     </section>
 
     <!-- Services Grid -->
-    <section class="py-20 px-4">
+    <section class="px-4 py-20">
         <div class="container mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold md:text-4xl">
                     Nuestros Servicios Especializados
                 </h2>
-                <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                    Cada servicio está diseñado para maximizar tu presencia
-                    digital y acelerar el crecimiento de tu negocio
+                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                    Cada servicio está diseñado para maximizar tu presencia digital y acelerar el
+                    crecimiento de tu negocio
                 </p>
             </div>
 
-            <div
-                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16"
-            >
+            <div class="mb-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
                 {
                     services.map((service) => {
                         const IconComponent = service.icon;
                         return (
                             <Card className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 hover:border-primary/20 overflow-hidden">
-                                <div
-                                    class={`h-2 bg-gradient-to-r ${service.gradient}`}
-                                />
+                                <div class={`h-2 bg-gradient-to-r ${service.gradient}`} />
 
                                 <CardHeader className="pb-4">
-                                    <div class="flex items-center gap-3 mb-4">
+                                    <div class="mb-4 flex items-center gap-3">
                                         <div
-                                            class={`p-3 rounded-xl bg-gradient-to-br ${service.gradient} text-white`}
-                                        >
+                                            class={`rounded-xl bg-gradient-to-br p-3 ${service.gradient} text-white`}>
                                             <IconComponent className="w-6 h-6" />
                                         </div>
-                                        <Badge
-                                            variant="secondary"
-                                            className="text-xs"
-                                        >
+                                        <Badge variant="secondary" className="text-xs">
                                             {service.price}
                                         </Badge>
                                     </div>
@@ -255,7 +224,7 @@ const trustElements = [
                                         {service.description}
                                     </p>
 
-                                    <div class="space-y-2 mb-6">
+                                    <div class="mb-6 space-y-2">
                                         {service.features.map((feature) => (
                                             <div class="flex items-center gap-2 text-sm">
                                                 <CheckCircle className="w-4 h-4 text-green-500" />
@@ -266,10 +235,7 @@ const trustElements = [
 
                                     <div class="flex gap-2">
                                         <Button asChild className="flex-1">
-                                            <a
-                                                href={service.href}
-                                                class="flex items-center"
-                                            >
+                                            <a href={service.href} class="flex items-center">
                                                 Ver Detalles
                                                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                             </a>
@@ -285,38 +251,28 @@ const trustElements = [
     </section>
 
     <!-- Why Choose Us Section -->
-    <section class="py-20 px-4 bg-muted/30">
+    <section class="bg-muted/30 px-4 py-20">
         <div class="container mx-auto">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        ¿Por Qué Elegirnos?
-                    </h2>
-                    <p class="text-lg text-muted-foreground">
-                        Más de 8 años de experiencia creando soluciones
-                        digitales exitosas
+            <div class="mx-auto max-w-4xl">
+                <div class="mb-16 text-center">
+                    <h2 class="mb-4 text-3xl font-bold md:text-4xl">¿Por Qué Elegirnos?</h2>
+                    <p class="text-muted-foreground text-lg">
+                        Más de 8 años de experiencia creando soluciones digitales exitosas
                     </p>
                 </div>
 
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-                >
+                <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
                     {
                         benefits.map((benefit) => {
                             const IconComponent = benefit.icon;
                             return (
                                 <div class="text-center">
                                     <div
-                                        class={`w-16 h-16 bg-gradient-to-br ${benefit.gradient} rounded-full flex items-center justify-center mx-auto mb-4`}
-                                    >
+                                        class={`h-16 w-16 bg-gradient-to-br ${benefit.gradient} mx-auto mb-4 flex items-center justify-center rounded-full`}>
                                         <IconComponent className="w-8 h-8 text-white" />
                                     </div>
-                                    <h3 class="text-xl font-semibold mb-2">
-                                        {benefit.title}
-                                    </h3>
-                                    <p class="text-muted-foreground">
-                                        {benefit.description}
-                                    </p>
+                                    <h3 class="mb-2 text-xl font-semibold">{benefit.title}</h3>
+                                    <p class="text-muted-foreground">{benefit.description}</p>
                                 </div>
                             );
                         })
@@ -327,33 +283,27 @@ const trustElements = [
     </section>
 
     <!-- Process Section -->
-    <section class="py-20 px-4">
+    <section class="px-4 py-20">
         <div class="container mx-auto">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Nuestro Proceso de Trabajo
-                    </h2>
-                    <p class="text-lg text-muted-foreground">
+            <div class="mx-auto max-w-4xl">
+                <div class="mb-16 text-center">
+                    <h2 class="mb-4 text-3xl font-bold md:text-4xl">Nuestro Proceso de Trabajo</h2>
+                    <p class="text-muted-foreground text-lg">
                         Un proceso probado que garantiza el éxito de tu proyecto
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
                     {
                         processSteps.map((step) => (
-                            <div class="text-center relative">
-                                <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-lg">
+                            <div class="relative text-center">
+                                <div class="bg-primary mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full text-lg font-bold text-white">
                                     {step.number}
                                 </div>
-                                <h3 class="text-lg font-semibold mb-2">
-                                    {step.title}
-                                </h3>
-                                <p class="text-muted-foreground text-sm">
-                                    {step.description}
-                                </p>
+                                <h3 class="mb-2 text-lg font-semibold">{step.title}</h3>
+                                <p class="text-muted-foreground text-sm">{step.description}</p>
                                 {step.hasConnector && (
-                                    <div class="hidden md:block absolute top-6 left-1/2 w-full h-0.5 bg-border -z-10" />
+                                    <div class="bg-border absolute top-6 left-1/2 -z-10 hidden h-0.5 w-full md:block" />
                                 )}
                             </div>
                         ))
@@ -364,41 +314,30 @@ const trustElements = [
     </section>
 
     <!-- CTA Section -->
-    <section class="py-20 px-4">
+    <section class="px-4 py-20">
         <div class="container mx-auto">
-            <div class="max-w-4xl mx-auto text-center">
+            <div class="mx-auto max-w-4xl text-center">
                 <Card
-                    className="p-12 bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20"
-                >
+                    className="from-primary/10 to-accent/10 border-primary/20 bg-gradient-to-br p-12">
                     <CardContent className="space-y-6">
-                        <h2 class="text-3xl md:text-4xl font-bold">
+                        <h2 class="text-3xl font-bold md:text-4xl">
                             ¿Listo para Transformar tu Negocio?
                         </h2>
-                        <p
-                            class="text-lg text-muted-foreground max-w-2xl mx-auto"
-                        >
-                            Agenda una consulta gratuita con nuestros expertos y
-                            descubre cómo podemos impulsar tu presencia digital
-                            al siguiente nivel.
+                        <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+                            Agenda una consulta gratuita con nuestros expertos y descubre cómo
+                            podemos impulsar tu presencia digital al siguiente nivel.
                         </p>
-                        <div
-                            class="flex flex-col sm:flex-row gap-4 justify-center"
-                        >
-                            <Button size="lg" className="text-lg px-8">
+                        <div class="flex flex-col justify-center gap-4 sm:flex-row">
+                            <Button size="lg" className="px-8 text-lg">
                                 Consulta Gratuita
-                                <ArrowRight className="ml-2 w-5 h-5" />
+                                <ArrowRight className="ml-2 h-5 w-5" />
                             </Button>
-                            <Button
-                                variant="outline"
-                                size="lg"
-                                className="text-lg px-8"
-                            >
+                            <Button variant="outline" size="lg" className="px-8 text-lg">
                                 Ver Portfolio
                             </Button>
                         </div>
                         <div
-                            class="flex items-center justify-center gap-4 text-sm text-muted-foreground"
-                        >
+                            class="text-muted-foreground flex items-center justify-center gap-4 text-sm">
                             {
                                 trustElements.map((element) => (
                                     <div class="flex items-center gap-1">
