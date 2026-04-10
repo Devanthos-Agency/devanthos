@@ -1,0 +1,215 @@
+---
+import * as LucideIcons from 'lucide-react';
+import Button from '../ui/Button.astro';
+
+interface Props {
+    badge?: string;
+    title1?: string;
+    title2?: string;
+    title3?: string;
+    description?: string;
+    btn1?: string;
+    btn1href?: string;
+    btn1Icon?: keyof typeof LucideIcons;
+    btn2?: string;
+    btn2href?: string;
+    btn2Icon?: keyof typeof LucideIcons;
+}
+
+const {
+    badge,
+    title1,
+    title2,
+    title3,
+    description,
+    btn1,
+    btn1href,
+    btn1Icon = 'ArrowRight',
+    btn2,
+    btn2href,
+    btn2Icon = 'CirclePlay',
+} = Astro.props;
+
+const Btn1Icon = LucideIcons[btn1Icon] as any;
+const Btn2Icon = LucideIcons[btn2Icon] as any;
+---
+
+<section
+    class="font-public_sans bg-background before:from-muted relative h-screen overflow-hidden py-28 before:absolute before:top-0 before:left-0 before:z-10 before:block before:h-[15rem] before:w-full before:bg-linear-to-b before:to-transparent before:content-[''] md:py-36 lg:py-44">
+    <!-- Ambient light orbs -->
+    <div class="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
+        <div
+            class="hero-orb-a dark:bg-primary/25 bg-secondary/50 absolute -top-10 -left-24 h-[650px] w-[650px] rounded-full blur-[130px]">
+        </div>
+        <div
+            class="hero-orb-b dark:bg-primary/20 bg-primary/40 absolute -right-24 -bottom-20 h-[500px] w-[500px] rounded-full blur-[110px]">
+        </div>
+    </div>
+
+    <!-- Dot grid texture -->
+    <div class="hero-dotgrid pointer-events-none absolute inset-0 z-0" aria-hidden="true"></div>
+
+    <div class="relative z-20 container mx-auto px-4">
+        <div class="relative z-20 mx-auto flex max-w-[56.25rem] flex-col items-center gap-6">
+            <!-- Badge con indicador activo -->
+            {
+                badge && (
+                    <div class="hero-in hero-in-1 border-primary/20 bg-primary/10 flex w-fit items-center gap-2 rounded-full border px-3.5 py-1.5 backdrop-blur-sm">
+                        <span class="relative flex h-2 w-2" aria-hidden="true">
+                            <span class="bg-primary absolute inline-flex h-full w-full animate-ping rounded-full opacity-75" />
+                            <span class="bg-primary relative inline-flex h-2 w-2 rounded-full" />
+                        </span>
+                        <span class="text-primary text-xs font-semibold tracking-widest uppercase">
+                            {badge}
+                        </span>
+                    </div>
+                )
+            }
+
+            <!-- Título -->
+            {
+                (title1 || title2 || title3) && (
+                    <h1 class="hero-in hero-in-2 text-foreground font-cocogoose [&_span]:text-primary text-center text-5xl leading-tight [text-shadow:0_0_40px_rgba(255,255,255,0.12)] md:text-6xl lg:text-7xl [&_span]:[text-shadow:0_0_24px_rgba(94,111,182,0.9)]">
+                        {title1}
+                        {title2 && <span>{title2}</span>}
+                        {title3}
+                    </h1>
+                )
+            }
+
+            <!-- Descripción -->
+            {
+                description && (
+                    <p class="hero-in hero-in-3 text-muted-foreground mx-auto max-w-xl text-center text-lg">
+                        {description}
+                    </p>
+                )
+            }
+
+            <!-- CTAs -->
+            {
+                (btn1 || btn2) && (
+                    <div class="hero-in hero-in-4 mt-2 flex flex-wrap items-center justify-center gap-3">
+                        {btn1 && (
+                            <Button
+                                href={btn1href}
+                                class="group shadow-primary/20 hover:shadow-primary/35 flex h-fit items-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold shadow-lg transition-all duration-300 hover:shadow-xl">
+                                {btn1}
+                                <Btn1Icon className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+                            </Button>
+                        )}
+                        {btn2 && (
+                            <Button
+                                href={btn2href}
+                                variant="ghost"
+                                class="group flex h-fit items-center gap-2 rounded-full border px-6 py-2.5 text-sm font-semibold backdrop-blur-sm transition-all duration-300 dark:border-white/10 dark:text-white dark:hover:border-white/20 dark:hover:bg-white/5">
+                                {btn2}
+                                <Btn2Icon className="size-4 transition-transform duration-300 group-hover:scale-110 dark:stroke-white" />
+                            </Button>
+                        )}
+                    </div>
+                )
+            }
+
+            <!-- Scroll indicator -->
+            <div class="hero-in hero-in-5 mt-8 flex flex-col items-center gap-2">
+                <span class="dark:text-muted-foreground/40 text-xs tracking-[0.25em] uppercase"
+                    >Scroll</span
+                >
+                <div
+                    class="hero-scrollline to-primary/90 dark:to-primary/60 h-10 w-0.5 rounded-full bg-gradient-to-b from-transparent dark:w-px dark:bg-gradient-to-b dark:from-transparent">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Separador inferior -->
+    <div
+        class="via-primary/20 pointer-events-none absolute right-0 bottom-0 left-0 z-20 h-px bg-gradient-to-r from-transparent to-transparent"
+        aria-hidden="true">
+    </div>
+</section>
+<style>
+    /* ── Entrance animations ─────────────────────────────── */
+    .hero-in {
+        opacity: 0;
+        animation: heroSlideUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .hero-in-1 {
+        animation-delay: 0.1s;
+    }
+    .hero-in-2 {
+        animation-delay: 0.25s;
+    }
+    .hero-in-3 {
+        animation-delay: 0.4s;
+    }
+    .hero-in-4 {
+        animation-delay: 0.55s;
+    }
+    .hero-in-5 {
+        animation-delay: 0.72s;
+    }
+
+    @keyframes heroSlideUp {
+        from {
+            opacity: 0;
+            transform: translateY(22px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* ── Floating orbs ───────────────────────────────────── */
+    .hero-orb-a {
+        animation: floatA 9s ease-in-out infinite;
+    }
+    .hero-orb-b {
+        animation: floatB 11s ease-in-out infinite;
+    }
+    @keyframes floatA {
+        0%,
+        100% {
+            transform: translate(0, 0) scale(1);
+        }
+        50% {
+            transform: translate(50px, -35px) scale(1.07);
+        }
+    }
+    @keyframes floatB {
+        0%,
+        100% {
+            transform: translate(0, 0) scale(1);
+        }
+        50% {
+            transform: translate(-40px, 30px) scale(1.05);
+        }
+    }
+
+    /* ── Dot grid ────────────────────────────────────────── */
+    .hero-dotgrid {
+        background-image: radial-gradient(circle, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+        background-size: 28px 28px;
+        mask-image: radial-gradient(ellipse 78% 65% at 50% 50%, black, transparent);
+        -webkit-mask-image: radial-gradient(ellipse 78% 65% at 50% 50%, black, transparent);
+    }
+
+    /* ── Scroll line pulse ───────────────────────────────── */
+    .hero-scrollline {
+        transform-origin: top;
+        animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+        0%,
+        100% {
+            opacity: 0.3;
+            transform: scaleY(0.65);
+        }
+        60% {
+            opacity: 1;
+            transform: scaleY(1);
+        }
+    }
+</style>
