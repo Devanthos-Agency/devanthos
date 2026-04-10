@@ -11,6 +11,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css';
 import 'swiper/css/effect-cards';
+import { Backlight } from '../ui/backlight';
 interface AnimatedHeroProps {
     className?: string;
     children?: React.ReactNode;
@@ -169,6 +170,7 @@ const swiperCss = `
 
 const AnimatedHero: React.FC<AnimatedHeroProps> = ({ className = '', children }) => {
     const [domLoaded, setDomLoaded] = useState(false);
+    const [activeRealIndex, setActiveRealIndex] = useState(0);
 
     useEffect(() => {
         setDomLoaded(true);
@@ -282,41 +284,46 @@ const AnimatedHero: React.FC<AnimatedHeroProps> = ({ className = '', children })
                                 }}
                                 className="mySwiperHero231"
                                 modules={[EffectCoverflow, Autoplay, Pagination]}
-                                pagination={{ clickable: true }}>
+                                pagination={{ clickable: true }}
+                                onSwiper={(swiper) => setActiveRealIndex(swiper.realIndex)}
+                                onSlideChange={(swiper) => setActiveRealIndex(swiper.realIndex)}>
                                 {images.map((image, index) => {
+                                    const isActive = index === activeRealIndex;
+                                    const video = (
+                                        <motion.video
+                                            initial={{
+                                                opacity: 0,
+                                                scale: 0.8,
+                                            }}
+                                            animate={{
+                                                opacity: 1,
+                                                scale: 1,
+                                            }}
+                                            transition={{
+                                                duration: 0.6,
+                                                ease: 'easeOut',
+                                            }}
+                                            className="relative z-10 h-full w-full overflow-hidden rounded-3xl object-cover shadow-lg"
+                                            src={image.src}
+                                            autoPlay
+                                            loop
+                                            muted
+                                            playsInline
+                                        />
+                                    );
                                     return (
                                         <SwiperSlide key={index}>
-                                            <motion.video
-                                                initial={{
-                                                    opacity: 0,
-                                                    scale: 0.8,
-                                                }}
-                                                animate={{
-                                                    opacity: 1,
-                                                    scale: 1,
-                                                }}
-                                                transition={{
-                                                    duration: 0.6,
-                                                    ease: 'easeOut',
-                                                }}
-                                                className="relative z-10 h-full w-full overflow-hidden rounded-3xl object-cover shadow-lg"
-                                                src={image.src}
-                                                autoPlay
-                                                loop
-                                                muted
-                                                playsInline
-                                            />
-                                            <motion.div
-                                                initial={{ opacity: 0, y: 20 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                transition={{
-                                                    duration: 0.4,
-                                                    delay: 0.3,
-                                                    ease: 'easeOut',
-                                                }}
-                                                className="bg-opacity-50 absolute bottom-2 left-2 z-20 rounded-lg bg-black px-3 py-1 text-white">
-                                                {image.name}
-                                            </motion.div>
+                                            {isActive ? (
+                                                <Backlight
+                                                    blur={20}
+                                                    className="absolute inset-0 z-0 rounded-3xl">
+                                                    {video}
+                                                </Backlight>
+                                            ) : (
+                                                <div className="absolute inset-0 rounded-3xl">
+                                                    {video}
+                                                </div>
+                                            )}
                                         </SwiperSlide>
                                     );
                                 })}
