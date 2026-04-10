@@ -5,8 +5,6 @@ import { Badge } from '@/components/ui/badge';
 import {
     TrendingUp,
     Users,
-    Clock,
-    Star,
     ArrowRight,
     Quote,
     BarChart3,
@@ -19,6 +17,7 @@ import {
     Briefcase,
 } from 'lucide-react';
 import Button from '@/components/ui/Button.astro';
+import HeroSubPage from '@/components/interfaces/HeroSubPage.astro';
 
 // Casos de éxito destacados
 const featuredCases = [
@@ -167,39 +166,17 @@ const industries = [
     title="Casos de Éxito en Desarrollo Web y Digital | Devanthos"
     description="Proyectos reales con resultados medibles: +300% en conversiones, -85% en tiempos de carga. Descubre cómo transformamos negocios.">
     <!-- Hero Section -->
-    <section
-        class="font-public_sans bg-background before:from-muted dark relative py-24 before:absolute before:top-0 before:left-0 before:z-10 before:block before:h-[15rem] before:w-full before:bg-linear-to-b before:to-transparent before:content-[''] md:py-32">
-        <div class="relative z-20 container mx-auto px-4">
-            <div class="relative z-20 mx-auto flex max-w-[56.25rem] flex-col items-center gap-6">
-                <Badge
-                    className="border-muted bg-muted hover:border-primary mb-4 flex w-fit items-center gap-1 rounded-full border px-2.5 py-1.5"
-                    >Resultados Comprobados</Badge
-                >
-                <h1
-                    class="text-foreground font-cocogoose [&_span]:text-primary text-center text-5xl leading-tight [text-shadow:0_0_10px_rgba(255,255,255,0.65)] md:text-6xl lg:text-7xl [&_span]:[text-shadow:0_0_10px_rgba(94,111,182,0.65)]">
-                    <span>Casos de Éxito</span> que Inspiran
-                </h1>
-                <p class="text-muted-foreground text-center text-lg">
-                    Historias reales de transformación digital. Descubre cómo hemos ayudado a
-                    empresas como la tuya a alcanzar resultados extraordinarios.
-                </p>
-                <div class="mt-4 flex items-center gap-2">
-                    <Button
-                        href="#casos"
-                        class="flex h-fit items-center gap-2 rounded-md px-3.5 py-2.5 text-sm font-medium">
-                        <BarChart3 className="size-5!" />
-                        Ver Casos de Éxito
-                    </Button>
-                    <Button
-                        href="/contacto"
-                        class="flex h-fit items-center gap-2 rounded-md px-3.5 py-2.5 text-sm font-medium">
-                        Iniciar Mi Proyecto
-                    </Button>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    <HeroSubPage
+        badge="Resultados Comprobados"
+        title2="Casos de Éxito"
+        title3=" que Inspiran"
+        description="Historias reales de transformación digital. Descubre cómo hemos ayudado a empresas como la tuya a alcanzar resultados extraordinarios."
+        btn1="Ver Casos de Éxito"
+        btn1href="#casos"
+        btn2="Iniciar Mi Proyecto"
+        btn2Icon="Rocket"
+        btn2href="https://wa.me/5492646629632?text=Hola%20me%20interesa%20iniciar%20mi%20proyecto%20con%20Devanthos"
+    />
     <!-- Global Stats -->
     <section class="bg-muted/30 py-16">
         <div class="container mx-auto px-4">

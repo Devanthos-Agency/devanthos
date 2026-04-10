@@ -2,19 +2,11 @@
 import Layout from '@/layouts/Layout.astro';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import {
-    Mail,
-    Phone,
-    MapPin,
-    Clock,
-    Send,
-    MessageCircle,
-    Calendar,
-    CheckCircle,
-    Headset,
-} from 'lucide-react';
+import { Mail, Phone, Clock, MessageCircle, Calendar, CheckCircle, Headset } from 'lucide-react';
 import Button from '@/components/ui/Button.astro';
 import Contact from '@/components/interfaces/Contact';
+import Hero from '@/components/interfaces/Hero.astro';
+import HeroSubPage from '@/components/interfaces/HeroSubPage.astro';
 
 const contactMethods = [
     {
@@ -91,33 +83,15 @@ const localBusinessSchema = {
     description="Ponte en contacto con nuestro equipo. Ofrecemos consultoría gratuita para tu proyecto. Email, teléfono, WhatsApp o agenda una reunión.">
     <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
     <!-- Hero Section -->
-    <section
-        class="font-public_sans bg-background before:from-muted dark relative py-24 before:absolute before:top-0 before:left-0 before:z-10 before:block before:h-[15rem] before:w-full before:bg-linear-to-b before:to-transparent before:content-[''] md:py-32">
-        <div class="relative z-20 container mx-auto px-4">
-            <div class="relative z-20 mx-auto flex max-w-[56.25rem] flex-col items-center gap-6">
-                <Badge
-                    className="border-muted bg-muted hover:border-primary mb-4 flex w-fit items-center gap-1 rounded-full border px-2.5 py-1.5"
-                    >Contacto</Badge
-                >
-                <h1
-                    class="text-foreground font-cocogoose [&_span]:text-primary text-center text-5xl leading-tight [text-shadow:0_0_10px_rgba(255,255,255,0.65)] md:text-6xl lg:text-7xl [&_span]:[text-shadow:0_0_10px_rgba(94,111,182,0.65)]">
-                    Hablemos de tu <span>proyecto</span>
-                </h1>
-                <p class="text-muted-foreground text-center text-lg">
-                    Estamos aquí para ayudarte a convertir tus ideas en realidad. Contáctanos y
-                    recibe una consultoría gratuita.
-                </p>
-                <div class="mt-4 flex items-center gap-2">
-                    <Button
-                        href="#contacto"
-                        class="flex h-fit items-center gap-2 rounded-md px-3.5 py-2.5 text-sm font-medium">
-                        <Headset className="size-5!" />
-                        Solicitar Consultoría Gratuita
-                    </Button>
-                </div>
-            </div>
-        </div>
-    </section>
+    <HeroSubPage
+        badge="Contacto"
+        title1="Hablemos de tu "
+        title2="proyecto"
+        description="Estamos aquí para ayudarte a convertir tus ideas en realidad. Contáctanos y recibe una consultoría gratuita."
+        btn1="Solicitar Consultoría Gratuita"
+        btn1Icon="MessageCircle"
+        btn1href="https://wa.me/5492646629632?text=Hola,%20me%20interesa%20la%20consultoria%20gratuita"
+    />
 
     <!-- Contact Methods -->
     <section class="py-20">

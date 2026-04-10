@@ -1,7 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge, badgeVariants } from '@/components/ui/badge';
+import { Badge } from '@/components/ui/badge';
 import {
     Target,
     Users,
@@ -19,7 +19,8 @@ import {
 } from 'lucide-react';
 
 import { Behance } from '@/components/icons';
-import Button from '@/components/ui/Button.astro';
+import HeroSubPage from '@/components/interfaces/HeroSubPage.astro';
+import Team from '@/components/interfaces/Team.astro';
 
 const values = [
     {
@@ -173,114 +174,106 @@ const stats = [
     title="Agencia de Desarrollo Web y Marketing Digital | Devanthos"
     description="Conoce al equipo de Devanthos: expertos en desarrollo web, apps móviles y marketing digital. Nuestra misión, valores y compromiso con tu éxito.">
     <!-- Hero Section -->
-    <section
-        class="font-public_sans bg-background before:from-muted dark relative py-24 before:absolute before:top-0 before:left-0 before:z-10 before:block before:h-[15rem] before:w-full before:bg-linear-to-b before:to-transparent before:content-[''] md:py-32">
-        <div class="relative z-20 container mx-auto px-4">
-            <div class="relative z-20 mx-auto flex max-w-[56.25rem] flex-col items-center gap-6">
-                <Badge
-                    className="border-muted bg-muted hover:border-primary mb-4 flex w-fit items-center gap-1 rounded-full border px-2.5 py-1.5"
-                    >Sobre Nosotros</Badge
-                >
-                <h1
-                    class="text-foreground font-cocogoose [&_span]:text-primary text-center text-5xl leading-tight [text-shadow:0_0_10px_rgba(255,255,255,0.65)] md:text-6xl lg:text-7xl [&_span]:[text-shadow:0_0_10px_rgba(94,111,182,0.65)]">
-                    Construyendo el <span>futuro digital</span> juntos
-                </h1>
-                <p class="text-muted-foreground text-center text-lg">
-                    Somos un equipo apasionado de desarrolladores, diseñadores y estrategas
-                    digitales comprometidos con transformar ideas en experiencias digitales
-                    excepcionales.
-                </p>
-                <div class="mt-4 flex items-center gap-2">
-                    <Button
-                        class="flex h-fit items-center gap-2 rounded-md px-3.5 py-2.5 text-sm font-medium">
-                        Nuestra Historia
-                        <ArrowRight className="size-5!" />
-                    </Button>
-                    <Button
-                        variant="ghost"
-                        class="flex h-fit items-center gap-2 rounded-md px-3.5 py-2.5 text-sm font-medium text-white">
-                        Ver Video
-                        <CirclePlay className="size-5! stroke-white" />
-                    </Button>
-                </div>
-            </div>
-        </div>
-    </section>
+    <HeroSubPage
+        badge="Sobre Nosotros"
+        title1="Construyendo el "
+        title2="futuro digital"
+        title3=" juntos"
+        description="Somos un equipo apasionado de desarrolladores, diseñadores y estrategas digitales comprometidos con transformar ideas en experiencias digitales excepcionales."
+        btn1="Nuestra Historia"
+        btn1Icon="BookMarked"
+        btn2="Ver Video"
+    />
 
     <!-- Mission Section -->
-    <section class="py-20">
+    <section class="mission-section py-24 lg:py-32">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-                <div>
-                    <div class="mb-4 flex items-center gap-2">
-                        <Target className="text-primary h-6 w-6" />
-                        <Badge variant="outline">Nuestra Misión</Badge>
+            <div class="mission-grid">
+                <!-- Label lateral vertical -->
+                <div class="mission-label-col">
+                    <span class="mission-label-vertical">NUESTRA MISIÓN</span>
+                </div>
+
+                <!-- Contenido principal -->
+                <div class="mission-content">
+                    <div class="mission-eyebrow">
+                        <span class="mission-line"></span>
+                        <span class="mission-tag">Propósito</span>
                     </div>
-                    <h2 class="mb-6 text-3xl font-bold md:text-4xl">
-                        Democratizar el desarrollo de software
+                    <h2 class="mission-heading">
+                        Democratizar<br />
+                        <em class="mission-heading-em">el desarrollo</em><br />
+                        de software
                     </h2>
-                    <p class="text-muted-foreground mb-6 text-lg">
+                    <p class="mission-body">
                         Creemos que toda empresa, sin importar su tamaño, merece tener acceso a
                         tecnología de clase mundial. Nuestra misión es hacer que el desarrollo de
                         software sea más accesible, eficiente y efectivo.
                     </p>
-                    <div class="space-y-4">
-                        <div class="flex items-start gap-3">
-                            <div class="bg-primary mt-2 h-2 w-2 flex-shrink-0 rounded-full"></div>
-                            <p class="text-muted-foreground">
-                                Crear herramientas que simplifiquen el proceso de desarrollo
-                            </p>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <div class="bg-primary mt-2 h-2 w-2 flex-shrink-0 rounded-full"></div>
-                            <p class="text-muted-foreground">
-                                Proporcionar soluciones escalables y sostenibles
-                            </p>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <div class="bg-primary mt-2 h-2 w-2 flex-shrink-0 rounded-full"></div>
-                            <p class="text-muted-foreground">
-                                Impulsar la innovación en la industria tecnológica
-                            </p>
+                    <ul class="mission-list">
+                        <li class="mission-list-item">
+                            <span class="mission-list-num">01</span>
+                            <span>Crear herramientas que simplifiquen el proceso de desarrollo</span
+                            >
+                        </li>
+                        <li class="mission-list-item">
+                            <span class="mission-list-num">02</span>
+                            <span>Proporcionar soluciones escalables y sostenibles</span>
+                        </li>
+                        <li class="mission-list-item">
+                            <span class="mission-list-num">03</span>
+                            <span>Impulsar la innovación en la industria tecnológica</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Imagen con overlay decorativo -->
+                <div class="mission-image-col">
+                    <div class="mission-image-frame">
+                        <img
+                            src="/images/workProcess/Gemini_Generated_Image_15yw9v15yw9v15yw.avif"
+                            alt="Equipo trabajando"
+                            class="mission-image"
+                        />
+                        <div class="mission-image-tag">
+                            <Target className="mission-image-icon" />
+                            <span>Misión</span>
                         </div>
                     </div>
-                </div>
-                <div class="relative">
-                    <img
-                        src="/images/workProcess/Gemini_Generated_Image_15yw9v15yw9v15yw.avif"
-                        alt="Equipo trabajando"
-                        class="w-full rounded-lg shadow-lg"
-                    />
+                    <div class="mission-deco-block"></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Values Section -->
-    <section class="bg-muted/30 py-20">
+    <section class="values-section py-24 lg:py-32">
         <div class="container mx-auto px-4">
-            <div class="mb-16 text-center">
-                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Nuestros Valores</h2>
-                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
+            <div class="values-header">
+                <div class="values-header-left">
+                    <span class="values-overline">Filosofía</span>
+                    <h2 class="values-heading">Nuestros<br /><strong>Valores</strong></h2>
+                </div>
+                <p class="values-subtext">
                     Los principios que guían nuestro trabajo y nuestras relaciones con clientes y
                     colaboradores.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <div class="values-grid">
                 {
-                    values.map((value) => (
-                        <Card className="text-center border-0 shadow-md group hover:shadow-lg transition-all duration-300">
-                            <CardHeader>
-                                <div class="bg-primary/10 group-hover:bg-primary/20 mx-auto mb-4 w-fit rounded-lg p-4 transition-colors">
-                                    <value.icon className="w-8 h-8 text-primary" />
+                    values.map((value, i) => (
+                        <div class="value-card" style={`--delay: ${i * 0.1}s`}>
+                            <div class="value-card-inner">
+                                <div class="value-icon-wrap">
+                                    <value.icon className="value-icon" />
                                 </div>
-                                <CardTitle className="text-xl">{value.title}</CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <p class="text-muted-foreground">{value.description}</p>
-                            </CardContent>
-                        </Card>
+                                <span class="value-num">0{i + 1}</span>
+                                <h3 class="value-title">{value.title}</h3>
+                                <p class="value-desc">{value.description}</p>
+                            </div>
+                            <div class="value-card-line" />
+                        </div>
                     ))
                 }
             </div>
@@ -288,109 +281,805 @@ const stats = [
     </section>
 
     <!-- Stats Section -->
-    <section class="py-20">
+    <section class="stats-section py-20 lg:py-28">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
-                {
-                    stats.map((stat) => (
-                        <div class="text-center">
-                            <div class="text-primary mb-2 text-4xl font-bold md:text-5xl">
-                                {stat.number}
+            <div class="stats-inner">
+                <div class="stats-bg-text" aria-hidden="true">DATA</div>
+                <div class="stats-grid">
+                    {
+                        stats.map((stat, i) => (
+                            <div class="stat-item" style={`--delay: ${i * 0.12}s`}>
+                                <div class="stat-number">{stat.number}</div>
+                                <div class="stat-divider" />
+                                <div class="stat-label">{stat.label}</div>
                             </div>
-                            <div class="text-muted-foreground font-medium">{stat.label}</div>
-                        </div>
-                    ))
-                }
+                        ))
+                    }
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Team Section -->
-    <section class="bg-muted/30 py-20">
-        <div class="container mx-auto px-4">
-            <div class="mb-16 text-center">
-                <h2 class="mb-4 text-3xl font-bold md:text-4xl">Conoce a Nuestro Equipo</h2>
-                <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
-                    Las personas talentosas que hacen posible todo lo que creamos.
-                </p>
-            </div>
-
-            <div
-                class="container mx-auto mt-16 grid gap-8 px-2 md:grid-cols-2 md:px-6 lg:grid-cols-4">
-                {
-                    people.map((person) => (
-                        <div class="bg-accent flex flex-grow flex-col items-center rounded-2xl p-8 shadow-lg">
-                            <span
-                                data-slot="avatar"
-                                class="relative mb-4 flex size-20 shrink-0 overflow-hidden rounded-full md:mb-5 lg:size-24">
-                                <img
-                                    data-slot="avatar-image"
-                                    class="aspect-square size-full"
-                                    src={person.avatar}
-                                    alt={person.name}
-                                    width="96"
-                                    height="96"
-                                    decoding="async"
-                                    loading="lazy"
-                                />
-                            </span>
-                            <p class="text-center font-medium">{person.name}</p>
-                            <p class="text-muted-foreground text-center">{person.role}</p>
-                            <p class="text-muted-foreground flex-1 py-3 text-center text-sm text-balance">
-                                {person.description}
-                            </p>
-                            <div class="mt-2 flex gap-4">
-                                {person.socialLinks.map((social) => {
-                                    return (
-                                        <a
-                                            href={social.url}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            title={`${social.name} de ${person.name}`}
-                                            aria-label={`Visitar perfil de ${person.name} en ${social.name}`}>
-                                            <span class="sr-only">
-                                                Visitar perfil de {person.name} en {social.name}
-                                            </span>
-                                            <social.icon className="size-4 text-muted-foreground hover:text-primary transition-colors" />
-                                        </a>
-                                    );
-                                })}
-                            </div>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-    </section>
+    <Team />
 
     <!-- Contact CTA -->
-    <section class="py-20">
+    <section class="cta-section py-24 lg:py-32">
         <div class="container mx-auto px-4">
-            <Card
-                className="from-primary to-primary/80 text-primary-foreground border-0 bg-gradient-to-r shadow-lg">
-                <CardContent className="p-12 text-center">
-                    <h2 class="mb-6 text-3xl font-bold md:text-4xl">
-                        ¿Listo para trabajar con nosotros?
+            <div class="cta-inner">
+                <!-- Decorative corner marks -->
+                <span class="cta-corner cta-corner--tl"></span>
+                <span class="cta-corner cta-corner--tr"></span>
+                <span class="cta-corner cta-corner--bl"></span>
+                <span class="cta-corner cta-corner--br"></span>
+
+                <div class="cta-content">
+                    <p class="cta-overline">¿Tienes un proyecto?</p>
+                    <h2 class="cta-heading">
+                        Trabajemos<br />
+                        <em class="cta-heading-em">juntos</em>
                     </h2>
-                    <p class="mx-auto mb-8 max-w-2xl text-lg opacity-90">
+                    <p class="cta-body">
                         Nos encantaría conocer tu proyecto y ayudarte a convertir tus ideas en
                         realidad. Programa una consultoría gratuita hoy mismo.
                     </p>
-                    <div class="flex flex-col justify-center gap-4 sm:flex-row">
-                        <a
-                            href="/contacto"
-                            class="text-primary inline-flex items-center justify-center rounded-lg bg-white px-8 py-3 font-medium transition-colors hover:bg-gray-100">
-                            <Mail className="mr-2 h-4 w-4" />
+                    <div class="cta-actions">
+                        <a href="/contacto" class="cta-btn-primary">
+                            <Mail className="cta-btn-icon" />
                             Contactar Ahora
                         </a>
-                        <a
-                            href="/productos"
-                            class="inline-flex items-center justify-center rounded-lg border border-white/20 px-8 py-3 font-medium transition-colors hover:bg-white/10">
-                            Ver Nuestros Productos
+                        <a href="/productos" class="cta-btn-secondary">
+                            Ver Productos
+                            <ArrowRight className="cta-btn-icon" />
                         </a>
                     </div>
-                </CardContent>
-            </Card>
+                </div>
+
+                <div class="cta-visual" aria-hidden="true">
+                    <div class="cta-ring cta-ring--1"></div>
+                    <div class="cta-ring cta-ring--2"></div>
+                    <div class="cta-ring cta-ring--3"></div>
+                    <div class="cta-center-dot"></div>
+                </div>
+            </div>
         </div>
     </section>
 </Layout>
+
+<style>
+    /* ─────────────────────────────────────────────
+   MISSION SECTION
+───────────────────────────────────────────── */
+    .mission-section {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .mission-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        align-items: start;
+    }
+
+    @media (min-width: 1024px) {
+        .mission-grid {
+            grid-template-columns: 2.5rem 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+    }
+
+    /* Columna de label vertical */
+    .mission-label-col {
+        display: none;
+    }
+    @media (min-width: 1024px) {
+        .mission-label-col {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .mission-label-vertical {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        transform: rotate(180deg);
+        font-size: 0.65rem;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--muted-foreground);
+        font-weight: 600;
+        opacity: 0.5;
+    }
+
+    /* Eyebrow */
+    .mission-eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .mission-line {
+        display: block;
+        width: 2.5rem;
+        height: 2px;
+        background: var(--primary);
+        flex-shrink: 0;
+    }
+
+    .mission-tag {
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: var(--primary);
+    }
+
+    /* Heading */
+    .mission-heading {
+        font-family: var(--font-cocogoose), sans-serif;
+        font-weight: 500;
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+        color: var(--foreground);
+        margin-bottom: 1.75rem;
+    }
+
+    .mission-heading-em {
+        font-style: italic;
+        color: var(--primary);
+        font-family: var(--font-serif), serif;
+        font-weight: 400;
+    }
+
+    /* Body */
+    .mission-body {
+        font-size: 1.05rem;
+        line-height: 1.75;
+        color: var(--muted-foreground);
+        margin-bottom: 2rem;
+        max-width: 42ch;
+    }
+
+    /* List */
+    .mission-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        border-top: 1px solid var(--border);
+        padding-top: 1.5rem;
+    }
+
+    .mission-list-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.25rem;
+        font-size: 0.9rem;
+        color: var(--muted-foreground);
+        line-height: 1.5;
+        animation: fadeSlideUp 0.6s ease both;
+        animation-delay: calc(var(--delay, 0s) + 0.3s);
+    }
+
+    .mission-list-num {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: var(--primary);
+        opacity: 0.7;
+        flex-shrink: 0;
+        padding-top: 0.15em;
+    }
+
+    /* Image column */
+    .mission-image-col {
+        position: relative;
+    }
+
+    .mission-image-frame {
+        position: relative;
+        border-radius: 0.75rem;
+        overflow: hidden;
+        box-shadow:
+            0 4px 6px -1px oklch(0 0 0 / 0.12),
+            0 20px 40px -8px oklch(0 0 0 / 0.18);
+    }
+
+    .mission-image {
+        width: 100%;
+        height: auto;
+        display: block;
+        aspect-ratio: 4/3;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+    }
+
+    .mission-image-frame:hover .mission-image {
+        transform: scale(1.03);
+    }
+
+    .mission-image-tag {
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: oklch(0 0 0 / 0.55);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid oklch(1 0 0 / 0.12);
+        color: white;
+        padding: 0.4rem 0.75rem;
+        border-radius: 2rem;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    .mission-image-icon {
+        width: 0.85rem;
+        height: 0.85rem;
+        opacity: 0.8;
+    }
+
+    /* Decorative block behind image */
+    .mission-deco-block {
+        position: absolute;
+        bottom: -1.25rem;
+        right: -1.25rem;
+        width: 50%;
+        height: 50%;
+        border: 2px solid var(--primary);
+        border-radius: 0.75rem;
+        opacity: 0.2;
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    /* ─────────────────────────────────────────────
+   VALUES SECTION
+───────────────────────────────────────────── */
+    .values-section {
+        background:
+            radial-gradient(
+                ellipse 60% 50% at 80% 20%,
+                oklch(0.6 0.12 272 / 0.07) 0%,
+                transparent 70%
+            ),
+            var(--muted);
+        position: relative;
+        overflow: hidden;
+    }
+
+    :global(.dark) .values-section {
+        background:
+            radial-gradient(
+                ellipse 60% 50% at 80% 20%,
+                oklch(0.6 0.12 272 / 0.1) 0%,
+                transparent 70%
+            ),
+            var(--card);
+    }
+
+    .values-header {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-bottom: 4rem;
+    }
+
+    @media (min-width: 768px) {
+        .values-header {
+            flex-direction: row;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+    }
+
+    .values-overline {
+        display: block;
+        font-size: 0.65rem;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+    }
+
+    .values-heading {
+        font-family: var(--font-cocogoose), sans-serif;
+        font-weight: 300;
+        font-size: clamp(2rem, 4vw, 3.25rem);
+        line-height: 1;
+        letter-spacing: -0.02em;
+        color: var(--foreground);
+    }
+
+    .values-heading strong {
+        font-weight: 500;
+        color: var(--primary);
+    }
+
+    .values-subtext {
+        max-width: 38ch;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: var(--muted-foreground);
+    }
+
+    /* Grid */
+    .values-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5px;
+        border: 1.5px solid var(--border);
+        border-radius: 1rem;
+        overflow: hidden;
+        background: var(--border);
+    }
+
+    @media (min-width: 640px) {
+        .values-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .values-grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    /* Cards */
+    .value-card {
+        position: relative;
+        background: var(--background);
+        padding: 2rem 1.75rem 2.5rem;
+        overflow: hidden;
+        transition: background 0.3s ease;
+        animation: fadeSlideUp 0.55s ease both;
+        animation-delay: var(--delay, 0s);
+    }
+
+    :global(.dark) .value-card {
+        background: var(--card);
+    }
+
+    .value-card:hover {
+        background: var(--card);
+        z-index: 1;
+    }
+
+    :global(.dark) .value-card:hover {
+        background: oklch(0.28 0.04 271 / 1);
+    }
+
+    .value-card-line {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: var(--primary);
+        transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .value-card:hover .value-card-line {
+        width: 100%;
+    }
+
+    .value-card-inner {
+        position: relative;
+        z-index: 1;
+    }
+
+    .value-icon-wrap {
+        width: 3rem;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1.5px solid var(--border);
+        border-radius: 0.625rem;
+        margin-bottom: 1.25rem;
+        background: var(--background);
+        transition:
+            border-color 0.3s ease,
+            background 0.3s ease;
+    }
+
+    .value-card:hover .value-icon-wrap {
+        border-color: var(--primary);
+        background: oklch(from var(--primary) l c h / 0.08);
+    }
+
+    .value-icon {
+        width: 1.25rem;
+        height: 1.25rem;
+        color: var(--primary);
+    }
+
+    .value-num {
+        display: block;
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        color: var(--muted-foreground);
+        opacity: 0.5;
+        margin-bottom: 0.75rem;
+    }
+
+    .value-title {
+        font-family: var(--font-cocogoose), sans-serif;
+        font-weight: 500;
+        font-size: 1rem;
+        line-height: 1.2;
+        color: var(--foreground);
+        margin-bottom: 0.75rem;
+        letter-spacing: -0.01em;
+    }
+
+    .value-desc {
+        font-size: 0.875rem;
+        line-height: 1.7;
+        color: var(--muted-foreground);
+    }
+
+    /* ─────────────────────────────────────────────
+   STATS SECTION
+───────────────────────────────────────────── */
+    .stats-section {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .stats-inner {
+        position: relative;
+        border-top: 1.5px solid var(--border);
+        border-bottom: 1.5px solid var(--border);
+        padding: 3.5rem 0;
+    }
+
+    .stats-bg-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: var(--font-cocogoose), sans-serif;
+        font-weight: 500;
+        font-size: clamp(5rem, 18vw, 14rem);
+        letter-spacing: 0.1em;
+        color: var(--foreground);
+        opacity: 0.025;
+        pointer-events: none;
+        user-select: none;
+        white-space: nowrap;
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        position: relative;
+    }
+
+    @media (min-width: 768px) {
+        .stats-grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    .stat-item {
+        text-align: center;
+        position: relative;
+        animation: fadeSlideUp 0.6s ease both;
+        animation-delay: var(--delay, 0s);
+    }
+
+    .stat-item::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1px;
+        height: 60%;
+        background: var(--border);
+    }
+
+    .stat-item:first-child::before {
+        display: none;
+    }
+
+    @media (max-width: 767px) {
+        .stat-item:nth-child(3)::before {
+            display: none;
+        }
+    }
+
+    .stat-number {
+        font-family: var(--font-ibm-plex-sans), sans-serif;
+        font-weight: 800;
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        line-height: 1;
+        color: var(--primary);
+        letter-spacing: -0.04em;
+        margin-bottom: 0.5rem;
+    }
+
+    .stat-divider {
+        width: 2rem;
+        height: 2px;
+        background: var(--primary);
+        opacity: 0.4;
+        margin: 0.5rem auto;
+    }
+
+    .stat-label {
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: var(--muted-foreground);
+    }
+
+    /* ─────────────────────────────────────────────
+   CTA SECTION
+───────────────────────────────────────────── */
+    .cta-section {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .cta-inner {
+        position: relative;
+        border: 1.5px solid var(--border);
+        border-radius: 1.25rem;
+        padding: 4rem 3rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        overflow: hidden;
+        background: radial-gradient(
+            ellipse 50% 80% at 80% 50%,
+            oklch(0.6 0.12 272 / 0.08) 0%,
+            transparent 70%
+        );
+    }
+
+    :global(.dark) .cta-inner {
+        background:
+            radial-gradient(
+                ellipse 50% 80% at 80% 50%,
+                oklch(0.6 0.12 272 / 0.15) 0%,
+                transparent 70%
+            ),
+            var(--card);
+        border-color: oklch(1 0 0 / 0.08);
+    }
+
+    @media (min-width: 768px) {
+        .cta-inner {
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            padding: 5rem 4rem;
+        }
+    }
+
+    /* Corner decorations */
+    .cta-corner {
+        position: absolute;
+        width: 1.25rem;
+        height: 1.25rem;
+        border-color: var(--primary);
+        border-style: solid;
+        opacity: 0.4;
+    }
+
+    .cta-corner--tl {
+        top: 0.75rem;
+        left: 0.75rem;
+        border-width: 1.5px 0 0 1.5px;
+    }
+    .cta-corner--tr {
+        top: 0.75rem;
+        right: 0.75rem;
+        border-width: 1.5px 1.5px 0 0;
+    }
+    .cta-corner--bl {
+        bottom: 0.75rem;
+        left: 0.75rem;
+        border-width: 0 0 1.5px 1.5px;
+    }
+    .cta-corner--br {
+        bottom: 0.75rem;
+        right: 0.75rem;
+        border-width: 0 1.5px 1.5px 0;
+    }
+
+    /* Content */
+    .cta-overline {
+        display: block;
+        font-size: 0.65rem;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+    }
+
+    .cta-heading {
+        font-family: var(--font-cocogoose), sans-serif;
+        font-weight: 500;
+        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        line-height: 1;
+        letter-spacing: -0.04em;
+        color: var(--foreground);
+        margin-bottom: 1.25rem;
+    }
+
+    .cta-heading-em {
+        font-style: italic;
+        color: var(--primary);
+        font-family: var(--font-serif), serif;
+        font-weight: 400;
+    }
+
+    .cta-body {
+        font-size: 1rem;
+        line-height: 1.75;
+        color: var(--muted-foreground);
+        max-width: 44ch;
+        margin-bottom: 2.5rem;
+    }
+
+    .cta-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .cta-btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.75rem;
+        background: var(--primary);
+        color: var(--primary-foreground);
+        border-radius: 0.5rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition:
+            opacity 0.2s ease,
+            transform 0.2s ease;
+    }
+
+    .cta-btn-primary:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+    }
+
+    .cta-btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        background: transparent;
+        color: var(--foreground);
+        border: 1.5px solid var(--border);
+        border-radius: 0.5rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition:
+            border-color 0.2s ease,
+            color 0.2s ease,
+            transform 0.2s ease;
+    }
+
+    .cta-btn-secondary:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+        transform: translateY(-1px);
+    }
+
+    .cta-btn-icon {
+        width: 1rem;
+        height: 1rem;
+        flex-shrink: 0;
+    }
+
+    /* Visual rings */
+    .cta-visual {
+        display: none;
+        position: relative;
+        width: 220px;
+        height: 220px;
+        flex-shrink: 0;
+    }
+
+    @media (min-width: 768px) {
+        .cta-visual {
+            display: block;
+        }
+    }
+
+    .cta-ring {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 1.5px solid var(--primary);
+        border-radius: 50%;
+        opacity: 0.15;
+        animation: ctaPulse 3s ease-in-out infinite;
+    }
+
+    .cta-ring--1 {
+        width: 80px;
+        height: 80px;
+        animation-delay: 0s;
+        opacity: 0.25;
+    }
+    .cta-ring--2 {
+        width: 140px;
+        height: 140px;
+        animation-delay: 0.5s;
+        opacity: 0.15;
+    }
+    .cta-ring--3 {
+        width: 200px;
+        height: 200px;
+        animation-delay: 1s;
+        opacity: 0.08;
+    }
+
+    .cta-center-dot {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 1.5rem;
+        height: 1.5rem;
+        background: var(--primary);
+        border-radius: 50%;
+        opacity: 0.7;
+    }
+
+    @keyframes ctaPulse {
+        0%,
+        100% {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: var(--op, 0.15);
+        }
+        50% {
+            transform: translate(-50%, -50%) scale(1.06);
+        }
+    }
+
+    /* ─────────────────────────────────────────────
+   SHARED ANIMATIONS
+───────────────────────────────────────────── */
+    @keyframes fadeSlideUp {
+        from {
+            opacity: 0;
+            transform: translateY(1.5rem);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>

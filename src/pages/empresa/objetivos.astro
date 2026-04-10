@@ -4,6 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Target, Globe, Users, Lightbulb, Heart, Zap, Award, ArrowRight } from 'lucide-react';
 import Button from '@/components/ui/Button.astro';
+import Hero from '@/components/interfaces/Hero.astro';
+import HeroSubPage from '@/components/interfaces/HeroSubPage.astro';
 
 const objectives = [
     {
@@ -118,40 +120,18 @@ const goals2030 = [
     title="Misión, Visión y Objetivos | Devanthos"
     description="Nuestra misión es impulsar la transformación digital en Latinoamérica. Conoce los objetivos y la visión de Devanthos.">
     <!-- Hero Section -->
-    <section
-        class="font-public_sans bg-background before:from-muted dark relative py-24 before:absolute before:top-0 before:left-0 before:z-10 before:block before:h-[15rem] before:w-full before:bg-linear-to-b before:to-transparent before:content-[''] md:py-32">
-        <div class="relative z-20 container mx-auto px-4">
-            <div class="relative z-20 mx-auto flex max-w-[56.25rem] flex-col items-center gap-6">
-                <Badge
-                    className="border-muted bg-muted hover:border-primary mb-4 flex w-fit items-center gap-1 rounded-full border px-2.5 py-1.5"
-                    >Nuestros Objetivos</Badge
-                >
-                <h1
-                    class="text-foreground font-cocogoose [&_span]:text-primary text-center text-5xl leading-tight [text-shadow:0_0_10px_rgba(255,255,255,0.65)] md:text-6xl lg:text-7xl [&_span]:[text-shadow:0_0_10px_rgba(94,111,182,0.65)]">
-                    Construyendo el <span>Futuro Digital</span>
-                </h1>
-                <p class="text-muted-foreground text-center text-lg">
-                    Nuestra misión es democratizar la tecnología y empoderar a las empresas de
-                    Latinoamérica para que lideren la transformación digital global.
-                </p>
-                <div class="mt-4 flex items-center gap-2">
-                    <Button
-                        href="#objetivos"
-                        class="flex h-fit items-center gap-2 rounded-md px-3.5 py-2.5 text-sm font-medium">
-                        <Target className="size-5!" />
-                        Ver Objetivos
-                    </Button>
-                    <Button
-                        href="/empresa"
-                        variant="ghost"
-                        class="flex h-fit items-center gap-2 rounded-md px-3.5 py-2.5 text-sm font-medium text-white">
-                        Conocer la Empresa
-                    </Button>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    <HeroSubPage
+        badge="Nuestros Objetivos"
+        title1="Construyendo el "
+        title2="Futuro Digital"
+        description="Nuestra misión es democratizar la tecnología y empoderar a las empresas de Latinoamérica para que lideren la transformación digital global."
+        btn1="Ver Objetivos"
+        btn1Icon="CircleCheckBig"
+        btn1href="#objetivos"
+        btn2="Conocer la Empresa"
+        btn2Icon="ArrowUpRight"
+        btn2href="/empresa"
+    />
     <!-- Mission & Vision -->
     <section class="py-20">
         <div class="container mx-auto px-4">
