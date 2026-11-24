@@ -1,0 +1,480 @@
+---
+/**
+ * Oferta temporal para la comunidad "IA Emprendedores".
+ * - No se indexa (noindex) y está excluida del sitemap (astro.config.mjs).
+ * - Para cambiar precios, o fecha de cierre, editar solo el objeto OFFER.
+ * - Al terminar la promo: borrar este archivo + el filtro del sitemap + la entrada del breadcrumb.
+ */
+import Layout from '@/layouts/Layout.astro';
+import Button from '@/components/ui/Button.astro';
+import { Badge } from '@/components/ui/badge';
+import {
+    ArrowRight,
+    Building,
+    Check,
+    Clock,
+    Gift,
+    Globe,
+    MapPin,
+    MessageCircle,
+    Phone,
+    Camera,
+    Rocket,
+    ShieldCheck,
+    Sparkles,
+    Star,
+    Zap,
+} from 'lucide-react';
+
+// ─── Configuración de la oferta ──────────────────────────────────────────────
+const OFFER = {
+    /** Fecha y hora de cierre (ISO con zona horaria de Argentina). */
+    endsAt: '2026-12-15T23:59:59-03:00',
+    whatsappPhone: '56934248692',
+};
+
+const plans = [
+    {
+        id: 'landing',
+        name: 'Landing Page',
+        icon: Globe,
+        description:
+            'Una página enfocada en convertir visitas en clientes. Ideal para lanzar tu producto o servicio.',
+        regularPrice: 250,
+        offerPrice: 125,
+        delivery: '7 días',
+        popular: false,
+        bonus: 'Ficha de Google de regalo',
+        features: [
+            'Diseño a medida y 100% responsive',
+            'Botón de WhatsApp y formulario de contacto',
+            'SEO básico para aparecer en Google',
+            'Google Analytics configurado',
+            'Carga ultra rápida',
+            'Dominio y hosting: te asesoramos',
+        ],
+    },
+    {
+        id: 'institucional',
+        name: 'Web Institucional',
+        icon: Building,
+        description:
+            'Sitio completo para tu marca o empresa: quiénes son, qué hacen y cómo contactarlos.',
+        regularPrice: 500,
+        offerPrice: 250,
+        delivery: '14 días',
+        popular: true,
+        bonus: 'Ficha de Google de regalo',
+        features: [
+            'Hasta 5 secciones (Inicio, Nosotros, Servicios, Galería, Contacto)',
+            'Diseño a medida y 100% responsive',
+            'Blog o sección de novedades',
+            'SEO on-page en todas las páginas',
+            'Botón de WhatsApp y formulario de contacto',
+            'Google Analytics configurado',
+        ],
+    },
+    {
+        id: 'ficha-google',
+        name: 'Ficha de Google',
+        icon: MapPin,
+        description:
+            'Aparecé en Google Maps y en las búsquedas locales cuando te buscan cerca.',
+        regularPrice: 100,
+        offerPrice: 50,
+        delivery: '3 días',
+        popular: false,
+        bonus: null,
+        features: [
+            'Creación o optimización de tu Perfil de Empresa',
+            'Ubicación, horarios y datos de contacto',
+            'Categorías y descripción optimizadas',
+            'Carga de fotos de tu negocio',
+            'Guía para conseguir y responder reseñas',
+            'Pago único, sin mensualidades',
+        ],
+    },
+];
+
+const googleFeatures = [
+    { icon: MapPin, title: 'Google Maps', description: 'Te encuentran cuando buscan cerca.' },
+    { icon: Clock, title: 'Horarios', description: 'Siempre actualizados y visibles.' },
+    { icon: Phone, title: 'Contacto directo', description: 'Llamadas y WhatsApp en un clic.' },
+    { icon: Camera, title: 'Fotos', description: 'Mostrá tu negocio antes de que lleguen.' },
+];
+
+const reasons = [
+    {
+        icon: Zap,
+        title: 'Entrega rápida',
+        description: 'Tu web online en 7 a 14 días, sin vueltas.',
+    },
+    {
+        icon: Sparkles,
+        title: 'Pensado para emprender',
+        description: 'Lo justo y necesario para vender, sin pagar de más.',
+    },
+    {
+        icon: ShieldCheck,
+        title: 'Acompañamiento real',
+        description: 'Te explicamos todo y te dejamos la web lista para usar.',
+    },
+    {
+        icon: Rocket,
+        title: 'Listo para crecer',
+        description: 'Base técnica sólida para sumar SEO, ads o tienda después.',
+    },
+];
+
+const faqs = [
+    {
+        q: '¿Hasta cuándo vale la oferta?',
+        a: 'Hasta la fecha indicada en el contador. Respetamos el precio para quien reserve dentro del plazo.',
+    },
+    {
+        q: '¿Cómo se paga?',
+        a: 'Trabajamos con un 50% de anticipo para comenzar y el 50% restante al entregar el proyecto.',
+    },
+    {
+        q: '¿El dominio y el hosting están incluidos?',
+        a: 'No están incluidos en el precio, pero te asesoramos para elegir y contratar la mejor opción según tu proyecto, y nos encargamos de la configuración.',
+    },
+    {
+        q: '¿Qué necesito tener listo?',
+        a: 'Tu logo, textos básicos de tu negocio y fotos si las tenés. Si te falta algo, te ayudamos a armarlo.',
+    },
+    {
+        q: '¿La ficha de Google de regalo aplica con cualquier web?',
+        a: 'Sí: al contratar la Landing Page o la Web Institucional durante la promo, la creación/optimización de tu ficha de Google va sin cargo.',
+    },
+];
+
+// ─── Helpers ─────────────────────────────────────────────────────────────────
+const discount = (regular: number, offer: number) => Math.round((1 - offer / regular) * 100);
+
+const whatsappLink = (message: string) =>
+    `https://api.whatsapp.com/send?phone=${OFFER.whatsappPhone}&text=${encodeURIComponent(message)}`;
+
+const endsAtLabel = new Intl.DateTimeFormat('es-AR', {
+    day: 'numeric',
+    month: 'long',
+    timeZone: 'America/Argentina/Buenos_Aires',
+}).format(new Date(OFFER.endsAt));
+
+const maxDiscount = Math.max(...plans.map((p) => discount(p.regularPrice, p.offerPrice)));
+---
+
+<Layout
+    title="Oferta IA Emprendedores: tu web + ficha de Google | Devanthos"
+    description={`Oferta exclusiva para emprendedores: Landing Page, Web Institucional y Ficha de Google con ${maxDiscount}% OFF. Válida hasta el ${endsAtLabel}.`}
+    noindex
+    overFlowHidden>
+    <!-- Hero -->
+    <section class="relative overflow-hidden px-4 pt-36 pb-20">
+        <div class="from-primary/20 absolute inset-0 bg-gradient-to-br via-transparent to-violet-500/20">
+        </div>
+        <div class="bg-primary/30 absolute -top-40 -right-40 h-80 w-80 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-violet-500/30 blur-3xl">
+        </div>
+
+        <div class="relative z-10 container mx-auto max-w-5xl text-center">
+            <div class="mb-6 flex justify-center">
+                <Badge variant="outline" className="px-4 py-2 text-xs md:text-sm">
+                    <Sparkles className="text-primary mr-2 h-4 w-4" />
+                    Oferta exclusiva · Comunidad IA Emprendedores
+                </Badge>
+            </div>
+
+            <h1 class="font-cocogoose mb-6 text-3xl leading-tight md:text-6xl">
+                Tu negocio online con
+                <span
+                    class="from-primary bg-gradient-to-r to-violet-500 bg-clip-text text-transparent">
+                    <span class="font-sans font-extrabold">{maxDiscount}%</span> OFF
+                </span>
+            </h1>
+
+            <p class="text-muted-foreground mx-auto mb-8 max-w-3xl md:text-xl">
+                Landing Page, Web Institucional y Ficha de Google a precio de lanzamiento. Y si
+                contratás tu web, <strong class="text-foreground"
+                    >la ficha de Google va de regalo</strong
+                >.
+            </p>
+
+            <!-- Countdown -->
+            <div
+                id="offer-countdown"
+                data-ends-at={OFFER.endsAt}
+                class="mx-auto mb-4 grid max-w-md grid-cols-4 gap-2 sm:gap-3">
+                {
+                    ['días', 'horas', 'min', 'seg'].map((label, i) => (
+                        <div class="bg-background/70 rounded-xl border p-3 backdrop-blur">
+                            <div
+                                class="font-sans text-2xl font-bold tabular-nums md:text-4xl"
+                                data-unit={i}>
+                                --
+                            </div>
+                            <div class="text-muted-foreground text-xs uppercase">{label}</div>
+                        </div>
+                    ))
+                }
+            </div>
+            <p id="offer-status" class="text-muted-foreground mb-8 text-sm">
+                Válido hasta el {endsAtLabel}.
+            </p>
+
+            <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+                <Button href="#planes" size="lg">
+                    Ver la oferta
+                    <ArrowRight className="size-4" />
+                </Button>
+                <Button
+                    href={whatsappLink('Hola, vengo de IA Emprendedores y quiero consultar por la oferta.')}
+                    target="_blank"
+                    rel="noreferrer"
+                    variant="outline"
+                    size="lg">
+                    <MessageCircle className="size-4" />
+                    Consultar por WhatsApp
+                </Button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planes -->
+    <section id="planes" class="scroll-mt-24 px-4 py-20">
+        <div class="container mx-auto">
+            <div class="mb-12 text-center">
+                <h2 class="font-cocogoose mb-4 text-2xl md:text-5xl">Elegí tu plan</h2>
+                <p class="text-muted-foreground mx-auto max-w-2xl md:text-lg">
+                    Precios en USD, pago único. Sin mensualidades ni letra chica.
+                </p>
+            </div>
+
+            <div class="grid gap-6 lg:grid-cols-3">
+                {
+                    plans.map((plan) => {
+                        const Icon = plan.icon;
+                        return (
+                            <article
+                                class:list={[
+                                    'bg-card relative flex flex-col rounded-2xl border p-6 shadow-sm md:p-8',
+                                    plan.popular && 'border-primary ring-primary/30 shadow-xl ring-2 lg:-translate-y-3',
+                                ]}>
+                                {plan.popular && (
+                                    <div class="bg-primary text-primary-foreground absolute -top-3 left-1/2 flex -translate-x-1/2 items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold">
+                                        <Star className="size-3" />
+                                        Más elegido
+                                    </div>
+                                )}
+
+                                <div class="mb-4 flex items-center justify-between">
+                                    <div class="bg-primary/10 text-primary flex size-12 items-center justify-center rounded-xl">
+                                        <Icon className="size-6" />
+                                    </div>
+                                    <span class="rounded-full bg-emerald-500/15 px-3 py-1 text-sm font-semibold text-emerald-600 dark:text-emerald-400">
+                                        -{discount(plan.regularPrice, plan.offerPrice)}%
+                                    </span>
+                                </div>
+
+                                <h3 class="mb-2 text-2xl font-semibold">{plan.name}</h3>
+                                <p class="text-muted-foreground mb-6 text-sm">{plan.description}</p>
+
+                                <div class="mb-1 flex items-end gap-3">
+                                    <span class="font-sans text-5xl font-extrabold tracking-tight">${plan.offerPrice}</span>
+                                    <span class="text-muted-foreground mb-1 text-lg line-through">
+                                        ${plan.regularPrice}
+                                    </span>
+                                </div>
+                                <p class="text-muted-foreground mb-6 text-xs">
+                                    USD · pago único · entrega en {plan.delivery}
+                                </p>
+
+                                {plan.bonus && (
+                                    <div class="border-primary/30 bg-primary/5 mb-6 flex items-center gap-2 rounded-lg border border-dashed px-3 py-2 text-sm font-medium">
+                                        <Gift className="text-primary size-4" />
+                                        {plan.bonus}
+                                    </div>
+                                )}
+
+                                <ul class="mb-8 space-y-3">
+                                    {plan.features.map((feature) => (
+                                        <li class="flex gap-2 text-sm">
+                                            <Check className="text-primary mt-0.5 size-4 shrink-0" />
+                                            {feature}
+                                        </li>
+                                    ))}
+                                </ul>
+
+                                <Button
+                                    href={whatsappLink(
+                                        `Hola, vengo de IA Emprendedores y quiero reservar la oferta de ${plan.name} a $${plan.offerPrice} USD.`
+                                    )}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    size="lg"
+                                    variant={plan.popular ? 'default' : 'outline'}
+                                    class="mt-auto w-full"
+                                    data-offer-cta>
+                                    Reservar mi lugar
+                                    <ArrowRight className="size-4" />
+                                </Button>
+                            </article>
+                        );
+                    })
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Ficha de Google -->
+    <section class="px-4 py-20">
+        <div class="container mx-auto grid items-center gap-12 lg:grid-cols-2">
+            <div>
+                <Badge variant="outline" className="mb-4">
+                    <MapPin className="mr-2 size-4" />
+                    SEO local
+                </Badge>
+                <h2 class="font-cocogoose mb-4 text-2xl md:text-5xl">
+                    ¿Por qué tu negocio necesita su ficha de Google?
+                </h2>
+                <p class="text-muted-foreground mb-8 md:text-lg">
+                    Cuando alguien busca lo que vendés “cerca de mí”, Google muestra primero los
+                    negocios con una ficha completa. Sin ficha, esos clientes se van con la
+                    competencia.
+                </p>
+                <div class="grid grid-cols-2 gap-5">
+                    {
+                        googleFeatures.map((feature) => {
+                            const Icon = feature.icon;
+                            return (
+                                <div class="flex gap-3">
+                                    <Icon className="text-primary mt-1 size-5 shrink-0" />
+                                    <div>
+                                        <h3 class="font-semibold">{feature.title}</h3>
+                                        <p class="text-muted-foreground text-sm">
+                                            {feature.description}
+                                        </p>
+                                    </div>
+                                </div>
+                            );
+                        })
+                    }
+                </div>
+            </div>
+            <img
+                src="/images/service/marketing-digital-seo-2.avif"
+                alt="Optimización de ficha de Google para negocios locales"
+                loading="lazy"
+                class="max-h-[32rem] w-full rounded-2xl border object-cover shadow-xl"
+            />
+        </div>
+    </section>
+
+    <!-- Por qué Devanthos -->
+    <section class="px-4 py-20">
+        <div class="container mx-auto">
+            <h2 class="font-cocogoose mb-12 text-center text-2xl md:text-5xl">
+                ¿Por qué con Devanthos?
+            </h2>
+            <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                {
+                    reasons.map((reason) => {
+                        const Icon = reason.icon;
+                        return (
+                            <div class="text-center">
+                                <div class="from-primary mx-auto mb-4 flex size-14 items-center justify-center rounded-full bg-gradient-to-br to-violet-500">
+                                    <Icon className="size-7 text-white" />
+                                </div>
+                                <h3 class="mb-2 text-lg font-semibold">{reason.title}</h3>
+                                <p class="text-muted-foreground text-sm">{reason.description}</p>
+                            </div>
+                        );
+                    })
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="px-4 py-20">
+        <div class="container mx-auto max-w-3xl">
+            <h2 class="font-cocogoose mb-10 text-center text-2xl md:text-5xl">
+                Preguntas frecuentes
+            </h2>
+            <div class="space-y-3">
+                {
+                    faqs.map((faq) => (
+                        <details class="group bg-card rounded-xl border p-5 [&_summary::-webkit-details-marker]:hidden">
+                            <summary class="flex cursor-pointer items-center justify-between gap-4 font-medium">
+                                {faq.q}
+                                <span class="text-primary text-xl transition-transform group-open:rotate-45">
+                                    +
+                                </span>
+                            </summary>
+                            <p class="text-muted-foreground mt-3 text-sm">{faq.a}</p>
+                        </details>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA final -->
+    <section class="px-4 pt-10 pb-24">
+        <div
+            class="from-primary relative container mx-auto overflow-hidden rounded-2xl bg-gradient-to-r to-violet-600 px-6 py-14 text-center text-white shadow-2xl md:px-16">
+            <h2 class="font-cocogoose mb-4 text-2xl md:text-4xl">
+                Los cupos son limitados
+            </h2>
+            <p class="mx-auto mb-8 max-w-2xl text-white/90 md:text-lg">
+                Escribinos hoy, contanos tu proyecto y te reservamos el precio de la oferta.
+            </p>
+            <a
+                href={whatsappLink('Hola, vengo de IA Emprendedores y quiero reservar mi lugar en la oferta.')}
+                target="_blank"
+                rel="noreferrer"
+                class="text-primary inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-semibold transition hover:bg-white/90"
+                data-offer-cta>
+                <MessageCircle className="size-5" />
+                Quiero mi web
+            </a>
+        </div>
+    </section>
+</Layout>
+
+<script>
+    // Countdown — se re-inicializa en cada navegación (ClientRouter / View Transitions).
+    let timer: ReturnType<typeof setInterval> | undefined;
+
+    function initCountdown() {
+        clearInterval(timer);
+        const root = document.getElementById('offer-countdown');
+        if (!root) return;
+
+        const endsAt = new Date(root.dataset.endsAt ?? '').getTime();
+        const units = root.querySelectorAll<HTMLElement>('[data-unit]');
+        const status = document.getElementById('offer-status');
+
+        const tick = () => {
+            const diff = endsAt - Date.now();
+            if (Number.isNaN(endsAt) || diff <= 0) {
+                clearInterval(timer);
+                units.forEach((el) => (el.textContent = '00'));
+                if (status) status.textContent = 'La oferta finalizó. Escribinos igual y te asesoramos.';
+                return;
+            }
+            const values = [
+                Math.floor(diff / 86_400_000),
+                Math.floor(diff / 3_600_000) % 24,
+                Math.floor(diff / 60_000) % 60,
+                Math.floor(diff / 1000) % 60,
+            ];
+            units.forEach((el, i) => (el.textContent = String(values[i]).padStart(2, '0')));
+        };
+
+        tick();
+        timer = setInterval(tick, 1000);
+    }
+
+    document.addEventListener('astro:page-load', initCountdown);
+</script>

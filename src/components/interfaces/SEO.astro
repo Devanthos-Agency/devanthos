@@ -16,6 +16,7 @@ interface Props {
     canonical?: string;
     image?: string;
     keywords?: string;
+    noindex?: boolean;
 }
 
 const {
@@ -24,6 +25,7 @@ const {
     preload,
     canonical = new URL(Astro.url.pathname, 'https://www.devanthos.com').href,
     image = 'https://www.devanthos.com/metadata.jpg',
+    noindex = false,
     keywords = 'desarrollo web, desarrollo de software, aplicaciones web, aplicaciones móviles, diseño web, SEO, marketing digital, DevOps, bases de datos, programación, tecnología',
 } = Astro.props as Props;
 ---
@@ -67,8 +69,19 @@ const {
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="es_ES" />
 
-<meta name="robots" content="index, follow" />
-<meta name="googlebot" content="index, follow" />
+{
+    noindex ? (
+        <>
+            <meta name="robots" content="noindex, nofollow" />
+            <meta name="googlebot" content="noindex, nofollow" />
+        </>
+    ) : (
+        <>
+            <meta name="robots" content="index, follow" />
+            <meta name="googlebot" content="index, follow" />
+        </>
+    )
+}
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="apple-touch-icon" href="/favicon.svg" />

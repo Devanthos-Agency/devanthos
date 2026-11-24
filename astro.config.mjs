@@ -20,6 +20,8 @@ export default defineConfig({
         react(),
         mdx(),
         sitemap({
+            // Páginas de ofertas temporales: fuera del sitemap
+            filter: (page) => !page.includes('/ia-emprendedores'),
             serialize(item) {
                 item.lastmod = `${new Date()}`;
                 return item;

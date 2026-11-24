@@ -20,9 +20,10 @@ interface Props {
     canonical?: string;
     image?: string;
     overFlowHidden?: boolean;
+    noindex?: boolean;
 }
 
-const { title, description, preload, canonical, image, overFlowHidden } = Astro.props;
+const { title, description, preload, canonical, image, overFlowHidden, noindex } = Astro.props;
 
 import '@/styles/global.css';
 import '@/styles/marquee.css';
@@ -85,6 +86,7 @@ import GradualBlur from '@/components/gradual-blur';
             description={description}
             image={image}
             preload={preload}
+            noindex={noindex}
             title={title}
         />
         <ClientRouter />
