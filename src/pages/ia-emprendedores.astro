@@ -2,7 +2,7 @@
 /**
  * Oferta temporal para la comunidad "IA Emprendedores".
  * - No se indexa (noindex) y está excluida del sitemap (astro.config.mjs).
- * - Para cambiar precios, fecha de cierre o cupos, editar solo el objeto OFFER.
+ * - Para cambiar precios, o fecha de cierre, editar solo el objeto OFFER.
  * - Al terminar la promo: borrar este archivo + el filtro del sitemap + la entrada del breadcrumb.
  */
 import Layout from '@/layouts/Layout.astro';
@@ -30,8 +30,6 @@ import {
 const OFFER = {
     /** Fecha y hora de cierre (ISO con zona horaria de Argentina). */
     endsAt: '2026-12-15T23:59:59-03:00',
-    /** Cupos disponibles (se muestra como texto, no se descuenta automáticamente). */
-    slots: 10,
     whatsappPhone: '56934248692',
 };
 
@@ -131,7 +129,7 @@ const reasons = [
 const faqs = [
     {
         q: '¿Hasta cuándo vale la oferta?',
-        a: 'Hasta la fecha indicada en el contador o hasta agotar los cupos, lo que ocurra primero. Respetamos el precio para quien reserve dentro del plazo.',
+        a: 'Hasta la fecha indicada en el contador. Respetamos el precio para quien reserve dentro del plazo.',
     },
     {
         q: '¿Cómo se paga?',
@@ -221,7 +219,7 @@ const maxDiscount = Math.max(...plans.map((p) => discount(p.regularPrice, p.offe
                 }
             </div>
             <p id="offer-status" class="text-muted-foreground mb-8 text-sm">
-                Válido hasta el {endsAtLabel} o hasta agotar {OFFER.slots} cupos.
+                Válido hasta el {endsAtLabel}.
             </p>
 
             <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
