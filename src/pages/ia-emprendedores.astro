@@ -43,7 +43,7 @@ const plans = [
         description:
             'Una página enfocada en convertir visitas en clientes. Ideal para lanzar tu producto o servicio.',
         regularPrice: 250,
-        offerPrice: 175,
+        offerPrice: 125,
         delivery: '7 días',
         popular: false,
         bonus: 'Ficha de Google de regalo',
@@ -63,7 +63,7 @@ const plans = [
         description:
             'Sitio completo para tu marca o empresa: quiénes son, qué hacen y cómo contactarlos.',
         regularPrice: 500,
-        offerPrice: 350,
+        offerPrice: 250,
         delivery: '14 días',
         popular: true,
         bonus: 'Ficha de Google de regalo',
@@ -83,7 +83,7 @@ const plans = [
         description:
             'Aparecé en Google Maps y en las búsquedas locales cuando te buscan cerca.',
         regularPrice: 100,
-        offerPrice: 60,
+        offerPrice: 50,
         delivery: '3 días',
         popular: false,
         bonus: null,
@@ -168,7 +168,7 @@ const maxDiscount = Math.max(...plans.map((p) => discount(p.regularPrice, p.offe
 
 <Layout
     title="Oferta IA Emprendedores: tu web + ficha de Google | Devanthos"
-    description={`Oferta exclusiva para emprendedores: Landing Page, Web Institucional y Ficha de Google con hasta ${maxDiscount}% OFF. Válida hasta el ${endsAtLabel}.`}
+    description={`Oferta exclusiva para emprendedores: Landing Page, Web Institucional y Ficha de Google con ${maxDiscount}% OFF. Válida hasta el ${endsAtLabel}.`}
     noindex
     overFlowHidden>
     <!-- Hero -->
@@ -191,7 +191,7 @@ const maxDiscount = Math.max(...plans.map((p) => discount(p.regularPrice, p.offe
                 Tu negocio online con
                 <span
                     class="from-primary bg-gradient-to-r to-violet-500 bg-clip-text text-transparent">
-                    hasta <span class="font-sans font-extrabold">{maxDiscount}%</span> OFF
+                    <span class="font-sans font-extrabold">{maxDiscount}%</span> OFF
                 </span>
             </h1>
 
